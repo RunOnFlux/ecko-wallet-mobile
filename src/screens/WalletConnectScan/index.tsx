@@ -5,15 +5,18 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  KeyboardAvoidingView,
 } from 'react-native';
 
 import Header from './components/Header';
 import {styles} from './styles';
-import {BarcodeFormat, useScanBarcodes} from 'vision-camera-code-scanner';
-import {Camera, useCameraDevices} from 'react-native-vision-camera';
-import KeyboardSpacer from 'react-native-keyboard-spacer';
+import {
+  Camera,
+  useCameraDevice,
+  useCodeScanner,
+} from 'react-native-vision-camera';
 import FooterButton from '../../components/FooterButton';
-import {bottomSpace} from '../../utils/deviceHelpers';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {useWalletConnectContext} from '../../contexts';
@@ -27,25 +30,18 @@ const WalletConnectScan = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [hasPermission, setHasPermission] = useState(false);
   const [textUri, setTexTUri] = useState<string>('');
-  const devices = useCameraDevices();
-  const device = devices.back;
+  const device = useCameraDevice('back');
 
-  const [frameProcessor, barcodes] = useScanBarcodes([BarcodeFormat.QR_CODE], {
-    checkInverted: true,
+  const codeScanner = useCodeScanner({
+    codeTypes: ['qr'],
+    onCodeScanned: codes => {
+      if (codes.length > 0 && codes[0]?.value && codes[0]?.value !== textUri) {
+        setTexTUri(codes[0].value);
+      }
+    },
   });
 
-  useEffect(() => {
-    if (
-      barcodes &&
-      Array.isArray(barcodes) &&
-      barcodes.length > 0 &&
-      barcodes[0].rawValue
-    ) {
-      if (!textUri || textUri !== barcodes[0].rawValue) {
-        setTexTUri(barcodes[0].rawValue);
-      }
-    }
-  }, [navigation, barcodes, textUri]);
+  const {bottom: bottomSpace} = useSafeAreaInsets();
 
   const onProceed = useCallback(async () => {
     setIsLoading(true);
@@ -73,8 +69,7 @@ const WalletConnectScan = () => {
         style={styles.camera}
         device={device}
         isActive={true}
-        frameProcessor={frameProcessor}
-        frameProcessorFps={5}
+        codeScanner={codeScanner}
       />
     ) : (
       <View style={styles.camera} />
@@ -82,37 +77,39 @@ const WalletConnectScan = () => {
   }, [device, hasPermission]);
 
   return (
-    <View style={styles.screen}>
-      <Header />
-      <TouchableOpacity
-        activeOpacity={1}
-        onPress={Keyboard.dismiss}
-        style={styles.container}>
-        {cameraView}
-        <View style={styles.footer}>
-          <View style={styles.inputContainer}>
-            <View style={styles.inputSection}>
-              <TextInput
-                style={styles.input}
-                autoFocus={false}
-                placeholder="Type connection code"
-                value={textUri}
-                onChangeText={setTexTUri}
-              />
+    <KeyboardAvoidingView
+      style={{flex: 1}}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      keyboardVerticalOffset={-bottomSpace}>
+      <View style={styles.screen}>
+        <Header />
+        <TouchableOpacity
+          activeOpacity={1}
+          onPress={Keyboard.dismiss}
+          style={styles.container}>
+          {cameraView}
+          <View style={styles.footer}>
+            <View style={styles.inputContainer}>
+              <View style={styles.inputSection}>
+                <TextInput
+                  style={styles.input}
+                  autoFocus={false}
+                  placeholder="Type connection code"
+                  value={textUri}
+                  onChangeText={setTexTUri}
+                />
+              </View>
             </View>
+            <FooterButton
+              style={styles.footerButton}
+              title="Connect"
+              disabled={!textUri || isLoading}
+              onPress={onProceed}
+            />
           </View>
-          <FooterButton
-            style={styles.footerButton}
-            title="Connect"
-            disabled={!textUri || isLoading}
-            onPress={onProceed}
-          />
-          {Platform.OS === 'ios' && (
-            <KeyboardSpacer topSpacing={-bottomSpace} />
-          )}
-        </View>
-      </TouchableOpacity>
-    </View>
+        </TouchableOpacity>
+      </View>
+    </KeyboardAvoidingView>
   );
 };
 

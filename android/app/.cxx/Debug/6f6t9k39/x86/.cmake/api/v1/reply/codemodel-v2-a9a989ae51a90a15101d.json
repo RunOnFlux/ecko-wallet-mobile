@@ -1,0 +1,369 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						9,
+						10,
+						11
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "rnasyncstorage_autolinked_build",
+					"jsonFile" : "directory-rnasyncstorage_autolinked_build-Debug-dd1b6f1883d1f3de9cb2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/antem/apps/work/em-update/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni",
+					"targetIndexes" : 
+					[
+						7
+					]
+				},
+				{
+					"build" : "rnclipboard_autolinked_build",
+					"jsonFile" : "directory-rnclipboard_autolinked_build-Debug-3611e005969ea7fa9bf3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/antem/apps/work/em-update/node_modules/@react-native-clipboard/clipboard/android/build/generated/source/codegen/jni",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "RNRNWalletConnectModuleSpec_autolinked_build",
+					"jsonFile" : "directory-RNRNWalletConnectModuleSpec_autolinked_build-Debug-84a429b7f870084d8854.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/antem/apps/work/em-update/node_modules/@walletconnect/react-native-compat/android/build/generated/source/codegen/jni",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "RNBootSplashSpec_autolinked_build",
+					"jsonFile" : "directory-RNBootSplashSpec_autolinked_build-Debug-010528a74161b860dfbf.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/antem/apps/work/em-update/node_modules/react-native-bootsplash/android/build/generated/source/codegen/jni",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "RNHapticFeedbackSpec_autolinked_build",
+					"jsonFile" : "directory-RNHapticFeedbackSpec_autolinked_build-Debug-d63f90c8d6d6b7fca3bf.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/antem/apps/work/em-update/node_modules/react-native-haptic-feedback/android/build/generated/source/codegen/jni",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "RNMmkvSpec_autolinked_build",
+					"jsonFile" : "directory-RNMmkvSpec_autolinked_build-Debug-e5a5c038abfba7778349.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/antem/apps/work/em-update/node_modules/react-native-mmkv/android/build/generated/source/codegen/jni",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "RNMmkvSpec_cxxmodule_autolinked_build",
+					"childIndexes" : 
+					[
+						8
+					],
+					"jsonFile" : "directory-RNMmkvSpec_cxxmodule_autolinked_build-Debug-e6155849aae16f6b2ae7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.9.0"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "/home/antem/apps/work/em-update/node_modules/react-native-mmkv/android",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "RNMmkvSpec_cxxmodule_autolinked_build/core",
+					"jsonFile" : "directory-RNMmkvSpec_cxxmodule_autolinked_build.core-Debug-ad499806c1f7dedb2bf3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"parentIndex" : 7,
+					"projectIndex" : 2,
+					"source" : "/home/antem/apps/work/em-update/node_modules/react-native-mmkv/MMKV/Core",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "safeareacontext_autolinked_build",
+					"jsonFile" : "directory-safeareacontext_autolinked_build-Debug-6ce9fb4d7028f4beae2d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/antem/apps/work/em-update/node_modules/react-native-safe-area-context/android/src/main/jni",
+					"targetIndexes" : 
+					[
+						11
+					]
+				},
+				{
+					"build" : "rnscreens_autolinked_build",
+					"jsonFile" : "directory-rnscreens_autolinked_build-Debug-8cf9e54bf09dbb4464a1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/antem/apps/work/em-update/node_modules/react-native-screens/android/src/main/jni",
+					"targetIndexes" : 
+					[
+						9
+					]
+				},
+				{
+					"build" : "rnsvg_autolinked_build",
+					"jsonFile" : "directory-rnsvg_autolinked_build-Debug-3a165101dde526bac469.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/antem/apps/work/em-update/node_modules/react-native-svg/android/src/main/jni",
+					"targetIndexes" : 
+					[
+						10
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						9,
+						10,
+						11
+					],
+					"name" : "appmodules",
+					"targetIndexes" : 
+					[
+						0,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2
+					],
+					"directoryIndexes" : 
+					[
+						7
+					],
+					"name" : "ReactNativeMmkv",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						8
+					],
+					"name" : "core",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "appmodules::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-appmodules-Debug-7ce8a258d6271f6877a1.json",
+					"name" : "appmodules",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "core::@1b9a7d546b295b7d0867",
+					"jsonFile" : "target-core-Debug-6bedde545ab3a63ea909.json",
+					"name" : "core",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "react-native-mmkv::@4ae6a1e65d3e68ba0197",
+					"jsonFile" : "target-react-native-mmkv-Debug-cf9a2942da1269145997.json",
+					"name" : "react-native-mmkv",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "react_codegen_RNBootSplashSpec::@05d5bd8b08339ce1ebaa",
+					"jsonFile" : "target-react_codegen_RNBootSplashSpec-Debug-49740012b079f467cce6.json",
+					"name" : "react_codegen_RNBootSplashSpec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "react_codegen_RNHapticFeedbackSpec::@a83561f277f6afbb326c",
+					"jsonFile" : "target-react_codegen_RNHapticFeedbackSpec-Debug-abe9eefca6f9d6e81a99.json",
+					"name" : "react_codegen_RNHapticFeedbackSpec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "react_codegen_RNMmkvSpec::@7541eabbae598da31a69",
+					"jsonFile" : "target-react_codegen_RNMmkvSpec-Debug-cf7171c2b2453c50c679.json",
+					"name" : "react_codegen_RNMmkvSpec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "react_codegen_RNRNWalletConnectModuleSpec::@acebefbf8c28c0faa0c6",
+					"jsonFile" : "target-react_codegen_RNRNWalletConnectModuleSpec-Debug-64085068f85d9457f4ed.json",
+					"name" : "react_codegen_RNRNWalletConnectModuleSpec",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "react_codegen_rnasyncstorage::@1596841e19ec5b9eeffe",
+					"jsonFile" : "target-react_codegen_rnasyncstorage-Debug-e971886f5e89b290223d.json",
+					"name" : "react_codegen_rnasyncstorage",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "react_codegen_rnclipboard::@6385240493dfcaf22ab7",
+					"jsonFile" : "target-react_codegen_rnclipboard-Debug-2578d4b05fb803fbe13b.json",
+					"name" : "react_codegen_rnclipboard",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "react_codegen_rnscreens::@25bcbd507e98d3a854ad",
+					"jsonFile" : "target-react_codegen_rnscreens-Debug-31483784606e1bbc0c1e.json",
+					"name" : "react_codegen_rnscreens",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "react_codegen_rnsvg::@4f40eb209d0c0b4a3b65",
+					"jsonFile" : "target-react_codegen_rnsvg-Debug-6bb1592a8edccd900bbf.json",
+					"name" : "react_codegen_rnsvg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "react_codegen_safeareacontext::@7984cd80db47aa7b952a",
+					"jsonFile" : "target-react_codegen_safeareacontext-Debug-c40998732512d6cee2de.json",
+					"name" : "react_codegen_safeareacontext",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/antem/apps/work/em-update/android/app/.cxx/Debug/6f6t9k39/x86",
+		"source" : "/home/antem/apps/work/em-update/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

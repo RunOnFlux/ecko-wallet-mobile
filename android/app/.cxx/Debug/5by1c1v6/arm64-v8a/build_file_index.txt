@@ -1,0 +1,12 @@
+/home/antem/apps/work/runonflux-ecko-wallet-mobile/node_modules/@react-native-async-storage/async-storage/android/build/generated/source/codegen/jni/CMakeLists.txt
+/home/antem/apps/work/runonflux-ecko-wallet-mobile/node_modules/@react-native-clipboard/clipboard/android/build/generated/source/codegen/jni/CMakeLists.txt
+/home/antem/apps/work/runonflux-ecko-wallet-mobile/node_modules/@walletconnect/react-native-compat/android/build/generated/source/codegen/jni/CMakeLists.txt
+/home/antem/apps/work/runonflux-ecko-wallet-mobile/node_modules/react-native-bootsplash/android/build/generated/source/codegen/jni/CMakeLists.txt
+/home/antem/apps/work/runonflux-ecko-wallet-mobile/node_modules/react-native-haptic-feedback/android/build/generated/source/codegen/jni/CMakeLists.txt
+/home/antem/apps/work/runonflux-ecko-wallet-mobile/node_modules/react-native-mmkv/MMKV/Core/CMakeLists.txt
+/home/antem/apps/work/runonflux-ecko-wallet-mobile/node_modules/react-native-mmkv/android/CMakeLists.txt
+/home/antem/apps/work/runonflux-ecko-wallet-mobile/node_modules/react-native-mmkv/android/build/generated/source/codegen/jni/CMakeLists.txt
+/home/antem/apps/work/runonflux-ecko-wallet-mobile/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt
+/home/antem/apps/work/runonflux-ecko-wallet-mobile/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt
+/home/antem/apps/work/runonflux-ecko-wallet-mobile/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt
+/home/antem/apps/work/runonflux-ecko-wallet-mobile/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/CMakeLists.txt

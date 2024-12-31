@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Platform,
   Alert,
+  KeyboardAvoidingView,
 } from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 
@@ -15,9 +16,8 @@ import PasswordInput from '../../components/PasswordInput';
 import {exportRecoveryPhraseSchema} from '../../validation/exportRecoveryPhraseSchema';
 import {styles} from './styles';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
-import KeyboardSpacer from 'react-native-keyboard-spacer';
 import {useScrollBottomOnKeyboard} from '../../utils/keyboardHelpers';
-import {bottomSpace} from '../../utils/deviceHelpers';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 import {makeSelectHashPassword} from '../../store/auth/selectors';
@@ -75,43 +75,49 @@ const ExportRecoveryPhraseAuth = () => {
   const scrollRef = useRef<ScrollView | null>(null);
   useScrollBottomOnKeyboard(scrollRef);
 
+  const {bottom: bottomSpace} = useSafeAreaInsets();
+
   return (
-    <View style={styles.screen}>
-      <Header />
-      <ScrollView
-        ref={scrollRef}
-        keyboardShouldPersistTaps="handled"
-        showsVerticalScrollIndicator={false}
-        style={styles.contentWrapper}
-        contentContainerStyle={styles.content}>
-        <SecurityUnlockSvg fill="#787B8E" />
-        <Text style={styles.text}>Enter your password to continue</Text>
-        <Controller
-          control={control}
-          name="password"
-          render={({field: {onChange, onBlur, value}}) => (
-            <PasswordInput
-              wrapperStyle={styles.passwordWrapper}
-              style={styles.input}
-              onChangeText={onChange}
-              onBlur={onBlur}
-              value={value}
-              blurOnSubmit={true}
-              errorMessage={errors.password?.message as string}
-              autoFocus={true}
-              onSubmitEditing={handleSubmit(handlePressContinue)}
-            />
-          )}
-        />
-        <TouchableOpacity
-          activeOpacity={0.8}
-          style={styles.button}
-          onPress={handleSubmit(handlePressContinue)}>
-          <Text style={styles.buttonText}>Continue</Text>
-        </TouchableOpacity>
-        {Platform.OS === 'ios' && <KeyboardSpacer topSpacing={-bottomSpace} />}
-      </ScrollView>
-    </View>
+    <KeyboardAvoidingView
+      style={{flex: 1}}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      keyboardVerticalOffset={-bottomSpace}>
+      <View style={styles.screen}>
+        <Header />
+        <ScrollView
+          ref={scrollRef}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+          style={styles.contentWrapper}
+          contentContainerStyle={styles.content}>
+          <SecurityUnlockSvg fill="#787B8E" />
+          <Text style={styles.text}>Enter your password to continue</Text>
+          <Controller
+            control={control}
+            name="password"
+            render={({field: {onChange, onBlur, value}}) => (
+              <PasswordInput
+                wrapperStyle={styles.passwordWrapper}
+                style={styles.input}
+                onChangeText={onChange}
+                onBlur={onBlur}
+                value={value}
+                blurOnSubmit={true}
+                errorMessage={errors.password?.message as string}
+                autoFocus={true}
+                onSubmitEditing={handleSubmit(handlePressContinue)}
+              />
+            )}
+          />
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={styles.button}
+            onPress={handleSubmit(handlePressContinue)}>
+            <Text style={styles.buttonText}>Continue</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </View>
+    </KeyboardAvoidingView>
   );
 };
 

@@ -20,7 +20,10 @@ import {
 } from '../constants/styles';
 import WalletConnectAccountSelector from '../components/WalletConnectAccountSelector';
 import {TAccount} from '../store/userWallet/types';
-import {formatJsonRpcResult} from '@json-rpc-tools/utils';
+import {
+  formatJsonRpcResult,
+  formatJsonRpcError,
+} from '@walletconnect/jsonrpc-utils';
 import JSONTree from 'react-native-json-tree';
 import {getNetwork} from './networkHelpers';
 import {getSignRequest} from '../store/transfer/services';
@@ -30,7 +33,6 @@ import {useShallowEqualSelector} from '../store/utils';
 import {setSendResult} from '../store/history';
 import WalletConnectHelpModal from '../components/WalletConnectHelpModal';
 import {quickSign} from '../api/kadena/quickSign';
-import {formatJsonRpcError} from '@json-rpc-tools/utils/dist/cjs/format';
 import {defaultChainIds} from '../api/constants';
 import {useWalletConnectContext} from '../contexts';
 import {makeSelectActiveNetwork} from '../store/networks/selectors';

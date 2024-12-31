@@ -1,6 +1,7 @@
+import 'text-encoding-polyfill';
 import React, {useCallback, useEffect, useMemo} from 'react';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
-import {Alert, Platform, StatusBar, StyleSheet, View} from 'react-native';
+import {Alert, Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
 import {Provider, useSelector} from 'react-redux';
 import RNBootSplash from 'react-native-bootsplash';
 import {PactProvider} from './src/contexts/Pact';

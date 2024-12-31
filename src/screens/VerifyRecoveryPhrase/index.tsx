@@ -7,9 +7,9 @@ import {
   ScrollView,
   Platform,
   TextInput,
+  KeyboardAvoidingView,
 } from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
-import KeyboardSpacer from 'react-native-keyboard-spacer';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 
 import Logo from '../../assets/images/logo.svg';
@@ -20,9 +20,8 @@ import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import Input from '../../components/Input';
 import {verifyRecoveryPhraseSchema} from '../../validation/verifyRecoveryPhraseSchema';
 import {makeSelectGeneratedPhrases} from '../../store/auth/selectors';
-import {useScrollBottomOnKeyboard} from '../../utils/keyboardHelpers';
 import {useShallowEqualSelector} from '../../store/utils';
-import {bottomSpace} from '../../utils/deviceHelpers';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const bgImage = require('../../assets/images/bgimage.png');
 
@@ -55,6 +54,8 @@ const VerifyRecoveryPhrase = () => {
     handleSubmit,
     formState: {errors, isValid},
   } = useForm({resolver: verifyRecoveryPhraseSchema, mode: 'onChange'});
+
+  const {bottom: bottomSpace} = useSafeAreaInsets();
 
   const handlePressBack = useCallback(() => {
     navigation.goBack();
@@ -100,69 +101,69 @@ const VerifyRecoveryPhrase = () => {
     [navigation, seeds],
   );
 
-  const scrollRef = useRef<ScrollView | null>(null);
-  useScrollBottomOnKeyboard(scrollRef);
-
   return (
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>
-      <ScrollView
-        ref={scrollRef}
-        showsVerticalScrollIndicator={false}
-        style={styles.contentWrapper}
-        contentContainerStyle={styles.content}>
-        <Logo width={50} height={50} />
-        <Text style={styles.title}>Verify Recovery Phrase</Text>
-        <Text style={styles.text}>
-          Please confirm your recovery phrase by typing the words in the correct
-          order.
-        </Text>
-        <Text style={styles.warning}>
-          It is recommended not to use custom keyboards. Please use default
-          keyboard.
-        </Text>
-        <View style={styles.inputsWrapper}>
-          {list.map(item => (
-            <Controller
-              key={`input-${item}`}
-              control={control}
-              name={`input${item}`}
-              render={({field: {onChange, onBlur, value}}) => (
-                <Input
-                  wrapperStyle={styles.inputWrapper}
-                  style={styles.input}
-                  label={`input ${item}`}
-                  onChangeText={(v: string) => {
-                    onChange(v);
-                    setValidSeeds(true);
-                  }}
-                  autoCapitalize="none"
-                  value={value}
-                  onBlur={onBlur}
-                  errorMessage={errors[`input${item}`]?.message as string}
-                  onSubmitEditing={handleSubmitEditing(item + 1)}
-                  inputRef={refs[item]}
-                />
-              )}
-            />
-          ))}
+      <KeyboardAvoidingView
+        style={{flex: 1}}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        keyboardVerticalOffset={-bottomSpace}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={styles.contentWrapper}
+          contentContainerStyle={styles.content}>
+          <Logo width={50} height={50} />
+          <Text style={styles.title}>Verify Recovery Phrase</Text>
+          <Text style={styles.text}>
+            Please confirm your recovery phrase by typing the words in the
+            correct order.
+          </Text>
+          <Text style={styles.warning}>
+            It is recommended not to use custom keyboards. Please use default
+            keyboard.
+          </Text>
+          <View style={styles.inputsWrapper}>
+            {list.map(item => (
+              <Controller
+                key={`input-${item}`}
+                control={control}
+                name={`input${item}`}
+                render={({field: {onChange, onBlur, value}}) => (
+                  <Input
+                    wrapperStyle={styles.inputWrapper}
+                    style={styles.input}
+                    label={`input ${item}`}
+                    onChangeText={(v: string) => {
+                      onChange(v);
+                      setValidSeeds(true);
+                    }}
+                    autoCapitalize="none"
+                    value={value}
+                    onBlur={onBlur}
+                    errorMessage={errors[`input${item}`]?.message as string}
+                    onSubmitEditing={handleSubmitEditing(item + 1)}
+                    inputRef={refs[item]}
+                  />
+                )}
+              />
+            ))}
+          </View>
+          {!isValidSeeds ? (
+            <Text style={styles.errorText}>Invalid recovery phrases</Text>
+          ) : null}
+          <TouchableOpacity
+            activeOpacity={0.8}
+            disabled={!isValid}
+            style={[styles.button, !isValid && styles.disabledBtn]}
+            onPress={handleSubmit(handlePressContinue)}>
+            <Text style={styles.buttonText}>Continue</Text>
+          </TouchableOpacity>
+        </ScrollView>
+        <View style={styles.header}>
+          <TouchableOpacity activeOpacity={0.8} onPress={handlePressBack}>
+            <ArrowLeftSvg fill="white" />
+          </TouchableOpacity>
         </View>
-        {!isValidSeeds ? (
-          <Text style={styles.errorText}>Invalid recovery phrases</Text>
-        ) : null}
-        <TouchableOpacity
-          activeOpacity={0.8}
-          disabled={!isValid}
-          style={[styles.button, !isValid && styles.disabledBtn]}
-          onPress={handleSubmit(handlePressContinue)}>
-          <Text style={styles.buttonText}>Continue</Text>
-        </TouchableOpacity>
-        {Platform.OS === 'ios' && <KeyboardSpacer topSpacing={-bottomSpace} />}
-      </ScrollView>
-      <View style={styles.header}>
-        <TouchableOpacity activeOpacity={0.8} onPress={handlePressBack}>
-          <ArrowLeftSvg fill="white" />
-        </TouchableOpacity>
-      </View>
+      </KeyboardAvoidingView>
     </ImageBackground>
   );
 };
