@@ -9,20 +9,20 @@ import {
 } from 'react-native';
 
 import Header from './components/Header';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {
   Camera,
   useCameraDevice,
   useCodeScanner,
 } from 'react-native-vision-camera';
 import FooterButton from '../../components/FooterButton';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {
   ERootStackRoutes,
   TNavigationProp,
   TNavigationRouteProp,
 } from '../../routes/types';
+import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const ReceiverScan = () => {
   const navigation =
@@ -31,6 +31,9 @@ const ReceiverScan = () => {
 
   const [hasPermission, setHasPermission] = useState(false);
   const [textUri, setTexTUri] = useState<string>('');
+
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
 
   const device = useCameraDevice('back');
 
@@ -53,11 +56,9 @@ const ReceiverScan = () => {
   useEffect(() => {
     (async () => {
       const status = await Camera.requestCameraPermission();
-      setHasPermission(status === 'authorized');
+      setHasPermission(status === 'granted');
     })();
   }, []);
-
-  const {bottom: bottomSpace} = useSafeAreaInsets();
 
   const cameraView = useMemo(() => {
     return device != null && hasPermission ? (

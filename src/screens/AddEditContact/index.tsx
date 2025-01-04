@@ -9,17 +9,17 @@ import Input from '../../components/Input';
 import {addCreateContactSchema} from '../../validation/addCreateContactSchema';
 import {createContact, updateSelectedContact} from '../../store/contacts';
 import {makeSelectSelectedContact} from '../../store/contacts/selectors';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import ChainId from '../../components/ChainId';
 import {chainIds} from '../Send/consts';
 import {useShallowEqualSelector} from '../../store/utils';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {
   ERootStackRoutes,
   TNavigationProp,
   TNavigationRouteProp,
 } from '../../routes/types';
+import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const AddEditContact = () => {
   const navigation =
@@ -33,6 +33,9 @@ const AddEditContact = () => {
 
   const selectedContact = useShallowEqualSelector(makeSelectSelectedContact);
 
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
+
   const {
     control,
     handleSubmit,
@@ -42,8 +45,6 @@ const AddEditContact = () => {
     defaultValues: !isCreate && selectedContact ? selectedContact : undefined,
     mode: 'onChange',
   });
-
-  const {bottom: bottomSpace} = useSafeAreaInsets();
 
   const handlePressSave = useCallback(
     (data: FieldValues) => {

@@ -1,1 +1,0 @@
-/home/antem/apps/work/runonflux-ecko-wallet-mobile/android/app/build/intermediates/cxx/Debug/5by1c1v6/obj/x86

@@ -9,17 +9,17 @@ import {
 } from 'react-native';
 
 import Header from './components/Header';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {
   Camera,
   useCameraDevice,
   useCodeScanner,
 } from 'react-native-vision-camera';
 import FooterButton from '../../components/FooterButton';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {useWalletConnectContext} from '../../contexts';
+import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const WalletConnectScan = () => {
   const navigation =
@@ -41,7 +41,8 @@ const WalletConnectScan = () => {
     },
   });
 
-  const {bottom: bottomSpace} = useSafeAreaInsets();
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
 
   const onProceed = useCallback(async () => {
     setIsLoading(true);
@@ -59,7 +60,7 @@ const WalletConnectScan = () => {
   useEffect(() => {
     (async () => {
       const status = await Camera.requestCameraPermission();
-      setHasPermission(status === 'authorized');
+      setHasPermission(status === 'granted');
     })();
   }, []);
 

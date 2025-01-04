@@ -17,13 +17,13 @@ import ListItem from './components/ListItem';
 import {setIs2FaAdded} from '../../store/auth';
 import {makeSelectIs2FaAdded} from '../../store/auth/selectors';
 import {MAIN_COLOR} from '../../constants/styles';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import FooterButton from '../../components/FooterButton';
 import Input from '../../components/Input';
 import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {deactivate2FA, generate2FA, verify2FA} from '../../api/2fa';
 import {makeSelectSelectedAccountPublicKey} from '../../store/userWallet/selectors';
+import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -36,13 +36,14 @@ const Add2FA = () => {
   );
   const is2FaAdded = useSelector(makeSelectIs2FaAdded);
 
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
+
   const [isVerifying, setVerifying] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [code, setCode] = useState('');
   const [qrCodeUrl, setQrCodeUrl] = useState('');
   const [secretCode, setSecretCode] = useState('');
-
-  const {bottom: bottomSpace} = useSafeAreaInsets();
 
   const generateQrCode = useCallback(async () => {
     setIsLoading(true);

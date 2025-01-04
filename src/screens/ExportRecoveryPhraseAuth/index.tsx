@@ -14,15 +14,15 @@ import Header from './components/Header';
 import SecurityUnlockSvg from '../../assets/images/security-unlock.svg';
 import PasswordInput from '../../components/PasswordInput';
 import {exportRecoveryPhraseSchema} from '../../validation/exportRecoveryPhraseSchema';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {useScrollBottomOnKeyboard} from '../../utils/keyboardHelpers';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 import {makeSelectHashPassword} from '../../store/auth/selectors';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {comparePassword} from '../../api/kadena/comparePassword';
+import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const ExportRecoveryPhraseAuth = () => {
   const navigation =
@@ -37,6 +37,9 @@ const ExportRecoveryPhraseAuth = () => {
   });
 
   const hash = useSelector(makeSelectHashPassword);
+
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
 
   const handlePressContinue = useCallback(
     (data: FieldValues) => {
@@ -74,8 +77,6 @@ const ExportRecoveryPhraseAuth = () => {
 
   const scrollRef = useRef<ScrollView | null>(null);
   useScrollBottomOnKeyboard(scrollRef);
-
-  const {bottom: bottomSpace} = useSafeAreaInsets();
 
   return (
     <KeyboardAvoidingView

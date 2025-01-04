@@ -9,16 +9,20 @@ import NetworksSvg from '../../assets/images/networks.svg';
 import ShieldLockSvg from '../../assets/images/shield-lock.svg';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {useDispatch} from 'react-redux';
 import {deleteAccount, logout} from '../../store/auth/actions';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useNavigation} from '@react-navigation/native';
+import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const Settings = () => {
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
 
   const dispatch = useDispatch();
+
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
 
   const handlePressContacts = useCallback(() => {
     navigation.navigate({

@@ -36,6 +36,7 @@ import {quickSign} from '../api/kadena/quickSign';
 import {defaultChainIds} from '../api/constants';
 import {useWalletConnectContext} from '../contexts';
 import {makeSelectActiveNetwork} from '../store/networks/selectors';
+import {WalletKitTypes} from '@reown/walletkit';
 
 const JSONTreeTheme = {
   tree: {
@@ -116,17 +117,20 @@ export const useWalletConnect = () => {
   const [modalContentType, setModalContentType] = useState<string | null>('');
   const [modalContentProps, setModalContentProps] = useState<any>({});
 
-  const onSessionProposal = useCallback(proposal => {
-    if (proposal) {
-      setModalTitle('Session Proposal');
-      setModalContentProps({
-        proposal,
-        selectedAccounts: [],
-      });
-      setModalContentType('session_proposal');
-      setIsVisible(true);
-    }
-  }, []);
+  const onSessionProposal = useCallback(
+    (proposal: WalletKitTypes.SessionProposal) => {
+      if (proposal) {
+        setModalTitle('Session Proposal');
+        setModalContentProps({
+          proposal,
+          selectedAccounts: [],
+        });
+        setModalContentType('session_proposal');
+        setIsVisible(true);
+      }
+    },
+    [],
+  );
 
   const onSessionRequest = useCallback(
     async (requestEvent: any) => {
@@ -509,7 +513,7 @@ export const useWalletConnect = () => {
   ]);
 
   const onSelectAccounts = useCallback(
-    accounts => {
+    (accounts: TAccount[]) => {
       setModalContentProps({
         ...modalContentProps,
         selectedAccounts: accounts,

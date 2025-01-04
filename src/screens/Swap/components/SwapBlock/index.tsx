@@ -28,11 +28,11 @@ import {swapRequest} from '../../../../store/transfer/actions';
 import {reduceBalance} from '../../../../utils/numberHelpers';
 import {MAIN_COLOR} from '../../../../constants/styles';
 import Toast from 'react-native-toast-message';
-import {statusBarHeight} from '../../../../utils/deviceHelpers';
 import {TWallet} from '../../../../store/userWallet/types';
 import Warning from '../../../../components/Warning';
 import ConfirmModal from '../ConfirmModal';
 import {NetworkName} from '../../../../api/types';
+import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
 
 const SwapBlock = () => {
   const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
@@ -45,6 +45,8 @@ const SwapBlock = () => {
   const nonTransferableTokens = useShallowEqualSelector(
     makeSelectNonTransferableTokenList,
   );
+
+  const {statusBarHeight} = useSafeAreaValues();
 
   const walletList = useMemo(
     () =>

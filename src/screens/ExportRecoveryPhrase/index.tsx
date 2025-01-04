@@ -7,16 +7,19 @@ import Header from './components/Header';
 import Warning from '../../components/Warning';
 import ListItem from '../../components/ListItem';
 import BasicCopySvg from '../../assets/images/basic-copy.svg';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {makeSelectGeneratedPhrases} from '../../store/auth/selectors';
 import {getSecretList} from '../../utils/stringHelpers';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useShallowEqualSelector} from '../../store/utils';
+import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const ExportRecoveryPhrase = () => {
   const seeds = useShallowEqualSelector(makeSelectGeneratedPhrases);
 
   const secretWords = useMemo(() => getSecretList(seeds), [seeds]);
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
 
   const copyToClipboard = useCallback(() => {
     ReactNativeHapticFeedback.trigger('impactMedium', {

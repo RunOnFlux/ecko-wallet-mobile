@@ -1,7 +1,14 @@
-import 'text-encoding-polyfill';
 import React, {useCallback, useEffect, useMemo} from 'react';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
-import {Alert, Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {
+  Alert,
+  Platform,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+} from 'react-native';
 import {Provider, useSelector} from 'react-redux';
 import RNBootSplash from 'react-native-bootsplash';
 import {PactProvider} from './src/contexts/Pact';
@@ -14,6 +21,7 @@ import LogoSvg from './src/assets/images/logo.svg';
 import JailMonkey from 'jail-monkey';
 import {WalletConnectProvider} from './src/contexts/WalletConnect';
 import {useWalletConnect} from './src/utils/walletConnect';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const App = () => {
   const isAuthorized = useSelector(makeSelectIsAuthorized);
@@ -70,9 +78,9 @@ const App = () => {
           backgroundColor={statusBarColor}
           translucent={true}
         />
-        <View style={styles.screen}>
+        <SafeAreaView style={styles.screen}>
           <LogoSvg />
-        </View>
+        </SafeAreaView>
       </>
     );
   }
@@ -81,11 +89,13 @@ const App = () => {
       <StatusBar
         barStyle={statusBarStyle}
         backgroundColor={statusBarColor}
-        translucent={true}
+        translucent={false}
       />
-      <NavigationContainer onReady={onReady} theme={appTheme}>
-        <AppStack />
-      </NavigationContainer>
+      <SafeAreaView style={{flex: 1}}>
+        <NavigationContainer onReady={onReady} theme={appTheme}>
+          <AppStack />
+        </NavigationContainer>
+      </SafeAreaView>
       {walletConnectModal}
       <Toast />
     </>
@@ -94,15 +104,17 @@ const App = () => {
 
 const AppContainer = () => {
   return (
-    <Provider store={store}>
-      <PactProvider>
-        <WalletConnectProvider>
-          <PersistGate loading={null} persistor={persistor}>
-            <App />
-          </PersistGate>
-        </WalletConnectProvider>
-      </PactProvider>
-    </Provider>
+    <SafeAreaProvider>
+      <Provider store={store}>
+        <PactProvider>
+          <WalletConnectProvider>
+            <PersistGate loading={null} persistor={persistor}>
+              <App />
+            </PersistGate>
+          </WalletConnectProvider>
+        </PactProvider>
+      </Provider>
+    </SafeAreaProvider>
   );
 };
 

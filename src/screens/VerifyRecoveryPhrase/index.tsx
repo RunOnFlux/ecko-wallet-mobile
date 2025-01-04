@@ -15,13 +15,13 @@ import {CommonActions, useNavigation} from '@react-navigation/native';
 import Logo from '../../assets/images/logo.svg';
 import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
 
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import Input from '../../components/Input';
 import {verifyRecoveryPhraseSchema} from '../../validation/verifyRecoveryPhraseSchema';
 import {makeSelectGeneratedPhrases} from '../../store/auth/selectors';
 import {useShallowEqualSelector} from '../../store/utils';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const bgImage = require('../../assets/images/bgimage.png');
 
@@ -55,7 +55,8 @@ const VerifyRecoveryPhrase = () => {
     formState: {errors, isValid},
   } = useForm({resolver: verifyRecoveryPhraseSchema, mode: 'onChange'});
 
-  const {bottom: bottomSpace} = useSafeAreaInsets();
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
 
   const handlePressBack = useCallback(() => {
     navigation.goBack();

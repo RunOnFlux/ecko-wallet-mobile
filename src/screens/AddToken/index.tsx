@@ -13,7 +13,7 @@ import Header from './components/Header';
 import FooterButton from '../../components/FooterButton';
 import Input from '../../components/Input';
 import {addTokenSchema} from '../../validation/addTokenSchema';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {
   makeSelectSelectedAccount,
   makeSelectSelectedToken,
@@ -26,7 +26,6 @@ import {defaultBalances} from '../../store/userWallet/const';
 import {getBalances} from '../../store/userWallet/actions';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useShallowEqualSelector} from '../../store/utils';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {
   ERootStackRoutes,
@@ -34,6 +33,7 @@ import {
   TNavigationRouteProp,
 } from '../../routes/types';
 import {getToken} from '../../api/kadena/token';
+import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const AddToken = () => {
   const navigation =
@@ -49,6 +49,9 @@ const AddToken = () => {
   const selectedToken = useShallowEqualSelector(makeSelectSelectedToken);
   const networkDetail = useShallowEqualSelector(makeSelectActiveNetworkDetails);
 
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
+
   const {
     control,
     handleSubmit,
@@ -61,8 +64,6 @@ const AddToken = () => {
       tokenAddress: selectedToken?.tokenAddress || initialTokenName || '',
     },
   });
-
-  const {bottom: bottomSpace} = useSafeAreaInsets();
 
   const handlePressSave = useCallback(
     (formValues: FieldValues) => {

@@ -15,7 +15,7 @@ import {useForm, Controller, FieldValues} from 'react-hook-form';
 import Logo from '../../assets/images/logo.svg';
 import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
 
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {changePassword} from '../../store/auth';
 import {makeSelectHasAccount} from '../../store/userWallet/selectors';
@@ -23,8 +23,8 @@ import PasswordInput from '../../components/PasswordInput';
 import {createPasswordSchema} from '../../validation/createPasswordSchema';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useNavigation} from '@react-navigation/native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {hashPassword} from '../../api/kadena/hashPassword';
+import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const bgImage = require('../../assets/images/bgimage.png');
 
@@ -33,6 +33,9 @@ const Registration = () => {
     useNavigation<TNavigationProp<ERootStackRoutes.Registration>>();
   const dispatch = useDispatch();
   const hasAccount = useSelector(makeSelectHasAccount);
+
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
 
   const {
     control,
@@ -86,7 +89,6 @@ const Registration = () => {
   );
 
   const scrollRef = useRef<ScrollView | null>(null);
-  const {bottom: bottomSpace} = useSafeAreaInsets();
 
   if (hasAccount) {
     navigation.replace(ERootStackRoutes.SignIn);

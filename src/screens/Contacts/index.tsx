@@ -4,13 +4,14 @@ import {View, TextInput, ScrollView, Text} from 'react-native';
 import Header from './components/Header';
 import BasicSearchSvg from '../../assets/images/basic-search.svg';
 import Item from './components/Item';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import ContactDetailsModal from '../../modals/ContactDetailsModal';
 import {useDispatch} from 'react-redux';
 import {makeSelectContactsList} from '../../store/contacts/selectors';
 import {TContact} from './components/Item/types';
 import {setSelectedContact} from '../../store/contacts';
 import {useShallowEqualSelector} from '../../store/utils';
+import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,9 @@ const Contacts = () => {
     },
     [toggleModal],
   );
+
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
 
   return (
     <View style={styles.container}>
