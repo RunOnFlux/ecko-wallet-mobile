@@ -7550,7 +7550,7 @@ react-native-biometrics@^3.0.1:
 
 react-native-bootsplash@^6.3.2:
   version "6.3.2"
-  resolved "https://registry.npmjs.org/react-native-bootsplash/-/react-native-bootsplash-6.3.2.tgz"
+  resolved "https://registry.yarnpkg.com/react-native-bootsplash/-/react-native-bootsplash-6.3.2.tgz#75bdd8e44ca94adbcc493e740d7db67747939363"
   integrity sha512-k/yOEbQ0fq1AEfm+gzCntOg58EpOoT4PA9e8zFxYJOx7fHtJnh6qVrjXyrxP1q68bupuyrYAoosw3f2sykS1sQ==
   dependencies:
     "@expo/config-plugins" "^8.0.0 || ^9.0.0"
