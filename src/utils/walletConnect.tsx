@@ -588,7 +588,6 @@ const windowHeight = Dimensions.get('window').height;
 export const styles = StyleSheet.create({
   content: {
     paddingVertical: 12,
-    alignItems: 'flex-start',
   },
   contentWrapper: {
     width: '100%',

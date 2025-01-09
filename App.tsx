@@ -20,15 +20,11 @@ import JailMonkey from 'jail-monkey';
 import {WalletConnectProvider} from './src/contexts/WalletConnect';
 import {useWalletConnect} from './src/utils/walletConnect';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {set} from 'react-hook-form';
 
 const App = () => {
   const isAuthorized = useSelector(makeSelectIsAuthorized);
 
   const onReady = useCallback(() => {
-    setTimeout(() => {
-      // RNBootSplash.hide({fade: true});
-    }, 5000);
     RNBootSplash.hide({fade: true});
   }, []);
 
