@@ -11,7 +11,7 @@ export const createStyles = ({
   StyleSheet.create({
     bgImage: {
       flex: 1,
-      alignItems: 'center',
+      width: '100%',
     },
     header: {
       position: 'absolute',
@@ -19,17 +19,16 @@ export const createStyles = ({
       left: 16,
       alignItems: 'flex-start',
       width: '100%',
+      zIndex: 1, 
     },
     contentWrapper: {
       flex: 1,
-      width: '100%',
     },
     content: {
       minHeight: Dimensions.get('window').height,
       alignItems: 'center',
       justifyContent: 'flex-end',
       paddingTop: 96,
-      paddingBottom: bottomSpace,
       width: '100%',
     },
     text: {
@@ -40,23 +39,27 @@ export const createStyles = ({
       marginTop: 25,
       marginBottom: 51,
     },
-
     password: {
+      width: '100%', 
       paddingTop: 32,
     },
     confirmPassword: {
+      width: '100%',
       paddingTop: 40,
       paddingBottom: 32,
       borderTopLeftRadius: 0,
       borderTopRightRadius: 0,
     },
-
+    buttonContainer: {
+      width: '100%',
+      paddingBottom: bottomSpace + 16,
+      backgroundColor: 'transparent',
+    },
     button: {
       backgroundColor: '#FAA41A',
       width: '100%',
       paddingVertical: 17,
     },
-
     disabledBtn: {
       opacity: 0.5,
     },

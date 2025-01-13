@@ -89,11 +89,9 @@ const App = () => {
         backgroundColor={statusBarColor}
         translucent={false}
       />
-      <SafeAreaView style={{flex: 1}}>
         <NavigationContainer onReady={onReady} theme={appTheme}>
           <AppStack />
         </NavigationContainer>
-      </SafeAreaView>
       {walletConnectModal}
       <Toast />
     </>
