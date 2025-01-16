@@ -16,7 +16,11 @@ const checkHasQuickSignValidSignature = (
     r.sigs?.some((s: any) => s.pubKey === publicKey),
   )?.length > 0;
 
-export const quickSign = (data: any, publicKey: string, secretKey: string) => {
+export const quickSign = async (
+  data: any,
+  publicKey: string,
+  secretKey: string,
+) => {
   const isValidPayload = checkIsValidQuickSignPayload(data);
   if (!isValidPayload) {
     return null;
@@ -54,7 +58,7 @@ export const quickSign = (data: any, publicKey: string, secretKey: string) => {
         try {
           hash = Pact.crypto.hash(cmd);
           if (secretKey.length > 64) {
-            signature = getSignatureFromHash(hash, secretKey);
+            signature = await getSignatureFromHash(hash, secretKey);
           } else {
             signature = Pact.crypto.sign(hash, {secretKey, publicKey}).sig;
           }

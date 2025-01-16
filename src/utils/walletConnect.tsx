@@ -429,7 +429,7 @@ export const useWalletConnect = () => {
                   item.publicKey === cmdValue?.sender ||
                   item.publicKey === cmdValue?.signingPubKey,
               );
-              const quickSignData = quickSign(
+              const quickSignData = await quickSign(
                 cmdValue?.commandSigDatas,
                 foundAccount?.publicKey,
                 foundAccount?.privateKey,
@@ -453,7 +453,7 @@ export const useWalletConnect = () => {
                   ),
                 ),
               );
-              const quickSignData = quickSign(
+              const quickSignData = await quickSign(
                 cmdValue,
                 foundAccount?.publicKey,
                 foundAccount?.privateKey,

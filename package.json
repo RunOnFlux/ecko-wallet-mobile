@@ -26,7 +26,6 @@
     "axios": "^1.7.9",
     "bcrypt-react-native": "^1.1.1",
     "blakejs": "^1.2.1",
-    "cardano-crypto.js": "file:./cardano-crypto.js",
     "fast-text-encoding": "^1.0.6",
     "jail-monkey": "^2.8.2",
     "moment": "^2.30.1",

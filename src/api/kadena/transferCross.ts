@@ -105,7 +105,11 @@ export const getTransferCross: (
       getPactHost(network, version, instance, sourceChainId, customHost),
     );
     if (interfaces?.result?.data && Array.isArray(interfaces?.result?.data)) {
-      if (interfaces?.result?.data?.some((moduleInterface: string) => moduleInterface === 'fungible-xchain-v1')) {
+      if (
+        interfaces?.result?.data?.some(
+          (moduleInterface: string) => moduleInterface === 'fungible-xchain-v1',
+        )
+      ) {
         hasXChainCapability = true;
       }
     }
@@ -160,7 +164,7 @@ export const getTransferCross: (
             meta,
             instance,
           );
-          return setSignatureIfNecessary(createdCommand, signature);
+          return await setSignatureIfNecessary(createdCommand, signature);
         } else {
           throw new Error(
             'Receiving account does not exist. You must specify a keyset to create this account.',
@@ -180,7 +184,7 @@ export const getTransferCross: (
           meta,
           instance,
         );
-        return setSignatureIfNecessary(createdCommand, signature);
+        return await setSignatureIfNecessary(createdCommand, signature);
       }
     } catch (e) {
       if (receiver.startsWith('k:') && receiver.length === 66) {
@@ -197,7 +201,7 @@ export const getTransferCross: (
           meta,
           instance,
         );
-        return setSignatureIfNecessary(createdCommand, signature);
+        return await setSignatureIfNecessary(createdCommand, signature);
       } else {
         throw new Error(
           'Receiving account does not exist. You must specify a keyset to create this account.',
@@ -219,6 +223,6 @@ export const getTransferCross: (
       instance,
     );
 
-    return setSignatureIfNecessary(createdCommand, signature);
+    return await setSignatureIfNecessary(createdCommand, signature);
   }
 };

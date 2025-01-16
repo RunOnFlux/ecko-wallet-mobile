@@ -205,7 +205,7 @@ export const getSwap: (params: SendQueryParams) => Promise<any> = async ({
       cmd.networkId,
     );
     if (signature.length > 64) {
-      const sig = getSignatureFromHash(signedCmd.hash, signature);
+      const sig = await getSignatureFromHash(signedCmd.hash, signature);
       signedCmd.sigs = [{sig}];
     }
 

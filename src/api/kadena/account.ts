@@ -49,7 +49,7 @@ export const getAccount: (
     publicCodeFromRequest = publicCodeFromPact;
   }
   if (!publicCodeFromRequest && seeds) {
-    const {publicKey: publicCodeFromPact} = getKeyPairsFromSeedPhrase(
+    const {publicKey: publicCodeFromPact} = await getKeyPairsFromSeedPhrase(
       seeds,
       Number(accountIndex || 0),
     );

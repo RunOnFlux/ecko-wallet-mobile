@@ -31,7 +31,10 @@ export const generateAccount: (
       privateKey: keyPair.secretKey,
     };
   } else if (checkValidSeedPhrase(seeds)) {
-    const keyPair = getKeyPairsFromSeedPhrase(seeds, Number(accountIndex || 0));
+    const keyPair = await getKeyPairsFromSeedPhrase(
+      seeds,
+      Number(accountIndex || 0),
+    );
     return {
       accountName: accountName || `k:${keyPair.publicKey}`,
       publicKey: keyPair.publicKey,
