@@ -1,4 +1,4 @@
-import {Dimensions, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {BOLD_MONTSERRAT, MEDIUM_MONTSERRAT} from '../../constants/styles';
 
 export const createStyles = ({
@@ -19,13 +19,13 @@ export const createStyles = ({
       left: 16,
       alignItems: 'flex-start',
       width: '100%',
-      zIndex: 1, 
+      zIndex: 1,
     },
     contentWrapper: {
       flex: 1,
     },
     content: {
-      minHeight: Dimensions.get('window').height,
+      flex: 1,
       alignItems: 'center',
       justifyContent: 'flex-end',
       paddingTop: 96,
@@ -40,7 +40,7 @@ export const createStyles = ({
       marginBottom: 51,
     },
     password: {
-      width: '100%', 
+      width: '100%',
       paddingTop: 32,
     },
     confirmPassword: {
