@@ -1,10 +1,10 @@
-const {
+import {
   kadenaSign,
   kadenaGenMnemonic,
   kadenaGenKeypair,
   kadenaCheckMnemonic,
   kadenaMnemonicToRootKeypair,
-} = require('@kadena/hd-wallet/lib/esm/chainweaver/index.js');
+} from '@kadena/hd-wallet/chainweaver';
 import {EncryptedString, kadenaEncrypt} from '@kadena/hd-wallet';
 import {Pact} from '../api/pactLangApi';
 import {Buffer} from 'buffer';
