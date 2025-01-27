@@ -141,6 +141,8 @@ const Registration = () => {
               />
             )}
           />
+        </ScrollView>
+        <View style={styles.buttonContainer}>
           <TouchableOpacity
             activeOpacity={0.8}
             disabled={!isValid}
@@ -148,7 +150,8 @@ const Registration = () => {
             onPress={handleSubmit(handlePressCreate)}>
             <Text style={styles.buttonText}>Create</Text>
           </TouchableOpacity>
-        </ScrollView>
+        </View>
+  
         <View style={styles.header}>
           <TouchableOpacity activeOpacity={0.8} onPress={handlePressBack}>
             <ArrowLeftSvg fill="white" />

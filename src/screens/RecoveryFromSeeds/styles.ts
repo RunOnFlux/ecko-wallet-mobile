@@ -25,7 +25,7 @@ export const createStyles = ({
       flex: 1,
     },
     content: {
-      minHeight: Dimensions.get('window').height,
+      flex: 1,
       alignItems: 'center',
       justifyContent: 'flex-end',
       paddingTop: 96,
