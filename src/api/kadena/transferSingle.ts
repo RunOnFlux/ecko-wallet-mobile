@@ -148,7 +148,7 @@ export const getTransferSingle: (
             meta,
             instance,
           );
-          return await setSignatureIfNecessary(createdCommand, signature);
+          return setSignatureIfNecessary(createdCommand, signature);
         } else {
           throw new Error(
             'Receiving account does not exist. You must specify a keyset to create this account.',
@@ -168,7 +168,7 @@ export const getTransferSingle: (
           meta,
           instance,
         );
-        return await setSignatureIfNecessary(createdCommand, signature);
+        return setSignatureIfNecessary(createdCommand, signature);
       }
     } catch (e) {
       if (receiver.startsWith('k:') && receiver.length === 66) {
@@ -185,7 +185,7 @@ export const getTransferSingle: (
           meta,
           instance,
         );
-        return await setSignatureIfNecessary(createdCommand, signature);
+        return setSignatureIfNecessary(createdCommand, signature);
       } else {
         throw new Error(
           'Receiving account does not exist. You must specify a keyset to create this account.',
@@ -206,6 +206,6 @@ export const getTransferSingle: (
       meta,
       instance,
     );
-    return await setSignatureIfNecessary(createdCommand, signature);
+    return setSignatureIfNecessary(createdCommand, signature);
   }
 };

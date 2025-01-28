@@ -1,25 +1,19 @@
-import {
-  kadenaSign,
-  kadenaGenMnemonic,
-  kadenaGenKeypair,
-  kadenaCheckMnemonic,
-  kadenaMnemonicToRootKeypair,
-} from '@kadena/hd-wallet/chainweaver';
-import {EncryptedString, kadenaEncrypt} from '@kadena/hd-wallet';
+// @ts-ignore
+import lib from 'cardano-crypto.js/kadena-crypto';
 import {Pact} from '../api/pactLangApi';
 import {Buffer} from 'buffer';
 
 export const generateSeedPhrase = () => {
-  return kadenaGenMnemonic();
+  return lib.kadenaGenMnemonic();
 };
 
 export const checkValidSeedPhrase = (seedPhrase: string) => {
-  return kadenaCheckMnemonic(seedPhrase);
+  return lib.kadenaCheckMnemonic(seedPhrase);
 };
 
-export const initKadenaHelpers = async () => {
+export const initKadenaHelpers = () => {
   const seeds = generateSeedPhrase();
-  await getKeyPairsFromSeedPhrase(seeds, 0);
+  getKeyPairsFromSeedPhrase(seeds, 0);
 };
 
 export function isPrivateKey(sig: string) {
@@ -35,25 +29,28 @@ export function isPrivateKey(sig: string) {
   return restored.secretKey === secretKey && restored.publicKey === publicKey;
 }
 
-const getKeyPairsFromSeedPhraseHelper = async (
-  seedPhrase: string,
-  index: number,
-) => {
-  const root = await kadenaMnemonicToRootKeypair('', seedPhrase);
-  const {publicKey, secretKey} = await kadenaGenKeypair('', root, index);
+const getKeyPairsFromSeedPhraseHelper = (seedPhrase: string, index: number) => {
+  const root = lib.kadenaMnemonicToRootKeypair('', seedPhrase);
+  const hardIndex = 0x80000000;
+  const newIndex = hardIndex + index;
+  const [privateRaw, pubRaw] = lib.kadenaGenKeypair('', root, newIndex);
+  const axprv = new Uint8Array(privateRaw);
+  const axpub = new Uint8Array(pubRaw);
+  const pub = Pact.crypto.binToHex(axpub);
+  const prv = Pact.crypto.binToHex(axprv);
   return {
-    publicKey,
-    secretKey,
+    publicKey: pub as unknown as string,
+    secretKey: prv as unknown as string,
   };
 };
 
-export const getKeyPairsFromSeedPhrase = async (
+export const getKeyPairsFromSeedPhrase = (
   seedPhrase: string,
   index: number,
 ) => {
   for (let retries = 0; ; retries++) {
     try {
-      return await getKeyPairsFromSeedPhraseHelper(seedPhrase, index);
+      return getKeyPairsFromSeedPhraseHelper(seedPhrase, index);
     } catch (e) {
       if (retries < 2) {
         continue;
@@ -64,29 +61,15 @@ export const getKeyPairsFromSeedPhrase = async (
   }
 };
 
-export const isKadenaEncryptedPrivateKey = (privateKey: string) =>
-  privateKey.length > 256;
-
-export const bufferToHex = (buffer: any) =>
-  [...new Uint8Array(buffer)]
-    .map(b => b.toString(16).padStart(2, '0'))
-    .join('');
-
-export const getSignatureFromHash = async (
-  hash: string,
-  privateKey: string,
-) => {
-  let secretKey = privateKey;
-  if (!isKadenaEncryptedPrivateKey(privateKey)) {
-    const keyBuffer = Buffer.from(privateKey, 'hex');
-    secretKey = await kadenaEncrypt('', keyBuffer);
-  }
-  const signature = await kadenaSign('', hash, secretKey as EncryptedString);
-  const signatureHex = bufferToHex(signature);
-  return signatureHex;
+export const getSignatureFromHash = (hash: string, privateKey: string) => {
+  const newHash = Buffer.from(hash, 'base64');
+  const u8PrivateKey = Pact.crypto.hexToBin(privateKey);
+  const signature = lib.kadenaSign('', newHash, u8PrivateKey);
+  const s = new Uint8Array(signature);
+  return Pact.crypto.binToHex(s);
 };
 
-export async function setSignatureIfNecessary(cmdValue: any, sig: string) {
+export function setSignatureIfNecessary(cmdValue: any, sig: string) {
   if (!sig || !cmdValue) {
     throw new Error('Wrong Parameters: request getSignature');
   }
@@ -98,7 +81,7 @@ export async function setSignatureIfNecessary(cmdValue: any, sig: string) {
   }
   if (sig.length > 64) {
     const cmdHash = cmdValue.cmds[0].hash;
-    const signature = await getSignatureFromHash(cmdHash, sig);
+    const signature = getSignatureFromHash(cmdHash, sig);
     return {
       cmds: [
         {

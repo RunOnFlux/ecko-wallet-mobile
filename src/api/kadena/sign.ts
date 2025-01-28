@@ -63,7 +63,7 @@ export const getSign: (params: SignQueryParams) => Promise<any> = async ({
     signingCmd.networkId,
   );
   if (signature.length > 64) {
-    const sig = await getSignatureFromHash(signedCmd.hash, signature);
+    const sig = getSignatureFromHash(signedCmd.hash, signature);
     signedCmd.sigs = [{sig}];
   }
   return signedCmd;
