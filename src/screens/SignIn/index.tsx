@@ -141,13 +141,15 @@ const SignIn = () => {
               />
             )}
           />
+        </ScrollView>
+        <View style={styles.buttonContainer}>
           <TouchableOpacity
             activeOpacity={0.8}
             style={styles.button}
             onPress={handleSubmit(handlePressSignIn)}>
             <Text style={styles.buttonText}>Sign in</Text>
           </TouchableOpacity>
-        </ScrollView>
+        </View>  
         <View style={styles.header}>
           <TouchableOpacity activeOpacity={0.8} onPress={handlePressBack}>
             <ArrowLeftSvg fill="white" />

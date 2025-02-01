@@ -11,7 +11,7 @@ export const createStyles = ({
   StyleSheet.create({
     bgImage: {
       flex: 1,
-      alignItems: 'center',
+      width: '100%',
     },
     header: {
       position: 'absolute',
@@ -19,17 +19,16 @@ export const createStyles = ({
       left: 16,
       alignItems: 'flex-start',
       width: '100%',
+      zIndex: 1,
     },
     contentWrapper: {
       flex: 1,
-      width: '100%',
     },
     content: {
-      minHeight: Dimensions.get('window').height,
+      flex: 1,
       alignItems: 'center',
       justifyContent: 'flex-end',
       paddingTop: 96,
-      paddingBottom: bottomSpace,
       width: '100%',
     },
     text: {
@@ -41,8 +40,13 @@ export const createStyles = ({
       marginBottom: 51,
     },
     password: {
-      paddingVertical: 32,
       width: '100%',
+      paddingVertical: 32,
+    },
+    buttonContainer: {
+      width: '100%',
+      paddingBottom: bottomSpace + 16,
+      backgroundColor: 'transparent',
     },
     button: {
       backgroundColor: '#FAA41A',
