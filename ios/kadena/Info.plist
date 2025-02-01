@@ -89,8 +89,6 @@
 	<string>$(PRODUCT_NAME) needs access to your Camera for QR code scanning</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Enabling Face ID allows you quick and secure access to your account.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>Privacy - Camera Usage Description</key>
 	<string>We need camera access to scan QR codes</string>
 	<key>UILaunchStoryboardName</key>
