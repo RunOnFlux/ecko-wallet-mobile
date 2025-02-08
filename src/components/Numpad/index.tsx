@@ -201,6 +201,12 @@ const Numpad: FC<TNumpadProps> = ({isReset}) => {
     }
   }, [storedPinCode, isReset, promptBiometricAuth, biometryType]);
 
+  useEffect(() => {
+    return () => {
+      dispatch(setNewPinCode(null));
+    };
+  }, []);
+
   return (
     <Animated.View
       style={[

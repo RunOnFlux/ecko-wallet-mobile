@@ -42,10 +42,10 @@ const ExportRecoveryPhrase = () => {
         style={styles.contentWrapper}>
         <View style={styles.cardContainer}>
           <View style={styles.secretKeysWrapper}>
-            {secretWords.map(word => (
-              <View key={word} style={styles.secretKeysText}>
+            {secretWords.map((word, j) => (
+              <View key={word + j} style={styles.secretKeysText}>
                 {word.split(' ').map((item, index) => (
-                  <Text key={index} style={styles.secretKeys}>
+                  <Text key={index + j} style={styles.secretKeys}>
                     {item}
                   </Text>
                 ))}

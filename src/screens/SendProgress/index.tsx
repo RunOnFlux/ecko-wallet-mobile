@@ -48,7 +48,9 @@ const SendProgress = () => {
   }, [transferResult?.status]);
 
   const onGoToActivities = useCallback(() => {
-    navigation.navigate(EHomeTabRoutes.History);
+    navigation.navigate('Home', {
+      screen: EHomeTabRoutes.History,
+    });
   }, [navigation]);
 
   useEffect(() => {

@@ -110,6 +110,7 @@ const SearchTokens = () => {
           <TextInput
             style={styles.input}
             placeholder="Search token"
+            placeholderTextColor={'grey'}
             value={search}
             autoCorrect={false}
             autoCapitalize="none"
@@ -117,16 +118,19 @@ const SearchTokens = () => {
             onChangeText={setSearch}
           />
         </View>
-        <FlatList
-          keyboardDismissMode="on-drag"
-          showsVerticalScrollIndicator={false}
-          style={styles.contactsWrapper}
-          data={filteredList}
-          renderItem={renderItem}
-          keyExtractor={keyExtractor}
-          ListEmptyComponent={emptyView}
-          contentContainerStyle={styles.contactsContent}
-        />
+        {filteredList.length > 0 ? (
+          <FlatList
+            keyboardDismissMode="on-drag"
+            showsVerticalScrollIndicator={false}
+            style={styles.contactsWrapper}
+            data={filteredList}
+            renderItem={renderItem}
+            keyExtractor={keyExtractor}
+            ListEmptyComponent={emptyView}
+            contentContainerStyle={styles.contactsContent}
+            removeClippedSubviews={false}
+          />
+        ) : null}
       </View>
     </View>
   );

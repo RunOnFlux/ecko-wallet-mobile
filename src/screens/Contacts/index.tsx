@@ -45,6 +45,7 @@ const Contacts = () => {
         <View style={styles.searchSection}>
           <BasicSearchSvg />
           <TextInput
+            placeholderTextColor="grey"
             style={styles.input}
             placeholder="Search contacts"
             value={search}
