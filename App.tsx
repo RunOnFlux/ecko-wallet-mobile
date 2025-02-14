@@ -20,7 +20,6 @@ import JailMonkey from 'jail-monkey';
 import {WalletConnectProvider} from './src/contexts/WalletConnect';
 import {useWalletConnect} from './src/utils/walletConnect';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import LockOnClose from './src/components/LockOnClose';
 
 const App = () => {
   const isAuthorized = useSelector(makeSelectIsAuthorized);
@@ -107,7 +106,6 @@ const AppContainer = () => {
           <WalletConnectProvider>
             <PersistGate loading={null} persistor={persistor}>
               <App />
-              <LockOnClose />
             </PersistGate>
           </WalletConnectProvider>
         </PactProvider>
