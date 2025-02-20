@@ -31,8 +31,8 @@ export const defaultWallets: TWallet[] = [
     chainBalance: defaultBalances,
   },
   {
-    tokenAddress: 'kaddex.kdx',
-    tokenName: 'KDX',
+    tokenAddress: 'runonflux.flux',
+    tokenName: 'FLUX',
     totalAmount: 0,
     chainBalance: defaultBalances,
   },
