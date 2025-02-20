@@ -69,8 +69,8 @@ const SwapBlock = () => {
     amount: '',
     amountWithSlippage: '',
     balance: walletList[1]?.chainBalance['2'] || 0,
-    coin: walletList[1]?.tokenName || 'KDX',
-    address: walletList[1]?.tokenAddress || 'kaddex.kdx',
+    coin: walletList[1]?.tokenName || 'FLUX',
+    address: walletList[1]?.tokenAddress || 'runonflux.flux',
     precision: 12,
   });
   const [priceImpact, setPriceImpact] = useState('');
