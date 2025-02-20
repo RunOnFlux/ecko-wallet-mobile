@@ -85,8 +85,8 @@ android {
         applicationId "com.xwallet.mobile"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 155
-        versionName "1.10.4"
+        versionCode 156
+        versionName "1.10.5"
     }
     signingConfigs {
         release {
