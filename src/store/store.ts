@@ -85,7 +85,7 @@ const userWalletPersistConfig = {
   key: 'userWallet',
   storage: MMKVStorage(userStorage),
   blacklist: ['initialized'],
-  version: 1,
+  version: 2,
   migrate: createMigrate(walletTokensMigrations, {debug: true}),
 };
 
