@@ -55,5 +55,6 @@ export const styles = StyleSheet.create({
   },
   button: {
     marginHorizontal: 8,
+    width: 110,
   },
 });
