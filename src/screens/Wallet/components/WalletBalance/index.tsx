@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux';
 
 import ArrowTopRightSvg from '../../../../assets/images/arrow-top-right.svg';
 import ArrowBottomRightSvg from '../../../../assets/images/arrow-bottom-right.svg';
+import BuySvg from '../../../../assets/images/icon-buy.svg';
 import Button from './components/Button';
 import {styles} from './styles';
 import {MAIN_COLOR} from '../../../../constants/styles';
@@ -95,6 +96,12 @@ const WalletBalance = React.memo(() => {
     setKdaModalVisible(true);
   }, []);
 
+  const handlePressBuy = useCallback(() => {
+    navigation?.navigate({
+      name: ERootStackRoutes.Buy,
+    });
+  }, []);
+
   const closeKdaModal = useCallback(() => {
     setKdaModalVisible(false);
   }, []);
@@ -146,6 +153,12 @@ const WalletBalance = React.memo(() => {
             backgroundColor="rgba(236,236,245,0.5)"
             textColor={MAIN_COLOR}
             onPress={handlePressReceive}
+          />
+          <Button
+            title="Buy"
+            style={styles.button}
+            icon={<BuySvg fill="#FFA900" />}
+            onPress={handlePressBuy}
           />
         </View>
       </View>

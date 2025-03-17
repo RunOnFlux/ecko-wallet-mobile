@@ -38,6 +38,7 @@ import WalletConnectSettings from '../screens/WalletConnectSettings';
 import Welcome from '../screens/Welcome';
 import ChangeAccountPassword from '../screens/ChangeAccountPassword';
 import ReceiverScan from '../screens/ReceiverScan';
+import BuyScreen from '../screens/Buy';
 
 export const AUTH_STACK_SCREENS = [
   {name: ERootStackRoutes.Welcome, component: Welcome},
@@ -71,6 +72,10 @@ export const APP_STACK_SCREENS = [
   {
     name: ERootStackRoutes.Send,
     component: Send,
+  },
+  {
+    name: ERootStackRoutes.Buy,
+    component: BuyScreen,
   },
   {
     name: ERootStackRoutes.SendSummary,
