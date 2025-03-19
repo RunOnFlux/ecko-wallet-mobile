@@ -10,11 +10,12 @@ import {WebView} from 'react-native-webview';
 import {useNavigation} from '@react-navigation/native';
 import Button from '../Wallet/components/WalletBalance/components/Button';
 import {MAIN_COLOR} from '../../constants/styles';
-import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
 import {createStyles} from './styles';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import {useShallowEqualSelector} from '../../store/utils';
 import {makeSelectSelectedAccount} from '../../store/userWallet/selectors';
+import Header from '../../components/Header';
+import Warning from '../../components/Warning';
 
 const BuyScreen = () => {
   const [isAccepted, setIsAccepted] = useState(false);
@@ -121,15 +122,7 @@ const BuyScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity
-          activeOpacity={0.8}
-          onPress={() => navigation.goBack()}
-          style={styles.backBtnWrapper}>
-          <ArrowLeftSvg fill="#787B8E" />
-        </TouchableOpacity>
-        <Text style={styles.title}>Buy crypto</Text>
-      </View>
+      <Header title="Buy" />
 
       {isAccepted && payloadToSign && signature ? (
         <WebView
@@ -150,17 +143,7 @@ const BuyScreen = () => {
       ) : loading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={MAIN_COLOR} />
-          {error && <Text style={styles.errorText}>{error}</Text>}
-          <TouchableOpacity
-            style={styles.cancelButton}
-            onPress={() => {
-              setIsAccepted(false);
-              setLoading(false);
-              setError('');
-              navigation.goBack();
-            }}>
-            <Text style={styles.cancelButtonText}>Cancel</Text>
-          </TouchableOpacity>
+          {error && <Warning text={error} isSerious />}
         </View>
       ) : (
         <View style={styles.consentContainer}>
