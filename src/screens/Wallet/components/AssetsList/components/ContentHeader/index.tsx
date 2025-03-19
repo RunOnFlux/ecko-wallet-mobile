@@ -12,10 +12,15 @@ import {styles} from './styles';
 import {useDispatch} from 'react-redux';
 import {setSelectedToken} from '../../../../../../store/userWallet';
 import TokendetectorModal from '../TokenDetectorModal';
+import {useShallowEqualSelector} from '../../../../../../store/utils';
+import {makeSelectActiveNetworkDetails} from '../../../../../../store/networks/selectors';
+import {NETWORK_IDS} from '../../../../../../utils/walletConnect';
 
 const ContentHeader: FC = React.memo(() => {
   const [detectedTokensModalVisible, setDetectedModalVisible] = useState(false);
   const dispatch = useDispatch();
+
+  const networkDetail = useShallowEqualSelector(makeSelectActiveNetworkDetails);
 
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
 
@@ -49,16 +54,20 @@ const ContentHeader: FC = React.memo(() => {
     setDetectedModalVisible(true);
   };
 
+  const isMainnet = NETWORK_IDS.mainnet === networkDetail?.instance;
+
   return (
     <View style={styles.header}>
       <Text style={styles.headerTitle}>Assets</Text>
       <View style={styles.rightIcons}>
-        <TouchableOpacity
-          activeOpacity={0.8}
-          onPress={handlePressRefresh}
-          style={styles.plusSvgWrapper}>
-          <RefreshSvg width={25} height={25} />
-        </TouchableOpacity>
+        {isMainnet && (
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={handlePressRefresh}
+            style={styles.plusSvgWrapper}>
+            <RefreshSvg width={25} height={25} />
+          </TouchableOpacity>
+        )}
         <TouchableOpacity
           activeOpacity={0.8}
           onPress={handlePressSearch}
@@ -72,11 +81,12 @@ const ContentHeader: FC = React.memo(() => {
           <CirclePlus />
         </TouchableOpacity>
       </View>
-      <TokendetectorModal
-        // canDelete={canDelete}
-        toggle={() => setDetectedModalVisible(false)}
-        isVisible={detectedTokensModalVisible}
-      />
+      {isMainnet && detectedTokensModalVisible && (
+        <TokendetectorModal
+          toggle={() => setDetectedModalVisible(false)}
+          isVisible={detectedTokensModalVisible}
+        />
+      )}
     </View>
   );
 });

@@ -1,7 +1,6 @@
 import React, {FC, useCallback, useMemo, useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {getAssetImageView} from '../../../../../../utils/getAssetImageView';
-
 import {styles} from './styles';
 import {TListItemProps} from './types';
 import TokenModal from '../../../../../../modals/TokenModal';
@@ -15,9 +14,8 @@ import {
 } from '../../../../../../utils/stringHelpers';
 
 const ListItem: FC<TListItemProps> = React.memo(
-  ({walletItem, isFirst, onPress}) => {
+  ({walletItem, isFirst, rightLabel, onPress}) => {
     const dispatch = useDispatch();
-
     const [modalVisible, setModalVisible] = useState(false);
 
     const toggleModal = useCallback(() => {
@@ -70,12 +68,14 @@ const ListItem: FC<TListItemProps> = React.memo(
           style={[styles.wrapper, isFirst && {borderTopWidth: 0}]}>
           <View style={styles.leftSide}>
             {assetImageView}
-            <Text style={styles.title}>{`${numberWithCommas(amount)} ${
-              walletItem.tokenName
-            }`}</Text>
+            <Text style={styles.title}>{`${
+              walletItem.totalAmount !== undefined
+                ? numberWithCommas(amount)
+                : ''
+            } ${walletItem.tokenName}`}</Text>
           </View>
           <Text style={styles.currency}>
-            {numberWithCommas(currency || '')}
+            {rightLabel || numberWithCommas(currency || '')}
           </Text>
         </TouchableOpacity>
         <TokenModal
