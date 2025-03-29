@@ -37,6 +37,7 @@ export const createStyles = ({
       fontSize: 16,
       lineHeight: 24,
       marginTop: 20,
+      fontFamily: MEDIUM_MONTSERRAT,
       textAlign: 'center',
     },
     buttonContainer: {

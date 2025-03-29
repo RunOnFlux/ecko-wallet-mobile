@@ -7,7 +7,7 @@ export type TChainBalance = Record<string, number>;
 export type TWallet = {
   tokenAddress: string;
   tokenName: string;
-  totalAmount: number;
+  totalAmount?: number;
   chainBalance: TChainBalance;
 };
 

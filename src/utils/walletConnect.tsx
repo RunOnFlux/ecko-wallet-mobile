@@ -75,7 +75,7 @@ export const KDA_CHAINS = [
   'kadena:development',
 ];
 
-const NETWORK_IDS: Record<string, string> = {
+export const NETWORK_IDS: Record<string, string> = {
   mainnet: 'mainnet01',
   testnet: 'testnet04',
   devnet: 'development',

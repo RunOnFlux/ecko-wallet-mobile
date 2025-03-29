@@ -30,7 +30,7 @@ export const getPact: (params: PactQueryParams) => Promise<any> = async ({
         'not-real',
         `${chainId}`,
         0.0000001,
-        150000,
+        15000000,
         createTime(),
         600,
       ),
