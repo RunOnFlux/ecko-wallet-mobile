@@ -4,7 +4,8 @@ import {
   DEV_NETWORK_URL,
   TEST_NETWORK_URL,
   MAIN_NETWORK_URL,
-  KADDEX_URL,
+  ECKO_API_URL,
+  DEXTOOLS_API_URL,
 } from '@env';
 
 export const DEV_NETWORK_API_URL = DEV_NETWORK_URL;
@@ -12,7 +13,8 @@ export const TEST_NETWORK_API_URL = TEST_NETWORK_URL;
 export const MAIN_NETWORK_API_URL = MAIN_NETWORK_URL;
 export const SERVER_REMOTE_URL = DEFAULT_API_URL;
 export const KADDEX_NAMESPACE = NAMESPACE;
-export const KADDEX_API_URL = KADDEX_URL;
+export const KADDEX_API_URL = ECKO_API_URL;
+export const ECKO_DEXTOOLS_API_URL = DEXTOOLS_API_URL;
 
 export const defaultHeader = {
   Accept: '*/*',

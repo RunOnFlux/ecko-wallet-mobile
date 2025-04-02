@@ -9,7 +9,7 @@ import {useShallowEqualSelector} from '../../../../../../store/utils';
 import Modal from '../../../../../../components/Modal';
 import {DetectedToken, TTokenDetectorModalProps} from './types';
 import ListItem from '../ListItem';
-import {KADDEX_URL} from '@env';
+import {ECKO_API_URL} from '@env';
 import axios from 'axios';
 import {makeSelectActiveNetworkDetails} from '../../../../../../store/networks/selectors';
 import {getPact} from '../../../../../../api/kadena/pact';
@@ -38,7 +38,7 @@ const TokendetectorModal: FC<TTokenDetectorModalProps> = ({
   useEffect(() => {
     const init = async () => {
       const tokensResponse = await axios.get(
-        `${KADDEX_URL}/chain-data/fungible-tokens`,
+        `${ECKO_API_URL}/chain-data/fungible-tokens`,
       );
       const tokensData = await tokensResponse.data;
       if (tokensData && tokensData[0] && tokensData[0]?.fungibleTokens) {
