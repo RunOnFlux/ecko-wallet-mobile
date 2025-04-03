@@ -8,11 +8,11 @@ import {TListDayItem} from '../../screens/History/components/ListDay/types';
 import {TListItem} from '../../screens/History/components/ListItem/types';
 import {TAccount} from '../userWallet/types';
 
-const convertToListDay = (activities: TActivity[]) => {
+export const convertToListDay = (activities: TActivity[]) => {
   const daysObj: Record<string, TListItem[]> = {};
   activities.forEach(activity => {
     const date = moment(activity.createdTime);
-    const day = date.format('MMMM D');
+    const day = date.format('MMMM D, YYYY');
     if (!(day in daysObj)) {
       daysObj[day] = [];
     }
