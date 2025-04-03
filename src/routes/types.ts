@@ -17,6 +17,7 @@ export enum ERootStackRoutes {
   ResetPasscode = 'ResetPasscode',
   Send = 'Send',
   Receive = 'Receive',
+  Buy = 'Buy',
   SendSummary = 'SendSummary',
   SearchTokens = 'SearchTokens',
   SendProgress = 'SendProgress',
