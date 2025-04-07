@@ -1,5 +1,5 @@
 import React, {FC, useCallback, useMemo} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Linking} from 'react-native';
 
 import Modal from '../../components/Modal';
 import AccountFromTo from '../../components/AccountFromTo';
@@ -10,10 +10,17 @@ import Clipboard from '@react-native-clipboard/clipboard';
 import Snackbar from 'react-native-snackbar';
 import {useShallowEqualSelector} from '../../store/utils';
 import {numberWithCommas} from '../../utils/stringHelpers';
+import Button from '../../screens/Wallet/components/WalletBalance/components/Button';
+import {makeSelectActiveNetworkDetails} from '../../store/networks/selectors';
 
 const TransactionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
   ({details, toggle, isVisible}) => {
     const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
+    const networkDetail = useShallowEqualSelector(
+      makeSelectActiveNetworkDetails,
+    );
+    const networkSlug = networkDetail?.network;
+    // todo: save networkId into local txs
     const isPending =
       details?.status === 'pending' ||
       (details?.continuation?.step || 0) <
@@ -43,7 +50,9 @@ const TransactionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
     const amountText = useMemo(
       () =>
         `${
-          selectedAccount?.accountName === details?.sender
+          details?.type === 'SWAP'
+            ? ''
+            : selectedAccount?.accountName === details?.sender
             ? '- '
             : selectedAccount?.accountName === details?.receiver
             ? '+ '
@@ -51,11 +60,11 @@ const TransactionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
         }${
           details?.amountFrom
             ? details?.amountTo
-              ? `${numberWithCommas(details?.amountTo?.toFixed(4) || '')} ${
-                  details?.coinTo || ''
-                } (${numberWithCommas(details?.amountFrom?.toFixed(2) || '')} ${
+              ? `${numberWithCommas(details?.amountFrom?.toFixed(2) || '')} ${
                   details?.coinFrom || ''
-                })`
+                } → ${numberWithCommas(details?.amountTo?.toFixed(4) || '')} ${
+                  details?.coinTo || ''
+                }`
               : `${numberWithCommas(details?.amountFrom?.toFixed(4) || '')} ${
                   details?.coinFrom || ''
                 }`
@@ -65,6 +74,12 @@ const TransactionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
         }`,
       [details, selectedAccount?.accountName],
     );
+
+    const handlePress = async () => {
+      const requestKey = details?.requestKey;
+      const url = `https://explorer.chainweb.com/mainnet/txdetail/${requestKey}`;
+      await Linking.openURL(url);
+    };
 
     return (
       <Modal isVisible={isVisible} close={toggle} title="Transaction Details">
@@ -81,7 +96,8 @@ const TransactionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
             <Text style={styles.text}>{`Gas: ${details?.gas}`}</Text>
           </View>
         </View>
-        {details?.sourceChainId &&
+        {details?.type !== 'SWAP' &&
+        details?.sourceChainId &&
         details?.targetChainId &&
         details?.sender &&
         details?.receiver ? (
@@ -144,6 +160,11 @@ const TransactionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
               </Text>
             </>
           )}
+          <Button
+            title="Tx details"
+            onPress={handlePress}
+            style={styles.button}
+          />
         </View>
       </Modal>
     );

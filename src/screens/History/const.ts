@@ -1,4 +1,3 @@
-import moment from 'moment';
 import {TRadioTabOption} from '../../components/RadioTab/types';
 import {TActivity, TActivityStatus} from '../../store/history/types';
 import {TListDayItem} from './components/ListDay/types';
@@ -74,7 +73,7 @@ export const dextoolsTransactionToActivity = (
       gaslimit: transaction.gaslimit,
       direction: transaction.direction,
     },
-    type: transaction.transactionType.toLowerCase(),
+    type: transaction.transactionType.toLocaleUpperCase(),
   };
 };
 
@@ -82,19 +81,41 @@ export const mergeUniqueTransactions = (
   list1: TListDayItem[],
   list2: TListDayItem[],
 ): TListDayItem[] => {
-  const mergedMap = new Map<string, Map<string, TListItem>>();
+  const mergedMap = new Map<string, Map<string, TListItem & TActivity>>();
 
   const addToMap = (source: TListDayItem[]) => {
     for (const {day, list} of source) {
       if (!mergedMap.has(day)) {
         mergedMap.set(day, new Map());
       }
+
       const dayMap = mergedMap.get(day)!;
 
       for (const item of list) {
-        const uniqueKey = `${item.title}-${item.sender}`;
-        if (!dayMap.has(uniqueKey)) {
-          dayMap.set(uniqueKey, item);
+        const key = item.requestKey || item.title;
+
+        const existingEntry = Array.from(dayMap.entries()).find(
+          ([, v]) => v.requestKey === key,
+        );
+
+        const isMerged = item.coinFrom && item.coinTo;
+        const hasSender = !!item.sender;
+
+        if (!existingEntry) {
+          dayMap.set(`${key}-${item.sender}`, item);
+        } else {
+          const [existingKey, existing] = existingEntry;
+          const existingIsMerged = existing.coinFrom && existing.coinTo;
+          const existingHasSender = !!existing.sender;
+
+          const shouldReplace =
+            (isMerged && !existingIsMerged) ||
+            (isMerged && existingIsMerged && hasSender && !existingHasSender);
+
+          if (shouldReplace) {
+            dayMap.delete(existingKey);
+            dayMap.set(`${key}-${item.sender}`, item);
+          }
         }
       }
     }
