@@ -38,6 +38,8 @@ const History = () => {
   const isPollingRequests = useShallowEqualSelector(makeSelectPollLoading);
   const selectedAccount = useSelector(makeSelectSelectedAccount);
   const networkDetail = useShallowEqualSelector(makeSelectActiveNetworkDetails);
+  const isMainnet = NETWORK_IDS.mainnet === networkDetail?.instance;
+
   const listDayActivities: TListDayItem[] = useShallowEqualSelector(
     makeSelectListDayActivities,
   );
@@ -53,7 +55,6 @@ const History = () => {
     useState<TListDayItem[]>(listDayActivities);
 
   const isPendingTab = useMemo(() => activeTab === 'pending', [activeTab]);
-  const isMainnet = NETWORK_IDS.mainnet === networkDetail?.instance;
   const account = selectedAccount?.accountName;
 
   const fetchTransactions = async () => {
@@ -139,6 +140,20 @@ const History = () => {
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
   const styles = createStyles({bottomSpace, statusBarHeight});
 
+  const filteredTransactions = transactions
+    .map(day => ({
+      ...day,
+      list: day?.list?.filter(tx => {
+        const txNetwork = tx.network?.network;
+        return (
+          (isMainnet && txNetwork === 'mainnet') ||
+          (isMainnet && !txNetwork) ||
+          (!isMainnet && txNetwork === 'testnet')
+        );
+      }),
+    }))
+    .filter(day => day.list.length > 0);
+
   return (
     <View style={styles.container}>
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -149,7 +164,7 @@ const History = () => {
             onRefresh={onRefresh}
           />
         }
-        data={isPendingTab ? listDayPendingActivities : transactions}
+        data={isPendingTab ? listDayPendingActivities : filteredTransactions}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
         ListEmptyComponent={() => (
