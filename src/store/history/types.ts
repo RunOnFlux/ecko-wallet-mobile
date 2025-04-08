@@ -1,9 +1,11 @@
 import {TChainId} from '../userWallet/types';
 import {TDefaultRequestState} from '../types';
+import {TNetworkDetail} from '../networks/types';
 
 export type TActivityStatus = 'success' | 'failure' | 'pending';
 
 export type TActivity = {
+  network: TNetworkDetail;
   requestKey: string; // for each Activity UNIQUE requestKey
   sourceRequestKey?: string;
   createdTime: string; // Date time ISO string

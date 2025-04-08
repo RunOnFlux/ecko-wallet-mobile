@@ -101,6 +101,7 @@ function* makeTransfer({payload}: TAction<TMakeTransferRequest>) {
     const reqKey = txRes.requestKeys[0];
     yield put(
       setSendResult({
+        network: networkDetail,
         amount,
         requestKey: reqKey,
         status: 'pending',
@@ -118,6 +119,7 @@ function* makeTransfer({payload}: TAction<TMakeTransferRequest>) {
         message: 'Transfer Pending...',
         status: 'pending',
         date: new Date().toISOString(),
+        network: networkDetail,
         requestKey: txRes.requestKeys[0],
         sender,
         sourceChainId,

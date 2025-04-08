@@ -93,4 +93,14 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: 'black',
   },
+  button: {
+    flexDirection: 'row',
+    width: '100%',
+    marginTop: 20,
+    height: 50,
+    backgroundColor: MAIN_COLOR,
+    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });
