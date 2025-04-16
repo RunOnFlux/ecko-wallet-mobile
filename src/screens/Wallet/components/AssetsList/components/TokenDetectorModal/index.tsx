@@ -9,7 +9,6 @@ import {useShallowEqualSelector} from '../../../../../../store/utils';
 import Modal from '../../../../../../components/Modal';
 import {DetectedToken, TTokenDetectorModalProps} from './types';
 import ListItem from '../ListItem';
-import {ECKO_API_URL} from '@env';
 import axios from 'axios';
 import {makeSelectActiveNetworkDetails} from '../../../../../../store/networks/selectors';
 import {getPact} from '../../../../../../api/kadena/pact';
@@ -18,6 +17,7 @@ import {TAccount} from '../../../../../../store/userWallet/types';
 import {MAIN_COLOR} from '../../../../../../constants/styles';
 import Warning from '../../../../../../components/Warning';
 import {setSelectedToken} from '../../../../../../store/userWallet';
+import {ECKO_API_URL} from '../../../../../../api/constants';
 
 const TokendetectorModal: FC<TTokenDetectorModalProps> = ({
   toggle,
