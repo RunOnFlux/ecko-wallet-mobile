@@ -4,6 +4,7 @@ import {TListItemProps} from './types';
 
 import ArrowBottomRightSvg from '../../../../assets/images/arrow-bottom-right.svg';
 import ArrowTopBottomRightSvg from '../../../../assets/images/arrow-top-right.svg';
+import SwapSvg from '../../../../assets/images/swap.svg';
 
 import {styles} from './styles';
 import {cutStr, numberWithCommas} from '../../../../utils/stringHelpers';
@@ -100,7 +101,9 @@ const ListItem: FC<TListItemProps> = React.memo(
     const amountText = useMemo(
       () =>
         `${
-          selectedAccount?.accountName === sender
+          type === 'SWAP'
+            ? ''
+            : selectedAccount?.accountName === sender
             ? '- '
             : selectedAccount?.accountName === receiver
             ? '+ '
@@ -108,11 +111,11 @@ const ListItem: FC<TListItemProps> = React.memo(
         }${
           amountFrom
             ? amountTo
-              ? `${numberWithCommas(amountTo.toFixed(4) || '')} ${
-                  coinTo || ''
-                } (${numberWithCommas(amountFrom.toFixed(2) || '')} ${
+              ? `${numberWithCommas(amountFrom.toFixed(2) || '')} ${
                   coinFrom || ''
-                })`
+                } → ${numberWithCommas(amountTo.toFixed(4) || '')} ${
+                  coinTo || ''
+                }`
               : `${numberWithCommas(amountFrom.toFixed(2) || '')} ${
                   coinFrom || ''
                 }`
@@ -138,7 +141,13 @@ const ListItem: FC<TListItemProps> = React.memo(
           style={styles.container}
           onPress={onPress}>
           <View style={styles.rightSide}>
-            {selectedAccount?.accountName === sender ? (
+            {type === 'SWAP' ? (
+              <View style={styles.iconWrapper}>
+                <SwapSvg
+                  fill={isPending ? 'black' : isFailed ? '#FF6058' : '#27CA40'}
+                />
+              </View>
+            ) : selectedAccount?.accountName === sender ? (
               <View style={styles.iconWrapper}>
                 <ArrowTopBottomRightSvg
                   fill={isPending ? 'black' : isFailed ? '#FF6058' : '#27CA40'}

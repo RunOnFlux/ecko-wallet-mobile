@@ -1,18 +1,9 @@
-import {
-  DEFAULT_API_URL,
-  NAMESPACE,
-  DEV_NETWORK_URL,
-  TEST_NETWORK_URL,
-  MAIN_NETWORK_URL,
-  KADDEX_URL,
-} from '@env';
-
-export const DEV_NETWORK_API_URL = DEV_NETWORK_URL;
-export const TEST_NETWORK_API_URL = TEST_NETWORK_URL;
-export const MAIN_NETWORK_API_URL = MAIN_NETWORK_URL;
-export const SERVER_REMOTE_URL = DEFAULT_API_URL;
-export const KADDEX_NAMESPACE = NAMESPACE;
-export const KADDEX_API_URL = KADDEX_URL;
+export const DEV_NETWORK_API_URL = 'https://devnet.ecko.finance';
+export const TEST_NETWORK_API_URL = 'https://api.testnet.chainweb.com';
+export const MAIN_NETWORK_API_URL = 'https://chainweb.ecko.finance';
+export const KADDEX_NAMESPACE = 'kaddex';
+export const ECKO_API_URL = 'https://api.ecko.finance';
+export const ECKO_DEXTOOLS_API_URL = 'https://api.dexscan.ecko.finance';
 
 export const defaultHeader = {
   Accept: '*/*',

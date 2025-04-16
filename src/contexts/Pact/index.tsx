@@ -17,7 +17,7 @@ import {
 } from './types';
 import {GAS_OPTIONS} from '../../constants';
 import axios from 'axios';
-import {KADDEX_API_URL, KADDEX_NAMESPACE} from '../../api/constants';
+import {ECKO_API_URL, KADDEX_NAMESPACE} from '../../api/constants';
 import {getPact} from '../../api/kadena/pact';
 
 export const FEE = 0.003;
@@ -73,14 +73,11 @@ export const PactProvider: FC = ({children}) => {
 
   const getNetworkGasData = useCallback(async () => {
     try {
-      let response = await axios.get(
-        `${KADDEX_API_URL}/mempool/get-gas-data`,
-        {
-          params: {
-            chain: '2',
-          },
+      let response = await axios.get(`${ECKO_API_URL}/mempool/get-gas-data`, {
+        params: {
+          chain: '2',
         },
-      );
+      });
       setNetworkGasData(response.data);
     } catch (err) {}
   }, []);

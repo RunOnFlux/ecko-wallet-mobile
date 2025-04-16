@@ -1,6 +1,6 @@
 {
-  "name": "kadena",
-  "version": "1.12.0",
+  "name": "ecko-wallet-mobile",
+  "version": "1.12.2",
   "private": true,
   "scripts": {
     "android": "react-native run-android",

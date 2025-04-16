@@ -4,30 +4,66 @@ import moment from 'moment';
 import {RootState} from '../store';
 import {TActivity, TPollRequestParams} from './types';
 import {getNetworkParams} from '../../utils/networkHelpers';
-import {TListDayItem} from '../../screens/History/components/ListDay/types';
 import {TListItem} from '../../screens/History/components/ListItem/types';
 import {TAccount} from '../userWallet/types';
 
-const convertToListDay = (activities: TActivity[]) => {
+export const convertToListDay = (activities: TActivity[]) => {
   const daysObj: Record<string, TListItem[]> = {};
+
+  const byRequestKey: Record<string, TActivity[]> = {};
+
   activities.forEach(activity => {
     const date = moment(activity.createdTime);
-    const day = date.format('MMMM D');
+    const day = date.format('MMMM D, YYYY');
+
     if (!(day in daysObj)) {
       daysObj[day] = [];
     }
+
+    const siblings = byRequestKey[activity.requestKey] || [];
+
+    const match = siblings.find(
+      tx =>
+        tx.sender === activity.receiver &&
+        tx.receiver === activity.sender &&
+        tx.type === 'SWAP' &&
+        activity.type === 'SWAP',
+    );
+
+    let coinFrom, coinTo, amountFrom, amountTo;
+
+    if (match) {
+      const isOut = activity.metaData?.meta?.direction === 'OUT';
+
+      const fromTx = isOut ? activity : match;
+      const toTx = isOut ? match : activity;
+
+      coinFrom = fromTx.coinShortName;
+      coinTo = toTx.coinShortName;
+      amountFrom = fromTx.amount;
+      amountTo = toTx.amount;
+    }
+
+    if (!byRequestKey[activity.requestKey]) {
+      byRequestKey[activity.requestKey] = [];
+    }
+    byRequestKey[activity.requestKey].push(activity);
+
     daysObj[day].push({
       title: activity.requestKey,
       time: date.format('yyyy-MM-DD HH:mm:ss'),
+      coinFrom,
+      coinTo,
+      amountFrom,
+      amountTo,
       ...activity,
     });
   });
-  const resp: TListDayItem[] = Object.entries(daysObj).map(([key, value]) => ({
-    day: key,
-    list: value,
-  }));
 
-  return resp;
+  return Object.entries(daysObj).map(([day, list]) => ({
+    day,
+    list,
+  }));
 };
 
 const getPendingActivities = (activities: TActivity[]) =>
