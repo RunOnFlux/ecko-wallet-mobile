@@ -1,0 +1,67 @@
+name: android-build
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+jobs:
+  build-android:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Decode Keystore
+        uses: timheuer/base64-to-file@v1
+        with:
+          fileName: 'xwallet.keystore'
+          fileDir: './android/app/'
+          encodedString: ${{ secrets.ANDROID_SIGNING_KEY }}
+
+      - name: Create .env file
+        run: |
+          echo "ENCRYPTION_KEY=${{ secrets.ENCRYPTION_KEY }}" >> .env
+          echo "WALLETCONNECT_PROJECT_ID=${{ secrets.WALLETCONNECT_PROJECT_ID }}" >> .env
+          echo "WALLETCONNECT_PROJECT_RELAY=${{ secrets.WALLETCONNECT_PROJECT_RELAY }}" >> .env
+
+      - name: Build Android APK Release
+        run: cd android && ./gradlew assembleRelease
+        env:
+          SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
+
+      - name: Build Android AAB Release
+        run: cd android && ./gradlew bundleRelease
+        env:
+          SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release.apk
+          path: android/app/build/outputs/apk/release/app-release.apk
+
+      - name: Upload AAB Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release.aab
+          path: android/app/build/outputs/bundle/release/app-release.aab

@@ -6,13 +6,6 @@ declare module '*.svg' {
 }
 
 declare module '@env' {
-  export const DEFAULT_API_URL: string;
-  export const NAMESPACE: string;
-  export const DEV_NETWORK_URL: string;
-  export const TEST_NETWORK_URL: string;
-  export const MAIN_NETWORK_URL: string;
-  export const ECKO_API_URL: string;
-  export const DEXTOOLS_API_URL: string;
   export const ENCRYPTION_KEY: string;
   export const WALLETCONNECT_PROJECT_ID: string;
   export const WALLETCONNECT_PROJECT_RELAY: string;
