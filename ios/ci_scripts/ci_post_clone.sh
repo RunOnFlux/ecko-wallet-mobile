@@ -1,4 +1,5 @@
 #!/bin/sh
+echo ">>> CI POST CLONE SCRIPT STARTED <<<"
 export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
 export NODE_OPTIONS=--max_old_space_size=8192
 
@@ -17,8 +18,8 @@ export PATH="$GEM_HOME/bin:$PATH"
 echo ">>> INSTALL BUNDLER"
 ruby -v
 rbenv init
-rbenv install 2.7.8
-rbenv global 2.7.8
+rbenv install 3.4.1
+rbenv global 3.4.1
 eval "$(rbenv init -)"
 ruby -v
 gem install bundler --install-dir $GEM_HOME
