@@ -22,6 +22,8 @@ import {verifyRecoveryPhraseSchema} from '../../validation/verifyRecoveryPhraseS
 import {makeSelectGeneratedPhrases} from '../../store/auth/selectors';
 import {useShallowEqualSelector} from '../../store/utils';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {useDispatch} from 'react-redux';
+import {setHasBackedUpPhrase} from '../../store/auth';
 
 const bgImage = require('../../assets/images/bgimage.png');
 
@@ -44,6 +46,8 @@ const VerifyRecoveryPhrase = () => {
     11: useRef<TextInput>(null),
     12: useRef<TextInput>(null),
   };
+
+  const dispatch = useDispatch();
 
   const seeds = useShallowEqualSelector(makeSelectGeneratedPhrases);
 
@@ -83,6 +87,7 @@ const VerifyRecoveryPhrase = () => {
       };
 
       if (validateSeeds()) {
+        dispatch(setHasBackedUpPhrase(true));
         navigation.dispatch(
           CommonActions.reset({
             index: 1,

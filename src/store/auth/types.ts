@@ -6,4 +6,5 @@ export type TAuthState = {
   isAuthorized: boolean;
   newPinCode: string | null;
   generatedPhrasesState: TDefaultRequestState<string[]>;
+  hasBackedUpPhrase: boolean;
 };
