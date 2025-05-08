@@ -36,3 +36,8 @@ export const makeSelectGeneratedPhrasesLoading = createSelector(
   selectedState,
   state => state.generatedPhrasesState.fetching,
 );
+
+export const makeSelectHasBackedUpPhrase = createSelector(
+  selectedState,
+  state => state.hasBackedUpPhrase,
+);

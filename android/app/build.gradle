@@ -71,9 +71,12 @@ def enableProguardInReleaseBuilds = false
  * this variant is about 6MiB larger per architecture than default.
  */
 def jscFlavor = 'org.webkit:android-jsc:+'
-def keystoreConfigFile = rootProject.file("keystore-config.properties")
-def keystoreConfig = new Properties()
-keystoreConfig.load(new FileInputStream(keystoreConfigFile))
+def keystoreConfig = [
+    storeFile: file("xwallet.keystore"),
+    storePassword: System.getenv("SIGNING_STORE_PASSWORD"),
+    keyAlias: System.getenv("SIGNING_KEY_ALIAS"),
+    keyPassword: System.getenv("SIGNING_KEY_PASSWORD"),
+]
 
 android {
     ndkVersion rootProject.ext.ndkVersion
@@ -90,10 +93,10 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file(keystoreConfig['APP_UPLOAD_STORE_FILE'])
-            storePassword keystoreConfig['APP_UPLOAD_STORE_PASSWORD']
-            keyAlias keystoreConfig['APP_UPLOAD_KEY_ALIAS']
-            keyPassword keystoreConfig['APP_UPLOAD_KEY_PASSWORD']
+            storeFile keystoreConfig.storeFile
+            storePassword keystoreConfig.storePassword
+            keyAlias keystoreConfig.keyAlias
+            keyPassword keystoreConfig.keyPassword
             v1SigningEnabled true
             v2SigningEnabled true
         }

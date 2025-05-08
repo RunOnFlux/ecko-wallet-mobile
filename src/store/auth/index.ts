@@ -8,6 +8,7 @@ const initialState: TAuthState = {
   newPinCode: null,
   isAuthorized: false,
   generatedPhrasesState: defaultRequestValues,
+  hasBackedUpPhrase: false,
 };
 
 export const auth = createSlice({
@@ -47,12 +48,16 @@ export const auth = createSlice({
     setGeneratedPhrasesError: (state, {payload}) => {
       state.generatedPhrasesState.error = payload;
     },
+    setHasBackedUpPhrase: (state, {payload}) => {
+      state.hasBackedUpPhrase = payload;
+    },
     setInitialAuthState: state => {
       state.password = initialState.password;
       state.pinCode = initialState.pinCode;
       state.newPinCode = initialState.newPinCode;
       state.isAuthorized = initialState.isAuthorized;
       state.generatedPhrasesState = initialState.generatedPhrasesState;
+      state.hasBackedUpPhrase = initialState.hasBackedUpPhrase;
     },
   },
 });
@@ -65,6 +70,7 @@ export const {
   signOut,
   setPhrases,
   setNewPinCode,
+  setHasBackedUpPhrase,
   setGeneratedPhrasesError,
   setGeneratedPhrasesLoading,
   setGeneratedPhrasesSuccess,
