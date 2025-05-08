@@ -9,6 +9,7 @@ import CircleArrowRightGreenSvg from '../../assets/images/circle-arrow-right-gre
 import {styles} from './styles';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {
+  makeSelectHasBackedUpPhrase,
   makeSelectHashPassword,
   makeSelectPinCode,
 } from '../../store/auth/selectors';
@@ -23,6 +24,7 @@ const Welcome = () => {
   const hasAccount = useSelector(makeSelectHasAccount);
   const storedPinCode = useSelector(makeSelectPinCode);
   const storedPasswordHash = useSelector(makeSelectHashPassword);
+  const hasBackedUpPhrase = useSelector(makeSelectHasBackedUpPhrase);
 
   const navigateTo = useCallback(
     (route: any) => () => {
@@ -58,7 +60,7 @@ const Welcome = () => {
           <Text style={styles.welcome}>{'Welcome to\neckoWALLET'}</Text>
           <Text style={styles.smText}>The Kadena ecosystem gateway</Text>
           <View style={styles.cards}>
-            {storedPasswordHash ? (
+            {storedPasswordHash && hasBackedUpPhrase ? (
               <Card
                 title="Login to my account"
                 description="Enter your wallet password"
