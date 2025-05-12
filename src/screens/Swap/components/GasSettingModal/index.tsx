@@ -1,18 +1,20 @@
-import React, {FC, useEffect, useMemo, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {View, Text, Switch} from 'react-native';
-import {styles} from './styles';
+import {useTranslation} from 'react-i18next';
 import Modal from '../../../../components/Modal';
 import Input from '../../../../components/Input';
 import RadioButtons from './RadioButtons';
-import {commonColors, MAIN_COLOR} from '../../../../constants/styles';
 import {usePactContext} from '../../../../contexts';
 import {GAS_OPTIONS} from '../../../../constants';
 import {getDecimalPlaces} from '../../../../utils/numberHelpers';
+import {commonColors, MAIN_COLOR} from '../../../../constants/styles';
 import {TGasSettingModalProps, TSpeed} from './types';
+import {styles} from './styles';
 
 const speedValues: TSpeed[] = ['low', 'normal', 'fast'];
 
 const GasSettingModal: FC<TGasSettingModalProps> = ({isVisible, toggle}) => {
+  const {t} = useTranslation();
   const pact = usePactContext();
   const [speed, setSpeed] = useState<TSpeed>('low');
 
@@ -21,53 +23,49 @@ const GasSettingModal: FC<TGasSettingModalProps> = ({isVisible, toggle}) => {
       pact.setGasConfiguration(GAS_OPTIONS.low.SWAP);
       setSpeed('low');
     }
-  }, [pact.enableGasStation, pact.setGasConfiguration]);
+  }, [pact.enableGasStation, pact]);
 
   useEffect(() => {
     if (!pact.enableGasStation && pact.networkGasData.networkCongested) {
-      handleSuggestedPrice(speed);
+      const networkGas =
+        speed === 'low'
+          ? pact.networkGasData.lowestGasPrice
+          : speed === 'normal'
+          ? pact.networkGasData.suggestedGasPrice
+          : pact.networkGasData.highestGasPrice;
+
+      if (
+        pact.networkGasData.networkCongested &&
+        networkGas > GAS_OPTIONS[speed].SWAP.gasPrice
+      ) {
+        pact.handleGasConfiguration('gasPrice', networkGas.toString());
+      } else {
+        pact.setGasConfiguration(GAS_OPTIONS[speed].SWAP);
+      }
     }
-  }, [
-    speed,
-    pact.networkGasData.networkCongested,
-    pact.networkGasData.suggestedGasPrice,
-    pact.networkGasData.highestGasPrice,
-    pact.networkGasData.lowestGasPrice,
-  ]);
+  }, [speed, pact]);
 
-  const handleSuggestedPrice = (type: TSpeed) => {
-    let networkGas =
-      type === 'low'
-        ? pact.networkGasData.lowestGasPrice
-        : type === 'normal'
-        ? pact.networkGasData.suggestedGasPrice
-        : pact.networkGasData.highestGasPrice;
+  const toggleSwitch = () => pact.setEnableGasStation(prev => !prev);
 
-    pact.networkGasData.networkCongested &&
-    networkGas > GAS_OPTIONS[type].SWAP.gasPrice
-      ? pact.handleGasConfiguration('gasPrice', networkGas.toString())
-      : pact.setGasConfiguration(GAS_OPTIONS[type].SWAP);
-  };
-
-  const toggleSwitch = () =>
-    pact.setEnableGasStation(previousState => !previousState);
-
-  const color = useMemo(() => {
-    return pact.gasConfiguration?.gasPrice * pact.gasConfiguration?.gasLimit >
-      0.5
+  const gasConfig = pact.gasConfiguration;
+  const gasFee = gasConfig.gasPrice * gasConfig.gasLimit;
+  const color =
+    gasFee > 0.5
       ? commonColors.error
-      : pact.gasConfiguration?.gasPrice * pact.gasConfiguration?.gasLimit <=
-          0.5 &&
-        pact.gasConfiguration?.gasPrice * pact.gasConfiguration?.gasLimit > 0.01
+      : gasFee <= 0.5 && gasFee > 0.01
       ? commonColors.orange
       : commonColors.green;
-  }, [pact.gasConfiguration?.gasPrice, pact.gasConfiguration?.gasLimit]);
 
   return (
-    <Modal isVisible={isVisible} close={toggle} title="Gas Settings">
+    <Modal
+      isVisible={isVisible}
+      close={toggle}
+      title={t('swap.gasSettings.title')}>
       <View style={styles.modalContainer}>
         <View style={styles.header}>
-          <Text style={styles.gasStation}>GAS STATION</Text>
+          <Text style={styles.gasStation}>
+            {t('swap.gasSettings.gasStation')}
+          </Text>
           <Switch
             value={pact.enableGasStation}
             onValueChange={toggleSwitch}
@@ -75,31 +73,30 @@ const GasSettingModal: FC<TGasSettingModalProps> = ({isVisible, toggle}) => {
             thumbColor={pact.enableGasStation ? MAIN_COLOR : '#f4f3f4'}
           />
         </View>
+
         {!pact.enableGasStation ? (
           <>
             <Input
               keyboardType="numeric"
               maxLength={10}
-              label="Gas Limit"
-              placeholder="Gas Limit"
-              autoCapitalize="none"
+              label={t('swap.gasSettings.gasLimitLabel')}
+              placeholder={t('swap.gasSettings.gasLimitPlaceholder')}
               wrapperStyle={styles.inputWrapper}
               onChangeText={value =>
                 pact.handleGasConfiguration('gasLimit', value)
               }
-              value={pact.gasConfiguration?.gasLimit.toString()}
+              value={gasConfig.gasLimit.toString()}
             />
             <Input
-              maxLength={10}
               keyboardType="numeric"
-              label="Gas Price"
-              placeholder="Gas Price"
-              autoCapitalize="none"
+              maxLength={10}
+              label={t('swap.gasSettings.gasPriceLabel')}
+              placeholder={t('swap.gasSettings.gasPricePlaceholder')}
               wrapperStyle={styles.inputWrapper}
               onChangeText={value =>
                 pact.handleGasConfiguration('gasPrice', value)
               }
-              value={pact.gasConfiguration?.gasPrice.toString()}
+              value={gasConfig.gasPrice.toString()}
             />
             <RadioButtons<TSpeed>
               options={speedValues}
@@ -108,21 +105,15 @@ const GasSettingModal: FC<TGasSettingModalProps> = ({isVisible, toggle}) => {
             />
             <View style={styles.info}>
               <Text style={styles.title}>
-                Potential gas cost for transaction failure:
+                {t('swap.gasSettings.failureCost')}
               </Text>
               <Text style={[styles.value, {color}]}>
-                {getDecimalPlaces(
-                  pact.gasConfiguration?.gasPrice *
-                    pact.gasConfiguration?.gasLimit,
-                )}{' '}
-                KDA
+                {getDecimalPlaces(gasFee)} KDA
               </Text>
             </View>
           </>
         ) : (
-          <Text style={styles.title}>
-            No gas cost - subsidized by eckoDEX through Kadena gas stations.
-          </Text>
+          <Text style={styles.title}>{t('swap.gasSettings.noGasCost')}</Text>
         )}
       </View>
     </Modal>

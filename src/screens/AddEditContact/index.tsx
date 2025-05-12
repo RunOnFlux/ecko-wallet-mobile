@@ -2,7 +2,7 @@ import React, {useCallback} from 'react';
 import {Platform, ScrollView, View, KeyboardAvoidingView} from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {useDispatch} from 'react-redux';
-
+import {useTranslation} from 'react-i18next';
 import Header from './components/Header';
 import FooterButton from '../../components/FooterButton';
 import Input from '../../components/Input';
@@ -22,6 +22,7 @@ import {
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const AddEditContact = () => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.AddEditContact>>();
   const route =
@@ -70,8 +71,8 @@ const AddEditContact = () => {
             name="contactName"
             render={({field: {onChange, onBlur, value}}) => (
               <Input
-                label="Contact Name"
-                placeholder="Type Contact Name"
+                label={t('addEditContact.contactName.label')}
+                placeholder={t('addEditContact.contactName.placeholder')}
                 wrapperStyle={styles.inputWrapper}
                 onChangeText={onChange}
                 onBlur={onBlur}
@@ -85,8 +86,8 @@ const AddEditContact = () => {
             name="accountName"
             render={({field: {onChange, onBlur, value}}) => (
               <Input
-                label="Account Name"
-                placeholder="Insert Account Name"
+                label={t('addEditContact.accountName.label')}
+                placeholder={t('addEditContact.accountName.placeholder')}
                 multiline
                 numberOfLines={5}
                 wrapperStyle={styles.inputWrapper}
@@ -115,7 +116,7 @@ const AddEditContact = () => {
         </ScrollView>
         <View style={styles.footer}>
           <FooterButton
-            title="Save"
+            title={t('addEditContact.saveButton')}
             onPress={handleSubmit(handlePressSave)}
             disabled={!isValid}
           />

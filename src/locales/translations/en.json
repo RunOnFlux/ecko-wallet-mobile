@@ -1,0 +1,577 @@
+{
+  "common": {
+    "saveButton": "Save",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "ok": "OK"
+  },
+  "welcome": {
+    "title": "Welcome to\neckoWALLET",
+    "subtitle": "The Kadena ecosystem gateway",
+    "loginCard": {
+      "title": "Login to my account",
+      "description": "Enter your wallet password"
+    },
+    "newUserCard": {
+      "title": "I’m a new user",
+      "description": "Setup new eckoWALLET account"
+    },
+    "recoverCard": {
+      "title": "I have an account",
+      "description": "Login with your secret phrase"
+    },
+    "instructions": {
+      "intro": "To add a new account, please follow the following steps:",
+      "step1": "1. Login to your existing account",
+      "step2": "2. Click on \"Settings\"",
+      "step3": "3. Click on \"Delete account\""
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Contact Name",
+      "placeholder": "Type Contact Name"
+    },
+    "accountName": {
+      "label": "Account Name",
+      "placeholder": "Insert Account Name"
+    },
+    "saveButton": "Save",
+    "header": {
+      "title": "Add Contact"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Custom",
+    "alert": {
+      "failureTitle": "Failed to add the network",
+      "failureMessage": "Invalid network information"
+    },
+    "name": {
+      "label": "Network Name",
+      "placeholder": "Insert Network Name"
+    },
+    "host": {
+      "label": "New RPC URL",
+      "placeholder": "Insert URL"
+    },
+    "explorer": {
+      "label": "Block Explorer URL",
+      "placeholder": "Insert URL"
+    },
+    "header": {
+      "title": "Add Network"
+    },
+    "saveButton": "Save"
+  },
+  "addToken": {
+    "header": {
+      "title": "Add Token",
+      "titleImport": "Import Token"
+    },
+    "tokenAddress": {
+      "label": "Token Contract Address",
+      "placeholder": "Type Contract Address"
+    },
+    "tokenName": {
+      "label": "Token Symbol",
+      "placeholder": "Type Token Symbol"
+    },
+    "alert": {
+      "failureTitle": "Failed to import the token",
+      "failureMessage": "Token does not exist"
+    },
+    "saveButton": "Add Token"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Buy"
+    },
+    "consent": {
+      "description": "The purchase and sale of cryptocurrencies are facilitated through a third-party service provided by Onramper.\n\nWhile eckoWallet is committed to ensuring the highest level of security for its users, we cannot guarantee the security and privacy of third-party services."
+    },
+    "error": {
+      "walletUnavailable": "Wallet address not available",
+      "unableConnect": "Unable to connect to the service. Please try again later."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Change Password"
+    },
+    "currentPassword": {
+      "label": "Current Password"
+    },
+    "newPassword": {
+      "label": "New Password"
+    },
+    "confirmPassword": {
+      "label": "Confirm Password"
+    },
+    "toast": {
+      "success": "Password has been successfully changed!"
+    },
+    "alert": {
+      "changeFailureTitle": "Failed to change password",
+      "changeFailureMessage": "Something went wrong. Please try again later.",
+      "verifyFailureTitle": "Failed to verify",
+      "verifyFailureMessage": "Invalid password"
+    },
+    "changeButton": "Change Password"
+  },
+  "connection": {
+    "unknown": "Unknown Connection",
+    "deleteAlert": {
+      "title": "Are you sure to delete this active session?",
+      "message": "All data of the session will be deleted and cannot be restored."
+    },
+    "deleteFailureTitle": "Failed to delete the active session",
+    "deleteFailureMessage": "WalletConnect config does not match",
+    "empty": {
+      "sessions": "No history",
+      "pairings": "No active sessions"
+    },
+    "modal": {
+      "title": "WalletConnect Info"
+    },
+    "expiryLabel": "Expiry:",
+    "unknownHost": "Unknown"
+  },
+  "contacts": {
+    "searchPlaceholder": "Search contacts",
+    "emptyList": "No contacts for now",
+    "header": {
+      "title": "Contacts"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Recovery secret phrase copied to clipboard!",
+    "description": "Your Secret Recovery Phrase makes it easy to back up and restore your account.",
+    "warning": "Never disclose your Secret Recovery Phrase. Anyone with this phrase can take your wallet forever.",
+    "copyButton": "Copy Recovery Phrase",
+    "header": {
+      "title": "Export Recovery Phrase"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Verify Password"
+    },
+    "description": "Enter your password to continue",
+    "alert": {
+      "verifyFailureTitle": "Failed to verify",
+      "verifyFailureMessage": "Invalid password",
+      "verifyErrorMessage": "Something went wrong. Please try again later."
+    },
+    "continueButton": "Continue"
+  },
+  "history": {
+    "empty": {
+      "pending": "No pending activities",
+      "activities": "No activities found"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Transfer is pending!",
+      "pendingMessage": "Please try again once transfer is finished"
+    },
+    "finishButton": "Finish Cross Chain Transfer"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Account Name",
+      "placeholder": "Type Account Name"
+    },
+    "privateKey": {
+      "label": "Private Key",
+      "placeholder": "Type Private Key"
+    },
+    "importButton": "Import",
+    "header": {
+      "title": "Import Account"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Unlock eckoWALLET",
+      "enter": "Enter your passcode",
+      "enterNew": "Enter new passcode",
+      "reenter": "Re-enter your passcode",
+      "reenterNew": "Re-enter new passcode"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Networks"
+    }
+  },
+  "noConnection": {
+    "message": "No Network Connection"
+  },
+  "receiverScan": {
+    "placeholder": "Edit destination account",
+    "header": {
+      "title": "Scan QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Seed Phrases",
+      "placeholder": "Enter Secret Phrases"
+    },
+    "accountIndex": {
+      "label": "Account Number",
+      "placeholder": "Default: 0"
+    },
+    "alert": {
+      "failureTitle": "Failed to import the account",
+      "failureMessage": "Invalid secret recovery phrase"
+    },
+    "button": {
+      "recover": "Recover"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Import a wallet with\nSecret Recovery Phrase",
+    "seeds": {
+      "label": "Secret Phrases (with spaces)",
+      "placeholder": "Enter Secret Phrases"
+    },
+    "password": {
+      "label": "New Password"
+    },
+    "confirmPassword": {
+      "label": "Confirm Password"
+    },
+    "button": {
+      "restore": "Restore"
+    },
+    "alert": {
+      "failureTitle": "Failed to import the account",
+      "failureMessage": "Something went wrong. Please try again later.",
+      "invalidSeeds": "Invalid secret recovery phrase or deleted account"
+    }
+  },
+  "registration": {
+    "text": "Create Password",
+    "password": {
+      "label": "New Password"
+    },
+    "confirmPassword": {
+      "label": "Confirm Password"
+    },
+    "button": {
+      "create": "Create"
+    },
+    "alert": {
+      "failureTitle": "Failed to register",
+      "failureMessage": "Something went wrong. Please try again later."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Search token",
+    "empty": "No tokens found",
+    "alert": {
+      "notFungibleTitle": "Not fungible token",
+      "notFungibleMessage": "Selected token is not fungible"
+    },
+    "header": {
+      "title": "Search Token"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Secret Recovery Phrase",
+    "reveal": "Click here to reveal secret words",
+    "snackbar": "Recovery secret phrase copied to clipboard!",
+    "description1": "Your Secret Recovery Phrase makes it easy to back up and restore your account.",
+    "description2": "Warning: Never disclose your Secret Recovery Phrase. We recommend not to take screenshots when viewing secret phrases. Anyone with this phrase can take your wallet forever.",
+    "continue": "Continue"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Secret Recovery Phrase",
+    "line1": "In the next step you will record your 12 word recovery phrase.",
+    "line2": "Your recovery phrase makes it easy to restore your wallet on a new device.",
+    "line3": "Anyone with this phrase can take control of your wallet, keep this phrase private.",
+    "line4": "Kadena cannot access your recovery phrase if lost or if app is deleted, please store it safely.",
+    "checkbox": "I understand that if I lose my recovery phrase, I will not be able to restore my wallet."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Transfer is pending!",
+      "pendingMessage": "Please try again once transfer is finished"
+    },
+    "alert": {
+      "nonKTitle": "Sending to a non \"k:account\"",
+      "nonKMessage": "Are you sure you want to proceed?",
+      "proceed": "Proceed"
+    },
+    "chain": {
+      "sourceLabel": "Source Chain ID",
+      "targetLabel": "Target Chain ID"
+    },
+    "balance": {
+      "label": "Chain balance"
+    },
+    "accounts": {
+      "recent": "Recent",
+      "contacts": "Contacts"
+    },
+    "content": {
+      "advancedSettings": "Advanced Settings (Optional)",
+      "predicateLabel": "Predicate",
+      "receiverLabel": "Receiver Public Key",
+      "destinationLabel": "Destination Account",
+      "destinationPlaceholder": "Enter destination account",
+      "receiverPlaceholder": "Enter Public Key (Optional)"
+    },
+    "header": {
+      "title": "Send {{token}} Transaction"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Don’t close the application\nwhile it’s processing the operation."
+    },
+    "toast": {
+      "submittedTitle": "Transfer submitted!",
+      "submittedMessage": "You can see the result in the activities tab"
+    },
+    "label": {
+      "result": "Result:",
+      "message": "Message:",
+      "requestKey": "Request Key:"
+    },
+    "warning": {
+      "crossChainTitle": "You are performing a cross chain transfer",
+      "crossChainMessage": "This operation usually takes more time"
+    },
+    "button": {
+      "activities": "Go To Activities"
+    },
+    "header": {
+      "title": "Transaction is in progress"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "You are about to do a cross chain transfer",
+      "crossChainMessage": "This operation usually takes more time"
+    },
+    "button": {
+      "send": "Send"
+    },
+    "confirmModal": {
+      "title": "Confirm Send Transaction",
+      "amountLabel": "Amount:",
+      "gasLimitLabel": "Gas Limit:",
+      "gasPriceLabel": "Gas Price:",
+      "speedLabel": "Speed:",
+      "confirmButton": "Confirm"
+    },
+    "content": {
+      "transactionParameters": "Transaction Parameters",
+      "transactionSpeed": "Transaction speed",
+      "gasLimitPlaceholder": "Type Gas Limit",
+      "gasPricePlaceholder": "Type Gas Price",
+      "gasLabel": "Gas",
+      "speedLabel": "{{speed}} Speed"
+    },
+    "header": {
+      "title": "Send Transaction"
+    },
+    "walletInfo": {
+      "amountLabel": "Amount to send",
+      "half": "half",
+      "max": "max",
+      "maxSnackbar": "Max amount also takes into consideration the estimated gas fee.",
+      "usdValue": "{{value}} USD",
+      "balance": "Balance: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Contacts",
+        "text": "Manage your contact list"
+      },
+      "networks": {
+        "title": "Networks",
+        "text": "Add or edit custom RPC networks"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Edit WalletConnect config"
+      },
+      "accountSecurity": {
+        "title": "Account Security",
+        "text": "Manage your account wallet security"
+      },
+      "lockWallet": {
+        "title": "Lock Wallet",
+        "text": "All history data will remain"
+      },
+      "deleteAccount": {
+        "title": "Delete Account",
+        "text": "All account data will be deleted"
+      }
+    },
+    "alert": {
+      "lockTitle": "Are you sure to lock wallet?",
+      "lockMessage": "All history data will remain",
+      "lockConfirm": "Lock Wallet",
+      "deleteTitle": "Are you sure to delete account?",
+      "deleteMessage": "All account data will be deleted. If you do not have your seed phrase you will lose all access to your funds.",
+      "deleteConfirm": "Delete Account"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "The Kadena ecosystem gateway",
+      "visitWebsite": "Visit our website",
+      "joinDiscord": "Join us on Discord",
+      "termsOfUse": "Terms of use",
+      "privacyPolicy": "Privacy Policy"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Account Security"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Reset Passcode",
+        "text": "Change app passcode"
+      },
+      "exportPhrase": {
+        "title": "Export Recovery Phrase",
+        "text": "Protect your wallet"
+      },
+      "changePassword": {
+        "title": "Change Password",
+        "text": "Change Account Password"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Welcome",
+    "label": {
+      "password": "Password"
+    },
+    "button": {
+      "signIn": "Sign in"
+    },
+    "alert": {
+      "usePasscodeTitle": "Use passcode Login to sign in?",
+      "usePasscodeMessage": "Would you like to use passcode and biometrics to access eckoWALLET?",
+      "failedTitle": "Failed to login",
+      "invalidPassword": "Invalid password",
+      "errorMessage": "Something went wrong. Please try again later."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Convert Confirmation",
+      "give": "GIVE",
+      "receive": "RECEIVE",
+      "confirmButton": "Confirm"
+    },
+    "gasSettings": {
+      "title": "Gas Settings",
+      "gasStation": "GAS STATION",
+      "gasLimitLabel": "Gas Limit",
+      "gasLimitPlaceholder": "Gas Limit",
+      "gasPriceLabel": "Gas Price",
+      "gasPricePlaceholder": "Gas Price",
+      "failureCost": "Potential gas cost for transaction failure:",
+      "noGasCost": "No gas cost - subsidized by eckoDEX through Kadena gas stations."
+    },
+    "info": {
+      "gasCost": "Gas Cost",
+      "free": "FREE",
+      "priceImpact": "Price Impact",
+      "price": "Price",
+      "maxSlippage": "Max Slippage",
+      "lpFee": "Liquidity Provider Fee",
+      "txDeadline": "Transaction Deadline",
+      "gasPrice": "Gas Price",
+      "gasLimit": "Gas Limit",
+      "unitMinutes": "minutes",
+      "unitSeconds": "seconds"
+    },
+    "selectTokenModal": {
+      "title": "Select Token",
+      "placeholder": "Search token",
+      "tokensLabel": "Tokens",
+      "warningTitle": "Warning",
+      "warningMessage": "Pool {{pair}} does not exist",
+      "addTokenTitle": "Adding New Token",
+      "addTokenMessage": "This token does not exist in your wallet. Would you like to add?",
+      "addTokenConfirm": "Add",
+      "selectedSuffix": " (Selected)",
+      "empty": "Token not found"
+    },
+    "transactionSettings": {
+      "title": "Transaction Settings",
+      "slippageTitle": "Slippage Tolerance",
+      "deadlineTitle": "Transaction Deadline",
+      "minutes": "minutes"
+    },
+    "swapBlock": {
+      "pending": "Transaction pending...",
+      "warningTitle": "To use our convert functionality, first, make sure to have funds on Chain 2.",
+      "warningText": "",
+      "give": "GIVE",
+      "receive": "RECEIVE",
+      "confirm": "CONFIRM",
+      "submittedTitle": "Swap submitted!",
+      "submittedMessage": "You can see the result in the activities tab",
+      "poweredBy": "Powered by eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Verify Recovery Phrase",
+    "description": "Please confirm your recovery phrase by typing the words in the correct order.",
+    "warning": "It is recommended not to use custom keyboards. Please use default keyboard for security reasons.",
+    "inputLabel": "Input {{number}}",
+    "error": "Invalid recovery phrases",
+    "continueButton": "Continue"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Assets"
+      },
+      "tokenDetector": {
+        "title": "Detected Tokens",
+        "emptyTitle": "No other tokens found for this account",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Account name copied to clipboard!"
+    },
+    "walletBalance": {
+      "netWorth": "Net Worth",
+      "accountBalance": "Account Balance",
+      "send": "Send",
+      "receive": "Receive",
+      "buy": "Buy"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Type connection code",
+    "connect": "Connect",
+    "header": {
+      "title": "Scan QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "Project ID",
+    "projectIdPlaceholder": "Enter Project ID",
+    "relayUrlLabel": "Relay URL",
+    "relayUrlPlaceholder": "Enter Relay URL",
+    "errorTitle": "Failed to change WalletConnect config",
+    "errorMessage": "Invalid parameters"
+  }
+}

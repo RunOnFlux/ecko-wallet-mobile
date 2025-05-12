@@ -1,6 +1,4 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useCallback, useRef} from 'react';
-import {Controller, FieldValues, useForm} from 'react-hook-form';
+import React, {useCallback, useRef, useEffect} from 'react';
 import {
   Alert,
   ImageBackground,
@@ -10,19 +8,23 @@ import {
   TouchableOpacity,
   View,
   KeyboardAvoidingView,
+  Keyboard,
 } from 'react-native';
-import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+import {useForm, Controller, FieldValues} from 'react-hook-form';
+import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
-import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
+import {useNavigation} from '@react-navigation/native';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
+import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
 import Logo from '../../assets/images/logo.svg';
 import PasswordInput from '../../components/PasswordInput';
+import FooterButton from '../../components/FooterButton';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {setPassword, setPhrases} from '../../store/auth';
 import {getRestoreAccount} from '../../store/userWallet/actions';
 import {makeSelectHasAccount} from '../../store/userWallet/selectors';
 import {recoverySchema} from '../../validation/recoverySchema';
-
 import {validateSeeds} from '../../api/kadena/validateSeeds';
 import {hashPassword} from '../../api/kadena/hashPassword';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
@@ -31,11 +33,12 @@ import {createStyles} from './styles';
 const bgImage = require('../../assets/images/bgimage.png');
 
 const RecoveryFromSeeds = () => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.RecoveryFromSeeds>>();
-
   const dispatch = useDispatch();
   const hasAccount = useSelector(makeSelectHasAccount);
+
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
   const styles = createStyles({bottomSpace, statusBarHeight});
 
@@ -54,91 +57,72 @@ const RecoveryFromSeeds = () => {
 
   const handlePressRecover = useCallback(
     ({seeds, password}: FieldValues) => {
-      if (hasAccount) {
-        return;
-      }
-      seeds = seeds.trim();
-      validateSeeds({
-        seeds: seeds || '',
-      })
-        .then(async isValidated => {
-          if (isValidated) {
+      if (hasAccount) return;
+      const trimmed = seeds.trim();
+      validateSeeds({seeds: trimmed || ''})
+        .then(async valid => {
+          if (valid) {
             hashPassword({password: password || ''})
-              .then(async hashResponseHash => {
-                if (hashResponseHash) {
-                  dispatch(setPassword(hashResponseHash));
-                  dispatch(setPhrases(seeds.split(' ')));
+              .then(hashResponse => {
+                if (hashResponse) {
+                  dispatch(setPassword(hashResponse));
+                  dispatch(setPhrases(trimmed.split(' ')));
                   dispatch(
-                    getRestoreAccount({
-                      seeds: seeds || '',
-                      accountIndex: 0,
-                    }),
+                    getRestoreAccount({seeds: trimmed, accountIndex: 0}),
                   );
                   navigation.navigate({
                     name: ERootStackRoutes.SignIn,
                     params: undefined,
                   });
                 } else {
-                  ReactNativeHapticFeedback.trigger('impactMedium', {
-                    enableVibrateFallback: false,
-                    ignoreAndroidSystemSettings: false,
-                  });
+                  ReactNativeHapticFeedback.trigger('impactMedium');
                   Alert.alert(
-                    'Failed to import the account',
-                    'Something went wrong. Please try again later.',
+                    t('recoveryFromSeeds.alert.failureTitle'),
+                    t('recoveryFromSeeds.alert.failureMessage'),
                   );
                 }
               })
               .catch(() => {
-                ReactNativeHapticFeedback.trigger('impactMedium', {
-                  enableVibrateFallback: false,
-                  ignoreAndroidSystemSettings: false,
-                });
+                ReactNativeHapticFeedback.trigger('impactMedium');
                 Alert.alert(
-                  'Failed to import the account',
-                  'Something went wrong. Please try again later.',
+                  t('recoveryFromSeeds.alert.failureTitle'),
+                  t('recoveryFromSeeds.alert.failureMessage'),
                 );
               });
           } else {
-            ReactNativeHapticFeedback.trigger('impactMedium', {
-              enableVibrateFallback: false,
-              ignoreAndroidSystemSettings: false,
-            });
+            ReactNativeHapticFeedback.trigger('impactMedium');
             Alert.alert(
-              'Failed to import the account',
-              'Invalid secret recovery phrase or deleted account',
+              t('recoveryFromSeeds.alert.failureTitle'),
+              t('recoveryFromSeeds.alert.invalidSeeds'),
             );
           }
         })
         .catch(() => {
-          ReactNativeHapticFeedback.trigger('impactMedium', {
-            enableVibrateFallback: false,
-            ignoreAndroidSystemSettings: false,
-          });
+          ReactNativeHapticFeedback.trigger('impactMedium');
           Alert.alert(
-            'Failed to import the account',
-            'Invalid secret recovery phrase or deleted account',
+            t('recoveryFromSeeds.alert.failureTitle'),
+            t('recoveryFromSeeds.alert.invalidSeeds'),
           );
         });
     },
-    [navigation, hasAccount],
+    [dispatch, hasAccount, navigation, t],
   );
 
   const scrollRef = useRef<ScrollView | null>(null);
 
-  if (hasAccount) {
-    navigation.replace(ERootStackRoutes.SignIn);
-    return null;
-  }
+  useEffect(() => {
+    if (hasAccount) {
+      navigation.replace(ERootStackRoutes.SignIn);
+    }
+  }, [hasAccount, navigation]);
 
   return (
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>
       <View style={styles.header}>
-        <TouchableOpacity activeOpacity={0.8} onPress={handlePressBack}>
+        <TouchableOpacity onPress={handlePressBack} activeOpacity={0.8}>
           <ArrowLeftSvg fill="white" />
         </TouchableOpacity>
       </View>
-
       <KeyboardAvoidingView
         style={{flex: 1}}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -147,14 +131,10 @@ const RecoveryFromSeeds = () => {
           ref={scrollRef}
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
-          bounces={false}
-          style={styles.contentWrapper}
-          contentContainerStyle={styles.content}>
+          contentContainerStyle={styles.content}
+          style={styles.contentWrapper}>
           <Logo width={50} height={50} />
-          <Text style={styles.text}>
-            {'Import a wallet with\nSecret Recovery Phrase'}
-          </Text>
-
+          <Text style={styles.text}>{t('recoveryFromSeeds.text')}</Text>
           <View style={styles.inputsContainer}>
             <Controller
               control={control}
@@ -162,15 +142,13 @@ const RecoveryFromSeeds = () => {
               render={({field: {onChange, onBlur, value}}) => (
                 <PasswordInput
                   wrapperStyle={styles.seeds}
-                  autoFocus={true}
-                  label="Secret Phrases (with spaces)"
+                  autoFocus
+                  label={t('recoveryFromSeeds.seeds.label')}
+                  placeholder={t('recoveryFromSeeds.seeds.placeholder')}
                   onChangeText={onChange}
-                  value={value}
                   onBlur={onBlur}
-                  placeholder="Enter Secret Phrases"
+                  value={value}
                   errorMessage={errors.seeds?.message as string}
-                  multiline={false}
-                  numberOfLines={1}
                 />
               )}
             />
@@ -180,10 +158,10 @@ const RecoveryFromSeeds = () => {
               render={({field: {onChange, onBlur, value}}) => (
                 <PasswordInput
                   wrapperStyle={styles.password}
-                  label="New Password"
+                  label={t('recoveryFromSeeds.password.label')}
                   onChangeText={onChange}
-                  value={value}
                   onBlur={onBlur}
+                  value={value}
                   errorMessage={errors.password?.message as string}
                 />
               )}
@@ -194,10 +172,10 @@ const RecoveryFromSeeds = () => {
               render={({field: {onChange, onBlur, value}}) => (
                 <PasswordInput
                   wrapperStyle={styles.confirmPassword}
-                  label="Confirm Password"
+                  label={t('recoveryFromSeeds.confirmPassword.label')}
                   onChangeText={onChange}
-                  value={value}
                   onBlur={onBlur}
+                  value={value}
                   errorMessage={errors.confirmPassword?.message as string}
                   onSubmitEditing={handleSubmit(handlePressRecover)}
                 />
@@ -205,14 +183,15 @@ const RecoveryFromSeeds = () => {
             />
           </View>
         </ScrollView>
-
         <View style={styles.buttonContainer}>
           <TouchableOpacity
-            activeOpacity={0.8}
             disabled={!isValid}
             style={[styles.button, !isValid && styles.disabledBtn]}
-            onPress={handleSubmit(handlePressRecover)}>
-            <Text style={styles.buttonText}>Restore</Text>
+            onPress={handleSubmit(handlePressRecover)}
+            activeOpacity={0.8}>
+            <Text style={styles.buttonText}>
+              {t('recoveryFromSeeds.button.restore')}
+            </Text>
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>

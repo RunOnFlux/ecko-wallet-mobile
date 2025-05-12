@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
-import {Text, View} from 'react-native';
-
+import {View, Text} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import Modal from '../../../../components/Modal';
 import {createStyles} from './styles';
 import {TConfirmModal} from './types';
@@ -21,6 +21,7 @@ import {useSelector} from 'react-redux';
 import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
 
 const ConfirmModal: FC<TConfirmModal> = ({isVisible, close, onConfirm}) => {
+  const {t} = useTranslation();
   const sourceAccount = useShallowEqualSelector(makeSelectSelectedAccount);
   const selectedToken = useShallowEqualSelector(makeSelectSelectedToken);
   const gatheredInfo = useShallowEqualSelector(makeSelectGatheredInfo);
@@ -35,7 +36,7 @@ const ConfirmModal: FC<TConfirmModal> = ({isVisible, close, onConfirm}) => {
     <Modal
       isVisible={isVisible}
       close={close}
-      title="Confirm Send Transaction"
+      title={t('sendSummary.confirmModal.title')}
       contentStyle={styles.content}>
       <View style={styles.container}>
         <AccountFromTo
@@ -46,32 +47,44 @@ const ConfirmModal: FC<TConfirmModal> = ({isVisible, close, onConfirm}) => {
         />
         <View style={styles.detailContainer}>
           <View style={styles.item}>
-            <Text style={styles.title}>{'Amount:'}</Text>
-            <Text style={styles.text}>{`${gatheredInfo?.amount || 0} ${
-              selectedToken?.tokenName || ''
-            }`}</Text>
+            <Text style={styles.title}>
+              {t('sendSummary.confirmModal.amountLabel')}
+            </Text>
+            <Text style={styles.text}>
+              {`${gatheredInfo?.amount || 0} ${selectedToken?.tokenName || ''}`}
+            </Text>
           </View>
           <View style={styles.item}>
-            <Text style={styles.title}>{'Gas Limit:'}</Text>
+            <Text style={styles.title}>
+              {t('sendSummary.confirmModal.gasLimitLabel')}
+            </Text>
             <Text style={styles.text}>{gasLimit}</Text>
           </View>
           <View style={styles.item}>
-            <Text style={styles.title}>{'Gas Price:'}</Text>
+            <Text style={styles.title}>
+              {t('sendSummary.confirmModal.gasPriceLabel')}
+            </Text>
             <Text style={styles.text}>{gasPrice}</Text>
           </View>
           <View style={styles.item}>
-            <Text style={styles.title}>{'Speed:'}</Text>
-            <Text style={styles.text}>{`${speed.toUpperCase()}`}</Text>
+            <Text style={styles.title}>
+              {t('sendSummary.confirmModal.speedLabel')}
+            </Text>
+            <Text style={styles.text}>{speed.toUpperCase()}</Text>
           </View>
         </View>
         <View style={styles.footer}>
-          {isCrossChainTransfer ? (
+          {isCrossChainTransfer && (
             <Warning
-              title="You are about to do a cross chain transfer"
-              text="This operation usually takes more time"
+              title={t('sendSummary.warning.crossChainTitle')}
+              text={t('sendSummary.warning.crossChainMessage')}
             />
-          ) : null}
-          <Button style={styles.button} onPress={onConfirm} title="CONFIRM" />
+          )}
+          <Button
+            style={styles.button}
+            onPress={onConfirm}
+            title={t('sendSummary.confirmModal.confirmButton')}
+          />
         </View>
       </View>
     </Modal>

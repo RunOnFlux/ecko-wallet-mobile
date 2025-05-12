@@ -1,5 +1,6 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import {Text, View} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
 
 import ArrowTopRightSvg from '../../../../assets/images/arrow-top-right.svg';
@@ -22,8 +23,8 @@ import {TAccount, TWallet} from '../../../../store/userWallet/types';
 import {numberWithCommas} from '../../../../utils/stringHelpers';
 
 const WalletBalance = React.memo(() => {
+  const {t} = useTranslation();
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
-
   const dispatch = useDispatch();
 
   const accounts = useShallowEqualSelector(makeSelectAccounts);
@@ -82,15 +83,13 @@ const WalletBalance = React.memo(() => {
     dispatch(setSelectedToken(kdaWallet));
     setTimeout(
       () =>
-        navigation?.navigate({
+        navigation.navigate({
           name: ERootStackRoutes.Send,
-          params: {
-            sourceChainId: '0',
-          },
+          params: {sourceChainId: '0'},
         }),
       300,
     );
-  }, [kdaWallet, navigation]);
+  }, [kdaWallet, navigation, dispatch]);
 
   const handlePressReceive = useCallback(() => {
     setKdaModalVisible(true);
@@ -107,58 +106,50 @@ const WalletBalance = React.memo(() => {
   }, []);
 
   const totalBalanceUsd = useMemo(() => {
-    if (balanceUsdTotal) {
-      const balanceUsdTotalValue = Number(balanceUsdTotal).toFixed(2);
-      if (balanceUsdTotalValue) {
-        return balanceUsdTotalValue;
-      }
-    }
-    return 0;
+    return Number(balanceUsdTotal || 0).toFixed(2);
   }, [balanceUsdTotal]);
 
   const accountBalanceUsd = useMemo(() => {
-    if (balanceUsd) {
-      const balanceUsdValue = Number(balanceUsd).toFixed(2);
-      if (balanceUsdValue) {
-        return balanceUsdValue;
-      }
-    }
-    return 0;
+    return Number(balanceUsd || 0).toFixed(2);
   }, [balanceUsd]);
 
   return (
     <>
       <View style={styles.wrapper}>
         <View style={styles.netWorthContainer}>
-          <Text style={styles.netWorthHeader}>{'Net Worth'}</Text>
-          <Text style={styles.netWorth}>{`$ ${numberWithCommas(
-            totalBalanceUsd,
-          )}`}</Text>
+          <Text style={styles.netWorthHeader}>
+            {t('wallet.walletBalance.netWorth')}
+          </Text>
+          <Text style={styles.netWorth}>
+            {`$ ${numberWithCommas(totalBalanceUsd)}`}
+          </Text>
         </View>
-        <Text style={styles.balanceHeader}>{'Account Balance'}</Text>
-        <Text style={styles.balance}>{`$ ${numberWithCommas(
-          accountBalanceUsd,
-        )}`}</Text>
+        <Text style={styles.balanceHeader}>
+          {t('wallet.walletBalance.accountBalance')}
+        </Text>
+        <Text style={styles.balance}>
+          {`$ ${numberWithCommas(accountBalanceUsd)}`}
+        </Text>
         <View style={styles.buttonsWrapper}>
           <Button
             icon={<ArrowTopRightSvg fill="#FFA900" />}
-            title="Send"
+            title={t('wallet.walletBalance.send')}
             onPress={handlePressSend}
             style={styles.button}
           />
           <Button
-            title="Receive"
-            style={styles.button}
             icon={<ArrowBottomRightSvg fill="#FFA900" />}
+            title={t('wallet.walletBalance.receive')}
+            onPress={handlePressReceive}
+            style={styles.button}
             backgroundColor="rgba(236,236,245,0.5)"
             textColor={MAIN_COLOR}
-            onPress={handlePressReceive}
           />
           <Button
-            title="Buy"
-            style={styles.button}
             icon={<BuySvg fill="#FFA900" />}
+            title={t('wallet.walletBalance.buy')}
             onPress={handlePressBuy}
+            style={styles.button}
           />
         </View>
       </View>

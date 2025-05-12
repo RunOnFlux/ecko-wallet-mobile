@@ -2,6 +2,7 @@ import React, {useCallback} from 'react';
 import {ScrollView, View} from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {useDispatch} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 
 import Header from './components/Header';
 import FooterButton from '../../components/FooterButton';
@@ -20,13 +21,12 @@ import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const ImportAccount = () => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.ImportAccount>>();
-
   const dispatch = useDispatch();
 
   const networkDetail = useShallowEqualSelector(makeSelectActiveNetworkDetails);
-
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
   const styles = createStyles({bottomSpace, statusBarHeight});
 
@@ -47,13 +47,13 @@ const ImportAccount = () => {
           privateKey: formValues.privateKey as string,
           chainId: formValues.chainId as string,
           ...networkDetail,
-          ...getNetworkParams(networkDetail!),
+          ...getNetworkParams(networkDetail),
         };
         dispatch(getImportAccount(data));
         navigation.goBack();
       }
     },
-    [networkDetail, navigation],
+    [networkDetail, navigation, dispatch],
   );
 
   return (
@@ -69,9 +69,9 @@ const ImportAccount = () => {
             name="accountName"
             render={({field: {onChange, onBlur, value}}) => (
               <Input
-                label="Account Name"
+                label={t('importAccount.accountName.label')}
                 autoCapitalize="none"
-                placeholder="Type Account Name"
+                placeholder={t('importAccount.accountName.placeholder')}
                 wrapperStyle={styles.inputWrapper}
                 onChangeText={onChange}
                 onBlur={onBlur}
@@ -98,8 +98,8 @@ const ImportAccount = () => {
             name="privateKey"
             render={({field: {onChange, onBlur, value}}) => (
               <Input
-                label="Private Key"
-                placeholder="Type Private Key"
+                label={t('importAccount.privateKey.label')}
+                placeholder={t('importAccount.privateKey.placeholder')}
                 wrapperStyle={styles.inputWrapper}
                 onChangeText={onChange}
                 onBlur={onBlur}
@@ -113,7 +113,7 @@ const ImportAccount = () => {
       <View style={styles.footer}>
         <FooterButton
           disabled={!isValid}
-          title="Import"
+          title={t('importAccount.importButton')}
           onPress={handleSubmit(handlePressSave)}
         />
       </View>

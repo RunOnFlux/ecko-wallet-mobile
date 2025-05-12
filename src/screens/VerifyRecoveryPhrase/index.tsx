@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {CommonActions, useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 
 import Logo from '../../assets/images/logo.svg';
 import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
@@ -26,13 +27,12 @@ import {useDispatch} from 'react-redux';
 import {setHasBackedUpPhrase} from '../../store/auth';
 
 const bgImage = require('../../assets/images/bgimage.png');
-
 const list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 const VerifyRecoveryPhrase = () => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.VerifyRecoveryPhrase>>();
-
   const refs: Record<number, MutableRefObject<TextInput | null>> = {
     2: useRef<TextInput>(null),
     3: useRef<TextInput>(null),
@@ -48,9 +48,7 @@ const VerifyRecoveryPhrase = () => {
   };
 
   const dispatch = useDispatch();
-
   const seeds = useShallowEqualSelector(makeSelectGeneratedPhrases);
-
   const [isValidSeeds, setValidSeeds] = useState(true);
 
   const {
@@ -83,7 +81,7 @@ const VerifyRecoveryPhrase = () => {
             return `${str} ${inputVal}`;
           }, '')
           .slice(1);
-        return inputSeeds?.toLocaleLowerCase() === seeds?.toLocaleLowerCase();
+        return inputSeeds.toLocaleLowerCase() === seeds?.toLocaleLowerCase();
       };
 
       if (validateSeeds()) {
@@ -93,10 +91,7 @@ const VerifyRecoveryPhrase = () => {
             index: 1,
             routes: [
               {name: ERootStackRoutes.Welcome, params: undefined},
-              {
-                name: ERootStackRoutes.SignIn,
-                params: undefined,
-              },
+              {name: ERootStackRoutes.SignIn, params: undefined},
             ],
           }),
         );
@@ -104,7 +99,7 @@ const VerifyRecoveryPhrase = () => {
         setValidSeeds(false);
       }
     },
-    [navigation, seeds],
+    [navigation, seeds, dispatch],
   );
 
   return (
@@ -118,14 +113,12 @@ const VerifyRecoveryPhrase = () => {
           style={styles.contentWrapper}
           contentContainerStyle={styles.content}>
           <Logo width={50} height={50} />
-          <Text style={styles.title}>Verify Recovery Phrase</Text>
+          <Text style={styles.title}>{t('verifyRecoveryPhrase.title')}</Text>
           <Text style={styles.text}>
-            Please confirm your recovery phrase by typing the words in the
-            correct order.
+            {t('verifyRecoveryPhrase.description')}
           </Text>
           <Text style={styles.warning}>
-            It is recommended not to use custom keyboards. Please use default
-            keyboard for security reasons.
+            {t('verifyRecoveryPhrase.warning')}
           </Text>
           <View style={styles.inputsWrapper}>
             {list.map(item => (
@@ -137,7 +130,7 @@ const VerifyRecoveryPhrase = () => {
                   <Input
                     wrapperStyle={styles.inputWrapper}
                     style={styles.input}
-                    label={`input ${item}`}
+                    label={t('verifyRecoveryPhrase.inputLabel', {number: item})}
                     onChangeText={(v: string) => {
                       v = v.trim();
                       onChange(v);
@@ -154,15 +147,19 @@ const VerifyRecoveryPhrase = () => {
               />
             ))}
           </View>
-          {!isValidSeeds ? (
-            <Text style={styles.errorText}>Invalid recovery phrases</Text>
-          ) : null}
+          {!isValidSeeds && (
+            <Text style={styles.errorText}>
+              {t('verifyRecoveryPhrase.error')}
+            </Text>
+          )}
           <TouchableOpacity
             activeOpacity={0.8}
             disabled={!isValid}
             style={[styles.button, !isValid && styles.disabledBtn]}
             onPress={handleSubmit(handlePressContinue)}>
-            <Text style={styles.buttonText}>Continue</Text>
+            <Text style={styles.buttonText}>
+              {t('verifyRecoveryPhrase.continueButton')}
+            </Text>
           </TouchableOpacity>
         </ScrollView>
         <View style={styles.header}>

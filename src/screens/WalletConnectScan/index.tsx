@@ -7,6 +7,7 @@ import {
   View,
   KeyboardAvoidingView,
 } from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import Header from './components/Header';
 import {createStyles} from './styles';
@@ -22,21 +23,21 @@ import {useWalletConnectContext} from '../../contexts';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const WalletConnectScan = () => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.WalletConnectScan>>();
-
   const {web3WalletClient} = useWalletConnectContext();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [hasPermission, setHasPermission] = useState(false);
-  const [textUri, setTexTUri] = useState<string>('');
+  const [textUri, setTextUri] = useState<string>('');
   const device = useCameraDevice('back');
 
   const codeScanner = useCodeScanner({
     codeTypes: ['qr'],
     onCodeScanned: codes => {
       if (codes.length > 0 && codes[0]?.value && codes[0]?.value !== textUri) {
-        setTexTUri(codes[0].value);
+        setTextUri(codes[0].value);
       }
     },
   });
@@ -95,15 +96,15 @@ const WalletConnectScan = () => {
                 <TextInput
                   style={styles.input}
                   autoFocus={false}
-                  placeholder="Type connection code"
+                  placeholder={t('walletConnectScan.placeholder')}
                   value={textUri}
-                  onChangeText={setTexTUri}
+                  onChangeText={setTextUri}
                 />
               </View>
             </View>
             <FooterButton
               style={styles.footerButton}
-              title="Connect"
+              title={t('walletConnectScan.connect')}
               disabled={!textUri || isLoading}
               onPress={onProceed}
             />

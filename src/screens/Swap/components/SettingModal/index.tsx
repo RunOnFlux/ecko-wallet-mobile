@@ -6,6 +6,7 @@ import {
   Platform,
   KeyboardAvoidingView,
 } from 'react-native';
+import {useTranslation} from 'react-i18next';
 import {usePactContext} from '../../../../contexts';
 import RadioButtons from '../GasSettingModal/RadioButtons';
 
@@ -14,9 +15,10 @@ import {styles} from './styles';
 import {TSettingModal} from './types';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-const slippageTolerances = ['0.1', '0.5', '1'];
+const slippageTolerances: string[] = ['0.1', '0.5', '1'];
 
 const SettingModal: FC<TSettingModal> = ({isVisible, close}) => {
+  const {t} = useTranslation();
   const {slippage, setSlippage, ttl, setTtl} = usePactContext();
   const {bottom: bottomSpace} = useSafeAreaInsets();
 
@@ -40,13 +42,18 @@ const SettingModal: FC<TSettingModal> = ({isVisible, close}) => {
   };
 
   return (
-    <Modal isVisible={isVisible} close={close} title="Transaction Settings">
+    <Modal
+      isVisible={isVisible}
+      close={close}
+      title={t('swap.transactionSettings.title')}>
       <KeyboardAvoidingView
         style={{flex: 1}}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         keyboardVerticalOffset={-bottomSpace}>
         <View style={styles.container}>
-          <Text style={styles.title}>Slippage Tolerance</Text>
+          <Text style={styles.title}>
+            {t('swap.transactionSettings.slippageTitle')}
+          </Text>
           <View style={styles.slippageToleranceContainer}>
             <RadioButtons<string>
               prefix="%"
@@ -64,7 +71,9 @@ const SettingModal: FC<TSettingModal> = ({isVisible, close}) => {
               <Text style={styles.percent}>%</Text>
             </View>
           </View>
-          <Text style={styles.title}>Transaction Deadline</Text>
+          <Text style={styles.title}>
+            {t('swap.transactionSettings.deadlineTitle')}
+          </Text>
           <View style={styles.deadlineWrapper}>
             <TextInput
               keyboardType="numeric"
@@ -72,7 +81,9 @@ const SettingModal: FC<TSettingModal> = ({isVisible, close}) => {
               style={styles.input}
               value={(ttl / 60).toString()}
             />
-            <Text style={styles.text}>minutes</Text>
+            <Text style={styles.text}>
+              {t('swap.transactionSettings.minutes')}
+            </Text>
           </View>
         </View>
       </KeyboardAvoidingView>

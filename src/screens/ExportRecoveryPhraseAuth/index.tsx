@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
+import {useTranslation} from 'react-i18next';
 
 import Header from './components/Header';
 import SecurityUnlockSvg from '../../assets/images/security-unlock.svg';
@@ -27,6 +28,7 @@ import {useSafeAreaValues} from '../../utils/deviceHelpers';
 const ExportRecoveryPhraseAuth = () => {
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.ExportRecoveryPhraseAuth>>();
+  const {t} = useTranslation();
 
   const {
     control,
@@ -58,7 +60,10 @@ const ExportRecoveryPhraseAuth = () => {
               enableVibrateFallback: false,
               ignoreAndroidSystemSettings: false,
             });
-            Alert.alert('Failed to verify', 'Invalid password');
+            Alert.alert(
+              t('exportRecoveryPhraseAuth.alert.verifyFailureTitle'),
+              t('exportRecoveryPhraseAuth.alert.verifyFailureMessage'),
+            );
           }
         })
         .catch(() => {
@@ -67,12 +72,12 @@ const ExportRecoveryPhraseAuth = () => {
             ignoreAndroidSystemSettings: false,
           });
           Alert.alert(
-            'Failed to verify',
-            'Something went wrong. Please try again later.',
+            t('exportRecoveryPhraseAuth.alert.verifyFailureTitle'),
+            t('exportRecoveryPhraseAuth.alert.verifyErrorMessage'),
           );
         });
     },
-    [navigation, hash],
+    [navigation, hash, t],
   );
 
   const scrollRef = useRef<ScrollView | null>(null);
@@ -92,7 +97,9 @@ const ExportRecoveryPhraseAuth = () => {
           style={styles.contentWrapper}
           contentContainerStyle={styles.content}>
           <SecurityUnlockSvg fill="#787B8E" />
-          <Text style={styles.text}>Enter your password to continue</Text>
+          <Text style={styles.text}>
+            {t('exportRecoveryPhraseAuth.description')}
+          </Text>
           <Controller
             control={control}
             name="password"
@@ -114,7 +121,9 @@ const ExportRecoveryPhraseAuth = () => {
             activeOpacity={0.8}
             style={styles.button}
             onPress={handleSubmit(handlePressContinue)}>
-            <Text style={styles.buttonText}>Continue</Text>
+            <Text style={styles.buttonText}>
+              {t('exportRecoveryPhraseAuth.continueButton')}
+            </Text>
           </TouchableOpacity>
         </ScrollView>
       </View>

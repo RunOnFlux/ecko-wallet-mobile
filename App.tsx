@@ -20,6 +20,7 @@ import JailMonkey from 'jail-monkey';
 import {WalletConnectProvider} from './src/contexts/WalletConnect';
 import {useWalletConnect} from './src/utils/walletConnect';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import './src/locales/i18n';
 
 const App = () => {
   const isAuthorized = useSelector(makeSelectIsAuthorized);

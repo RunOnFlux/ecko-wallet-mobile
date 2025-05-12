@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import Logo from '../../assets/images/logo.svg';
 import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
@@ -18,6 +19,7 @@ import {useSafeAreaValues} from '../../utils/deviceHelpers';
 const bgImage = require('../../assets/images/bgimage.png');
 
 const SecretRecoveryPhraseTerm = () => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.SecretRecoveryPhraseTerm>>();
 
@@ -44,23 +46,12 @@ const SecretRecoveryPhraseTerm = () => {
         style={styles.contentWrapper}
         contentContainerStyle={styles.content}>
         <Logo width={50} height={50} />
-        <Text style={styles.title}>Secret Recovery Phrase</Text>
+        <Text style={styles.title}>{t('secretRecoveryPhraseTerm.title')}</Text>
         <View style={styles.infoWrapper}>
-          <Text style={styles.text}>
-            In the next step you will record your 12 word recovery phrase.
-          </Text>
-          <Text style={styles.text}>
-            Your recovery phrase makes it easy to restore your wallet on a new
-            device.
-          </Text>
-          <Text style={styles.text}>
-            Anyone with this phrase can take control of your wallet, keep this
-            phrase private.
-          </Text>
-          <Text style={styles.text}>
-            Kadena cannot access your recovery phrase if lost or if app is
-            deleted, please store it safely.
-          </Text>
+          <Text style={styles.text}>{t('secretRecoveryPhraseTerm.line1')}</Text>
+          <Text style={styles.text}>{t('secretRecoveryPhraseTerm.line2')}</Text>
+          <Text style={styles.text}>{t('secretRecoveryPhraseTerm.line3')}</Text>
+          <Text style={styles.text}>{t('secretRecoveryPhraseTerm.line4')}</Text>
         </View>
       </ScrollView>
       <View style={styles.footer}>
@@ -71,7 +62,7 @@ const SecretRecoveryPhraseTerm = () => {
             textStyle={styles.checkBoxText}
             iconStyle={styles.checkBoxIcon}
             style={styles.checkBox}
-            text="I understand that if I lose my recovery phrase, I will not be able to restore my wallet."
+            text={t('secretRecoveryPhraseTerm.checkbox')}
           />
         </View>
         <TouchableOpacity
@@ -79,7 +70,7 @@ const SecretRecoveryPhraseTerm = () => {
           disabled={!isChecked}
           style={[styles.button, !isChecked && styles.disabledBtn]}
           onPress={handlePressContinue}>
-          <Text style={styles.buttonText}>Continue</Text>
+          <Text style={styles.buttonText}>{t('common.continue')}</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.header}>

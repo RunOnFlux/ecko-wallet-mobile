@@ -26,26 +26,28 @@ import {makeSelectHashPassword} from '../../store/auth/selectors';
 import {comparePassword} from '../../api/kadena/comparePassword';
 import {hashPassword} from '../../api/kadena/hashPassword';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
-
-const fields: TFields[] = [
-  {
-    name: 'currentPassword',
-    label: 'Current Password',
-  },
-  {
-    name: 'newPassword',
-    label: 'New Password',
-  },
-  {
-    name: 'confirmPassword',
-    label: 'Confirm Password',
-  },
-];
+import {useTranslation} from 'react-i18next';
 
 const ChangeAccountPassword = () => {
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Login>>();
-
   const dispatch = useDispatch();
+  const {t} = useTranslation();
+
+  const hash = useSelector(makeSelectHashPassword);
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
+
+  const fields: TFields[] = [
+    {
+      name: 'currentPassword',
+      label: t('changeAccountPassword.currentPassword.label'),
+    },
+    {name: 'newPassword', label: t('changeAccountPassword.newPassword.label')},
+    {
+      name: 'confirmPassword',
+      label: t('changeAccountPassword.confirmPassword.label'),
+    },
+  ];
 
   const {
     control,
@@ -56,10 +58,6 @@ const ChangeAccountPassword = () => {
   const handlePressBack = useCallback(() => {
     navigation.goBack();
   }, [navigation]);
-
-  const hash = useSelector(makeSelectHashPassword);
-  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
 
   const handlePressChange = useCallback(
     (data: TChangeAccountPasswordForm) => {
@@ -80,7 +78,7 @@ const ChangeAccountPassword = () => {
                     position: 'top',
                     visibilityTime: 3000,
                     autoHide: true,
-                    text1: 'Password has been successfully changed !',
+                    text1: t('changeAccountPassword.toast.success'),
                     topOffset: statusBarHeight + 16,
                   });
                   handlePressBack();
@@ -90,8 +88,8 @@ const ChangeAccountPassword = () => {
                     ignoreAndroidSystemSettings: false,
                   });
                   Alert.alert(
-                    'Failed to change password',
-                    'Something went wrong. Please try again later.',
+                    t('changeAccountPassword.alert.changeFailureTitle'),
+                    t('changeAccountPassword.alert.changeFailureMessage'),
                   );
                 }
               })
@@ -101,8 +99,8 @@ const ChangeAccountPassword = () => {
                   ignoreAndroidSystemSettings: false,
                 });
                 Alert.alert(
-                  'Failed to change password',
-                  'Something went wrong. Please try again later.',
+                  t('changeAccountPassword.alert.changeFailureTitle'),
+                  t('changeAccountPassword.alert.changeFailureMessage'),
                 );
               });
           } else {
@@ -110,7 +108,10 @@ const ChangeAccountPassword = () => {
               enableVibrateFallback: false,
               ignoreAndroidSystemSettings: false,
             });
-            Alert.alert('Failed to verify', 'Invalid password');
+            Alert.alert(
+              t('changeAccountPassword.alert.verifyFailureTitle'),
+              t('changeAccountPassword.alert.verifyFailureMessage'),
+            );
           }
         })
         .catch(() => {
@@ -119,12 +120,12 @@ const ChangeAccountPassword = () => {
             ignoreAndroidSystemSettings: false,
           });
           Alert.alert(
-            'Failed to verify',
-            'Something went wrong. Please try again later.',
+            t('changeAccountPassword.alert.verifyFailureTitle'),
+            t('changeAccountPassword.alert.changeFailureMessage'),
           );
         });
     },
-    [handlePressBack, hash],
+    [dispatch, hash, handlePressBack, statusBarHeight, t],
   );
 
   return (
@@ -138,7 +139,9 @@ const ChangeAccountPassword = () => {
           style={styles.backBtnWrapper}>
           <ArrowLeftSvg fill="#787B8E" />
         </TouchableOpacity>
-        <Text style={styles.title}>Change Password</Text>
+        <Text style={styles.title}>
+          {t('changeAccountPassword.header.title')}
+        </Text>
       </View>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.form}>
@@ -155,7 +158,6 @@ const ChangeAccountPassword = () => {
                   value={value}
                   white
                   onBlur={onBlur}
-                  blurOnSubmit={true}
                   wrapperStyle={styles.password}
                   style={styles.input}
                   inputContainerStyle={styles.inputContainer}
@@ -171,7 +173,7 @@ const ChangeAccountPassword = () => {
       <View style={styles.footer}>
         <FooterButton
           style={styles.footerBtn}
-          title="CHANGE PASSWORD"
+          title={t('changeAccountPassword.changeButton')}
           onPress={handleSubmit(handlePressChange)}
         />
       </View>

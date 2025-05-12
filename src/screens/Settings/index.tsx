@@ -1,24 +1,22 @@
 import React, {useCallback} from 'react';
-import {Alert, Image, ScrollView, View} from 'react-native';
-
+import {View, Alert, Image, ScrollView, TouchableOpacity} from 'react-native';
+import {useTranslation} from 'react-i18next';
+import {useDispatch} from 'react-redux';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+import {useNavigation} from '@react-navigation/native';
 import Card from './components/Card';
 import Footer from './components/Footer';
-
 import ContactsSvg from '../../assets/images/contacts.svg';
 import NetworksSvg from '../../assets/images/networks.svg';
 import ShieldLockSvg from '../../assets/images/shield-lock.svg';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
-
 import {createStyles} from './styles';
-import {useDispatch} from 'react-redux';
 import {deleteAccount, logout} from '../../store/auth/actions';
-import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
-import {useNavigation} from '@react-navigation/native';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const Settings = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
-
   const dispatch = useDispatch();
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
@@ -46,52 +44,36 @@ const Settings = () => {
   }, [navigation]);
 
   const handlePressSignOut = useCallback(() => {
-    ReactNativeHapticFeedback.trigger('impactMedium', {
-      enableVibrateFallback: false,
-      ignoreAndroidSystemSettings: false,
-    });
+    ReactNativeHapticFeedback.trigger('impactMedium');
     Alert.alert(
-      'Are you sure to lock wallet?',
-      'All history data will remain',
+      t('settings.alert.lockTitle'),
+      t('settings.alert.lockMessage'),
       [
+        {text: t('common.cancel'), style: 'cancel'},
         {
-          text: 'Cancel',
-          style: 'cancel',
-        },
-        {
-          text: 'Lock Wallet',
+          text: t('settings.alert.lockConfirm'),
           style: 'destructive',
-          onPress: () => {
-            dispatch(logout());
-          },
+          onPress: () => dispatch(logout()),
         },
       ],
     );
-  }, []);
+  }, [dispatch, t]);
 
   const handlePressDelete = useCallback(() => {
-    ReactNativeHapticFeedback.trigger('impactMedium', {
-      enableVibrateFallback: false,
-      ignoreAndroidSystemSettings: false,
-    });
+    ReactNativeHapticFeedback.trigger('impactMedium');
     Alert.alert(
-      'Are you sure to delete account?',
-      'All account data will be deleted. If you do not have your seed phrase you will lose all access to your funds.',
+      t('settings.alert.deleteTitle'),
+      t('settings.alert.deleteMessage'),
       [
+        {text: t('common.cancel'), style: 'cancel'},
         {
-          text: 'Cancel',
-          style: 'cancel',
-        },
-        {
-          text: 'Delete Account',
+          text: t('settings.alert.deleteConfirm'),
           style: 'destructive',
-          onPress: () => {
-            dispatch(deleteAccount());
-          },
+          onPress: () => dispatch(deleteAccount()),
         },
       ],
     );
-  }, []);
+  }, [dispatch, t]);
 
   const handlePressAccountSecurity = useCallback(() => {
     navigation.navigate({
@@ -107,21 +89,23 @@ const Settings = () => {
         contentContainerStyle={styles.content}
         style={styles.contentWrapper}>
         <Card
-          title="Contacts"
-          text="Manage your contact list"
+          title={t('settings.cards.contacts.title')}
+          text={t('settings.cards.contacts.text')}
           icon={<ContactsSvg width={24} height={24} fill="white" />}
           isFirstItem
           onPress={handlePressContacts}
         />
+
         <Card
-          title="Networks"
-          text="Add or edit custom RPC networks"
+          title={t('settings.cards.networks.title')}
+          text={t('settings.cards.networks.text')}
           icon={<NetworksSvg width={24} height={24} fill="white" />}
           onPress={handlePressNetworks}
         />
+
         <Card
-          title="WalletConnect"
-          text="Edit WalletConnect config"
+          title={t('settings.cards.walletConnect.title')}
+          text={t('settings.cards.walletConnect.text')}
           icon={
             <Image
               source={require('../../assets/images/walletConnect.png')}
@@ -131,22 +115,26 @@ const Settings = () => {
           }
           onPress={handlePressWalletConnect}
         />
+
         <Card
-          title="Account Security"
-          text="Manage your account wallet security"
+          title={t('settings.cards.accountSecurity.title')}
+          text={t('settings.cards.accountSecurity.text')}
           icon={<ShieldLockSvg width={24} height={24} fill="white" />}
           onPress={handlePressAccountSecurity}
         />
+
         <Card
-          title="Lock Wallet"
-          text="All history data will remain"
+          title={t('settings.cards.lockWallet.title')}
+          text={t('settings.cards.lockWallet.text')}
           onPress={handlePressSignOut}
         />
+
         <Footer />
+
         <Card
-          title="Delete Account"
+          title={t('settings.cards.deleteAccount.title')}
           titleStyle={{color: 'red'}}
-          text="All account data will be deleted"
+          text={t('settings.cards.deleteAccount.text')}
           onPress={handlePressDelete}
         />
       </ScrollView>

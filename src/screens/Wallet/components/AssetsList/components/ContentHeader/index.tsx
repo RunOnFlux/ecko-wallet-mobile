@@ -1,5 +1,6 @@
 import React, {FC, useCallback, useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
 import OutlineSearchSvg from '../../../../../../assets/images/outline-search.svg';
 import RefreshSvg from '../../../../../../assets/images/refresh.svg';
@@ -17,11 +18,11 @@ import {makeSelectActiveNetworkDetails} from '../../../../../../store/networks/s
 import {NETWORK_IDS} from '../../../../../../utils/walletConnect';
 
 const ContentHeader: FC = React.memo(() => {
+  const {t} = useTranslation();
   const [detectedTokensModalVisible, setDetectedModalVisible] = useState(false);
   const dispatch = useDispatch();
 
   const networkDetail = useShallowEqualSelector(makeSelectActiveNetworkDetails);
-
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
 
   const handlePressSearch = useCallback(() => {
@@ -58,7 +59,9 @@ const ContentHeader: FC = React.memo(() => {
 
   return (
     <View style={styles.header}>
-      <Text style={styles.headerTitle}>Assets</Text>
+      <Text style={styles.headerTitle}>
+        {t('wallet.assetsList.contentHeader.title')}
+      </Text>
       <View style={styles.rightIcons}>
         {isMainnet && (
           <TouchableOpacity

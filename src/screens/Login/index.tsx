@@ -16,34 +16,30 @@ import {
   TNavigationRouteProp,
 } from '../../routes/types';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {useTranslation} from 'react-i18next';
 
 const bgImage = require('../../assets/images/bgimage.png');
 
 const Login = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Login>>();
   const route = useRoute<TNavigationRouteProp<ERootStackRoutes.Login>>();
 
   const isReset = Boolean(route?.params?.isReset);
-
   const storedPinCode = useSelector(makeSelectPinCode);
   const newPinCode = useSelector(makeSelectNewPinCode);
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
   const styles = createStyles({bottomSpace, statusBarHeight});
 
-  const title = useMemo(
-    () =>
-      !isReset && storedPinCode
-        ? 'Unlock eckoWALLET'
-        : newPinCode
-        ? isReset
-          ? 'Re-enter new passcode'
-          : 'Re-enter your passcode'
-        : isReset
-        ? 'Enter new passcode'
-        : 'Enter your passcode',
-    [isReset, storedPinCode, newPinCode],
-  );
+  const titleKey = useMemo(() => {
+    if (!isReset && storedPinCode) return 'login.title.unlock';
+    if (newPinCode)
+      return isReset ? 'login.title.reenterNew' : 'login.title.reenter';
+    return isReset ? 'login.title.enterNew' : 'login.title.enter';
+  }, [isReset, storedPinCode, newPinCode]);
+
+  const title = t(titleKey);
 
   const handlePressBack = useCallback(() => {
     navigation.goBack();

@@ -2,6 +2,8 @@ import React, {useCallback, useMemo} from 'react';
 import {Alert, ScrollView, View} from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {useDispatch} from 'react-redux';
+import {useTranslation} from 'react-i18next';
+
 import Header from './components/Header';
 import FooterButton from '../../components/FooterButton';
 import Input from '../../components/Input';
@@ -22,6 +24,7 @@ import axios from 'axios';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const AddEditNetwork = () => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.AddEditNetwork>>();
   const route =
@@ -57,7 +60,7 @@ const AddEditNetwork = () => {
         if (response.data?.nodeApiVersion && response.data?.nodeVersion) {
           const _data = {
             ...data,
-            name: data.name || 'Custom',
+            name: data.name || t('addEditNetwork.defaultName'),
             network: EDefaultNetwork.custom,
           };
           dispatch(
@@ -70,10 +73,13 @@ const AddEditNetwork = () => {
           enableVibrateFallback: false,
           ignoreAndroidSystemSettings: false,
         });
-        Alert.alert('Failed to add the network', 'Invalid network information');
+        Alert.alert(
+          t('addEditNetwork.alert.failureTitle'),
+          t('addEditNetwork.alert.failureMessage'),
+        );
       }
     },
-    [isCreate, navigation],
+    [isCreate, navigation, t],
   );
 
   return (
@@ -88,8 +94,8 @@ const AddEditNetwork = () => {
           name="name"
           render={({field: {onChange, onBlur, value}}) => (
             <Input
-              label="Network Name"
-              placeholder="Insert Network Name"
+              label={t('addEditNetwork.name.label')}
+              placeholder={t('addEditNetwork.name.placeholder')}
               wrapperStyle={styles.inputWrapper}
               onChangeText={onChange}
               onBlur={onBlur}
@@ -103,8 +109,8 @@ const AddEditNetwork = () => {
           name="host"
           render={({field: {onChange, onBlur, value}}) => (
             <Input
-              label="New RPC URL"
-              placeholder="Insert URL"
+              label={t('addEditNetwork.host.label')}
+              placeholder={t('addEditNetwork.host.placeholder')}
               autoCapitalize="none"
               wrapperStyle={styles.inputWrapper}
               onChangeText={onChange}
@@ -120,21 +126,21 @@ const AddEditNetwork = () => {
           name="explorerUrl"
           render={({field: {onChange, onBlur, value}}) => (
             <Input
-              label="Block Explorer URL"
+              label={t('addEditNetwork.explorer.label')}
+              placeholder={t('addEditNetwork.explorer.placeholder')}
               autoCapitalize="none"
-              placeholder="Insert URL"
               wrapperStyle={styles.inputWrapper}
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
-              errorMessage={errors.explorerURL?.message as string}
+              errorMessage={errors.explorerUrl?.message as string}
             />
           )}
         />
       </ScrollView>
       <View style={styles.footer}>
         <FooterButton
-          title="Save"
+          title={t('addEditNetwork.saveButton')}
           onPress={handleSubmit(handlePressSave)}
           disabled={!isValid}
         />

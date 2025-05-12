@@ -1,10 +1,11 @@
 import React, {FC, useCallback, useMemo} from 'react';
 import {View, Text} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import {usePactContext} from '../../../../contexts';
 import {getDecimalPlaces, reduceBalance} from '../../../../utils/numberHelpers';
+import {commonColors} from '../../../../constants/styles';
 import {styles} from './styles';
 import {TInfoProps} from './types';
-import {commonColors} from '../../../../constants/styles';
 
 const Info: FC<TInfoProps> = ({
   withMoreInfo,
@@ -12,40 +13,36 @@ const Info: FC<TInfoProps> = ({
   secondToken,
   priceImpact,
 }) => {
+  const {t} = useTranslation();
   const pact = usePactContext();
 
   const getPriceImpactColor = useCallback(() => {
-    if (pact.priceImpactWithoutFee(priceImpact)) {
-      const priceImpactPercentage = +reduceBalance(
-        pact.priceImpactWithoutFee(priceImpact) * 100,
-        4,
-      );
-      if (priceImpactPercentage < 1) {
-        return commonColors.green;
-      } else if (priceImpactPercentage >= 1 && priceImpactPercentage < 5) {
-        return commonColors.yellow;
-      } else if (priceImpactPercentage >= 5) {
-        return commonColors.red;
-      }
+    const pip = pact.priceImpactWithoutFee(priceImpact);
+    if (pip != null) {
+      const pct = +reduceBalance(pip * 100, 4);
+      if (pct < 1) return commonColors.green;
+      if (pct < 5) return commonColors.yellow;
+      return commonColors.red;
     }
-  }, [priceImpact, pact.priceImpactWithoutFee]);
+    return undefined;
+  }, [priceImpact, pact]);
 
   const items = useMemo(
     () => [
       {
         id: 1,
-        title: 'Gas Cost',
-        value: 'FREE',
-        textColor: 'rgb(65, 204, 65)',
+        title: t('swap.info.gasCost'),
+        value: t('swap.info.free'),
+        textColor: commonColors.green,
         hide: !pact.enableGasStation,
       },
       {
         id: 2,
-        title: 'Price Impact',
+        title: t('swap.info.priceImpact'),
         value:
           pact.priceImpactWithoutFee(priceImpact) < 0.0001 &&
           pact.priceImpactWithoutFee(priceImpact)
-            ? '< 0.01 %'
+            ? `< 0.01 %`
             : `${reduceBalance(
                 pact.priceImpactWithoutFee(priceImpact) * 100,
                 4,
@@ -54,19 +51,19 @@ const Info: FC<TInfoProps> = ({
       },
       {
         id: 3,
-        title: 'Price',
+        title: t('swap.info.price'),
         value: `${reduceBalance(pact.ratio * (1 + Number(priceImpact)))} ${
-          firstToken.coin + ' / ' + secondToken.coin
-        } `,
+          firstToken.coin
+        } / ${secondToken.coin}`,
       },
       {
         id: 4,
-        title: 'Max Slippage',
+        title: t('swap.info.maxSlippage'),
         value: `${pact.slippage * 100} %`,
       },
       {
         id: 5,
-        title: 'Liquidity Provider Fee',
+        title: t('swap.info.lpFee'),
         value: `${getDecimalPlaces(0.003 * parseFloat(firstToken.amount))} ${
           firstToken.coin
         }`,
@@ -75,36 +72,34 @@ const Info: FC<TInfoProps> = ({
         ? [
             {
               id: 6,
-              title: 'Transaction Deadline',
+              title: t('swap.info.txDeadline'),
               value: `${pact.ttl > 60 ? pact.ttl / 60 : pact.ttl} ${
-                pact.ttl > 60 ? 'minutes' : 'seconds'
+                pact.ttl > 60
+                  ? t('swap.info.unitMinutes')
+                  : t('swap.info.unitSeconds')
               }`,
             },
             {
               id: 7,
-              title: 'Gas Price',
+              title: t('swap.info.gasPrice'),
               value: `${pact.gasConfiguration.gasPrice}`,
             },
             {
               id: 8,
-              title: 'Gas Limit',
+              title: t('swap.info.gasLimit'),
               value: `${pact.gasConfiguration.gasLimit}`,
             },
           ]
         : []),
     ],
     [
-      pact.gasConfiguration,
-      pact.ttl,
-      pact.slippage,
-      pact.priceImpactWithoutFee,
-      pact.enableGasStation,
-      pact.ratio,
-      withMoreInfo,
+      pact,
+      priceImpact,
       firstToken,
       secondToken,
-      priceImpact,
+      withMoreInfo,
       getPriceImpactColor,
+      t,
     ],
   );
 
@@ -113,18 +108,17 @@ const Info: FC<TInfoProps> = ({
   }
   return (
     <View style={styles.container}>
-      {items.map(
-        ({title, textColor, value, id, hide}) =>
-          !hide && (
-            <View style={styles.item} key={id}>
-              <Text style={{...styles.title, color: textColor || 'black'}}>
-                {`${title}:`}
-              </Text>
-              <Text style={{...styles.text, color: textColor || 'black'}}>
-                {value}
-              </Text>
-            </View>
-          ),
+      {items.map(({title, textColor, value, id, hide}) =>
+        !hide ? (
+          <View style={styles.item} key={id}>
+            <Text style={{...styles.title, color: textColor || 'black'}}>
+              {`${title}:`}
+            </Text>
+            <Text style={{...styles.text, color: textColor || 'black'}}>
+              {value}
+            </Text>
+          </View>
+        ) : null,
       )}
     </View>
   );

@@ -8,6 +8,7 @@ import {
   TextInput,
   Alert,
 } from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import TopHeader from '../../components/TopHeader';
 import Header from './components/Header';
@@ -41,6 +42,7 @@ import Toast from 'react-native-toast-message';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const Send = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Send>>();
   const route = useRoute<TNavigationRouteProp<ERootStackRoutes.Send>>();
 
@@ -66,8 +68,8 @@ const Send = () => {
         position: 'top',
         visibilityTime: 4000,
         autoHide: true,
-        text1: 'Transfer is pending!',
-        text2: 'Please try again once transfer is finished',
+        text1: t('send.toast.pendingTitle'),
+        text2: t('send.toast.pendingMessage'),
         topOffset: statusBarHeight + 16,
       });
     } else {
@@ -100,20 +102,10 @@ const Send = () => {
         );
       };
       if (!accountName?.startsWith('k:')) {
-        Alert.alert(
-          'Sending to a non "k:account"',
-          'Are you sure you want to proceed?',
-          [
-            {
-              text: 'Cancel',
-              style: 'cancel',
-            },
-            {
-              text: 'Proceed',
-              onPress: proceedSending,
-            },
-          ],
-        );
+        Alert.alert(t('send.alert.nonKTitle'), t('send.alert.nonKMessage'), [
+          {text: t('common.cancel'), style: 'cancel'},
+          {text: t('send.alert.proceed'), onPress: proceedSending},
+        ]);
       } else {
         proceedSending();
       }
@@ -126,6 +118,9 @@ const Send = () => {
     targetChainId,
     accountPublicKey,
     predicate,
+    dispatch,
+    statusBarHeight,
+    t,
   ]);
 
   const setSelectedAccountFunc = useCallback((account: TAccount) => {
@@ -146,7 +141,7 @@ const Send = () => {
 
   const balance = useMemo(() => {
     if (selectedToken?.chainBalance && sourceChainId) {
-      return selectedToken?.chainBalance[sourceChainId];
+      return selectedToken.chainBalance[sourceChainId];
     }
     return 0;
   }, [selectedToken, sourceChainId]);
@@ -168,7 +163,7 @@ const Send = () => {
             onPress={Keyboard.dismiss}
             style={styles.topHeaderContent}>
             <ChainId
-              label="Source Chain ID"
+              label={t('send.chain.sourceLabel')}
               value={sourceChainId}
               setValue={setSourceChainId}
               items={chainIds}
@@ -176,14 +171,16 @@ const Send = () => {
             />
             {sourceChainId ? (
               <View style={styles.balanceContainer}>
-                <Text style={styles.balanceLabel}>{'Chain balance'}</Text>
+                <Text style={styles.balanceLabel}>
+                  {t('send.balance.label')}
+                </Text>
                 <TextInput
                   editable={false}
                   focusable={false}
                   autoCorrect={false}
                   autoFocus={false}
-                  autoComplete={'off'}
-                  autoCapitalize={'none'}
+                  autoComplete="off"
+                  autoCapitalize="none"
                   value={`${(Number(balance) || 0).toFixed(3)} ${
                     selectedToken?.tokenName || ''
                   }`}
@@ -197,7 +194,7 @@ const Send = () => {
               setSelectedAccount={setAccountName}
             />
             <ChainId
-              label="Target Chain ID"
+              label={t('send.chain.targetLabel')}
               value={targetChainId}
               setValue={setTargetChainId}
               items={chainIds}
@@ -212,12 +209,12 @@ const Send = () => {
           setReceiverPublicKey={setAccountPublicKey}
         />
         <AccountsList
-          title="Recent"
+          title={t('send.accounts.recent')}
           items={recentAccounts}
           setSelectedAccount={setSelectedAccountFunc}
         />
         <AccountsList
-          title="Contacts"
+          title={t('send.accounts.contacts')}
           items={contacts}
           setSelectedAccount={setSelectedAccountFunc}
         />
@@ -225,7 +222,7 @@ const Send = () => {
       <View style={styles.footer}>
         <FooterButton
           disabled={!sourceChainId || !targetChainId || !accountName}
-          title="Continue"
+          title={t('common.continue')}
           onPress={handlePressContinue}
         />
       </View>
