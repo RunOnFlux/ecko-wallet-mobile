@@ -1,0 +1,689 @@
+{
+  "common": {
+    "saveButton": "Stoor",
+    "confirm": "Bevestig",
+    "delete": "Verwyder",
+    "cancel": "Kanselleer",
+    "ok": "OK",
+    "error": "Fout",
+    "selectLanguage": "Kies Taal",
+    "selectLanguageLongDescription": "Kies die taal wat jy wil gebruik"
+  },
+  "welcome": {
+    "title": "Welkom by\neckoWALLET",
+    "subtitle": "Die Kadena-ekosisteem-gateway",
+    "loginCard": {
+      "title": "Teken in by my rekening",
+      "description": "Voer jou beursie-wagwoord in"
+    },
+    "newUserCard": {
+      "title": "Ek is ’n nuwe gebruiker",
+      "description": "Skep ’n nuwe eckoWALLET-rekening"
+    },
+    "recoverCard": {
+      "title": "Ek het ’n rekening",
+      "description": "Teken in met jou geheime frase"
+    },
+    "instructions": {
+      "intro": "Om ’n nuwe rekening by te voeg, volg asseblief die volgende stappe:",
+      "step1": "1. Teken in by jou bestaande rekening",
+      "step2": "2. Klik op \"Instellings\"",
+      "step3": "3. Klik op \"Verwyder rekening\""
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Kontaknaam",
+      "placeholder": "Tik Kontaknaam"
+    },
+    "accountName": {
+      "label": "Rekeningnaam",
+      "placeholder": "Voer Rekeningnaam in"
+    },
+    "saveButton": "Stoor",
+    "header": {
+      "title": "Voeg Kontak by"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Pasgemaak",
+    "alert": {
+      "failureTitle": "Kon nie netwerk byvoeg nie",
+      "failureMessage": "Ongeldige netwerk-inligting"
+    },
+    "name": {
+      "label": "Netwerknaam",
+      "placeholder": "Voer Netwerknaam in"
+    },
+    "host": {
+      "label": "Nuwe RPC-URL",
+      "placeholder": "Voer URL in"
+    },
+    "explorer": {
+      "label": "Block Explorer-URL",
+      "placeholder": "Voer URL in"
+    },
+    "header": {
+      "title": "Voeg Netwerk by"
+    },
+    "saveButton": "Stoor"
+  },
+  "addToken": {
+    "header": {
+      "title": "Voeg Token by",
+      "titleImport": "Importeer Token"
+    },
+    "tokenAddress": {
+      "label": "Token-kontrakadres",
+      "placeholder": "Tik Kontrakadres"
+    },
+    "tokenName": {
+      "label": "Token-simbool",
+      "placeholder": "Tik Token-simbool"
+    },
+    "alert": {
+      "failureTitle": "Kon nie token invoer nie",
+      "failureMessage": "Token bestaan nie"
+    },
+    "saveButton": "Voeg Token by"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Koop"
+    },
+    "consent": {
+      "description": "Die koop en verkoop van kripto-geldeenhede geskied deur ’n derdeparty-diens gelewer deur Onramper.\n\nAlhoewel eckoWallet die hoogste vlak van sekuriteit vir sy gebruikers verseker, kan ons nie die sekuriteit en privaatheid van derdeparty-dienste waarborg nie."
+    },
+    "error": {
+      "walletUnavailable": "Beursieadres nie beskikbaar nie",
+      "unableConnect": "Kan nie met die diens verbind nie. Probeer asseblief later weer."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Verander Wagwoord"
+    },
+    "currentPassword": {
+      "label": "Huidige Wagwoord"
+    },
+    "newPassword": {
+      "label": "Nuwe Wagwoord"
+    },
+    "confirmPassword": {
+      "label": "Bevestig Wagwoord"
+    },
+    "toast": {
+      "success": "Wagwoord is suksesvol verander!"
+    },
+    "alert": {
+      "changeFailureTitle": "Kon nie wagwoord verander nie",
+      "changeFailureMessage": "Iets het verkeerd geloop. Probeer asseblief later weer.",
+      "verifyFailureTitle": "Kon nie verifieer nie",
+      "verifyFailureMessage": "Ongeldige wagwoord"
+    },
+    "changeButton": "Verander Wagwoord"
+  },
+  "connection": {
+    "unknown": "Onbekende Verbinding",
+    "deleteAlert": {
+      "title": "Is jy seker jy wil hierdie aktiewe sessie verwyder?",
+      "message": "Alle data van die sessie sal verwyder word en kan nie herstel word nie."
+    },
+    "deleteFailureTitle": "Kon nie aktiewe sessie verwyder nie",
+    "deleteFailureMessage": "WalletConnect-konfigurasie stem nie ooreen nie",
+    "empty": {
+      "sessions": "Geen geskiedenis",
+      "pairings": "Geen aktiewe sessies"
+    },
+    "modal": {
+      "title": "WalletConnect-inligting"
+    },
+    "expiryLabel": "Verval:",
+    "unknownHost": "Onbekend"
+  },
+  "contacts": {
+    "searchPlaceholder": "Soek kontakte",
+    "emptyList": "Geen kontakte nie",
+    "header": {
+      "title": "Kontakte"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Herstel-geheime frase na knipbord gekopieer!",
+    "description": "Jou geheime herstelfrase maak dit maklik om jou rekening te rugsteun en te herstel.",
+    "warning": "Beskik nooit jou geheime herstelfrase nie. Enigiemand met hierdie frase kan jou beursie permanent neem.",
+    "copyButton": "Kopieer Herstelfrase",
+    "header": {
+      "title": "Voer Herstelfrase Uit"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Verifieer Wagwoord"
+    },
+    "description": "Voer jou wagwoord in om voort te gaan",
+    "alert": {
+      "verifyFailureTitle": "Kon nie verifieer nie",
+      "verifyFailureMessage": "Ongeldige wagwoord",
+      "verifyErrorMessage": "Iets het verkeerd geloop. Probeer asseblief later weer."
+    },
+    "continueButton": "Gaan Voort"
+  },
+  "history": {
+    "empty": {
+      "pending": "Geen hangende aktiwiteite nie",
+      "activities": "Geen aktiwiteite gevind nie"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Oordrag is hangende!",
+      "pendingMessage": "Probeer asseblief weer sodra die oordrag klaar is"
+    },
+    "finishButton": "Voltooi Cross Chain Transfer"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Rekeningnaam",
+      "placeholder": "Tik Rekeningnaam"
+    },
+    "privateKey": {
+      "label": "Privaat Sleutel",
+      "placeholder": "Tik Privaat Sleutel"
+    },
+    "importButton": "Importeer",
+    "header": {
+      "title": "Importeer Rekening"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Ontsluit eckoWALLET",
+      "enter": "Voer jou toegangskode in",
+      "enterNew": "Voer nuwe toegangskode in",
+      "reenter": "Herhaal jou toegangskode",
+      "reenterNew": "Herhaal nuwe toegangskode"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Netwerke"
+    }
+  },
+  "noConnection": {
+    "message": "Geen netwerkverbinding nie"
+  },
+  "receiverScan": {
+    "placeholder": "Wysig bestemmingsrekening",
+    "header": {
+      "title": "Skandeer QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Seed-Frases",
+      "placeholder": "Voer geheime frases in"
+    },
+    "accountIndex": {
+      "label": "Rekeningnommer",
+      "placeholder": "Standaard: 0"
+    },
+    "alert": {
+      "failureTitle": "Kon nie rekening invoer nie",
+      "failureMessage": "Ongeldige geheime herstelfrase"
+    },
+    "button": {
+      "recover": "Herstel"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Importeer ’n beursie met\nGeheime Herstelfrase",
+    "seeds": {
+      "label": "Geheime Frases (met spasies)",
+      "placeholder": "Voer geheime frases in"
+    },
+    "password": {
+      "label": "Nuwe Wagwoord"
+    },
+    "confirmPassword": {
+      "label": "Bevestig Wagwoord"
+    },
+    "button": {
+      "restore": "Herstel"
+    },
+    "alert": {
+      "failureTitle": "Kon nie rekening invoer nie",
+      "failureMessage": "Iets het verkeerd geloop. Probeer asseblief later weer.",
+      "invalidSeeds": "Ongeldige geheime herstelfrase of rekening verwyder"
+    }
+  },
+  "registration": {
+    "text": "Skep Wagwoord",
+    "password": {
+      "label": "Nuwe Wagwoord"
+    },
+    "confirmPassword": {
+      "label": "Bevestig Wagwoord"
+    },
+    "button": {
+      "create": "Skep"
+    },
+    "alert": {
+      "failureTitle": "Kon nie registreer nie",
+      "failureMessage": "Iets het verkeerd geloop. Probeer asseblief later weer."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Soek token",
+    "empty": "Geen tokens gevind nie",
+    "alert": {
+      "notFungibleTitle": "Nie-fungibele token",
+      "notFungibleMessage": "Gekose token is nie fungibel nie"
+    },
+    "header": {
+      "title": "Soek Token"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Geheime Herstelfrase",
+    "reveal": "Klik hier om geheime woorde te openbaar",
+    "snackbar": "Herstelfrase na knipbord gekopieer!",
+    "description1": "Jou geheime herstelfrase maak dit maklik om jou rekening te rugsteun en te herstel.",
+    "description2": "Waarskuwing: Deel nooit jou geheime herstelfrase nie. Ons beveel aan om nie skermskote te neem wanneer jy geheime frases sien nie. Enigiemand met hierdie frase kan jou beursie neem.",
+    "continue": "Gaan Voort"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Geheime Herstelfrase",
+    "line1": "In die volgende stap sal jy jou 12-woord herstelfrase noteer.",
+    "line2": "Jou herstelfrase maak dit maklik om jou beursie op ’n nuwe toestel te herstel.",
+    "line3": "Enigiemand met hierdie frase kan beheer oor jou beursie neem; hou dit geheim.",
+    "line4": "Kadena kan nie jou herstelfrase kry as dit verlore gaan of as die app verwyder word nie; berg dit veilig.",
+    "checkbox": "Ek verstaan dat as ek my herstelfrase verloor, ek nie my beursie kan herstel nie."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Oordrag is hangende!",
+      "pendingMessage": "Probeer asseblief weer sodra die oordrag klaar is"
+    },
+    "alert": {
+      "nonKTitle": "Stuur na ’n nie-“k:account” nie",
+      "nonKMessage": "Is jy seker jy wil voortgaan?",
+      "proceed": "Gaan voort"
+    },
+    "chain": {
+      "sourceLabel": "Source Chain ID",
+      "targetLabel": "Target Chain ID"
+    },
+    "balance": {
+      "label": "Chain-balans"
+    },
+    "accounts": {
+      "recent": "Onlangs",
+      "contacts": "Kontakte"
+    },
+    "content": {
+      "advancedSettings": "Gevorderde instellings (opsioneel)",
+      "predicateLabel": "Predikaat",
+      "receiverLabel": "Ontvanger se publieke sleutel",
+      "destinationLabel": "Bestemmingsrekening",
+      "destinationPlaceholder": "Voer bestemmingsrekening in",
+      "receiverPlaceholder": "Voer publieke sleutel in (opsioneel)"
+    },
+    "header": {
+      "title": "Stuur {{token}} Transaksie"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Moet nie die toepassing sluit\nterwyl dit die operasie verwerk nie."
+    },
+    "toast": {
+      "submittedTitle": "Oordrag ingedien!",
+      "submittedMessage": "Jy kan die resultaat in die aktiwiteite-oortjie sien"
+    },
+    "label": {
+      "result": "Resultaat:",
+      "message": "Boodskap:",
+      "requestKey": "Versoek Sleutel:"
+    },
+    "warning": {
+      "crossChainTitle": "Jy doen ’n cross-chain oordrag",
+      "crossChainMessage": "Hierdie operasie neem gewoonlik meer tyd"
+    },
+    "button": {
+      "activities": "Gaan na Aktiwiteite"
+    },
+    "header": {
+      "title": "Transaksie is besig"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Jy staan op om ’n cross-chain oordrag te doen",
+      "crossChainMessage": "Hierdie operasie neem gewoonlik meer tyd"
+    },
+    "button": {
+      "send": "Stuur"
+    },
+    "confirmModal": {
+      "title": "Bevestig Stuur Transaksie",
+      "amountLabel": "Bedrag:",
+      "gasLimitLabel": "Gaslimiet:",
+      "gasPriceLabel": "Gasprys:",
+      "speedLabel": "Snelheid:",
+      "confirmButton": "Bevestig"
+    },
+    "content": {
+      "transactionParameters": "Transaksieparameters",
+      "transactionSpeed": "Transaksiesnelheid",
+      "gasLimitPlaceholder": "Tik Gaslimiet",
+      "gasPricePlaceholder": "Tik Gasprys",
+      "gasLabel": "Gas",
+      "speedLabel": "{{speed}} Snelheid"
+    },
+    "header": {
+      "title": "Stuur Transaksie"
+    },
+    "walletInfo": {
+      "amountLabel": "Bedrag om te stuur",
+      "half": "half",
+      "max": "max",
+      "maxSnackbar": "Max bedrag neem ook die beraamde gasfooi in ag.",
+      "usdValue": "{{value}} USD",
+      "balance": "Balans: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Kontakte",
+        "text": "Bestuur jou kontaklys"
+      },
+      "networks": {
+        "title": "Netwerke",
+        "text": "Voeg of wysig pasgemaakte RPC-netwerke"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Wysig WalletConnect-konfigurasie"
+      },
+      "accountSecurity": {
+        "title": "Rekeningsekuriteit",
+        "text": "Bestuur jou rekeningbeursie-sekuriteit"
+      },
+      "lockWallet": {
+        "title": "Sluit Beursie",
+        "text": "Alle geskieddata bly behoue"
+      },
+      "deleteAccount": {
+        "title": "Verwyder Rekening",
+        "text": "Alle rekeningdata word verwyder"
+      }
+    },
+    "alert": {
+      "lockTitle": "Is jy seker jy wil die beursie sluit?",
+      "lockMessage": "Alle geskieddata bly behoue",
+      "lockConfirm": "Sluit Beursie",
+      "deleteTitle": "Is jy seker jy wil die rekening verwyder?",
+      "deleteMessage": "Alle rekeningdata word verwyder. As jy nie jou seedfrase het nie, verloor jy alle toegang tot jou fondse.",
+      "deleteConfirm": "Verwyder Rekening"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Die Kadena-ekosisteem-gateway",
+      "visitWebsite": "Besoek ons webwerf",
+      "joinDiscord": "Sluit by ons aan op Discord",
+      "termsOfUse": "Gebruiksvoorwaardes",
+      "privacyPolicy": "Privaatheidsbeleid"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Rekeningsekuriteit"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Herstel Toegangskode",
+        "text": "Verander app-toegangskode"
+      },
+      "exportPhrase": {
+        "title": "Voer Herstelfrase Uit",
+        "text": "Beskerm jou beursie"
+      },
+      "changePassword": {
+        "title": "Verander Wagwoord",
+        "text": "Verander Rekeningwagwoord"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Welkom",
+    "label": {
+      "password": "Wagwoord"
+    },
+    "button": {
+      "signIn": "Teken in"
+    },
+    "alert": {
+      "usePasscodeTitle": "Gebruik toegangskode om aan te meld?",
+      "usePasscodeMessage": "Wil jy toegangskode en biometrie gebruik om eckoWALLET te bereik?",
+      "failedTitle": "Kon nie aanmeld nie",
+      "invalidPassword": "Ongeldige wagwoord",
+      "errorMessage": "Iets het verkeerd geloop. Probeer asseblief later weer."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Omskakelbevestiging",
+      "give": "GEWEN",
+      "receive": "ONTVANG",
+      "confirmButton": "Bevestig"
+    },
+    "gasSettings": {
+      "title": "Gasinstellings",
+      "gasStation": "GASSTASIE",
+      "gasLimitLabel": "Gaslimiet",
+      "gasLimitPlaceholder": "Gaslimiet",
+      "gasPriceLabel": "Gasprys",
+      "gasPricePlaceholder": "Gasprys",
+      "failureCost": "Potensiële gaskoste vir transaksie-fout:",
+      "noGasCost": "Geen gaskoste – gesubsidieer deur eckoDEX via Kadena-gasstasies."
+    },
+    "info": {
+      "gasCost": "Gaskoste",
+      "free": "VRY",
+      "priceImpact": "Prysimpak",
+      "price": "Prys",
+      "maxSlippage": "Maksimum glip",
+      "lpFee": "Liquiditeitsverskafferfooi",
+      "txDeadline": "Transaksiedeadline",
+      "gasPrice": "Gasprys",
+      "gasLimit": "Gaslimiet",
+      "unitMinutes": "minute",
+      "unitSeconds": "sekondes"
+    },
+    "selectTokenModal": {
+      "title": "Kies Token",
+      "placeholder": "Soek token",
+      "tokensLabel": "Tokens",
+      "warningTitle": "Waarskuwing",
+      "warningMessage": "Pool {{pair}} bestaan nie",
+      "addTokenTitle": "Voeg Nuwe Token by",
+      "addTokenMessage": "Hierdie token bestaan nie in jou beursie nie. Wil jy dit byvoeg?",
+      "addTokenConfirm": "Voeg by",
+      "selectedSuffix": " (Gekies)",
+      "empty": "Token nie gevind nie"
+    },
+    "transactionSettings": {
+      "title": "Transaksie-instellings",
+      "slippageTitle": "Glipverdraagsaamheid",
+      "deadlineTitle": "Transaksiedeadline",
+      "minutes": "minute"
+    },
+    "swapBlock": {
+      "pending": "Transaksie hangende...",
+      "warningTitle": "Om ons omskakel-funksie te gebruik, maak eers seker jy het fondse op Chain 2.",
+      "warningText": "",
+      "give": "GEWEN",
+      "receive": "ONTVANG",
+      "confirm": "BEVESTIG",
+      "submittedTitle": "Omskakeling ingedien!",
+      "submittedMessage": "Jy kan die resultaat in die aktiwiteite-oortjie sien",
+      "poweredBy": "Aangedryf deur eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Verifieer Herstelfrase",
+    "description": "Bevestig asseblief jou herstelfrase deur die woorde in die korrekte volgorde te tik.",
+    "warning": "Dit word aanbeveel om nie pasgemaakte sleutelborde te gebruik nie. Gebruik asseblief die standaard sleutelbord vir sekuriteitsredes.",
+    "inputLabel": "Invoer {{number}}",
+    "error": "Ongeldige herstelfrases",
+    "continueButton": "Gaan Voort"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Bates"
+      },
+      "tokenDetector": {
+        "title": "Gevonde Tokens",
+        "emptyTitle": "Geen ander tokens gevind vir hierdie rekening nie",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Rekeningnaam na knipbord gekopieer!"
+    },
+    "walletBalance": {
+      "netWorth": "Netto waarde",
+      "accountBalance": "Rekeningbalans",
+      "send": "Stuur",
+      "receive": "Ontvang",
+      "buy": "Koop"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Tik verbindingskode",
+    "connect": "Verbind",
+    "header": {
+      "title": "Skandeer QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "Projek-ID",
+    "projectIdPlaceholder": "Voer Projek-ID in",
+    "relayUrlLabel": "Relay-URL",
+    "relayUrlPlaceholder": "Voer Relay-URL in",
+    "errorTitle": "Kon nie WalletConnect-konfigurasie verander nie",
+    "errorMessage": "Ongeldige parameters"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Wagwoord",
+      "placeholder": "Voer wagwoord in"
+    },
+    "numpad": {
+      "authenticationPrompt": "Verifikasie",
+      "weakPasscodeTitle": "Swak wagkode",
+      "weakPasscodeDescription": "Ingevoerde wagkode is te swak. Probeer asseblief ’n meer komplekse wagkode"
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "As eckoDEX-webwerf op hierdie toestel oop is en jy sukkel met WalletConnect-verbinding, probeer om terug te gaan na die webblaaier en weer terug te kom",
+      "text2": "As dit nie help nie, kyk asseblief WalletConnect-instellings of probeer om eckoDEX-webwerf op ’n lessenaarsblaaier oop te maak",
+      "button": "Goed"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Alle aktiewe sessies bly aktief totdat hulle handmatig deur die verwyder-aksie beëindig word",
+      "text2": "Die geskiedenis-oortjie wys besonderhede oor sessies met gegewe toestemmings vir metodes en gebeure",
+      "button": "Goed"
+    }
+  },
+  "tabs": {
+    "Wallet": "Portefeulje",
+    "Swap": "Ruil",
+    "History": "Geskiedenis",
+    "Connection": "Verbindings",
+    "Settings": "Instellings",
+    "history": {
+      "activities": "Aktiwiteite",
+      "pending": "Hangend"
+    },
+    "connection": {
+      "pairings": "Aktiewe sessies",
+      "sessions": "Geskiedenis"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Transaksie-besonderhede",
+    "gas": "Gas: {{gas}}",
+    "statusLabel": "Status",
+    "continuationTitle": "Voortsetting",
+    "continuationValue": "stap: {{step}}, totaal: {{total}}",
+    "no": "nee",
+    "requestKeyTitle": "Versoek Sleutel",
+    "transactionTypeTitle": "Transaksietipe",
+    "requestKeyChainTitle": "Versoek Sleutel (Chain {{chain}})",
+    "txDetailsButton": "Tx-besonderhede",
+    "requestKeyCopied": "Versoek sleutel na knipbord gekopieer!"
+  },
+  "tokenModal": {
+    "distributionTitle": "{{token}}-Chain-verdeling",
+    "removeConfirmTitle": "Is jy seker jy wil verwyder?",
+    "removeConfirmMessage": "Alle data van die token sal verwyder word en kan nie herstel word nie",
+    "remove": "Verwyder",
+    "notTransferable": "{{contract}} is nie oordraagbaar nie!",
+    "zeroBalance": "{{token}}-balans is 0",
+    "editToken": "Wysig Token",
+    "removeToken": "Verwyder Token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "My beursies",
+    "removeConfirmTitle": "Is jy seker jy wil verwyder?",
+    "removeConfirmMessage": "Alle data van die rekening sal verwyder word en kan nie herstel word nie",
+    "remove": "Verwyder",
+    "share": "Deel beursie",
+    "exportRecovery": "Voer herstelfrase uit",
+    "removeSelected": "Verwyder geselekteerde beursie",
+    "create": "Skep beursie",
+    "import": "Importeer beursie",
+    "copySuccess": "Rekeningbesonderhede na knipbord gekopieer!"
+  },
+  "session": {
+    "title": "Sessie-besonderhede",
+    "deleteTitle": "Is jy seker jy wil hierdie sessiegeskiedenis verwyder?",
+    "deleteDescription": "Alle data van die sessiegeskiedenis sal verwyder word en kan nie herstel word nie",
+    "deleteFailedTitle": "Kon nie sessie verwyder nie",
+    "deleteFailedMessage": "WalletConnect-konfigurasie stem nie ooreen nie",
+    "deleteSession": "Verwyder sessie",
+    "reviewPermissions": "Hersien {{namespace}}-toestemmings",
+    "unknownUrl": "Onbekend",
+    "methods": "Metodes",
+    "events": "Gebeurtenisse",
+    "expiry": "Verval",
+    "lastUpdated": "Laas opgedateer"
+  },
+  "receive": {
+    "title": "Ontvang tokens",
+    "accountNameLabel": "Jou rekeningsnaam"
+  },
+  "networkSelector": {
+    "title": "Kies netwerk",
+    "manage": "Bestuur netwerke"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC-URL",
+    "blockExplorerUrl": "Blokverkenner-URL",
+    "editNetwork": "Wysig netwerk"
+  },
+  "contactDetails": {
+    "accountName": "Rekeningsnaam",
+    "chainId": "Chain ID",
+    "edit": "Wysig kontak",
+    "copied": "Na knipbord gekopieer!"
+  }
+}

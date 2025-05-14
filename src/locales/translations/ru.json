@@ -1,0 +1,689 @@
+{
+  "common": {
+    "saveButton": "Сохранить",
+    "confirm": "Подтвердить",
+    "delete": "Удалить",
+    "cancel": "Отмена",
+    "ok": "OK",
+    "error": "Ошибка",
+    "selectLanguage": "Выбрать язык",
+    "selectLanguageLongDescription": "Выберите нужный вам язык"
+  },
+  "welcome": {
+    "title": "Добро пожаловать в\neckoWALLET",
+    "subtitle": "Шлюз в экосистему Kadena",
+    "loginCard": {
+      "title": "Войти в мой аккаунт",
+      "description": "Введите пароль от кошелька"
+    },
+    "newUserCard": {
+      "title": "Я новый пользователь",
+      "description": "Создать новый аккаунт eckoWALLET"
+    },
+    "recoverCard": {
+      "title": "У меня уже есть аккаунт",
+      "description": "Войти с помощью секретной фразы"
+    },
+    "instructions": {
+      "intro": "Чтобы добавить новый аккаунт, выполните следующие шаги:",
+      "step1": "1. Войдите в существующий аккаунт",
+      "step2": "2. Нажмите «Настройки»",
+      "step3": "3. Нажмите «Удалить аккаунт»"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Имя контакта",
+      "placeholder": "Введите имя контакта"
+    },
+    "accountName": {
+      "label": "Имя аккаунта",
+      "placeholder": "Введите имя аккаунта"
+    },
+    "saveButton": "Сохранить",
+    "header": {
+      "title": "Добавить контакт"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Пользовательская",
+    "alert": {
+      "failureTitle": "Не удалось добавить сеть",
+      "failureMessage": "Неверные данные сети"
+    },
+    "name": {
+      "label": "Название сети",
+      "placeholder": "Введите название сети"
+    },
+    "host": {
+      "label": "Новый RPC URL",
+      "placeholder": "Введите URL"
+    },
+    "explorer": {
+      "label": "URL обозревателя блоков",
+      "placeholder": "Введите URL"
+    },
+    "header": {
+      "title": "Добавить сеть"
+    },
+    "saveButton": "Сохранить"
+  },
+  "addToken": {
+    "header": {
+      "title": "Добавить токен",
+      "titleImport": "Импорт токена"
+    },
+    "tokenAddress": {
+      "label": "Адрес контракта токена",
+      "placeholder": "Введите адрес контракта"
+    },
+    "tokenName": {
+      "label": "Символ токена",
+      "placeholder": "Введите символ токена"
+    },
+    "alert": {
+      "failureTitle": "Не удалось импортировать токен",
+      "failureMessage": "Токен не существует"
+    },
+    "saveButton": "Добавить токен"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Купить"
+    },
+    "consent": {
+      "description": "Покупка и продажа криптовалют осуществляется через сервис третьей стороны от Onramper.\n\neckoWallet стремится обеспечить максимальную безопасность пользователей, но не может гарантировать безопасность и конфиденциальность сторонних сервисов."
+    },
+    "error": {
+      "walletUnavailable": "Адрес кошелька недоступен",
+      "unableConnect": "Не удалось подключиться к сервису. Попробуйте позже."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Сменить пароль"
+    },
+    "currentPassword": {
+      "label": "Текущий пароль"
+    },
+    "newPassword": {
+      "label": "Новый пароль"
+    },
+    "confirmPassword": {
+      "label": "Подтвердите пароль"
+    },
+    "toast": {
+      "success": "Пароль успешно изменён!"
+    },
+    "alert": {
+      "changeFailureTitle": "Не удалось сменить пароль",
+      "changeFailureMessage": "Что-то пошло не так. Попробуйте позже.",
+      "verifyFailureTitle": "Ошибка проверки",
+      "verifyFailureMessage": "Неверный пароль"
+    },
+    "changeButton": "Сменить пароль"
+  },
+  "connection": {
+    "unknown": "Неизвестное соединение",
+    "deleteAlert": {
+      "title": "Удалить эту активную сессию?",
+      "message": "Все данные сессии будут удалены без возможности восстановления."
+    },
+    "deleteFailureTitle": "Не удалось удалить сессию",
+    "deleteFailureMessage": "Конфигурация WalletConnect не совпадает",
+    "empty": {
+      "sessions": "Нет истории",
+      "pairings": "Нет активных сессий"
+    },
+    "modal": {
+      "title": "Информация WalletConnect"
+    },
+    "expiryLabel": "Истекает:",
+    "unknownHost": "Неизвестно"
+  },
+  "contacts": {
+    "searchPlaceholder": "Поиск контактов",
+    "emptyList": "Пока нет контактов",
+    "header": {
+      "title": "Контакты"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Секретная фраза восстановления скопирована!",
+    "description": "Секретная фраза восстановления позволяет легко сделать бэкап и восстановить аккаунт.",
+    "warning": "Никому не передавайте секретную фразу восстановления. Кто её знает — сможет навсегда завладеть вашим кошельком.",
+    "copyButton": "Скопировать фразу восстановления",
+    "header": {
+      "title": "Экспорт секретной фразы"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Проверка пароля"
+    },
+    "description": "Введите пароль для продолжения",
+    "alert": {
+      "verifyFailureTitle": "Ошибка проверки",
+      "verifyFailureMessage": "Неверный пароль",
+      "verifyErrorMessage": "Что-то пошло не так. Попробуйте позже."
+    },
+    "continueButton": "Продолжить"
+  },
+  "history": {
+    "empty": {
+      "pending": "Нет ожидающих операций",
+      "activities": "Деятельность не найдена"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Перевод в ожидании!",
+      "pendingMessage": "Попробуйте снова после завершения перевода"
+    },
+    "finishButton": "Завершить кросс-chain перевод"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Имя аккаунта",
+      "placeholder": "Введите имя аккаунта"
+    },
+    "privateKey": {
+      "label": "Приватный ключ",
+      "placeholder": "Введите приватный ключ"
+    },
+    "importButton": "Импорт",
+    "header": {
+      "title": "Импорт аккаунта"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Разблокировать eckoWALLET",
+      "enter": "Введите PIN",
+      "enterNew": "Введите новый PIN",
+      "reenter": "Повторно введите PIN",
+      "reenterNew": "Повторно введите новый PIN"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Сети"
+    }
+  },
+  "noConnection": {
+    "message": "Нет сетевого подключения"
+  },
+  "receiverScan": {
+    "placeholder": "Изменить адрес получателя",
+    "header": {
+      "title": "Сканировать QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Сид-фраза",
+      "placeholder": "Введите секретную фразу"
+    },
+    "accountIndex": {
+      "label": "Номер аккаунта",
+      "placeholder": "По умолчанию: 0"
+    },
+    "alert": {
+      "failureTitle": "Не удалось импортировать аккаунт",
+      "failureMessage": "Неверная секретная фраза"
+    },
+    "button": {
+      "recover": "Восстановить"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Импорт кошелька с\nсекретной фразой восстановления",
+    "seeds": {
+      "label": "Секретная фраза (с пробелами)",
+      "placeholder": "Введите секретную фразу"
+    },
+    "password": {
+      "label": "Новый пароль"
+    },
+    "confirmPassword": {
+      "label": "Подтвердите пароль"
+    },
+    "button": {
+      "restore": "Восстановить"
+    },
+    "alert": {
+      "failureTitle": "Не удалось импортировать аккаунт",
+      "failureMessage": "Что-то пошло не так. Попробуйте позже.",
+      "invalidSeeds": "Неверная фраза восстановления или аккаунт удалён"
+    }
+  },
+  "registration": {
+    "text": "Создать пароль",
+    "password": {
+      "label": "Новый пароль"
+    },
+    "confirmPassword": {
+      "label": "Подтвердите пароль"
+    },
+    "button": {
+      "create": "Создать"
+    },
+    "alert": {
+      "failureTitle": "Ошибка регистрации",
+      "failureMessage": "Что-то пошло не так. Попробуйте позже."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Поиск токена",
+    "empty": "Токены не найдены",
+    "alert": {
+      "notFungibleTitle": "Нефунгибельный токен",
+      "notFungibleMessage": "Выбранный токен не является фунгибельным"
+    },
+    "header": {
+      "title": "Поиск токена"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Секретная фраза восстановления",
+    "reveal": "Нажмите, чтобы показать слова",
+    "snackbar": "Фраза восстановления скопирована!",
+    "description1": "Секретная фраза восстановления позволяет легко сделать резервную копию и восстановить аккаунт.",
+    "description2": "Внимание: никогда не разглашайте секретную фразу восстановления. Рекомендуется не делать скриншоты при просмотре фразы.",
+    "continue": "Продолжить"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Секретная фраза восстановления",
+    "line1": "На следующем шаге вы запишете свою 12-словную фразу восстановления.",
+    "line2": "Фраза восстановления позволяет восстановить кошелек на новом устройстве.",
+    "line3": "Кто владеет этой фразой, тот контролирует ваш кошелек — храните её в секрете.",
+    "line4": "Kadena не сможет помочь, если фраза утеряна или приложение удалено — храните её надежно.",
+    "checkbox": "Я понимаю, что при потере фразы я не смогу восстановить кошелек."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Перевод ожидает!",
+      "pendingMessage": "Попробуйте снова после завершения перевода"
+    },
+    "alert": {
+      "nonKTitle": "Отправка на не «k:account»",
+      "nonKMessage": "Вы уверены, что хотите продолжить?",
+      "proceed": "Продолжить"
+    },
+    "chain": {
+      "sourceLabel": "ID исходной цепи",
+      "targetLabel": "ID целевой цепи"
+    },
+    "balance": {
+      "label": "Баланс цепи"
+    },
+    "accounts": {
+      "recent": "Недавние",
+      "contacts": "Контакты"
+    },
+    "content": {
+      "advancedSettings": "Дополнительные настройки (необязательно)",
+      "predicateLabel": "Предикат",
+      "receiverLabel": "Публичный ключ получателя",
+      "destinationLabel": "Аккаунт получателя",
+      "destinationPlaceholder": "Введите аккаунт получателя",
+      "receiverPlaceholder": "Введите публичный ключ (необязательно)"
+    },
+    "header": {
+      "title": "Отправить транзакцию {{token}}"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Не закрывайте приложение\nво время обработки операции."
+    },
+    "toast": {
+      "submittedTitle": "Перевод отправлен!",
+      "submittedMessage": "Результат будет в разделе активности"
+    },
+    "label": {
+      "result": "Результат:",
+      "message": "Сообщение:",
+      "requestKey": "Ключ запроса:"
+    },
+    "warning": {
+      "crossChainTitle": "Вы выполняете межцепочный перевод",
+      "crossChainMessage": "Эта операция занимает больше времени"
+    },
+    "button": {
+      "activities": "Перейти к активности"
+    },
+    "header": {
+      "title": "Транзакция в процессе"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Вы собираетесь выполнить межцепочный перевод",
+      "crossChainMessage": "Эта операция занимает больше времени"
+    },
+    "button": {
+      "send": "Отправить"
+    },
+    "confirmModal": {
+      "title": "Подтвердите отправку транзакции",
+      "amountLabel": "Сумма:",
+      "gasLimitLabel": "Лимит газа:",
+      "gasPriceLabel": "Цена газа:",
+      "speedLabel": "Скорость:",
+      "confirmButton": "Подтвердить"
+    },
+    "content": {
+      "transactionParameters": "Параметры транзакции",
+      "transactionSpeed": "Скорость транзакции",
+      "gasLimitPlaceholder": "Введите лимит газа",
+      "gasPricePlaceholder": "Введите цену газа",
+      "gasLabel": "Газ",
+      "speedLabel": "Скорость {{speed}}"
+    },
+    "header": {
+      "title": "Отправить транзакцию"
+    },
+    "walletInfo": {
+      "amountLabel": "Сумма к отправке",
+      "half": "половина",
+      "max": "макс.",
+      "maxSnackbar": "Максимальная сумма учитывает комиссию газа.",
+      "usdValue": "{{value}} USD",
+      "balance": "Баланс: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Контакты",
+        "text": "Управление списком контактов"
+      },
+      "networks": {
+        "title": "Сети",
+        "text": "Добавить или редактировать пользовательские RPC сети"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Настройка WalletConnect"
+      },
+      "accountSecurity": {
+        "title": "Безопасность аккаунта",
+        "text": "Управление безопасностью кошелька"
+      },
+      "lockWallet": {
+        "title": "Заблокировать кошелек",
+        "text": "История сохранится"
+      },
+      "deleteAccount": {
+        "title": "Удалить аккаунт",
+        "text": "Все данные аккаунта будут удалены"
+      }
+    },
+    "alert": {
+      "lockTitle": "Заблокировать кошелек?",
+      "lockMessage": "История сохранится",
+      "lockConfirm": "Заблокировать",
+      "deleteTitle": "Удалить аккаунт?",
+      "deleteMessage": "Все данные аккаунта будут удалены. Без фразы восстановления доступ потерян.",
+      "deleteConfirm": "Удалить аккаунт"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Шлюз в экосистему Kadena",
+      "visitWebsite": "Посетить сайт",
+      "joinDiscord": "Присоединиться к Discord",
+      "termsOfUse": "Условия использования",
+      "privacyPolicy": "Политика конфиденциальности"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Безопасность аккаунта"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Сброс PIN",
+        "text": "Изменить PIN приложения"
+      },
+      "exportPhrase": {
+        "title": "Экспорт фразы восстановления",
+        "text": "Защитить кошелёк"
+      },
+      "changePassword": {
+        "title": "Сменить пароль",
+        "text": "Сменить пароль аккаунта"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Добро пожаловать",
+    "label": {
+      "password": "Пароль"
+    },
+    "button": {
+      "signIn": "Войти"
+    },
+    "alert": {
+      "usePasscodeTitle": "Войти по PIN?",
+      "usePasscodeMessage": "Использовать PIN и биометрию для доступа?",
+      "failedTitle": "Ошибка входа",
+      "invalidPassword": "Неверный пароль",
+      "errorMessage": "Что-то пошло не так. Попробуйте позже."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Подтверждение конвертации",
+      "give": "ОТДАТЬ",
+      "receive": "ПОЛУЧИТЬ",
+      "confirmButton": "Подтвердить"
+    },
+    "gasSettings": {
+      "title": "Настройка газа",
+      "gasStation": "GAS STATION",
+      "gasLimitLabel": "Лимит газа",
+      "gasLimitPlaceholder": "Лимит газа",
+      "gasPriceLabel": "Цена газа",
+      "gasPricePlaceholder": "Цена газа",
+      "failureCost": "Возможные затраты газа при ошибке транзакции:",
+      "noGasCost": "Без платы за газ — субсидируется eckoDEX"
+    },
+    "info": {
+      "gasCost": "Стоимость газа",
+      "free": "БЕСПЛАТНО",
+      "priceImpact": "Влияние на цену",
+      "price": "Цена",
+      "maxSlippage": "Макс. проскальзывание",
+      "lpFee": "Комиссия провайдера ликвидности",
+      "txDeadline": "Дедлайн транзакции",
+      "gasPrice": "Цена газа",
+      "gasLimit": "Лимит газа",
+      "unitMinutes": "минуты",
+      "unitSeconds": "секунды"
+    },
+    "selectTokenModal": {
+      "title": "Выбрать токен",
+      "placeholder": "Поиск токена",
+      "tokensLabel": "Токены",
+      "warningTitle": "Внимание",
+      "warningMessage": "Пул {{pair}} не существует",
+      "addTokenTitle": "Добавить новый токен",
+      "addTokenMessage": "Токен отсутствует в кошельке. Добавить?",
+      "addTokenConfirm": "Добавить",
+      "selectedSuffix": " (Выбрано)",
+      "empty": "Токен не найден"
+    },
+    "transactionSettings": {
+      "title": "Настройки транзакции",
+      "slippageTitle": "Толерантность проскальзывания",
+      "deadlineTitle": "Дедлайн транзакции",
+      "minutes": "минуты"
+    },
+    "swapBlock": {
+      "pending": "Транзакция в ожидании...",
+      "warningTitle": "Для конвертации убедитесь, что у вас есть средства на цепи 2.",
+      "warningText": "",
+      "give": "ОТДАТЬ",
+      "receive": "ПОЛУЧИТЬ",
+      "confirm": "ПОДТВЕРДИТЬ",
+      "submittedTitle": "Свап отправлен!",
+      "submittedMessage": "Результат в разделе активности",
+      "poweredBy": "На базе eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Проверка фразы восстановления",
+    "description": "Введите слова в правильном порядке для подтверждения фразы.",
+    "warning": "Не используйте сторонние клавиатуры. Для безопасности — стандартную.",
+    "inputLabel": "Поле {{number}}",
+    "error": "Неверная фраза восстановления",
+    "continueButton": "Продолжить"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Активы"
+      },
+      "tokenDetector": {
+        "title": "Обнаруженные токены",
+        "emptyTitle": "Другие токены не найдены",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Имя аккаунта скопировано!"
+    },
+    "walletBalance": {
+      "netWorth": "Чистая стоимость",
+      "accountBalance": "Баланс аккаунта",
+      "send": "Отправить",
+      "receive": "Получить",
+      "buy": "Купить"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Введите код подключения",
+    "connect": "Подключить",
+    "header": {
+      "title": "Сканировать QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "ID проекта",
+    "projectIdPlaceholder": "Введите ID проекта",
+    "relayUrlLabel": "Relay URL",
+    "relayUrlPlaceholder": "Введите Relay URL",
+    "errorTitle": "Не удалось изменить настройки WalletConnect",
+    "errorMessage": "Неверные параметры"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Пароль",
+      "placeholder": "Введите пароль"
+    },
+    "numpad": {
+      "authenticationPrompt": "Аутентификация",
+      "weakPasscodeTitle": "Слабый код",
+      "weakPasscodeDescription": "Введённый код слишком слабый. Пожалуйста, используйте более сложный код."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Если сайт eckoDEX открыт на этом устройстве и у вас проблемы с подключением WalletConnect, попробуйте вернуться в браузер и зайти снова",
+      "text2": "Если это не поможет, проверьте настройки WalletConnect или откройте eckoDEX в настольном браузере",
+      "button": "ОК"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Все активные сессии останутся активными, пока вы не завершите их вручную через действие удаления",
+      "text2": "Во вкладке «История» отображаются детали сессии с указанными разрешениями для методов и событий",
+      "button": "ОК"
+    }
+  },
+  "tabs": {
+    "Wallet": "Кошелёк",
+    "Swap": "Обмен",
+    "History": "История",
+    "Connection": "Подключения",
+    "Settings": "Настройки",
+    "history": {
+      "activities": "Действия",
+      "pending": "В ожидании"
+    },
+    "connection": {
+      "pairings": "Активные сессии",
+      "sessions": "История"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Детали транзакции",
+    "gas": "Газ: {{gas}}",
+    "statusLabel": "Статус",
+    "continuationTitle": "Продолжение",
+    "continuationValue": "шаг: {{step}}, всего: {{total}}",
+    "no": "нет",
+    "requestKeyTitle": "Ключ запроса",
+    "transactionTypeTitle": "Тип транзакции",
+    "requestKeyChainTitle": "Ключ запроса (Chain {{chain}})",
+    "txDetailsButton": "Детали Tx",
+    "requestKeyCopied": "Ключ запроса скопирован в буфер обмена!"
+  },
+  "tokenModal": {
+    "distributionTitle": "Распределение {{token}} в Chain",
+    "removeConfirmTitle": "Вы уверены, что хотите удалить?",
+    "removeConfirmMessage": "Все данные токена будут удалены и не могут быть восстановлены",
+    "remove": "Удалить",
+    "notTransferable": "{{contract}} нельзя передать!",
+    "zeroBalance": "Баланс {{token}} равен 0",
+    "editToken": "Редактировать токен",
+    "removeToken": "Удалить токен",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Мои кошельки",
+    "removeConfirmTitle": "Вы уверены, что хотите удалить?",
+    "removeConfirmMessage": "Все данные аккаунта будут удалены и не могут быть восстановлены",
+    "remove": "Удалить",
+    "share": "Поделиться кошельком",
+    "exportRecovery": "Экспортировать фразу восстановления",
+    "removeSelected": "Удалить выбранный кошелёк",
+    "create": "Создать кошелёк",
+    "import": "Импортировать кошелёк",
+    "copySuccess": "Данные аккаунта скопированы в буфер обмена!"
+  },
+  "session": {
+    "title": "Детали сессии",
+    "deleteTitle": "Вы уверены, что хотите удалить эту историю сессии?",
+    "deleteDescription": "Все данные истории сессии будут удалены и не могут быть восстановлены",
+    "deleteFailedTitle": "Не удалось удалить сессию",
+    "deleteFailedMessage": "Конфигурация WalletConnect не совпадает",
+    "deleteSession": "Удалить сессию",
+    "reviewPermissions": "Проверить разрешения {{namespace}}",
+    "unknownUrl": "Неизвестно",
+    "methods": "Методы",
+    "events": "События",
+    "expiry": "Истечение",
+    "lastUpdated": "Последнее обновление"
+  },
+  "receive": {
+    "title": "Получить токены",
+    "accountNameLabel": "Название вашего аккаунта"
+  },
+  "networkSelector": {
+    "title": "Выберите сеть",
+    "manage": "Управление сетями"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "URL обозревателя блоков",
+    "editNetwork": "Редактировать сеть"
+  },
+  "contactDetails": {
+    "accountName": "Имя аккаунта",
+    "chainId": "Chain ID",
+    "edit": "Редактировать контакт",
+    "copied": "Скопировано в буфер обмена!"
+  }
+}

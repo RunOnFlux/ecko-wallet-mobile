@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {View, Alert, Image, ScrollView, TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
@@ -8,16 +8,21 @@ import Card from './components/Card';
 import Footer from './components/Footer';
 import ContactsSvg from '../../assets/images/contacts.svg';
 import NetworksSvg from '../../assets/images/networks.svg';
+import FlagSVG from '../../assets/images/white-flag.svg';
 import ShieldLockSvg from '../../assets/images/shield-lock.svg';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {createStyles} from './styles';
 import {deleteAccount, logout} from '../../store/auth/actions';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import LanguageSelectorModal from '../../components/LanguageSelectorModal';
 
 const Settings = () => {
   const {t} = useTranslation();
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
   const dispatch = useDispatch();
+
+  const [langModalVisible, setLangModalVisible] = useState(false);
+  const toggleLangModal = useCallback(() => setLangModalVisible(v => !v), []);
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
   const styles = createStyles({bottomSpace, statusBarHeight});
@@ -102,6 +107,12 @@ const Settings = () => {
           icon={<NetworksSvg width={24} height={24} fill="white" />}
           onPress={handlePressNetworks}
         />
+        <Card
+          title={t('common.selectLanguage')}
+          text={t('common.selectLanguageLongDescription')}
+          icon={<FlagSVG width={24} height={24} fill="white" />}
+          onPress={toggleLangModal}
+        />
 
         <Card
           title={t('settings.cards.walletConnect.title')}
@@ -136,6 +147,10 @@ const Settings = () => {
           titleStyle={{color: 'red'}}
           text={t('settings.cards.deleteAccount.text')}
           onPress={handlePressDelete}
+        />
+        <LanguageSelectorModal
+          isVisible={langModalVisible}
+          toggle={toggleLangModal}
         />
       </ScrollView>
     </View>

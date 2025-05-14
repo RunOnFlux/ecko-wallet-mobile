@@ -1,0 +1,689 @@
+{
+  "common": {
+    "saveButton": "บันทึก",
+    "confirm": "ยืนยัน",
+    "delete": "ลบ",
+    "cancel": "ยกเลิก",
+    "ok": "ตกลง",
+    "error": "ข้อผิดพลาด",
+    "selectLanguage": "เลือกภาษา",
+    "selectLanguageLongDescription": "โปรดเลือกภาษาที่คุณต้องการ"
+  },
+  "welcome": {
+    "title": "ยินดีต้อนรับสู่\neckoWALLET",
+    "subtitle": "เกตเวย์สู่ระบบนิเวศ Kadena",
+    "loginCard": {
+      "title": "เข้าสู่ระบบบัญชีของฉัน",
+      "description": "กรอกพาสเวิร์ดของกระเป๋า"
+    },
+    "newUserCard": {
+      "title": "ฉันเป็นผู้ใช้ใหม่",
+      "description": "ตั้งค่าบัญชี eckoWALLET ใหม่"
+    },
+    "recoverCard": {
+      "title": "ฉันมีบัญชีอยู่แล้ว",
+      "description": "เข้าสู่ระบบด้วยวลีลับ"
+    },
+    "instructions": {
+      "intro": "เพื่อเพิ่มบัญชีใหม่ กรุณาทำตามขั้นตอนต่อไปนี้:",
+      "step1": "1. เข้าสู่ระบบบัญชีเก่า",
+      "step2": "2. คลิก “ตั้งค่า”",
+      "step3": "3. คลิก “ลบบัญชี”"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "ชื่อผู้ติดต่อ",
+      "placeholder": "พิมพ์ชื่อผู้ติดต่อ"
+    },
+    "accountName": {
+      "label": "ชื่อบัญชี",
+      "placeholder": "กรอกชื่อบัญชี"
+    },
+    "saveButton": "บันทึก",
+    "header": {
+      "title": "เพิ่มผู้ติดต่อ"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "กำหนดเอง",
+    "alert": {
+      "failureTitle": "เพิ่มเครือข่ายไม่สำเร็จ",
+      "failureMessage": "ข้อมูลเครือข่ายไม่ถูกต้อง"
+    },
+    "name": {
+      "label": "ชื่อเครือข่าย",
+      "placeholder": "กรอกชื่อเครือข่าย"
+    },
+    "host": {
+      "label": "RPC URL ใหม่",
+      "placeholder": "กรอก URL"
+    },
+    "explorer": {
+      "label": "URL ตัวสำรวจบล็อก",
+      "placeholder": "กรอก URL"
+    },
+    "header": {
+      "title": "เพิ่มเครือข่าย"
+    },
+    "saveButton": "บันทึก"
+  },
+  "addToken": {
+    "header": {
+      "title": "เพิ่มโทเค็น",
+      "titleImport": "นำเข้าโทเค็น"
+    },
+    "tokenAddress": {
+      "label": "ที่อยู่สัญญาโทเค็น",
+      "placeholder": "กรอกที่อยู่สัญญา"
+    },
+    "tokenName": {
+      "label": "สัญลักษณ์โทเค็น",
+      "placeholder": "กรอกสัญลักษณ์โทเค็น"
+    },
+    "alert": {
+      "failureTitle": "นำเข้าโทเค็นไม่สำเร็จ",
+      "failureMessage": "โทเค็นไม่มีอยู่จริง"
+    },
+    "saveButton": "เพิ่มโทเค็น"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "ซื้อ"
+    },
+    "consent": {
+      "description": "การซื้อขายคริปโตเคอร์เรนซี่ดำเนินการผ่านบริการบุคคลที่สามของ Onramper\n\neckoWallet มุ่งมั่นเรื่องความปลอดภัยสูงสุด แต่ไม่สามารถรับประกันความปลอดภัยและความเป็นส่วนตัวของบุคคลที่สามได้"
+    },
+    "error": {
+      "walletUnavailable": "ไม่พบที่อยู่กระเป๋า",
+      "unableConnect": "ไม่สามารถเชื่อมต่อบริการ กรุณาลองใหม่ภายหลัง"
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "เปลี่ยนรหัสผ่าน"
+    },
+    "currentPassword": {
+      "label": "รหัสผ่านปัจจุบัน"
+    },
+    "newPassword": {
+      "label": "รหัสผ่านใหม่"
+    },
+    "confirmPassword": {
+      "label": "ยืนยันรหัสผ่าน"
+    },
+    "toast": {
+      "success": "เปลี่ยนรหัสผ่านสำเร็จ!"
+    },
+    "alert": {
+      "changeFailureTitle": "เปลี่ยนรหัสผ่านไม่สำเร็จ",
+      "changeFailureMessage": "มีข้อผิดพลาด กรุณาลองใหม่ภายหลัง",
+      "verifyFailureTitle": "ยืนยันไม่สำเร็จ",
+      "verifyFailureMessage": "รหัสผ่านไม่ถูกต้อง"
+    },
+    "changeButton": "เปลี่ยนรหัสผ่าน"
+  },
+  "connection": {
+    "unknown": "การเชื่อมต่อไม่ทราบ",
+    "deleteAlert": {
+      "title": "แน่ใจว่าต้องการลบเซสชันนี้?",
+      "message": "ข้อมูลทั้งหมดจะถูกลบและไม่สามารถกู้คืนได้"
+    },
+    "deleteFailureTitle": "ลบเซสชันไม่สำเร็จ",
+    "deleteFailureMessage": "การตั้งค่า WalletConnect ไม่ตรงกัน",
+    "empty": {
+      "sessions": "ไม่มีประวัติ",
+      "pairings": "ไม่มีเซสชันใช้งาน"
+    },
+    "modal": {
+      "title": "ข้อมูล WalletConnect"
+    },
+    "expiryLabel": "หมดอายุ:",
+    "unknownHost": "ไม่ทราบ"
+  },
+  "contacts": {
+    "searchPlaceholder": "ค้นหาผู้ติดต่อ",
+    "emptyList": "ยังไม่มีผู้ติดต่อ",
+    "header": {
+      "title": "ผู้ติดต่อ"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "คัดลอกวลีสำรองไว้แล้ว!",
+    "description": "วลีสำรองช่วยให้สำรองและกู้คืนบัญชีได้ง่าย",
+    "warning": "อย่าเปิดเผยวลีสำรอง ใครมีวลีมีสิทธิ์ควบคุมกระเป๋า",
+    "copyButton": "คัดลอกวลีสำรอง",
+    "header": {
+      "title": "ส่งออกวลีสำรอง"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "ยืนยันรหัสผ่าน"
+    },
+    "description": "กรอกรหัสผ่านเพื่อดำเนินการต่อ",
+    "alert": {
+      "verifyFailureTitle": "ยืนยันไม่สำเร็จ",
+      "verifyFailureMessage": "รหัสผ่านไม่ถูกต้อง",
+      "verifyErrorMessage": "มีข้อผิดพลาด กรุณาลองใหม่ภายหลัง"
+    },
+    "continueButton": "ดำเนินการต่อ"
+  },
+  "history": {
+    "empty": {
+      "pending": "ไม่มีรายการรอดำเนินการ",
+      "activities": "ไม่พบกิจกรรม"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "กำลังรอส่ง!",
+      "pendingMessage": "กรุณาลองใหม่หลังส่งสำเร็จ"
+    },
+    "finishButton": "สิ้นสุดการโอนข้ามเครือข่าย"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "ชื่อบัญชี",
+      "placeholder": "กรอกชื่อบัญชี"
+    },
+    "privateKey": {
+      "label": "กุญแจส่วนตัว",
+      "placeholder": "กรอกกุญแจส่วนตัว"
+    },
+    "importButton": "นำเข้า",
+    "header": {
+      "title": "นำเข้าบัญชี"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "ปลดล็อก eckoWALLET",
+      "enter": "กรอก PIN",
+      "enterNew": "กรอก PIN ใหม่",
+      "reenter": "กรอก PIN ซ้ำ",
+      "reenterNew": "กรอก PIN ใหม่ซ้ำ"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "เครือข่าย"
+    }
+  },
+  "noConnection": {
+    "message": "ไม่มีการเชื่อมต่อเครือข่าย"
+  },
+  "receiverScan": {
+    "placeholder": "แก้ไขบัญชีปลายทาง",
+    "header": {
+      "title": "สแกน QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "วลีสำรอง",
+      "placeholder": "กรอกวลีสำรอง"
+    },
+    "accountIndex": {
+      "label": "หมายเลขบัญชี",
+      "placeholder": "เริ่มต้น: 0"
+    },
+    "alert": {
+      "failureTitle": "นำเข้าบัญชีไม่สำเร็จ",
+      "failureMessage": "วลีสำรองไม่ถูกต้อง"
+    },
+    "button": {
+      "recover": "กู้คืน"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "นำเข้ากระเป๋าด้วย\nวลีสำรองลับ",
+    "seeds": {
+      "label": "วลีลับ (เว้นวรรค)",
+      "placeholder": "กรอกวลี"
+    },
+    "password": {
+      "label": "รหัสผ่านใหม่"
+    },
+    "confirmPassword": {
+      "label": "ยืนยันรหัสผ่าน"
+    },
+    "button": {
+      "restore": "กู้คืน"
+    },
+    "alert": {
+      "failureTitle": "นำเข้าบัญชีไม่สำเร็จ",
+      "failureMessage": "มีข้อผิดพลาด กรุณาลองใหม่ภายหลัง",
+      "invalidSeeds": "วลีสำรองไม่ถูกต้องหรือบัญชีถูกลบ"
+    }
+  },
+  "registration": {
+    "text": "สร้างรหัสผ่าน",
+    "password": {
+      "label": "รหัสผ่านใหม่"
+    },
+    "confirmPassword": {
+      "label": "ยืนยันรหัสผ่าน"
+    },
+    "button": {
+      "create": "สร้าง"
+    },
+    "alert": {
+      "failureTitle": "ลงทะเบียนไม่สำเร็จ",
+      "failureMessage": "มีข้อผิดพลาด กรุณาลองใหม่ภายหลัง"
+    }
+  },
+  "searchTokens": {
+    "placeholder": "ค้นหาโทเค็น",
+    "empty": "ไม่พบโทเค็น",
+    "alert": {
+      "notFungibleTitle": "โทเค็นไม่ fungible",
+      "notFungibleMessage": "โทเค็นที่เลือกไม่สามารถแทนที่ได้"
+    },
+    "header": {
+      "title": "ค้นหาโทเค็น"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "วลีสำรองลับ",
+    "reveal": "คลิกเพื่อแสดงคำ",
+    "snackbar": "คัดลอกวลีสำรองแล้ว!",
+    "description1": "วลีสำรองช่วยให้สำรองและกู้คืนบัญชีได้ง่าย",
+    "description2": "คำเตือน: อย่าเปิดเผยหรือจับภาพหน้าจอ ใครมีวลีสามารถควบคุมกระเป๋าได้",
+    "continue": "ดำเนินการต่อ"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "วลีสำรองลับ",
+    "line1": "ในขั้นตอนถัดไป จดบันทึกวลี 12 คำของคุณ",
+    "line2": "ใช้วลีนี้กู้คืนกระเป๋าบนอุปกรณ์ใหม่ได้",
+    "line3": "ใครมีวลีสามารถควบคุมกระเป๋าได้ กรุณาเก็บให้ปลอดภัย",
+    "line4": "Kadena ไม่สามารถช่วยได้หากวลีสูญหายหรือแอปถูกลบ กรุณาเก็บให้ปลอดภัย",
+    "checkbox": "ฉันเข้าใจว่าหากสูญเสียวลี ฉันจะไม่สามารถกู้คืนกระเป๋าได้"
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "การโอนรอดำเนินการ!",
+      "pendingMessage": "กรุณาลองใหม่หลังการโอนสำเร็จ"
+    },
+    "alert": {
+      "nonKTitle": "กำลังส่งไปยังที่ไม่ใช่ “k:account”",
+      "nonKMessage": "คุณแน่ใจว่าต้องการดำเนินการต่อ?",
+      "proceed": "ดำเนินการต่อ"
+    },
+    "chain": {
+      "sourceLabel": "ID เครือข่ายต้นทาง",
+      "targetLabel": "ID เครือข่ายปลายทาง"
+    },
+    "balance": {
+      "label": "ยอดคงเหลือเครือข่าย"
+    },
+    "accounts": {
+      "recent": "ล่าสุด",
+      "contacts": "ผู้ติดต่อ"
+    },
+    "content": {
+      "advancedSettings": "การตั้งค่าขั้นสูง (ไม่บังคับ)",
+      "predicateLabel": "Predicate",
+      "receiverLabel": "กุญแจสาธารณะผู้รับ",
+      "destinationLabel": "บัญชีปลายทาง",
+      "destinationPlaceholder": "กรอกบัญชีปลายทาง",
+      "receiverPlaceholder": "กรอกกุญแจสาธารณะ (ไม่บังคับ)"
+    },
+    "header": {
+      "title": "ส่งธุรกรรม {{token}}"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "ห้ามปิดแอปขณะกำลังดำเนินการ"
+    },
+    "toast": {
+      "submittedTitle": "การโอนถูกส่งแล้ว!",
+      "submittedMessage": "ตรวจสอบผลในแท็บกิจกรรม"
+    },
+    "label": {
+      "result": "ผลลัพธ์:",
+      "message": "ข้อความ:",
+      "requestKey": "กุญแจคำขอ:"
+    },
+    "warning": {
+      "crossChainTitle": "กำลังดำเนินการโอนข้ามเครือข่าย",
+      "crossChainMessage": "การดำเนินการมักใช้เวลามากขึ้น"
+    },
+    "button": {
+      "activities": "ไปยังกิจกรรม"
+    },
+    "header": {
+      "title": "ธุรกรรมกำลังดำเนินการ"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "คุณกำลังจะทำการโอนข้ามเครือข่าย",
+      "crossChainMessage": "การดำเนินการมักใช้เวลามากขึ้น"
+    },
+    "button": {
+      "send": "ส่ง"
+    },
+    "confirmModal": {
+      "title": "ยืนยันการส่ง",
+      "amountLabel": "จำนวน:",
+      "gasLimitLabel": "จำกัด gas:",
+      "gasPriceLabel": "ราค gas:",
+      "speedLabel": "ความเร็ว:",
+      "confirmButton": "ยืนยัน"
+    },
+    "content": {
+      "transactionParameters": "พารามิเตอร์ธุรกรรม",
+      "transactionSpeed": "ความเร็วธุรกรรม",
+      "gasLimitPlaceholder": "กรอกจำกัด gas",
+      "gasPricePlaceholder": "กรอกราคา gas",
+      "gasLabel": "gas",
+      "speedLabel": "{{speed}} ความเร็ว"
+    },
+    "header": {
+      "title": "ส่งธุรกรรม"
+    },
+    "walletInfo": {
+      "amountLabel": "จำนวนส่ง",
+      "half": "ครึ่ง",
+      "max": "สูงสุด",
+      "maxSnackbar": "จำนวนสูงสุดรวมค่าธรรมเนียม gas โดยประมาณแล้ว",
+      "usdValue": "{{value}} USD",
+      "balance": "ยอดคงเหลือ: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "ผู้ติดต่อ",
+        "text": "จัดการรายชื่อผู้ติดต่อ"
+      },
+      "networks": {
+        "title": "เครือข่าย",
+        "text": "เพิ่มหรื​อแก้ไขเครือข่าย RPC"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "แก้ไขการตั้งค่า WalletConnect"
+      },
+      "accountSecurity": {
+        "title": "ความปลอดภัยบัญชี",
+        "text": "จัดการความปลอดภัยกระเป๋า"
+      },
+      "lockWallet": {
+        "title": "ล็อกกระเป๋า",
+        "text": "ประวัติจะยังคงอยู่"
+      },
+      "deleteAccount": {
+        "title": "ลบบัญชี",
+        "text": "ข้อมูลทั้งหมดจะถูกลบ"
+      }
+    },
+    "alert": {
+      "lockTitle": "แน่ใจว่าต้องการล็อกกระเป๋า?",
+      "lockMessage": "ประวัติจะยังอยู่",
+      "lockConfirm": "ล็อกกระเป๋า",
+      "deleteTitle": "แน่ใจว่าต้องการลบบัญชี?",
+      "deleteMessage": "ข้อมูลทั้งหมดจะถูกลบ หากไม่มีวลีสำรองจะเข้าใช้งานไม่ได้",
+      "deleteConfirm": "ลบบัญชี"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "เกตเวย์สู่ระบบนิเวศ Kadena",
+      "visitWebsite": "เยี่ยมชมเว็บไซต์",
+      "joinDiscord": "เข้าร่วม Discord",
+      "termsOfUse": "ข้อตกลงการใช้งาน",
+      "privacyPolicy": "นโยบายความเป็นส่วนตัว"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "ความปลอดภัยบัญชี"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "รีเซ็ต PIN",
+        "text": "เปลี่ยน PIN แอป"
+      },
+      "exportPhrase": {
+        "title": "ส่งออกวลีสำรอง",
+        "text": "ปกป้องกระเป๋าของคุณ"
+      },
+      "changePassword": {
+        "title": "เปลี่ยนรหัสผ่าน",
+        "text": "เปลี่ยนรหัสผ่านบัญชี"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "ยินดีต้อนรับ",
+    "label": {
+      "password": "รหัสผ่าน"
+    },
+    "button": {
+      "signIn": "เข้าสู่ระบบ"
+    },
+    "alert": {
+      "usePasscodeTitle": "ใช้การล็อกอินด้วย PIN?",
+      "usePasscodeMessage": "ต้องการใช้ PIN และไบโอเมตริกซ์เพื่อเข้าถึงไหม?",
+      "failedTitle": "เข้าสู่ระบบไม่สำเร็จ",
+      "invalidPassword": "รหัสผ่านไม่ถูกต้อง",
+      "errorMessage": "มีข้อผิดพลาด กรุณาลองใหม่ภายหลัง"
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "ยืนยันการแปลง",
+      "give": "ให้",
+      "receive": "รับ",
+      "confirmButton": "ยืนยัน"
+    },
+    "gasSettings": {
+      "title": "ตั้งค่า Gas",
+      "gasStation": "สถานี GAS",
+      "gasLimitLabel": "จำกัด Gas",
+      "gasLimitPlaceholder": "จำกัด Gas",
+      "gasPriceLabel": "ราคา Gas",
+      "gasPricePlaceholder": "ราคา Gas",
+      "failureCost": "ค่าประมาณ Gas เมื่อทำไม่สำเร็จ:",
+      "noGasCost": "ไม่มีค่าธรรมเนียม Gas — eckoDEX ช่วยเหลือ"
+    },
+    "info": {
+      "gasCost": "ค่าธรรมเนียม Gas",
+      "free": "ฟรี",
+      "priceImpact": "ผลกระทบราคา",
+      "price": "ราคา",
+      "maxSlippage": "สลิปเพจสูงสุด",
+      "lpFee": "ค่าธรรมเนียม LP",
+      "txDeadline": "เวลาหมดเขต",
+      "gasPrice": "ราคา Gas",
+      "gasLimit": "จำกัด Gas",
+      "unitMinutes": "นาที",
+      "unitSeconds": "วินาที"
+    },
+    "selectTokenModal": {
+      "title": "เลือกโทเค็น",
+      "placeholder": "ค้นหาโทเค็น",
+      "tokensLabel": "โทเค็น",
+      "warningTitle": "คำเตือน",
+      "warningMessage": "พูล {{pair}} ไม่มีอยู่จริง",
+      "addTokenTitle": "เพิ่มโทเค็นใหม่",
+      "addTokenMessage": "โทเค็นนี้ไม่มีในกระเป๋าคุณ ต้องการเพิ่มไหม?",
+      "addTokenConfirm": "เพิ่ม",
+      "selectedSuffix": " (เลือกแล้ว)",
+      "empty": "ไม่พบโทเค็น"
+    },
+    "transactionSettings": {
+      "title": "ตั้งค่าธุรกรรม",
+      "slippageTitle": "การยอมรับสลิปเพจ",
+      "deadlineTitle": "เวลาหมดเขต",
+      "minutes": "นาที"
+    },
+    "swapBlock": {
+      "pending": "รอดำเนินการ...",
+      "warningTitle": "ก่อนใช้ฟังก์ชันนี้ โปรดตรวจสอบว่ามีเงินใน Chain 2",
+      "warningText": "",
+      "give": "ให้",
+      "receive": "รับ",
+      "confirm": "ยืนยัน",
+      "submittedTitle": "ส่งการแลกเปลี่ยนแล้ว!",
+      "submittedMessage": "ตรวจสอบผลในแท็บกิจกรรม",
+      "poweredBy": "ขับเคลื่อนโดย eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "ยืนยันวลีสำรอง",
+    "description": "โปรดพิมพ์คำตามลำดับที่ถูกต้อง",
+    "warning": "แนะนำไม่ใช้คีย์บอร์ดที่ปรับแต่ง โปรดใช้คีย์บอร์ดมาตรฐานเพื่อความปลอดภัย",
+    "inputLabel": "ป้อน {{number}}",
+    "error": "วลีสำรองไม่ถูกต้อง",
+    "continueButton": "ดำเนินการต่อ"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "สินทรัพย์"
+      },
+      "tokenDetector": {
+        "title": "โทเค็นที่ตรวจพบ",
+        "emptyTitle": "ไม่พบโทเค็นอื่นๆ สำหรับบัญชีนี้",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "คัดลอกชื่อบัญชีแล้ว!"
+    },
+    "walletBalance": {
+      "netWorth": "มูลค่ารวม",
+      "accountBalance": "ยอดคงเหลือ",
+      "send": "ส่ง",
+      "receive": "รับ",
+      "buy": "ซื้อ"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "พิมพ์โค้ดเชื่อมต่อ",
+    "connect": "เชื่อมต่อ",
+    "header": {
+      "title": "สแกน QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "รหัสโครงการ",
+    "projectIdPlaceholder": "กรอกรหัสโครงการ",
+    "relayUrlLabel": "Relay URL",
+    "relayUrlPlaceholder": "กรอก Relay URL",
+    "errorTitle": "เปลี่ยนการตั้งค่าไม่สำเร็จ",
+    "errorMessage": "พารามิเตอร์ไม่ถูกต้อง"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "รหัสผ่าน",
+      "placeholder": "กรุณากรอกรหัสผ่าน"
+    },
+    "numpad": {
+      "authenticationPrompt": "การพิสูจน์ตัวตน",
+      "weakPasscodeTitle": "รหัสผ่านอ่อน",
+      "weakPasscodeDescription": "รหัสผ่านที่กรอกอ่อนเกินไป โปรดลองใช้รหัสผ่านที่ซับซ้อนขึ้น"
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "หากเว็บไซต์ eckoDEX เปิดอยู่บนอุปกรณ์นี้และคุณมีปัญหาการเชื่อมต่อ WalletConnect ให้กลับไปที่เบราว์เซอร์แล้วลองใหม่อีกครั้ง",
+      "text2": "หากยังไม่ช่วย โปรดตรวจสอบการตั้งค่า WalletConnect หรือเปิด eckoDEX ในเบราว์เซอร์บนเดสก์ท็อป",
+      "button": "ตกลง"
+    },
+    "walletConnectInfoModal": {
+      "text1": "เซสชันที่ใช้งานอยู่ทั้งหมดจะยังคงใช้งานได้จนกว่าจะถูกยกเลิกด้วยตนเองผ่านการลบ",
+      "text2": "แท็บประวัติจะแสดงรายละเอียดเซสชันพร้อมสิทธิ์การเข้าถึงสำหรับเมทอดและเหตุการณ์",
+      "button": "ตกลง"
+    }
+  },
+  "tabs": {
+    "Wallet": "กระเป๋าเงิน",
+    "Swap": "สว็อป",
+    "History": "ประวัติ",
+    "Connection": "การเชื่อมต่อ",
+    "Settings": "การตั้งค่า",
+    "history": {
+      "activities": "กิจกรรม",
+      "pending": "รอดำเนินการ"
+    },
+    "connection": {
+      "pairings": "เซสชันที่ใช้งาน",
+      "sessions": "ประวัติ"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "รายละเอียดธุรกรรม",
+    "gas": "แก๊ส: {{gas}}",
+    "statusLabel": "สถานะ",
+    "continuationTitle": "ต่อเนื่อง",
+    "continuationValue": "ขั้นตอน: {{step}}, รวม: {{total}}",
+    "no": "ไม่",
+    "requestKeyTitle": "คีย์คำขอ",
+    "transactionTypeTitle": "ประเภทธุรกรรม",
+    "requestKeyChainTitle": "คีย์คำขอ (Chain {{chain}})",
+    "txDetailsButton": "รายละเอียด Tx",
+    "requestKeyCopied": "คีย์คำขอคัดลอกไปยังคลิปบอร์ดแล้ว!"
+  },
+  "tokenModal": {
+    "distributionTitle": "การแจกจ่าย {{token}} ใน Chain",
+    "removeConfirmTitle": "คุณแน่ใจหรือไม่ว่าจะลบ?",
+    "removeConfirmMessage": "ข้อมูลโทเค็นทั้งหมดจะถูกลบและไม่สามารถกู้คืนได้",
+    "remove": "ลบ",
+    "notTransferable": "{{contract}} ไม่สามารถโอนย้ายได้!",
+    "zeroBalance": "ยอดคงเหลือของ {{token}} คือ 0",
+    "editToken": "แก้ไขโทเค็น",
+    "removeToken": "ลบโทเค็น",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "กระเป๋าของฉัน",
+    "removeConfirmTitle": "คุณแน่ใจหรือไม่ว่าจะลบ?",
+    "removeConfirmMessage": "ข้อมูลบัญชีทั้งหมดจะถูกลบและไม่สามารถกู้คืนได้",
+    "remove": "ลบ",
+    "share": "แชร์กระเป๋าเงิน",
+    "exportRecovery": "ส่งออกวลีกู้คืน",
+    "removeSelected": "ลบกระเป๋าที่เลือก",
+    "create": "สร้างกระเป๋าเงิน",
+    "import": "นำเข้ากระเป๋าเงิน",
+    "copySuccess": "รายละเอียดบัญชีคัดลอกไปยังคลิปบอร์ดแล้ว!"
+  },
+  "session": {
+    "title": "รายละเอียดเซสชัน",
+    "deleteTitle": "คุณแน่ใจหรือไม่ว่าจะลบประวัติเซสชันนี้?",
+    "deleteDescription": "ข้อมูลประวัติเซสชันทั้งหมดจะถูกลบและไม่สามารถกู้คืนได้",
+    "deleteFailedTitle": "ไม่สามารถลบเซสชันได้",
+    "deleteFailedMessage": "การตั้งค่า WalletConnect ไม่ตรงกัน",
+    "deleteSession": "ลบเซสชัน",
+    "reviewPermissions": "ตรวจสอบสิทธิ์ {{namespace}}",
+    "unknownUrl": "ไม่ทราบ",
+    "methods": "เมทอด",
+    "events": "เหตุการณ์",
+    "expiry": "หมดอายุ",
+    "lastUpdated": "อัปเดตล่าสุด"
+  },
+  "receive": {
+    "title": "รับโทเค็น",
+    "accountNameLabel": "ชื่อบัญชีของคุณ"
+  },
+  "networkSelector": {
+    "title": "เลือกเครือข่าย",
+    "manage": "จัดการเครือข่าย"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "URL ตัวสำรวจบล็อก",
+    "editNetwork": "แก้ไขเครือข่าย"
+  },
+  "contactDetails": {
+    "accountName": "ชื่อบัญชี",
+    "chainId": "Chain ID",
+    "edit": "แก้ไขผู้ติดต่อ",
+    "copied": "คัดลอกไปยังคลิปบอร์ดแล้ว!"
+  }
+}

@@ -1,0 +1,689 @@
+{
+  "common": {
+    "saveButton": "Зберегти",
+    "confirm": "Підтвердити",
+    "delete": "Видалити",
+    "cancel": "Скасувати",
+    "ok": "Гаразд",
+    "error": "Помилка",
+    "selectLanguage": "Виберіть мову",
+    "selectLanguageLongDescription": "Оберіть бажану мову"
+  },
+  "welcome": {
+    "title": "Ласкаво просимо в\neckoWALLET",
+    "subtitle": "Шлюз до екосистеми Kadena",
+    "loginCard": {
+      "title": "Увійти в акаунт",
+      "description": "Введіть пароль гаманця"
+    },
+    "newUserCard": {
+      "title": "Я — новий користувач",
+      "description": "Створити новий акаунт eckoWALLET"
+    },
+    "recoverCard": {
+      "title": "Я вже маю акаунт",
+      "description": "Увійти за секретною фразою"
+    },
+    "instructions": {
+      "intro": "Щоб додати новий акаунт, виконайте кроки:",
+      "step1": "1. Увійдіть у наявний акаунт",
+      "step2": "2. Клікніть «Налаштування»",
+      "step3": "3. Клікніть «Видалити акаунт»"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Ім’я контакту",
+      "placeholder": "Введіть ім’я контакту"
+    },
+    "accountName": {
+      "label": "Назва акаунту",
+      "placeholder": "Введіть назву акаунту"
+    },
+    "saveButton": "Зберегти",
+    "header": {
+      "title": "Додати контакт"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Власна",
+    "alert": {
+      "failureTitle": "Не вдалося додати мережу",
+      "failureMessage": "Неправильні дані мережі"
+    },
+    "name": {
+      "label": "Назва мережі",
+      "placeholder": "Введіть назву мережі"
+    },
+    "host": {
+      "label": "Новий RPC URL",
+      "placeholder": "Введіть URL"
+    },
+    "explorer": {
+      "label": "URL блок-експлорера",
+      "placeholder": "Введіть URL"
+    },
+    "header": {
+      "title": "Додати мережу"
+    },
+    "saveButton": "Зберегти"
+  },
+  "addToken": {
+    "header": {
+      "title": "Додати токен",
+      "titleImport": "Імпортувати токен"
+    },
+    "tokenAddress": {
+      "label": "Адреса контракту токена",
+      "placeholder": "Введіть адресу контракту"
+    },
+    "tokenName": {
+      "label": "Символ токена",
+      "placeholder": "Введіть символ токена"
+    },
+    "alert": {
+      "failureTitle": "Не вдалося імпортувати токен",
+      "failureMessage": "Токен не існує"
+    },
+    "saveButton": "Додати токен"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Купити"
+    },
+    "consent": {
+      "description": "Купівля та продаж криптовалют здійснюється через сервіс третьої сторони Onramper.\n\neckoWallet прагне забезпечити найвищий рівень безпеки, але не гарантує безпеку чи конфіденційність зовнішніх сервісів."
+    },
+    "error": {
+      "walletUnavailable": "Адреса гаманця недоступна",
+      "unableConnect": "Не вдалося підключитися. Спробуйте пізніше."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Змінити пароль"
+    },
+    "currentPassword": {
+      "label": "Поточний пароль"
+    },
+    "newPassword": {
+      "label": "Новий пароль"
+    },
+    "confirmPassword": {
+      "label": "Підтвердити пароль"
+    },
+    "toast": {
+      "success": "Пароль успішно змінено!"
+    },
+    "alert": {
+      "changeFailureTitle": "Не вдалося змінити пароль",
+      "changeFailureMessage": "Сталася помилка. Спробуйте пізніше.",
+      "verifyFailureTitle": "Не вдалося перевірити",
+      "verifyFailureMessage": "Неправильний пароль"
+    },
+    "changeButton": "Змінити пароль"
+  },
+  "connection": {
+    "unknown": "Невідоме з’єднання",
+    "deleteAlert": {
+      "title": "Впевнені, що хочете видалити цю сесію?",
+      "message": "Всі дані сесії будуть втрачено."
+    },
+    "deleteFailureTitle": "Не вдалося видалити сесію",
+    "deleteFailureMessage": "Налаштування WalletConnect не збігаються",
+    "empty": {
+      "sessions": "Немає історії",
+      "pairings": "Немає активних сесій"
+    },
+    "modal": {
+      "title": "Дані WalletConnect"
+    },
+    "expiryLabel": "Закінчується:",
+    "unknownHost": "Невідомий"
+  },
+  "contacts": {
+    "searchPlaceholder": "Пошук контактів",
+    "emptyList": "Немає контактів",
+    "header": {
+      "title": "Контакти"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Фразу відновлення скопійовано!",
+    "description": "Ваша секретна фраза полегшує резервне копіювання та відновлення акаунту.",
+    "warning": "Ніколи не повідомляйте свою фразу. Той, хто її має, отримає контроль над гаманцем.",
+    "copyButton": "Скопіювати фразу",
+    "header": {
+      "title": "Експорт фрази"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Підтвердіть пароль"
+    },
+    "description": "Введіть пароль для продовження",
+    "alert": {
+      "verifyFailureTitle": "Не вдалося підтвердити",
+      "verifyFailureMessage": "Неправильний пароль",
+      "verifyErrorMessage": "Сталася помилка. Спробуйте пізніше."
+    },
+    "continueButton": "Продовжити"
+  },
+  "history": {
+    "empty": {
+      "pending": "Немає очікуваних операцій",
+      "activities": "Немає активностей"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Передача очікує!",
+      "pendingMessage": "Спробуйте ще раз пізніше"
+    },
+    "finishButton": "Завершити міжмережевий переклад"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Назва акаунту",
+      "placeholder": "Введіть назву"
+    },
+    "privateKey": {
+      "label": "Приватний ключ",
+      "placeholder": "Введіть ключ"
+    },
+    "importButton": "Імпортувати",
+    "header": {
+      "title": "Імпорт акаунту"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Розблокувати eckoWALLET",
+      "enter": "Введіть PIN",
+      "enterNew": "Введіть новий PIN",
+      "reenter": "Повторно введіть PIN",
+      "reenterNew": "Повторно введіть новий PIN"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Мережі"
+    }
+  },
+  "noConnection": {
+    "message": "Немає з’єднання"
+  },
+  "receiverScan": {
+    "placeholder": "Редагувати адресу одержувача",
+    "header": {
+      "title": "Сканувати QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Фраза відновлення",
+      "placeholder": "Введіть фразу"
+    },
+    "accountIndex": {
+      "label": "Індекс акаунту",
+      "placeholder": "За замовчуванням: 0"
+    },
+    "alert": {
+      "failureTitle": "Не вдалося імпортувати акаунт",
+      "failureMessage": "Неправильна фраза"
+    },
+    "button": {
+      "recover": "Відновити"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Імпортувати гаманець за\nсекретною фразою",
+    "seeds": {
+      "label": "Секретна фраза (з пробілами)",
+      "placeholder": "Введіть фразу"
+    },
+    "password": {
+      "label": "Новий пароль"
+    },
+    "confirmPassword": {
+      "label": "Підтвердити пароль"
+    },
+    "button": {
+      "restore": "Відновити"
+    },
+    "alert": {
+      "failureTitle": "Імпорт не вдався",
+      "failureMessage": "Спробуйте пізніше.",
+      "invalidSeeds": "Неправильна фраза або акаунт видалено"
+    }
+  },
+  "registration": {
+    "text": "Створіть пароль",
+    "password": {
+      "label": "Новий пароль"
+    },
+    "confirmPassword": {
+      "label": "Підтвердити пароль"
+    },
+    "button": {
+      "create": "Створити"
+    },
+    "alert": {
+      "failureTitle": "Не вдалося зареєструватися",
+      "failureMessage": "Спробуйте пізніше."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Пошук токена",
+    "empty": "Токени не знайдено",
+    "alert": {
+      "notFungibleTitle": "Невзаємозамінний токен",
+      "notFungibleMessage": "Обраний токен не є взаємозамінним"
+    },
+    "header": {
+      "title": "Пошук токена"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Секретна фраза відновлення",
+    "reveal": "Натисніть, щоб показати слова",
+    "snackbar": "Фразу скопійовано!",
+    "description1": "Фраза полегшує резервне копіювання та відновлення акаунту.",
+    "description2": "Увага: не розкривайте і не зберігайте скріншоти. Хто має фразу — має гаманець.",
+    "continue": "Продовжити"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Секретна фраза відновлення",
+    "line1": "На наступному кроці запишіть 12 слів фрази.",
+    "line2": "З її допомогою відновите гаманець на новому пристрої.",
+    "line3": "Той, хто має фразу, контролює гаманець. Зберігайте в безпеці.",
+    "line4": "Kadena не допоможе, якщо фразу загублено чи додаток видалено.",
+    "checkbox": "Я розумію, що без фрази відновлення неможливо відновити гаманець."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Передача очікує!",
+      "pendingMessage": "Спробуйте ще раз після завершення"
+    },
+    "alert": {
+      "nonKTitle": "Відправка не “k:account”",
+      "nonKMessage": "Ви впевнені?",
+      "proceed": "Продовжити"
+    },
+    "chain": {
+      "sourceLabel": "ID джерельної мережі",
+      "targetLabel": "ID цільової мережі"
+    },
+    "balance": {
+      "label": "Баланс мережі"
+    },
+    "accounts": {
+      "recent": "Нещодавні",
+      "contacts": "Контакти"
+    },
+    "content": {
+      "advancedSettings": "Розширені налаштування (необов’язково)",
+      "predicateLabel": "Умова",
+      "receiverLabel": "Публічний ключ отримувача",
+      "destinationLabel": "Акаунт одержувача",
+      "destinationPlaceholder": "Введіть акаунт",
+      "receiverPlaceholder": "Введіть ключ (необов’язково)"
+    },
+    "header": {
+      "title": "Відправити транзакцію {{token}}"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Не закривайте додаток під час обробки."
+    },
+    "toast": {
+      "submittedTitle": "Передача відправлена!",
+      "submittedMessage": "Перегляньте результат у вкладці Активності"
+    },
+    "label": {
+      "result": "Результат:",
+      "message": "Повідомлення:",
+      "requestKey": "Ключ запиту:"
+    },
+    "warning": {
+      "crossChainTitle": "Виконується міжмережевий переклад",
+      "crossChainMessage": "Це зазвичай займає більше часу"
+    },
+    "button": {
+      "activities": "До Активностей"
+    },
+    "header": {
+      "title": "Транзакція в процесі"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Ви збираєтеся зробити міжмережевий переклад",
+      "crossChainMessage": "Це зазвичай займає більше часу"
+    },
+    "button": {
+      "send": "Відправити"
+    },
+    "confirmModal": {
+      "title": "Підтвердьте відправку",
+      "amountLabel": "Сума:",
+      "gasLimitLabel": "Ліміт gas:",
+      "gasPriceLabel": "Ціна gas:",
+      "speedLabel": "Швидкість:",
+      "confirmButton": "Підтвердити"
+    },
+    "content": {
+      "transactionParameters": "Параметри транзакції",
+      "transactionSpeed": "Швидкість транзакції",
+      "gasLimitPlaceholder": "Введіть ліміт gas",
+      "gasPricePlaceholder": "Введіть ціну gas",
+      "gasLabel": "Gas",
+      "speedLabel": "{{speed}} швидкість"
+    },
+    "header": {
+      "title": "Відправити транзакцію"
+    },
+    "walletInfo": {
+      "amountLabel": "Сума до відправлення",
+      "half": "половина",
+      "max": "макс",
+      "maxSnackbar": "Максимум включає оцінену плату gas.",
+      "usdValue": "{{value}} USD",
+      "balance": "Баланс: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Контакти",
+        "text": "Керування списком контактів"
+      },
+      "networks": {
+        "title": "Мережі",
+        "text": "Додати або редагувати RPC мережі"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Редагувати налаштування WalletConnect"
+      },
+      "accountSecurity": {
+        "title": "Безпека акаунту",
+        "text": "Керування безпекою гаманця"
+      },
+      "lockWallet": {
+        "title": "Заблокувати гаманець",
+        "text": "Історія залишиться"
+      },
+      "deleteAccount": {
+        "title": "Видалити акаунт",
+        "text": "Всі дані буде видалено"
+      }
+    },
+    "alert": {
+      "lockTitle": "Бажаєте заблокувати гаманець?",
+      "lockMessage": "Історія залишиться",
+      "lockConfirm": "Заблокувати",
+      "deleteTitle": "Видалити акаунт?",
+      "deleteMessage": "Всі дані буде видалено. Без фрази відновлення доступ втрачено.",
+      "deleteConfirm": "Видалити"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Шлюз до екосистеми Kadena",
+      "visitWebsite": "Відвідати вебсайт",
+      "joinDiscord": "Приєднатися до Discord",
+      "termsOfUse": "Умови використання",
+      "privacyPolicy": "Політика конфіденційності"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Безпека акаунту"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Скинути PIN",
+        "text": "Змінити PIN додатку"
+      },
+      "exportPhrase": {
+        "title": "Експортувати фразу",
+        "text": "Захистіть гаманець"
+      },
+      "changePassword": {
+        "title": "Змінити пароль",
+        "text": "Змінити пароль акаунту"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Ласкаво просимо",
+    "label": {
+      "password": "Пароль"
+    },
+    "button": {
+      "signIn": "Увійти"
+    },
+    "alert": {
+      "usePasscodeTitle": "Увійти за PIN?",
+      "usePasscodeMessage": "Використати PIN і біометрію?",
+      "failedTitle": "Не вдалося увійти",
+      "invalidPassword": "Неправильний пароль",
+      "errorMessage": "Сталася помилка. Спробуйте пізніше."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Підтвердження обміну",
+      "give": "ВІДДАТИ",
+      "receive": "ОТРИМАТИ",
+      "confirmButton": "Підтвердити"
+    },
+    "gasSettings": {
+      "title": "Налаштування gas",
+      "gasStation": "СТАНЦІЯ GAS",
+      "gasLimitLabel": "Ліміт gas",
+      "gasLimitPlaceholder": "Ліміт gas",
+      "gasPriceLabel": "Ціна gas",
+      "gasPricePlaceholder": "Ціна gas",
+      "failureCost": "Можливий gas витрат при невдачі:",
+      "noGasCost": "Без витрат gas — eckoDEX підтримує"
+    },
+    "info": {
+      "gasCost": "Витрати gas",
+      "free": "БЕЗКОШТОВНО",
+      "priceImpact": "Вплив на ціну",
+      "price": "Ціна",
+      "maxSlippage": "Макс slippage",
+      "lpFee": "Комісія LP",
+      "txDeadline": "Час транзакції",
+      "gasPrice": "Ціна gas",
+      "gasLimit": "Ліміт gas",
+      "unitMinutes": "хвилин",
+      "unitSeconds": "секунд"
+    },
+    "selectTokenModal": {
+      "title": "Оберіть токен",
+      "placeholder": "Пошук токена",
+      "tokensLabel": "Токени",
+      "warningTitle": "Увага",
+      "warningMessage": "Пул {{pair}} не існує",
+      "addTokenTitle": "Додати новий токен",
+      "addTokenMessage": "У вашому гаманці немає цього токена. Додати?",
+      "addTokenConfirm": "Додати",
+      "selectedSuffix": " (Вибрано)",
+      "empty": "Токен не знайдено"
+    },
+    "transactionSettings": {
+      "title": "Налаштування транзакції",
+      "slippageTitle": "Допуск slippage",
+      "deadlineTitle": "Термін",
+      "minutes": "хвилин"
+    },
+    "swapBlock": {
+      "pending": "Транзакція в очікуванні…",
+      "warningTitle": "Переконайтеся, що на Chain 2 є кошти.",
+      "warningText": "",
+      "give": "ВІДДАТИ",
+      "receive": "ОТРИМАТИ",
+      "confirm": "ПІДТВЕРДИТИ",
+      "submittedTitle": "Обмін відправлено!",
+      "submittedMessage": "Перегляньте результат у Активностях",
+      "poweredBy": "Powered by eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Перевірити фразу",
+    "description": "Введіть слова у правильному порядку.",
+    "warning": "Не використовуйте кастомні клавіатури. Задля безпеки — стандартну.",
+    "inputLabel": "Поле {{number}}",
+    "error": "Неправильна фраза",
+    "continueButton": "Продовжити"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Активи"
+      },
+      "tokenDetector": {
+        "title": "Знайдені токени",
+        "emptyTitle": "Додаткових токенів немає",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Назву акаунту скопійовано!"
+    },
+    "walletBalance": {
+      "netWorth": "Чиста вартість",
+      "accountBalance": "Баланс акаунту",
+      "send": "Відправити",
+      "receive": "Отримати",
+      "buy": "Купити"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Введіть код",
+    "connect": "Підключитись",
+    "header": {
+      "title": "Сканувати QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "ID проекту",
+    "projectIdPlaceholder": "Введіть ID",
+    "relayUrlLabel": "Relay URL",
+    "relayUrlPlaceholder": "Введіть URL",
+    "errorTitle": "Не вдалося змінити налаштування",
+    "errorMessage": "Невірні параметри"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Пароль",
+      "placeholder": "Введіть пароль"
+    },
+    "numpad": {
+      "authenticationPrompt": "Аутентифікація",
+      "weakPasscodeTitle": "Слабкий код",
+      "weakPasscodeDescription": "Введений код надто слабкий. Будь ласка, спробуйте складніший код."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Якщо сайт eckoDEX відкрито на цьому пристрої та у вас проблеми з підключенням WalletConnect, спробуйте повернутися до браузера і зайти знову",
+      "text2": "Якщо це не допоможе, перевірте налаштування WalletConnect або спробуйте відкрити eckoDEX у браузері на робочому столі",
+      "button": "Гаразд"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Усі активні сеанси залишатимуться активними, доки ви не завершите їх вручну через дію видалення",
+      "text2": "Вкладка «Історія» показує деталі сеансу з наданими дозволами для методів і подій",
+      "button": "Гаразд"
+    }
+  },
+  "tabs": {
+    "Wallet": "Гаманець",
+    "Swap": "Обмін",
+    "History": "Історія",
+    "Connection": "Підключення",
+    "Settings": "Налаштування",
+    "history": {
+      "activities": "Активність",
+      "pending": "В очікуванні"
+    },
+    "connection": {
+      "pairings": "Активні сеанси",
+      "sessions": "Історія"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Деталі транзакції",
+    "gas": "Газ: {{gas}}",
+    "statusLabel": "Статус",
+    "continuationTitle": "Продовження",
+    "continuationValue": "крок: {{step}}, всього: {{total}}",
+    "no": "ні",
+    "requestKeyTitle": "Ключ запиту",
+    "transactionTypeTitle": "Тип транзакції",
+    "requestKeyChainTitle": "Ключ запиту (Chain {{chain}})",
+    "txDetailsButton": "Деталі Tx",
+    "requestKeyCopied": "Ключ запиту скопійовано в буфер!"
+  },
+  "tokenModal": {
+    "distributionTitle": "Розподіл {{token}} у ланцюжку",
+    "removeConfirmTitle": "Ви впевнені, що хочете видалити?",
+    "removeConfirmMessage": "Всі дані токена будуть видалені й не можуть бути відновлені",
+    "remove": "Видалити",
+    "notTransferable": "{{contract}} не підлягає передачі!",
+    "zeroBalance": "Баланс {{token}} дорівнює 0",
+    "editToken": "Редагувати токен",
+    "removeToken": "Видалити токен",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Мої гаманці",
+    "removeConfirmTitle": "Ви впевнені, що хочете видалити?",
+    "removeConfirmMessage": "Всі дані облікового запису будуть видалені й не можуть бути відновлені",
+    "remove": "Видалити",
+    "share": "Поділитися гаманцем",
+    "exportRecovery": "Експортувати фразу відновлення",
+    "removeSelected": "Видалити вибраний гаманець",
+    "create": "Створити гаманець",
+    "import": "Імпортувати гаманець",
+    "copySuccess": "Дані облікового запису скопійовано в буфер!"
+  },
+  "session": {
+    "title": "Деталі сеансу",
+    "deleteTitle": "Ви впевнені, що хочете видалити цю історію сеансів?",
+    "deleteDescription": "Всі дані історії сеансів будуть видалені й не можуть бути відновлені",
+    "deleteFailedTitle": "Не вдалося видалити сеанс",
+    "deleteFailedMessage": "Конфігурація WalletConnect не співпадає",
+    "deleteSession": "Видалити сеанс",
+    "reviewPermissions": "Переглянути дозволи {{namespace}}",
+    "unknownUrl": "Невідомо",
+    "methods": "Методи",
+    "events": "Події",
+    "expiry": "Термін дії",
+    "lastUpdated": "Останнє оновлення"
+  },
+  "receive": {
+    "title": "Отримати токени",
+    "accountNameLabel": "Назва вашого облікового запису"
+  },
+  "networkSelector": {
+    "title": "Виберіть мережу",
+    "manage": "Керувати мережами"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "URL переглядача блоків",
+    "editNetwork": "Редагувати мережу"
+  },
+  "contactDetails": {
+    "accountName": "Назва облікового запису",
+    "chainId": "Chain ID",
+    "edit": "Редагувати контакт",
+    "copied": "Скопійовано в буфер!"
+  }
+}

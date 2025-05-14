@@ -50,12 +50,12 @@ const SignIn = () => {
       t('signIn.alert.usePasscodeMessage'),
       [
         {
-          text: t('signIn.alert.usePasscodeCancel'),
+          text: t('common.cancel'),
           onPress: () => dispatch(login()),
           style: 'cancel',
         },
         {
-          text: t('signIn.alert.usePasscodeOk'),
+          text: t('common.ok'),
           onPress: () =>
             navigation.navigate(ERootStackRoutes.Login, {isReset: false}),
         },

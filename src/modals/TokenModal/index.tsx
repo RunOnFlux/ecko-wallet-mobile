@@ -1,6 +1,7 @@
 import React, {FC, useCallback, useMemo} from 'react';
 import {View, Alert, Text, TouchableOpacity} from 'react-native';
 import {useDispatch} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 
 import Modal from '../../components/Modal';
 import {
@@ -25,8 +26,8 @@ import {defaultWallets} from '../../store/userWallet/const';
 
 const TokenModal: FC<TTokenModalProps> = React.memo(
   ({toggle, isVisible, canDelete}) => {
+    const {t} = useTranslation();
     const navigation = useNavigation<any>();
-
     const dispatch = useDispatch();
 
     const usdEquivalents = useShallowEqualSelector(makeSelectUsdEquivalents);
@@ -79,15 +80,15 @@ const TokenModal: FC<TTokenModalProps> = React.memo(
         ignoreAndroidSystemSettings: false,
       });
       Alert.alert(
-        'Are you sure to remove?',
-        'All data of the token will be deleted and can not be restored',
+        t('tokenModal.removeConfirmTitle'),
+        t('tokenModal.removeConfirmMessage'),
         [
           {
-            text: 'Cancel',
+            text: t('common.cancel'),
             style: 'cancel',
           },
           {
-            text: 'Remove',
+            text: t('tokenModal.remove'),
             style: 'destructive',
             onPress: () => {
               dispatch(deleteSelectedToken(selectedToken));
@@ -122,81 +123,82 @@ const TokenModal: FC<TTokenModalProps> = React.memo(
       <Modal
         isVisible={isVisible}
         close={toggle}
-        title={`${selectedToken.tokenName} Chain Distribution`}
+        title={t('tokenModal.distributionTitle', {
+          token: selectedToken.tokenName,
+        })}
         onPressLeftItem={
-          canDelete && (selectedTokenDistributions || []).length > 0
+          canDelete && selectedTokenDistributions.length > 0
             ? handlePressRemove
             : undefined
         }
         leftHeaderItem={
-          canDelete && (selectedTokenDistributions || []).length > 0 ? (
+          canDelete && selectedTokenDistributions.length > 0 ? (
             <TrashEmptySvg />
           ) : undefined
         }
         contentStyle={styles.modalStyle}>
         <View style={styles.modalContainer}>
           <View style={styles.modalContentWrapper}>
-            {!!selectedToken && isTokenNonTransferable ? (
+            {isTokenNonTransferable && (
               <Warning
                 style={styles.warning}
                 isSerious={true}
                 centerText={true}
-                title={`${selectedToken?.tokenAddress} is not transferable!`}
+                title={t('tokenModal.notTransferable', {
+                  contract: selectedToken.tokenAddress,
+                })}
               />
-            ) : null}
-            {!!selectedToken &&
-            (selectedTokenDistributions || []).length === 0 ? (
+            )}
+            {selectedTokenDistributions.length === 0 ? (
               <>
                 <Warning
                   style={styles.warning}
                   noIcon={true}
                   centerText={true}
-                  title={`${selectedToken?.tokenName} Balance is 0`}
+                  title={t('tokenModal.zeroBalance', {
+                    token: selectedToken.tokenName,
+                  })}
                 />
-                {!isDefaultToken ? (
+                {!isDefaultToken && (
                   <>
-                    {' '}
                     <ListItem
-                      text="Edit Token"
+                      text={t('tokenModal.editToken')}
                       icon={<PencilEditSvg />}
                       style={styles.itemStyle}
                       onPress={handlePressEdit}
                     />
                     <ListItem
-                      text="Remove Token"
+                      text={t('tokenModal.removeToken')}
                       icon={<TrashEmptySvg />}
                       style={styles.itemStyle}
                       onPress={handlePressRemove}
                     />
                   </>
-                ) : null}
+                )}
               </>
             ) : (
-              (selectedTokenDistributions || []).map(distribution => (
+              selectedTokenDistributions.map(distribution => (
                 <TouchableOpacity
                   disabled={isTokenNonTransferable}
-                  key={`${selectedToken.tokenName} ${distribution.chainId}`}
+                  key={`${selectedToken.tokenName}-${distribution.chainId}`}
                   activeOpacity={0.8}
                   onPress={() => handlePressTransfer(distribution.chainId)}
                   style={styles.distributionContainer}>
                   <View style={styles.distributionTokenContainer}>
-                    <Text
-                      style={
-                        styles.tokenAmount
-                      }>{`${distribution.balance} ${selectedToken.tokenName}`}</Text>
-                    <Text
-                      style={
-                        styles.tokenCurrency
-                      }>{`$ ${distribution.usd}`}</Text>
+                    <Text style={styles.tokenAmount}>
+                      {`${distribution.balance} ${selectedToken.tokenName}`}
+                    </Text>
+                    <Text style={styles.tokenCurrency}>
+                      {`$ ${distribution.usd}`}
+                    </Text>
                   </View>
                   <View style={styles.distributionButtonContainer}>
-                    <Text
-                      style={
-                        styles.chainId
-                      }>{`Chain ${distribution.chainId}`}</Text>
-                    {!nonTransferableTokens.includes(
-                      selectedToken.tokenAddress,
-                    ) && (
+                    <Text style={styles.chainId}>
+                      {t('tokenModal.chainLabel', {
+                        chain: distribution.chainId,
+                      })}
+                    </Text>
+                    {!isTokenNonTransferable && (
                       <View style={styles.iconWrapper}>
                         <ArrowTopBottomRightSvg
                           fill="white"

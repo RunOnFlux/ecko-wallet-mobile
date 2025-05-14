@@ -1,0 +1,689 @@
+{
+  "common": {
+    "saveButton": "Αποθήκευση",
+    "confirm": "Επιβεβαίωση",
+    "delete": "Διαγραφή",
+    "cancel": "Ακύρωση",
+    "ok": "ΟΚ",
+    "error": "Σφάλμα",
+    "selectLanguage": "Επιλέξτε γλώσσα",
+    "selectLanguageLongDescription": "Επιλέξτε τη γλώσσα που επιθυμείτε"
+  },
+  "welcome": {
+    "title": "Καλώς ήρθατε στο\neckoWALLET",
+    "subtitle": "Η πύλη στο οικοσύστημα Kadena",
+    "loginCard": {
+      "title": "Σύνδεση στο λογαριασμό μου",
+      "description": "Εισαγάγετε τον κωδικό του πορτοφολιού σας"
+    },
+    "newUserCard": {
+      "title": "Είμαι νέος χρήστης",
+      "description": "Ρύθμιση νέου λογαριασμού eckoWALLET"
+    },
+    "recoverCard": {
+      "title": "Έχω ήδη λογαριασμό",
+      "description": "Σύνδεση με τη μυστική φράση σας"
+    },
+    "instructions": {
+      "intro": "Για να προσθέσετε νέο λογαριασμό, ακολουθήστε τα παρακάτω βήματα:",
+      "step1": "1. Συνδεθείτε στον υπάρχοντα λογαριασμό σας",
+      "step2": "2. Κάντε κλικ στις «Ρυθμίσεις»",
+      "step3": "3. Κάντε κλικ στο «Διαγραφή λογαριασμού»"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Όνομα επαφής",
+      "placeholder": "Πληκτρολογήστε όνομα επαφής"
+    },
+    "accountName": {
+      "label": "Όνομα λογαριασμού",
+      "placeholder": "Εισαγάγετε όνομα λογαριασμού"
+    },
+    "saveButton": "Αποθήκευση",
+    "header": {
+      "title": "Προσθήκη επαφής"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Προσαρμοσμένο",
+    "alert": {
+      "failureTitle": "Αποτυχία προσθήκης δικτύου",
+      "failureMessage": "Μη έγκυρες πληροφορίες δικτύου"
+    },
+    "name": {
+      "label": "Όνομα δικτύου",
+      "placeholder": "Εισαγάγετε όνομα δικτύου"
+    },
+    "host": {
+      "label": "Νέο RPC URL",
+      "placeholder": "Εισαγάγετε URL"
+    },
+    "explorer": {
+      "label": "URL εξερευνητή μπλοκ",
+      "placeholder": "Εισαγάγετε URL"
+    },
+    "header": {
+      "title": "Προσθήκη δικτύου"
+    },
+    "saveButton": "Αποθήκευση"
+  },
+  "addToken": {
+    "header": {
+      "title": "Προσθήκη token",
+      "titleImport": "Εισαγωγή token"
+    },
+    "tokenAddress": {
+      "label": "Διεύθυνση συμβολαίου token",
+      "placeholder": "Πληκτρολογήστε διεύθυνση συμβολαίου"
+    },
+    "tokenName": {
+      "label": "Σύμβολο token",
+      "placeholder": "Πληκτρολογήστε σύμβολο token"
+    },
+    "alert": {
+      "failureTitle": "Αποτυχία εισαγωγής token",
+      "failureMessage": "Το token δεν υπάρχει"
+    },
+    "saveButton": "Προσθήκη token"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Αγορά"
+    },
+    "consent": {
+      "description": "Η αγορά και πώληση κρυπτονομισμάτων διενεργείται μέσω τρίτου παρόχου, Onramper.\n\neckoWallet δεσμεύεται για υψηλό επίπεδο ασφάλειας, αλλά δεν μπορούμε να εγγυηθούμε την ασφάλεια τρίτων υπηρεσιών."
+    },
+    "error": {
+      "walletUnavailable": "Η διεύθυνση πορτοφολιού δεν είναι διαθέσιμη",
+      "unableConnect": "Δεν ήταν δυνατή η σύνδεση. Δοκιμάστε ξανά αργότερα."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Αλλαγή κωδικού"
+    },
+    "currentPassword": {
+      "label": "Τρέχων κωδικός"
+    },
+    "newPassword": {
+      "label": "Νέος κωδικός"
+    },
+    "confirmPassword": {
+      "label": "Επιβεβαίωση κωδικού"
+    },
+    "toast": {
+      "success": "Ο κωδικός άλλαξε με επιτυχία!"
+    },
+    "alert": {
+      "changeFailureTitle": "Αποτυχία αλλαγής κωδικού",
+      "changeFailureMessage": "Κάτι πήγε στραβά. Δοκιμάστε αργότερα.",
+      "verifyFailureTitle": "Αποτυχία επαλήθευσης",
+      "verifyFailureMessage": "Μη έγκυρος κωδικός"
+    },
+    "changeButton": "Αλλαγή κωδικού"
+  },
+  "connection": {
+    "unknown": "Άγνωστη σύνδεση",
+    "deleteAlert": {
+      "title": "Διαγραφή ενεργής συνεδρίας;",
+      "message": "Όλα τα δεδομένα θα διαγραφούν και δεν θα ανακτηθούν."
+    },
+    "deleteFailureTitle": "Αποτυχία διαγραφής",
+    "deleteFailureMessage": "Η διαμόρφωση WalletConnect δεν ταιριάζει",
+    "empty": {
+      "sessions": "Χωρίς ιστορικό",
+      "pairings": "Χωρίς ενεργές συνεδρίες"
+    },
+    "modal": {
+      "title": "Πληροφορίες WalletConnect"
+    },
+    "expiryLabel": "Λήγει:",
+    "unknownHost": "Άγνωστο"
+  },
+  "contacts": {
+    "searchPlaceholder": "Αναζήτηση επαφών",
+    "emptyList": "Δεν υπάρχουν επαφές",
+    "header": {
+      "title": "Επαφές"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Η φράση ανάκτησης αντιγράφηκε!",
+    "description": "Η μυστική φράση ανάκτησής σας διευκολύνει το backup και την επαναφορά.",
+    "warning": "Μην κοινοποιείτε ποτέ τη μυστική φράση. Όποιος την έχει μπορεί να πάρει τον έλεγχο του πορτοφολιού σας.",
+    "copyButton": "Αντιγραφή φράσης",
+    "header": {
+      "title": "Εξαγωγή φράσης"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Επαλήθευση κωδικού"
+    },
+    "description": "Εισαγάγετε τον κωδικό για να συνεχίσετε",
+    "alert": {
+      "verifyFailureTitle": "Αποτυχία επαλήθευσης",
+      "verifyFailureMessage": "Μη έγκυρος κωδικός",
+      "verifyErrorMessage": "Κάτι πήγε στραβά. Δοκιμάστε αργότερα."
+    },
+    "continueButton": "Συνέχεια"
+  },
+  "history": {
+    "empty": {
+      "pending": "Καμία εκκρεμής δραστηριότητα",
+      "activities": "Καμία δραστηριότητα"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Η μεταφορά εκκρεμεί!",
+      "pendingMessage": "Δοκιμάστε ξανά μετά το τέλος της μεταφοράς"
+    },
+    "finishButton": "Ολοκλήρωση cross-chain μεταφοράς"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Όνομα λογαριασμού",
+      "placeholder": "Εισαγάγετε όνομα λογαριασμού"
+    },
+    "privateKey": {
+      "label": "Ιδιωτικό κλειδί",
+      "placeholder": "Εισαγάγετε ιδιωτικό κλειδί"
+    },
+    "importButton": "Εισαγωγή",
+    "header": {
+      "title": "Εισαγωγή λογαριασμού"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Ξεκλείδωμα eckoWALLET",
+      "enter": "Εισαγάγετε τον κωδικό",
+      "enterNew": "Εισαγάγετε νέο κωδικό",
+      "reenter": "Επαναλάβετε κωδικό",
+      "reenterNew": "Επαναλάβετε νέο κωδικό"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Δίκτυα"
+    }
+  },
+  "noConnection": {
+    "message": "Χωρίς σύνδεση δικτύου"
+  },
+  "receiverScan": {
+    "placeholder": "Επεξεργασία παραλήπτη",
+    "header": {
+      "title": "Σάρωση QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Φράσεις seed",
+      "placeholder": "Εισαγάγετε μυστικές φράσεις"
+    },
+    "accountIndex": {
+      "label": "Αριθμός λογαριασμού",
+      "placeholder": "Προεπιλογή: 0"
+    },
+    "alert": {
+      "failureTitle": "Αποτυχία εισαγωγής",
+      "failureMessage": "Μη έγκυρη φράση ανάκτησης"
+    },
+    "button": {
+      "recover": "Ανάκτηση"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Εισαγωγή πορτοφολιού με\nμυστική φράση ανάκτησης",
+    "seeds": {
+      "label": "Μυστικές φράσεις (με κενά)",
+      "placeholder": "Εισαγάγετε φράσεις"
+    },
+    "password": {
+      "label": "Νέος κωδικός"
+    },
+    "confirmPassword": {
+      "label": "Επιβεβαίωση κωδικού"
+    },
+    "button": {
+      "restore": "Επαναφορά"
+    },
+    "alert": {
+      "failureTitle": "Αποτυχία εισαγωγής",
+      "failureMessage": "Κάτι πήγε στραβά. Δοκιμάστε αργότερα.",
+      "invalidSeeds": "Μη έγκυρη φράση ή διαγραμμένος λογαριασμός"
+    }
+  },
+  "registration": {
+    "text": "Δημιουργία κωδικού",
+    "password": {
+      "label": "Νέος κωδικός"
+    },
+    "confirmPassword": {
+      "label": "Επιβεβαίωση κωδικού"
+    },
+    "button": {
+      "create": "Δημιουργία"
+    },
+    "alert": {
+      "failureTitle": "Αποτυχία εγγραφής",
+      "failureMessage": "Κάτι πήγε στραβά. Δοκιμάστε αργότερα."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Αναζήτηση token",
+    "empty": "Δεν βρέθηκαν token",
+    "alert": {
+      "notFungibleTitle": "Μη-ανταλλάξιμο token",
+      "notFungibleMessage": "Το επιλεγμένο token δεν είναι ανταλλάξιμο"
+    },
+    "header": {
+      "title": "Αναζήτηση token"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Μυστική φράση ανάκτησης",
+    "reveal": "Κάντε κλικ για εμφάνιση λέξεων",
+    "snackbar": "Η φράση αντιγράφηκε!",
+    "description1": "Η φράση ανάκτησης διευκολύνει backup και επαναφορά.",
+    "description2": "Προειδοποίηση: μην κοινοποιείτε. Αποφύγετε στιγμιότυπα οθόνης.",
+    "continue": "Συνέχεια"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Μυστική φράση ανάκτησης",
+    "line1": "Στο επόμενο βήμα, σημειώστε τη φράση των 12 λέξεων.",
+    "line2": "Με αυτή επαναφέρεται το πορτοφόλι σε νέα συσκευή.",
+    "line3": "Όποιος την κατέχει ελέγχει το πορτοφόλι – φυλάξτε την.",
+    "line4": "Η Kadena δεν μπορεί να βοηθήσει σε απώλεια ή διαγραφή.",
+    "checkbox": "Κατανοώ ότι χωρίς αυτή τη φράση δεν γίνεται επαναφορά."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Η μεταφορά εκκρεμεί!",
+      "pendingMessage": "Δοκιμάστε ξανά όταν ολοκληρωθεί"
+    },
+    "alert": {
+      "nonKTitle": "Αποστολή μη «k:account»",
+      "nonKMessage": "Είστε σίγουροι;",
+      "proceed": "Συνέχεια"
+    },
+    "chain": {
+      "sourceLabel": "ID αλυσίδας προέλευσης",
+      "targetLabel": "ID αλυσίδας προορισμού"
+    },
+    "balance": {
+      "label": "Υπόλοιπο αλυσίδας"
+    },
+    "accounts": {
+      "recent": "Πρόσφατα",
+      "contacts": "Επαφές"
+    },
+    "content": {
+      "advancedSettings": "Προηγμένες ρυθμίσεις (προαιρετικά)",
+      "predicateLabel": "Προαπαιτούμενο",
+      "receiverLabel": "Δημόσιο κλειδί παραλήπτη",
+      "destinationLabel": "Λογαριασμός προορισμού",
+      "destinationPlaceholder": "Εισαγάγετε λογαριασμό",
+      "receiverPlaceholder": "Εισαγάγετε κλειδί (προαιρετικά)"
+    },
+    "header": {
+      "title": "Αποστολή συναλλαγής {{token}}"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Μην κλείνετε την εφαρμογή\nκατά τη διαδικασία."
+    },
+    "toast": {
+      "submittedTitle": "Η μεταφορά στάλθηκε!",
+      "submittedMessage": "Δείτε το αποτέλεσμα στις δραστηριότητες"
+    },
+    "label": {
+      "result": "Αποτέλεσμα:",
+      "message": "Μήνυμα:",
+      "requestKey": "Κλειδί αιτήματος:"
+    },
+    "warning": {
+      "crossChainTitle": "Εκτελείται cross-chain μεταφορά",
+      "crossChainMessage": "Αυτή η λειτουργία διαρκεί περισσότερο"
+    },
+    "button": {
+      "activities": "Δραστηριότητες"
+    },
+    "header": {
+      "title": "Συναλλαγή σε εξέλιξη"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Ετοιμάζεστε για cross-chain μεταφορά",
+      "crossChainMessage": "Διαρκεί συνήθως περισσότερο"
+    },
+    "button": {
+      "send": "Αποστολή"
+    },
+    "confirmModal": {
+      "title": "Επιβεβαίωση αποστολής",
+      "amountLabel": "Ποσό:",
+      "gasLimitLabel": "Όριο gas:",
+      "gasPriceLabel": "Τιμή gas:",
+      "speedLabel": "Ταχύτητα:",
+      "confirmButton": "Επιβεβαίωση"
+    },
+    "content": {
+      "transactionParameters": "Παράμετροι συναλλαγής",
+      "transactionSpeed": "Ταχύτητα συναλλαγής",
+      "gasLimitPlaceholder": "Εισαγάγετε όριο gas",
+      "gasPricePlaceholder": "Εισαγάγετε τιμή gas",
+      "gasLabel": "Gas",
+      "speedLabel": "Ταχύτητα {{speed}}"
+    },
+    "header": {
+      "title": "Αποστολή συναλλαγής"
+    },
+    "walletInfo": {
+      "amountLabel": "Ποσό προς αποστολή",
+      "half": "μισό",
+      "max": "μέγιστο",
+      "maxSnackbar": "Το μέγιστο ποσό περιλαμβάνει εκτιμώμενα τέλη gas.",
+      "usdValue": "{{value}} USD",
+      "balance": "Υπόλοιπο: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Επαφές",
+        "text": "Διαχείριση λίστας επαφών"
+      },
+      "networks": {
+        "title": "Δίκτυα",
+        "text": "Προσθήκη/επεξεργασία προσαρμοσμένων RPC δικτύων"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Επεξεργασία ρυθμίσεων WalletConnect"
+      },
+      "accountSecurity": {
+        "title": "Ασφάλεια λογαριασμού",
+        "text": "Διαχείριση ασφάλειας"
+      },
+      "lockWallet": {
+        "title": "Κλείδωμα πορτοφολιού",
+        "text": "Ιστορικό διατηρείται"
+      },
+      "deleteAccount": {
+        "title": "Διαγραφή λογαριασμού",
+        "text": "Διαγραφή όλων των δεδομένων"
+      }
+    },
+    "alert": {
+      "lockTitle": "Κλείδωμα πορτοφολιού;",
+      "lockMessage": "Το ιστορικό διατηρείται",
+      "lockConfirm": "Κλείδωμα",
+      "deleteTitle": "Διαγραφή λογαριασμού;",
+      "deleteMessage": "Διαγραφή όλων των δεδομένων. Χωρίς φράση ανάκτησης, χάνετε πρόσβαση.",
+      "deleteConfirm": "Διαγραφή"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Η πύλη στο οικοσύστημα Kadena",
+      "visitWebsite": "Επισκεφτείτε την ιστοσελίδα",
+      "joinDiscord": "Γίνετε μέλος στο Discord",
+      "termsOfUse": "Όροι χρήσης",
+      "privacyPolicy": "Πολιτική απορρήτου"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Ασφάλεια λογαριασμού"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Επαναφορά κωδικού",
+        "text": "Αλλαγή κωδικού εφαρμογής"
+      },
+      "exportPhrase": {
+        "title": "Εξαγωγή φράσης",
+        "text": "Προστασία πορτοφολιού"
+      },
+      "changePassword": {
+        "title": "Αλλαγή κωδικού",
+        "text": "Αλλαγή κωδικού λογαριασμού"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Καλωσήρθατε",
+    "label": {
+      "password": "Κωδικός"
+    },
+    "button": {
+      "signIn": "Σύνδεση"
+    },
+    "alert": {
+      "usePasscodeTitle": "Σύνδεση με κωδικό;",
+      "usePasscodeMessage": "Να χρησιμοποιήσουμε κωδικό και βιομετρία;",
+      "failedTitle": "Αποτυχία σύνδεσης",
+      "invalidPassword": "Μη έγκυρος κωδικός",
+      "errorMessage": "Κάτι πήγε στραβά. Δοκιμάστε αργότερα."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Επιβεβαίωση μετατροπής",
+      "give": "ΔΩΣΤΕ",
+      "receive": "ΛΑΒΕΤΕ",
+      "confirmButton": "Επιβεβαίωση"
+    },
+    "gasSettings": {
+      "title": "Ρυθμίσεις gas",
+      "gasStation": "ΣΤΑΘΜΟΣ GAS",
+      "gasLimitLabel": "Όριο gas",
+      "gasLimitPlaceholder": "Όριο gas",
+      "gasPriceLabel": "Τιμή gas",
+      "gasPricePlaceholder": "Τιμή gas",
+      "failureCost": "Πιθανό κόστος gas σε αποτυχία:",
+      "noGasCost": "Χωρίς κόστος gas — επιδοτείται από eckoDEX"
+    },
+    "info": {
+      "gasCost": "Κόστος gas",
+      "free": "ΔΩΡΕΑΝ",
+      "priceImpact": "Επίδραση τιμής",
+      "price": "Τιμή",
+      "maxSlippage": "Μέγιστη ολίσθηση",
+      "lpFee": "Διόδιο LP",
+      "txDeadline": "Προθεσμία συναλλαγής",
+      "gasPrice": "Τιμή gas",
+      "gasLimit": "Όριο gas",
+      "unitMinutes": "λεπτά",
+      "unitSeconds": "δευτ."
+    },
+    "selectTokenModal": {
+      "title": "Επιλογή token",
+      "placeholder": "Αναζήτηση token",
+      "tokensLabel": "Tokens",
+      "warningTitle": "Προειδοποίηση",
+      "warningMessage": "Το pool {{pair}} δεν υπάρχει",
+      "addTokenTitle": "Προσθήκη νέου token",
+      "addTokenMessage": "Αυτό το token δεν υπάρχει στο πορτοφόλι σας. Να προσθέσουμε;",
+      "addTokenConfirm": "Προσθήκη",
+      "selectedSuffix": " (Επιλεγμένο)",
+      "empty": "Token δεν βρέθηκε"
+    },
+    "transactionSettings": {
+      "title": "Ρυθμίσεις συναλλαγής",
+      "slippageTitle": "Ανοχή ολίσθησης",
+      "deadlineTitle": "Προθεσμία",
+      "minutes": "λεπτά"
+    },
+    "swapBlock": {
+      "pending": "Συναλλαγή σε εκκρεμότητα...",
+      "warningTitle": "Βεβαιωθείτε ότι έχετε κεφάλαια στη Σειρά 2.",
+      "warningText": "",
+      "give": "ΔΩΣΤΕ",
+      "receive": "ΛΑΒΕΤΕ",
+      "confirm": "ΕΠΙΒΕΒΑΙΩΣΗ",
+      "submittedTitle": "Swap υποβλήθηκε!",
+      "submittedMessage": "Δείτε το αποτέλεσμα στις δραστηριότητες",
+      "poweredBy": "Powered by eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Επαλήθευση φράσης ανάκτησης",
+    "description": "Πληκτρολογήστε τις λέξεις με τη σωστή σειρά.",
+    "warning": "Μην χρησιμοποιείτε προσαρμοσμένα πληκτρολόγια. Χρησιμοποιήστε το προεπιλεγμένο.",
+    "inputLabel": "Εισαγωγή {{number}}",
+    "error": "Μη έγκυρες φράσεις",
+    "continueButton": "Συνέχεια"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Περιουσιακά στοιχεία"
+      },
+      "tokenDetector": {
+        "title": "Ανιχνευμένα token",
+        "emptyTitle": "Δεν βρέθηκαν άλλα token",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Το όνομα αντιγράφηκε!"
+    },
+    "walletBalance": {
+      "netWorth": "Καθαρή αξία",
+      "accountBalance": "Υπόλοιπο λογαριασμού",
+      "send": "Αποστολή",
+      "receive": "Λήψη",
+      "buy": "Αγορά"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Εισαγάγετε κωδικό σύνδεσης",
+    "connect": "Σύνδεση",
+    "header": {
+      "title": "Σάρωμα QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "ID έργου",
+    "projectIdPlaceholder": "Εισαγάγετε ID έργου",
+    "relayUrlLabel": "Relay URL",
+    "relayUrlPlaceholder": "Εισαγάγετε Relay URL",
+    "errorTitle": "Αποτυχία αλλαγής ρυθμίσεων",
+    "errorMessage": "Μη έγκυρες παράμετροι"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Κωδικός πρόσβασης",
+      "placeholder": "Εισάγετε κωδικό πρόσβασης"
+    },
+    "numpad": {
+      "authenticationPrompt": "Επαλήθευση",
+      "weakPasscodeTitle": "Αδύναμος κωδικός",
+      "weakPasscodeDescription": "Ο κωδικός που καταχωρήσατε είναι πολύ αδύναμος. Παρακαλώ δοκιμάστε έναν πιο σύνθετο κωδικό."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Εάν η ιστοσελίδα του eckoDEX είναι ανοιχτή σε αυτή τη συσκευή και αντιμετωπίζετε προβλήματα σύνδεσης με WalletConnect, δοκιμάστε να επιστρέψετε στον browser και μετά ξαναμπείτε",
+      "text2": "Εάν αυτό δεν βοηθά, ελέγξτε τις ρυθμίσεις WalletConnect ή δοκιμάστε να ανοίξετε την ιστοσελίδα του eckoDEX σε desktop browser",
+      "button": "Εντάξει"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Όλες οι ενεργές συνεδρίες παραμένουν ενεργές έως ότου τερματιστούν χειροκίνητα με ενέργεια διαγραφής",
+      "text2": "Η καρτέλα Ιστορικό εμφανίζει λεπτομέρειες των συνεδριών με τις παρεχόμενες άδειες για methods και events",
+      "button": "Εντάξει"
+    }
+  },
+  "tabs": {
+    "Wallet": "Πορτοφόλι",
+    "Swap": "Ανταλλαγή",
+    "History": "Ιστορικό",
+    "Connection": "Συνδέσεις",
+    "Settings": "Ρυθμίσεις",
+    "history": {
+      "activities": "Δραστηριότητες",
+      "pending": "Εκκρεμεί"
+    },
+    "connection": {
+      "pairings": "Ενεργές συνεδρίες",
+      "sessions": "Ιστορικό"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Λεπτομέρειες συναλλαγής",
+    "gas": "Gas: {{gas}}",
+    "statusLabel": "Κατάσταση",
+    "continuationTitle": "Συνέχεια",
+    "continuationValue": "βήμα: {{step}}, σύνολο: {{total}}",
+    "no": "όχι",
+    "requestKeyTitle": "Κλειδί αίτησης",
+    "transactionTypeTitle": "Τύπος συναλλαγής",
+    "requestKeyChainTitle": "Κλειδί αίτησης (Chain {{chain}})",
+    "txDetailsButton": "Λεπτομέρειες Tx",
+    "requestKeyCopied": "Το κλειδί αίτησης αντιγράφηκε στο πρόχειρο!"
+  },
+  "tokenModal": {
+    "distributionTitle": "Κατανομή {{token}} στο Chain",
+    "removeConfirmTitle": "Είστε βέβαιοι ότι θέλετε να διαγράψετε;",
+    "removeConfirmMessage": "Όλα τα δεδομένα του token θα διαγραφούν και δεν μπορούν να αποκατασταθούν",
+    "remove": "Διαγραφή",
+    "notTransferable": "Το {{contract}} δεν μπορεί να μεταφερθεί!",
+    "zeroBalance": "Το υπόλοιπο {{token}} είναι 0",
+    "editToken": "Επεξεργασία token",
+    "removeToken": "Διαγραφή token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Τα πορτοφόλια μου",
+    "removeConfirmTitle": "Είστε βέβαιοι ότι θέλετε να διαγράψετε;",
+    "removeConfirmMessage": "Όλα τα δεδομένα του λογαριασμού θα διαγραφούν και δεν μπορούν να αποκατασταθούν",
+    "remove": "Διαγραφή",
+    "share": "Κοινοποίηση πορτοφολιού",
+    "exportRecovery": "Εξαγωγή φράσης ανάκτησης",
+    "removeSelected": "Διαγραφή επιλεγμένου πορτοφολιού",
+    "create": "Δημιουργία πορτοφολιού",
+    "import": "Εισαγωγή πορτοφολιού",
+    "copySuccess": "Οι πληροφορίες λογαριασμού αντιγράφηκαν στο πρόχειρο!"
+  },
+  "session": {
+    "title": "Λεπτομέρειες συνεδρίας",
+    "deleteTitle": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το ιστορικό συνεδρίας;",
+    "deleteDescription": "Όλα τα δεδομένα ιστορικού συνεδρίας θα διαγραφούν και δεν μπορούν να αποκατασταθούν",
+    "deleteFailedTitle": "Αποτυχία διαγραφής συνεδρίας",
+    "deleteFailedMessage": "Η διαμόρφωση WalletConnect δεν ταιριάζει",
+    "deleteSession": "Διαγραφή συνεδρίας",
+    "reviewPermissions": "Έλεγχος δικαιωμάτων {{namespace}}",
+    "unknownUrl": "Άγνωστο",
+    "methods": "Methods",
+    "events": "Events",
+    "expiry": "Λήξη",
+    "lastUpdated": "Τελευταία ενημέρωση"
+  },
+  "receive": {
+    "title": "Λήψη tokens",
+    "accountNameLabel": "Το όνομα του λογαριασμού σας"
+  },
+  "networkSelector": {
+    "title": "Επιλογή δικτύου",
+    "manage": "Διαχείριση δικτύων"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "URL εξερευνητή μπλοκ",
+    "editNetwork": "Επεξεργασία δικτύου"
+  },
+  "contactDetails": {
+    "accountName": "Όνομα λογαριασμού",
+    "chainId": "Chain ID",
+    "edit": "Επεξεργασία επαφής",
+    "copied": "Αντιγράφηκε στο πρόχειρο!"
+  }
+}

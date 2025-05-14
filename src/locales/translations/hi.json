@@ -1,0 +1,689 @@
+{
+  "common": {
+    "saveButton": "सहेजें",
+    "confirm": "पुष्टि करें",
+    "delete": "हटाएं",
+    "cancel": "रद्द करें",
+    "ok": "ओके",
+    "error": "त्रुटि",
+    "selectLanguage": "भाषा चुनें",
+    "selectLanguageLongDescription": "अपनी पसंदीदा भाषा चुनें"
+  },
+  "welcome": {
+    "title": "स्वागत है\neckoWALLET",
+    "subtitle": "Kadena इकोसिस्टम गेटवे",
+    "loginCard": {
+      "title": "मेरे खाते में लॉग इन करें",
+      "description": "अपने वॉलेट का पासवर्ड दर्ज करें"
+    },
+    "newUserCard": {
+      "title": "मैं नया उपयोगकर्ता हूँ",
+      "description": "नया eckoWALLET खाता सेटअप करें"
+    },
+    "recoverCard": {
+      "title": "मेरे पास पहले से खाता है",
+      "description": "अपनी सीक्रेट फ्रेज के साथ लॉग इन करें"
+    },
+    "instructions": {
+      "intro": "नया खाता जोड़ने के लिए, निम्न चरणों का पालन करें:",
+      "step1": "1. अपने मौजूदा खाते में लॉग इन करें",
+      "step2": "2. \"सेटिंग्स\" पर क्लिक करें",
+      "step3": "3. \"खाता हटाएं\" पर क्लिक करें"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "संपर्क का नाम",
+      "placeholder": "संपर्क का नाम दर्ज करें"
+    },
+    "accountName": {
+      "label": "खाते का नाम",
+      "placeholder": "खाते का नाम दर्ज करें"
+    },
+    "saveButton": "सहेजें",
+    "header": {
+      "title": "संपर्क जोड़ें"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "कस्टम",
+    "alert": {
+      "failureTitle": "नेटवर्क जोड़ने में विफल",
+      "failureMessage": "अमान्य नेटवर्क जानकारी"
+    },
+    "name": {
+      "label": "नेटवर्क का नाम",
+      "placeholder": "नेटवर्क का नाम दर्ज करें"
+    },
+    "host": {
+      "label": "नया RPC URL",
+      "placeholder": "URL दर्ज करें"
+    },
+    "explorer": {
+      "label": "ब्लॉक एक्सप्लोरर URL",
+      "placeholder": "URL दर्ज करें"
+    },
+    "header": {
+      "title": "नेटवर्क जोड़ें"
+    },
+    "saveButton": "सहेजें"
+  },
+  "addToken": {
+    "header": {
+      "title": "टोकन जोड़ें",
+      "titleImport": "टोकन आयात करें"
+    },
+    "tokenAddress": {
+      "label": "टोकन कॉन्ट्रैक्ट पता",
+      "placeholder": "कॉन्ट्रैक्ट पता दर्ज करें"
+    },
+    "tokenName": {
+      "label": "टोकन प्रतीक",
+      "placeholder": "टोकन प्रतीक दर्ज करें"
+    },
+    "alert": {
+      "failureTitle": "टोकन आयात विफल",
+      "failureMessage": "टोकन मौजूद नहीं है"
+    },
+    "saveButton": "टोकन जोड़ें"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "खरीदें"
+    },
+    "consent": {
+      "description": "क्रिप्टोकरेंसी की खरीद और बिक्री तीसरे पक्ष की सेवा Onramper द्वारा सुविधाजनक की जाती है।\n\neckoWallet उच्चतम सुरक्षा सुनिश्चित करने का प्रयास करता है, लेकिन तृतीय-पक्ष सेवाओं की सुरक्षा और गोपनीयता की गारंटी नहीं दे सकता।"
+    },
+    "error": {
+      "walletUnavailable": "वॉलेट पता उपलब्ध नहीं",
+      "unableConnect": "सेवा से कनेक्ट नहीं कर सकते। बाद में प्रयास करें।"
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "पासवर्ड बदलें"
+    },
+    "currentPassword": {
+      "label": "वर्तमान पासवर्ड"
+    },
+    "newPassword": {
+      "label": "नया पासवर्ड"
+    },
+    "confirmPassword": {
+      "label": "पासवर्ड पुष्टि करें"
+    },
+    "toast": {
+      "success": "पासवर्ड सफलतापूर्वक बदल दिया गया!"
+    },
+    "alert": {
+      "changeFailureTitle": "पासवर्ड बदलने में विफल",
+      "changeFailureMessage": "कुछ गलत हुआ। बाद में प्रयास करें।",
+      "verifyFailureTitle": "सत्यापन विफल",
+      "verifyFailureMessage": "अमान्य पासवर्ड"
+    },
+    "changeButton": "पासवर्ड बदलें"
+  },
+  "connection": {
+    "unknown": "अज्ञात कनेक्शन",
+    "deleteAlert": {
+      "title": "क्या आप इस सक्रिय सत्र को हटाना चाहते हैं?",
+      "message": "सत्र का सारा डेटा हटा दिया जाएगा और पुनर्स्थापित नहीं किया जा सकता।"
+    },
+    "deleteFailureTitle": "सत्र हटाने में विफल",
+    "deleteFailureMessage": "WalletConnect कॉन्फिग मेल नहीं खाती",
+    "empty": {
+      "sessions": "कोई इतिहास नहीं",
+      "pairings": "कोई सक्रिय सत्र नहीं"
+    },
+    "modal": {
+      "title": "WalletConnect जानकारी"
+    },
+    "expiryLabel": "समाप्ति:",
+    "unknownHost": "अज्ञात"
+  },
+  "contacts": {
+    "searchPlaceholder": "संपर्क खोजें",
+    "emptyList": "अभी कोई संपर्क नहीं",
+    "header": {
+      "title": "संपर्क"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "रिकवरी फ्रेज क्लिपबोर्ड पर कॉपी किया गया!",
+    "description": "आपकी सीक्रेट रिकवरी फ्रेज आपके खाते का बैकअप और पुनर्स्थापना आसान बनाती है।",
+    "warning": "अपनी सीक्रेट रिकवरी फ्रेज कभी साझा न करें। इसे जानने वाला कोई भी आपका वॉलेट हमेशा के लिए ले सकता है।",
+    "copyButton": "रिकवरी फ्रेज कॉपी करें",
+    "header": {
+      "title": "रिकवरी फ्रेज निर्यात करें"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "पासवर्ड सत्यापित करें"
+    },
+    "description": "जारी रखने के लिए अपना पासवर्ड दर्ज करें",
+    "alert": {
+      "verifyFailureTitle": "सत्यापन विफल",
+      "verifyFailureMessage": "अमान्य पासवर्ड",
+      "verifyErrorMessage": "कुछ गलत हुआ। बाद में प्रयास करें।"
+    },
+    "continueButton": "जारी रखें"
+  },
+  "history": {
+    "empty": {
+      "pending": "कोई लंबित गतिविधियाँ नहीं",
+      "activities": "कोई गतिविधियाँ नहीं मिलीं"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "ट्रांसफर लंबित!",
+      "pendingMessage": "ट्रांसफर समाप्त होने के बाद पुनः प्रयास करें"
+    },
+    "finishButton": "क्रॉस-चेन ट्रांसफर पूरा करें"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "खाते का नाम",
+      "placeholder": "खाते का नाम दर्ज करें"
+    },
+    "privateKey": {
+      "label": "निजी कुंजी",
+      "placeholder": "निजी कुंजी दर्ज करें"
+    },
+    "importButton": "आयात करें",
+    "header": {
+      "title": "खाता आयात करें"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "eckoWALLET अनलॉक करें",
+      "enter": "अपना पासकोड दर्ज करें",
+      "enterNew": "नया पासकोड दर्ज करें",
+      "reenter": "पासकोड पुनः दर्ज करें",
+      "reenterNew": "नया पासकोड पुनः दर्ज करें"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "नेटवर्क"
+    }
+  },
+  "noConnection": {
+    "message": "कोई नेटवर्क कनेक्शन नहीं"
+  },
+  "receiverScan": {
+    "placeholder": "गंतव्य खाता संपादित करें",
+    "header": {
+      "title": "QR स्कैन करें"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "सीड फ्रेज",
+      "placeholder": "सीक्रेट फ्रेज दर्ज करें"
+    },
+    "accountIndex": {
+      "label": "खाता संख्या",
+      "placeholder": "डिफ़ॉल्ट: 0"
+    },
+    "alert": {
+      "failureTitle": "खाता आयात विफल",
+      "failureMessage": "अमान्य रिकवरी फ्रेज"
+    },
+    "button": {
+      "recover": "पुनर्प्राप्त करें"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "सीक्रेट रिकवरी फ्रेज के साथ\nवॉलेट आयात करें",
+    "seeds": {
+      "label": "सीक्रेट फ्रेज (स्पेस सहित)",
+      "placeholder": "सीक्रेट फ्रेज दर्ज करें"
+    },
+    "password": {
+      "label": "नया पासवर्ड"
+    },
+    "confirmPassword": {
+      "label": "पासवर्ड पुष्टि करें"
+    },
+    "button": {
+      "restore": "पुनर्स्थापित करें"
+    },
+    "alert": {
+      "failureTitle": "आयात विफल",
+      "failureMessage": "कुछ गलत हुआ। बाद में प्रयास करें।",
+      "invalidSeeds": "अमान्य फ्रेज या खाता हटा दिया गया"
+    }
+  },
+  "registration": {
+    "text": "पासवर्ड बनाएं",
+    "password": {
+      "label": "नया पासवर्ड"
+    },
+    "confirmPassword": {
+      "label": "पासवर्ड पुष्टि करें"
+    },
+    "button": {
+      "create": "बनाएं"
+    },
+    "alert": {
+      "failureTitle": "पंजीकरण विफल",
+      "failureMessage": "कुछ गलत हुआ। बाद में प्रयास करें।"
+    }
+  },
+  "searchTokens": {
+    "placeholder": "टोकन खोजें",
+    "empty": "कोई टोकन नहीं मिला",
+    "alert": {
+      "notFungibleTitle": "गैर-फंजिबल टोकन",
+      "notFungibleMessage": "चयनित टोकन फंजिबल नहीं है"
+    },
+    "header": {
+      "title": "टोकन खोजें"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "सीक्रेट रिकवरी फ्रेज",
+    "reveal": "सीक्रेट शब्द दिखाने के लिए क्लिक करें",
+    "snackbar": "रिकवरी फ्रेज कॉपी किया गया!",
+    "description1": "आपकी सीक्रेट रिकवरी फ्रेज खाते का बैकअप और पुनर्स्थापना आसान बनाती है।",
+    "description2": "चेतावनी: इसे साझा न करें। स्क्रीनशॉट से बचें।",
+    "continue": "जारी रखें"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "सीक्रेट रिकवरी फ्रेज",
+    "line1": "अगले चरण में अपनी 12-शब्द रिकवरी फ्रेज नोट करें।",
+    "line2": "इस फ्रेज से नया डिवाइस पर वॉलेट पुनर्स्थापित किया जा सकता है।",
+    "line3": "जो भी इसे जानता है, वह आपका वॉलेट नियंत्रित कर सकता है—गोपनीय रखें।",
+    "line4": "यदि फ्रेज गुम हो या ऐप हटा दी जाए तो Kadena मदद नहीं कर सकता; सुरक्षित रखें।",
+    "checkbox": "मैं समझता हूँ कि फ्रेज खोने पर वॉलेट पुनर्स्थापित नहीं किया जा सकता।"
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "ट्रांसफर लंबित!",
+      "pendingMessage": "ट्रांसफर पूरा होने के बाद पुनः प्रयास करें"
+    },
+    "alert": {
+      "nonKTitle": "गैर \"k:account\" पर भेज रहे हैं",
+      "nonKMessage": "क्या आप जारी रखना चाहते हैं?",
+      "proceed": "जारी रखें"
+    },
+    "chain": {
+      "sourceLabel": "स्रोत चेन आईडी",
+      "targetLabel": "लक्ष्य चेन आईडी"
+    },
+    "balance": {
+      "label": "चेन बैलेंस"
+    },
+    "accounts": {
+      "recent": "हाल ही में",
+      "contacts": "संपर्क"
+    },
+    "content": {
+      "advancedSettings": "उन्नत सेटिंग्स (वैकल्पिक)",
+      "predicateLabel": "प्रेडिकेट",
+      "receiverLabel": "रिसीवर पब्लिक की",
+      "destinationLabel": "गंतव्य खाता",
+      "destinationPlaceholder": "गंतव्य खाता दर्ज करें",
+      "receiverPlaceholder": "पब्लिक की दर्ज करें (वैकल्पिक)"
+    },
+    "header": {
+      "title": "{{token}} लेनदेन भेजें"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "प्रक्रिया के दौरान एप बंद न करें।"
+    },
+    "toast": {
+      "submittedTitle": "ट्रांसफर सबमिट हुआ!",
+      "submittedMessage": "परिणाम गतिविधि टैब में देखें"
+    },
+    "label": {
+      "result": "परिणाम:",
+      "message": "संदेश:",
+      "requestKey": "रिक्वेस्ट की:"
+    },
+    "warning": {
+      "crossChainTitle": "आप क्रॉस-चेन ट्रांसफर कर रहे हैं",
+      "crossChainMessage": "यह प्रक्रिया अधिक समय ले सकती है"
+    },
+    "button": {
+      "activities": "गतिविधियाँ देखें"
+    },
+    "header": {
+      "title": "लेनदेन प्रगति पर है"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "आप क्रॉस-चेन ट्रांसफर करने वाले हैं",
+      "crossChainMessage": "यह प्रक्रिया अधिक समय ले सकती है"
+    },
+    "button": {
+      "send": "भेजें"
+    },
+    "confirmModal": {
+      "title": "ट्रांसफर की पुष्टि करें",
+      "amountLabel": "राशि:",
+      "gasLimitLabel": "गैस सीमा:",
+      "gasPriceLabel": "गैस कीमत:",
+      "speedLabel": "गति:",
+      "confirmButton": "पुष्टि करें"
+    },
+    "content": {
+      "transactionParameters": "लेनदेन पैरामीटर",
+      "transactionSpeed": "लेनदेन गति",
+      "gasLimitPlaceholder": "गैस सीमा दर्ज करें",
+      "gasPricePlaceholder": "गैस कीमत दर्ज करें",
+      "gasLabel": "गैस",
+      "speedLabel": "गति {{speed}}"
+    },
+    "header": {
+      "title": "लेनदेन भेजें"
+    },
+    "walletInfo": {
+      "amountLabel": "भेजने के लिए राशि",
+      "half": "आधा",
+      "max": "अधिकतम",
+      "maxSnackbar": "अधिकतम राशि में अनुमानित गैस शुल्क शामिल है।",
+      "usdValue": "{{value}} USD",
+      "balance": "बैलेंस: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "संपर्क",
+        "text": "अपनी संपर्क सूची प्रबंधित करें"
+      },
+      "networks": {
+        "title": "नेटवर्क",
+        "text": "कस्टम RPC नेटवर्क जोड़ें या संपादित करें"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "WalletConnect कॉन्फिग संपादित करें"
+      },
+      "accountSecurity": {
+        "title": "खाता सुरक्षा",
+        "text": "अपने वॉलेट की सुरक्षा प्रबंधित करें"
+      },
+      "lockWallet": {
+        "title": "वॉलेट लॉक करें",
+        "text": "सारी गतिविधियाँ बनी रहेंगी"
+      },
+      "deleteAccount": {
+        "title": "खाता हटाएं",
+        "text": "सारा डेटा हट जाएगा"
+      }
+    },
+    "alert": {
+      "lockTitle": "वॉलेट लॉक करना चाहते हैं?",
+      "lockMessage": "सारी गतिविधियाँ बनी रहेंगी",
+      "lockConfirm": "लॉक करें",
+      "deleteTitle": "खाता हटाना चाहते हैं?",
+      "deleteMessage": "सारा डेटा हट जाएगा। रिकवरी फ्रेज बिना, पहुँचना बंद।",
+      "deleteConfirm": "हटाएं"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Kadena इकोसिस्टम गेटवे",
+      "visitWebsite": "हमारी वेबसाइट देखें",
+      "joinDiscord": "Discord से जुड़ें",
+      "termsOfUse": "उपयोग की शर्तें",
+      "privacyPolicy": "गोपनीयता नीति"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "खाता सुरक्षा"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "पासकोड रीसेट करें",
+        "text": "ऐप पासकोड बदलें"
+      },
+      "exportPhrase": {
+        "title": "रिकवरी फ्रेज निर्यात करें",
+        "text": "अपने वॉलेट की सुरक्षा करें"
+      },
+      "changePassword": {
+        "title": "पासवर्ड बदलें",
+        "text": "खाता पासवर्ड बदलें"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "स्वागत है",
+    "label": {
+      "password": "पासवर्ड"
+    },
+    "button": {
+      "signIn": "साइन इन करें"
+    },
+    "alert": {
+      "usePasscodeTitle": "पासकोड से लॉगिन करें?",
+      "usePasscodeMessage": "पासकोड व बायोमेट्रिक इस्तेमाल करें?",
+      "failedTitle": "लॉगिन विफल",
+      "invalidPassword": "अमान्य पासवर्ड",
+      "errorMessage": "कुछ गलत हुआ। बाद में प्रयास करें।"
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "कन्वर्ट पुष्ट करें",
+      "give": "देें",
+      "receive": "प्राप्त करें",
+      "confirmButton": "पुष्टि करें"
+    },
+    "gasSettings": {
+      "title": "गैस सेटिंग्स",
+      "gasStation": "गैस स्टेशन",
+      "gasLimitLabel": "गैस सीमा",
+      "gasLimitPlaceholder": "गैस सीमा",
+      "gasPriceLabel": "गैस कीमत",
+      "gasPricePlaceholder": "गैस कीमत",
+      "failureCost": "ट्रांज़ेक्शन विफल होने पर संभावित गैस लागत:",
+      "noGasCost": "कोई गैस शुल्क नहीं — eckoDEX द्वारा प्रायोजित"
+    },
+    "info": {
+      "gasCost": "गैस लागत",
+      "free": "नि: शुल्क",
+      "priceImpact": "कीमत प्रभाव",
+      "price": "कीमत",
+      "maxSlippage": "अधिकतम स्लिपेज",
+      "lpFee": "लिक्विडिटी प्रदाता शुल्क",
+      "txDeadline": "लेनदेन समय सीमा",
+      "gasPrice": "गैस कीमत",
+      "gasLimit": "गैस सीमा",
+      "unitMinutes": "मिनट",
+      "unitSeconds": "सेकंड"
+    },
+    "selectTokenModal": {
+      "title": "टोकन चुनें",
+      "placeholder": "टोकन खोजें",
+      "tokensLabel": "टोकन",
+      "warningTitle": "चेतावनी",
+      "warningMessage": "पूल {{pair}} मौजूद नहीं",
+      "addTokenTitle": "नया टोकन जोड़ें",
+      "addTokenMessage": "यह टोकन आपके वॉलेट में नहीं है। जोड़ना चाहते हैं?",
+      "addTokenConfirm": "जोड़ें",
+      "selectedSuffix": " (चयनित)",
+      "empty": "टोकन नहीं मिला"
+    },
+    "transactionSettings": {
+      "title": "लेनदेन सेटिंग्स",
+      "slippageTitle": "स्लिपेज सहिष्णुता",
+      "deadlineTitle": "समय सीमा",
+      "minutes": "मिनट"
+    },
+    "swapBlock": {
+      "pending": "ट्रांज़ेक्शन लंबित…",
+      "warningTitle": "कन्वर्ट करने के लिए चेन 2 में फंड देखें।",
+      "warningText": "",
+      "give": "देें",
+      "receive": "प्राप्त करें",
+      "confirm": "पुष्टि करें",
+      "submittedTitle": "स्वैप सबमिट हुआ!",
+      "submittedMessage": "परिणाम गतिविधि टैब में देखें",
+      "poweredBy": "पावर्ड बाय eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "रिकवरी फ्रेज सत्यापित करें",
+    "description": "सही क्रम में शब्द टाइप करके पुष्टि करें।",
+    "warning": "कस्टम कीबोर्ड न इस्तेमाल करें। सुरक्षा के लिए डिफ़ॉल्ट कीबोर्ड चुनें।",
+    "inputLabel": "इनपुट {{number}}",
+    "error": "अमान्य रिकवरी फ्रेज",
+    "continueButton": "जारी रखें"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "एसेट्स"
+      },
+      "tokenDetector": {
+        "title": "डिटेक्टेड टोकन",
+        "emptyTitle": "इस खाते के लिए अन्य टोकन नहीं मिले",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "खाते का नाम क्लिपबोर्ड पर कॉपी किया गया!"
+    },
+    "walletBalance": {
+      "netWorth": "नेट वर्थ",
+      "accountBalance": "खाते का शेष",
+      "send": "भेजें",
+      "receive": "प्राप्त करें",
+      "buy": "खरीदें"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "कनेक्शन कोड दर्ज करें",
+    "connect": "कनेक्ट करें",
+    "header": {
+      "title": "QR स्कैन करें"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "प्रोजेक्ट ID",
+    "projectIdPlaceholder": "प्रोजेक्ट ID दर्ज करें",
+    "relayUrlLabel": "रिले URL",
+    "relayUrlPlaceholder": "रिले URL दर्ज करें",
+    "errorTitle": "WalletConnect कॉन्फिग बदलने में विफल",
+    "errorMessage": "अमान्य पैरामीटर"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "पासवर्ड",
+      "placeholder": "पासवर्ड दर्ज करें"
+    },
+    "numpad": {
+      "authenticationPrompt": "प्रमाणीकरण",
+      "weakPasscodeTitle": "कमज़ोर पासकोड",
+      "weakPasscodeDescription": "दर्ज किया गया पासकोड बहुत कमज़ोर है। कृपया कोई जटिल पासकोड आज़माएँ।"
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "यदि इस डिवाइस पर eckoDEX वेबसाइट खुली है और आपको WalletConnect कनेक्शन में समस्या हो रही है, तो ब्राउज़र में वापस जाएँ और फिर वापस आएँ",
+      "text2": "यदि इससे मदद नहीं मिलती है, तो कृपया WalletConnect सेटिंग्स जांचें या डेस्कटॉप ब्राउज़र में eckoDEX खोलें",
+      "button": "ठीक है"
+    },
+    "walletConnectInfoModal": {
+      "text1": "सभी सक्रिय सत्र तब तक सक्रिय रहेंगे जब तक उन्हें मैन्युअल रूप से हटाने की क्रिया द्वारा समाप्त नहीं किया जाता",
+      "text2": "इतिहास टैब में उन अनुमतियों के साथ सत्र का विवरण दिखाया जाता है जो विधियों और घटनाओं के लिए प्रदान की गई हैं",
+      "button": "ठीक है"
+    }
+  },
+  "tabs": {
+    "Wallet": "वॉलेट",
+    "Swap": "स्वैप",
+    "History": "इतिहास",
+    "Connection": "कनेक्शन",
+    "Settings": "सेटिंग्स",
+    "history": {
+      "activities": "गतिविधियाँ",
+      "pending": "लंबित"
+    },
+    "connection": {
+      "pairings": "सक्रिय सत्र",
+      "sessions": "इतिहास"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "लेनदेन विवरण",
+    "gas": "गैस: {{gas}}",
+    "statusLabel": "स्थिति",
+    "continuationTitle": "जारी रखना",
+    "continuationValue": "कदम: {{step}}, कुल: {{total}}",
+    "no": "नहीं",
+    "requestKeyTitle": "अनुरोध कुंजी",
+    "transactionTypeTitle": "लेनदेन का प्रकार",
+    "requestKeyChainTitle": "अनुरोध कुंजी (Chain {{chain}})",
+    "txDetailsButton": "Tx विवरण",
+    "requestKeyCopied": "अनुरोध कुंजी क्लिपबोर्ड में कॉपी हो गई!"
+  },
+  "tokenModal": {
+    "distributionTitle": "{{token}} चेन वितरण",
+    "removeConfirmTitle": "हटाने के लिए तत्पर?",
+    "removeConfirmMessage": "सभी टोकन डेटा हटा दिए जाएगा और पुनर्स्थापित नहीं किया जा सकेगा",
+    "remove": "हटाएं",
+    "notTransferable": "{{contract}} हस्तांतरित नहीं किया जा सकता!",
+    "zeroBalance": "{{token}} शेष शून्य है",
+    "editToken": "टोकन संपादित करें",
+    "removeToken": "टोकन हटाएं",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "मेरे वॉलेट",
+    "removeConfirmTitle": "हटाने के लिए तत्पर?",
+    "removeConfirmMessage": "सभी खाता डेटा हटा दिए जाएगा और पुनर्स्थापित नहीं किया जा सकेगा",
+    "remove": "हटाएं",
+    "share": "वॉलेट साझा करें",
+    "exportRecovery": "रिकवरी फ्रेज़ निर्यात करें",
+    "removeSelected": "चयनित वॉलेट हटाएं",
+    "create": "वॉलेट बनाएं",
+    "import": "वॉलेट आयात करें",
+    "copySuccess": "खाता विवरण क्लिपबोर्ड में कॉपी हो गया!"
+  },
+  "session": {
+    "title": "सत्र विवरण",
+    "deleteTitle": "क्या आप इस सत्र इतिहास को हटाना चाहते हैं?",
+    "deleteDescription": "सत्र इतिहास के सभी डेटा हटा दिए जाएंगे और पुनर्स्थापित नहीं किए जा सकते",
+    "deleteFailedTitle": "सत्र हटाने में विफल",
+    "deleteFailedMessage": "WalletConnect कॉन्फ़िगरेशन मेल नहीं खाता",
+    "deleteSession": "सत्र हटाएं",
+    "reviewPermissions": "{{namespace}} अनुमतियाँ देखें",
+    "unknownUrl": "अज्ञात",
+    "methods": "तरीके",
+    "events": "घटनाएँ",
+    "expiry": "समाप्ति",
+    "lastUpdated": "अंतिम अपडेट"
+  },
+  "receive": {
+    "title": "टोकन प्राप्त करें",
+    "accountNameLabel": "आपके खाते का नाम"
+  },
+  "networkSelector": {
+    "title": "नेटवर्क चुनें",
+    "manage": "नेटवर्क प्रबंधित करें"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "ब्लॉक एक्सप्लोरर URL",
+    "editNetwork": "नेटवर्क संपादित करें"
+  },
+  "contactDetails": {
+    "accountName": "खाते का नाम",
+    "chainId": "Chain ID",
+    "edit": "संपर्क संपादित करें",
+    "copied": "क्लिपबोर्ड में कॉपी हुआ!"
+  }
+}

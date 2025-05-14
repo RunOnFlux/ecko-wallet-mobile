@@ -1,0 +1,689 @@
+{
+  "common": {
+    "saveButton": "Lagre",
+    "confirm": "Bekreft",
+    "delete": "Slett",
+    "cancel": "Avbryt",
+    "ok": "OK",
+    "error": "Feil",
+    "selectLanguage": "Velg språk",
+    "selectLanguageLongDescription": "Velg språket du ønsker å bruke"
+  },
+  "welcome": {
+    "title": "Velkommen til\neckoWALLET",
+    "subtitle": "Porten til Kadena-økosystemet",
+    "loginCard": {
+      "title": "Logg inn på kontoen min",
+      "description": "Skriv inn lommebokpassordet ditt"
+    },
+    "newUserCard": {
+      "title": "Jeg er ny bruker",
+      "description": "Opprett ny eckoWALLET-konto"
+    },
+    "recoverCard": {
+      "title": "Jeg har en konto",
+      "description": "Logg inn med din hemmelige fraser"
+    },
+    "instructions": {
+      "intro": "For å legge til en ny konto, følg disse trinnene:",
+      "step1": "1. Logg inn på din eksisterende konto",
+      "step2": "2. Klikk på \"Innstillinger\"",
+      "step3": "3. Klikk på \"Slett konto\""
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Kontakt navn",
+      "placeholder": "Skriv inn kontaktnavn"
+    },
+    "accountName": {
+      "label": "Kontonavn",
+      "placeholder": "Skriv inn kontonavn"
+    },
+    "saveButton": "Lagre",
+    "header": {
+      "title": "Legg til kontakt"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Egendefinert",
+    "alert": {
+      "failureTitle": "Kunne ikke legge til nettverk",
+      "failureMessage": "Ugyldig nettverksinformasjon"
+    },
+    "name": {
+      "label": "Nettverksnavn",
+      "placeholder": "Skriv inn nettverksnavn"
+    },
+    "host": {
+      "label": "Ny RPC-URL",
+      "placeholder": "Skriv inn URL"
+    },
+    "explorer": {
+      "label": "Blokkutforsker-URL",
+      "placeholder": "Skriv inn URL"
+    },
+    "header": {
+      "title": "Legg til nettverk"
+    },
+    "saveButton": "Lagre"
+  },
+  "addToken": {
+    "header": {
+      "title": "Legg til token",
+      "titleImport": "Importer token"
+    },
+    "tokenAddress": {
+      "label": "Token-kontraktadresse",
+      "placeholder": "Skriv kontraktadresse"
+    },
+    "tokenName": {
+      "label": "Token-symbol",
+      "placeholder": "Skriv token-symbol"
+    },
+    "alert": {
+      "failureTitle": "Kunne ikke importere token",
+      "failureMessage": "Token finnes ikke"
+    },
+    "saveButton": "Legg til token"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Kjøp"
+    },
+    "consent": {
+      "description": "Kjøp og salg av kryptovaluta skjer via en tredjepartstjeneste levert av Onramper.\n\nSelv om eckoWallet jobber for høyest mulig sikkerhet for brukerne, kan vi ikke garantere sikkerheten eller personvernet til tredjepartstjenester."
+    },
+    "error": {
+      "walletUnavailable": "Lommebokadresse ikke tilgjengelig",
+      "unableConnect": "Kan ikke koble til tjenesten. Prøv igjen senere."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Endre passord"
+    },
+    "currentPassword": {
+      "label": "Nåværende passord"
+    },
+    "newPassword": {
+      "label": "Nytt passord"
+    },
+    "confirmPassword": {
+      "label": "Bekreft passord"
+    },
+    "toast": {
+      "success": "Passordet ble endret!"
+    },
+    "alert": {
+      "changeFailureTitle": "Endring av passord mislyktes",
+      "changeFailureMessage": "Noe gikk galt. Prøv igjen senere.",
+      "verifyFailureTitle": "Verifisering mislyktes",
+      "verifyFailureMessage": "Ugyldig passord"
+    },
+    "changeButton": "Endre passord"
+  },
+  "connection": {
+    "unknown": "Ukjent tilkobling",
+    "deleteAlert": {
+      "title": "Er du sikker på at du vil slette denne aktive økten?",
+      "message": "All data for denne økten vil slettes og kan ikke gjenopprettes."
+    },
+    "deleteFailureTitle": "Kunne ikke slette økten",
+    "deleteFailureMessage": "WalletConnect-konfigurasjonen samsvarer ikke",
+    "empty": {
+      "sessions": "Ingen historikk",
+      "pairings": "Ingen aktive økter"
+    },
+    "modal": {
+      "title": "WalletConnect-info"
+    },
+    "expiryLabel": "Utløper:",
+    "unknownHost": "Ukjent"
+  },
+  "contacts": {
+    "searchPlaceholder": "Søk kontakter",
+    "emptyList": "Ingen kontakter foreløpig",
+    "header": {
+      "title": "Kontakter"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Gjenopprettingsfrase kopiert til utklippstavlen!",
+    "description": "Din hemmelige gjenopprettingsfrase gjør det enkelt å sikkerhetskopiere og gjenopprette kontoen din.",
+    "warning": "Ikke del gjenopprettingsfrasen. Alle som har den kan ta kontroll over lommeboken din.",
+    "copyButton": "Kopier gjenopprettingsfrase",
+    "header": {
+      "title": "Eksporter gjenopprettingsfrase"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Bekreft passord"
+    },
+    "description": "Skriv inn passordet for å fortsette",
+    "alert": {
+      "verifyFailureTitle": "Verifisering mislyktes",
+      "verifyFailureMessage": "Ugyldig passord",
+      "verifyErrorMessage": "Noe gikk galt. Prøv igjen senere."
+    },
+    "continueButton": "Fortsett"
+  },
+  "history": {
+    "empty": {
+      "pending": "Ingen pågående aktiviteter",
+      "activities": "Ingen aktiviteter funnet"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Overføring venter!",
+      "pendingMessage": "Prøv igjen når overføringen er fullført"
+    },
+    "finishButton": "Fullfør cross-chain-overføring"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Kontonavn",
+      "placeholder": "Skriv inn kontonavn"
+    },
+    "privateKey": {
+      "label": "Privat nøkkel",
+      "placeholder": "Skriv privat nøkkel"
+    },
+    "importButton": "Importer",
+    "header": {
+      "title": "Importer konto"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Lås opp eckoWALLET",
+      "enter": "Skriv inn kode",
+      "enterNew": "Skriv inn ny kode",
+      "reenter": "Skriv kode på nytt",
+      "reenterNew": "Skriv ny kode på nytt"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Nettverk"
+    }
+  },
+  "noConnection": {
+    "message": "Ingen nettverkstilkobling"
+  },
+  "receiverScan": {
+    "placeholder": "Rediger destinasjonskonto",
+    "header": {
+      "title": "Skann QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Gjenopprettingsfraser",
+      "placeholder": "Skriv inn hemmelige fraser"
+    },
+    "accountIndex": {
+      "label": "Kontonummer",
+      "placeholder": "Standard: 0"
+    },
+    "alert": {
+      "failureTitle": "Kunne ikke importere konto",
+      "failureMessage": "Ugyldig gjenopprettingsfrase"
+    },
+    "button": {
+      "recover": "Gjenopprett"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Importer en lommebok med\ndin hemmelige gjenopprettingsfrase",
+    "seeds": {
+      "label": "Hemmelig fraser (med mellomrom)",
+      "placeholder": "Skriv inn hemmelige fraser"
+    },
+    "password": {
+      "label": "Nytt passord"
+    },
+    "confirmPassword": {
+      "label": "Bekreft passord"
+    },
+    "button": {
+      "restore": "Gjenopprett"
+    },
+    "alert": {
+      "failureTitle": "Import mislyktes",
+      "failureMessage": "Noe gikk galt. Prøv igjen senere.",
+      "invalidSeeds": "Ugyldig gjenopprettingsfrase eller konto slettet"
+    }
+  },
+  "registration": {
+    "text": "Opprett passord",
+    "password": {
+      "label": "Nytt passord"
+    },
+    "confirmPassword": {
+      "label": "Bekreft passord"
+    },
+    "button": {
+      "create": "Opprett"
+    },
+    "alert": {
+      "failureTitle": "Registrering mislyktes",
+      "failureMessage": "Noe gikk galt. Prøv igjen senere."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Søk token",
+    "empty": "Ingen tokens funnet",
+    "alert": {
+      "notFungibleTitle": "Ikke-fungibel token",
+      "notFungibleMessage": "Valgt token er ikke fungibel"
+    },
+    "header": {
+      "title": "Søk token"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Hemmelig gjenopprettingsfrase",
+    "reveal": "Klikk her for å vise de hemmelige ordene",
+    "snackbar": "Gjenopprettingsfrasen kopiert!",
+    "description1": "Din hemmelige gjenopprettingsfrase gjør det enkelt å sikkerhetskopiere og gjenopprette kontoen din.",
+    "description2": "Advarsel: Del aldri denne frasen. Unngå skjermbilder når du ser den. Alle med frasen kan overta lommeboken din.",
+    "continue": "Fortsett"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Hemmelig gjenopprettingsfrase",
+    "line1": "Neste steg skriver du ned din 12-ords gjenopprettingsfrase.",
+    "line2": "Denne frasen gjør det enkelt å gjenopprette lommeboken på ny enhet.",
+    "line3": "Alle med denne frasen kan styre lommeboken; behold den privat.",
+    "line4": "Kadena kan ikke hente denne frasen hvis den mistes eller appen slettes; oppbevar den sikkert.",
+    "checkbox": "Jeg forstår at hvis jeg mister frasen, kan jeg ikke gjenopprette lommeboken."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Overføring venter!",
+      "pendingMessage": "Prøv på nytt når overføringen er fullført"
+    },
+    "alert": {
+      "nonKTitle": "Sender til en ikke-“k:account”",
+      "nonKMessage": "Er du sikker på at du vil fortsette?",
+      "proceed": "Fortsett"
+    },
+    "chain": {
+      "sourceLabel": "Kilde kjede-ID",
+      "targetLabel": "Mål kjede-ID"
+    },
+    "balance": {
+      "label": "Kjede-saldo"
+    },
+    "accounts": {
+      "recent": "Nylige",
+      "contacts": "Kontakter"
+    },
+    "content": {
+      "advancedSettings": "Avanserte innstillinger (valgfritt)",
+      "predicateLabel": "Predikat",
+      "receiverLabel": "Mottakers offentlige nøkkel",
+      "destinationLabel": "Mål konto",
+      "destinationPlaceholder": "Skriv mål konto",
+      "receiverPlaceholder": "Skriv offentlig nøkkel (valgfritt)"
+    },
+    "header": {
+      "title": "Send {{token}}-transaksjon"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Ikke lukk appen\nmens den behandler operasjonen."
+    },
+    "toast": {
+      "submittedTitle": "Overføring sendt!",
+      "submittedMessage": "Du kan se resultatet i aktivitet-fanen"
+    },
+    "label": {
+      "result": "Resultat:",
+      "message": "Melding:",
+      "requestKey": "Forespørsel-nøkkel:"
+    },
+    "warning": {
+      "crossChainTitle": "Du utfører en cross-chain-overføring",
+      "crossChainMessage": "Denne operasjonen tar vanligvis lengre tid"
+    },
+    "button": {
+      "activities": "Gå til aktiviteter"
+    },
+    "header": {
+      "title": "Transaksjon pågår"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Du er i ferd med en cross-chain-overføring",
+      "crossChainMessage": "Denne operasjonen tar vanligvis lengre tid"
+    },
+    "button": {
+      "send": "Send"
+    },
+    "confirmModal": {
+      "title": "Bekreft sending av transaksjon",
+      "amountLabel": "Beløp:",
+      "gasLimitLabel": "Gas-grense:",
+      "gasPriceLabel": "Gas-pris:",
+      "speedLabel": "Hastighet:",
+      "confirmButton": "Bekreft"
+    },
+    "content": {
+      "transactionParameters": "Transaksjonsparametere",
+      "transactionSpeed": "Transaksjonshastighet",
+      "gasLimitPlaceholder": "Skriv gas-grense",
+      "gasPricePlaceholder": "Skriv gas-pris",
+      "gasLabel": "Gas",
+      "speedLabel": "{{speed}} hastighet"
+    },
+    "header": {
+      "title": "Send transaksjon"
+    },
+    "walletInfo": {
+      "amountLabel": "Beløp å sende",
+      "half": "halv",
+      "max": "maks",
+      "maxSnackbar": "Maks beløp tar også hensyn til estimert gas-kostnad.",
+      "usdValue": "{{value}} USD",
+      "balance": "Saldo: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Kontakter",
+        "text": "Administrer kontaktlisten din"
+      },
+      "networks": {
+        "title": "Nettverk",
+        "text": "Legg til eller rediger egendefinerte RPC-nettverk"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Rediger WalletConnect-konfigurasjon"
+      },
+      "accountSecurity": {
+        "title": "Konto-sikkerhet",
+        "text": "Administrer lommebok-sikkerhet"
+      },
+      "lockWallet": {
+        "title": "Lås lommebok",
+        "text": "All historikk beholdes"
+      },
+      "deleteAccount": {
+        "title": "Slett konto",
+        "text": "All kontodata slettes"
+      }
+    },
+    "alert": {
+      "lockTitle": "Er du sikker på at du vil låse lommeboken?",
+      "lockMessage": "All historikk beholdes",
+      "lockConfirm": "Lås lommebok",
+      "deleteTitle": "Er du sikker på at du vil slette kontoen?",
+      "deleteMessage": "All kontodata slettes. Uten gjenopprettingsfrase mister du tilgang til fondene.",
+      "deleteConfirm": "Slett konto"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Porten til Kadena-økosystemet",
+      "visitWebsite": "Besøk nettstedet vårt",
+      "joinDiscord": "Bli med på Discord",
+      "termsOfUse": "Vilkår for bruk",
+      "privacyPolicy": "Personvernpolicy"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Konto-sikkerhet"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Tilbakestill kode",
+        "text": "Endre app-kode"
+      },
+      "exportPhrase": {
+        "title": "Eksporter gjenopprettingsfrase",
+        "text": "Beskytt lommeboken din"
+      },
+      "changePassword": {
+        "title": "Endre passord",
+        "text": "Endre konto-passord"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Velkommen",
+    "label": {
+      "password": "Passord"
+    },
+    "button": {
+      "signIn": "Logg inn"
+    },
+    "alert": {
+      "usePasscodeTitle": "Logg inn med kode?",
+      "usePasscodeMessage": "Vil du bruke kode og biometrisk for å åpne eckoWALLET?",
+      "failedTitle": "Innlogging mislyktes",
+      "invalidPassword": "Ugyldig passord",
+      "errorMessage": "Noe gikk galt. Prøv igjen senere."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Bekreft bytte",
+      "give": "GI",
+      "receive": "MOTTA",
+      "confirmButton": "Bekreft"
+    },
+    "gasSettings": {
+      "title": "Gas-innstillinger",
+      "gasStation": "GAS-STASJON",
+      "gasLimitLabel": "Gas-grense",
+      "gasLimitPlaceholder": "Gas-grense",
+      "gasPriceLabel": "Gas-pris",
+      "gasPricePlaceholder": "Gas-pris",
+      "failureCost": "Mulig gas-kostnad ved feil:",
+      "noGasCost": "Ingen gas-kostnad – subsidiert av eckoDEX via Kadena gas-stasjoner."
+    },
+    "info": {
+      "gasCost": "Gas-kostnad",
+      "free": "GRATIS",
+      "priceImpact": "Pris-effekt",
+      "price": "Pris",
+      "maxSlippage": "Maks slippage",
+      "lpFee": "LP-avgift",
+      "txDeadline": "Transaksjonsfrist",
+      "gasPrice": "Gas-pris",
+      "gasLimit": "Gas-grense",
+      "unitMinutes": "minutter",
+      "unitSeconds": "sekunder"
+    },
+    "selectTokenModal": {
+      "title": "Velg token",
+      "placeholder": "Søk token",
+      "tokensLabel": "Token",
+      "warningTitle": "Advarsel",
+      "warningMessage": "Pool {{pair}} finnes ikke",
+      "addTokenTitle": "Legg til ny token",
+      "addTokenMessage": "Denne token finnes ikke i lommeboken din. Vil du legge den til?",
+      "addTokenConfirm": "Legg til",
+      "selectedSuffix": " (Valgt)",
+      "empty": "Ingen token funnet"
+    },
+    "transactionSettings": {
+      "title": "Transaksjonsinnstillinger",
+      "slippageTitle": "Slippage-toleranse",
+      "deadlineTitle": "Transaksjonsfrist",
+      "minutes": "minutter"
+    },
+    "swapBlock": {
+      "pending": "Transaksjon pågår...",
+      "warningTitle": "For å bruke byttefunksjonen, sørg for at du har midler på Chain 2.",
+      "warningText": "",
+      "give": "GI",
+      "receive": "MOTTA",
+      "confirm": "BEKREFT",
+      "submittedTitle": "Bytte sendt!",
+      "submittedMessage": "Du kan se resultatet i aktivitetsfanen",
+      "poweredBy": "Drevet av eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Bekreft gjenopprettingsfrase",
+    "description": "Bekreft din gjenopprettingsfrase ved å skrive ordene i riktig rekkefølge.",
+    "warning": "Bruk standard tastatur for sikkerhet – unngå tilpassede tastaturer.",
+    "inputLabel": "Inndata {{number}}",
+    "error": "Ugyldig gjenopprettingsfrase",
+    "continueButton": "Fortsett"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Eiendeler"
+      },
+      "tokenDetector": {
+        "title": "Oppdagede token",
+        "emptyTitle": "Ingen flere token oppdaget for denne kontoen",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Kontonavn kopiert!"
+    },
+    "walletBalance": {
+      "netWorth": "Netto verdi",
+      "accountBalance": "Kontobalanse",
+      "send": "Send",
+      "receive": "Motta",
+      "buy": "Kjøp"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Skriv inn tilkoblingskode",
+    "connect": "Koble til",
+    "header": {
+      "title": "Skann QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "Prosjekt-ID",
+    "projectIdPlaceholder": "Skriv inn prosjekt-ID",
+    "relayUrlLabel": "Relay-URL",
+    "relayUrlPlaceholder": "Skriv inn relay-URL",
+    "errorTitle": "Endring av WalletConnect mislyktes",
+    "errorMessage": "Ugyldige parametere"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Passord",
+      "placeholder": "Skriv inn passord"
+    },
+    "numpad": {
+      "authenticationPrompt": "Autentisering",
+      "weakPasscodeTitle": "Svak PIN-kode",
+      "weakPasscodeDescription": "Den angitte PIN-koden er for svak. Vennligst prøv en mer kompleks kode."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Hvis eckoDEX-nettstedet er åpent på denne enheten og du har problemer med WalletConnect-tilkoblingen, prøv å gå tilbake til nettleseren og deretter inn igjen",
+      "text2": "Hvis dette ikke hjelper, sjekk WalletConnect-innstillingene eller prøv å åpne eckoDEX i en nettleser på skrivebordet",
+      "button": "OK"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Alle aktive økter forblir aktive til de manuelt avsluttes via slette-handlingen",
+      "text2": "Historikk-fanen viser detaljer om økten med de tillatelsene som er gitt for metoder og hendelser",
+      "button": "OK"
+    }
+  },
+  "tabs": {
+    "Wallet": "Lommebok",
+    "Swap": "Bytt",
+    "History": "Historikk",
+    "Connection": "Tilkoblinger",
+    "Settings": "Innstillinger",
+    "history": {
+      "activities": "Aktiviteter",
+      "pending": "Ventende"
+    },
+    "connection": {
+      "pairings": "Aktive økter",
+      "sessions": "Historikk"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Transaksjonsdetaljer",
+    "gas": "Gass: {{gas}}",
+    "statusLabel": "Status",
+    "continuationTitle": "Fortsettelse",
+    "continuationValue": "trinn: {{step}}, totalt: {{total}}",
+    "no": "nei",
+    "requestKeyTitle": "Forespørselsnøkkel",
+    "transactionTypeTitle": "Transaksjonstype",
+    "requestKeyChainTitle": "Forespørselsnøkkel (Chain {{chain}})",
+    "txDetailsButton": "Tx-detaljer",
+    "requestKeyCopied": "Forespørselsnøkkel kopiert til utklippstavle!"
+  },
+  "tokenModal": {
+    "distributionTitle": "{{token}} Chain-fordeling",
+    "removeConfirmTitle": "Er du sikker på at du vil fjerne?",
+    "removeConfirmMessage": "All data om tokenen vil bli slettet og kan ikke gjenopprettes",
+    "remove": "Fjern",
+    "notTransferable": "{{contract}} kan ikke overføres!",
+    "zeroBalance": "{{token}}-saldo er 0",
+    "editToken": "Rediger token",
+    "removeToken": "Fjern token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Mine lommebøker",
+    "removeConfirmTitle": "Er du sikker på at du vil fjerne?",
+    "removeConfirmMessage": "All konto­informasjon vil bli slettet og kan ikke gjenopprettes",
+    "remove": "Fjern",
+    "share": "Del lommebok",
+    "exportRecovery": "Eksporter gjenopprettingsfrase",
+    "removeSelected": "Fjern valgt lommebok",
+    "create": "Opprett lommebok",
+    "import": "Importer lommebok",
+    "copySuccess": "Kontoinformasjon kopiert til utklippstavle!"
+  },
+  "session": {
+    "title": "Øktdetaljer",
+    "deleteTitle": "Er du sikker på at du vil slette denne økts­historikken?",
+    "deleteDescription": "All data fra økts­historikken vil bli slettet og kan ikke gjenopprettes",
+    "deleteFailedTitle": "Kunne ikke slette økten",
+    "deleteFailedMessage": "WalletConnect-konfigurasjonen samsvarer ikke",
+    "deleteSession": "Slett økt",
+    "reviewPermissions": "Se gjennom {{namespace}}-tillatelser",
+    "unknownUrl": "Ukjent",
+    "methods": "Metoder",
+    "events": "Hendelser",
+    "expiry": "Utløper",
+    "lastUpdated": "Sist oppdatert"
+  },
+  "receive": {
+    "title": "Motta tokens",
+    "accountNameLabel": "Kontonavnet ditt"
+  },
+  "networkSelector": {
+    "title": "Velg nettverk",
+    "manage": "Administrer nettverk"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC-URL",
+    "blockExplorerUrl": "Nettside for blokkutforsker",
+    "editNetwork": "Rediger nettverk"
+  },
+  "contactDetails": {
+    "accountName": "Kontonavn",
+    "chainId": "Chain ID",
+    "edit": "Rediger kontakt",
+    "copied": "Kopiert til utklippstavle!"
+  }
+}

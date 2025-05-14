@@ -4,7 +4,10 @@
     "confirm": "Confirm",
     "delete": "Delete",
     "cancel": "Cancel",
-    "ok": "OK"
+    "ok": "OK",
+    "error": "Error",
+    "selectLanguage": "Select Language",
+    "selectLanguageLongDescription": "Select the language you would like to use"
   },
   "welcome": {
     "title": "Welcome to\neckoWALLET",
@@ -573,5 +576,114 @@
     "relayUrlPlaceholder": "Enter Relay URL",
     "errorTitle": "Failed to change WalletConnect config",
     "errorMessage": "Invalid parameters"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Password",
+      "placeholder": "Enter Password"
+    },
+    "numpad": {
+      "authenticationPrompt": "Authentication",
+      "weakPasscodeTitle": "Weak passcode",
+      "weakPasscodeDescription": "Entered passcode is too weak. Please try a more complex passcode"
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "If eckoDEX website is opened on this device and you are having trouble with WalletConnect connection, try to go back to the web browser and come back",
+      "text2": "If this doesn't help, please check WalletConnect settings or try to open eckoDEX website on desktop browser",
+      "button": "Okay"
+    },
+    "walletConnectInfoModal": {
+      "text1": "All active sessions will remain active until they are manually terminated by delete action",
+      "text2": "History tab shows details about session with given permissions for methods and events",
+      "button": "Okay"
+    }
+  },
+  "tabs": {
+    "Wallet": "Wallet",
+    "Swap": "Swap",
+    "History": "History",
+    "Connection": "Connection",
+    "Settings": "Settings",
+    "history": {
+      "activities": "Activities",
+      "pending": "Pending"
+    },
+    "connection": {
+      "pairings": "Active sessions",
+      "sessions": "History"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Transaction Details",
+    "gas": "Gas: {{gas}}",
+    "statusLabel": "Status",
+    "continuationTitle": "Continuation",
+    "continuationValue": "step: {{step}}, total: {{total}}",
+    "no": "no",
+    "requestKeyTitle": "Request Key",
+    "transactionTypeTitle": "Transaction Type",
+    "requestKeyChainTitle": "Request Key (Chain {{chain}})",
+    "txDetailsButton": "Tx Details",
+    "requestKeyCopied": "Request key copied to clipboard!"
+  },
+  "tokenModal": {
+    "distributionTitle": "{{token}} Chain Distribution",
+    "removeConfirmTitle": "Are you sure to remove?",
+    "removeConfirmMessage": "All data of the token will be deleted and can not be restored",
+    "remove": "Remove",
+    "notTransferable": "{{contract}} is not transferable!",
+    "zeroBalance": "{{token}} Balance is 0",
+    "editToken": "Edit Token",
+    "removeToken": "Remove Token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "My Wallets",
+    "removeConfirmTitle": "Are you sure to remove?",
+    "removeConfirmMessage": "All data of the account will be deleted and can not be restored",
+    "remove": "Remove",
+    "share": "Share wallet",
+    "exportRecovery": "Export recovery phrase",
+    "removeSelected": "Remove selected wallet",
+    "create": "Create wallet",
+    "import": "Import wallet",
+    "copySuccess": "Account details information to clipboard!"
+  },
+  "session": {
+    "title": "Session Details",
+    "deleteTitle": "Are you sure to delete this session history?",
+    "deleteDescription": "All data of the session history will be deleted and can not be restored",
+    "deleteFailedTitle": "Failed to delete the session",
+    "deleteFailedMessage": "WalletConnect config does not match",
+    "deleteSession": "Delete session",
+    "reviewPermissions": "Review {{namespace}} Permissions",
+    "unknownUrl": "Unknown",
+    "methods": "Methods",
+    "events": "Events",
+    "expiry": "Expiry",
+    "lastUpdated": "Last Updated"
+  },
+  "receive": {
+    "title": "Receive tokens",
+    "accountNameLabel": "Your account name"
+  },
+  "networkSelector": {
+    "title": "Select Network",
+    "manage": "Manage networks"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "Block Explorer URL",
+    "editNetwork": "Edit Network"
+  },
+  "contactDetails": {
+    "accountName": "Account name",
+    "chainId": "Chain ID",
+    "edit": "Edit Contact",
+    "copied": "Copied to clipboard!"
   }
 }

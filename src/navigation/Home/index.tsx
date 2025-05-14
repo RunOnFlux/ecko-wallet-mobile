@@ -4,10 +4,12 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import TabBar from './compoenents/TabBar';
 import {HOME_TAB_SCREENS} from '../../routes';
 import {EHomeTabRoutes} from '../../routes/types';
+import {useTranslation} from 'react-i18next';
 
 const Tab = createBottomTabNavigator();
 
 const Home = () => {
+  const {t} = useTranslation();
   return (
     <>
       <Tab.Navigator
@@ -15,7 +17,14 @@ const Home = () => {
         initialRouteName={EHomeTabRoutes.Wallet}
         tabBar={props => <TabBar {...props} />}>
         {HOME_TAB_SCREENS.map(props => (
-          <Tab.Screen {...props} key={props.name} />
+          <Tab.Screen
+            {...props}
+            key={props.name}
+            options={{
+              ...props.options,
+              tabBarLabel: t(`tabs.${props.name}`),
+            }}
+          />
         ))}
       </Tab.Navigator>
     </>

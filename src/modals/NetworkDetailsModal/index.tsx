@@ -16,9 +16,11 @@ import {useNavigation} from '@react-navigation/native';
 import {ERootStackRoutes} from '../../routes/types';
 import {useShallowEqualSelector} from '../../store/utils';
 import {MAIN_COLOR} from '../../constants/styles';
+import {useTranslation} from 'react-i18next';
 
 const NetworkDetailsModal: FC<TNetworkDetailsModalProps> = React.memo(
   ({toggle, isVisible}) => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
     const navigation = useNavigation<any>();
 
@@ -43,25 +45,27 @@ const NetworkDetailsModal: FC<TNetworkDetailsModalProps> = React.memo(
         <View style={styles.modalContainer}>
           <View style={styles.modalContentWrapper}>
             <View style={[styles.section, styles.borderBottom]}>
-              <Text style={styles.title}>RPC URL</Text>
+              <Text style={styles.title}>{t('networkDetails.rpcUrl')}</Text>
               <Text style={styles.text}>{network?.host}</Text>
             </View>
             <View style={[styles.section, styles.borderBottom]}>
-              <Text style={styles.title}>Block Explorer URL</Text>
+              <Text style={styles.title}>
+                {t('networkDetails.blockExplorerUrl')}
+              </Text>
               <Text style={styles.text}>{network?.explorerUrl}</Text>
             </View>
           </View>
           {network?.isDefault || (
             <View style={styles.modalFooter}>
               <ListItem
-                text="Edit Network"
+                text={t('networkDetails.editNetwork')}
                 icon={<PencilEditSvg />}
                 style={styles.itemStyle}
                 onPress={handlePressEdit}
                 disabled={network?.isDefault}
               />
               <ListItem
-                text="Delete"
+                text={t('common.delete')}
                 icon={<TrashEmptySvg />}
                 onPress={handlePressRemove}
                 disabled={network?.isDefault}

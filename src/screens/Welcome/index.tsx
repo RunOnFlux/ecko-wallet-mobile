@@ -1,7 +1,15 @@
-import React, {useCallback, useEffect} from 'react';
-import {ImageBackground, ScrollView, Text, View} from 'react-native';
+import React, {useCallback, useEffect, useState} from 'react';
+import {
+  ImageBackground,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {useSelector} from 'react-redux';
+import emojiFlags from 'emoji-flags';
 import Card from './components/Card';
+import ArrowDownSvg from '../../assets/images/arrow-down.svg';
 import Logo from '../../assets/images/logo.svg';
 import UserSvg from '../../assets/images/user.svg';
 import CircleArrowRightSvg from '../../assets/images/circle-arrow-right.svg';
@@ -16,6 +24,10 @@ import {
 import {makeSelectHasAccount} from '../../store/userWallet/selectors';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
+import LanguageSelectorModal, {
+  LANGUAGES,
+} from '../../components/LanguageSelectorModal';
+import i18n from '../../locales/i18n';
 
 const bgImage = require('../../assets/images/bgimage.png');
 
@@ -27,6 +39,10 @@ const Welcome = () => {
   const storedPinCode = useSelector(makeSelectPinCode);
   const storedPasswordHash = useSelector(makeSelectHashPassword);
   const hasBackedUpPhrase = useSelector(makeSelectHasBackedUpPhrase);
+
+  const [langModalVisible, setLangModalVisible] = useState(false);
+
+  const toggleLangModal = useCallback(() => setLangModalVisible(v => !v), []);
 
   const navigateTo = useCallback(
     (route: any) => () => {
@@ -51,6 +67,9 @@ const Welcome = () => {
     }
   }, []);
 
+  const current = LANGUAGES.find(l => l.code === i18n.language) || LANGUAGES[0];
+  const flag = emojiFlags.countryCode(current.countryCode)?.emoji || '';
+
   return (
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>
       <ScrollView
@@ -61,6 +80,15 @@ const Welcome = () => {
           <Logo width={50} height={50} />
           <Text style={styles.welcome}>{t('welcome.title')}</Text>
           <Text style={styles.smText}>{t('welcome.subtitle')}</Text>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={styles.langButton}
+            onPress={toggleLangModal}>
+            <Text style={styles.langButtonText}>
+              {flag} {current.name}
+            </Text>
+            <ArrowDownSvg />
+          </TouchableOpacity>
           <View style={styles.cards}>
             {storedPasswordHash && hasBackedUpPhrase ? (
               <Card
@@ -102,6 +130,10 @@ const Welcome = () => {
               </>
             )}
           </View>
+          <LanguageSelectorModal
+            isVisible={langModalVisible}
+            toggle={toggleLangModal}
+          />
         </View>
       </ScrollView>
     </ImageBackground>

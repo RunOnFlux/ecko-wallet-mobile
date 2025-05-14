@@ -17,9 +17,11 @@ import {TNetwork} from '../../screens/Networks/components/Item/types';
 import {setActiveNetwork} from '../../store/networks';
 import {getNetworkDetails} from '../../store/networks/actions';
 import {useShallowEqualSelector} from '../../store/utils';
+import {useTranslation} from 'react-i18next';
 
 const NetworkSelectorModal: FC<TNetworkSelectorModalProps> = React.memo(
   ({toggle, isVisible}) => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
     const navigation = useNavigation<any>();
 
@@ -40,7 +42,10 @@ const NetworkSelectorModal: FC<TNetworkSelectorModalProps> = React.memo(
     );
 
     return (
-      <Modal isVisible={isVisible} close={toggle} title="Select Network">
+      <Modal
+        isVisible={isVisible}
+        close={toggle}
+        title={t('networkSelector.title')}>
         <View style={styles.modalContainer}>
           <View style={styles.modalContentWrapper}>
             {networks.map((network: TNetwork) => (
@@ -57,7 +62,7 @@ const NetworkSelectorModal: FC<TNetworkSelectorModalProps> = React.memo(
           </View>
           <View style={styles.modalFooter}>
             <ListItem
-              text="Manage networks"
+              text={t('networkSelector.manage')}
               icon={<BasicSettingsSvg fill="#787B8E" />}
               onPress={handlePressManageNetworks}
             />

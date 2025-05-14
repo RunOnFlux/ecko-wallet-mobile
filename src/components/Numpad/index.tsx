@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useEffect, useMemo, useState} from 'react';
+import React, {FC, useCallback, useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -12,6 +12,8 @@ import ReactNativeBiometrics, {
   BiometryTypes,
 } from 'react-native-biometrics';
 import {useDispatch, useSelector} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 import {styles} from './styles';
 import FaceIdSvg from '../../assets/images/face-id.svg';
 import FingerIdSvg from '../../assets/images/finger-id.svg';
@@ -27,13 +29,14 @@ import {
   makeSelectPinCode,
 } from '../../store/auth/selectors';
 import {login, setNewPinCode, storePinCode} from '../../store/auth';
-import {useNavigation} from '@react-navigation/native';
 import {ERootStackRoutes} from '../../routes/types';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {isAllCharactersSame} from '../../utils/stringHelpers';
+
 const rnBiometrics = new ReactNativeBiometrics();
 
 const Numpad: FC<TNumpadProps> = ({isReset}) => {
+  const {t} = useTranslation();
   const dispatch = useDispatch();
   const navigation = useNavigation<any>();
 
@@ -80,9 +83,9 @@ const Numpad: FC<TNumpadProps> = ({isReset}) => {
         iterations: 3,
       },
     ).start();
-  }, []);
+  }, [translateAnimation]);
 
-  const pinCodeLength = useMemo(() => pinCode?.length || 0, [pinCode]);
+  const pinCodeLength = pinCode.length;
 
   const handlePressNumber = useCallback(
     (num: number) => () => {
@@ -90,7 +93,7 @@ const Numpad: FC<TNumpadProps> = ({isReset}) => {
         enableVibrateFallback: false,
         ignoreAndroidSystemSettings: false,
       });
-      setPinCode(prevPinCode => prevPinCode + num);
+      setPinCode(prev => prev + num);
     },
     [],
   );
@@ -107,7 +110,7 @@ const Numpad: FC<TNumpadProps> = ({isReset}) => {
     async (noRedirect?: boolean) => {
       try {
         const {success} = await rnBiometrics.createSignature({
-          promptMessage: 'Authentication',
+          promptMessage: t('components.numpad.authenticationPrompt'),
           payload: 'login',
         });
 
@@ -118,7 +121,7 @@ const Numpad: FC<TNumpadProps> = ({isReset}) => {
         console.error('Biometric auth error:', error);
       }
     },
-    [auth],
+    [auth, t],
   );
 
   const handlePressBiometricAuth = useCallback(() => {
@@ -154,12 +157,12 @@ const Numpad: FC<TNumpadProps> = ({isReset}) => {
         dispatch(setNewPinCode(pinCode));
       } else {
         Alert.alert(
-          'Weak passcode',
-          'Entered passcode is too week. Please try more complex passcode',
+          t('components.numpad.weakPasscodeTitle'),
+          t('components.numpad.weakPasscodeDescription'),
         );
       }
     }
-  }, [newPinCode, pinCode, isReset, auth, navigateToHome]);
+  }, [auth, dispatch, isReset, navigateToHome, newPinCode, pinCode, t]);
 
   const validatePinCode = useCallback(() => {
     if (!storedPinCode || isReset) {
@@ -172,7 +175,7 @@ const Numpad: FC<TNumpadProps> = ({isReset}) => {
       animateBounce();
     }
     setPinCode('');
-  }, [pinCode, auth, isReset, animateBounce, storedPinCode, generatePinCode]);
+  }, [animateBounce, auth, generatePinCode, isReset, pinCode, storedPinCode]);
 
   useEffect(() => {
     handleAvailableSensor();
@@ -183,7 +186,7 @@ const Numpad: FC<TNumpadProps> = ({isReset}) => {
     if (pinCodeLength === 4) {
       validatePinCode();
     }
-  }, [validatePinCode, pinCodeLength]);
+  }, [pinCodeLength, validatePinCode]);
 
   useEffect(() => {
     if (!isReset && !biometryType) {
@@ -199,13 +202,13 @@ const Numpad: FC<TNumpadProps> = ({isReset}) => {
         }
       });
     }
-  }, [storedPinCode, isReset, promptBiometricAuth, biometryType]);
+  }, [biometryType, isReset, promptBiometricAuth, storedPinCode]);
 
   useEffect(() => {
     return () => {
       dispatch(setNewPinCode(null));
     };
-  }, []);
+  }, [dispatch]);
 
   return (
     <Animated.View
@@ -245,10 +248,9 @@ const Numpad: FC<TNumpadProps> = ({isReset}) => {
             onPress={handlePressBiometricAuth}>
             {biometryType === BiometryTypes.FaceID ? (
               <FaceIdSvg width="40" height="40" />
-            ) : biometryType === BiometryTypes.TouchID ||
-              biometryType === BiometryTypes.Biometrics ? (
+            ) : (
               <FingerIdSvg width="56" height="56" />
-            ) : null}
+            )}
           </TouchableOpacity>
         )}
         <TouchableOpacity

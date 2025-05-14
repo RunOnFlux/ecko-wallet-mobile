@@ -5,11 +5,11 @@ import {TListItem} from './components/ListItem/types';
 
 export const headerTabs: TRadioTabOption[] = [
   {
-    label: 'Activities',
+    label: 'activities',
     value: 'activities',
   },
   {
-    label: 'Pending',
+    label: 'pending',
     value: 'pending',
   },
 ];

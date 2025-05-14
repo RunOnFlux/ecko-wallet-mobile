@@ -1,0 +1,689 @@
+{
+  "common": {
+    "saveButton": "Lưu",
+    "confirm": "Xác nhận",
+    "delete": "Xóa",
+    "cancel": "Hủy",
+    "ok": "OK",
+    "error": "Lỗi",
+    "selectLanguage": "Chọn ngôn ngữ",
+    "selectLanguageLongDescription": "Chọn ngôn ngữ bạn muốn"
+  },
+  "welcome": {
+    "title": "Chào mừng đến với\neckoWALLET",
+    "subtitle": "Cổng vào hệ sinh thái Kadena",
+    "loginCard": {
+      "title": "Đăng nhập vào tài khoản của tôi",
+      "description": "Nhập mật khẩu ví của bạn"
+    },
+    "newUserCard": {
+      "title": "Tôi là người dùng mới",
+      "description": "Thiết lập tài khoản eckoWALLET mới"
+    },
+    "recoverCard": {
+      "title": "Tôi đã có tài khoản",
+      "description": "Đăng nhập bằng cụm từ bí mật"
+    },
+    "instructions": {
+      "intro": "Để thêm tài khoản mới, vui lòng làm theo các bước sau:",
+      "step1": "1. Đăng nhập vào tài khoản hiện có",
+      "step2": "2. Nhấn vào “Cài đặt”",
+      "step3": "3. Nhấn vào “Xóa tài khoản”"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Tên liên hệ",
+      "placeholder": "Nhập tên liên hệ"
+    },
+    "accountName": {
+      "label": "Tên tài khoản",
+      "placeholder": "Nhập tên tài khoản"
+    },
+    "saveButton": "Lưu",
+    "header": {
+      "title": "Thêm liên hệ"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Tùy chỉnh",
+    "alert": {
+      "failureTitle": "Thêm mạng thất bại",
+      "failureMessage": "Thông tin mạng không hợp lệ"
+    },
+    "name": {
+      "label": "Tên mạng",
+      "placeholder": "Nhập tên mạng"
+    },
+    "host": {
+      "label": "RPC URL mới",
+      "placeholder": "Nhập URL"
+    },
+    "explorer": {
+      "label": "URL trình khám phá khối",
+      "placeholder": "Nhập URL"
+    },
+    "header": {
+      "title": "Thêm mạng"
+    },
+    "saveButton": "Lưu"
+  },
+  "addToken": {
+    "header": {
+      "title": "Thêm token",
+      "titleImport": "Nhập token"
+    },
+    "tokenAddress": {
+      "label": "Địa chỉ hợp đồng token",
+      "placeholder": "Nhập địa chỉ hợp đồng"
+    },
+    "tokenName": {
+      "label": "Ký hiệu token",
+      "placeholder": "Nhập ký hiệu token"
+    },
+    "alert": {
+      "failureTitle": "Nhập token thất bại",
+      "failureMessage": "Token không tồn tại"
+    },
+    "saveButton": "Thêm token"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Mua"
+    },
+    "consent": {
+      "description": "Việc mua bán tiền mã hóa được thực hiện qua dịch vụ bên thứ ba của Onramper.\n\neckoWallet cam kết bảo mật cao nhất, nhưng không thể đảm bảo an toàn và quyền riêng tư của dịch vụ bên thứ ba."
+    },
+    "error": {
+      "walletUnavailable": "Không có địa chỉ ví",
+      "unableConnect": "Không thể kết nối dịch vụ. Vui lòng thử lại sau."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Đổi mật khẩu"
+    },
+    "currentPassword": {
+      "label": "Mật khẩu hiện tại"
+    },
+    "newPassword": {
+      "label": "Mật khẩu mới"
+    },
+    "confirmPassword": {
+      "label": "Xác nhận mật khẩu"
+    },
+    "toast": {
+      "success": "Đổi mật khẩu thành công!"
+    },
+    "alert": {
+      "changeFailureTitle": "Đổi mật khẩu thất bại",
+      "changeFailureMessage": "Có lỗi xảy ra. Vui lòng thử lại sau.",
+      "verifyFailureTitle": "Xác minh thất bại",
+      "verifyFailureMessage": "Mật khẩu không hợp lệ"
+    },
+    "changeButton": "Đổi mật khẩu"
+  },
+  "connection": {
+    "unknown": "Kết nối không xác định",
+    "deleteAlert": {
+      "title": "Bạn có chắc muốn xóa phiên hoạt động này?",
+      "message": "Tất cả dữ liệu phiên sẽ bị xóa và không thể khôi phục."
+    },
+    "deleteFailureTitle": "Xóa phiên thất bại",
+    "deleteFailureMessage": "Cấu hình WalletConnect không khớp",
+    "empty": {
+      "sessions": "Không có lịch sử",
+      "pairings": "Không có phiên hoạt động"
+    },
+    "modal": {
+      "title": "Thông tin WalletConnect"
+    },
+    "expiryLabel": "Hết hạn:",
+    "unknownHost": "Không xác định"
+  },
+  "contacts": {
+    "searchPlaceholder": "Tìm kiếm liên hệ",
+    "emptyList": "Chưa có liên hệ",
+    "header": {
+      "title": "Liên hệ"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Đã sao chép cụm từ khôi phục!",
+    "description": "Cụm từ khôi phục bí mật giúp sao lưu và khôi phục tài khoản dễ dàng.",
+    "warning": "Không bao giờ chia sẻ cụm từ khôi phục. Ai có nó đều có thể chiếm ví của bạn.",
+    "copyButton": "Sao chép cụm từ",
+    "header": {
+      "title": "Xuất cụm từ khôi phục"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Xác minh mật khẩu"
+    },
+    "description": "Nhập mật khẩu để tiếp tục",
+    "alert": {
+      "verifyFailureTitle": "Xác minh thất bại",
+      "verifyFailureMessage": "Mật khẩu không hợp lệ",
+      "verifyErrorMessage": "Có lỗi xảy ra. Vui lòng thử lại sau."
+    },
+    "continueButton": "Tiếp tục"
+  },
+  "history": {
+    "empty": {
+      "pending": "Không có hoạt động đang chờ",
+      "activities": "Không tìm thấy hoạt động"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Chuyển đang chờ!",
+      "pendingMessage": "Vui lòng thử lại khi chuyển hoàn tất"
+    },
+    "finishButton": "Hoàn thành chuyển chuỗi chéo"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Tên tài khoản",
+      "placeholder": "Nhập tên tài khoản"
+    },
+    "privateKey": {
+      "label": "Khóa riêng",
+      "placeholder": "Nhập khóa riêng"
+    },
+    "importButton": "Nhập",
+    "header": {
+      "title": "Nhập tài khoản"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Mở khóa eckoWALLET",
+      "enter": "Nhập mã",
+      "enterNew": "Nhập mã mới",
+      "reenter": "Nhập lại mã",
+      "reenterNew": "Nhập lại mã mới"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Mạng"
+    }
+  },
+  "noConnection": {
+    "message": "Không có kết nối mạng"
+  },
+  "receiverScan": {
+    "placeholder": "Chỉnh sửa tài khoản nhận",
+    "header": {
+      "title": "Quét QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Cụm từ seed",
+      "placeholder": "Nhập cụm từ khôi phục"
+    },
+    "accountIndex": {
+      "label": "Số tài khoản",
+      "placeholder": "Mặc định: 0"
+    },
+    "alert": {
+      "failureTitle": "Nhập tài khoản thất bại",
+      "failureMessage": "Cụm từ khôi phục không hợp lệ"
+    },
+    "button": {
+      "recover": "Khôi phục"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Nhập ví bằng\ncụm từ khôi phục bí mật",
+    "seeds": {
+      "label": "Cụm từ bí mật (có khoảng trắng)",
+      "placeholder": "Nhập cụm từ bí mật"
+    },
+    "password": {
+      "label": "Mật khẩu mới"
+    },
+    "confirmPassword": {
+      "label": "Xác nhận mật khẩu"
+    },
+    "button": {
+      "restore": "Phục hồi"
+    },
+    "alert": {
+      "failureTitle": "Nhập tài khoản thất bại",
+      "failureMessage": "Có lỗi xảy ra. Vui lòng thử lại sau.",
+      "invalidSeeds": "Cụm từ khôi phục không hợp lệ hoặc tài khoản đã xóa"
+    }
+  },
+  "registration": {
+    "text": "Tạo mật khẩu",
+    "password": {
+      "label": "Mật khẩu mới"
+    },
+    "confirmPassword": {
+      "label": "Xác nhận mật khẩu"
+    },
+    "button": {
+      "create": "Tạo"
+    },
+    "alert": {
+      "failureTitle": "Đăng ký thất bại",
+      "failureMessage": "Có lỗi xảy ra. Vui lòng thử lại sau."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Tìm kiếm token",
+    "empty": "Không tìm thấy token",
+    "alert": {
+      "notFungibleTitle": "Token không thể thay thế",
+      "notFungibleMessage": "Token đã chọn không thể thay thế"
+    },
+    "header": {
+      "title": "Tìm token"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Cụm từ khôi phục bí mật",
+    "reveal": "Nhấn để hiển thị từ",
+    "snackbar": "Đã sao chép cụm từ khôi phục!",
+    "description1": "Cụm từ khôi phục giúp sao lưu và khôi phục tài khoản.",
+    "description2": "Cảnh báo: Không bao giờ tiết lộ cụm từ. Tránh chụp màn hình.",
+    "continue": "Tiếp tục"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Cụm từ khôi phục bí mật",
+    "line1": "Trong bước tiếp theo, hãy ghi lại cụm từ 12 từ.",
+    "line2": "Với nó, bạn có thể khôi phục ví trên thiết bị mới.",
+    "line3": "Ai có cụm từ này đều có thể kiểm soát ví, giữ kín.",
+    "line4": "Kadena không thể giúp nếu mất cụm từ hoặc xóa app.",
+    "checkbox": "Tôi hiểu rằng mất cụm từ sẽ không thể khôi phục ví."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Chuyển đang chờ!",
+      "pendingMessage": "Vui lòng thử lại khi chuyển hoàn tất"
+    },
+    "alert": {
+      "nonKTitle": "Gửi tới non “k:account”",
+      "nonKMessage": "Bạn có chắc muốn tiếp tục?",
+      "proceed": "Tiếp tục"
+    },
+    "chain": {
+      "sourceLabel": "ID Chain nguồn",
+      "targetLabel": "ID Chain đích"
+    },
+    "balance": {
+      "label": "Số dư Chain"
+    },
+    "accounts": {
+      "recent": "Gần đây",
+      "contacts": "Liên hệ"
+    },
+    "content": {
+      "advancedSettings": "Cài đặt nâng cao (Tùy chọn)",
+      "predicateLabel": "Predicate",
+      "receiverLabel": "Khóa công khai người nhận",
+      "destinationLabel": "Tài khoản đích",
+      "destinationPlaceholder": "Nhập tài khoản đích",
+      "receiverPlaceholder": "Nhập khóa công khai (Tùy chọn)"
+    },
+    "header": {
+      "title": "Gửi giao dịch {{token}}"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Đừng đóng ứng dụng\ntrong khi xử lý."
+    },
+    "toast": {
+      "submittedTitle": "Đã gửi chuyển!",
+      "submittedMessage": "Xem kết quả ở tab hoạt động"
+    },
+    "label": {
+      "result": "Kết quả:",
+      "message": "Thông điệp:",
+      "requestKey": "Khóa yêu cầu:"
+    },
+    "warning": {
+      "crossChainTitle": "Bạn đang thực hiện chuyển chuỗi chéo",
+      "crossChainMessage": "Thao tác này thường tốn nhiều thời gian hơn"
+    },
+    "button": {
+      "activities": "Đến Hoạt động"
+    },
+    "header": {
+      "title": "Đang xử lý giao dịch"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Bạn sắp thực hiện chuyển chuỗi chéo",
+      "crossChainMessage": "Thao tác này thường tốn nhiều thời gian hơn"
+    },
+    "button": {
+      "send": "Gửi"
+    },
+    "confirmModal": {
+      "title": "Xác nhận gửi",
+      "amountLabel": "Số lượng:",
+      "gasLimitLabel": "Giới hạn gas:",
+      "gasPriceLabel": "Giá gas:",
+      "speedLabel": "Tốc độ:",
+      "confirmButton": "Xác nhận"
+    },
+    "content": {
+      "transactionParameters": "Tham số giao dịch",
+      "transactionSpeed": "Tốc độ giao dịch",
+      "gasLimitPlaceholder": "Nhập giới hạn gas",
+      "gasPricePlaceholder": "Nhập giá gas",
+      "gasLabel": "Gas",
+      "speedLabel": "Tốc độ {{speed}}"
+    },
+    "header": {
+      "title": "Gửi giao dịch"
+    },
+    "walletInfo": {
+      "amountLabel": "Số lượng gửi",
+      "half": "một nửa",
+      "max": "tối đa",
+      "maxSnackbar": "Số tối đa đã bao gồm phí gas ước tính.",
+      "usdValue": "{{value}} USD",
+      "balance": "Số dư: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Liên hệ",
+        "text": "Quản lý danh sách liên hệ"
+      },
+      "networks": {
+        "title": "Mạng",
+        "text": "Thêm hoặc chỉnh sửa mạng RPC tùy chỉnh"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Chỉnh sửa cấu hình WalletConnect"
+      },
+      "accountSecurity": {
+        "title": "Bảo mật tài khoản",
+        "text": "Quản lý bảo mật ví"
+      },
+      "lockWallet": {
+        "title": "Khóa ví",
+        "text": "Lịch sử vẫn được giữ"
+      },
+      "deleteAccount": {
+        "title": "Xóa tài khoản",
+        "text": "Tất cả dữ liệu sẽ bị xóa"
+      }
+    },
+    "alert": {
+      "lockTitle": "Bạn có chắc muốn khóa ví?",
+      "lockMessage": "Lịch sử vẫn được giữ",
+      "lockConfirm": "Khóa ví",
+      "deleteTitle": "Bạn có chắc muốn xóa tài khoản?",
+      "deleteMessage": "Tất cả dữ liệu sẽ bị xóa. Không có cụm từ khôi phục sẽ mất quyền truy cập.",
+      "deleteConfirm": "Xóa tài khoản"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Cổng vào hệ sinh thái Kadena",
+      "visitWebsite": "Truy cập trang web",
+      "joinDiscord": "Tham gia Discord",
+      "termsOfUse": "Điều khoản sử dụng",
+      "privacyPolicy": "Chính sách bảo mật"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Bảo mật tài khoản"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Đặt lại mã PIN",
+        "text": "Thay đổi mã PIN ứng dụng"
+      },
+      "exportPhrase": {
+        "title": "Xuất cụm từ khôi phục",
+        "text": "Bảo vệ ví của bạn"
+      },
+      "changePassword": {
+        "title": "Đổi mật khẩu",
+        "text": "Đổi mật khẩu tài khoản"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Chào mừng",
+    "label": {
+      "password": "Mật khẩu"
+    },
+    "button": {
+      "signIn": "Đăng nhập"
+    },
+    "alert": {
+      "usePasscodeTitle": "Đăng nhập bằng mã PIN?",
+      "usePasscodeMessage": "Bạn muốn sử dụng mã PIN và sinh trắc học?",
+      "failedTitle": "Đăng nhập thất bại",
+      "invalidPassword": "Mật khẩu không hợp lệ",
+      "errorMessage": "Có lỗi xảy ra. Vui lòng thử lại sau."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Xác nhận chuyển đổi",
+      "give": "GỬI",
+      "receive": "NHẬN",
+      "confirmButton": "Xác nhận"
+    },
+    "gasSettings": {
+      "title": "Cài đặt Gas",
+      "gasStation": "TRẠM GAS",
+      "gasLimitLabel": "Giới hạn Gas",
+      "gasLimitPlaceholder": "Giới hạn Gas",
+      "gasPriceLabel": "Giá Gas",
+      "gasPricePlaceholder": "Giá Gas",
+      "failureCost": "Chi phí gas khi giao dịch thất bại:",
+      "noGasCost": "Không mất phí gas — eckoDEX hỗ trợ"
+    },
+    "info": {
+      "gasCost": "Chi phí Gas",
+      "free": "MIỄN PHÍ",
+      "priceImpact": "Tác động giá",
+      "price": "Giá",
+      "maxSlippage": "Trượt giá tối đa",
+      "lpFee": "Phí LP",
+      "txDeadline": "Hạn giao dịch",
+      "gasPrice": "Giá Gas",
+      "gasLimit": "Giới hạn Gas",
+      "unitMinutes": "phút",
+      "unitSeconds": "giây"
+    },
+    "selectTokenModal": {
+      "title": "Chọn token",
+      "placeholder": "Tìm token",
+      "tokensLabel": "Token",
+      "warningTitle": "Cảnh báo",
+      "warningMessage": "Pool {{pair}} không tồn tại",
+      "addTokenTitle": "Thêm token mới",
+      "addTokenMessage": "Token này không có trong ví. Bạn muốn thêm?",
+      "addTokenConfirm": "Thêm",
+      "selectedSuffix": " (Đã chọn)",
+      "empty": "Không tìm thấy token"
+    },
+    "transactionSettings": {
+      "title": "Cài đặt giao dịch",
+      "slippageTitle": "Độ trượt giá",
+      "deadlineTitle": "Hạn giao dịch",
+      "minutes": "phút"
+    },
+    "swapBlock": {
+      "pending": "Giao dịch đang chờ…",
+      "warningTitle": "Để chuyển đổi, đảm bảo có tiền trên Chain 2.",
+      "warningText": "",
+      "give": "GỬI",
+      "receive": "NHẬN",
+      "confirm": "XÁC NHẬN",
+      "submittedTitle": "Swap đã gửi!",
+      "submittedMessage": "Xem kết quả ở tab Hoạt động",
+      "poweredBy": "Powered by eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Xác minh cụm từ khôi phục",
+    "description": "Hãy nhập các từ đúng thứ tự.",
+    "warning": "Không dùng bàn phím tuỳ chỉnh. Dùng bàn phím mặc định để bảo mật.",
+    "inputLabel": "Nhập {{number}}",
+    "error": "Cụm từ khôi phục không hợp lệ",
+    "continueButton": "Tiếp tục"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Tài sản"
+      },
+      "tokenDetector": {
+        "title": "Token phát hiện",
+        "emptyTitle": "Không tìm thấy token nào khác",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Đã sao chép tên tài khoản!"
+    },
+    "walletBalance": {
+      "netWorth": "Giá trị ròng",
+      "accountBalance": "Số dư tài khoản",
+      "send": "Gửi",
+      "receive": "Nhận",
+      "buy": "Mua"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Nhập mã kết nối",
+    "connect": "Kết nối",
+    "header": {
+      "title": "Quét QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "ID dự án",
+    "projectIdPlaceholder": "Nhập ID dự án",
+    "relayUrlLabel": "Relay URL",
+    "relayUrlPlaceholder": "Nhập Relay URL",
+    "errorTitle": "Đổi cấu hình WalletConnect thất bại",
+    "errorMessage": "Tham số không hợp lệ"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Mật khẩu",
+      "placeholder": "Nhập mật khẩu"
+    },
+    "numpad": {
+      "authenticationPrompt": "Xác thực",
+      "weakPasscodeTitle": "Mã quá yếu",
+      "weakPasscodeDescription": "Mã bạn nhập quá yếu. Vui lòng thử mã phức tạp hơn."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Nếu trang eckoDEX đang mở trên thiết bị này và bạn gặp sự cố kết nối WalletConnect, thử quay lại trình duyệt rồi vào lại",
+      "text2": "Nếu vẫn không được, kiểm tra cài đặt WalletConnect hoặc thử mở eckoDEX trên trình duyệt máy tính để bàn",
+      "button": "OK"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Tất cả phiên hoạt động sẽ vẫn tồn tại cho đến khi bạn thủ công hủy bằng hành động xóa",
+      "text2": "Tab Lịch sử hiển thị chi tiết phiên với các quyền đã cấp cho các phương thức và sự kiện",
+      "button": "OK"
+    }
+  },
+  "tabs": {
+    "Wallet": "Ví",
+    "Swap": "Hoán đổi",
+    "History": "Lịch sử",
+    "Connection": "Kết nối",
+    "Settings": "Cài đặt",
+    "history": {
+      "activities": "Hoạt động",
+      "pending": "Đang chờ"
+    },
+    "connection": {
+      "pairings": "Phiên đang hoạt động",
+      "sessions": "Lịch sử"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Chi tiết giao dịch",
+    "gas": "Gas: {{gas}}",
+    "statusLabel": "Trạng thái",
+    "continuationTitle": "Tiếp tục",
+    "continuationValue": "bước: {{step}}, tổng: {{total}}",
+    "no": "không",
+    "requestKeyTitle": "Khóa yêu cầu",
+    "transactionTypeTitle": "Loại giao dịch",
+    "requestKeyChainTitle": "Khóa yêu cầu (Chain {{chain}})",
+    "txDetailsButton": "Chi tiết Tx",
+    "requestKeyCopied": "Khóa yêu cầu đã được sao chép vào clipboard!"
+  },
+  "tokenModal": {
+    "distributionTitle": "Phân phối {{token}} trên Chain",
+    "removeConfirmTitle": "Bạn có chắc muốn xóa?",
+    "removeConfirmMessage": "Tất cả dữ liệu của token sẽ bị xóa và không thể khôi phục",
+    "remove": "Xóa",
+    "notTransferable": "{{contract}} không thể chuyển!",
+    "zeroBalance": "Số dư {{token}} là 0",
+    "editToken": "Chỉnh sửa token",
+    "removeToken": "Xóa token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Ví của tôi",
+    "removeConfirmTitle": "Bạn có chắc muốn xóa?",
+    "removeConfirmMessage": "Tất cả dữ liệu tài khoản sẽ bị xóa và không thể khôi phục",
+    "remove": "Xóa",
+    "share": "Chia sẻ ví",
+    "exportRecovery": "Xuất cụm từ khôi phục",
+    "removeSelected": "Xóa ví đã chọn",
+    "create": "Tạo ví",
+    "import": "Nhập ví",
+    "copySuccess": "Thông tin tài khoản đã được sao chép vào clipboard!"
+  },
+  "session": {
+    "title": "Chi tiết phiên",
+    "deleteTitle": "Bạn có chắc muốn xóa lịch sử phiên này?",
+    "deleteDescription": "Tất cả dữ liệu lịch sử phiên sẽ bị xóa và không thể khôi phục",
+    "deleteFailedTitle": "Xóa phiên thất bại",
+    "deleteFailedMessage": "Cấu hình WalletConnect không khớp",
+    "deleteSession": "Xóa phiên",
+    "reviewPermissions": "Xem lại quyền {{namespace}}",
+    "unknownUrl": "Không xác định",
+    "methods": "Phương thức",
+    "events": "Sự kiện",
+    "expiry": "Hết hạn",
+    "lastUpdated": "Cập nhật lần cuối"
+  },
+  "receive": {
+    "title": "Nhận token",
+    "accountNameLabel": "Tên tài khoản của bạn"
+  },
+  "networkSelector": {
+    "title": "Chọn mạng",
+    "manage": "Quản lý mạng"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "URL trình khám phá khối",
+    "editNetwork": "Chỉnh sửa mạng"
+  },
+  "contactDetails": {
+    "accountName": "Tên tài khoản",
+    "chainId": "Chain ID",
+    "edit": "Chỉnh sửa liên hệ",
+    "copied": "Đã sao chép vào clipboard!"
+  }
+}

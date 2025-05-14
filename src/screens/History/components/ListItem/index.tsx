@@ -109,7 +109,7 @@ const ListItem: FC<TListItemProps> = React.memo(
 
     const amountText = useMemo(
       () =>
-        `$${
+        `${
           type === 'SWAP'
             ? ''
             : selectedAccount?.accountName === sender

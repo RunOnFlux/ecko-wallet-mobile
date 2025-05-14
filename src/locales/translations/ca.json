@@ -1,0 +1,689 @@
+{
+  "common": {
+    "saveButton": "Desa",
+    "confirm": "Confirma",
+    "delete": "Suprimeix",
+    "cancel": "Cancel·la",
+    "ok": "D'acord",
+    "error": "Error",
+    "selectLanguage": "Selecciona idioma",
+    "selectLanguageLongDescription": "Selecciona l'idioma que vols utilitzar"
+  },
+  "welcome": {
+    "title": "Benvingut a\neckoWALLET",
+    "subtitle": "La porta d'entrada a l'ecosistema Kadena",
+    "loginCard": {
+      "title": "Inicia sessió al meu compte",
+      "description": "Introdueix la contrasenya del teu wallet"
+    },
+    "newUserCard": {
+      "title": "Sóc un usuari nou",
+      "description": "Configura un nou compte eckoWALLET"
+    },
+    "recoverCard": {
+      "title": "Ja tinc un compte",
+      "description": "Inicia sessió amb la teva frase secreta"
+    },
+    "instructions": {
+      "intro": "Per afegir un compte nou, segueix aquests passos:",
+      "step1": "1. Inicia sessió al teu compte existent",
+      "step2": "2. Fes clic a \"Configuració\"",
+      "step3": "3. Fes clic a \"Suprimeix compte\""
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Nom de contacte",
+      "placeholder": "Escriu el nom del contacte"
+    },
+    "accountName": {
+      "label": "Nom de compte",
+      "placeholder": "Introdueix el nom del compte"
+    },
+    "saveButton": "Desa",
+    "header": {
+      "title": "Afegeix contacte"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Personalitzat",
+    "alert": {
+      "failureTitle": "Error en afegir la xarxa",
+      "failureMessage": "Informació de la xarxa no vàlida"
+    },
+    "name": {
+      "label": "Nom de la xarxa",
+      "placeholder": "Introdueix el nom de la xarxa"
+    },
+    "host": {
+      "label": "Nova URL RPC",
+      "placeholder": "Introdueix l'URL"
+    },
+    "explorer": {
+      "label": "URL de l'explorador de blocs",
+      "placeholder": "Introdueix l'URL"
+    },
+    "header": {
+      "title": "Afegeix xarxa"
+    },
+    "saveButton": "Desa"
+  },
+  "addToken": {
+    "header": {
+      "title": "Afegeix token",
+      "titleImport": "Importa token"
+    },
+    "tokenAddress": {
+      "label": "Adreça del contracte del token",
+      "placeholder": "Escriu l'adreça del contracte"
+    },
+    "tokenName": {
+      "label": "Símbol del token",
+      "placeholder": "Escriu el símbol del token"
+    },
+    "alert": {
+      "failureTitle": "Error en importar el token",
+      "failureMessage": "El token no existeix"
+    },
+    "saveButton": "Afegeix token"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Compra"
+    },
+    "consent": {
+      "description": "La compra i venda de criptomonedes es realitza mitjançant un servei de tercers proporcionat per Onramper.\n\nTot i que eckoWallet es compromet a garantir el màxim nivell de seguretat per als seus usuaris, no podem garantir la seguretat i privacitat dels serveis de tercers."
+    },
+    "error": {
+      "walletUnavailable": "Adreça del wallet no disponible",
+      "unableConnect": "No s'ha pogut connectar al servei. Torna-ho a provar més tard."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Canvia la contrasenya"
+    },
+    "currentPassword": {
+      "label": "Contrasenya actual"
+    },
+    "newPassword": {
+      "label": "Contrasenya nova"
+    },
+    "confirmPassword": {
+      "label": "Confirma contrasenya"
+    },
+    "toast": {
+      "success": "La contrasenya s'ha canviat correctament!"
+    },
+    "alert": {
+      "changeFailureTitle": "No s'ha pogut canviar la contrasenya",
+      "changeFailureMessage": "S'ha produït un error. Torna-ho a provar més tard.",
+      "verifyFailureTitle": "Error en la verificació",
+      "verifyFailureMessage": "Contrasenya no vàlida"
+    },
+    "changeButton": "Canvia contrasenya"
+  },
+  "connection": {
+    "unknown": "Connexió desconeguda",
+    "deleteAlert": {
+      "title": "Segur que vols suprimir aquesta sessió activa?",
+      "message": "Totes les dades de la sessió s'eliminaran i no es podran restaurar."
+    },
+    "deleteFailureTitle": "No s'ha pogut suprimir la sessió activa",
+    "deleteFailureMessage": "La configuració de WalletConnect no coincideix",
+    "empty": {
+      "sessions": "No hi ha historial",
+      "pairings": "No hi ha sessions actives"
+    },
+    "modal": {
+      "title": "Informació de WalletConnect"
+    },
+    "expiryLabel": "Caducitat:",
+    "unknownHost": "Desconegut"
+  },
+  "contacts": {
+    "searchPlaceholder": "Cerca contactes",
+    "emptyList": "No hi ha contactes de moment",
+    "header": {
+      "title": "Contactes"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Frase secreta de recuperació copiada al porta-retalls!",
+    "description": "La teva frase secreta de recuperació facilita la còpia de seguretat i la restauració del compte.",
+    "warning": "Mai revelis la teva frase secreta de recuperació. Qualsevol persona amb aquesta frase pot accedir al teu wallet permanentment.",
+    "copyButton": "Copia frase de recuperació",
+    "header": {
+      "title": "Exporta frase de recuperació"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Verifica la contrasenya"
+    },
+    "description": "Introdueix la teva contrasenya per continuar",
+    "alert": {
+      "verifyFailureTitle": "No s'ha pogut verificar",
+      "verifyFailureMessage": "Contrasenya no vàlida",
+      "verifyErrorMessage": "S'ha produït un error. Torna-ho a provar més tard."
+    },
+    "continueButton": "Continua"
+  },
+  "history": {
+    "empty": {
+      "pending": "No hi ha activitats pendents",
+      "activities": "No s'han trobat activitats"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Transferència pendent!",
+      "pendingMessage": "Torna-ho a provar quan la transferència hagi acabat"
+    },
+    "finishButton": "Finalitza transferència cross-chain"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Nom del compte",
+      "placeholder": "Escriu el nom del compte"
+    },
+    "privateKey": {
+      "label": "Clau privada",
+      "placeholder": "Escriu la clau privada"
+    },
+    "importButton": "Importa",
+    "header": {
+      "title": "Importa compte"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Desbloqueja eckoWALLET",
+      "enter": "Introdueix el codi d'accés",
+      "enterNew": "Introdueix el nou codi d'accés",
+      "reenter": "Torna a introduir el codi d'accés",
+      "reenterNew": "Torna a introduir el nou codi d'accés"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Xarxes"
+    }
+  },
+  "noConnection": {
+    "message": "No hi ha connexió de xarxa"
+  },
+  "receiverScan": {
+    "placeholder": "Edita el compte de destinació",
+    "header": {
+      "title": "Escaneja QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Frases seed",
+      "placeholder": "Introdueix les frases seed"
+    },
+    "accountIndex": {
+      "label": "Número de compte",
+      "placeholder": "Per defecte: 0"
+    },
+    "alert": {
+      "failureTitle": "No s'ha pogut importar el compte",
+      "failureMessage": "Frase secreta de recuperació no vàlida"
+    },
+    "button": {
+      "recover": "Recupera"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Importa un wallet amb\nfrase secreta de recuperació",
+    "seeds": {
+      "label": "Frases secretes (amb espais)",
+      "placeholder": "Introdueix les frases secretes"
+    },
+    "password": {
+      "label": "Contrasenya nova"
+    },
+    "confirmPassword": {
+      "label": "Confirma contrasenya"
+    },
+    "button": {
+      "restore": "Restaura"
+    },
+    "alert": {
+      "failureTitle": "No s'ha pogut importar el compte",
+      "failureMessage": "S'ha produït un error. Torna-ho a provar més tard.",
+      "invalidSeeds": "Frase secreta no vàlida o compte eliminat"
+    }
+  },
+  "registration": {
+    "text": "Crea contrasenya",
+    "password": {
+      "label": "Contrasenya nova"
+    },
+    "confirmPassword": {
+      "label": "Confirma contrasenya"
+    },
+    "button": {
+      "create": "Crea"
+    },
+    "alert": {
+      "failureTitle": "No s'ha pogut registrar",
+      "failureMessage": "S'ha produït un error. Torna-ho a provar més tard."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Cerca token",
+    "empty": "No s'han trobat tokens",
+    "alert": {
+      "notFungibleTitle": "Token no fungible",
+      "notFungibleMessage": "El token seleccionat no és fungible"
+    },
+    "header": {
+      "title": "Cerca token"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Frase secreta de recuperació",
+    "reveal": "Fes clic aquí per revelar les paraules secretes",
+    "snackbar": "Frase secreta de recuperació copiada al porta-retalls!",
+    "description1": "La teva frase secreta de recuperació facilita fer còpies de seguretat i restaurar el compte.",
+    "description2": "Avís: Mai revelis la teva frase secreta de recuperació. Es recomana no fer captures de pantalla quan visualitzis les frases secretes. Qualsevol persona amb aquesta frase pot accedir al teu wallet de forma permanent.",
+    "continue": "Continua"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Frase secreta de recuperació",
+    "line1": "En el següent pas anotaràs la teva frase de recuperació de 12 paraules.",
+    "line2": "La teva frase de recuperació facilita restaurar el wallet en un nou dispositiu.",
+    "line3": "Qualsevol persona amb aquesta frase pot controlar el teu wallet; mantén-la privada.",
+    "line4": "Kadena no pot accedir a la teva frase de recuperació si es perd o si s'elimina l'app; emmagatzema-la de forma segura.",
+    "checkbox": "Entenc que si perdo la meva frase de recuperació, no podré restaurar el meu wallet."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Transferència pendent!",
+      "pendingMessage": "Torna-ho a provar quan la transferència hagi acabat"
+    },
+    "alert": {
+      "nonKTitle": "Enviant a un compte no \"k:account\"",
+      "nonKMessage": "Estàs segur que vols continuar?",
+      "proceed": "Continua"
+    },
+    "chain": {
+      "sourceLabel": "ID de cadena d'origen",
+      "targetLabel": "ID de cadena de destinació"
+    },
+    "balance": {
+      "label": "Saldo de cadena"
+    },
+    "accounts": {
+      "recent": "Recents",
+      "contacts": "Contactes"
+    },
+    "content": {
+      "advancedSettings": "Configuració avançada (opcional)",
+      "predicateLabel": "Predicat",
+      "receiverLabel": "Clau pública del receptor",
+      "destinationLabel": "Compte de destinació",
+      "destinationPlaceholder": "Introdueix el compte de destinació",
+      "receiverPlaceholder": "Introdueix la clau pública (opcional)"
+    },
+    "header": {
+      "title": "Envia transacció de {{token}}"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "No tanquis l'aplicació\nmentre processa l'operació."
+    },
+    "toast": {
+      "submittedTitle": "Transferència enviada!",
+      "submittedMessage": "Pots veure el resultat a la pestanya d'activitats"
+    },
+    "label": {
+      "result": "Resultat:",
+      "message": "Missatge:",
+      "requestKey": "Clau de sol·licitud:"
+    },
+    "warning": {
+      "crossChainTitle": "Estàs realitzant una transferència cross-chain",
+      "crossChainMessage": "Aquesta operació normalment triga més temps"
+    },
+    "button": {
+      "activities": "Ves a Activitats"
+    },
+    "header": {
+      "title": "La transacció està en curs"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Estàs a punt de fer una transferència cross-chain",
+      "crossChainMessage": "Aquesta operació normalment triga més temps"
+    },
+    "button": {
+      "send": "Envia"
+    },
+    "confirmModal": {
+      "title": "Confirma l'enviament de la transacció",
+      "amountLabel": "Quantitat:",
+      "gasLimitLabel": "Límit de gas:",
+      "gasPriceLabel": "Preu del gas:",
+      "speedLabel": "Velocitat:",
+      "confirmButton": "Confirma"
+    },
+    "content": {
+      "transactionParameters": "Paràmetres de la transacció",
+      "transactionSpeed": "Velocitat de la transacció",
+      "gasLimitPlaceholder": "Escriu el límit de gas",
+      "gasPricePlaceholder": "Escriu el preu del gas",
+      "gasLabel": "Gas",
+      "speedLabel": "{{speed}} velocitat"
+    },
+    "header": {
+      "title": "Envia transacció"
+    },
+    "walletInfo": {
+      "amountLabel": "Quantitat a enviar",
+      "half": "meitat",
+      "max": "màxim",
+      "maxSnackbar": "La quantitat màxima també té en compte la comissió de gas estimada.",
+      "usdValue": "{{value}} USD",
+      "balance": "Saldo: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Contactes",
+        "text": "Gestiona la teva llista de contactes"
+      },
+      "networks": {
+        "title": "Xarxes",
+        "text": "Afegeix o edita xarxes RPC personalitzades"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Edita la configuració de WalletConnect"
+      },
+      "accountSecurity": {
+        "title": "Seguretat del compte",
+        "text": "Gestiona la seguretat del teu wallet"
+      },
+      "lockWallet": {
+        "title": "Bloqueja el wallet",
+        "text": "Totes les dades d'historial es mantindran"
+      },
+      "deleteAccount": {
+        "title": "Suprimeix compte",
+        "text": "Totes les dades del compte s'eliminaran"
+      }
+    },
+    "alert": {
+      "lockTitle": "Segur que vols bloquejar el wallet?",
+      "lockMessage": "Totes les dades d'historial es mantindran",
+      "lockConfirm": "Bloqueja wallet",
+      "deleteTitle": "Segur que vols suprimir el compte?",
+      "deleteMessage": "Totes les dades del compte s'eliminaran. Si no tens la teva frase de recuperació, perdràs l'accés als teus fons.",
+      "deleteConfirm": "Suprimeix compte"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "La porta d'entrada a l'ecosistema Kadena",
+      "visitWebsite": "Visita el nostre lloc web",
+      "joinDiscord": "Uneix-te al nostre Discord",
+      "termsOfUse": "Condicions d'ús",
+      "privacyPolicy": "Política de privacitat"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Seguretat del compte"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Restableix el codi d'accés",
+        "text": "Canvia el codi d'accés de l'app"
+      },
+      "exportPhrase": {
+        "title": "Exporta frase de recuperació",
+        "text": "Protegeix el teu wallet"
+      },
+      "changePassword": {
+        "title": "Canvia contrasenya",
+        "text": "Canvia la contrasenya del compte"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Benvingut",
+    "label": {
+      "password": "Contrasenya"
+    },
+    "button": {
+      "signIn": "Inicia sessió"
+    },
+    "alert": {
+      "usePasscodeTitle": "Iniciar sessió amb codi d'accés?",
+      "usePasscodeMessage": "Vols utilitzar codi d'accés i biometria per accedir a eckoWALLET?",
+      "failedTitle": "Error d'inici de sessió",
+      "invalidPassword": "Contrasenya no vàlida",
+      "errorMessage": "S'ha produït un error. Torna-ho a provar més tard."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Confirmació de conversió",
+      "give": "DONAR",
+      "receive": "REBRE",
+      "confirmButton": "Confirma"
+    },
+    "gasSettings": {
+      "title": "Configuració de gas",
+      "gasStation": "ESTACIÓ DE GAS",
+      "gasLimitLabel": "Límit de gas",
+      "gasLimitPlaceholder": "Límit de gas",
+      "gasPriceLabel": "Preu del gas",
+      "gasPricePlaceholder": "Preu del gas",
+      "failureCost": "Cost potencial de gas per a la fallada de la transacció:",
+      "noGasCost": "Sense cost de gas – subsidat per eckoDEX a través d'estacions de gas de Kadena."
+    },
+    "info": {
+      "gasCost": "Cost de gas",
+      "free": "GRATUÏT",
+      "priceImpact": "Impacte en el preu",
+      "price": "Preu",
+      "maxSlippage": "Lliscament màxim",
+      "lpFee": "Comissió del proveïdor de liquiditat",
+      "txDeadline": "Data límit de la transacció",
+      "gasPrice": "Preu del gas",
+      "gasLimit": "Límit de gas",
+      "unitMinutes": "minuts",
+      "unitSeconds": "segons"
+    },
+    "selectTokenModal": {
+      "title": "Selecciona token",
+      "placeholder": "Cerca token",
+      "tokensLabel": "Tokens",
+      "warningTitle": "Avís",
+      "warningMessage": "Pool {{pair}} no existeix",
+      "addTokenTitle": "Afegir nou token",
+      "addTokenMessage": "Aquest token no existeix al teu wallet. Vols afegir-lo?",
+      "addTokenConfirm": "Afegeix",
+      "selectedSuffix": " (Seleccionat)",
+      "empty": "Token no trobat"
+    },
+    "transactionSettings": {
+      "title": "Configuració de transacció",
+      "slippageTitle": "Tol·lerància de lliscament",
+      "deadlineTitle": "Data límit de la transacció",
+      "minutes": "minuts"
+    },
+    "swapBlock": {
+      "pending": "Transacció pendent...",
+      "warningTitle": "Per utilitzar la nostra funció de conversió, assegura't primer de tenir fons a Chain 2.",
+      "warningText": "",
+      "give": "DONAR",
+      "receive": "REBRE",
+      "confirm": "CONFIRMA",
+      "submittedTitle": "Canvi enviat!",
+      "submittedMessage": "Pots veure el resultat a la pestanya d'activitats",
+      "poweredBy": "Impulsat per eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Verifica la frase de recuperació",
+    "description": "Confirma la teva frase de recuperació escrivint les paraules en l'ordre correcte.",
+    "warning": "Es recomana no utilitzar teclats personalitzats. Utilitza el teclat per defecte per motius de seguretat.",
+    "inputLabel": "Entrada {{number}}",
+    "error": "Frases de recuperació no vàlides",
+    "continueButton": "Continua"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Actius"
+      },
+      "tokenDetector": {
+        "title": "Tokens detectats",
+        "emptyTitle": "No s'han detectat més tokens per a aquest compte",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Nom del compte copiat al porta-retalls!"
+    },
+    "walletBalance": {
+      "netWorth": "Valor net",
+      "accountBalance": "Saldo del compte",
+      "send": "Envia",
+      "receive": "Rep",
+      "buy": "Compra"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Escriu el codi de connexió",
+    "connect": "Connecta",
+    "header": {
+      "title": "Escaneja QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "ID del projecte",
+    "projectIdPlaceholder": "Introdueix l'ID del projecte",
+    "relayUrlLabel": "URL del relay",
+    "relayUrlPlaceholder": "Introdueix l'URL del relay",
+    "errorTitle": "No s'ha pogut canviar la configuració de WalletConnect",
+    "errorMessage": "Paràmetres no vàlids"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Contrasenya",
+      "placeholder": "Introdueix la contrasenya"
+    },
+    "numpad": {
+      "authenticationPrompt": "Autenticació",
+      "weakPasscodeTitle": "Contrasenya feble",
+      "weakPasscodeDescription": "La contrasenya introduïda és massa feble. Prova’n una de més complexa"
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Si el lloc web d’eckoDEX està obert en aquest dispositiu i tens problemes amb la connexió WalletConnect, intenta tornar al navegador i tornar-hi",
+      "text2": "Si això no ajuda, comprova la configuració de WalletConnect o prova d’obrir el lloc web d’eckoDEX en un navegador d’escriptori",
+      "button": "D’acord"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Totes les sessions actives romandran actives fins que es tanquin manualment amb l’acció d’eliminar",
+      "text2": "La pestanya d’historial mostra detalls de la sessió amb els permisos concedits per a mètodes i esdeveniments",
+      "button": "D’acord"
+    }
+  },
+  "tabs": {
+    "Wallet": "Cartera",
+    "Swap": "Intercanvi",
+    "History": "Historial",
+    "Connection": "Connexions",
+    "Settings": "Configuració",
+    "history": {
+      "activities": "Activitats",
+      "pending": "Pendent"
+    },
+    "connection": {
+      "pairings": "Sessions actives",
+      "sessions": "Historial"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Detalls de la transacció",
+    "gas": "Gas: {{gas}}",
+    "statusLabel": "Estat",
+    "continuationTitle": "Continuació",
+    "continuationValue": "pas: {{step}}, total: {{total}}",
+    "no": "no",
+    "requestKeyTitle": "Clau de sol·licitud",
+    "transactionTypeTitle": "Tipus de transacció",
+    "requestKeyChainTitle": "Clau de sol·licitud (Chain {{chain}})",
+    "txDetailsButton": "Detalls Tx",
+    "requestKeyCopied": "Clau de sol·licitud copiada al porta-retalls!"
+  },
+  "tokenModal": {
+    "distributionTitle": "Distribució de {{token}} en la cadena",
+    "removeConfirmTitle": "Segur que ho vols eliminar?",
+    "removeConfirmMessage": "Totes les dades del token s’eliminaran i no es podran recuperar",
+    "remove": "Eliminar",
+    "notTransferable": "{{contract}} no es pot transferir!",
+    "zeroBalance": "Saldo de {{token}} és 0",
+    "editToken": "Edita token",
+    "removeToken": "Elimina token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Les meves carteres",
+    "removeConfirmTitle": "Segur que vols eliminar?",
+    "removeConfirmMessage": "Totes les dades del compte s’eliminaran i no es podran recuperar",
+    "remove": "Eliminar",
+    "share": "Comparteix cartera",
+    "exportRecovery": "Exporta frase de recuperació",
+    "removeSelected": "Elimina la cartera seleccionada",
+    "create": "Crea cartera",
+    "import": "Importa cartera",
+    "copySuccess": "Detalls del compte copiats al porta-retalls!"
+  },
+  "session": {
+    "title": "Detalls de la sessió",
+    "deleteTitle": "Segur que vols eliminar aquest historial de sessió?",
+    "deleteDescription": "Totes les dades de l’historial de la sessió s’eliminaran i no es podran recuperar",
+    "deleteFailedTitle": "No s’ha pogut eliminar la sessió",
+    "deleteFailedMessage": "La configuració de WalletConnect no coincideix",
+    "deleteSession": "Elimina sessió",
+    "reviewPermissions": "Revisa permisos de {{namespace}}",
+    "unknownUrl": "Desconegut",
+    "methods": "Mètodes",
+    "events": "Esdeveniments",
+    "expiry": "Caducitat",
+    "lastUpdated": "Darrera actualització"
+  },
+  "receive": {
+    "title": "Rep tokens",
+    "accountNameLabel": "El nom del teu compte"
+  },
+  "networkSelector": {
+    "title": "Selecciona xarxa",
+    "manage": "Gestiona xarxes"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "Block Explorer URL",
+    "editNetwork": "Edita xarxa"
+  },
+  "contactDetails": {
+    "accountName": "Nom de compte",
+    "chainId": "Chain ID",
+    "edit": "Edita contacte",
+    "copied": "Copiat al porta-retalls!"
+  }
+}

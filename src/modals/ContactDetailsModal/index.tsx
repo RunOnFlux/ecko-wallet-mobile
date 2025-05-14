@@ -17,9 +17,11 @@ import {makeSelectSelectedContact} from '../../store/contacts/selectors';
 import {deleteSelectedContact} from '../../store/contacts';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useShallowEqualSelector} from '../../store/utils';
+import {useTranslation} from 'react-i18next';
 
 const ContactDetailsModal: FC<TContactDetailsModalProps> = React.memo(
   ({toggle, isVisible}) => {
+    const {t} = useTranslation();
     const dispatch = useDispatch();
     const navigation = useNavigation<any>();
 
@@ -42,10 +44,10 @@ const ContactDetailsModal: FC<TContactDetailsModalProps> = React.memo(
       });
       Clipboard.setString(contact?.accountName || '');
       Snackbar.show({
-        text: 'Copied to clipboard!',
+        text: t('contactDetails.copied'),
         duration: Snackbar.LENGTH_SHORT,
       });
-    }, [contact]);
+    }, [contact, t]);
 
     return (
       <Modal
@@ -62,7 +64,9 @@ const ContactDetailsModal: FC<TContactDetailsModalProps> = React.memo(
           <View style={styles.modalContentWrapper}>
             <View style={styles.accountNameSection}>
               <View style={styles.accountNameSectionHeader}>
-                <Text style={styles.title}>account name</Text>
+                <Text style={styles.title}>
+                  {t('contactDetails.accountName')}
+                </Text>
                 <TouchableOpacity onPress={copyToClipboard} activeOpacity={0.8}>
                   <BasicCopySvg />
                 </TouchableOpacity>
@@ -74,7 +78,7 @@ const ContactDetailsModal: FC<TContactDetailsModalProps> = React.memo(
               </Text>
             </View>
             <View style={styles.chainIdSection}>
-              <Text style={styles.title}>Chain ID</Text>
+              <Text style={styles.title}>{t('contactDetails.chainId')}</Text>
               <Text style={[styles.text, styles.chainIdText]}>
                 {contact?.chainId}
               </Text>
@@ -82,13 +86,13 @@ const ContactDetailsModal: FC<TContactDetailsModalProps> = React.memo(
           </View>
           <View style={styles.modalFooter}>
             <ListItem
-              text="Edit Contact"
+              text={t('contactDetails.edit')}
               icon={<PencilEditSvg />}
               style={styles.itemStyle}
               onPress={handlePressEdit}
             />
             <ListItem
-              text="Delete"
+              text={t('common.delete')}
               icon={<TrashEmptySvg />}
               onPress={handlePressRemove}
             />

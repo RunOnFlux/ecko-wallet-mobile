@@ -1,0 +1,689 @@
+{
+  "common": {
+    "saveButton": "Tallenna",
+    "confirm": "Vahvista",
+    "delete": "Poista",
+    "cancel": "Peruuta",
+    "ok": "OK",
+    "error": "Virhe",
+    "selectLanguage": "Valitse kieli",
+    "selectLanguageLongDescription": "Valitse haluamasi kieli"
+  },
+  "welcome": {
+    "title": "Tervetuloa\neckoWALLETiin",
+    "subtitle": "Portti Kadena-ekosysteemiin",
+    "loginCard": {
+      "title": "Kirjaudu tililleni",
+      "description": "Syötä lompakkosi salasana"
+    },
+    "newUserCard": {
+      "title": "Olen uusi käyttäjä",
+      "description": "Luo uusi eckoWALLET-tili"
+    },
+    "recoverCard": {
+      "title": "Minulla on jo tili",
+      "description": "Kirjaudu salaisella lauseellasi"
+    },
+    "instructions": {
+      "intro": "Lisätäksesi uuden tilin, toimi näin:",
+      "step1": "1. Kirjaudu olemassa olevalle tilillesi",
+      "step2": "2. Valitse “Asetukset”",
+      "step3": "3. Valitse “Poista tili”"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Yhteyshenkilön nimi",
+      "placeholder": "Kirjoita nimi"
+    },
+    "accountName": {
+      "label": "Tilin nimi",
+      "placeholder": "Syötä tilin nimi"
+    },
+    "saveButton": "Tallenna",
+    "header": {
+      "title": "Lisää yhteyshenkilö"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Mukautettu",
+    "alert": {
+      "failureTitle": "Verkon lisääminen epäonnistui",
+      "failureMessage": "Virheelliset verkon tiedot"
+    },
+    "name": {
+      "label": "Verkon nimi",
+      "placeholder": "Syötä verkon nimi"
+    },
+    "host": {
+      "label": "Uusi RPC-URL",
+      "placeholder": "Syötä URL"
+    },
+    "explorer": {
+      "label": "Loexplorer-URL",
+      "placeholder": "Syötä URL"
+    },
+    "header": {
+      "title": "Lisää verkko"
+    },
+    "saveButton": "Tallenna"
+  },
+  "addToken": {
+    "header": {
+      "title": "Lisää token",
+      "titleImport": "Tuo token"
+    },
+    "tokenAddress": {
+      "label": "Token-sopimuksen osoite",
+      "placeholder": "Kirjoita osoite"
+    },
+    "tokenName": {
+      "label": "Token-symboli",
+      "placeholder": "Kirjoita symboli"
+    },
+    "alert": {
+      "failureTitle": "Tokenin tuonti epäonnistui",
+      "failureMessage": "Tokenia ei löydy"
+    },
+    "saveButton": "Lisää token"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Osta"
+    },
+    "consent": {
+      "description": "Kryptovaluuttojen osto ja myynti tapahtuu kolmannen osapuolen Onramperin palvelulla.\n\neckoWallet pyrkii tarjoamaan parhaan mahdollisen turvallisuuden, mutta emme voi taata kolmansien osapuolien palveluiden turvallisuutta tai yksityisyyttä."
+    },
+    "error": {
+      "walletUnavailable": "Lompakon osoite ei saatavilla",
+      "unableConnect": "Palveluun ei saada yhteyttä. Yritä myöhemmin."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Vaihda salasana"
+    },
+    "currentPassword": {
+      "label": "Nykyinen salasana"
+    },
+    "newPassword": {
+      "label": "Uusi salasana"
+    },
+    "confirmPassword": {
+      "label": "Vahvista salasana"
+    },
+    "toast": {
+      "success": "Salasana vaihdettu onnistuneesti!"
+    },
+    "alert": {
+      "changeFailureTitle": "Salasanan vaihto epäonnistui",
+      "changeFailureMessage": "Jokin meni pieleen. Yritä myöhemmin.",
+      "verifyFailureTitle": "Tarkistus epäonnistui",
+      "verifyFailureMessage": "Virheellinen salasana"
+    },
+    "changeButton": "Vaihda salasana"
+  },
+  "connection": {
+    "unknown": "Tuntematon yhteys",
+    "deleteAlert": {
+      "title": "Poistetaanko tämä aktiivinen istunto?",
+      "message": "Kaikki istunnon tiedot poistetaan eikä niitä voi palauttaa."
+    },
+    "deleteFailureTitle": "Istunnon poisto epäonnistui",
+    "deleteFailureMessage": "WalletConnect-asetukset eivät täsmää",
+    "empty": {
+      "sessions": "Ei historiaa",
+      "pairings": "Ei aktiivisia istuntoja"
+    },
+    "modal": {
+      "title": "WalletConnect-tiedot"
+    },
+    "expiryLabel": "Vanhenee:",
+    "unknownHost": "Tuntematon"
+  },
+  "contacts": {
+    "searchPlaceholder": "Hae kontakteja",
+    "emptyList": "Ei kontakteja",
+    "header": {
+      "title": "Kontaktit"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Palautuslause kopioitu leikepöydälle!",
+    "description": "Salainen palautuslauseesi helpottaa tilin varmuuskopiointia ja palauttamista.",
+    "warning": "Älä koskaan paljasta palautuslausetta. Kuka tahansa sen omistaa, voi ottaa lompakkosi haltuunsa.",
+    "copyButton": "Kopioi palautuslause",
+    "header": {
+      "title": "Vie palautuslause"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Vahvista salasana"
+    },
+    "description": "Syötä salasana jatkaaksesi",
+    "alert": {
+      "verifyFailureTitle": "Vahvistus epäonnistui",
+      "verifyFailureMessage": "Virheellinen salasana",
+      "verifyErrorMessage": "Jokin meni pieleen. Yritä myöhemmin."
+    },
+    "continueButton": "Jatka"
+  },
+  "history": {
+    "empty": {
+      "pending": "Ei odottavia tapahtumia",
+      "activities": "Ei toimintoja"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Siirto odottaa!",
+      "pendingMessage": "Yritä myöhemmin uudelleen"
+    },
+    "finishButton": "Viimeistele ketjujen välinen siirto"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Tilin nimi",
+      "placeholder": "Syötä tilin nimi"
+    },
+    "privateKey": {
+      "label": "Yksityinen avain",
+      "placeholder": "Syötä avain"
+    },
+    "importButton": "Tuo",
+    "header": {
+      "title": "Tuo tili"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Lukitse eckoWALLET",
+      "enter": "Syötä PIN-koodi",
+      "enterNew": "Syötä uusi PIN",
+      "reenter": "Syötä PIN uudelleen",
+      "reenterNew": "Syötä uusi PIN uudelleen"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Verkot"
+    }
+  },
+  "noConnection": {
+    "message": "Ei verkkoyhteyttä"
+  },
+  "receiverScan": {
+    "placeholder": "Muokkaa vastaanottajatilin osoitetta",
+    "header": {
+      "title": "Skannaa QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Siemenlauseet",
+      "placeholder": "Syötä palautuslause"
+    },
+    "accountIndex": {
+      "label": "Tilinumero",
+      "placeholder": "Oletus: 0"
+    },
+    "alert": {
+      "failureTitle": "Tilin tuonti epäonnistui",
+      "failureMessage": "Virheellinen palautuslause"
+    },
+    "button": {
+      "recover": "Palauta"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Tuo lompakko\nsalaisella lauseella",
+    "seeds": {
+      "label": "Salainen lause (välilyönnit huomioiden)",
+      "placeholder": "Syötä lause"
+    },
+    "password": {
+      "label": "Uusi salasana"
+    },
+    "confirmPassword": {
+      "label": "Vahvista salasana"
+    },
+    "button": {
+      "restore": "Palauta"
+    },
+    "alert": {
+      "failureTitle": "Tilin tuonti epäonnistui",
+      "failureMessage": "Jokin meni pieleen. Yritä myöhemmin.",
+      "invalidSeeds": "Virheellinen palautuslause tai tili poistettu"
+    }
+  },
+  "registration": {
+    "text": "Luo salasana",
+    "password": {
+      "label": "Uusi salasana"
+    },
+    "confirmPassword": {
+      "label": "Vahvista salasana"
+    },
+    "button": {
+      "create": "Luo"
+    },
+    "alert": {
+      "failureTitle": "Rekisteröinti epäonnistui",
+      "failureMessage": "Jokin meni pieleen. Yritä myöhemmin."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Hae tokenia",
+    "empty": "Tokenia ei löytynyt",
+    "alert": {
+      "notFungibleTitle": "Ei vaihdettava token",
+      "notFungibleMessage": "Valittu token ei ole vaihdettava"
+    },
+    "header": {
+      "title": "Hae token"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Salainen palautuslause",
+    "reveal": "Näytä sanat",
+    "snackbar": "Palautuslause kopioitu!",
+    "description1": "Lause helpottaa tilin varmuuskopiointia ja palauttamista.",
+    "description2": "Varoitus: Älä paljasta lausetta. Vältä kuvakaappauksia.",
+    "continue": "Jatka"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Salainen palautuslause",
+    "line1": "Kirjoita ylös 12-sanainen lause seuraavassa vaiheessa.",
+    "line2": "Sen avulla palautat lompakon uudelle laitteelle.",
+    "line3": "Kuka tahansa jolla lause on, voi hallita lompakkoasi.",
+    "line4": "Kadena ei voi auttaa jos lause katoaa tai sovellus poistetaan.",
+    "checkbox": "Ymmärrän, etten voi palauttaa lompakkoa ilman lausetta."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Siirto odottaa!",
+      "pendingMessage": "Yritä uudelleen siirron jälkeen"
+    },
+    "alert": {
+      "nonKTitle": "Lähetetään ei-“k:account” osoitteeseen",
+      "nonKMessage": "Haluatko jatkaa?",
+      "proceed": "Jatka"
+    },
+    "chain": {
+      "sourceLabel": "Lähdeketjun ID",
+      "targetLabel": "Kohdeketjun ID"
+    },
+    "balance": {
+      "label": "Ketjun saldo"
+    },
+    "accounts": {
+      "recent": "Viimeisimmät",
+      "contacts": "Kontaktit"
+    },
+    "content": {
+      "advancedSettings": "Lisäasetukset (valinnainen)",
+      "predicateLabel": "Ehto",
+      "receiverLabel": "Vastaanottajan avain",
+      "destinationLabel": "Kohdetili",
+      "destinationPlaceholder": "Syötä kohdetili",
+      "receiverPlaceholder": "Syötä avain (valinnainen)"
+    },
+    "header": {
+      "title": "Lähetä {{token}}-siirto"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Älä sulje sovellusta käsittelyn aikana."
+    },
+    "toast": {
+      "submittedTitle": "Siirto lähetetty!",
+      "submittedMessage": "Katso tulos Toiminnot-välilehdeltä"
+    },
+    "label": {
+      "result": "Tulos:",
+      "message": "Viesti:",
+      "requestKey": "Pyyntöavain:"
+    },
+    "warning": {
+      "crossChainTitle": "Teet ketjujen välistä siirtoa",
+      "crossChainMessage": "Tämä vie yleensä enemmän aikaa"
+    },
+    "button": {
+      "activities": "Näytä toiminnot"
+    },
+    "header": {
+      "title": "Siirto käynnissä"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Olet tekemässä ketjujen välistä siirtoa",
+      "crossChainMessage": "Tämä vie yleensä enemmän aikaa"
+    },
+    "button": {
+      "send": "Lähetä"
+    },
+    "confirmModal": {
+      "title": "Vahvista lähetys",
+      "amountLabel": "Määrä:",
+      "gasLimitLabel": "Gas-raja:",
+      "gasPriceLabel": "Gas-hinta:",
+      "speedLabel": "Nopeus:",
+      "confirmButton": "Vahvista"
+    },
+    "content": {
+      "transactionParameters": "Siirtotiedot",
+      "transactionSpeed": "Siirron nopeus",
+      "gasLimitPlaceholder": "Syötä gas-raja",
+      "gasPricePlaceholder": "Syötä gas-hinta",
+      "gasLabel": "Gas",
+      "speedLabel": "{{speed}}-nopeus"
+    },
+    "header": {
+      "title": "Lähetä siirto"
+    },
+    "walletInfo": {
+      "amountLabel": "Lähetettävä määrä",
+      "half": "puolet",
+      "max": "maksimi",
+      "maxSnackbar": "Maksimimäärä sisältää arvioidun gas-maksun.",
+      "usdValue": "{{value}} USD",
+      "balance": "Saldo: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Kontaktit",
+        "text": "Hallitse kontaktien luetteloa"
+      },
+      "networks": {
+        "title": "Verkot",
+        "text": "Lisää tai muokkaa RPC-verkkoja"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Muokkaa WalletConnect-asetuksia"
+      },
+      "accountSecurity": {
+        "title": "Tilin suojaus",
+        "text": "Hallitse lompakon suojausta"
+      },
+      "lockWallet": {
+        "title": "Lukitse lompakko",
+        "text": "Historia pysyy tallessa"
+      },
+      "deleteAccount": {
+        "title": "Poista tili",
+        "text": "Kaikki tiedot poistetaan"
+      }
+    },
+    "alert": {
+      "lockTitle": "Haluatko lukita lompakon?",
+      "lockMessage": "Historia pysyy tallessa",
+      "lockConfirm": "Lukitse",
+      "deleteTitle": "Haluatko poistaa tilin?",
+      "deleteMessage": "Kaikki tiedot poistetaan. Ilman palautuslausetta pääsy menetetään.",
+      "deleteConfirm": "Poista tili"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Portti Kadena-ekosysteemiin",
+      "visitWebsite": "Vieraile verkkosivulla",
+      "joinDiscord": "Liity Discordiin",
+      "termsOfUse": "Käyttöehdot",
+      "privacyPolicy": "Tietosuoja"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Tilin suojaus"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Nollaa PIN",
+        "text": "Vaihda sovelluksen PIN"
+      },
+      "exportPhrase": {
+        "title": "Vie palautuslause",
+        "text": "Suojaa lompakko"
+      },
+      "changePassword": {
+        "title": "Vaihda salasana",
+        "text": "Vaihda tilin salasana"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Tervetuloa",
+    "label": {
+      "password": "Salasana"
+    },
+    "button": {
+      "signIn": "Kirjaudu"
+    },
+    "alert": {
+      "usePasscodeTitle": "Kirjaudu PINillä?",
+      "usePasscodeMessage": "Haluatko käyttää PINiä ja biometriaa?",
+      "failedTitle": "Kirjautuminen epäonnistui",
+      "invalidPassword": "Virheellinen salasana",
+      "errorMessage": "Jokin meni pieleen. Yritä myöhemmin."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Vahvista muunnos",
+      "give": "ANTAA",
+      "receive": "Vastaanota",
+      "confirmButton": "Vahvista"
+    },
+    "gasSettings": {
+      "title": "Gas-asetukset",
+      "gasStation": "GAS-ASEMA",
+      "gasLimitLabel": "Gas-raja",
+      "gasLimitPlaceholder": "Gas-raja",
+      "gasPriceLabel": "Gas-hinta",
+      "gasPricePlaceholder": "Gas-hinta",
+      "failureCost": "Mahdollinen gas-kustannus epäonnistuessa:",
+      "noGasCost": "Ei gas-maksua — eckoDEX kattaa"
+    },
+    "info": {
+      "gasCost": "Gas-kustannus",
+      "free": "ILMAINEN",
+      "priceImpact": "Hinnan muutos",
+      "price": "Hinta",
+      "maxSlippage": "Maksimi liuku",
+      "lpFee": "Likviditeetin tarjoajan palkkio",
+      "txDeadline": "Määräaika",
+      "gasPrice": "Gas-hinta",
+      "gasLimit": "Gas-raja",
+      "unitMinutes": "minuuttia",
+      "unitSeconds": "sekuntia"
+    },
+    "selectTokenModal": {
+      "title": "Valitse token",
+      "placeholder": "Etsi token",
+      "tokensLabel": "Tokenit",
+      "warningTitle": "Varoitus",
+      "warningMessage": "Allas {{pair}} ei ole olemassa",
+      "addTokenTitle": "Lisää uusi token",
+      "addTokenMessage": "Token ei ole lompakossasi. Lisää?",
+      "addTokenConfirm": "Lisää",
+      "selectedSuffix": " (Valittu)",
+      "empty": "Tokenia ei löytynyt"
+    },
+    "transactionSettings": {
+      "title": "Siirron asetukset",
+      "slippageTitle": "Sliippaustoleranssi",
+      "deadlineTitle": "Määräaika",
+      "minutes": "minuuttia"
+    },
+    "swapBlock": {
+      "pending": "Siirto vireillä…",
+      "warningTitle": "Varmista, että ketju 2:ssa on varoja.",
+      "warningText": "",
+      "give": "ANTAA",
+      "receive": "Vastaanota",
+      "confirm": "VAHVISTA",
+      "submittedTitle": "Vaihto lähetetty!",
+      "submittedMessage": "Katso tulos Toiminnot-välilehdeltä",
+      "poweredBy": "Powered by eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Vahvista palautuslause",
+    "description": "Kirjoita sanat oikeassa järjestyksessä.",
+    "warning": "Älä käytä mukautettuja näppäimistöjä. Käytä oletusnäppäimistöä.",
+    "inputLabel": "Kenttä {{number}}",
+    "error": "Virheellinen palautuslause",
+    "continueButton": "Jatka"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Varat"
+      },
+      "tokenDetector": {
+        "title": "Löydetyt tokenit",
+        "emptyTitle": "Ei muita tokeneita",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Tilikopioitu leikepöydälle!"
+    },
+    "walletBalance": {
+      "netWorth": "Nettovarallisuus",
+      "accountBalance": "Tilin saldo",
+      "send": "Lähetä",
+      "receive": "Vastaanota",
+      "buy": "Osta"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Syötä yhteyskoodi",
+    "connect": "Yhdistä",
+    "header": {
+      "title": "Skannaa QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "Projektin tunnus",
+    "projectIdPlaceholder": "Syötä tunnus",
+    "relayUrlLabel": "Välityspalvelimen URL",
+    "relayUrlPlaceholder": "Syötä URL",
+    "errorTitle": "WalletConnect-asetusten muutos epäonnistui",
+    "errorMessage": "Virheelliset parametrit"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Salasana",
+      "placeholder": "Syötä salasana"
+    },
+    "numpad": {
+      "authenticationPrompt": "Todennus",
+      "weakPasscodeTitle": "Heikko PIN-koodi",
+      "weakPasscodeDescription": "Syötetty PIN-koodi on liian heikko. Käytäthän monimutkaisempaa koodia."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Jos eckoDEX-verkkosivusto on avoinna tällä laitteella ja sinulla on ongelmia WalletConnect-yhteyden kanssa, yritä palata selaimeen ja palaa sitten takaisin",
+      "text2": "Jos tämä ei auta, tarkista WalletConnect-asetukset tai yritä avata eckoDEX-verkkosivusto työpöytäselaimessa",
+      "button": "OK"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Kaikki aktiiviset istunnot pysyvät aktiivisina, kunnes ne lopetetaan manuaalisesti poisto-toiminnolla",
+      "text2": "Historia-välilehti näyttää tietoja istunnoista myönnettyjen metodien ja tapahtumien oikeuksien kanssa",
+      "button": "OK"
+    }
+  },
+  "tabs": {
+    "Wallet": "Lompakko",
+    "Swap": "Vaihda",
+    "History": "Historia",
+    "Connection": "Yhteydet",
+    "Settings": "Asetukset",
+    "history": {
+      "activities": "Toiminnot",
+      "pending": "Odottaa"
+    },
+    "connection": {
+      "pairings": "Aktiiviset istunnot",
+      "sessions": "Historia"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Tapahtuman tiedot",
+    "gas": "Kaasu: {{gas}}",
+    "statusLabel": "Tila",
+    "continuationTitle": "Jatko",
+    "continuationValue": "vaihe: {{step}}, yhteensä: {{total}}",
+    "no": "ei",
+    "requestKeyTitle": "Pyyntöavain",
+    "transactionTypeTitle": "Tapahtumatyyppi",
+    "requestKeyChainTitle": "Pyyntöavain (Chain {{chain}})",
+    "txDetailsButton": "Tx-tiedot",
+    "requestKeyCopied": "Pyyntöavain kopioitiin leikepöydälle!"
+  },
+  "tokenModal": {
+    "distributionTitle": "{{token}} Chain-jakauma",
+    "removeConfirmTitle": "Oletko varma, että haluat poistaa?",
+    "removeConfirmMessage": "Kaikki tokenin tiedot poistetaan eikä niitä voi palauttaa",
+    "remove": "Poista",
+    "notTransferable": "{{contract}} ei ole siirrettävissä!",
+    "zeroBalance": "{{token}}-saldo on 0",
+    "editToken": "Muokkaa tokenia",
+    "removeToken": "Poista token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Lompakkoni",
+    "removeConfirmTitle": "Oletko varma, että haluat poistaa?",
+    "removeConfirmMessage": "Kaikki tilin tiedot poistetaan eikä niitä voi palauttaa",
+    "remove": "Poista",
+    "share": "Jaa lompakko",
+    "exportRecovery": "Vie palautuslauseke",
+    "removeSelected": "Poista valittu lompakko",
+    "create": "Luo lompakko",
+    "import": "Tuo lompakko",
+    "copySuccess": "Tilin tiedot kopioitu leikepöydälle!"
+  },
+  "session": {
+    "title": "Istunnon tiedot",
+    "deleteTitle": "Oletko varma, että haluat poistaa tämän istuntohistorian?",
+    "deleteDescription": "Kaikki istuntohistorian tiedot poistetaan eikä niitä voi palauttaa",
+    "deleteFailedTitle": "Istunnon poistaminen epäonnistui",
+    "deleteFailedMessage": "WalletConnect-konfiguraatio ei täsmää",
+    "deleteSession": "Poista istunto",
+    "reviewPermissions": "Tarkista {{namespace}}-oikeudet",
+    "unknownUrl": "Tuntematon",
+    "methods": "Metodit",
+    "events": "Tapahtumat",
+    "expiry": "Voimassaolo päättyy",
+    "lastUpdated": "Viimeksi päivitetty"
+  },
+  "receive": {
+    "title": "Vastaanota tokeneita",
+    "accountNameLabel": "Tilisi nimi"
+  },
+  "networkSelector": {
+    "title": "Valitse verkko",
+    "manage": "Hallitse verkkoja"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC-URL",
+    "blockExplorerUrl": "Lohkoketjuselaimen URL",
+    "editNetwork": "Muokkaa verkkoa"
+  },
+  "contactDetails": {
+    "accountName": "Tilin nimi",
+    "chainId": "Chain ID",
+    "edit": "Muokkaa yhteystietoa",
+    "copied": "Kopioitu leikepöydälle!"
+  }
+}
