@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Edit Kontak",
     "copied": "Disalin ke clipboard!"
+  },
+  "validation": {
+    "required": "Bidang ini wajib diisi",
+    "default": "Nilai tidak valid",
+    "min": "Harus memiliki setidaknya {{count}} karakter",
+    "max": "Boleh memiliki paling banyak {{count}} karakter",
+    "minNumber": "Harus setidaknya {{count}}",
+    "maxNumber": "Boleh paling banyak {{count}}",
+    "email": "Harus berupa email yang valid",
+    "matches": "Format tidak valid",
+    "passwordsMatch": "Kata sandi tidak sama",
+    "passwordComplexity": "Harus mengandung 8 karakter, satu huruf besar, satu huruf kecil, satu angka, dan satu karakter khusus"
   }
 }

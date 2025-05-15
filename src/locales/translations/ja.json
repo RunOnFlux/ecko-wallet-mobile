@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "連絡先を編集",
     "copied": "クリップボードにコピーしました！"
+  },
+  "validation": {
+    "required": "このフィールドは必須です",
+    "default": "無効な値です",
+    "min": "最低でも{{count}}文字必要です",
+    "max": "最大で{{count}}文字までです",
+    "minNumber": "最低でも{{count}}でなければなりません",
+    "maxNumber": "最大で{{count}}までです",
+    "email": "有効なメールアドレスである必要があります",
+    "matches": "無効な形式です",
+    "passwordsMatch": "パスワードが一致しません",
+    "passwordComplexity": "8文字以上、大文字1つ、小文字1つ、数字1つ、特殊文字1つを含める必要があります"
   }
 }

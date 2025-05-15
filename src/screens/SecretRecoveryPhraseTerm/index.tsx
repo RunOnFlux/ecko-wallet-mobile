@@ -70,7 +70,9 @@ const SecretRecoveryPhraseTerm = () => {
           disabled={!isChecked}
           style={[styles.button, !isChecked && styles.disabledBtn]}
           onPress={handlePressContinue}>
-          <Text style={styles.buttonText}>{t('common.continue')}</Text>
+          <Text style={styles.buttonText}>
+            {t('verifyRecoveryPhrase.continueButton')}
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={styles.header}>

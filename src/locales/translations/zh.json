@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "编辑联系人",
     "copied": "已复制到剪贴板！"
+  },
+  "validation": {
+    "required": "此字段为必填项",
+    "default": "无效的值",
+    "min": "至少需要 {{count}} 个字符",
+    "max": "最多可有 {{count}} 个字符",
+    "minNumber": "最小值为 {{count}}",
+    "maxNumber": "最大值为 {{count}}",
+    "email": "必须是有效的电子邮件",
+    "matches": "格式无效",
+    "passwordsMatch": "密码不匹配",
+    "passwordComplexity": "必须包含 8 个字符、1 个大写字母、1 个小写字母、1 个数字和 1 个特殊字符"
   }
 }

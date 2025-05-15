@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Edit Kenalan",
     "copied": "Disalin ke papan keratan!"
+  },
+  "validation": {
+    "required": "Medan ini wajib diisi",
+    "default": "Nilai tidak sah",
+    "min": "Mesti sekurang-kurangnya {{count}} aksara",
+    "max": "Mesti paling banyak {{count}} aksara",
+    "minNumber": "Mesti sekurang-kurangnya {{count}}",
+    "maxNumber": "Mesti paling banyak {{count}}",
+    "email": "Mesti alamat e-mel yang sah",
+    "matches": "Format tidak sah",
+    "passwordsMatch": "Kata laluan tidak sepadan",
+    "passwordComplexity": "Mesti mengandungi 8 aksara, satu huruf besar, satu huruf kecil, satu nombor dan satu aksara khas"
   }
 }

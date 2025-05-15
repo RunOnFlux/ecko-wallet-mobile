@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Wysig kontak",
     "copied": "Na knipbord gekopieer!"
+  },
+  "validation": {
+    "required": "Hierdie veld is verpligtend",
+    "default": "Ongeldige waarde",
+    "min": "Moet ten minste {{count}} karakters hê",
+    "max": "Mag hoogstens {{count}} karakters hê",
+    "minNumber": "Moet ten minste {{count}} wees",
+    "maxNumber": "Mag hoogstens {{count}} wees",
+    "email": "Moet ’n geldige e-pos wees",
+    "matches": "Ongeldige formaat",
+    "passwordsMatch": "Wagwoord kom nie ooreen nie",
+    "passwordComplexity": "Moet 8 karakters, een hoofletter, een kleinletter, een syfer en een spesiale karakter bevat"
   }
 }

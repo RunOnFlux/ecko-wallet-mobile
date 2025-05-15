@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Muokkaa yhteystietoa",
     "copied": "Kopioitu leikepöydälle!"
+  },
+  "validation": {
+    "required": "Tämä kenttä on pakollinen",
+    "default": "Virheellinen arvo",
+    "min": "Vähintään {{count}} merkkiä",
+    "max": "Enintään {{count}} merkkiä",
+    "minNumber": "Vähintään {{count}}",
+    "maxNumber": "Enintään {{count}}",
+    "email": "Täytyy olla kelvollinen sähköpostiosoite",
+    "matches": "Virheellinen muoto",
+    "passwordsMatch": "Salasanat eivät täsmää",
+    "passwordComplexity": "Sisältää 8 merkkiä, yhden ison kirjaimen, yhden pienen kirjaimen, yhden numeron ja yhden erikoismerkin"
   }
 }

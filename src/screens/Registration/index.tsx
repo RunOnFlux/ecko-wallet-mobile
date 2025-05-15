@@ -8,7 +8,6 @@ import {
   TouchableOpacity,
   View,
   KeyboardAvoidingView,
-  Keyboard,
 } from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
@@ -43,7 +42,7 @@ const Registration = () => {
     control,
     handleSubmit,
     formState: {errors, isValid},
-  } = useForm({resolver: createPasswordSchema, mode: 'onChange'});
+  } = useForm({resolver: createPasswordSchema(t), mode: 'onChange'});
 
   const handlePressBack = useCallback(() => {
     navigation.goBack();

@@ -53,7 +53,7 @@ const ChangeAccountPassword = () => {
     control,
     handleSubmit,
     formState: {errors},
-  } = useForm<TChangeAccountPasswordForm>({resolver: resetAccountPassword});
+  } = useForm<TChangeAccountPasswordForm>({resolver: resetAccountPassword(t)});
 
   const handlePressBack = useCallback(() => {
     navigation.goBack();

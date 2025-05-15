@@ -685,5 +685,17 @@
     "chainId": "Chaîne ID",
     "edit": "Modifier le contact",
     "copied": "Copié dans le presse-papiers !"
+  },
+  "validation": {
+    "required": "Ce champ est obligatoire",
+    "default": "Valeur non valide",
+    "min": "Doit contenir au moins {{count}} caractères",
+    "max": "Doit contenir au maximum {{count}} caractères",
+    "minNumber": "Doit être au moins {{count}}",
+    "maxNumber": "Doit être au maximum {{count}}",
+    "email": "Doit être un email valide",
+    "matches": "Format non valide",
+    "passwordsMatch": "Les mots de passe ne correspondent pas",
+    "passwordComplexity": "Doit contenir 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial"
   }
 }

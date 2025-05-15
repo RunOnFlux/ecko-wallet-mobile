@@ -47,7 +47,7 @@ const RecoveryFromSeeds = () => {
     handleSubmit,
     formState: {errors, isValid},
   } = useForm({
-    resolver: recoverySchema,
+    resolver: recoverySchema(t),
     mode: 'onChange',
   });
 

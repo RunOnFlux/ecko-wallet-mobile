@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Edita contacte",
     "copied": "Copiat al porta-retalls!"
+  },
+  "validation": {
+    "required": "Aquest camp és obligatori",
+    "default": "Valor no vàlid",
+    "min": "Ha de tenir com a mínim {{count}} caràcters",
+    "max": "Pot tenir com a màxim {{count}} caràcters",
+    "minNumber": "Ha de ser com a mínim {{count}}",
+    "maxNumber": "Pot ser com a màxim {{count}}",
+    "email": "Ha de ser un correu electrònic vàlid",
+    "matches": "Format no vàlid",
+    "passwordsMatch": "La contrasenya no coincideix",
+    "passwordComplexity": "Ha de contenir 8 caràcters, una majúscula, una minúscula, un nombre i un caràcter especial"
   }
 }

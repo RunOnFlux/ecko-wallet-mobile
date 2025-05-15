@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Rediger kontakt",
     "copied": "Kopiert til utklippstavle!"
+  },
+  "validation": {
+    "required": "Dette feltet er påkrevd",
+    "default": "Ugyldig verdi",
+    "min": "Må være minst {{count}} tegn",
+    "max": "Kan være maks {{count}} tegn",
+    "minNumber": "Må være minst {{count}}",
+    "maxNumber": "Kan være maks {{count}}",
+    "email": "Må være en gyldig e-postadresse",
+    "matches": "Ugyldig format",
+    "passwordsMatch": "Passordene samsvarer ikke",
+    "passwordComplexity": "Må inneholde 8 tegn, én stor bokstav, én liten bokstav, ett tall og ett spesialtegn"
   }
 }

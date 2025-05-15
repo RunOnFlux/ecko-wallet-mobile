@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "編輯聯絡人",
     "copied": "已複製到剪貼簿！"
+  },
+  "validation": {
+    "required": "此欄位為必填",
+    "default": "無效的值",
+    "min": "最少需有 {{count}} 個字元",
+    "max": "最多可有 {{count}} 個字元",
+    "minNumber": "最小值為 {{count}}",
+    "maxNumber": "最大值為 {{count}}",
+    "email": "必須為有效的電子郵件",
+    "matches": "格式無效",
+    "passwordsMatch": "密碼不一致",
+    "passwordComplexity": "必須包含 8 個字元、1 個大寫字母、1 個小寫字母、1 個數字以及 1 個特殊字元"
   }
 }

@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "I-edit ang Contact",
     "copied": "Nakopya sa clipboard!"
+  },
+  "validation": {
+    "required": "Kinakailangan ang field na ito",
+    "default": "Hindi wastong halaga",
+    "min": "Dapat ay hindi bababa sa {{count}} character",
+    "max": "Dapat ay hindi hihigit sa {{count}} character",
+    "minNumber": "Dapat ay hindi bababa sa {{count}}",
+    "maxNumber": "Dapat ay hindi hihigit sa {{count}}",
+    "email": "Dapat ay isang wastong email",
+    "matches": "Hindi wastong format",
+    "passwordsMatch": "Hindi magkapareho ang mga password",
+    "passwordComplexity": "Dapat may 8 character, isang uppercase, isang lowercase, isang numero, at isang special character"
   }
 }

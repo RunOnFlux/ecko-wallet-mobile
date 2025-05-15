@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Redigera kontakt",
     "copied": "Kopierat till urklipp!"
+  },
+  "validation": {
+    "required": "Detta fält är obligatoriskt",
+    "default": "Ogiltigt värde",
+    "min": "Måste innehålla minst {{count}} tecken",
+    "max": "Får innehålla högst {{count}} tecken",
+    "minNumber": "Måste vara minst {{count}}",
+    "maxNumber": "Får vara högst {{count}}",
+    "email": "Måste vara en giltig e-postadress",
+    "matches": "Ogiltigt format",
+    "passwordsMatch": "Lösenorden matchar inte",
+    "passwordComplexity": "Måste innehålla 8 tecken, en versal, en gemen, en siffra och ett specialtecken"
   }
 }

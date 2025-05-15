@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Chỉnh sửa liên hệ",
     "copied": "Đã sao chép vào clipboard!"
+  },
+  "validation": {
+    "required": "Trường này là bắt buộc",
+    "default": "Giá trị không hợp lệ",
+    "min": "Phải có ít nhất {{count}} ký tự",
+    "max": "Tối đa {{count}} ký tự",
+    "minNumber": "Phải ít nhất là {{count}}",
+    "maxNumber": "Tối đa là {{count}}",
+    "email": "Phải là email hợp lệ",
+    "matches": "Định dạng không hợp lệ",
+    "passwordsMatch": "Mật khẩu không khớp",
+    "passwordComplexity": "Phải chứa 8 ký tự, một chữ hoa, một chữ thường, một số và một ký tự đặc biệt"
   }
 }

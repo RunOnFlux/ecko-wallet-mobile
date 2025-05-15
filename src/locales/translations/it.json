@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Modifica contatto",
     "copied": "Copiato negli appunti!"
+  },
+  "validation": {
+    "required": "Questo campo è obbligatorio",
+    "default": "Valore non valido",
+    "min": "Deve contenere almeno {{count}} caratteri",
+    "max": "Deve contenere al massimo {{count}} caratteri",
+    "minNumber": "Deve essere almeno {{count}}",
+    "maxNumber": "Deve essere al massimo {{count}}",
+    "email": "Deve essere un’email valida",
+    "matches": "Formato non valido",
+    "passwordsMatch": "Le password non corrispondono",
+    "passwordComplexity": "Deve contenere almeno 8 caratteri, una lettera maiuscola, una minuscola, un numero e un carattere speciale"
   }
 }

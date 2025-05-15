@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Editează contact",
     "copied": "Copiat în clipboard!"
+  },
+  "validation": {
+    "required": "Acest câmp este obligatoriu",
+    "default": "Valoare nevalidă",
+    "min": "Trebuie să conțină cel puțin {{count}} caractere",
+    "max": "Poate conține cel mult {{count}} caractere",
+    "minNumber": "Trebuie să fie cel puțin {{count}}",
+    "maxNumber": "Poate fi cel mult {{count}}",
+    "email": "Trebuie să fie un e-mail valid",
+    "matches": "Format nevalid",
+    "passwordsMatch": "Parolele nu coincid",
+    "passwordComplexity": "Trebuie să conțină 8 caractere, o literă mare, o literă mică, o cifră și un caracter special"
   }
 }

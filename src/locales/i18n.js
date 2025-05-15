@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import * as RNLocalize from 'react-native-localize';
-
+import * as Yup from 'yup';
 import af from './translations/af.json';
 import bg from './translations/bg.json';
 import bn from './translations/bn.json';
@@ -99,5 +99,22 @@ i18n
       escapeValue: false,
     },
   });
+
+Yup.setLocale({
+  mixed: {
+    default: () => i18n.t('validation.default'),
+    required: () => i18n.t('validation.required'),
+  },
+  string: {
+    email: () => i18n.t('validation.email'),
+    min: ({min}) => i18n.t('validation.min', {count: min}),
+    max: ({max}) => i18n.t('validation.max', {count: max}),
+    matches: () => i18n.t('validation.matches'),
+  },
+  number: {
+    min: ({min}) => i18n.t('validation.minNumber', {count: min}),
+    max: ({max}) => i18n.t('validation.maxNumber', {count: max}),
+  },
+});
 
 export default i18n;

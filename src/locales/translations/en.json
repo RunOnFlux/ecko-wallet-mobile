@@ -4,6 +4,7 @@
     "confirm": "Confirm",
     "delete": "Delete",
     "cancel": "Cancel",
+    "continue": "Continue",
     "ok": "OK",
     "error": "Error",
     "selectLanguage": "Select Language",
@@ -685,5 +686,17 @@
     "chainId": "Chain ID",
     "edit": "Edit Contact",
     "copied": "Copied to clipboard!"
+  },
+  "validation": {
+    "required": "This field is required",
+    "default": "Invalid value",
+    "min": "Must be at least {{count}} characters",
+    "max": "Must be at most {{count}} characters",
+    "minNumber": "Must be at least {{count}}",
+    "maxNumber": "Must be at most {{count}}",
+    "email": "Must be a valid email",
+    "matches": "Invalid format",
+    "passwordsMatch": "Password does not match",
+    "passwordComplexity": "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
   }
 }

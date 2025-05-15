@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Kapcsolat szerkesztése",
     "copied": "Vágólapra másolva!"
+  },
+  "validation": {
+    "required": "Ez a mező kötelező",
+    "default": "Érvénytelen érték",
+    "min": "Legalább {{count}} karakter hosszúnak kell lennie",
+    "max": "Legfeljebb {{count}} karakter hosszú lehet",
+    "minNumber": "Legalább {{count}} kell legyen",
+    "maxNumber": "Legfeljebb {{count}} lehet",
+    "email": "Érvényes e-mailnek kell lennie",
+    "matches": "Érvénytelen formátum",
+    "passwordsMatch": "A jelszavak nem egyeznek",
+    "passwordComplexity": "Legalább 8 karaktert, egy nagybetűt, egy kisbetűt, egy számot és egy speciális karaktert kell tartalmaznia"
   }
 }

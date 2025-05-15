@@ -37,7 +37,7 @@ const SignIn = () => {
     control,
     handleSubmit,
     formState: {errors},
-  } = useForm({resolver: signInPasswordSchema});
+  } = useForm({resolver: signInPasswordSchema(t)});
 
   const handlePressBack = useCallback(() => {
     navigation.goBack();

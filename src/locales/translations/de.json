@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Kontakt bearbeiten",
     "copied": "In die Zwischenablage kopiert!"
+  },
+  "validation": {
+    "required": "Dieses Feld ist erforderlich",
+    "default": "Ungültiger Wert",
+    "min": "Muss mindestens {{count}} Zeichen enthalten",
+    "max": "Darf höchstens {{count}} Zeichen enthalten",
+    "minNumber": "Muss mindestens {{count}} sein",
+    "maxNumber": "Darf höchstens {{count}} sein",
+    "email": "Muss eine gültige E-Mail-Adresse sein",
+    "matches": "Ungültiges Format",
+    "passwordsMatch": "Passwörter stimmen nicht überein",
+    "passwordComplexity": "Muss 8 Zeichen, einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten"
   }
 }

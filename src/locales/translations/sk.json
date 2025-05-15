@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Upraviť kontakt",
     "copied": "Skopírované do schránky!"
+  },
+  "validation": {
+    "required": "Toto pole je povinné",
+    "default": "Neplatná hodnota",
+    "min": "Musí obsahovať aspoň {{count}} znakov",
+    "max": "Môže obsahovať najviac {{count}} znakov",
+    "minNumber": "Musí byť aspoň {{count}}",
+    "maxNumber": "Môže byť najviac {{count}}",
+    "email": "Musí byť platný e-mail",
+    "matches": "Neplatný formát",
+    "passwordsMatch": "Heslá sa nezhodujú",
+    "passwordComplexity": "Musí obsahovať 8 znakov, jedno veľké písmeno, jedno malé písmeno, jednu číslicu a jeden špeciálny znak"
   }
 }

@@ -222,7 +222,7 @@ const Send = () => {
       <View style={styles.footer}>
         <FooterButton
           disabled={!sourceChainId || !targetChainId || !accountName}
-          title={t('common.continue')}
+          title={t('verifyRecoveryPhrase.continueButton')}
           onPress={handlePressContinue}
         />
       </View>

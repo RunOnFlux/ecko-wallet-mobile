@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Upravit kontakt",
     "copied": "Zkopírováno do schránky!"
+  },
+  "validation": {
+    "required": "Toto pole je povinné",
+    "default": "Neplatná hodnota",
+    "min": "Musí mít alespoň {{count}} znaků",
+    "max": "Může mít nejvýše {{count}} znaků",
+    "minNumber": "Musí být alespoň {{count}}",
+    "maxNumber": "Může být nejvýše {{count}}",
+    "email": "Musí být platný e-mail",
+    "matches": "Neplatný formát",
+    "passwordsMatch": "Hesla se neshodují",
+    "passwordComplexity": "Musí obsahovat 8 znaků, jedno velké písmeno, jedno malé písmeno, jedno číslo a jeden speciální znak"
   }
 }

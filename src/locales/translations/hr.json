@@ -685,5 +685,17 @@
     "chainId": "Chain ID",
     "edit": "Uredi kontakt",
     "copied": "Kopirano u međuspremnik!"
+  },
+  "validation": {
+    "required": "Ovo polje je obavezno",
+    "default": "Nevažeća vrijednost",
+    "min": "Mora imati najmanje {{count}} znakova",
+    "max": "Može imati najviše {{count}} znakova",
+    "minNumber": "Mora biti najmanje {{count}}",
+    "maxNumber": "Može biti najviše {{count}}",
+    "email": "Mora biti valjana e-mail adresa",
+    "matches": "Nevažeći format",
+    "passwordsMatch": "Lozinke se ne podudaraju",
+    "passwordComplexity": "Mora sadržavati 8 znakova, jedno veliko slovo, jedno malo slovo, jednu brojku i jedan poseban znak"
   }
 }
