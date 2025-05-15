@@ -23,14 +23,16 @@ import {
   TNavigationRouteProp,
 } from '../../routes/types';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {useTranslation} from 'react-i18next';
 
 const ReceiverScan = () => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.ReceiverScan>>();
   const route = useRoute<TNavigationRouteProp<ERootStackRoutes.ReceiverScan>>();
 
   const [hasPermission, setHasPermission] = useState(false);
-  const [textUri, setTexTUri] = useState<string>('');
+  const [textUri, setTextUri] = useState<string>('');
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
   const styles = createStyles({bottomSpace, statusBarHeight});
@@ -45,17 +47,17 @@ const ReceiverScan = () => {
           enableVibrateFallback: true,
           ignoreAndroidSystemSettings: true,
         });
-        setTexTUri(codes[0].value);
+        setTextUri(codes[0].value);
       }
     },
   });
 
   const onProceed = useCallback(async () => {
     if (textUri && route?.params?.onScan) {
-      route?.params?.onScan(textUri);
+      route.params.onScan(textUri);
       navigation.goBack();
     }
-  }, [navigation, textUri, route?.params]);
+  }, [navigation, route?.params, textUri]);
 
   useEffect(() => {
     (async () => {
@@ -69,13 +71,13 @@ const ReceiverScan = () => {
       <Camera
         style={styles.camera}
         device={device}
-        isActive={true}
+        isActive
         codeScanner={codeScanner}
       />
     ) : (
       <View style={styles.camera} />
     );
-  }, [device, hasPermission]);
+  }, [device, hasPermission, codeScanner, styles.camera]);
 
   return (
     <KeyboardAvoidingView
@@ -95,15 +97,15 @@ const ReceiverScan = () => {
                 <TextInput
                   style={styles.input}
                   autoFocus={false}
-                  placeholder="Edit destination account"
+                  placeholder={t('receiverScan.placeholder')}
                   value={textUri}
-                  onChangeText={setTexTUri}
+                  onChangeText={setTextUri}
                 />
               </View>
             </View>
             <FooterButton
               style={styles.footerButton}
-              title="Confirm"
+              title={t('common.confirm')}
               disabled={!textUri}
               onPress={onProceed}
             />

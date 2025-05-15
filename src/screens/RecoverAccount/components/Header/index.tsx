@@ -4,9 +4,11 @@ import {useNavigation} from '@react-navigation/native';
 
 import {styles} from './styles';
 import ArrowLeftSvg from '../../../../assets/images/arrow-left.svg';
+import {useTranslation} from 'react-i18next';
 
 const Header = React.memo(() => {
   const navigation = useNavigation();
+  const {t} = useTranslation();
 
   const handlePressBack = useCallback(() => {
     navigation.goBack();
@@ -20,7 +22,7 @@ const Header = React.memo(() => {
         style={styles.backBtnWrapper}>
         <ArrowLeftSvg fill="#787B8E" />
       </TouchableOpacity>
-      <Text style={styles.title}>Import Account</Text>
+      <Text style={styles.title}>{t('importAccount.header.title')}</Text>
     </View>
   );
 });

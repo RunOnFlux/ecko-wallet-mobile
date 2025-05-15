@@ -1,15 +1,16 @@
-import {useNavigation} from '@react-navigation/native';
 import React, {useCallback} from 'react';
-import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
-
+import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {useTranslation} from 'react-i18next';
+import {useNavigation} from '@react-navigation/native';
 import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
 import ShieldLockSvg from '../../assets/images/shield-lock.svg';
-import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import Card from '../Settings/components/Card';
+import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {createStyles} from './styles';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const SettingsSubPage = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
 
   const handlePressBack = useCallback(() => {
@@ -28,27 +29,27 @@ const SettingsSubPage = () => {
           style={styles.backBtnWrapper}>
           <ArrowLeftSvg fill="#787B8E" />
         </TouchableOpacity>
-        <Text style={styles.title}>Account Security</Text>
+        <Text style={styles.title}>{t('settingsSubPage.header.title')}</Text>
       </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={styles.scroll}
         contentContainerStyle={styles.content}>
         <Card
-          isFirstItem={true}
-          title="Reset Passcode"
-          text="Change app passcode"
+          isFirstItem
+          title={t('settingsSubPage.cards.resetPasscode.title')}
+          text={t('settingsSubPage.cards.resetPasscode.text')}
           icon={<ShieldLockSvg width={24} height={24} fill="white" />}
-          onPress={() => {
+          onPress={() =>
             navigation.navigate({
               name: ERootStackRoutes.ResetPasscode,
               params: {isReset: true},
-            });
-          }}
+            })
+          }
         />
         <Card
-          title="Export Recovery Phrase"
-          text="Protect your wallet"
+          title={t('settingsSubPage.cards.exportPhrase.title')}
+          text={t('settingsSubPage.cards.exportPhrase.text')}
           icon={<ShieldLockSvg width={24} height={24} fill="white" />}
           onPress={() =>
             navigation.navigate({
@@ -58,8 +59,8 @@ const SettingsSubPage = () => {
           }
         />
         <Card
-          title="Change Password"
-          text="Change Account Password"
+          title={t('settingsSubPage.cards.changePassword.title')}
+          text={t('settingsSubPage.cards.changePassword.text')}
           icon={<ShieldLockSvg width={24} height={24} fill="white" />}
           onPress={() =>
             navigation.navigate({

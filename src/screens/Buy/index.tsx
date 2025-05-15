@@ -1,13 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  ActivityIndicator,
-  TouchableOpacity,
-  SafeAreaView,
-} from 'react-native';
+import React, {useEffect, useState, useCallback} from 'react';
+import {View, Text, ActivityIndicator, SafeAreaView, Alert} from 'react-native';
 import {WebView} from 'react-native-webview';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
+
 import Button from '../Wallet/components/WalletBalance/components/Button';
 import {MAIN_COLOR} from '../../constants/styles';
 import {createStyles} from './styles';
@@ -18,6 +14,7 @@ import Header from '../../components/Header';
 import Warning from '../../components/Warning';
 
 const BuyScreen = () => {
+  const {t} = useTranslation();
   const [isAccepted, setIsAccepted] = useState(false);
   const [signature, setSignature] = useState('');
   const [payloadToSign, setPayloadToSign] = useState('');
@@ -25,13 +22,10 @@ const BuyScreen = () => {
   const [loading, setLoading] = useState(false);
 
   const navigation = useNavigation();
-
   const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
-
   const walletAddress = selectedAccount?.accountName;
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-
   const styles = createStyles({bottomSpace, statusBarHeight});
 
   const params = {
@@ -51,7 +45,7 @@ const BuyScreen = () => {
     wgBorderRadius: '0',
   };
 
-  const generateOnramperUrl = () => {
+  const generateOnramperUrl = useCallback(() => {
     const baseUrl = `https://buy.onramper.com?${new URLSearchParams(
       params,
     ).toString()}`;
@@ -61,7 +55,7 @@ const BuyScreen = () => {
     }
 
     return baseUrl;
-  };
+  }, [params, payloadToSign, signature]);
 
   useEffect(() => {
     if (walletAddress) {
@@ -78,7 +72,7 @@ const BuyScreen = () => {
 
   const askForSignature = async () => {
     if (!payloadToSign) {
-      setError('Wallet address not available');
+      setError(t('buyScreen.error.walletUnavailable'));
       setLoading(false);
       return;
     }
@@ -100,70 +94,68 @@ const BuyScreen = () => {
       } else {
         throw new Error('No signature returned');
       }
-    } catch (error) {
-      console.error('Error getting signature:', error);
-      setError('Unable to connect to the service. Please try again later.');
+    } catch {
+      console.error('Error getting signature');
+      setError(t('buyScreen.error.unableConnect'));
     } finally {
       setLoading(false);
     }
   };
 
-  const webViewConfig = {
-    originWhitelist: ['https://*', 'http://*', 'about:blank', 'about:srcdoc'],
-    javaScriptEnabled: true,
-    domStorageEnabled: true,
-    allowsInlineMediaPlayback: true,
-    allowsFullscreenVideo: true,
-    mediaPlaybackRequiresUserAction: false,
-    allowFileAccess: true,
-    mixedContentMode: 'always' as const,
-    thirdPartyCookiesEnabled: true,
-  };
-
   return (
     <SafeAreaView style={styles.container}>
-      <Header title="Buy" />
+      <Header title={t('buyScreen.header.title')} />
 
       {isAccepted && payloadToSign && signature ? (
         <WebView
           source={{uri: generateOnramperUrl()}}
           style={styles.webview}
-          {...webViewConfig}
+          originWhitelist={[
+            'https://*',
+            'http://*',
+            'about:blank',
+            'about:srcdoc',
+          ]}
+          javaScriptEnabled
+          domStorageEnabled
+          allowsInlineMediaPlayback
+          allowsFullscreenVideo
+          mediaPlaybackRequiresUserAction={false}
+          allowFileAccess
+          mixedContentMode="always"
+          thirdPartyCookiesEnabled
           renderLoading={() => (
             <View style={styles.loadingContainer}>
               <ActivityIndicator size="large" color={MAIN_COLOR} />
             </View>
           )}
-          startInLoadingState={true}
+          startInLoadingState
           onError={syntheticEvent => {
-            const {nativeEvent} = syntheticEvent;
-            console.error('WebView error:', nativeEvent);
+            console.error('WebView error:', syntheticEvent.nativeEvent);
           }}
         />
       ) : loading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={MAIN_COLOR} />
-          {error && <Warning text={error} isSerious />}
+          {error ? <Warning text={error} isSerious /> : null}
         </View>
       ) : (
         <View style={styles.consentContainer}>
           <Text style={styles.consentText}>
-            The purchase and sale of cryptocurrencies are facilitated through a
-            third-party service provided by Onramper.
-            {'\n\n'}
-            While eckoWallet is committed to ensuring the highest level of
-            security for its users, we cannot guarantee the security and privacy
-            of third-party services.
+            {t('buyScreen.consent.description')}
           </Text>
 
           <View style={styles.buttonContainer}>
             <Button
-              title="Cancel"
+              title={t('common.cancel')}
               backgroundColor="rgba(236,236,245,0.5)"
               textColor={MAIN_COLOR}
               onPress={() => navigation.goBack()}
             />
-            <Button title="Confirm" onPress={() => setIsAccepted(true)} />
+            <Button
+              title={t('common.confirm')}
+              onPress={() => setIsAccepted(true)}
+            />
           </View>
         </View>
       )}

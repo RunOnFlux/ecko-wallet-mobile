@@ -1,5 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import {View, TextInput, ScrollView, Text} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import Header from './components/Header';
 import BasicSearchSvg from '../../assets/images/basic-search.svg';
@@ -14,6 +15,7 @@ import {useShallowEqualSelector} from '../../store/utils';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const Contacts = () => {
+  const {t} = useTranslation();
   const dispatch = useDispatch();
 
   const contactsList = useShallowEqualSelector(makeSelectContactsList);
@@ -32,7 +34,7 @@ const Contacts = () => {
       toggleModal();
       dispatch(setSelectedContact(item));
     },
-    [toggleModal],
+    [toggleModal, dispatch],
   );
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
@@ -47,7 +49,7 @@ const Contacts = () => {
           <TextInput
             placeholderTextColor="grey"
             style={styles.input}
-            placeholder="Search contacts"
+            placeholder={t('contacts.searchPlaceholder')}
             value={search}
             onChangeText={setSearch}
           />
@@ -57,14 +59,12 @@ const Contacts = () => {
           showsVerticalScrollIndicator={false}
           style={styles.contactsWrapper}
           contentContainerStyle={styles.contactsContent}>
-          <>
-            {filteredList.map((item: TContact) => (
-              <Item item={item} key={item.id} onPress={handlePressItem(item)} />
-            ))}
-            {(contactsList || []).length === 0 ? (
-              <Text style={styles.emptyList}>No contacts for now</Text>
-            ) : null}
-          </>
+          {filteredList.map((item: TContact) => (
+            <Item item={item} key={item.id} onPress={handlePressItem(item)} />
+          ))}
+          {contactsList.length === 0 && (
+            <Text style={styles.emptyList}>{t('contacts.emptyList')}</Text>
+          )}
         </ScrollView>
       </View>
       <ContactDetailsModal isVisible={isModalVisible} toggle={toggleModal} />

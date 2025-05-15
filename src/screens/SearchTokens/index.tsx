@@ -1,35 +1,34 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import {View, TextInput, Text, Alert, FlatList} from 'react-native';
+import {useTranslation} from 'react-i18next';
+import {useDispatch} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
 
 import Header from './components/Header';
 import BasicSearchSvg from '../../assets/images/basic-search.svg';
 import Item from './components/Item';
 import {createStyles} from './styles';
 import {makeSelectSearchTokenList} from '../../store/userWallet/selectors';
-import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
-import {getNetworkParams} from '../../utils/networkHelpers';
-import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {makeSelectActiveNetworkDetails} from '../../store/networks/selectors';
 import {useShallowEqualSelector} from '../../store/utils';
-import {useNavigation} from '@react-navigation/native';
 import {setSelectedToken} from '../../store/userWallet';
-import {useDispatch} from 'react-redux';
 import {getPact} from '../../api/kadena/pact';
+import {getNetworkParams} from '../../utils/networkHelpers';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 
 const SearchTokens = () => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.SearchTokens>>();
-
   const dispatch = useDispatch();
 
   const networkDetail = useShallowEqualSelector(makeSelectActiveNetworkDetails);
   const tokensList = useShallowEqualSelector(makeSelectSearchTokenList);
 
   const [search, setSearch] = useState('');
-  const filteredList = tokensList.filter((item: string) =>
-    item?.includes(search),
-  );
+  const filteredList = tokensList.filter(item => item.includes(search));
   const [loadingItem, setLoadingItem] = useState<string>('');
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
@@ -37,9 +36,10 @@ const SearchTokens = () => {
 
   const handlePressItem = useCallback(
     (item: string) => async () => {
-      if (networkDetail) {
-        setLoadingItem(item);
-        getPact({
+      if (!networkDetail) return;
+      setLoadingItem(item);
+      try {
+        const responseData = await getPact({
           ...networkDetail,
           ...getNetworkParams(networkDetail),
           chainId: '2',
@@ -49,56 +49,54 @@ const SearchTokens = () => {
                                 (at 'interfaces moduleDesc)
                                 []
                                 )))`,
-        })
-          .then(responseData => {
-            if (responseData === true) {
-              dispatch(setSelectedToken(null));
-              navigation.replace(ERootStackRoutes.AddToken, {
-                tokenName: item,
-              } as any);
-            } else {
-              ReactNativeHapticFeedback.trigger('impactMedium', {
-                enableVibrateFallback: false,
-                ignoreAndroidSystemSettings: false,
-              });
-              Alert.alert(
-                'Not fungible token',
-                'Selected token is not fungible',
-              );
-            }
-          })
-          .catch(() => {
-            ReactNativeHapticFeedback.trigger('impactMedium', {
-              enableVibrateFallback: false,
-              ignoreAndroidSystemSettings: false,
-            });
-            Alert.alert('Not fungible token', 'Selected token is not fungible');
-          })
-          .finally(() => {
-            setLoadingItem('');
+        });
+        if (responseData === true) {
+          dispatch(setSelectedToken(null));
+          navigation.replace(ERootStackRoutes.AddToken, {
+            tokenName: item,
+          } as any);
+        } else {
+          ReactNativeHapticFeedback.trigger('impactMedium', {
+            enableVibrateFallback: false,
+            ignoreAndroidSystemSettings: false,
           });
+          Alert.alert(
+            t('searchTokens.alert.notFungibleTitle'),
+            t('searchTokens.alert.notFungibleMessage'),
+          );
+        }
+      } catch {
+        ReactNativeHapticFeedback.trigger('impactMedium', {
+          enableVibrateFallback: false,
+          ignoreAndroidSystemSettings: false,
+        });
+        Alert.alert(
+          t('searchTokens.alert.notFungibleTitle'),
+          t('searchTokens.alert.notFungibleMessage'),
+        );
+      } finally {
+        setLoadingItem('');
       }
     },
-    [networkDetail, navigation],
+    [networkDetail, dispatch, navigation, t],
   );
 
   const renderItem = useCallback(
-    ({item, index}: any) => (
+    ({item}: {item: string}) => (
       <Item
-        key={item}
         item={item}
         loadingItem={loadingItem}
         onPress={handlePressItem(item)}
       />
     ),
-    [],
+    [loadingItem, handlePressItem],
   );
 
-  const keyExtractor = useCallback((key: any) => key, []);
+  const keyExtractor = useCallback((key: string) => key, []);
 
-  const emptyView = useMemo(
-    () => <Text style={styles.emptyList}>No tokens found</Text>,
-    [],
+  const emptyComponent = useMemo(
+    () => <Text style={styles.emptyList}>{t('searchTokens.empty')}</Text>,
+    [styles.emptyList, t],
   );
 
   return (
@@ -109,12 +107,11 @@ const SearchTokens = () => {
           <BasicSearchSvg />
           <TextInput
             style={styles.input}
-            placeholder="Search token"
-            placeholderTextColor={'grey'}
+            placeholder={t('searchTokens.placeholder')}
+            placeholderTextColor="grey"
             value={search}
             autoCorrect={false}
             autoCapitalize="none"
-            autoFocus={false}
             onChangeText={setSearch}
           />
         </View>
@@ -126,7 +123,7 @@ const SearchTokens = () => {
             data={filteredList}
             renderItem={renderItem}
             keyExtractor={keyExtractor}
-            ListEmptyComponent={emptyView}
+            ListEmptyComponent={emptyComponent}
             contentContainerStyle={styles.contactsContent}
             removeClippedSubviews={false}
           />

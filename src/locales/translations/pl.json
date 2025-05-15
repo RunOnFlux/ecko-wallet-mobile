@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "Zapisz",
+    "confirm": "Potwierdź",
+    "delete": "Usuń",
+    "cancel": "Anuluj",
+    "ok": "OK",
+    "error": "Błąd",
+    "selectLanguage": "Wybierz język",
+    "selectLanguageLongDescription": "Wybierz język, którego chcesz używać"
+  },
+  "welcome": {
+    "title": "Witamy w\neckoWALLET",
+    "subtitle": "Brama do ekosystemu Kadena",
+    "loginCard": {
+      "title": "Zaloguj się na moje konto",
+      "description": "Wprowadź hasło do portfela"
+    },
+    "newUserCard": {
+      "title": "Jestem nowym użytkownikiem",
+      "description": "Skonfiguruj nowe konto eckoWALLET"
+    },
+    "recoverCard": {
+      "title": "Mam konto",
+      "description": "Zaloguj się za pomocą frazy sekretnej"
+    },
+    "instructions": {
+      "intro": "Aby dodać nowe konto, wykonaj następujące kroki:",
+      "step1": "1. Zaloguj się na swoje istniejące konto",
+      "step2": "2. Kliknij „Ustawienia”",
+      "step3": "3. Kliknij „Usuń konto”"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Nazwa kontaktu",
+      "placeholder": "Wpisz nazwę kontaktu"
+    },
+    "accountName": {
+      "label": "Nazwa konta",
+      "placeholder": "Wpisz nazwę konta"
+    },
+    "saveButton": "Zapisz",
+    "header": {
+      "title": "Dodaj kontakt"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Niestandardowa",
+    "alert": {
+      "failureTitle": "Dodawanie sieci nie powiodło się",
+      "failureMessage": "Nieprawidłowe informacje o sieci"
+    },
+    "name": {
+      "label": "Nazwa sieci",
+      "placeholder": "Wpisz nazwę sieci"
+    },
+    "host": {
+      "label": "Nowy adres RPC",
+      "placeholder": "Wpisz URL"
+    },
+    "explorer": {
+      "label": "URL eksploratora bloków",
+      "placeholder": "Wpisz URL"
+    },
+    "header": {
+      "title": "Dodaj sieć"
+    },
+    "saveButton": "Zapisz"
+  },
+  "addToken": {
+    "header": {
+      "title": "Dodaj token",
+      "titleImport": "Importuj token"
+    },
+    "tokenAddress": {
+      "label": "Adres kontraktu tokena",
+      "placeholder": "Wpisz adres kontraktu"
+    },
+    "tokenName": {
+      "label": "Symbol tokena",
+      "placeholder": "Wpisz symbol tokena"
+    },
+    "alert": {
+      "failureTitle": "Import tokena nie powiódł się",
+      "failureMessage": "Token nie istnieje"
+    },
+    "saveButton": "Dodaj token"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Kup"
+    },
+    "consent": {
+      "description": "Kupno i sprzedaż kryptowalut odbywa się za pośrednictwem usługi zewnętrznej świadczonej przez Onramper.\n\nChociaż eckoWallet stara się zapewnić najwyższy poziom bezpieczeństwa swoim użytkownikom, nie możemy zagwarantować bezpieczeństwa i prywatności usług stron trzecich."
+    },
+    "error": {
+      "walletUnavailable": "Adres portfela niedostępny",
+      "unableConnect": "Nie można połączyć się z usługą. Spróbuj ponownie później."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Zmień hasło"
+    },
+    "currentPassword": {
+      "label": "Obecne hasło"
+    },
+    "newPassword": {
+      "label": "Nowe hasło"
+    },
+    "confirmPassword": {
+      "label": "Potwierdź hasło"
+    },
+    "toast": {
+      "success": "Hasło zostało pomyślnie zmienione!"
+    },
+    "alert": {
+      "changeFailureTitle": "Zmiana hasła nie powiodła się",
+      "changeFailureMessage": "Coś poszło nie tak. Spróbuj ponownie później.",
+      "verifyFailureTitle": "Weryfikacja nie powiodła się",
+      "verifyFailureMessage": "Nieprawidłowe hasło"
+    },
+    "changeButton": "Zmień hasło"
+  },
+  "connection": {
+    "unknown": "Nieznane połączenie",
+    "deleteAlert": {
+      "title": "Czy na pewno usunąć tę aktywną sesję?",
+      "message": "Wszystkie dane sesji zostaną usunięte i nie będzie można ich przywrócić."
+    },
+    "deleteFailureTitle": "Usunięcie aktywnej sesji nie powiodło się",
+    "deleteFailureMessage": "Konfiguracja WalletConnect nie pasuje",
+    "empty": {
+      "sessions": "Brak historii",
+      "pairings": "Brak aktywnych sesji"
+    },
+    "modal": {
+      "title": "Informacje WalletConnect"
+    },
+    "expiryLabel": "Ważność:",
+    "unknownHost": "Nieznany"
+  },
+  "contacts": {
+    "searchPlaceholder": "Wyszukaj kontakty",
+    "emptyList": "Brak kontaktów",
+    "header": {
+      "title": "Kontakty"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Sekretna fraza odzyskiwania skopiowana do schowka!",
+    "description": "Twoja Sekretna Fraza Odzyskiwania ułatwia tworzenie kopii zapasowej i przywracanie konta.",
+    "warning": "Nigdy nie udostępniaj swojej Sekretnej Frazy Odzyskiwania. Każdy, kto ją posiada, może przejąć Twój portfel na zawsze.",
+    "copyButton": "Kopiuj frazę odzyskiwania",
+    "header": {
+      "title": "Eksportuj frazę odzyskiwania"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Weryfikacja hasła"
+    },
+    "description": "Wprowadź hasło, aby kontynuować",
+    "alert": {
+      "verifyFailureTitle": "Weryfikacja nie powiodła się",
+      "verifyFailureMessage": "Nieprawidłowe hasło",
+      "verifyErrorMessage": "Coś poszło nie tak. Spróbuj ponownie później."
+    },
+    "continueButton": "Kontynuuj"
+  },
+  "history": {
+    "empty": {
+      "pending": "Brak oczekujących aktywności",
+      "activities": "Brak znalezionych aktywności"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Przelew oczekujący!",
+      "pendingMessage": "Spróbuj ponownie, gdy przelew zostanie zakończony"
+    },
+    "finishButton": "Zakończ transfer cross-chain"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Nazwa konta",
+      "placeholder": "Wpisz nazwę konta"
+    },
+    "privateKey": {
+      "label": "Klucz prywatny",
+      "placeholder": "Wpisz klucz prywatny"
+    },
+    "importButton": "Importuj",
+    "header": {
+      "title": "Importuj konto"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Odblokuj eckoWALLET",
+      "enter": "Wprowadź kod dostępu",
+      "enterNew": "Wprowadź nowy kod dostępu",
+      "reenter": "Wprowadź ponownie kod dostępu",
+      "reenterNew": "Wprowadź ponownie nowy kod dostępu"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Sieci"
+    }
+  },
+  "noConnection": {
+    "message": "Brak połączenia z siecią"
+  },
+  "receiverScan": {
+    "placeholder": "Edytuj konto odbiorcy",
+    "header": {
+      "title": "Skanuj QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Frazy seed",
+      "placeholder": "Wprowadź sekretną frazę"
+    },
+    "accountIndex": {
+      "label": "Numer konta",
+      "placeholder": "Domyślnie: 0"
+    },
+    "alert": {
+      "failureTitle": "Import konta nie powiódł się",
+      "failureMessage": "Nieprawidłowa sekretna fraza"
+    },
+    "button": {
+      "recover": "Odzyskaj"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Importuj portfel za pomocą\nSekretnej Frazy Odzyskiwania",
+    "seeds": {
+      "label": "Sekretne frazy (ze spacjami)",
+      "placeholder": "Wprowadź sekretne frazy"
+    },
+    "password": {
+      "label": "Nowe hasło"
+    },
+    "confirmPassword": {
+      "label": "Potwierdź hasło"
+    },
+    "button": {
+      "restore": "Przywróć"
+    },
+    "alert": {
+      "failureTitle": "Import konta nie powiódł się",
+      "failureMessage": "Coś poszło nie tak. Spróbuj ponownie później.",
+      "invalidSeeds": "Nieprawidłowa sekretna fraza lub konto usunięte"
+    }
+  },
+  "registration": {
+    "text": "Utwórz hasło",
+    "password": {
+      "label": "Nowe hasło"
+    },
+    "confirmPassword": {
+      "label": "Potwierdź hasło"
+    },
+    "button": {
+      "create": "Utwórz"
+    },
+    "alert": {
+      "failureTitle": "Rejestracja nie powiodła się",
+      "failureMessage": "Coś poszło nie tak. Spróbuj ponownie później."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Wyszukaj token",
+    "empty": "Brak znalezionych tokenów",
+    "alert": {
+      "notFungibleTitle": "Token nie‐fungowalny",
+      "notFungibleMessage": "Wybrany token nie jest fungowalny"
+    },
+    "header": {
+      "title": "Wyszukaj token"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Sekretna Fraza Odzyskiwania",
+    "reveal": "Kliknij, aby ujawnić sekretne słowa",
+    "snackbar": "Fraza odzyskiwania skopiowana do schowka!",
+    "description1": "Twoja Sekretna Fraza Odzyskiwania ułatwia tworzenie kopii zapasowej i przywracanie konta.",
+    "description2": "Uwaga: Nigdy nie ujawniaj swojej Sekretnej Frazy Odzyskiwania. Zalecamy nie robienia zrzutów ekranu podczas jej wyświetlania. Każdy, kto ją posiada, może przejąć Twój portfel.",
+    "continue": "Kontynuuj"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Sekretna Fraza Odzyskiwania",
+    "line1": "W następnym kroku zanotujesz swoją 12-słowną frazę odzyskiwania.",
+    "line2": "Twoja fraza odzyskiwania ułatwia przywrócenie portfela na nowym urządzeniu.",
+    "line3": "Każdy, kto ją posiada, może przejąć Twój portfel — trzymaj ją w tajemnicy.",
+    "line4": "Kadena nie ma dostępu do Twojej frazy odzyskiwania, jeśli ją utracisz lub usuniesz aplikację, przechowuj ją bezpiecznie.",
+    "checkbox": "Rozumiem, że jeśli stracę frazę odzyskiwania, nie będę mógł przywrócić portfela."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Przelew oczekuje!",
+      "pendingMessage": "Spróbuj ponownie, gdy przelew zostanie zakończony"
+    },
+    "alert": {
+      "nonKTitle": "Wysyłasz na nie‐„k:account”",
+      "nonKMessage": "Czy na pewno chcesz kontynuować?",
+      "proceed": "Kontynuuj"
+    },
+    "chain": {
+      "sourceLabel": "ID łańcucha źródłowego",
+      "targetLabel": "ID łańcucha docelowego"
+    },
+    "balance": {
+      "label": "Saldo łańcucha"
+    },
+    "accounts": {
+      "recent": "Ostatnie",
+      "contacts": "Kontakty"
+    },
+    "content": {
+      "advancedSettings": "Zaawansowane ustawienia (opcjonalne)",
+      "predicateLabel": "Predykat",
+      "receiverLabel": "Klucz publiczny odbiorcy",
+      "destinationLabel": "Konto docelowe",
+      "destinationPlaceholder": "Wpisz konto docelowe",
+      "receiverPlaceholder": "Wpisz klucz publiczny (opcjonalnie)"
+    },
+    "header": {
+      "title": "Wyślij transakcję {{token}}"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Nie zamykaj aplikacji\ndopóki operacja jest przetwarzana."
+    },
+    "toast": {
+      "submittedTitle": "Przelew wysłany!",
+      "submittedMessage": "Wynik zobaczysz na karcie aktywności"
+    },
+    "label": {
+      "result": "Wynik:",
+      "message": "Wiadomość:",
+      "requestKey": "Klucz żądania:"
+    },
+    "warning": {
+      "crossChainTitle": "Wykonujesz transfer cross-chain",
+      "crossChainMessage": "Operacja ta zwykle zajmuje więcej czasu"
+    },
+    "button": {
+      "activities": "Przejdź do aktywności"
+    },
+    "header": {
+      "title": "Transakcja w toku"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Zaraz wykonasz transfer cross-chain",
+      "crossChainMessage": "Operacja ta zwykle zajmuje więcej czasu"
+    },
+    "button": {
+      "send": "Wyślij"
+    },
+    "confirmModal": {
+      "title": "Potwierdź wysłanie transakcji",
+      "amountLabel": "Kwota:",
+      "gasLimitLabel": "Limit gazu:",
+      "gasPriceLabel": "Cena gazu:",
+      "speedLabel": "Szybkość:",
+      "confirmButton": "Potwierdź"
+    },
+    "content": {
+      "transactionParameters": "Parametry transakcji",
+      "transactionSpeed": "Prędkość transakcji",
+      "gasLimitPlaceholder": "Wpisz limit gazu",
+      "gasPricePlaceholder": "Wpisz cenę gazu",
+      "gasLabel": "Gaz",
+      "speedLabel": "{{speed}} prędkość"
+    },
+    "header": {
+      "title": "Wyślij transakcję"
+    },
+    "walletInfo": {
+      "amountLabel": "Kwota do wysłania",
+      "half": "połowa",
+      "max": "maks",
+      "maxSnackbar": "Maksymalna kwota uwzględnia również szacowany koszt gazu.",
+      "usdValue": "{{value}} USD",
+      "balance": "Saldo: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Kontakty",
+        "text": "Zarządzaj swoją listą kontaktów"
+      },
+      "networks": {
+        "title": "Sieci",
+        "text": "Dodaj lub edytuj niestandardowe sieci RPC"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Edytuj konfigurację WalletConnect"
+      },
+      "accountSecurity": {
+        "title": "Bezpieczeństwo konta",
+        "text": "Zarządzaj zabezpieczeniami portfela"
+      },
+      "lockWallet": {
+        "title": "Zablokuj portfel",
+        "text": "Wszystkie dane historii zostaną zachowane"
+      },
+      "deleteAccount": {
+        "title": "Usuń konto",
+        "text": "Wszystkie dane konta zostaną usunięte"
+      }
+    },
+    "alert": {
+      "lockTitle": "Czy na pewno zablokować portfel?",
+      "lockMessage": "Wszystkie dane historii zostaną zachowane",
+      "lockConfirm": "Zablokuj portfel",
+      "deleteTitle": "Czy na pewno usunąć konto?",
+      "deleteMessage": "Wszystkie dane konta zostaną usunięte. Jeśli nie masz frazy seed, stracisz dostęp do środków.",
+      "deleteConfirm": "Usuń konto"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Brama do ekosystemu Kadena",
+      "visitWebsite": "Odwiedź naszą stronę",
+      "joinDiscord": "Dołącz do naszego Discorda",
+      "termsOfUse": "Warunki użytkowania",
+      "privacyPolicy": "Polityka prywatności"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Bezpieczeństwo konta"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Resetuj kod dostępu",
+        "text": "Zmień kod dostępu aplikacji"
+      },
+      "exportPhrase": {
+        "title": "Eksportuj frazę odzyskiwania",
+        "text": "Chroń swój portfel"
+      },
+      "changePassword": {
+        "title": "Zmień hasło",
+        "text": "Zmień hasło konta"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Witamy",
+    "label": {
+      "password": "Hasło"
+    },
+    "button": {
+      "signIn": "Zaloguj się"
+    },
+    "alert": {
+      "usePasscodeTitle": "Logowanie przy użyciu kodu dostępu?",
+      "usePasscodeMessage": "Czy chcesz używać kodu dostępu i biometrii do dostępu do eckoWALLET?",
+      "failedTitle": "Logowanie nie powiodło się",
+      "invalidPassword": "Nieprawidłowe hasło",
+      "errorMessage": "Coś poszło nie tak. Spróbuj ponownie później."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Potwierdzenie konwersji",
+      "give": "DAJ",
+      "receive": "OTRZYMAJ",
+      "confirmButton": "Potwierdź"
+    },
+    "gasSettings": {
+      "title": "Ustawienia gazu",
+      "gasStation": "STACJA GAZOWA",
+      "gasLimitLabel": "Limit gazu",
+      "gasLimitPlaceholder": "Limit gazu",
+      "gasPriceLabel": "Cena gazu",
+      "gasPricePlaceholder": "Cena gazu",
+      "failureCost": "Potencjalny koszt gazu przy nieudanej transakcji:",
+      "noGasCost": "Brak kosztu gazu – subsydiowane przez eckoDEX przez stacje gazowe Kadena."
+    },
+    "info": {
+      "gasCost": "Koszt gazu",
+      "free": "DARMOWO",
+      "priceImpact": "Wpływ na cenę",
+      "price": "Cena",
+      "maxSlippage": "Maksymalny poślizg",
+      "lpFee": "Opłata dostawcy płynności",
+      "txDeadline": "Deadline transakcji",
+      "gasPrice": "Cena gazu",
+      "gasLimit": "Limit gazu",
+      "unitMinutes": "minuty",
+      "unitSeconds": "sekundy"
+    },
+    "selectTokenModal": {
+      "title": "Wybierz token",
+      "placeholder": "Wyszukaj token",
+      "tokensLabel": "Tokeny",
+      "warningTitle": "Ostrzeżenie",
+      "warningMessage": "Pool {{pair}} nie istnieje",
+      "addTokenTitle": "Dodaj nowy token",
+      "addTokenMessage": "Ten token nie istnieje w Twoim portfelu. Chcesz dodać?",
+      "addTokenConfirm": "Dodaj",
+      "selectedSuffix": " (Wybrany)",
+      "empty": "Token nie znaleziony"
+    },
+    "transactionSettings": {
+      "title": "Ustawienia transakcji",
+      "slippageTitle": "Tolerancja poślizgu",
+      "deadlineTitle": "Deadline transakcji",
+      "minutes": "minuty"
+    },
+    "swapBlock": {
+      "pending": "Transakcja w toku...",
+      "warningTitle": "Aby skorzystać z funkcji konwersji, upewnij się najpierw, że masz środki na Chain 2.",
+      "warningText": "",
+      "give": "DAJ",
+      "receive": "OTRZYMAJ",
+      "confirm": "POTWIERDŹ",
+      "submittedTitle": "Swap wysłany!",
+      "submittedMessage": "Wynik zobaczysz na karcie aktywności",
+      "poweredBy": "Zasilane przez eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Zweryfikuj frazę odzyskiwania",
+    "description": "Potwierdź swoją frazę odzyskiwania, wpisując słowa w odpowiedniej kolejności.",
+    "warning": "Zaleca się nie używać niestandardowych klawiatur. Dla bezpieczeństwa używaj domyślnej klawiatury.",
+    "inputLabel": "Wejście {{number}}",
+    "error": "Nieprawidłowe frazy odzyskiwania",
+    "continueButton": "Kontynuuj"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Aktywa"
+      },
+      "tokenDetector": {
+        "title": "Wykryte tokeny",
+        "emptyTitle": "Brak innych tokenów dla tego konta",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Nazwa konta skopiowana do schowka!"
+    },
+    "walletBalance": {
+      "netWorth": "Wartość netto",
+      "accountBalance": "Saldo konta",
+      "send": "Wyślij",
+      "receive": "Odbierz",
+      "buy": "Kup"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Wpisz kod połączenia",
+    "connect": "Połącz",
+    "header": {
+      "title": "Skanuj QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "ID projektu",
+    "projectIdPlaceholder": "Wpisz ID projektu",
+    "relayUrlLabel": "URL serwera pośredniczącego",
+    "relayUrlPlaceholder": "Wpisz URL serwera pośredniczącego",
+    "errorTitle": "Zmiana konfiguracji WalletConnect nie powiodła się",
+    "errorMessage": "Nieprawidłowe parametry"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Hasło",
+      "placeholder": "Wpisz hasło"
+    },
+    "numpad": {
+      "authenticationPrompt": "Uwierzytelnianie",
+      "weakPasscodeTitle": "Słaby kod",
+      "weakPasscodeDescription": "Wprowadzony kod jest zbyt słaby. Użyj bardziej złożonego kodu."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Jeśli strona eckoDEX jest otwarta na tym urządzeniu i masz problemy z połączeniem WalletConnect, spróbuj wrócić do przeglądarki i ponownie połączyć",
+      "text2": "Jeśli to nie pomoże, sprawdź ustawienia WalletConnect lub otwórz eckoDEX w przeglądarce desktopowej",
+      "button": "OK"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Wszystkie aktywne sesje pozostaną aktywne, dopóki nie zostaną ręcznie zakończone akcją usunięcia",
+      "text2": "Zakładka „Historia” wyświetla szczegóły sesji wraz z przyznanymi uprawnieniami do metod i zdarzeń",
+      "button": "OK"
+    }
+  },
+  "tabs": {
+    "Wallet": "Portfel",
+    "Swap": "Zamiana",
+    "History": "Historia",
+    "Connection": "Połączenia",
+    "Settings": "Ustawienia",
+    "history": {
+      "activities": "Aktywności",
+      "pending": "Oczekujące"
+    },
+    "connection": {
+      "pairings": "Aktywne sesje",
+      "sessions": "Historia"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Szczegóły transakcji",
+    "gas": "Gaz: {{gas}}",
+    "statusLabel": "Status",
+    "continuationTitle": "Kontynuacja",
+    "continuationValue": "krok: {{step}}, łącznie: {{total}}",
+    "no": "nie",
+    "requestKeyTitle": "Klucz żądania",
+    "transactionTypeTitle": "Typ transakcji",
+    "requestKeyChainTitle": "Klucz żądania (Chain {{chain}})",
+    "txDetailsButton": "Szczegóły Tx",
+    "requestKeyCopied": "Klucz żądania skopiowany do schowka!"
+  },
+  "tokenModal": {
+    "distributionTitle": "Dystrybucja {{token}} w Chain",
+    "removeConfirmTitle": "Na pewno usunąć?",
+    "removeConfirmMessage": "Wszystkie dane tokena zostaną usunięte i nie będzie ich można przywrócić",
+    "remove": "Usuń",
+    "notTransferable": "{{contract}} nie można przenieść!",
+    "zeroBalance": "Saldo {{token}} wynosi 0",
+    "editToken": "Edytuj token",
+    "removeToken": "Usuń token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Moje portfele",
+    "removeConfirmTitle": "Na pewno usunąć?",
+    "removeConfirmMessage": "Wszystkie dane konta zostaną usunięte i nie będzie ich można przywrócić",
+    "remove": "Usuń",
+    "share": "Udostępnij portfel",
+    "exportRecovery": "Eksportuj frazę odzyskiwania",
+    "removeSelected": "Usuń wybrany portfel",
+    "create": "Utwórz portfel",
+    "import": "Importuj portfel",
+    "copySuccess": "Szczegóły konta skopiowane do schowka!"
+  },
+  "session": {
+    "title": "Szczegóły sesji",
+    "deleteTitle": "Na pewno usunąć historię tej sesji?",
+    "deleteDescription": "Wszystkie dane historii sesji zostaną usunięte i nie będzie ich można przywrócić",
+    "deleteFailedTitle": "Nie udało się usunąć sesji",
+    "deleteFailedMessage": "Konfiguracja WalletConnect nie pasuje",
+    "deleteSession": "Usuń sesję",
+    "reviewPermissions": "Sprawdź uprawnienia {{namespace}}",
+    "unknownUrl": "Nieznane",
+    "methods": "Metody",
+    "events": "Zdarzenia",
+    "expiry": "Wygasa",
+    "lastUpdated": "Ostatnia aktualizacja"
+  },
+  "receive": {
+    "title": "Odbierz tokeny",
+    "accountNameLabel": "Nazwa Twojego konta"
+  },
+  "networkSelector": {
+    "title": "Wybierz sieć",
+    "manage": "Zarządzaj sieciami"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "URL eksploratora bloków",
+    "editNetwork": "Edytuj sieć"
+  },
+  "contactDetails": {
+    "accountName": "Nazwa konta",
+    "chainId": "Chain ID",
+    "edit": "Edytuj kontakt",
+    "copied": "Skopiowano do schowka!"
+  },
+  "validation": {
+    "required": "To pole jest wymagane",
+    "default": "Nieprawidłowa wartość",
+    "min": "Musi mieć co najmniej {{count}} znaków",
+    "max": "Może mieć maksymalnie {{count}} znaków",
+    "minNumber": "Musi być co najmniej {{count}}",
+    "maxNumber": "Może być maksymalnie {{count}}",
+    "email": "Musi być prawidłowym adresem e-mail",
+    "matches": "Nieprawidłowy format",
+    "passwordsMatch": "Hasła nie są zgodne",
+    "passwordComplexity": "Musi zawierać 8 znaków, jedną wielką literę, jedną małą literę, jedną cyfrę i jeden znak specjalny"
+  }
+}

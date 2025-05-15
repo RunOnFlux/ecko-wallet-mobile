@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "সংরক্ষণ করুন",
+    "confirm": "নিশ্চিত করুন",
+    "delete": "মুছুন",
+    "cancel": "বাতিল",
+    "ok": "ঠিক আছে",
+    "error": "ত্রুটি",
+    "selectLanguage": "ভাষা নির্বাচন করুন",
+    "selectLanguageLongDescription": "আপনার পছন্দমত ভাষা নির্বাচন করুন"
+  },
+  "welcome": {
+    "title": "স্বাগতম\neckoWALLET",
+    "subtitle": "Kadena ইকোসিস্টেম গেটওয়ে",
+    "loginCard": {
+      "title": "আমার অ্যাকাউন্টে লগইন করুন",
+      "description": "আপনার ওয়ালেট পাসওয়ার্ড লিখুন"
+    },
+    "newUserCard": {
+      "title": "আমি নতুন ব্যবহারকারী",
+      "description": "নতুন eckoWALLET অ্যাকাউন্ট সেটআপ করুন"
+    },
+    "recoverCard": {
+      "title": "আমার কাছে ইতিমধ্যেই একটি অ্যাকাউন্ট আছে",
+      "description": "আপনার সিক্রেট ফ্রেজ দিয়ে লগইন করুন"
+    },
+    "instructions": {
+      "intro": "নতুন অ্যাকাউন্ট যোগ করতে, নিম্নলিখিত ধাপগুলি অনুসরণ করুন:",
+      "step1": "1. আপনার বিদ্যমান অ্যাকাউন্টে লগইন করুন",
+      "step2": "2. \"সেটিংস\" এ ক্লিক করুন",
+      "step3": "3. \"অ্যাকাউন্ট মুছুন\" এ ক্লিক করুন"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "কন্ট্যাক্ট নাম",
+      "placeholder": "কন্ট্যাক্ট নাম লিখুন"
+    },
+    "accountName": {
+      "label": "অ্যাকাউন্ট নাম",
+      "placeholder": "অ্যাকাউন্ট নাম লিখুন"
+    },
+    "saveButton": "সংরক্ষণ করুন",
+    "header": {
+      "title": "কন্ট্যাক্ট যোগ করুন"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "কাস্টম",
+    "alert": {
+      "failureTitle": "নেটওয়ার্ক যোগ করা ব্যর্থ",
+      "failureMessage": "অন বৈধ নেটওয়ার্ক তথ্য"
+    },
+    "name": {
+      "label": "নেটওয়ার্ক নাম",
+      "placeholder": "নেটওয়ার্ক নাম লিখুন"
+    },
+    "host": {
+      "label": "নতুন RPC URL",
+      "placeholder": "URL লিখুন"
+    },
+    "explorer": {
+      "label": "ব্লক এক্সপ্লোরার URL",
+      "placeholder": "URL লিখুন"
+    },
+    "header": {
+      "title": "নেটওয়ার্ক যোগ করুন"
+    },
+    "saveButton": "সংরক্ষণ করুন"
+  },
+  "addToken": {
+    "header": {
+      "title": "টোকেন যোগ করুন",
+      "titleImport": "টোকেন আমদানি করুন"
+    },
+    "tokenAddress": {
+      "label": "টোকেন কন্ট্রাক্ট ঠিকানা",
+      "placeholder": "কন্ট্রাক্ট ঠিকানা লিখুন"
+    },
+    "tokenName": {
+      "label": "টোকেন সিম্বল",
+      "placeholder": "টোকেন সিম্বল লিখুন"
+    },
+    "alert": {
+      "failureTitle": "টোকেন আমদানি ব্যর্থ",
+      "failureMessage": "টোকেন বিদ্যমান নেই"
+    },
+    "saveButton": "টোকেন যোগ করুন"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "কিনুন"
+    },
+    "consent": {
+      "description": "ক্রিপ্টোকারেন্সি কেনা-বিক্রি থার্ড-পার্টি সার্ভিস Onramper এর মাধ্যমে সম্পন্ন হয়।\n\neckoWallet সর্বোচ্চ নিরাপত্তা নিশ্চয়তা দেয় চেষ্টা করে, তবে থার্ড-পার্টি সেবার নিরাপত্তা ও গোপনীয়তা নিশ্চিত করতে আমরা পারি না।"
+    },
+    "error": {
+      "walletUnavailable": "ওয়ালেট ঠিকানা পাওয়া যায়নি",
+      "unableConnect": "সার্ভিসে সংযোগ করা যায়নি। পরে চেষ্টা করুন।"
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "পাসওয়ার্ড পরিবর্তন করুন"
+    },
+    "currentPassword": {
+      "label": "বর্তমান পাসওয়ার্ড"
+    },
+    "newPassword": {
+      "label": "নতুন পাসওয়ার্ড"
+    },
+    "confirmPassword": {
+      "label": "পাসওয়ার্ড নিশ্চিত করুন"
+    },
+    "toast": {
+      "success": "পাসওয়ার্ড সফলভাবে পরিবর্তিত হয়েছে!"
+    },
+    "alert": {
+      "changeFailureTitle": "পাসওয়ার্ড পরিবর্তন ব্যর্থ",
+      "changeFailureMessage": "কিছু ভুল হয়েছে। পরে চেষ্টা করুন।",
+      "verifyFailureTitle": "যাচাই ব্যর্থ",
+      "verifyFailureMessage": "অন বৈধ পাসওয়ার্ড"
+    },
+    "changeButton": "পাসওয়ার্ড পরিবর্তন করুন"
+  },
+  "connection": {
+    "unknown": "অজানা সংযোগ",
+    "deleteAlert": {
+      "title": "এই সক্রিয় সেশন মুছতে নিশ্চিত?",
+      "message": "সেশনের সমস্ত ডেটা অ মুছে ফেলা হবে এবং পুনরুদ্ধারযোগ্য নয়।"
+    },
+    "deleteFailureTitle": "সেশন মুছতে ব্যর্থ",
+    "deleteFailureMessage": "WalletConnect কনফিগ মেলে না",
+    "empty": {
+      "sessions": "কোন হিস্টোরি নেই",
+      "pairings": "কোন সক্রিয় সেশন নেই"
+    },
+    "modal": {
+      "title": "WalletConnect তথ্য"
+    },
+    "expiryLabel": "মেয়াদ শেষ:",
+    "unknownHost": "অজানা"
+  },
+  "contacts": {
+    "searchPlaceholder": "কন্ট্যাক্ট অনুসন্ধান করুন",
+    "emptyList": "এখন কোনও কন্ট্যাক্ট নেই",
+    "header": {
+      "title": "কন্ট্যাক্ট"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "রিকভারি ফ্রেজ ক্লিপবোর্ডে কপি হয়েছে!",
+    "description": "আপনার সিক্রেট রিকভারি ফ্রেজ অ্যাকাউন্ট ব্যাকআপ ও পুনরুদ্ধার সহজ করে।",
+    "warning": "আপনার সিক্রেট রিকভারি ফ্রেজ কাউকে দেবেন না। যিনি পাবেন, ঝটপট আপনার ওয়ালেট দখল করতে পারবেন।",
+    "copyButton": "রিকভারি ফ্রেজ কপি করুন",
+    "header": {
+      "title": "রিকভারি ফ্রেজ রপ্তানি করুন"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "পাসওয়ার্ড যাচাই করুন"
+    },
+    "description": "চালিয়ে যেতে পাসওয়ার্ড লিখুন",
+    "alert": {
+      "verifyFailureTitle": "যাচাই ব্যর্থ",
+      "verifyFailureMessage": "অন বৈধ পাসওয়ার্ড",
+      "verifyErrorMessage": "কিছু ভুল হয়েছে। পরে চেষ্টা করুন।"
+    },
+    "continueButton": "চালিয়ে যান"
+  },
+  "history": {
+    "empty": {
+      "pending": "কোন মুলতুবি কার্যকলাপ নেই",
+      "activities": "কোন কার্যকলাপ পাওয়া যায়নি"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "ট্রান্সফার মুলতুবি!",
+      "pendingMessage": "ট্রান্সফার শেষ হলে আবার চেষ্টা করুন"
+    },
+    "finishButton": "ক্রস-চেইন ট্রান্সফার সম্পন্ন করুন"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "অ্যাকাউন্ট নাম",
+      "placeholder": "অ্যাকাউন্ট নাম লিখুন"
+    },
+    "privateKey": {
+      "label": "প্রাইভেট কী",
+      "placeholder": "প্রাইভেট কী লিখুন"
+    },
+    "importButton": "আমদানি করুন",
+    "header": {
+      "title": "অ্যাকাউন্ট আমদানি করুন"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "eckoWALLET আনলক করুন",
+      "enter": "পাসকোড লিখুন",
+      "enterNew": "নতুন পাসকোড লিখুন",
+      "reenter": "পাসকোড পুনরায় লিখুন",
+      "reenterNew": "নতুন পাসকোড পুনরায় লিখুন"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "নেটওয়ার্ক"
+    }
+  },
+  "noConnection": {
+    "message": "কোন নেটওয়ার্ক সংযোগ নেই"
+  },
+  "receiverScan": {
+    "placeholder": "গন্তব্য অ্যাকাউন্ট সম্পাদনা করুন",
+    "header": {
+      "title": "QR স্ক্যান করুন"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "সীড ফ্রেজ",
+      "placeholder": "সিক্রেট ফ্রেজ লিখুন"
+    },
+    "accountIndex": {
+      "label": "অ্যাকাউন্ট নম্বর",
+      "placeholder": "ডিফল্ট: 0"
+    },
+    "alert": {
+      "failureTitle": "অ্যাকাউন্ট আমদানি ব্যর্থ",
+      "failureMessage": "অন বৈধ রিকভারি ফ্রেজ"
+    },
+    "button": {
+      "recover": "পুনরুদ্ধার করুন"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "সিক্রেট রিকভারি ফ্রেজ দিয়ে\nওয়ালেট আমদানি করুন",
+    "seeds": {
+      "label": "সিক্রেট ফ্রেজ (স্পেস সহ)",
+      "placeholder": "সিক্রেট ফ্রেজ লিখুন"
+    },
+    "password": {
+      "label": "নতুন পাসওয়ার্ড"
+    },
+    "confirmPassword": {
+      "label": "পাসওয়ার্ড নিশ্চিত করুন"
+    },
+    "button": {
+      "restore": "পুনরুদ্ধার করুন"
+    },
+    "alert": {
+      "failureTitle": "অ্যাকাউন্ট আমদানি ব্যর্থ",
+      "failureMessage": "কিছু ভুল হয়েছে। পরে চেষ্টা করুন।",
+      "invalidSeeds": "অন বৈধ রিকভারি ফ্রেজ অথবা অ্যাকাউন্ট মুছে ফেলা হয়েছে"
+    }
+  },
+  "registration": {
+    "text": "পাসওয়ার্ড তৈরি করুন",
+    "password": {
+      "label": "নতুন পাসওয়ার্ড"
+    },
+    "confirmPassword": {
+      "label": "পাসওয়ার্ড নিশ্চিত করুন"
+    },
+    "button": {
+      "create": "তৈরি করুন"
+    },
+    "alert": {
+      "failureTitle": "নিবন্ধন ব্যর্থ",
+      "failureMessage": "কিছু ভুল হয়েছে। পরে চেষ্টা করুন।"
+    }
+  },
+  "searchTokens": {
+    "placeholder": "টোকেন অনুসন্ধান করুন",
+    "empty": "কোন টোকেন পাওয়া যায়নি",
+    "alert": {
+      "notFungibleTitle": "নন-ফাংগিবল টোকেন",
+      "notFungibleMessage": "নির্বাচিত টোকেন ফাংগিবল নয়"
+    },
+    "header": {
+      "title": "টোকেন অনুসন্ধান"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "সিক্রেট রিকভারি ফ্রেজ",
+    "reveal": "গোপন শব্দগুলি দেখাতে ক্লিক করুন",
+    "snackbar": "রিকভারি ফ্রেজ কপি হয়েছে!",
+    "description1": "আপনার সিক্রেট রিকভারি ফ্রেজ অ্যাকাউন্ট ব্যাকআপ ও পুনরুদ্ধার সহজ করে।",
+    "description2": "সতর্কতা: ফ্রেজ কাউকে দেবেন না। স্ক্রিনশট এড়িয়ে চলুন।",
+    "continue": "চালিয়ে যান"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "সিক্রেট রিকভারি ফ্রেজ",
+    "line1": "পরবর্তী ধাপে আপনার ১২-শব্দের রিকভারি ফ্রেজ নোট করুন।",
+    "line2": "এই ফ্রেজ দিয়ে নতুন ডিভাইসে ওয়ালেট পুনরুদ্ধার করা যাবে।",
+    "line3": "ফ্রেজের যিনি মালিক, তিনি ওয়ালেট নিয়ন্ত্রণ করবেন—গোপন রাখুন।",
+    "line4": "কেডেনা ফ্রেজ ডLETE হলে সাহায্য করতে পারবে না; নিরাপদে সংরক্ষণ করুন।",
+    "checkbox": "আমি বুঝি, ফ্রেজ হারালে ওয়ালেট পুনরুদ্ধার করা যাবে না।"
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "ট্রান্সফার মুলতুবি!",
+      "pendingMessage": "ট্রান্সফার শেষ হলে আবার চেষ্টা করুন"
+    },
+    "alert": {
+      "nonKTitle": "নন \"k:account\"-এ প্রেরণ",
+      "nonKMessage": "আপনি কি নিশ্চিত?",
+      "proceed": "চালিয়ে যান"
+    },
+    "chain": {
+      "sourceLabel": "উৎপত্তি চেইন ID",
+      "targetLabel": "গন্তব্য চেইন ID"
+    },
+    "balance": {
+      "label": "চেইন ব্যালেন্স"
+    },
+    "accounts": {
+      "recent": "সাম্প্রতিক",
+      "contacts": "কন্ট্যাক্ট"
+    },
+    "content": {
+      "advancedSettings": "উন্নত সেটিংস (ঐচ্ছিক)",
+      "predicateLabel": "প্রেডিকেট",
+      "receiverLabel": "রিসিভারের পাবলিক কী",
+      "destinationLabel": "গন্তব্য অ্যাকাউন্ট",
+      "destinationPlaceholder": "গন্তব্য অ্যাকাউন্ট লিখুন",
+      "receiverPlaceholder": "পাবলিক কী লিখুন (ঐচ্ছিক)"
+    },
+    "header": {
+      "title": "{{token}} ট্রানজেকশন প্রেরণ করুন"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "প্রসেসিং চলাকালীন অ্যাপ বন্ধ করবেন না।"
+    },
+    "toast": {
+      "submittedTitle": "ট্রান্সফার পাঠানো হয়েছে!",
+      "submittedMessage": "ফলাফল অ্যাক্টিভিটি ট্যাবে দেখুন"
+    },
+    "label": {
+      "result": "ফলাফল:",
+      "message": "বার্তা:",
+      "requestKey": "রিকোয়েস্ট কী:"
+    },
+    "warning": {
+      "crossChainTitle": "আপনি ক্রস-চেইন ট্রান্সফার করছেন",
+      "crossChainMessage": "এটি সাধারণত সময় নেয়"
+    },
+    "button": {
+      "activities": "অ্যাক্টিভিটিজে যান"
+    },
+    "header": {
+      "title": "ট্রানজেকশন প্রসেস হচ্ছে"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "আপনি ক্রস-চেইন ট্রান্সফার করতে যাচ্ছেন",
+      "crossChainMessage": "এতে অধিক সময় লাগতে পারে"
+    },
+    "button": {
+      "send": "প্রেরণ"
+    },
+    "confirmModal": {
+      "title": "ট্রানজেকশন নিশ্চিত করুন",
+      "amountLabel": "পরিমাণ:",
+      "gasLimitLabel": "গ্যাস সীমা:",
+      "gasPriceLabel": "গ্যাস মূল্য:",
+      "speedLabel": "গতি:",
+      "confirmButton": "নিশ্চিত করুন"
+    },
+    "content": {
+      "transactionParameters": "ট্রানজেকশন প্যারামিটার",
+      "transactionSpeed": "ট্রানজেকশন গতি",
+      "gasLimitPlaceholder": "গ্যাস সীমা লিখুন",
+      "gasPricePlaceholder": "গ্যাস মূল্য লিখুন",
+      "gasLabel": "গ্যাস",
+      "speedLabel": "গতি {{speed}}"
+    },
+    "header": {
+      "title": "ট্রানজেকশন প্রেরণ"
+    },
+    "walletInfo": {
+      "amountLabel": "প্রেরণযোগ্য পরিমাণ",
+      "half": "অর্ধেক",
+      "max": "সর্বাধিক",
+      "maxSnackbar": "সর্বোচ্চ পরিমাণে আনুমানিক গ্যাস ফি অন্তর্ভুক্ত।",
+      "usdValue": "{{value}} USD",
+      "balance": "ব্যালেন্স: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "কন্ট্যাক্ট",
+        "text": "আপনার কন্ট্যাক্ট লিস্ট পরিচালনা করুন"
+      },
+      "networks": {
+        "title": "নেটওয়ার্ক",
+        "text": "কাস্টম RPC নেটওয়ার্ক যোগ বা সম্পাদনা করুন"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "WalletConnect কনফিগ সম্পাদনা করুন"
+      },
+      "accountSecurity": {
+        "title": "অ্যাকাউন্ট সুরক্ষা",
+        "text": "আপনার ওয়ালেট সুরক্ষা পরিচালনা করুন"
+      },
+      "lockWallet": {
+        "title": "ওয়ালেট লক করুন",
+        "text": "সব হিস্টোরি অক্ষত থাকবে"
+      },
+      "deleteAccount": {
+        "title": "অ্যাকাউন্ট মুছুন",
+        "text": "অ্যাকাউন্টের সমস্ত ডেটা মুছে ফেলা হবে"
+      }
+    },
+    "alert": {
+      "lockTitle": "ওয়ালেট লক করতে চান?",
+      "lockMessage": "সব হিস্টোরি অক্ষত থাকবে",
+      "lockConfirm": "ওয়ালেট লক করুন",
+      "deleteTitle": "অ্যাকাউন্ট মুছতে নিশ্চিত?",
+      "deleteMessage": "সব ডেটা মুছে ফেলা হবে। রিকভারি ফ্রেজ না থাকলে অ্যাক্সেস হারাবেন।",
+      "deleteConfirm": "অ্যাকাউন্ট মুছুন"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Kadena ইকোসিস্টেম গেটওয়ে",
+      "visitWebsite": "আমাদের ওয়েবসাইট দেখুন",
+      "joinDiscord": "Discord এ যোগ দিন",
+      "termsOfUse": "ব্যবহারের শর্তাবলী",
+      "privacyPolicy": "গোপনীয়তা নীতি"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "অ্যাকাউন্ট সুরক্ষা"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "পাসকোড রিসেট করুন",
+        "text": "অ্যাপ পাসকোড পরিবর্তন করুন"
+      },
+      "exportPhrase": {
+        "title": "রিকভারি ফ্রেজ রপ্তানি করুন",
+        "text": "ওয়ালেট সুরক্ষিত করুন"
+      },
+      "changePassword": {
+        "title": "পাসওয়ার্ড পরিবর্তন করুন",
+        "text": "অ্যাকাউন্ট পাসওয়ার্ড পরিবর্তন করুন"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "স্বাগতম",
+    "label": {
+      "password": "পাসওয়ার্ড"
+    },
+    "button": {
+      "signIn": "সাইন ইন"
+    },
+    "alert": {
+      "usePasscodeTitle": "পাসকোড দিয়ে লগইন করবেন?",
+      "usePasscodeMessage": "পাসকোড ও বায়োমেট্রিক ব্যবহার করতে চান?",
+      "failedTitle": "লগইন ব্যর্থ",
+      "invalidPassword": "অন বৈধ পাসওয়ার্ড",
+      "errorMessage": "কিছু ভুল হয়েছে। পরে চেষ্টা করুন।"
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "কনভার্সন নিশ্চিত করুন",
+      "give": "দেন",
+      "receive": "গ্রহণ",
+      "confirmButton": "নিশ্চিত করুন"
+    },
+    "gasSettings": {
+      "title": "গ্যাস সেটিংস",
+      "gasStation": "গ্যাস স্টেশন",
+      "gasLimitLabel": "গ্যাস সীমা",
+      "gasLimitPlaceholder": "গ্যাস সীমা",
+      "gasPriceLabel": "গ্যাস মূল্য",
+      "gasPricePlaceholder": "গ্যাস মূল্য",
+      "failureCost": "ট্রানজেকশন ব্যর্থ হলে সম্ভাব্য গ্যাস খরচ:",
+      "noGasCost": "কোন গ্যাস খরচ নেই — eckoDEX দ্বারা সঙ্গতিপূর্ণ"
+    },
+    "info": {
+      "gasCost": "গ্যাস খরচ",
+      "free": "বিনামূল্যে",
+      "priceImpact": "দামের প্রভাব",
+      "price": "মূল্য",
+      "maxSlippage": "সর্বোচ্চ স্লিপেজ",
+      "lpFee": "লিকুইডিটি প্রদান ফি",
+      "txDeadline": "ট্রানজেকশন সময়সীমা",
+      "gasPrice": "গ্যাস মূল্য",
+      "gasLimit": "গ্যাস সীমা",
+      "unitMinutes": "মিনিট",
+      "unitSeconds": "সেকেন্ড"
+    },
+    "selectTokenModal": {
+      "title": "টোকেন নির্বাচন করুন",
+      "placeholder": "টোকেন অনুসন্ধান করুন",
+      "tokensLabel": "টোকেন",
+      "warningTitle": "সতর্কতা",
+      "warningMessage": "পুল {{pair}} বিদ্যমান নেই",
+      "addTokenTitle": "নতুন টোকেন যোগ করুন",
+      "addTokenMessage": "এই টোকেন আপনার ওয়ালেটে নেই। যোগ করতে চান?",
+      "addTokenConfirm": "যোগ করুন",
+      "selectedSuffix": " (নির্বাচিত)",
+      "empty": "টোকেন পাওয়া যায়নি"
+    },
+    "transactionSettings": {
+      "title": "ট্রানজেকশন সেটিংস",
+      "slippageTitle": "স্লিপেজ টলারেন্স",
+      "deadlineTitle": "ট্রানজেকশন সময়সীমা",
+      "minutes": "মিনিট"
+    },
+    "swapBlock": {
+      "pending": "ট্রানজেকশন অপেক্ষমান…",
+      "warningTitle": "রূপান্তর করতে, চেইন ২-এ যথেষ্ট তহবিল আছে কিনা দেখুন।",
+      "warningText": "",
+      "give": "দেন",
+      "receive": "গ্রহণ",
+      "confirm": "নিশ্চিত করুন",
+      "submittedTitle": "স্ন্যাপ জমা হয়েছে!",
+      "submittedMessage": "অ্যাক্টিভিটি ট্যাবে ফলাফল দেখুন",
+      "poweredBy": "পাওয়ার্ড বাই eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "রিকভারি ফ্রেজ যাচাই করুন",
+    "description": "সঠিক ক্রমে শব্দগুলি টাইপ করে রিকভারি ফ্রেজ নিশ্চিত করুন।",
+    "warning": "দয়া করে কাস্টম কী-বোর্ড এড়িয়ে চলুন। নিরাপত্তার জন্য ডিফল্ট কী-বোর্ড ব্যবহার করুন।",
+    "inputLabel": "ইনপুট {{number}}",
+    "error": "অন বৈধ রিকভারি ফ্রেজ",
+    "continueButton": "চালিয়ে যান"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "সম্পদ"
+      },
+      "tokenDetector": {
+        "title": "সনাক্তকৃত টোকেন",
+        "emptyTitle": "এই অ্যাকাউন্টে অন্য কোনো টোকেন পাওয়া যায়নি",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "অ্যাকাউন্ট নাম ক্লিপবোর্ডে কপি হয়েছে!"
+    },
+    "walletBalance": {
+      "netWorth": "নেট মূল্য",
+      "accountBalance": "অ্যাকাউন্ট ব্যালেন্স",
+      "send": "পাঠান",
+      "receive": "গ্রহণ",
+      "buy": "কিনুন"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "কনেকশন কোড লিখুন",
+    "connect": "সংযোগ করুন",
+    "header": {
+      "title": "QR স্ক্যান করুন"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "প্রজেক্ট ID",
+    "projectIdPlaceholder": "প্রজেক্ট ID লিখুন",
+    "relayUrlLabel": "রিলে URL",
+    "relayUrlPlaceholder": "রিলে URL লিখুন",
+    "errorTitle": "WalletConnect কনফিগ পরিবর্তন ব্যর্থ",
+    "errorMessage": "অন বৈধ প্যারামিটার"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "পাসওয়ার্ড",
+      "placeholder": "পাসওয়ার্ড প্রবেশ করান"
+    },
+    "numpad": {
+      "authenticationPrompt": "প্রমাণীকরণ",
+      "weakPasscodeTitle": "দুর্বল পাসকোড",
+      "weakPasscodeDescription": "প্রবেশ করা পাসকোড খুবই দুর্বল। অনুগ্রহ করে আরও জটিল পাসকোড ব্যবহার করুন।"
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "যদি eckoDEX ওয়েবসাইটটি এই ডিভাইসে খোলা থাকে এবং আপনি WalletConnect সংযোগে সমস্যা অনুভব করেন, তবে ওয়েব ব্রাউজারে ফিরে যান এবং আবার ফিরে আসুন",
+      "text2": "যদি এভাবে সমস্যা সমাধান না হয়, তাহলে WalletConnect সেটিংস পরীক্ষা করুন অথবা ডেস্কটপ ব্রাউজারে eckoDEX ওয়েবসাইট খুলে দেখুন",
+      "button": "ঠিক আছে"
+    },
+    "walletConnectInfoModal": {
+      "text1": "সমস্ত সক্রিয় সেশন সক্রিয় থাকবে যতক্ষণ না সেগুলি ম্যানুয়ালি মুছে ফেলা হয়",
+      "text2": "ইতিহাস ট্যাবে প্রদত্ত পদ্ধতি এবং ইভেন্টের অনুমতির সাথে সেশনের বিস্তারিত দেখায়",
+      "button": "ঠিক আছে"
+    }
+  },
+  "tabs": {
+    "Wallet": "ওয়ালেট",
+    "Swap": "বিনিময়",
+    "History": "ইতিহাস",
+    "Connection": "সংযোগ",
+    "Settings": "সেটিংস",
+    "history": {
+      "activities": "ক্রিয়াকলাপ",
+      "pending": "মুলতুবি"
+    },
+    "connection": {
+      "pairings": "সক্রিয় সেশন",
+      "sessions": "সেশন ইতিহাস"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "লেনদেনের বিস্তারিত",
+    "gas": "গ্যাস: {{gas}}",
+    "statusLabel": "স্ট্যাটাস",
+    "continuationTitle": "অবিরতি",
+    "continuationValue": "ধাপ: {{step}}, মোট: {{total}}",
+    "no": "না",
+    "requestKeyTitle": "অনুরোধ কী",
+    "transactionTypeTitle": "লেনদেনের ধরন",
+    "requestKeyChainTitle": "অনুরোধ কী (Chain {{chain}})",
+    "txDetailsButton": "Tx বিস্তারিত",
+    "requestKeyCopied": "অনুরোধ কী ক্লিপবোর্ডে কপি করা হয়েছে!"
+  },
+  "tokenModal": {
+    "distributionTitle": "{{token}} চেইন বন্টন",
+    "removeConfirmTitle": "আপনি কি মুছে ফেলতে চান?",
+    "removeConfirmMessage": "টোকেনের সমস্ত ডেটা মুছে ফেলা হবে এবং পুনরুদ্ধার করা যাবে না",
+    "remove": "মুছে ফেলুন",
+    "notTransferable": "{{contract}} স্থানান্তরযোগ্য নয়!",
+    "zeroBalance": "{{token}}-এর ব্যালেন্স 0",
+    "editToken": "টোকেন সম্পাদনা",
+    "removeToken": "টোকেন মুছে ফেলুন",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "আমার ওয়ালেটসমূহ",
+    "removeConfirmTitle": "আপনি কি মুছে ফেলতে চান?",
+    "removeConfirmMessage": "অ্যাকাউন্টের সমস্ত ডেটা মুছে фেলা হবে এবং পুনরুদ্ধার করা যাবে না",
+    "remove": "মুছে ফেলুন",
+    "share": "ওয়ালেট শেয়ার করুন",
+    "exportRecovery": "রিকভারি ফ্রেজ রপ্তানি করুন",
+    "removeSelected": "নির্বাচিত ওয়ালেট মুছে ফেলুন",
+    "create": "ওয়ালেট তৈরি করুন",
+    "import": "ওয়ালেট ইম্পোর্ট করুন",
+    "copySuccess": "অ্যাকাউন্টের তথ্য ক্লিপবোর্ডে কপি হয়েছে!"
+  },
+  "session": {
+    "title": "সেশন বিস্তারিত",
+    "deleteTitle": "আপনি কি এই সেশন ইতিহাস মুছে ফেলতে চান?",
+    "deleteDescription": "সেশন ইতিহাসের সমস্ত ডেটা মুছে ফেলা হবে এবং পুনরুদ্ধার করা যাবে না",
+    "deleteFailedTitle": "সেশন মুছে ফেলতে ব্যর্থ",
+    "deleteFailedMessage": "WalletConnect কনফিগারেশন মেলেনি",
+    "deleteSession": "সেশন মুছে ফেলুন",
+    "reviewPermissions": "{{namespace}} অনুমতি পর্যালোচনা করুন",
+    "unknownUrl": "অজানা",
+    "methods": "পদ্ধতি",
+    "events": "ইভেন্ট",
+    "expiry": "মেয়াদ শেষ",
+    "lastUpdated": "সর্বশেষ আপডেট"
+  },
+  "receive": {
+    "title": "টোকেন গ্রহণ করুন",
+    "accountNameLabel": "আপনার অ্যাকাউন্টের নাম"
+  },
+  "networkSelector": {
+    "title": "নেটওয়ার্ক নির্বাচন করুন",
+    "manage": "নেটওয়ার্ক পরিচালনা করুন"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "Block Explorer URL",
+    "editNetwork": "নেটওয়ার্ক সম্পাদনা করুন"
+  },
+  "contactDetails": {
+    "accountName": "অ্যাকাউন্ট নাম",
+    "chainId": "Chain ID",
+    "edit": "যোগাযোগ সম্পাদনা করুন",
+    "copied": "ক্লিপবোর্ডে কপি করা হয়েছে!"
+  },
+  "validation": {
+    "required": "এই ক্ষেত্রটি আবশ্যক",
+    "default": "অবৈধ মান",
+    "min": "কমপক্ষে {{count}} টি অক্ষর হতে হবে",
+    "max": "সর্বোচ্চ {{count}} টি অক্ষর হতে পারে",
+    "minNumber": "কমপক্ষে {{count}} হতে হবে",
+    "maxNumber": "সর্বোচ্চ {{count}} হতে পারে",
+    "email": "বৈধ ইমেল হতে হবে",
+    "matches": "অকার্যকর বিন্যাস",
+    "passwordsMatch": "পাসওয়ার্ড মেলে না",
+    "passwordComplexity": "৮ টি অক্ষর, এক টি বড় হাতের অক্ষর, এক টি ছোট হাতের অক্ষর, এক টি সংখ্যা এবং এক টি বিশেষ অক্ষর থাকতে হবে"
+  }
+}

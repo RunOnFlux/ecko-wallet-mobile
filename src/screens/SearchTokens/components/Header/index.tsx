@@ -1,17 +1,18 @@
 import React, {useCallback} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {useDispatch} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 
 import {styles} from './styles';
 import ArrowLeftSvg from '../../../../assets/images/arrow-left.svg';
 import CirclePlusSvg from '../../../../assets/images/circle-plus.svg';
 import {ERootStackRoutes, TNavigationProp} from '../../../../routes/types';
 import {setSelectedToken} from '../../../../store/userWallet';
-import {useDispatch} from 'react-redux';
 
 const Header = React.memo(() => {
+  const {t} = useTranslation();
   const dispatch = useDispatch();
-
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.SearchTokens>>();
 
@@ -25,7 +26,7 @@ const Header = React.memo(() => {
         }),
       150,
     );
-  }, [navigation]);
+  }, [navigation, dispatch]);
 
   const handlePressBack = useCallback(() => {
     navigation.goBack();
@@ -39,7 +40,7 @@ const Header = React.memo(() => {
         style={styles.backBtnWrapper}>
         <ArrowLeftSvg fill="#787B8E" />
       </TouchableOpacity>
-      <Text style={styles.title}>Search Token</Text>
+      <Text style={styles.title}>{t('searchTokens.header.title')}</Text>
       <TouchableOpacity
         activeOpacity={0.8}
         style={styles.rightItemWrapper}

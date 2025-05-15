@@ -1,6 +1,7 @@
 import React, {FC, useCallback} from 'react';
 import {View, Alert} from 'react-native';
 import {useDispatch} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 import ExternalLinkSvg from '../../assets/images/external-link.svg';
 import TrashEmptySvg from '../../assets/images/trash-empty.svg';
 import Modal from '../../components/Modal';
@@ -28,8 +29,8 @@ import {useShallowEqualSelector} from '../../store/utils';
 
 const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
   ({toggle, isVisible}) => {
+    const {t} = useTranslation();
     const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
-
     const dispatch = useDispatch();
 
     const accounts = useShallowEqualSelector(makeSelectAccounts);
@@ -41,15 +42,15 @@ const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
         ignoreAndroidSystemSettings: false,
       });
       Alert.alert(
-        'Are you sure to remove?',
-        'All data of the account will be deleted and can not be restored',
+        t('walletSelector.removeConfirmTitle'),
+        t('walletSelector.removeConfirmMessage'),
         [
           {
-            text: 'Cancel',
+            text: t('common.cancel'),
             style: 'cancel',
           },
           {
-            text: 'Remove',
+            text: t('walletSelector.remove'),
             style: 'destructive',
             onPress: () => {
               dispatch(deleteSelectedAccount());
@@ -71,7 +72,7 @@ const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
           };`,
         );
         Snackbar.show({
-          text: 'Account details information to clipboard!',
+          text: t('walletSelector.copySuccess'),
           duration: Snackbar.LENGTH_SHORT,
         });
       }
@@ -112,15 +113,18 @@ const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
     }, [navigation, toggle]);
 
     return (
-      <Modal isVisible={isVisible} close={toggle} title="My Wallets">
+      <Modal
+        isVisible={isVisible}
+        close={toggle}
+        title={t('walletSelector.title')}>
         <View style={styles.modalContainer}>
           <View style={styles.modalContentWrapper}>
             {(accounts || []).map((account: TAccount) => (
               <Checkbox
+                key={account.accountName}
                 isChecked={account.accountName === selectedAccount?.accountName}
                 useBuiltInState={false}
                 onPress={handlePressCheckBox(account)}
-                key={account.accountName}
                 text={cutStr(account.accountName)}
                 textStyle={styles.checkBoxText}
                 style={styles.checkBoxWrapper}
@@ -130,20 +134,20 @@ const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
           {(accounts || []).length === 0 ? null : (
             <View style={styles.modalFooter}>
               <ListItem
-                text="Share wallet"
+                text={t('walletSelector.share')}
                 icon={<ExternalLinkSvg />}
                 onPress={handlePressShare}
                 style={styles.itemStyle}
               />
               <ListItem
-                text="Export recovery phrase"
+                text={t('walletSelector.exportRecovery')}
                 icon={<ExternalLinkSvg />}
                 onPress={handlePressRecoveryPhrase}
                 style={styles.itemStyle}
               />
               {(accounts || []).length === 1 ? null : (
                 <ListItem
-                  text="Remove selected wallet"
+                  text={t('walletSelector.removeSelected')}
                   icon={<TrashEmptySvg />}
                   onPress={handlePressRemove}
                   style={styles.itemStyle}
@@ -153,12 +157,12 @@ const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
           )}
           <View style={styles.modalFooter}>
             <ListItem
-              text="Create wallet"
+              text={t('walletSelector.create')}
               onPress={handlePressCreate}
               style={styles.itemStyle}
             />
             <ListItem
-              text="Import wallet"
+              text={t('walletSelector.import')}
               onPress={handlePressImport}
               style={styles.itemStyle}
             />

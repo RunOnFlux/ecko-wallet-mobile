@@ -1,11 +1,15 @@
 import React, {FC, useCallback, useState} from 'react';
-import {KeyboardAvoidingView, Platform, View} from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  View,
+  TouchableOpacity,
+} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import BasicSettingsSvg from '../../../../assets/images/basic-settins.svg';
-import {TouchableOpacity} from 'react-native';
 import Modal from '../../../../components/Modal';
 import Input from '../../../../components/Input';
 import {styles} from './styles';
-
 import Predicate from '../../../../components/Predicate';
 import {predicates} from '../../consts';
 import {TSettingsType} from './types';
@@ -17,6 +21,7 @@ const Settings: FC<TSettingsType> = ({
   receiverPublicKey,
   setReceiverPublicKey,
 }) => {
+  const {t} = useTranslation();
   const [isVisible, setVisible] = useState(false);
   const {bottomSpace} = useSafeAreaValues();
 
@@ -35,7 +40,7 @@ const Settings: FC<TSettingsType> = ({
       <Modal
         isVisible={isVisible}
         close={toggleModal}
-        title="Advanced Settings">
+        title={t('send.content.advancedSettings')}>
         <KeyboardAvoidingView
           style={{flex: 1}}
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -50,8 +55,8 @@ const Settings: FC<TSettingsType> = ({
             </View>
             <Input
               wrapperStyle={styles.inputWrapper}
-              label="Receiver Public Key"
-              placeholder="Enter Public Key (Optional)"
+              label={t('send.content.receiverLabel')}
+              placeholder={t('send.content.receiverPlaceholder')}
               value={receiverPublicKey || ''}
               onChangeText={setReceiverPublicKey}
             />

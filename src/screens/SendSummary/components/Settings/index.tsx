@@ -1,15 +1,15 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {View} from 'react-native';
+import {View, Keyboard, ScrollView, TouchableOpacity} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
 import {Controller, FieldValues, useForm} from 'react-hook-form';
+
 import BasicSettingsSvg from '../../../../assets/images/basic-settins.svg';
-import {TouchableOpacity} from 'react-native';
 import Modal from '../../../../components/Modal';
 import RadioTab from '../../../../components/RadioTab';
-import {transactionSpeedOptions} from './consts';
 import Input from '../../../../components/Input';
 import FooterButton from '../../../../components/FooterButton';
-import {styles} from './styles';
+import {transactionSpeedOptions} from './consts';
 import {estimatedGasFeeSchema} from '../../../../validation/estimatedGasFeeSchema';
 import {makeSelectEstimatedGasFee} from '../../../../store/transfer/selectors';
 import {setEstimatedGasFee} from '../../../../store/transfer';
@@ -20,8 +20,10 @@ import {
   ECONOMY_GAS_PRICE,
 } from '../../../../constants';
 import {useShallowEqualSelector} from '../../../../store/utils';
+import {styles} from './styles';
 
 const Settings = React.memo(() => {
+  const {t} = useTranslation();
   const dispatch = useDispatch();
 
   const [isVisible, setVisible] = useState(false);
@@ -48,18 +50,18 @@ const Settings = React.memo(() => {
       setValue('gasLimit', estimatedGasFee.gasLimit.toString());
       setValue('gasPrice', estimatedGasFee.gasPrice.toString());
     }
-  }, [setValue, estimatedGasFee, isVisible]);
+  }, [isVisible, setValue, estimatedGasFee]);
 
   const toggleModal = useCallback(() => {
-    setVisible(!isVisible);
-  }, [isVisible]);
+    setVisible(v => !v);
+  }, []);
 
   const handlePressSave = useCallback(
     (data: FieldValues) => {
       dispatch(setEstimatedGasFee(data));
       toggleModal();
     },
-    [toggleModal],
+    [dispatch, toggleModal],
   );
 
   return (
@@ -73,14 +75,14 @@ const Settings = React.memo(() => {
       <Modal
         isVisible={isVisible}
         close={toggleModal}
-        title="Transaction Parameters">
+        title={t('sendSummary.content.transactionParameters')}>
         <View style={styles.contentWrapper}>
           <Controller
             control={control}
             name="speed"
             render={({field: {onChange, value}}) => (
               <RadioTab
-                label="Transaction speed"
+                label={t('sendSummary.content.transactionSpeed')}
                 options={transactionSpeedOptions}
                 value={value}
                 onChange={v => {
@@ -99,15 +101,17 @@ const Settings = React.memo(() => {
               />
             )}
           />
-          <View style={styles.inputsWrapper}>
+          <ScrollView
+            keyboardShouldPersistTaps="handled"
+            style={styles.inputsWrapper}>
             <Controller
               control={control}
               name="gasLimit"
               render={({field: {onChange, onBlur, value}}) => (
                 <Input
-                  label="Gas limit"
+                  label={t('sendSummary.content.gasLimitLabel')}
+                  placeholder={t('sendSummary.content.gasLimitPlaceholder')}
                   keyboardType="decimal-pad"
-                  placeholder="Type Gas Limit"
                   onChangeText={onChange}
                   onBlur={onBlur}
                   value={value}
@@ -120,10 +124,10 @@ const Settings = React.memo(() => {
               name="gasPrice"
               render={({field: {onChange, onBlur, value}}) => (
                 <Input
-                  label="Gas Price"
+                  label={t('sendSummary.content.gasPriceLabel')}
+                  placeholder={t('sendSummary.content.gasPricePlaceholder')}
                   keyboardType="decimal-pad"
                   wrapperStyle={styles.priceWrapper}
-                  placeholder="Type Gas Price"
                   onChangeText={onChange}
                   onBlur={onBlur}
                   value={value}
@@ -131,9 +135,12 @@ const Settings = React.memo(() => {
                 />
               )}
             />
-          </View>
+          </ScrollView>
         </View>
-        <FooterButton title="Save" onPress={handleSubmit(handlePressSave)} />
+        <FooterButton
+          title={t('common.saveButton')}
+          onPress={handleSubmit(handlePressSave)}
+        />
       </Modal>
     </>
   );

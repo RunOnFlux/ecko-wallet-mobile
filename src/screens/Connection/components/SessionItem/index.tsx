@@ -5,9 +5,11 @@ import {styles} from './styles';
 import {truncate} from '../../../../utils/stringHelpers';
 import ArrowLeftSvg from '../../../../assets/images/arrow-left.svg';
 import SessionDetailsModal from '../../../../modals/SessionDetailsModal';
+import {useTranslation} from 'react-i18next';
 
 const SessionItem: FC<TSessionItemProps> = React.memo(
   ({item: sessionItem, onDelete}) => {
+    const {t} = useTranslation();
     const {logo, name, url} = sessionItem;
 
     const [selectedItem, setSelectedItem] = useState<any>(null);
@@ -53,7 +55,10 @@ const SessionItem: FC<TSessionItemProps> = React.memo(
                 <Text style={styles.title}>{name}</Text>
                 {url ? (
                   <Text onPress={onLinkPress} style={styles.link}>
-                    {truncate(url?.split('https://')[1] ?? 'Unknown', 23)}
+                    {truncate(
+                      url?.split('https://')[1] ?? t('connection.unknownHost'),
+                      23,
+                    )}
                   </Text>
                 ) : null}
               </View>

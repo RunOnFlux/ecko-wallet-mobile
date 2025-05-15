@@ -7,6 +7,8 @@ import {
   View,
 } from 'react-native';
 import {useDispatch} from 'react-redux';
+import {useTranslation} from 'react-i18next';
+
 import {makeSelectIsSwapping} from '../../../../store/transfer/selectors';
 import {
   makeSelectNonTransferableTokenList,
@@ -35,6 +37,9 @@ import {NetworkName} from '../../../../api/types';
 import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
 
 const SwapBlock = () => {
+  const {t} = useTranslation();
+  const dispatch = useDispatch();
+
   const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
   const isSwapping = useShallowEqualSelector(makeSelectIsSwapping);
   const pact = usePactContext();
@@ -89,8 +94,6 @@ const SwapBlock = () => {
       setToValues(v => ({...v, balance: toWallet?.chainBalance['2'] || 0}));
     }
   }, [toValues?.address, fromValues?.address, walletList]);
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     pact.getReserves({
@@ -170,8 +173,7 @@ const SwapBlock = () => {
     setFromValues(copyToValues);
   };
 
-  const [showConfirmationPopup, setShowConfirmationPopup] =
-    useState<boolean>(false);
+  const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
 
   const createConfirmModal = useCallback(() => {
     setShowConfirmationPopup(true);
@@ -190,8 +192,8 @@ const SwapBlock = () => {
       position: 'top',
       visibilityTime: 4000,
       autoHide: true,
-      text1: 'Swap submitted!',
-      text2: 'You can see the result in the activities tab',
+      text1: t('swap.swapBlock.submittedTitle'),
+      text2: t('swap.swapBlock.submittedMessage'),
       topOffset: statusBarHeight + 16,
     });
 
@@ -220,7 +222,16 @@ const SwapBlock = () => {
         ttl: +pact.ttl,
       }),
     );
-  }, [fromValues, toValues, pact, networkDetail, selectedAccount]);
+  }, [
+    dispatch,
+    fromValues,
+    toValues,
+    pact,
+    networkDetail,
+    selectedAccount,
+    statusBarHeight,
+    t,
+  ]);
 
   if (networkDetailFetching) {
     return (
@@ -234,17 +245,22 @@ const SwapBlock = () => {
   return (
     <>
       <ScrollView>
-        {isSwapping ? (
+        {isSwapping && (
           <View style={styles.loadingWrapper}>
             <View style={styles.loading}>
               <ActivityIndicator color={MAIN_COLOR} size="small" />
             </View>
-            <Text style={styles.loadingText}>{'Transaction pending...'}</Text>
+            <Text style={styles.loadingText}>
+              {t('swap.swapBlock.pending')}
+            </Text>
           </View>
-        ) : null}
+        )}
         <View style={styles.container}>
           <View style={styles.warningContainer}>
-            <Warning title="To use our convert functionality, first, make sure to have funds on Chain 2." />
+            <Warning
+              title={t('swap.swapBlock.warningTitle')}
+              text={t('swap.swapBlock.warningText')}
+            />
           </View>
           <CurrencyInput
             title="GIVE"
@@ -277,10 +293,10 @@ const SwapBlock = () => {
             disabled={!fromValues.amount || networkDetailFetching || isSwapping}
             style={styles.button}
             onPress={createConfirmModal}
-            title="CONFIRM"
+            title={t('swap.swapBlock.confirm')}
           />
         </View>
-        <Text style={styles.poweredBy}>Powered by eckoDEX</Text>
+        <Text style={styles.poweredBy}>{t('swap.swapBlock.poweredBy')}</Text>
       </ScrollView>
       <ConfirmModal
         isVisible={showConfirmationPopup}

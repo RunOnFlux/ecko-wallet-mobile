@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "保存",
+    "confirm": "確認",
+    "delete": "削除",
+    "cancel": "キャンセル",
+    "ok": "OK",
+    "error": "エラー",
+    "selectLanguage": "言語を選択",
+    "selectLanguageLongDescription": "希望する言語を選択してください"
+  },
+  "welcome": {
+    "title": "ようこそ\neckoWALLETへ",
+    "subtitle": "Kadenaエコシステムのゲートウェイ",
+    "loginCard": {
+      "title": "アカウントにログイン",
+      "description": "ウォレットのパスワードを入力してください"
+    },
+    "newUserCard": {
+      "title": "新規ユーザー",
+      "description": "新しいeckoWALLETアカウントを設定"
+    },
+    "recoverCard": {
+      "title": "既存のアカウント",
+      "description": "シークレットフレーズでログイン"
+    },
+    "instructions": {
+      "intro": "新しいアカウントを追加するには、以下の手順を実行してください：",
+      "step1": "1. 既存のアカウントにログイン",
+      "step2": "2. 「設定」をクリック",
+      "step3": "3. 「アカウント削除」をクリック"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "連絡先名",
+      "placeholder": "連絡先名を入力"
+    },
+    "accountName": {
+      "label": "アカウント名",
+      "placeholder": "アカウント名を入力"
+    },
+    "saveButton": "保存",
+    "header": {
+      "title": "連絡先を追加"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "カスタム",
+    "alert": {
+      "failureTitle": "ネットワークの追加に失敗しました",
+      "failureMessage": "無効なネットワーク情報"
+    },
+    "name": {
+      "label": "ネットワーク名",
+      "placeholder": "ネットワーク名を入力"
+    },
+    "host": {
+      "label": "新しいRPC URL",
+      "placeholder": "URLを入力"
+    },
+    "explorer": {
+      "label": "ブロックエクスプローラーURL",
+      "placeholder": "URLを入力"
+    },
+    "header": {
+      "title": "ネットワークを追加"
+    },
+    "saveButton": "保存"
+  },
+  "addToken": {
+    "header": {
+      "title": "トークンを追加",
+      "titleImport": "トークンをインポート"
+    },
+    "tokenAddress": {
+      "label": "トークンコントラクトアドレス",
+      "placeholder": "コントラクトアドレスを入力"
+    },
+    "tokenName": {
+      "label": "トークンシンボル",
+      "placeholder": "トークンシンボルを入力"
+    },
+    "alert": {
+      "failureTitle": "トークンのインポートに失敗しました",
+      "failureMessage": "トークンが存在しません"
+    },
+    "saveButton": "トークンを追加"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "購入"
+    },
+    "consent": {
+      "description": "暗号資産の購入・販売は、Onramperのサードパーティサービスを通じて行われます。\n\neckoWalletは最高レベルのセキュリティを目指していますが、サードパーティの安全性やプライバシーは保証できません。"
+    },
+    "error": {
+      "walletUnavailable": "ウォレットアドレスが利用できません",
+      "unableConnect": "サービスに接続できません。後で再試行してください。"
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "パスワード変更"
+    },
+    "currentPassword": {
+      "label": "現在のパスワード"
+    },
+    "newPassword": {
+      "label": "新しいパスワード"
+    },
+    "confirmPassword": {
+      "label": "パスワード確認"
+    },
+    "toast": {
+      "success": "パスワードが正常に変更されました！"
+    },
+    "alert": {
+      "changeFailureTitle": "パスワード変更に失敗しました",
+      "changeFailureMessage": "エラーが発生しました。後で再試行してください。",
+      "verifyFailureTitle": "認証に失敗しました",
+      "verifyFailureMessage": "パスワードが無効です"
+    },
+    "changeButton": "パスワード変更"
+  },
+  "connection": {
+    "unknown": "不明な接続",
+    "deleteAlert": {
+      "title": "このアクティブセッションを削除しますか？",
+      "message": "セッションの全データが削除され、復元できません。"
+    },
+    "deleteFailureTitle": "セッション削除に失敗しました",
+    "deleteFailureMessage": "WalletConnect設定が一致しません",
+    "empty": {
+      "sessions": "履歴なし",
+      "pairings": "アクティブセッションなし"
+    },
+    "modal": {
+      "title": "WalletConnect情報"
+    },
+    "expiryLabel": "有効期限：",
+    "unknownHost": "不明"
+  },
+  "contacts": {
+    "searchPlaceholder": "連絡先を検索",
+    "emptyList": "連絡先がありません",
+    "header": {
+      "title": "連絡先"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "リカバリーフレーズをクリップボードにコピーしました！",
+    "description": "シークレットリカバリーフレーズはアカウントのバックアップと復元を簡単にします。",
+    "warning": "リカバリーフレーズを他人と共有しないでください。誰でもウォレットを奪取できます。",
+    "copyButton": "フレーズをコピー",
+    "header": {
+      "title": "リカバリーフレーズをエクスポート"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "パスワード確認"
+    },
+    "description": "続行するにはパスワードを入力してください",
+    "alert": {
+      "verifyFailureTitle": "認証に失敗しました",
+      "verifyFailureMessage": "パスワードが無効です",
+      "verifyErrorMessage": "エラーが発生しました。後で再試行してください。"
+    },
+    "continueButton": "続行"
+  },
+  "history": {
+    "empty": {
+      "pending": "保留中のアクティビティはありません",
+      "activities": "アクティビティが見つかりません"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "転送が保留中です！",
+      "pendingMessage": "転送完了後に再度お試しください"
+    },
+    "finishButton": "クロスチェーントランスファーを完了"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "アカウント名",
+      "placeholder": "アカウント名を入力"
+    },
+    "privateKey": {
+      "label": "秘密鍵",
+      "placeholder": "秘密鍵を入力"
+    },
+    "importButton": "インポート",
+    "header": {
+      "title": "アカウントをインポート"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "eckoWALLETを解除",
+      "enter": "パスコードを入力",
+      "enterNew": "新しいパスコードを入力",
+      "reenter": "パスコード再入力",
+      "reenterNew": "新しいパスコード再入力"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "ネットワーク"
+    }
+  },
+  "noConnection": {
+    "message": "ネットワーク接続なし"
+  },
+  "receiverScan": {
+    "placeholder": "宛先アカウントを編集",
+    "header": {
+      "title": "QRコードをスキャン"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "シードフレーズ",
+      "placeholder": "シークレットフレーズを入力"
+    },
+    "accountIndex": {
+      "label": "アカウント番号",
+      "placeholder": "デフォルト：0"
+    },
+    "alert": {
+      "failureTitle": "アカウントのインポートに失敗しました",
+      "failureMessage": "無効なリカバリーフレーズ"
+    },
+    "button": {
+      "recover": "復元"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "シークレットリカバリーフレーズで\nウォレットをインポート",
+    "seeds": {
+      "label": "シークレットフレーズ（スペース区切り）",
+      "placeholder": "シークレットフレーズを入力"
+    },
+    "password": {
+      "label": "新しいパスワード"
+    },
+    "confirmPassword": {
+      "label": "パスワード確認"
+    },
+    "button": {
+      "restore": "復元"
+    },
+    "alert": {
+      "failureTitle": "アカウントのインポートに失敗しました",
+      "failureMessage": "エラーが発生しました。後で再試行してください。",
+      "invalidSeeds": "無効なリカバリーフレーズまたは削除されたアカウント"
+    }
+  },
+  "registration": {
+    "text": "パスワードを作成",
+    "password": {
+      "label": "新しいパスワード"
+    },
+    "confirmPassword": {
+      "label": "パスワード確認"
+    },
+    "button": {
+      "create": "作成"
+    },
+    "alert": {
+      "failureTitle": "登録に失敗しました",
+      "failureMessage": "エラーが発生しました。後で再試行してください。"
+    }
+  },
+  "searchTokens": {
+    "placeholder": "トークンを検索",
+    "empty": "トークンが見つかりません",
+    "alert": {
+      "notFungibleTitle": "非代替トークン",
+      "notFungibleMessage": "選択したトークンは代替可能ではありません"
+    },
+    "header": {
+      "title": "トークン検索"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "シークレットリカバリーフレーズ",
+    "reveal": "クリックして単語を表示",
+    "snackbar": "フレーズをコピーしました！",
+    "description1": "リカバリーフレーズでアカウントのバックアップと復元が簡単になります。",
+    "description2": "警告：フレーズを公開しないでください。スクリーンショットは避けてください。",
+    "continue": "続行"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "シークレットリカバリーフレーズ",
+    "line1": "次のステップで12語のリカバリーフレーズを書き留めます。",
+    "line2": "このフレーズで新しいデバイスにウォレットを復元できます。",
+    "line3": "フレーズを知る者はウォレットを制御できるため、秘密にしてください。",
+    "line4": "Kadenaはフレーズ紛失時やアプリ削除時のサポートはできません。安全に保管してください。",
+    "checkbox": "リカバリーフレーズを失うと復元できないことを理解しました。"
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "送金が保留中です！",
+      "pendingMessage": "送金完了後に再度お試しください"
+    },
+    "alert": {
+      "nonKTitle": "非「k:account」への送金",
+      "nonKMessage": "続行してもよろしいですか？",
+      "proceed": "続行"
+    },
+    "chain": {
+      "sourceLabel": "ソースChain ID",
+      "targetLabel": "ターゲットChain ID"
+    },
+    "balance": {
+      "label": "Chain残高"
+    },
+    "accounts": {
+      "recent": "最近",
+      "contacts": "連絡先"
+    },
+    "content": {
+      "advancedSettings": "詳細設定（オプション）",
+      "predicateLabel": "Predicate",
+      "receiverLabel": "受信者公開鍵",
+      "destinationLabel": "宛先アカウント",
+      "destinationPlaceholder": "宛先アカウントを入力",
+      "receiverPlaceholder": "公開鍵を入力（任意）"
+    },
+    "header": {
+      "title": "{{token}}トランザクションを送信"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "処理中はアプリを閉じないでください。"
+    },
+    "toast": {
+      "submittedTitle": "送金が完了しました！",
+      "submittedMessage": "アクティビティタブで結果を確認できます"
+    },
+    "label": {
+      "result": "結果：",
+      "message": "メッセージ：",
+      "requestKey": "リクエストキー："
+    },
+    "warning": {
+      "crossChainTitle": "クロスチェーントランスファーを実行中",
+      "crossChainMessage": "通常より時間がかかります"
+    },
+    "button": {
+      "activities": "アクティビティへ"
+    },
+    "header": {
+      "title": "トランザクション進行中"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "クロスチェーントランスファーを実行しようとしています",
+      "crossChainMessage": "通常より時間がかかります"
+    },
+    "button": {
+      "send": "送信"
+    },
+    "confirmModal": {
+      "title": "送信を確認",
+      "amountLabel": "金額：",
+      "gasLimitLabel": "Gas制限：",
+      "gasPriceLabel": "Gas価格：",
+      "speedLabel": "速度：",
+      "confirmButton": "確認"
+    },
+    "content": {
+      "transactionParameters": "トランザクションパラメータ",
+      "transactionSpeed": "トランザクション速度",
+      "gasLimitPlaceholder": "Gas制限を入力",
+      "gasPricePlaceholder": "Gas価格を入力",
+      "gasLabel": "Gas",
+      "speedLabel": "{{speed}}速度"
+    },
+    "header": {
+      "title": "トランザクションを送信"
+    },
+    "walletInfo": {
+      "amountLabel": "送信額",
+      "half": "半分",
+      "max": "最大",
+      "maxSnackbar": "最大額には推定Gas手数料が含まれます。",
+      "usdValue": "{{value}} USD",
+      "balance": "残高：{{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "連絡先",
+        "text": "連絡先を管理"
+      },
+      "networks": {
+        "title": "ネットワーク",
+        "text": "カスタムRPCネットワークを追加・編集"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "WalletConnect設定を編集"
+      },
+      "accountSecurity": {
+        "title": "アカウントのセキュリティ",
+        "text": "ウォレットのセキュリティ管理"
+      },
+      "lockWallet": {
+        "title": "ウォレットをロック",
+        "text": "履歴は保持されます"
+      },
+      "deleteAccount": {
+        "title": "アカウントを削除",
+        "text": "すべてのデータが削除されます"
+      }
+    },
+    "alert": {
+      "lockTitle": "ウォレットをロックしますか？",
+      "lockMessage": "履歴は保持されます",
+      "lockConfirm": "ロック",
+      "deleteTitle": "アカウントを削除しますか？",
+      "deleteMessage": "すべてのデータが削除されます。リカバリーフレーズがないとアクセスできなくなります。",
+      "deleteConfirm": "削除"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Kadenaエコシステムのゲートウェイ",
+      "visitWebsite": "ウェブサイトを訪問",
+      "joinDiscord": "Discordに参加",
+      "termsOfUse": "利用規約",
+      "privacyPolicy": "プライバシーポリシー"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "アカウントのセキュリティ"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "パスコードをリセット",
+        "text": "アプリのパスコードを変更"
+      },
+      "exportPhrase": {
+        "title": "リカバリーフレーズをエクスポート",
+        "text": "ウォレットを保護"
+      },
+      "changePassword": {
+        "title": "パスワード変更",
+        "text": "アカウントのパスワードを変更"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "ようこそ",
+    "label": {
+      "password": "パスワード"
+    },
+    "button": {
+      "signIn": "サインイン"
+    },
+    "alert": {
+      "usePasscodeTitle": "パスコードでサインインしますか？",
+      "usePasscodeMessage": "パスコードと生体認証を使用しますか？",
+      "failedTitle": "ログインに失敗しました",
+      "invalidPassword": "無効なパスワード",
+      "errorMessage": "エラーが発生しました。後で再試行してください。"
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "コンバート確認",
+      "give": "送る",
+      "receive": "受け取る",
+      "confirmButton": "確認"
+    },
+    "gasSettings": {
+      "title": "ガス設定",
+      "gasStation": "GASステーション",
+      "gasLimitLabel": "Gasリミット",
+      "gasLimitPlaceholder": "Gasリミット",
+      "gasPriceLabel": "Gas価格",
+      "gasPricePlaceholder": "Gas価格",
+      "failureCost": "失敗時のガスコスト見積：",
+      "noGasCost": "ガスコストなし — eckoDEXが補助"
+    },
+    "info": {
+      "gasCost": "ガスコスト",
+      "free": "無料",
+      "priceImpact": "価格影響",
+      "price": "価格",
+      "maxSlippage": "最大スリッページ",
+      "lpFee": "LP手数料",
+      "txDeadline": "取引期限",
+      "gasPrice": "Gas価格",
+      "gasLimit": "Gasリミット",
+      "unitMinutes": "分",
+      "unitSeconds": "秒"
+    },
+    "selectTokenModal": {
+      "title": "トークン選択",
+      "placeholder": "トークン検索",
+      "tokensLabel": "トークン",
+      "warningTitle": "警告",
+      "warningMessage": "{{pair}}プールが存在しません",
+      "addTokenTitle": "新しいトークン追加",
+      "addTokenMessage": "ウォレットにこのトークンがありません。追加しますか？",
+      "addTokenConfirm": "追加",
+      "selectedSuffix": " (選択済み)",
+      "empty": "トークンが見つかりません"
+    },
+    "transactionSettings": {
+      "title": "取引設定",
+      "slippageTitle": "スリッページ許容度",
+      "deadlineTitle": "取引期限",
+      "minutes": "分"
+    },
+    "swapBlock": {
+      "pending": "取引保留中…",
+      "warningTitle": "コンバートするにはChain 2に資金が必要です。",
+      "warningText": "",
+      "give": "送る",
+      "receive": "受け取る",
+      "confirm": "確認",
+      "submittedTitle": "スワップ送信完了！",
+      "submittedMessage": "アクティビティタブで結果を確認",
+      "poweredBy": "Powered by eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "リカバリーフレーズ確認",
+    "description": "正しい順序で単語を入力してください。",
+    "warning": "カスタムキーボードは禁止されています。デフォルトキーボードを使用してください。",
+    "inputLabel": "入力 {{number}}",
+    "error": "無効なリカバリーフレーズ",
+    "continueButton": "続行"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "資産"
+      },
+      "tokenDetector": {
+        "title": "検出されたトークン",
+        "emptyTitle": "他のトークンは見つかりません",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "アカウント名をコピーしました！"
+    },
+    "walletBalance": {
+      "netWorth": "純資産",
+      "accountBalance": "アカウント残高",
+      "send": "送信",
+      "receive": "受信",
+      "buy": "購入"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "接続コードを入力",
+    "connect": "接続",
+    "header": {
+      "title": "QRをスキャン"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "プロジェクトID",
+    "projectIdPlaceholder": "プロジェクトIDを入力",
+    "relayUrlLabel": "Relay URL",
+    "relayUrlPlaceholder": "Relay URLを入力",
+    "errorTitle": "WalletConnect設定の変更に失敗しました",
+    "errorMessage": "無効なパラメータ"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "パスワード",
+      "placeholder": "パスワードを入力"
+    },
+    "numpad": {
+      "authenticationPrompt": "認証",
+      "weakPasscodeTitle": "弱いパスコード",
+      "weakPasscodeDescription": "入力されたパスコードが弱すぎます。より複雑なパスコードをお試しください。"
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "このデバイスでeckoDEXのウェブサイトが開いていて、WalletConnect接続に問題がある場合は、ブラウザに戻ってから再度お試しください。",
+      "text2": "それでも解決しない場合は、WalletConnectの設定を確認するか、デスクトップブラウザでeckoDEXを開いてください。",
+      "button": "OK"
+    },
+    "walletConnectInfoModal": {
+      "text1": "アクティブなセッションは、削除操作で手動終了されるまで継続してアクティブのままです。",
+      "text2": "履歴タブには、メソッドとイベントに対する許可とともにセッションの詳細が表示されます。",
+      "button": "OK"
+    }
+  },
+  "tabs": {
+    "Wallet": "ウォレット",
+    "Swap": "スワップ",
+    "History": "履歴",
+    "Connection": "接続",
+    "Settings": "設定",
+    "history": {
+      "activities": "アクティビティ",
+      "pending": "保留中"
+    },
+    "connection": {
+      "pairings": "アクティブセッション",
+      "sessions": "履歴"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "トランザクション詳細",
+    "gas": "ガス: {{gas}}",
+    "statusLabel": "ステータス",
+    "continuationTitle": "継続",
+    "continuationValue": "ステップ: {{step}}, 合計: {{total}}",
+    "no": "いいえ",
+    "requestKeyTitle": "リクエストキー",
+    "transactionTypeTitle": "トランザクションタイプ",
+    "requestKeyChainTitle": "リクエストキー (Chain {{chain}})",
+    "txDetailsButton": "Tx詳細",
+    "requestKeyCopied": "リクエストキーをクリップボードにコピーしました！"
+  },
+  "tokenModal": {
+    "distributionTitle": "{{token}} チェーン配分",
+    "removeConfirmTitle": "本当に削除しますか？",
+    "removeConfirmMessage": "トークンのデータはすべて削除され、復元できません。",
+    "remove": "削除",
+    "notTransferable": "{{contract}} は転送できません！",
+    "zeroBalance": "{{token}} の残高は0です",
+    "editToken": "トークン編集",
+    "removeToken": "トークン削除",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "マイウォレット",
+    "removeConfirmTitle": "本当に削除しますか？",
+    "removeConfirmMessage": "アカウントのデータはすべて削除され、復元できません。",
+    "remove": "削除",
+    "share": "ウォレットを共有",
+    "exportRecovery": "リカバリーフレーズをエクスポート",
+    "removeSelected": "選択したウォレットを削除",
+    "create": "ウォレット作成",
+    "import": "ウォレットインポート",
+    "copySuccess": "アカウント情報をクリップボードにコピーしました！"
+  },
+  "session": {
+    "title": "セッション詳細",
+    "deleteTitle": "このセッション履歴を削除してもよろしいですか？",
+    "deleteDescription": "セッション履歴のデータはすべて削除され、復元できません。",
+    "deleteFailedTitle": "セッションの削除に失敗しました",
+    "deleteFailedMessage": "WalletConnectの設定が一致しません",
+    "deleteSession": "セッション削除",
+    "reviewPermissions": "{{namespace}} の許可を確認",
+    "unknownUrl": "不明",
+    "methods": "メソッド",
+    "events": "イベント",
+    "expiry": "有効期限",
+    "lastUpdated": "最終更新"
+  },
+  "receive": {
+    "title": "トークンを受け取る",
+    "accountNameLabel": "あなたのアカウント名"
+  },
+  "networkSelector": {
+    "title": "ネットワーク選択",
+    "manage": "ネットワーク管理"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "ブロックエクスプローラーURL",
+    "editNetwork": "ネットワーク編集"
+  },
+  "contactDetails": {
+    "accountName": "アカウント名",
+    "chainId": "Chain ID",
+    "edit": "連絡先を編集",
+    "copied": "クリップボードにコピーしました！"
+  },
+  "validation": {
+    "required": "このフィールドは必須です",
+    "default": "無効な値です",
+    "min": "最低でも{{count}}文字必要です",
+    "max": "最大で{{count}}文字までです",
+    "minNumber": "最低でも{{count}}でなければなりません",
+    "maxNumber": "最大で{{count}}までです",
+    "email": "有効なメールアドレスである必要があります",
+    "matches": "無効な形式です",
+    "passwordsMatch": "パスワードが一致しません",
+    "passwordComplexity": "8文字以上、大文字1つ、小文字1つ、数字1つ、特殊文字1つを含める必要があります"
+  }
+}

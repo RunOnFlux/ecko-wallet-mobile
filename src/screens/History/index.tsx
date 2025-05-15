@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {View, Text, RefreshControl, FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 
 import Header from './components/Header';
 import ListDay from './components/ListDay';
@@ -32,6 +33,7 @@ import {TActivity} from '../../store/history/types';
 const limit = 15;
 
 const History = () => {
+  const {t} = useTranslation();
   const dispatch = useDispatch();
 
   const pollReqParams = useShallowEqualSelector(makeSelectPollRequestParams);
@@ -103,7 +105,7 @@ const History = () => {
     if (isMainnet) {
       fetchTransactions();
     }
-  }, [pollReqParams, isMainnet]);
+  }, [pollReqParams, isMainnet, listDayActivities]);
 
   useEffect(() => {
     setSkip(0);
@@ -169,7 +171,9 @@ const History = () => {
         renderItem={renderItem}
         ListEmptyComponent={() => (
           <Text style={styles.emptyText}>
-            {isPendingTab ? 'No pending activities' : 'No activities found'}
+            {isPendingTab
+              ? t('history.empty.pending')
+              : t('history.empty.activities')}
           </Text>
         )}
         showsVerticalScrollIndicator={false}

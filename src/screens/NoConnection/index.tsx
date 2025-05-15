@@ -1,5 +1,6 @@
 import React, {FC, useEffect} from 'react';
 import {View, Text, ImageBackground} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import {createStyles} from './styles';
 import {TLoginProps} from './types';
@@ -9,6 +10,7 @@ import {useSafeAreaValues} from '../../utils/deviceHelpers';
 const bgImage = require('../../assets/images/bgimage.png');
 
 const NoConnection: FC<TLoginProps> = ({navigation}) => {
+  const {t} = useTranslation();
   const netInfo = useNetInfo();
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
@@ -20,11 +22,12 @@ const NoConnection: FC<TLoginProps> = ({navigation}) => {
         navigation.goBack();
       }
     }
-  }, []);
+  }, [netInfo, navigation]);
+
   return (
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>
       <View style={styles.contentWrapper}>
-        <Text style={styles.unlockText}>No Network Connection</Text>
+        <Text style={styles.unlockText}>{t('noConnection.message')}</Text>
       </View>
     </ImageBackground>
   );

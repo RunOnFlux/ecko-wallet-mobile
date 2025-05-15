@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "Simpan",
+    "confirm": "Konfirmasi",
+    "delete": "Hapus",
+    "cancel": "Batal",
+    "ok": "OK",
+    "error": "Kesalahan",
+    "selectLanguage": "Pilih Bahasa",
+    "selectLanguageLongDescription": "Pilih bahasa yang Anda inginkan"
+  },
+  "welcome": {
+    "title": "Selamat datang di\neckoWALLET",
+    "subtitle": "Gerbang ekosistem Kadena",
+    "loginCard": {
+      "title": "Masuk ke akun saya",
+      "description": "Masukkan kata sandi wallet Anda"
+    },
+    "newUserCard": {
+      "title": "Saya pengguna baru",
+      "description": "Atur akun eckoWALLET baru"
+    },
+    "recoverCard": {
+      "title": "Saya sudah punya akun",
+      "description": "Masuk dengan frasa rahasia Anda"
+    },
+    "instructions": {
+      "intro": "Untuk menambahkan akun baru, ikuti langkah-langkah berikut:",
+      "step1": "1. Masuk ke akun Anda yang sudah ada",
+      "step2": "2. Klik \"Pengaturan\"",
+      "step3": "3. Klik \"Hapus akun\""
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Nama Kontak",
+      "placeholder": "Ketik Nama Kontak"
+    },
+    "accountName": {
+      "label": "Nama Akun",
+      "placeholder": "Masukkan Nama Akun"
+    },
+    "saveButton": "Simpan",
+    "header": {
+      "title": "Tambah Kontak"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Kustom",
+    "alert": {
+      "failureTitle": "Gagal menambahkan jaringan",
+      "failureMessage": "Informasi jaringan tidak valid"
+    },
+    "name": {
+      "label": "Nama Jaringan",
+      "placeholder": "Masukkan Nama Jaringan"
+    },
+    "host": {
+      "label": "URL RPC Baru",
+      "placeholder": "Masukkan URL"
+    },
+    "explorer": {
+      "label": "URL Penjelajah Blok",
+      "placeholder": "Masukkan URL"
+    },
+    "header": {
+      "title": "Tambah Jaringan"
+    },
+    "saveButton": "Simpan"
+  },
+  "addToken": {
+    "header": {
+      "title": "Tambah Token",
+      "titleImport": "Impor Token"
+    },
+    "tokenAddress": {
+      "label": "Alamat Kontrak Token",
+      "placeholder": "Ketik Alamat Kontrak"
+    },
+    "tokenName": {
+      "label": "Simbol Token",
+      "placeholder": "Ketik Simbol Token"
+    },
+    "alert": {
+      "failureTitle": "Gagal mengimpor token",
+      "failureMessage": "Token tidak ada"
+    },
+    "saveButton": "Tambah Token"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Beli"
+    },
+    "consent": {
+      "description": "Pembelian dan penjualan cryptocurrency difasilitasi melalui layanan pihak ketiga yang disediakan oleh Onramper.\n\nMeskipun eckoWallet berkomitmen untuk memastikan tingkat keamanan tertinggi bagi penggunanya, kami tidak dapat menjamin keamanan dan privasi layanan pihak ketiga."
+    },
+    "error": {
+      "walletUnavailable": "Alamat wallet tidak tersedia",
+      "unableConnect": "Tidak dapat terhubung ke layanan. Silakan coba lagi nanti."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Ubah Kata Sandi"
+    },
+    "currentPassword": {
+      "label": "Kata Sandi Saat Ini"
+    },
+    "newPassword": {
+      "label": "Kata Sandi Baru"
+    },
+    "confirmPassword": {
+      "label": "Konfirmasi Kata Sandi"
+    },
+    "toast": {
+      "success": "Kata sandi berhasil diubah!"
+    },
+    "alert": {
+      "changeFailureTitle": "Gagal mengubah kata sandi",
+      "changeFailureMessage": "Terjadi kesalahan. Silakan coba lagi nanti.",
+      "verifyFailureTitle": "Gagal verifikasi",
+      "verifyFailureMessage": "Kata sandi tidak valid"
+    },
+    "changeButton": "Ubah Kata Sandi"
+  },
+  "connection": {
+    "unknown": "Koneksi Tidak Dikenal",
+    "deleteAlert": {
+      "title": "Yakin ingin menghapus sesi aktif ini?",
+      "message": "Semua data sesi akan dihapus dan tidak dapat dikembalikan."
+    },
+    "deleteFailureTitle": "Gagal menghapus sesi aktif",
+    "deleteFailureMessage": "Konfigurasi WalletConnect tidak cocok",
+    "empty": {
+      "sessions": "Tidak ada riwayat",
+      "pairings": "Tidak ada sesi aktif"
+    },
+    "modal": {
+      "title": "Info WalletConnect"
+    },
+    "expiryLabel": "Kadaluarsa:",
+    "unknownHost": "Tidak Dikenal"
+  },
+  "contacts": {
+    "searchPlaceholder": "Cari kontak",
+    "emptyList": "Belum ada kontak",
+    "header": {
+      "title": "Kontak"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Frasa rahasia pemulihan disalin ke clipboard!",
+    "description": "Frasa Rahasia Pemulihan Anda memudahkan mencadangkan dan memulihkan akun.",
+    "warning": "Jangan pernah membocorkan Frasa Rahasia Pemulihan Anda. Siapa pun yang memiliki frasa ini bisa mengambil alih wallet selamanya.",
+    "copyButton": "Salin Frasa Pemulihan",
+    "header": {
+      "title": "Ekspor Frasa Pemulihan"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Verifikasi Kata Sandi"
+    },
+    "description": "Masukkan kata sandi Anda untuk melanjutkan",
+    "alert": {
+      "verifyFailureTitle": "Gagal verifikasi",
+      "verifyFailureMessage": "Kata sandi tidak valid",
+      "verifyErrorMessage": "Terjadi kesalahan. Silakan coba lagi nanti."
+    },
+    "continueButton": "Lanjutkan"
+  },
+  "history": {
+    "empty": {
+      "pending": "Tidak ada aktivitas tertunda",
+      "activities": "Tidak ada aktivitas ditemukan"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Transfer tertunda!",
+      "pendingMessage": "Silakan coba lagi setelah transfer selesai"
+    },
+    "finishButton": "Selesaikan Transfer Antar-Rantai"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Nama Akun",
+      "placeholder": "Ketik Nama Akun"
+    },
+    "privateKey": {
+      "label": "Kunci Privat",
+      "placeholder": "Ketik Kunci Privat"
+    },
+    "importButton": "Impor",
+    "header": {
+      "title": "Impor Akun"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Buka kunci eckoWALLET",
+      "enter": "Masukkan passcode Anda",
+      "enterNew": "Masukkan passcode baru",
+      "reenter": "Masukkan ulang passcode Anda",
+      "reenterNew": "Masukkan ulang passcode baru"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Jaringan"
+    }
+  },
+  "noConnection": {
+    "message": "Tidak ada koneksi jaringan"
+  },
+  "receiverScan": {
+    "placeholder": "Edit akun tujuan",
+    "header": {
+      "title": "Pindai QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Frasa Benih",
+      "placeholder": "Masukkan Frasa Rahasia"
+    },
+    "accountIndex": {
+      "label": "Nomor Akun",
+      "placeholder": "Default: 0"
+    },
+    "alert": {
+      "failureTitle": "Gagal mengimpor akun",
+      "failureMessage": "Frasa rahasia pemulihan tidak valid"
+    },
+    "button": {
+      "recover": "Pulihkan"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Impor wallet dengan\nFrasa Rahasia Pemulihan",
+    "seeds": {
+      "label": "Frasa Rahasia (dengan spasi)",
+      "placeholder": "Masukkan Frasa Rahasia"
+    },
+    "password": {
+      "label": "Kata Sandi Baru"
+    },
+    "confirmPassword": {
+      "label": "Konfirmasi Kata Sandi"
+    },
+    "button": {
+      "restore": "Pulihkan"
+    },
+    "alert": {
+      "failureTitle": "Gagal mengimpor akun",
+      "failureMessage": "Terjadi kesalahan. Silakan coba lagi nanti.",
+      "invalidSeeds": "Frasa rahasia pemulihan tidak valid atau akun dihapus"
+    }
+  },
+  "registration": {
+    "text": "Buat Kata Sandi",
+    "password": {
+      "label": "Kata Sandi Baru"
+    },
+    "confirmPassword": {
+      "label": "Konfirmasi Kata Sandi"
+    },
+    "button": {
+      "create": "Buat"
+    },
+    "alert": {
+      "failureTitle": "Gagal mendaftar",
+      "failureMessage": "Terjadi kesalahan. Silakan coba lagi nanti."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Cari token",
+    "empty": "Tidak ada token ditemukan",
+    "alert": {
+      "notFungibleTitle": "Token bukan fungible",
+      "notFungibleMessage": "Token yang dipilih bukan fungible"
+    },
+    "header": {
+      "title": "Cari Token"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Frasa Rahasia Pemulihan",
+    "reveal": "Klik di sini untuk menampilkan kata-kata rahasia",
+    "snackbar": "Frasa rahasia pemulihan disalin ke clipboard!",
+    "description1": "Frasa Rahasia Pemulihan Anda memudahkan mencadangkan dan memulihkan akun.",
+    "description2": "Peringatan: Jangan pernah membocorkan Frasa Rahasia Pemulihan Anda. Disarankan untuk tidak mengambil tangkapan layar saat melihat frasa rahasia. Siapa pun yang memiliki frasa ini bisa mengambil alih wallet Anda selamanya.",
+    "continue": "Lanjutkan"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Frasa Rahasia Pemulihan",
+    "line1": "Pada langkah berikutnya Anda akan mencatat frasa pemulihan 12 kata Anda.",
+    "line2": "Frasa pemulihan Anda memudahkan memulihkan wallet di perangkat baru.",
+    "line3": "Siapa pun yang memiliki frasa ini dapat mengontrol wallet Anda, jaga kerahasiaannya.",
+    "line4": "Kadena tidak dapat mengakses frasa pemulihan jika hilang atau jika aplikasi dihapus, simpan dengan aman.",
+    "checkbox": "Saya mengerti bahwa jika saya kehilangan frasa pemulihan, saya tidak akan dapat memulihkan wallet saya."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Transfer tertunda!",
+      "pendingMessage": "Silakan coba lagi setelah transfer selesai"
+    },
+    "alert": {
+      "nonKTitle": "Mengirim ke akun non \"k:account\"",
+      "nonKMessage": "Apakah Anda yakin ingin melanjutkan?",
+      "proceed": "Lanjutkan"
+    },
+    "chain": {
+      "sourceLabel": "ID Rantai Sumber",
+      "targetLabel": "ID Rantai Tujuan"
+    },
+    "balance": {
+      "label": "Saldo rantai"
+    },
+    "accounts": {
+      "recent": "Terbaru",
+      "contacts": "Kontak"
+    },
+    "content": {
+      "advancedSettings": "Pengaturan Lanjutan (Opsional)",
+      "predicateLabel": "Predikat",
+      "receiverLabel": "Kunci Publik Penerima",
+      "destinationLabel": "Akun Tujuan",
+      "destinationPlaceholder": "Masukkan akun tujuan",
+      "receiverPlaceholder": "Masukkan Kunci Publik (Opsional)"
+    },
+    "header": {
+      "title": "Kirim Transaksi {{token}}"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Jangan tutup aplikasi\nsaat sedang memproses operasi."
+    },
+    "toast": {
+      "submittedTitle": "Transfer terkirim!",
+      "submittedMessage": "Anda dapat melihat hasilnya di tab aktivitas"
+    },
+    "label": {
+      "result": "Hasil:",
+      "message": "Pesan:",
+      "requestKey": "Kunci Permintaan:"
+    },
+    "warning": {
+      "crossChainTitle": "Anda melakukan transfer antar- rantai",
+      "crossChainMessage": "Operasi ini biasanya memakan waktu lebih lama"
+    },
+    "button": {
+      "activities": "Buka Aktivitas"
+    },
+    "header": {
+      "title": "Transaksi sedang diproses"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Anda akan melakukan transfer antar- rantai",
+      "crossChainMessage": "Operasi ini biasanya memakan waktu lebih lama"
+    },
+    "button": {
+      "send": "Kirim"
+    },
+    "confirmModal": {
+      "title": "Konfirmasi Pengiriman Transaksi",
+      "amountLabel": "Jumlah:",
+      "gasLimitLabel": "Batas Gas:",
+      "gasPriceLabel": "Harga Gas:",
+      "speedLabel": "Kecepatan:",
+      "confirmButton": "Konfirmasi"
+    },
+    "content": {
+      "transactionParameters": "Parameter Transaksi",
+      "transactionSpeed": "Kecepatan Transaksi",
+      "gasLimitPlaceholder": "Ketik Batas Gas",
+      "gasPricePlaceholder": "Ketik Harga Gas",
+      "gasLabel": "Gas",
+      "speedLabel": "Kecepatan {{speed}}"
+    },
+    "header": {
+      "title": "Kirim Transaksi"
+    },
+    "walletInfo": {
+      "amountLabel": "Jumlah yang dikirim",
+      "half": "setengah",
+      "max": "maks",
+      "maxSnackbar": "Jumlah maks juga memperhitungkan estimasi biaya gas.",
+      "usdValue": "{{value}} USD",
+      "balance": "Saldo: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Kontak",
+        "text": "Kelola daftar kontak Anda"
+      },
+      "networks": {
+        "title": "Jaringan",
+        "text": "Tambah atau edit jaringan RPC kustom"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Edit konfigurasi WalletConnect"
+      },
+      "accountSecurity": {
+        "title": "Keamanan Akun",
+        "text": "Kelola keamanan wallet Anda"
+      },
+      "lockWallet": {
+        "title": "Kunci Wallet",
+        "text": "Semua riwayat akan tetap ada"
+      },
+      "deleteAccount": {
+        "title": "Hapus Akun",
+        "text": "Semua data akun akan dihapus"
+      }
+    },
+    "alert": {
+      "lockTitle": "Yakin ingin mengunci wallet?",
+      "lockMessage": "Semua riwayat akan tetap ada",
+      "lockConfirm": "Kunci Wallet",
+      "deleteTitle": "Yakin ingin menghapus akun?",
+      "deleteMessage": "Semua data akun akan dihapus. Jika Anda tidak memiliki frasa benih, Anda akan kehilangan akses ke dana Anda.",
+      "deleteConfirm": "Hapus Akun"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Gerbang ekosistem Kadena",
+      "visitWebsite": "Kunjungi situs web kami",
+      "joinDiscord": "Bergabung di Discord",
+      "termsOfUse": "Syarat Penggunaan",
+      "privacyPolicy": "Kebijakan Privasi"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Keamanan Akun"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Setel Ulang Passcode",
+        "text": "Ubah passcode aplikasi"
+      },
+      "exportPhrase": {
+        "title": "Ekspor Frasa Pemulihan",
+        "text": "Lindungi wallet Anda"
+      },
+      "changePassword": {
+        "title": "Ubah Kata Sandi",
+        "text": "Ubah kata sandi akun"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Selamat Datang",
+    "label": {
+      "password": "Kata Sandi"
+    },
+    "button": {
+      "signIn": "Masuk"
+    },
+    "alert": {
+      "usePasscodeTitle": "Gunakan login passcode?",
+      "usePasscodeMessage": "Apakah Anda ingin menggunakan passcode dan biometrik untuk mengakses eckoWALLET?",
+      "failedTitle": "Gagal masuk",
+      "invalidPassword": "Kata sandi tidak valid",
+      "errorMessage": "Terjadi kesalahan. Silakan coba lagi nanti."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Konfirmasi Konversi",
+      "give": "BERI",
+      "receive": "TERIMA",
+      "confirmButton": "Konfirmasi"
+    },
+    "gasSettings": {
+      "title": "Pengaturan Gas",
+      "gasStation": "STASIUN GAS",
+      "gasLimitLabel": "Batas Gas",
+      "gasLimitPlaceholder": "Batas Gas",
+      "gasPriceLabel": "Harga Gas",
+      "gasPricePlaceholder": "Harga Gas",
+      "failureCost": "Biaya gas potensial jika transaksi gagal:",
+      "noGasCost": "Tanpa biaya gas - disubsidi oleh eckoDEX melalui stasiun gas Kadena."
+    },
+    "info": {
+      "gasCost": "Biaya Gas",
+      "free": "GRATIS",
+      "priceImpact": "Dampak Harga",
+      "price": "Harga",
+      "maxSlippage": "Slip Maksimum",
+      "lpFee": "Biaya Penyedia Likuiditas",
+      "txDeadline": "Batas Waktu Transaksi",
+      "gasPrice": "Harga Gas",
+      "gasLimit": "Batas Gas",
+      "unitMinutes": "menit",
+      "unitSeconds": "detik"
+    },
+    "selectTokenModal": {
+      "title": "Pilih Token",
+      "placeholder": "Cari token",
+      "tokensLabel": "Token",
+      "warningTitle": "Peringatan",
+      "warningMessage": "Pool {{pair}} tidak ada",
+      "addTokenTitle": "Tambah Token Baru",
+      "addTokenMessage": "Token ini tidak ada di wallet Anda. Ingin menambahkannya?",
+      "addTokenConfirm": "Tambah",
+      "selectedSuffix": " (Dipilih)",
+      "empty": "Token tidak ditemukan"
+    },
+    "transactionSettings": {
+      "title": "Pengaturan Transaksi",
+      "slippageTitle": "Toleransi Slippage",
+      "deadlineTitle": "Batas Waktu Transaksi",
+      "minutes": "menit"
+    },
+    "swapBlock": {
+      "pending": "Transaksi tertunda...",
+      "warningTitle": "Untuk menggunakan konversi, pastikan Anda memiliki dana di Rantai 2.",
+      "warningText": "",
+      "give": "BERI",
+      "receive": "TERIMA",
+      "confirm": "KONFIRM",
+      "submittedTitle": "Swap terkirim!",
+      "submittedMessage": "Anda dapat melihat hasilnya di tab aktivitas",
+      "poweredBy": "Didukung oleh eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Verifikasi Frasa Pemulihan",
+    "description": "Silakan konfirmasi frasa pemulihan Anda dengan mengetik kata-kata dalam urutan yang benar.",
+    "warning": "Disarankan tidak menggunakan keyboard kustom. Gunakan keyboard bawaan untuk keamanan.",
+    "inputLabel": "Masukan {{number}}",
+    "error": "Frasa pemulihan tidak valid",
+    "continueButton": "Lanjutkan"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Aset"
+      },
+      "tokenDetector": {
+        "title": "Token Terdeteksi",
+        "emptyTitle": "Tidak ada token lain untuk akun ini",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Nama akun disalin ke clipboard!"
+    },
+    "walletBalance": {
+      "netWorth": "Nilai Bersih",
+      "accountBalance": "Saldo Akun",
+      "send": "Kirim",
+      "receive": "Terima",
+      "buy": "Beli"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Ketik kode koneksi",
+    "connect": "Hubungkan",
+    "header": {
+      "title": "Pindai QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "ID Proyek",
+    "projectIdPlaceholder": "Masukkan ID Proyek",
+    "relayUrlLabel": "URL Relay",
+    "relayUrlPlaceholder": "Masukkan URL Relay",
+    "errorTitle": "Gagal mengubah konfigurasi WalletConnect",
+    "errorMessage": "Parameter tidak valid"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Kata Sandi",
+      "placeholder": "Masukkan kata sandi"
+    },
+    "numpad": {
+      "authenticationPrompt": "Otentikasi",
+      "weakPasscodeTitle": "Kode lemah",
+      "weakPasscodeDescription": "Kode yang dimasukkan terlalu lemah. Silakan coba kode yang lebih kompleks."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Jika situs eckoDEX terbuka di perangkat ini dan Anda mengalami masalah dengan koneksi WalletConnect, coba kembali ke browser lalu kembali lagi",
+      "text2": "Jika ini tidak membantu, periksa pengaturan WalletConnect atau coba buka eckoDEX di browser desktop",
+      "button": "Oke"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Semua sesi aktif akan tetap aktif hingga Anda menghentikannya secara manual dengan tindakan hapus",
+      "text2": "Tab Riwayat menampilkan detail sesi dengan izin yang diberikan untuk metode dan event",
+      "button": "Oke"
+    }
+  },
+  "tabs": {
+    "Wallet": "Dompet",
+    "Swap": "Tukar",
+    "History": "Riwayat",
+    "Connection": "Koneksi",
+    "Settings": "Pengaturan",
+    "history": {
+      "activities": "Aktivitas",
+      "pending": "Tertunda"
+    },
+    "connection": {
+      "pairings": "Sesi aktif",
+      "sessions": "Riwayat"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Detail Transaksi",
+    "gas": "Gas: {{gas}}",
+    "statusLabel": "Status",
+    "continuationTitle": "Lanjutan",
+    "continuationValue": "langkah: {{step}}, total: {{total}}",
+    "no": "tidak",
+    "requestKeyTitle": "Kunci Permintaan",
+    "transactionTypeTitle": "Jenis Transaksi",
+    "requestKeyChainTitle": "Kunci Permintaan (Chain {{chain}})",
+    "txDetailsButton": "Detail Tx",
+    "requestKeyCopied": "Kunci permintaan disalin ke clipboard!"
+  },
+  "tokenModal": {
+    "distributionTitle": "Distribusi {{token}} di Chain",
+    "removeConfirmTitle": "Yakin ingin menghapus?",
+    "removeConfirmMessage": "Semua data token akan dihapus dan tidak dapat dipulihkan",
+    "remove": "Hapus",
+    "notTransferable": "{{contract}} tidak dapat dipindahkan!",
+    "zeroBalance": "Saldo {{token}} adalah 0",
+    "editToken": "Edit Token",
+    "removeToken": "Hapus Token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Dompet Saya",
+    "removeConfirmTitle": "Yakin ingin menghapus?",
+    "removeConfirmMessage": "Semua data akun akan dihapus dan tidak dapat dipulihkan",
+    "remove": "Hapus",
+    "share": "Bagikan dompet",
+    "exportRecovery": "Ekspor frasa pemulihan",
+    "removeSelected": "Hapus dompet terpilih",
+    "create": "Buat dompet",
+    "import": "Impor dompet",
+    "copySuccess": "Detail akun disalin ke clipboard!"
+  },
+  "session": {
+    "title": "Detail Sesi",
+    "deleteTitle": "Yakin ingin menghapus riwayat sesi ini?",
+    "deleteDescription": "Semua data riwayat sesi akan dihapus dan tidak dapat dipulihkan",
+    "deleteFailedTitle": "Gagal menghapus sesi",
+    "deleteFailedMessage": "Konfigurasi WalletConnect tidak cocok",
+    "deleteSession": "Hapus sesi",
+    "reviewPermissions": "Tinjau Izin {{namespace}}",
+    "unknownUrl": "Tidak diketahui",
+    "methods": "Metode",
+    "events": "Event",
+    "expiry": "Kedaluwarsa",
+    "lastUpdated": "Terakhir diperbarui"
+  },
+  "receive": {
+    "title": "Terima token",
+    "accountNameLabel": "Nama akun Anda"
+  },
+  "networkSelector": {
+    "title": "Pilih Jaringan",
+    "manage": "Kelola jaringan"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "URL Penjelajah Blok",
+    "editNetwork": "Edit Jaringan"
+  },
+  "contactDetails": {
+    "accountName": "Nama akun",
+    "chainId": "Chain ID",
+    "edit": "Edit Kontak",
+    "copied": "Disalin ke clipboard!"
+  },
+  "validation": {
+    "required": "Bidang ini wajib diisi",
+    "default": "Nilai tidak valid",
+    "min": "Harus memiliki setidaknya {{count}} karakter",
+    "max": "Boleh memiliki paling banyak {{count}} karakter",
+    "minNumber": "Harus setidaknya {{count}}",
+    "maxNumber": "Boleh paling banyak {{count}}",
+    "email": "Harus berupa email yang valid",
+    "matches": "Format tidak valid",
+    "passwordsMatch": "Kata sandi tidak sama",
+    "passwordComplexity": "Harus mengandung 8 karakter, satu huruf besar, satu huruf kecil, satu angka, dan satu karakter khusus"
+  }
+}

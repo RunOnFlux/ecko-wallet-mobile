@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useState, useMemo, useCallback} from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   Image,
   Alert,
 } from 'react-native';
+import {useTranslation} from 'react-i18next';
 import Header from './components/Header';
 import {createStyles} from './styles';
 import {headerTabs} from './const';
@@ -23,13 +24,12 @@ import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import {TSessionItem} from './components/SessionItem/types';
 
 const Connection = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
-
   const {web3WalletClient, isConnected: isWalletConnected} =
     useWalletConnectContext();
 
   const [activeTab, setActiveTab] = useState(headerTabs[0].value);
-
   const isSessionsTab = useMemo(() => activeTab === 'sessions', [activeTab]);
 
   const [pairingRaws, setPairings] = useState<any[]>(
@@ -40,47 +40,34 @@ const Connection = () => {
       ? Object.values(web3WalletClient?.getActiveSessions())
       : [],
   );
+
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
   const styles = createStyles({bottomSpace, statusBarHeight});
 
   const pairings = useMemo(
     () =>
-      pairingRaws.map(pairing => {
-        return {
-          type: 'pairing',
-          topic: pairing.topic,
-          name: pairing.peerMetadata?.name || 'Unknown Connection',
-          expiry: pairing.expiry,
-          logo:
-            pairing.peerMetadata?.icons &&
-            Array.isArray(pairing.peerMetadata?.icons) &&
-            pairing.peerMetadata?.icons.length > 0
-              ? pairing.peerMetadata?.icons[0]
-              : null,
-          url: pairing.peerMetadata?.url || '',
-        };
-      }),
-    [pairingRaws],
+      pairingRaws.map(pairing => ({
+        type: 'pairing',
+        topic: pairing.topic,
+        name: pairing.peerMetadata?.name || t('connection.unknown'),
+        expiry: pairing.expiry,
+        logo: pairing.peerMetadata?.icons?.[0] ?? null,
+        url: pairing.peerMetadata?.url || '',
+      })),
+    [pairingRaws, t],
   );
 
   const sessions = useMemo(
     () =>
-      sessionRaws.map(session => {
-        return {
-          type: 'session',
-          topic: session.topic,
-          name: session.peer.metadata?.name || 'Unknown Connection',
-          expiry: session.expiry,
-          logo:
-            session.peer.metadata?.icons &&
-            Array.isArray(session.peer.metadata?.icons) &&
-            session.peer.metadata?.icons.length > 0
-              ? session.peer.metadata?.icons[0]
-              : null,
-          url: session.peer.metadata?.url || '',
-        };
-      }),
-    [sessionRaws],
+      sessionRaws.map(session => ({
+        type: 'session',
+        topic: session.topic,
+        name: session.peer.metadata?.name || t('connection.unknown'),
+        expiry: session.expiry,
+        logo: session.peer.metadata?.icons?.[0] ?? null,
+        url: session.peer.metadata?.url || '',
+      })),
+    [sessionRaws, t],
   );
 
   const onDeletePairing = useCallback(
@@ -90,15 +77,15 @@ const Connection = () => {
         ignoreAndroidSystemSettings: false,
       });
       Alert.alert(
-        'Are you sure to delete this active session?',
-        'All data of the session will be deleted and can not be restored',
+        t('connection.deleteAlert.title'),
+        t('connection.deleteAlert.message'),
         [
           {
-            text: 'Cancel',
+            text: t('common.cancel'),
             style: 'cancel',
           },
           {
-            text: 'Delete',
+            text: t('common.delete'),
             style: 'destructive',
             onPress: () => {
               web3WalletClient
@@ -110,19 +97,13 @@ const Connection = () => {
                   },
                 })
                 .then(() => {
-                  const newPairings = pairingRaws.filter(
-                    pairing => pairing.topic !== item.topic,
-                  );
-                  setPairings(newPairings);
-                  const newSessions = sessionRaws.filter(
-                    session => session.topic !== item.topic,
-                  );
-                  setSessions(newSessions);
+                  setPairings(pairingRaws.filter(p => p.topic !== item.topic));
+                  setSessions(sessionRaws.filter(s => s.topic !== item.topic));
                 })
                 .catch(() => {
                   Alert.alert(
-                    'Failed to delete the active session',
-                    'WalletConnect config does not match',
+                    t('connection.deleteFailureTitle'),
+                    t('connection.deleteFailureMessage'),
                   );
                 });
             },
@@ -130,24 +111,18 @@ const Connection = () => {
         ],
       );
     },
-    [web3WalletClient, pairingRaws, sessionRaws],
+    [web3WalletClient, pairingRaws, sessionRaws, t],
   );
 
   const onDeleteSession = useCallback(
     (item: any) => {
-      const newPairings = pairingRaws.filter(
-        pairing => pairing.topic !== item.topic,
-      );
-      setPairings(newPairings);
-      const newSessions = sessionRaws.filter(
-        session => session.topic !== item.topic,
-      );
-      setSessions(newSessions);
+      setPairings(pairingRaws.filter(p => p.topic !== item.topic));
+      setSessions(sessionRaws.filter(s => s.topic !== item.topic));
     },
     [pairingRaws, sessionRaws],
   );
 
-  const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const onRefresh = useCallback(() => {
     setIsRefreshing(true);
     setTimeout(() => {
@@ -162,7 +137,6 @@ const Connection = () => {
   }, [web3WalletClient]);
 
   const isFocused = useIsFocused();
-
   useEffect(() => {
     setTimeout(() => {
       setIsRefreshing(true);
@@ -178,28 +152,24 @@ const Connection = () => {
     }, 600);
   }, [web3WalletClient, isFocused, isWalletConnected]);
 
-  const setActiveTabFunc = useCallback((activeTabValue: string) => {
-    setActiveTab(activeTabValue);
+  const setActiveTabFunc = useCallback((value: string) => {
+    setActiveTab(value);
   }, []);
 
   const renderItem = useCallback(
-    ({item}: {item: TSessionItem}) => {
-      if (isSessionsTab) {
-        return (
-          <SessionItem item={item} onDelete={() => onDeleteSession(item)} />
-        );
-      } else {
-        return (
-          <PairingItem item={item} onDelete={() => onDeletePairing(item)} />
-        );
-      }
-    },
+    ({item}: {item: TSessionItem}) =>
+      isSessionsTab ? (
+        <SessionItem item={item} onDelete={() => onDeleteSession(item)} />
+      ) : (
+        <PairingItem item={item} onDelete={() => onDeletePairing(item)} />
+      ),
     [isSessionsTab, onDeletePairing, onDeleteSession],
   );
 
-  const keyExtractor = useCallback((item: TSessionItem) => {
-    return `${item.topic}-${item.type}`;
-  }, []);
+  const keyExtractor = useCallback(
+    (item: TSessionItem) => `${item.topic}-${item.type}`,
+    [],
+  );
 
   const onConnection = useCallback(() => {
     navigation.navigate({
@@ -208,7 +178,7 @@ const Connection = () => {
     });
   }, [navigation]);
 
-  const [showInfo, setShowInfo] = useState<boolean>(false);
+  const [showInfo, setShowInfo] = useState(false);
   const onShowInfo = useCallback(() => setShowInfo(true), []);
   const onCloseInfo = useCallback(() => setShowInfo(false), []);
 
@@ -224,7 +194,9 @@ const Connection = () => {
         renderItem={renderItem}
         ListEmptyComponent={() => (
           <Text style={styles.emptyText}>
-            {isSessionsTab ? 'No history' : 'No active sessions'}
+            {isSessionsTab
+              ? t('connection.empty.sessions')
+              : t('connection.empty.pairings')}
           </Text>
         )}
         showsVerticalScrollIndicator={false}
@@ -255,7 +227,7 @@ const Connection = () => {
         isVisible={showInfo}
         close={onCloseInfo}
         contentStyle={styles.infoModalStyle}
-        title="WalletConnect Info">
+        title={t('connection.modal.title')}>
         <WalletConnectInfoModal onConfirm={onCloseInfo} />
       </Modal>
     </View>

@@ -4,9 +4,11 @@ import {TPairingItemProps} from './types';
 import TrashEmptySvg from '../../../../assets/images/trash-empty.svg';
 import {styles} from './styles';
 import {formatDate, truncate} from '../../../../utils/stringHelpers';
+import {useTranslation} from 'react-i18next';
 
 const PairingItem: FC<TPairingItemProps> = React.memo(
   ({item: pairingItem, onDelete}) => {
+    const {t} = useTranslation();
     const {logo, name, url, expiry} = pairingItem;
 
     const expireDate = useMemo(() => {
@@ -33,24 +35,24 @@ const PairingItem: FC<TPairingItemProps> = React.memo(
               <Text style={styles.title}>{name}</Text>
               {url ? (
                 <Text style={styles.link}>
-                  {truncate(url?.split('https://')[1] ?? 'Unknown', 23)}
+                  {truncate(
+                    url.split('https://')[1] ?? t('connection.unknownHost'),
+                    23,
+                  )}
                 </Text>
               ) : null}
               {expireDate ? (
-                <Text style={styles.dateTitle}>{'Expiry:'}</Text>
+                <Text style={styles.dateTitle}>
+                  {t('connection.expiryLabel')}
+                </Text>
               ) : null}
               {expireDate ? (
-                <Text style={styles.date}>{`${formatDate(expireDate)}`}</Text>
+                <Text style={styles.date}>{formatDate(expireDate)}</Text>
               ) : null}
             </View>
           </View>
           <TouchableOpacity
-            hitSlop={{
-              bottom: 12,
-              top: 12,
-              right: 12,
-              left: 12,
-            }}
+            hitSlop={{bottom: 12, top: 12, right: 12, left: 12}}
             activeOpacity={0.8}
             onPress={onDelete}
             style={styles.delete}>

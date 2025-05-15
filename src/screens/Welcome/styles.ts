@@ -58,4 +58,19 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     color: 'white',
   },
+  langButton: {
+    width: 200,
+    height: 40,
+    marginTop: 30,
+    borderColor: 'white',
+    // backgroundColor: 'red',
+    textAlign: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
+  langButtonText: {
+    color: '#959AB2',
+    fontSize: 20,
+  },
 });

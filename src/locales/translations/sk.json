@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "Uložiť",
+    "confirm": "Potvrdiť",
+    "delete": "Odstrániť",
+    "cancel": "Zrušiť",
+    "ok": "OK",
+    "error": "Chyba",
+    "selectLanguage": "Vyber jazyk",
+    "selectLanguageLongDescription": "Vyber jazyk, ktorý chceš používať"
+  },
+  "welcome": {
+    "title": "Vitaj v\neckoWALLET",
+    "subtitle": "Brána do ekosystému Kadena",
+    "loginCard": {
+      "title": "Prihlás sa do svojho účtu",
+      "description": "Zadaj svoje heslo k peňaženke"
+    },
+    "newUserCard": {
+      "title": "Som nový používateľ",
+      "description": "Nastav nový účet eckoWALLET"
+    },
+    "recoverCard": {
+      "title": "Mám účet",
+      "description": "Prihlás sa pomocou tajnej frázy"
+    },
+    "instructions": {
+      "intro": "Ak chceš pridať nový účet, postupuj podľa týchto krokov:",
+      "step1": "1. Prihlás sa do existujúceho účtu",
+      "step2": "2. Klikni na „Nastavenia”",
+      "step3": "3. Klikni na „Odstrániť účet”"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Meno kontaktu",
+      "placeholder": "Zadaj meno kontaktu"
+    },
+    "accountName": {
+      "label": "Meno účtu",
+      "placeholder": "Zadaj meno účtu"
+    },
+    "saveButton": "Uložiť",
+    "header": {
+      "title": "Pridať kontakt"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Vlastná",
+    "alert": {
+      "failureTitle": "Pridanie siete zlyhalo",
+      "failureMessage": "Neplatné informácie o sieti"
+    },
+    "name": {
+      "label": "Názov siete",
+      "placeholder": "Zadaj názov siete"
+    },
+    "host": {
+      "label": "Nová RPC URL",
+      "placeholder": "Zadaj URL"
+    },
+    "explorer": {
+      "label": "URL prieskumníka blokov",
+      "placeholder": "Zadaj URL"
+    },
+    "header": {
+      "title": "Pridať sieť"
+    },
+    "saveButton": "Uložiť"
+  },
+  "addToken": {
+    "header": {
+      "title": "Pridať token",
+      "titleImport": "Importovať token"
+    },
+    "tokenAddress": {
+      "label": "Adresa kontraktu tokenu",
+      "placeholder": "Zadaj adresu kontraktu"
+    },
+    "tokenName": {
+      "label": "Symbol tokenu",
+      "placeholder": "Zadaj symbol tokenu"
+    },
+    "alert": {
+      "failureTitle": "Import tokenu zlyhal",
+      "failureMessage": "Token neexistuje"
+    },
+    "saveButton": "Pridať token"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Kúpiť"
+    },
+    "consent": {
+      "description": "Nákup a predaj kryptomien sa realizuje cez službu tretej strany poskytovanú Onramper.\n\nHoci eckoWallet sa snaží zabezpečiť najvyššiu úroveň bezpečia pre svojich používateľov, nemôžeme zaručiť bezpečnosť a súkromie služieb tretích strán."
+    },
+    "error": {
+      "walletUnavailable": "Adresa peňaženky nie je k dispozícii",
+      "unableConnect": "Nie je možné sa pripojiť k službe. Skús to neskôr."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Zmeniť heslo"
+    },
+    "currentPassword": {
+      "label": "Aktuálne heslo"
+    },
+    "newPassword": {
+      "label": "Nové heslo"
+    },
+    "confirmPassword": {
+      "label": "Potvrdiť heslo"
+    },
+    "toast": {
+      "success": "Heslo bolo úspešne zmenené!"
+    },
+    "alert": {
+      "changeFailureTitle": "Zmena hesla zlyhala",
+      "changeFailureMessage": "Niečo sa pokazilo. Skús neskôr znova.",
+      "verifyFailureTitle": "Overenie zlyhalo",
+      "verifyFailureMessage": "Neplatné heslo"
+    },
+    "changeButton": "Zmeniť heslo"
+  },
+  "connection": {
+    "unknown": "Neznáme pripojenie",
+    "deleteAlert": {
+      "title": "Naozaj chceš odstrániť túto aktívnu reláciu?",
+      "message": "Všetky dáta tejto relácie sa odstránia a nebude možné ich obnoviť."
+    },
+    "deleteFailureTitle": "Odstránenie relácie zlyhalo",
+    "deleteFailureMessage": "Konfigurácia WalletConnect sa nezhoduje",
+    "empty": {
+      "sessions": "Žiadna história",
+      "pairings": "Žiadne aktívne relácie"
+    },
+    "modal": {
+      "title": "Info WalletConnect"
+    },
+    "expiryLabel": "Platné do:",
+    "unknownHost": "Neznáme"
+  },
+  "contacts": {
+    "searchPlaceholder": "Hľadaj kontakty",
+    "emptyList": "Zatiaľ žiadne kontakty",
+    "header": {
+      "title": "Kontakty"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Tajná obnova fráza skopírovaná do schránky!",
+    "description": "Tvoja tajná obnova fráza uľahčuje zálohovanie a obnovenie účtu.",
+    "warning": "Nikdy nezdieľaj svoju tajnú obnovovaciu frázu. Každý, kto ju má, môže získať kontrolu nad tvojou peňaženkou.",
+    "copyButton": "Kopírovať frázu",
+    "header": {
+      "title": "Export frázy obnovy"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Over heslo"
+    },
+    "description": "Zadaj heslo pre pokračovanie",
+    "alert": {
+      "verifyFailureTitle": "Overenie zlyhalo",
+      "verifyFailureMessage": "Neplatné heslo",
+      "verifyErrorMessage": "Niečo sa pokazilo. Skús neskôr znova."
+    },
+    "continueButton": "Pokračovať"
+  },
+  "history": {
+    "empty": {
+      "pending": "Žiadne čakajúce aktivity",
+      "activities": "Žiadne aktivity"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Prevádzka prebieha!",
+      "pendingMessage": "Skús znova, keď bude prevod dokončený"
+    },
+    "finishButton": "Dokončiť cross-chain prevod"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Meno účtu",
+      "placeholder": "Zadaj meno účtu"
+    },
+    "privateKey": {
+      "label": "Súkromný kľúč",
+      "placeholder": "Zadaj súkromný kľúč"
+    },
+    "importButton": "Importovať",
+    "header": {
+      "title": "Import účtu"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Odomknúť eckoWALLET",
+      "enter": "Zadaj prístupový kód",
+      "enterNew": "Zadaj nový prístupový kód",
+      "reenter": "Zadaj prístupový kód znova",
+      "reenterNew": "Zadaj nový prístupový kód znova"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Siete"
+    }
+  },
+  "noConnection": {
+    "message": "Žiadne pripojenie na sieť"
+  },
+  "receiverScan": {
+    "placeholder": "Upraviť cieľový účet",
+    "header": {
+      "title": "Skenovať QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Rozšifrovacie frázy",
+      "placeholder": "Zadaj tajné frázy"
+    },
+    "accountIndex": {
+      "label": "Číslo účtu",
+      "placeholder": "Predvolené: 0"
+    },
+    "alert": {
+      "failureTitle": "Import účtu zlyhal",
+      "failureMessage": "Neplatná tajná fráza"
+    },
+    "button": {
+      "recover": "Obnoviť"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Import peňaženky pomocou\ntajnej obnovovacej frázy",
+    "seeds": {
+      "label": "Tajné frázy (s medzerami)",
+      "placeholder": "Zadaj tajné frázy"
+    },
+    "password": {
+      "label": "Nové heslo"
+    },
+    "confirmPassword": {
+      "label": "Potvrdiť heslo"
+    },
+    "button": {
+      "restore": "Obnoviť"
+    },
+    "alert": {
+      "failureTitle": "Import účtu zlyhal",
+      "failureMessage": "Niečo sa pokazilo. Skús neskôr znova.",
+      "invalidSeeds": "Neplatná obnovovacia fráza alebo účet bol odstránený"
+    }
+  },
+  "registration": {
+    "text": "Vytvor heslo",
+    "password": {
+      "label": "Nové heslo"
+    },
+    "confirmPassword": {
+      "label": "Potvrdiť heslo"
+    },
+    "button": {
+      "create": "Vytvoriť"
+    },
+    "alert": {
+      "failureTitle": "Registrácia zlyhala",
+      "failureMessage": "Niečo sa pokazilo. Skús neskôr znova."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Vyhľadaj token",
+    "empty": "Žiadne tokeny nenájdené",
+    "alert": {
+      "notFungibleTitle": "Token nie je zameniteľný",
+      "notFungibleMessage": "Vybraný token nie je zameniteľný"
+    },
+    "header": {
+      "title": "Vyhľadaj token"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Tajná obnova fráza",
+    "reveal": "Klikni pre zobrazenie tajných slov",
+    "snackbar": "Obnovovacia fráza skopírovaná do schránky!",
+    "description1": "Tvoja tajná obnova fráza uľahčuje zálohovanie a obnovenie účtu.",
+    "description2": "Upozornenie: Nikdy nezdieľaj svoju obnovovaciu frázu. Odporúčame nefotiť obrazovku pri zobrazení frázy. Ktokoľvek ju má, môže prevziať tvoju peňaženku.",
+    "continue": "Pokračovať"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Tajná obnova fráza",
+    "line1": "V ďalšom kroku si zapíšeš svoju 12-slovnú obnovovaciu frázu.",
+    "line2": "Táto fráza ti umožní obnoviť peňaženku na novom zariadení.",
+    "line3": "Ktokoľvek ju má, môže ovládnuť tvoju peňaženku; ulož ju bezpečne.",
+    "line4": "Kadena nemá prístup k tvojej fráze, ak ju stratíš alebo odinštaluješ aplikáciu; uchovávaj ju v bezpečí.",
+    "checkbox": "Chápem, že ak stratím obnovovaciu frázu, nebudem môcť obnoviť peňaženku."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Prevod čaká!",
+      "pendingMessage": "Skús znova, keď bude prevod dokončený"
+    },
+    "alert": {
+      "nonKTitle": "Posielaš na non-„k:account”",
+      "nonKMessage": "Naozaj chceš pokračovať?",
+      "proceed": "Pokračovať"
+    },
+    "chain": {
+      "sourceLabel": "ID zdrojového reťazca",
+      "targetLabel": "ID cieľového reťazca"
+    },
+    "balance": {
+      "label": "Zostatok reťazca"
+    },
+    "accounts": {
+      "recent": "Nedávne",
+      "contacts": "Kontakty"
+    },
+    "content": {
+      "advancedSettings": "Pokročilé nastavenia (voliteľné)",
+      "predicateLabel": "Predikát",
+      "receiverLabel": "Verejný kľúč príjemcu",
+      "destinationLabel": "Cieľový účet",
+      "destinationPlaceholder": "Zadaj cieľový účet",
+      "receiverPlaceholder": "Zadaj verejný kľúč (voliteľné)"
+    },
+    "header": {
+      "title": "Odoslať transakciu {{token}}"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Nezatváraj aplikáciu\npočas spracovania operácie."
+    },
+    "toast": {
+      "submittedTitle": "Prevod odoslaný!",
+      "submittedMessage": "Výsledok uvidíš na karte aktivity"
+    },
+    "label": {
+      "result": "Výsledok:",
+      "message": "Správa:",
+      "requestKey": "Kľúč požiadavky:"
+    },
+    "warning": {
+      "crossChainTitle": "Vykonávaš cross-chain prevod",
+      "crossChainMessage": "Táto operácia zvyčajne trvá dlhšie"
+    },
+    "button": {
+      "activities": "Prejsť na aktivity"
+    },
+    "header": {
+      "title": "Transakcia prebieha"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Chystáš sa vykonať cross-chain prevod",
+      "crossChainMessage": "Táto operácia zvyčajne trvá dlhšie"
+    },
+    "button": {
+      "send": "Odoslať"
+    },
+    "confirmModal": {
+      "title": "Potvrď odoslanie transakcie",
+      "amountLabel": "Suma:",
+      "gasLimitLabel": "Limit plynu:",
+      "gasPriceLabel": "Cena plynu:",
+      "speedLabel": "Rýchlosť:",
+      "confirmButton": "Potvrdiť"
+    },
+    "content": {
+      "transactionParameters": "Parametre transakcie",
+      "transactionSpeed": "Rýchlosť transakcie",
+      "gasLimitPlaceholder": "Zadaj limit plynu",
+      "gasPricePlaceholder": "Zadaj cenu plynu",
+      "gasLabel": "Plyn",
+      "speedLabel": "{{speed}} rýchlosť"
+    },
+    "header": {
+      "title": "Odoslať transakciu"
+    },
+    "walletInfo": {
+      "amountLabel": "Suma na odoslanie",
+      "half": "polovica",
+      "max": "max",
+      "maxSnackbar": "Maximálna suma zohľadňuje aj odhadované náklady na plyn.",
+      "usdValue": "{{value}} USD",
+      "balance": "Zostatok: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Kontakty",
+        "text": "Spravuj svoj zoznam kontaktov"
+      },
+      "networks": {
+        "title": "Siete",
+        "text": "Pridaj alebo uprav vlastné RPC siete"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Uprav konfiguráciu WalletConnect"
+      },
+      "accountSecurity": {
+        "title": "Bezpečnosť účtu",
+        "text": "Spravuj zabezpečenie svojej peňaženky"
+      },
+      "lockWallet": {
+        "title": "Uzamknúť peňaženku",
+        "text": "Všetky dáta histórie zostanú zachované"
+      },
+      "deleteAccount": {
+        "title": "Odstrániť účet",
+        "text": "Všetky dáta účtu budú odstránené"
+      }
+    },
+    "alert": {
+      "lockTitle": "Naozaj chceš uzamknúť peňaženku?",
+      "lockMessage": "Všetky dáta histórie zostanú zachované",
+      "lockConfirm": "Uzamknúť peňaženku",
+      "deleteTitle": "Naozaj chceš odstrániť účet?",
+      "deleteMessage": "Všetky dáta účtu budú odstránené. Ak nemáš záložnú frázu, stratíš prístup k fondom.",
+      "deleteConfirm": "Odstrániť účet"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Brána do ekosystému Kadena",
+      "visitWebsite": "Navštív náš web",
+      "joinDiscord": "Pridaj sa k nášmu Discordu",
+      "termsOfUse": "Podmienky používania",
+      "privacyPolicy": "Zásady ochrany osobných údajov"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Bezpečnosť účtu"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Resetovať prístupový kód",
+        "text": "Zmeniť prístupový kód aplikácie"
+      },
+      "exportPhrase": {
+        "title": "Export obnovovacej frázy",
+        "text": "Chráň svoju peňaženku"
+      },
+      "changePassword": {
+        "title": "Zmeniť heslo",
+        "text": "Zmeň heslo účtu"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Vitaj",
+    "label": {
+      "password": "Heslo"
+    },
+    "button": {
+      "signIn": "Prihlásiť sa"
+    },
+    "alert": {
+      "usePasscodeTitle": "Prihlásiť sa pomocou kódu?",
+      "usePasscodeMessage": "Chceš použiť kód a biometriku na prístup k eckoWALLET?",
+      "failedTitle": "Prihlásenie zlyhalo",
+      "invalidPassword": "Neplatné heslo",
+      "errorMessage": "Niečo sa pokazilo. Skús znova neskôr."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Potvrdenie konverzie",
+      "give": "DAŤ",
+      "receive": "PRIJAT",
+      "confirmButton": "Potvrdiť"
+    },
+    "gasSettings": {
+      "title": "Nastavenia plynu",
+      "gasStation": "STANICA PLYNU",
+      "gasLimitLabel": "Limit plynu",
+      "gasLimitPlaceholder": "Limit plynu",
+      "gasPriceLabel": "Cena plynu",
+      "gasPricePlaceholder": "Cena plynu",
+      "failureCost": "Odhadovaná cena plynu pri chybe transakcie:",
+      "noGasCost": "Žiadne náklady na plyn – subvencované eckoDEX cez Kadena stanice"
+    },
+    "info": {
+      "gasCost": "Cena plynu",
+      "free": "ZDARMA",
+      "priceImpact": "Vplyv na cenu",
+      "price": "Cena",
+      "maxSlippage": "Maximálny sklz",
+      "lpFee": "Poplatok za likviditu",
+      "txDeadline": "Lehota transakcie",
+      "gasPrice": "Cena plynu",
+      "gasLimit": "Limit plynu",
+      "unitMinutes": "minúty",
+      "unitSeconds": "sekundy"
+    },
+    "selectTokenModal": {
+      "title": "Vyber token",
+      "placeholder": "Hľadaj token",
+      "tokensLabel": "Tokeny",
+      "warningTitle": "Upozornenie",
+      "warningMessage": "Pool {{pair}} neexistuje",
+      "addTokenTitle": "Pridať nový token",
+      "addTokenMessage": "Tento token nie je v tvojej peňaženke. Chceš ho pridať?",
+      "addTokenConfirm": "Pridať",
+      "selectedSuffix": " (Vybraté)",
+      "empty": "Token nenájdený"
+    },
+    "transactionSettings": {
+      "title": "Nastavenia transakcie",
+      "slippageTitle": "Povolený sklz",
+      "deadlineTitle": "Lehota transakcie",
+      "minutes": "minúty"
+    },
+    "swapBlock": {
+      "pending": "Transakcia prebieha...",
+      "warningTitle": "Aby si mohol používať konverziu, uisti sa, že máš prostriedky na Chain 2.",
+      "warningText": "",
+      "give": "DAŤ",
+      "receive": "PRIJAT",
+      "confirm": "POTVRDIŤ",
+      "submittedTitle": "Swap odoslaný!",
+      "submittedMessage": "Výsledok nájdeš na karte aktivity",
+      "poweredBy": "Prevádzkované eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Over obnovovaciu frázu",
+    "description": "Potvrď obnovovaciu frázu zadaním slov v správnom poradí.",
+    "warning": "Odporúčame nepoužívať vlastné klávesnice. Pre bezpečnosť používaj predvolenú klávesnicu.",
+    "inputLabel": "Vstup {{number}}",
+    "error": "Neplatná obnovovacia fráza",
+    "continueButton": "Pokračovať"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Aktíva"
+      },
+      "tokenDetector": {
+        "title": "Detekované tokeny",
+        "emptyTitle": "Pre tento účet neboli detekované žiadne ďalšie tokeny",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Názov účtu skopírovaný do schránky!"
+    },
+    "walletBalance": {
+      "netWorth": "Čistá hodnota",
+      "accountBalance": "Zostatok účtu",
+      "send": "Odoslať",
+      "receive": "Prijať",
+      "buy": "Kúpiť"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Zadaj kód pripojenia",
+    "connect": "Pripojiť",
+    "header": {
+      "title": "Skenovať QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "ID projektu",
+    "projectIdPlaceholder": "Zadaj ID projektu",
+    "relayUrlLabel": "Relay URL",
+    "relayUrlPlaceholder": "Zadaj Relay URL",
+    "errorTitle": "Zmena konfigurácie WalletConnect zlyhala",
+    "errorMessage": "Neplatné parametre"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Heslo",
+      "placeholder": "Zadajte heslo"
+    },
+    "numpad": {
+      "authenticationPrompt": "Overenie",
+      "weakPasscodeTitle": "Slabý kód",
+      "weakPasscodeDescription": "Zadaný kód je príliš slabý. Skúste zložitejší kód."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Ak je na tomto zariadení otvorená stránka eckoDEX a máte problém s pripojením cez WalletConnect, skúste sa vrátiť do prehliadača a potom znova",
+      "text2": "Ak to nepomôže, skontrolujte nastavenia WalletConnect alebo skúste otvoriť eckoDEX v desktopovom prehliadači",
+      "button": "OK"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Všetky aktívne relácie zostanú aktívne, kým ich ručne neukončíte pomocou akcie odstránenia",
+      "text2": "Karta História zobrazuje podrobnosti relácie s udelenými povoleniami pre metódy a udalosti",
+      "button": "OK"
+    }
+  },
+  "tabs": {
+    "Wallet": "Peňaženka",
+    "Swap": "Výmena",
+    "History": "História",
+    "Connection": "Spojenia",
+    "Settings": "Nastavenia",
+    "history": {
+      "activities": "Aktivity",
+      "pending": "Čakajúce"
+    },
+    "connection": {
+      "pairings": "Aktívne relácie",
+      "sessions": "História"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Detaily transakcie",
+    "gas": "Plyn: {{gas}}",
+    "statusLabel": "Stav",
+    "continuationTitle": "Pokračovanie",
+    "continuationValue": "krok: {{step}}, spolu: {{total}}",
+    "no": "nie",
+    "requestKeyTitle": "Kľúč požiadavky",
+    "transactionTypeTitle": "Typ transakcie",
+    "requestKeyChainTitle": "Kľúč požiadavky (Chain {{chain}})",
+    "txDetailsButton": "Detaily Tx",
+    "requestKeyCopied": "Kľúč požiadavky skopírovaný do schránky!"
+  },
+  "tokenModal": {
+    "distributionTitle": "Distribúcia {{token}} na Chain",
+    "removeConfirmTitle": "Ste si istí, že chcete odstrániť?",
+    "removeConfirmMessage": "Všetky údaje o tokene budú odstránené a nebude možné ich obnoviť",
+    "remove": "Odstrániť",
+    "notTransferable": "{{contract}} nie je prenosný!",
+    "zeroBalance": "Zostatok {{token}} je 0",
+    "editToken": "Upraviť token",
+    "removeToken": "Odstrániť token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Moje peňaženky",
+    "removeConfirmTitle": "Ste si istí, že chcete odstrániť?",
+    "removeConfirmMessage": "Všetky údaje účtu budú odstránené a nebude možné ich obnoviť",
+    "remove": "Odstrániť",
+    "share": "Zdieľať peňaženku",
+    "exportRecovery": "Exportovať obnovovaciu frázu",
+    "removeSelected": "Odstrániť vybranú peňaženku",
+    "create": "Vytvoriť peňaženku",
+    "import": "Importovať peňaženku",
+    "copySuccess": "Údaje účtu skopírované do schránky!"
+  },
+  "session": {
+    "title": "Detaily relácie",
+    "deleteTitle": "Ste si istí, že chcete vymazať túto históriu relácie?",
+    "deleteDescription": "Všetky údaje histórie relácie budú odstránené a nebude možné ich obnoviť",
+    "deleteFailedTitle": "Zmazanie relácie zlyhalo",
+    "deleteFailedMessage": "Konfigurácia WalletConnect sa nezhoduje",
+    "deleteSession": "Odstrániť reláciu",
+    "reviewPermissions": "Skontrolovať povolenia {{namespace}}",
+    "unknownUrl": "Neznáme",
+    "methods": "Metódy",
+    "events": "Udalosti",
+    "expiry": "Vypršanie",
+    "lastUpdated": "Naposledy aktualizované"
+  },
+  "receive": {
+    "title": "Prijať tokeny",
+    "accountNameLabel": "Názov vášho účtu"
+  },
+  "networkSelector": {
+    "title": "Vybrať sieť",
+    "manage": "Spravovať siete"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "URL prieskumníka blokov",
+    "editNetwork": "Upraviť sieť"
+  },
+  "contactDetails": {
+    "accountName": "Názov účtu",
+    "chainId": "Chain ID",
+    "edit": "Upraviť kontakt",
+    "copied": "Skopírované do schránky!"
+  },
+  "validation": {
+    "required": "Toto pole je povinné",
+    "default": "Neplatná hodnota",
+    "min": "Musí obsahovať aspoň {{count}} znakov",
+    "max": "Môže obsahovať najviac {{count}} znakov",
+    "minNumber": "Musí byť aspoň {{count}}",
+    "maxNumber": "Môže byť najviac {{count}}",
+    "email": "Musí byť platný e-mail",
+    "matches": "Neplatný formát",
+    "passwordsMatch": "Heslá sa nezhodujú",
+    "passwordComplexity": "Musí obsahovať 8 znakov, jedno veľké písmeno, jedno malé písmeno, jednu číslicu a jeden špeciálny znak"
+  }
+}

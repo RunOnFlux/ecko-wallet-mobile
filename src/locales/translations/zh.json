@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "保存",
+    "confirm": "确认",
+    "delete": "删除",
+    "cancel": "取消",
+    "ok": "确定",
+    "error": "错误",
+    "selectLanguage": "选择语言",
+    "selectLanguageLongDescription": "请选择您想要的语言"
+  },
+  "welcome": {
+    "title": "欢迎使用\neckoWALLET",
+    "subtitle": "Kadena 生态系统网关",
+    "loginCard": {
+      "title": "登录我的账户",
+      "description": "输入您的钱包密码"
+    },
+    "newUserCard": {
+      "title": "我是新用户",
+      "description": "设置新的 eckoWALLET 账户"
+    },
+    "recoverCard": {
+      "title": "我已有账户",
+      "description": "使用您的助记词登录"
+    },
+    "instructions": {
+      "intro": "要添加新账户，请按照以下步骤：",
+      "step1": "1. 登录现有账户",
+      "step2": "2. 点击“设置”",
+      "step3": "3. 点击“删除账户”"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "联系人名称",
+      "placeholder": "输入联系人名称"
+    },
+    "accountName": {
+      "label": "账户名称",
+      "placeholder": "输入账户名称"
+    },
+    "saveButton": "保存",
+    "header": {
+      "title": "添加联系人"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "自定义",
+    "alert": {
+      "failureTitle": "添加网络失败",
+      "failureMessage": "无效的网络信息"
+    },
+    "name": {
+      "label": "网络名称",
+      "placeholder": "输入网络名称"
+    },
+    "host": {
+      "label": "新的 RPC URL",
+      "placeholder": "输入 URL"
+    },
+    "explorer": {
+      "label": "区块浏览器 URL",
+      "placeholder": "输入 URL"
+    },
+    "header": {
+      "title": "添加网络"
+    },
+    "saveButton": "保存"
+  },
+  "addToken": {
+    "header": {
+      "title": "添加代币",
+      "titleImport": "导入代币"
+    },
+    "tokenAddress": {
+      "label": "代币合约地址",
+      "placeholder": "输入合约地址"
+    },
+    "tokenName": {
+      "label": "代币符号",
+      "placeholder": "输入代币符号"
+    },
+    "alert": {
+      "failureTitle": "导入代币失败",
+      "failureMessage": "代币不存在"
+    },
+    "saveButton": "添加代币"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "购买"
+    },
+    "consent": {
+      "description": "加密货币的买卖通过第三方服务 Onramper 进行。\n\neckoWallet 致力于为用户提供最高级别的安全性，但无法保证第三方服务的安全和隐私。"
+    },
+    "error": {
+      "walletUnavailable": "钱包地址不可用",
+      "unableConnect": "无法连接服务。请稍后再试。"
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "更改密码"
+    },
+    "currentPassword": {
+      "label": "当前密码"
+    },
+    "newPassword": {
+      "label": "新密码"
+    },
+    "confirmPassword": {
+      "label": "确认密码"
+    },
+    "toast": {
+      "success": "密码已成功更改！"
+    },
+    "alert": {
+      "changeFailureTitle": "更改密码失败",
+      "changeFailureMessage": "发生错误。请稍后再试。",
+      "verifyFailureTitle": "验证失败",
+      "verifyFailureMessage": "密码无效"
+    },
+    "changeButton": "更改密码"
+  },
+  "connection": {
+    "unknown": "未知连接",
+    "deleteAlert": {
+      "title": "确定删除此活动会话？",
+      "message": "会话的所有数据将被删除且无法恢复。"
+    },
+    "deleteFailureTitle": "删除会话失败",
+    "deleteFailureMessage": "WalletConnect 配置不匹配",
+    "empty": {
+      "sessions": "无历史",
+      "pairings": "无活动会话"
+    },
+    "modal": {
+      "title": "WalletConnect 信息"
+    },
+    "expiryLabel": "到期：",
+    "unknownHost": "未知"
+  },
+  "contacts": {
+    "searchPlaceholder": "搜索联系人",
+    "emptyList": "暂无联系人",
+    "header": {
+      "title": "联系人"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "恢复短语已复制到剪贴板！",
+    "description": "您的助记词可轻松备份和恢复账户。",
+    "warning": "切勿泄露您的助记词。任何持有此短语的人都可永久控制您的钱包。",
+    "copyButton": "复制恢复短语",
+    "header": {
+      "title": "导出恢复短语"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "验证密码"
+    },
+    "description": "输入密码继续",
+    "alert": {
+      "verifyFailureTitle": "验证失败",
+      "verifyFailureMessage": "密码无效",
+      "verifyErrorMessage": "发生错误。请稍后再试。"
+    },
+    "continueButton": "继续"
+  },
+  "history": {
+    "empty": {
+      "pending": "无挂起活动",
+      "activities": "未找到活动"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "转账挂起！",
+      "pendingMessage": "转账完成后请重试"
+    },
+    "finishButton": "完成跨链转账"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "账户名称",
+      "placeholder": "输入账户名称"
+    },
+    "privateKey": {
+      "label": "私钥",
+      "placeholder": "输入私钥"
+    },
+    "importButton": "导入",
+    "header": {
+      "title": "导入账户"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "解锁 eckoWALLET",
+      "enter": "输入密码",
+      "enterNew": "输入新密码",
+      "reenter": "重新输入密码",
+      "reenterNew": "重新输入新密码"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "网络"
+    }
+  },
+  "noConnection": {
+    "message": "无网络连接"
+  },
+  "receiverScan": {
+    "placeholder": "编辑接收方账户",
+    "header": {
+      "title": "扫描二维码"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "助记词",
+      "placeholder": "输入助记词"
+    },
+    "accountIndex": {
+      "label": "账户编号",
+      "placeholder": "默认：0"
+    },
+    "alert": {
+      "failureTitle": "导入账户失败",
+      "failureMessage": "助记词无效"
+    },
+    "button": {
+      "recover": "恢复"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "使用助记词导入钱包",
+    "seeds": {
+      "label": "助记词（带空格）",
+      "placeholder": "输入助记词"
+    },
+    "password": {
+      "label": "新密码"
+    },
+    "confirmPassword": {
+      "label": "确认密码"
+    },
+    "button": {
+      "restore": "恢复"
+    },
+    "alert": {
+      "failureTitle": "导入账户失败",
+      "failureMessage": "发生错误。请稍后再试。",
+      "invalidSeeds": "助记词无效或账户已删除"
+    }
+  },
+  "registration": {
+    "text": "创建密码",
+    "password": {
+      "label": "新密码"
+    },
+    "confirmPassword": {
+      "label": "确认密码"
+    },
+    "button": {
+      "create": "创建"
+    },
+    "alert": {
+      "failureTitle": "注册失败",
+      "failureMessage": "发生错误。请稍后再试。"
+    }
+  },
+  "searchTokens": {
+    "placeholder": "搜索代币",
+    "empty": "未找到代币",
+    "alert": {
+      "notFungibleTitle": "非同质化代币",
+      "notFungibleMessage": "所选代币不可互换"
+    },
+    "header": {
+      "title": "搜索代币"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "助记词",
+    "reveal": "点击显示助记词",
+    "snackbar": "助记词已复制！",
+    "description1": "助记词可轻松备份和恢复账户。",
+    "description2": "警告：切勿泄露或截图助记词。任何持有者都可控制您的钱包。",
+    "continue": "继续"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "助记词",
+    "line1": "下一步记录您的 12 个助记词。",
+    "line2": "使用助记词可在新设备上恢复钱包。",
+    "line3": "任何人持有助记词即可控制钱包，请妥善保管。",
+    "line4": "Kadena 无法在助记词丢失或应用删除后提供帮助。",
+    "checkbox": "我已理解丢失助记词将无法恢复钱包。"
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "转账挂起！",
+      "pendingMessage": "转账完成后请重试"
+    },
+    "alert": {
+      "nonKTitle": "发送至非 “k:account”",
+      "nonKMessage": "确定继续？",
+      "proceed": "继续"
+    },
+    "chain": {
+      "sourceLabel": "来源链 ID",
+      "targetLabel": "目标链 ID"
+    },
+    "balance": {
+      "label": "链余额"
+    },
+    "accounts": {
+      "recent": "最近",
+      "contacts": "联系人"
+    },
+    "content": {
+      "advancedSettings": "高级设置（可选）",
+      "predicateLabel": "条件",
+      "receiverLabel": "接收方公钥",
+      "destinationLabel": "目标账户",
+      "destinationPlaceholder": "输入目标账户",
+      "receiverPlaceholder": "输入公钥（可选）"
+    },
+    "header": {
+      "title": "发送 {{token}} 交易"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "处理中请勿关闭应用。"
+    },
+    "toast": {
+      "submittedTitle": "已提交转账！",
+      "submittedMessage": "可在活动页查看结果"
+    },
+    "label": {
+      "result": "结果：",
+      "message": "消息：",
+      "requestKey": "请求键："
+    },
+    "warning": {
+      "crossChainTitle": "您正在执行跨链转账",
+      "crossChainMessage": "此操作通常需要更长时间"
+    },
+    "button": {
+      "activities": "查看活动"
+    },
+    "header": {
+      "title": "交易进行中"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "您即将进行跨链转账",
+      "crossChainMessage": "此操作通常需要更长时间"
+    },
+    "button": {
+      "send": "发送"
+    },
+    "confirmModal": {
+      "title": "确认发送交易",
+      "amountLabel": "数量：",
+      "gasLimitLabel": "Gas 限额：",
+      "gasPriceLabel": "Gas 价格：",
+      "speedLabel": "速度：",
+      "confirmButton": "确认"
+    },
+    "content": {
+      "transactionParameters": "交易参数",
+      "transactionSpeed": "交易速度",
+      "gasLimitPlaceholder": "输入 Gas 限额",
+      "gasPricePlaceholder": "输入 Gas 价格",
+      "gasLabel": "Gas",
+      "speedLabel": "{{speed}} 速度"
+    },
+    "header": {
+      "title": "发送交易"
+    },
+    "walletInfo": {
+      "amountLabel": "发送数量",
+      "half": "一半",
+      "max": "最大",
+      "maxSnackbar": "最大数量已包含预计 Gas 费。",
+      "usdValue": "{{value}} 美元",
+      "balance": "余额：{{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "联系人",
+        "text": "管理联系人列表"
+      },
+      "networks": {
+        "title": "网络",
+        "text": "添加或编辑自定义 RPC 网络"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "编辑 WalletConnect 配置"
+      },
+      "accountSecurity": {
+        "title": "账户安全",
+        "text": "管理钱包安全"
+      },
+      "lockWallet": {
+        "title": "锁定钱包",
+        "text": "历史记录将保留"
+      },
+      "deleteAccount": {
+        "title": "删除账户",
+        "text": "所有数据将被删除"
+      }
+    },
+    "alert": {
+      "lockTitle": "确定要锁定钱包？",
+      "lockMessage": "历史记录将保留",
+      "lockConfirm": "锁定钱包",
+      "deleteTitle": "确定要删除账户？",
+      "deleteMessage": "所有数据将被删除。无助记词将失去访问权限。",
+      "deleteConfirm": "删除账户"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Kadena 生态系统网关",
+      "visitWebsite": "访问我们的网站",
+      "joinDiscord": "加入 Discord",
+      "termsOfUse": "使用条款",
+      "privacyPolicy": "隐私政策"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "账户安全"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "重置通行码",
+        "text": "更改应用通行码"
+      },
+      "exportPhrase": {
+        "title": "导出恢复短语",
+        "text": "保护您的钱包"
+      },
+      "changePassword": {
+        "title": "更改密码",
+        "text": "更改账户密码"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "欢迎",
+    "label": {
+      "password": "密码"
+    },
+    "button": {
+      "signIn": "登录"
+    },
+    "alert": {
+      "usePasscodeTitle": "使用通行码登录？",
+      "usePasscodeMessage": "是否使用通行码和生物识别登录？",
+      "failedTitle": "登录失败",
+      "invalidPassword": "密码无效",
+      "errorMessage": "发生错误。请稍后再试。"
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "转换确认",
+      "give": "支付",
+      "receive": "接收",
+      "confirmButton": "确认"
+    },
+    "gasSettings": {
+      "title": "Gas 设置",
+      "gasStation": "GAS 站",
+      "gasLimitLabel": "Gas 限额",
+      "gasLimitPlaceholder": "输入 Gas 限额",
+      "gasPriceLabel": "Gas 价格",
+      "gasPricePlaceholder": "输入 Gas 价格",
+      "failureCost": "失败时的预计 Gas 费用：",
+      "noGasCost": "无需 Gas 费用 — 由 eckoDEX 补贴"
+    },
+    "info": {
+      "gasCost": "Gas 费用",
+      "free": "免费",
+      "priceImpact": "价格影响",
+      "price": "价格",
+      "maxSlippage": "最大滑点",
+      "lpFee": "流动性提供费",
+      "txDeadline": "交易时限",
+      "gasPrice": "Gas 价格",
+      "gasLimit": "Gas 限额",
+      "unitMinutes": "分钟",
+      "unitSeconds": "秒"
+    },
+    "selectTokenModal": {
+      "title": "选择代币",
+      "placeholder": "搜索代币",
+      "tokensLabel": "代币",
+      "warningTitle": "警告",
+      "warningMessage": "{{pair}} 池不存在",
+      "addTokenTitle": "添加新代币",
+      "addTokenMessage": "您的钱包中没有此代币。要添加吗？",
+      "addTokenConfirm": "添加",
+      "selectedSuffix": "（已选择）",
+      "empty": "未找到代币"
+    },
+    "transactionSettings": {
+      "title": "交易设置",
+      "slippageTitle": "滑点容忍度",
+      "deadlineTitle": "交易时限",
+      "minutes": "分钟"
+    },
+    "swapBlock": {
+      "pending": "交易进行中…",
+      "warningTitle": "请确保链 2 上有资金才能转换。",
+      "warningText": "",
+      "give": "支付",
+      "receive": "接收",
+      "confirm": "确认",
+      "submittedTitle": "交换已提交！",
+      "submittedMessage": "可在活动页查看结果",
+      "poweredBy": "由 eckoDEX 提供支持"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "验证恢复短语",
+    "description": "请输入正确顺序的助记词。",
+    "warning": "建议不要使用自定义键盘。请使用默认键盘以确保安全。",
+    "inputLabel": "输入 {{number}}",
+    "error": "助记词无效",
+    "continueButton": "继续"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "资产"
+      },
+      "tokenDetector": {
+        "title": "检测到的代币",
+        "emptyTitle": "此账户没有其他代币",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "已复制账户名称！"
+    },
+    "walletBalance": {
+      "netWorth": "净资产",
+      "accountBalance": "账户余额",
+      "send": "发送",
+      "receive": "接收",
+      "buy": "购买"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "输入连接代码",
+    "connect": "连接",
+    "header": {
+      "title": "扫描二维码"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "项目 ID",
+    "projectIdPlaceholder": "输入项目 ID",
+    "relayUrlLabel": "中继 URL",
+    "relayUrlPlaceholder": "输入中继 URL",
+    "errorTitle": "更改 WalletConnect 配置失败",
+    "errorMessage": "参数无效"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "密码",
+      "placeholder": "输入密码"
+    },
+    "numpad": {
+      "authenticationPrompt": "身份验证",
+      "weakPasscodeTitle": "密码太弱",
+      "weakPasscodeDescription": "您输入的密码太弱，请尝试更复杂的密码。"
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "如果此设备上已打开 eckoDEX 网站且您在 WalletConnect 连接时遇到问题，请返回浏览器然后再试一次",
+      "text2": "如果仍无法解决，请检查 WalletConnect 设置或在桌面浏览器中打开 eckoDEX",
+      "button": "确定"
+    },
+    "walletConnectInfoModal": {
+      "text1": "所有活动会话将保持活动状态，直到您手动通过删除操作结束它们",
+      "text2": "“历史”选项卡显示具有方法和事件权限的会话详细信息",
+      "button": "确定"
+    }
+  },
+  "tabs": {
+    "Wallet": "钱包",
+    "Swap": "兑换",
+    "History": "历史",
+    "Connection": "连接",
+    "Settings": "设置",
+    "history": {
+      "activities": "活动",
+      "pending": "待定"
+    },
+    "connection": {
+      "pairings": "活动会话",
+      "sessions": "历史"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "交易详情",
+    "gas": "Gas：{{gas}}",
+    "statusLabel": "状态",
+    "continuationTitle": "继续",
+    "continuationValue": "步骤：{{step}}, 总计：{{total}}",
+    "no": "否",
+    "requestKeyTitle": "请求密钥",
+    "transactionTypeTitle": "交易类型",
+    "requestKeyChainTitle": "请求密钥（Chain {{chain}}）",
+    "txDetailsButton": "查看 Tx",
+    "requestKeyCopied": "请求密钥已复制到剪贴板！"
+  },
+  "tokenModal": {
+    "distributionTitle": "{{token}} 在链上分布",
+    "removeConfirmTitle": "确定要移除吗？",
+    "removeConfirmMessage": "所有此 Token 数据将被删除且无法恢复",
+    "remove": "移除",
+    "notTransferable": "{{contract}} 不可转移！",
+    "zeroBalance": "{{token}} 余额为 0",
+    "editToken": "编辑 Token",
+    "removeToken": "移除 Token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "我的钱包",
+    "removeConfirmTitle": "确定要移除吗？",
+    "removeConfirmMessage": "所有账户数据将被删除且无法恢复",
+    "remove": "移除",
+    "share": "分享钱包",
+    "exportRecovery": "导出助记词",
+    "removeSelected": "移除所选钱包",
+    "create": "创建钱包",
+    "import": "导入钱包",
+    "copySuccess": "账户详情已复制到剪贴板！"
+  },
+  "session": {
+    "title": "会话详情",
+    "deleteTitle": "确定要删除此会话历史吗？",
+    "deleteDescription": "所有会话历史数据将被删除且无法恢复",
+    "deleteFailedTitle": "删除会话失败",
+    "deleteFailedMessage": "WalletConnect 配置不匹配",
+    "deleteSession": "删除会话",
+    "reviewPermissions": "查看 {{namespace}} 权限",
+    "unknownUrl": "未知",
+    "methods": "方法",
+    "events": "事件",
+    "expiry": "到期",
+    "lastUpdated": "最后更新"
+  },
+  "receive": {
+    "title": "接收 Token",
+    "accountNameLabel": "您的账户名称"
+  },
+  "networkSelector": {
+    "title": "选择网络",
+    "manage": "管理网络"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "区块浏览器 URL",
+    "editNetwork": "编辑网络"
+  },
+  "contactDetails": {
+    "accountName": "账户名称",
+    "chainId": "Chain ID",
+    "edit": "编辑联系人",
+    "copied": "已复制到剪贴板！"
+  },
+  "validation": {
+    "required": "此字段为必填项",
+    "default": "无效的值",
+    "min": "至少需要 {{count}} 个字符",
+    "max": "最多可有 {{count}} 个字符",
+    "minNumber": "最小值为 {{count}}",
+    "maxNumber": "最大值为 {{count}}",
+    "email": "必须是有效的电子邮件",
+    "matches": "格式无效",
+    "passwordsMatch": "密码不匹配",
+    "passwordComplexity": "必须包含 8 个字符、1 个大写字母、1 个小写字母、1 个数字和 1 个特殊字符"
+  }
+}

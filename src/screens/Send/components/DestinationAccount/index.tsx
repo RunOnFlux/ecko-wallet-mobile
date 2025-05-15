@@ -1,5 +1,6 @@
 import React, {FC, useCallback, useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import {styles} from './styles';
 import {TDestinationAccountProps} from './types';
 import WalletItem from '../../../../components/WalletItem';
@@ -11,6 +12,7 @@ import {ERootStackRoutes, TNavigationProp} from '../../../../routes/types';
 
 const DestinationAccount: FC<TDestinationAccountProps> = React.memo(
   ({selectedAccount, setSelectedAccount}) => {
+    const {t} = useTranslation();
     const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
 
     const [name, setName] = useState<string>('');
@@ -40,7 +42,7 @@ const DestinationAccount: FC<TDestinationAccountProps> = React.memo(
 
     return (
       <View style={styles.wrapper}>
-        <Text style={styles.label}>Destination Account</Text>
+        <Text style={styles.label}>{t('send.content.destinationLabel')}</Text>
         {selectedAccount ? (
           <View style={styles.selectedAccountWrapper}>
             <WalletItem
@@ -55,9 +57,9 @@ const DestinationAccount: FC<TDestinationAccountProps> = React.memo(
           <View style={styles.inputContainer}>
             <TextInput
               style={styles.input}
-              placeholder="Enter destination account"
+              placeholder={t('send.content.destinationPlaceholder')}
               autoCapitalize="none"
-              autoFocus={true}
+              autoFocus
               onEndEditing={handlePressReturn}
               onBlur={handlePressReturn}
               onSubmitEditing={handlePressReturn}

@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "சேமிக்கவும்",
+    "confirm": "உறுதிசெய்யவும்",
+    "delete": "நீக்கு",
+    "cancel": "ரத்து செய்",
+    "ok": "சரி",
+    "error": "தவறு",
+    "selectLanguage": "மொழியை தேர்வு செய்",
+    "selectLanguageLongDescription": "தொடர்புடைய மொழியைத் தேர்ந்தெடுக்கவும்"
+  },
+  "welcome": {
+    "title": "வரவேற்கிறோம்\neckoWALLET",
+    "subtitle": "Kadena சூழலமைப்புக்கான வாயில்",
+    "loginCard": {
+      "title": "என் கணக்கில் உள்நுழையவும்",
+      "description": "உங்கள் பணப்பையைச் சேர்க்கும் கடவுச்சொல்லை உள்ளிடவும்"
+    },
+    "newUserCard": {
+      "title": "நான் புதிய பயனாளர்",
+      "description": "புதிய eckoWALLET கணக்கை அமைக்கவும்"
+    },
+    "recoverCard": {
+      "title": "எனக்கு ஏற்கனவே கணக்கு உள்ளிருக்கிறது",
+      "description": "உங்கள் ரஹಸ್ಯ ஜாடியைக் கொண்டு உள்நுழையவும்"
+    },
+    "instructions": {
+      "intro": "புதிய கணக்கைச் சேர்க்க விரும்பின், கீழ்க்கண்ட படிகளை பின்பற்றவும்:",
+      "step1": "1. உங்கள் ஏற்கனவே உள்ள கணக்கில் உள்நுழைக",
+      "step2": "2. \"அமைப்புகள்\" என்பதை கிளிக் செய்",
+      "step3": "3. \"கணக்கை நீக்கு\" என்பதை கிளிக் செய்"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "தொடர்பு பெயர்",
+      "placeholder": "தொடர்பு பெயரை தட்டச்சு செய்"
+    },
+    "accountName": {
+      "label": "கணக்கு பெயர்",
+      "placeholder": "கணக்கு பெயரை இணைக்கவும்"
+    },
+    "saveButton": "சேமிக்கவும்",
+    "header": {
+      "title": "தொடர்பு சேர்க்கவும்"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "தனிப்பயன்",
+    "alert": {
+      "failureTitle": "நெட்வொர்க் சேர்க்க முடியவில்லை",
+      "failureMessage": "தவறான நெட்வொர்க் தகவல்"
+    },
+    "name": {
+      "label": "நெட்வொர்க் பெயர்",
+      "placeholder": "நெட்வொர்க் பெயரை உள்ளிடவும்"
+    },
+    "host": {
+      "label": "புதிய RPC URL",
+      "placeholder": "URL ஐ உள்ளிடவும்"
+    },
+    "explorer": {
+      "label": "ப்ளாக் எக்ஸ்ப்ளோரர் URL",
+      "placeholder": "URL ஐ உள்ளிடவும்"
+    },
+    "header": {
+      "title": "நெட்வொர்க் சேர்க்கவும்"
+    },
+    "saveButton": "சேமிக்கவும்"
+  },
+  "addToken": {
+    "header": {
+      "title": "டோக்கன் சேர்க்கவும்",
+      "titleImport": "டோக்கன் இறக்குமதி செய்"
+    },
+    "tokenAddress": {
+      "label": "டோக்கன் ஒப்பந்த முகவரி",
+      "placeholder": "ஒப்பந்த முகவரியை தட்டச்சு செய்"
+    },
+    "tokenName": {
+      "label": "டோக்கன் குறியீடு",
+      "placeholder": "டோக்கன் குறியீட்டை தட்டச்சு செய்"
+    },
+    "alert": {
+      "failureTitle": "டோக்கன் இறக்குமதி தோல்வி",
+      "failureMessage": "டோக்கன் கிடைக்கவில்லை"
+    },
+    "saveButton": "டோக்கன் சேர்க்கவும்"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "கொள்முதல்"
+    },
+    "consent": {
+      "description": "கிரிப்டோ நாணயங்கள் கொள்முதல் மற்றும் விற்பனை Onramper வழங்கும் மூன்றாம் தரப்பு சேவையினால் நடைபெறும்.\n\neckoWallet உங்களுக்கு மிக உச்ச பாதுகாப்பு வழங்க முயலும்; இருப்பினும் அந்த மூன்றாம் தரப்பு சேவைகளின் பாதுகாப்பையும் இரகசியத்தையும் உறுதி செய்யமுடியாது."
+    },
+    "error": {
+      "walletUnavailable": "நாணய முகவரி கிடைக்கவில்லை",
+      "unableConnect": "சேவையுடன் இணைக்க முடியவில்லை. பின்னர் முயற்சிக்கவும்."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "கடவுச்சொல்லை மாற்று"
+    },
+    "currentPassword": {
+      "label": "தற்போதைய கடவுச்சொல்"
+    },
+    "newPassword": {
+      "label": "புதிய கடவுச்சொல்"
+    },
+    "confirmPassword": {
+      "label": "கடவுச்சொல்லை உறுதிசெய்"
+    },
+    "toast": {
+      "success": "கடவுச்சொல் வெற்றிகரமாக மாற்றப்பட்டது!"
+    },
+    "alert": {
+      "changeFailureTitle": "கடவுச்சொல் மாற்றம் தோல்வி",
+      "changeFailureMessage": "சில பிழை ஏற்பட்டது. பின்னர் முயற்சிக்கவும்.",
+      "verifyFailureTitle": "சரிபார்ப்பு தோல்வி",
+      "verifyFailureMessage": "தவறான கடவுச்சொல்"
+    },
+    "changeButton": "மாற்று"
+  },
+  "connection": {
+    "unknown": "அறியப்படாத இணைப்பு",
+    "deleteAlert": {
+      "title": "இந்த செயல்முறையை நீக்க நீங்கள் உறுதியா?",
+      "message": "அனைத்து தரவுகளும் அழிக்கப்படும்; மீட்கமுடியாது."
+    },
+    "deleteFailureTitle": "செயல்முறை நீக்கம் தோல்வி",
+    "deleteFailureMessage": "WalletConnect கட்டமைப்பு பொருந்தவில்லை",
+    "empty": {
+      "sessions": "வரலாறு இல்லை",
+      "pairings": "செயல்முறை இல்லை"
+    },
+    "modal": {
+      "title": "WalletConnect தகவல்கள்"
+    },
+    "expiryLabel": "காலாவதி:",
+    "unknownHost": "அறியப்படாது"
+  },
+  "contacts": {
+    "searchPlaceholder": "தொடர்புகளை தேடு",
+    "emptyList": "தொடர்பு இல்லை",
+    "header": {
+      "title": "தொடர்புகள்"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "மறுசீரமைப்பு ஜாடி இடைவிடைபிரலவில் நகலெடுக்கப்பட்டது!",
+    "description": "உங்கள் மறுசீரமைப்பு ஜாடி கணக்கின் காப்பு மற்றும் மீட்பை எளிதாக்குகிறது.",
+    "warning": "மறுசீரமைப்பு ஜாடியை யாருடைக்கும் பகிர வேண்டாம். யார் பெற்றாலும் உங்கள் பணப்பையை எடுக்கலாம்.",
+    "copyButton": "ஜாடி நகலெடு",
+    "header": {
+      "title": "மறுசீரமைப்பு ஜாடி ஏற்றுமதி"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "கடவுச்சொல்லை சோதனை செய்"
+    },
+    "description": "தொடர மீட்க கடவுச்சொல்லை உள்ளிடவும்",
+    "alert": {
+      "verifyFailureTitle": "சோதனை தோல்வி",
+      "verifyFailureMessage": "தவறான கடவுச்சொல்",
+      "verifyErrorMessage": "சில பிழை. பின்னர் முயற்சிக்கவும்."
+    },
+    "continueButton": "தொடர்"
+  },
+  "history": {
+    "empty": {
+      "pending": "சில நடவடிக்கைகள் இடைநிறுத்தப்பட்டன",
+      "activities": "நடவடிக்கைகள் இல்லை"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "பரிமாற்றம் காத்திருக்கிறது!",
+      "pendingMessage": "முற்றும் மறுஉயர்வு முயற்சி செய்"
+    },
+    "finishButton": "சேன்கள் இடையிலான பரிமாற்றம் நிறைவு செய்"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "கணக்கு பெயர்",
+      "placeholder": "கணக்கு பெயரை உள்ளிடவும்"
+    },
+    "privateKey": {
+      "label": "குறிப்பிடு விசை",
+      "placeholder": "குறிப்பிடு விசையை உள்ளிடவும்"
+    },
+    "importButton": "இறக்குமதி",
+    "header": {
+      "title": "கணக்கு இறக்குமதி"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "eckoWALLET திற",
+      "enter": "உங்கள் பாஸ்கோடு உள்ளிடவும்",
+      "enterNew": "புதிய பாஸ்கோடு உள்ளிடவும்",
+      "reenter": "மீண்டும் பாஸ்கோடு உள்ளிடவும்",
+      "reenterNew": "புதியதை மீண்டும் உள்ளிடவும்"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "நெட்வொர்க்கள்"
+    }
+  },
+  "noConnection": {
+    "message": "இணைப்பின்றி"
+  },
+  "receiverScan": {
+    "placeholder": "இலக்கு கணக்கை தொகு",
+    "header": {
+      "title": "QR ஸ்கேன்"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "ஜாடி ஃபிரேஸ்கள்",
+      "placeholder": "மறுசீரமைப்பு ஃபிரேஸ்களை உள்ளிடவும்"
+    },
+    "accountIndex": {
+      "label": "கணக்கு எண்",
+      "placeholder": "இயல்புநிலை: 0"
+    },
+    "alert": {
+      "failureTitle": "கணக்கு இறக்குமதி தோல்வி",
+      "failureMessage": "தவறான ஃபிரேஸ்"
+    },
+    "button": {
+      "recover": "புதுப்பிப்ப"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "மறுசீரமைப்பு ஃபிரேஸால்\nபணப்பையை இறக்குமதி செய்",
+    "seeds": {
+      "label": "மறுசீரமைப்பு ஃபிரேஸ் (இடைஒற்றைகளுடன்)",
+      "placeholder": "ஃபிரேஸ்களை உள்ளிடவும்"
+    },
+    "password": {
+      "label": "புதிய பாஸ்வேர்ட்"
+    },
+    "confirmPassword": {
+      "label": "பாஸ்வேர்ட் உறுதிசெய்யவும்"
+    },
+    "button": {
+      "restore": "மீட்டமைப்ப"
+    },
+    "alert": {
+      "failureTitle": "உறுப்படம் தோல்வி",
+      "failureMessage": "சில பிழை. பின்னர் முயற்சிக்கவும்.",
+      "invalidSeeds": "தவறான ஃபிரேஸ் அல்லது கணக்கு நீக்கப்பட்டது"
+    }
+  },
+  "registration": {
+    "text": "பாஸ்வேர்ட் உருவாக்கு",
+    "password": {
+      "label": "புதிய பாஸ்வேர்ட்"
+    },
+    "confirmPassword": {
+      "label": "பாஸ்வேர்ட் உறுதி"
+    },
+    "button": {
+      "create": "உருவாக்கு"
+    },
+    "alert": {
+      "failureTitle": "பதிவு தோல்வி",
+      "failureMessage": "சில பிழை. பின்னர் முயற்சிக்கவும்."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "டோக்கன் தேடு",
+    "empty": "டோக்கன்கள் இல்லை",
+    "alert": {
+      "notFungibleTitle": "மாறிவர் டோக்கன் அல்ல",
+      "notFungibleMessage": "தேர்ந்த டோக்கன் மாறிவர் அல்ல"
+    },
+    "header": {
+      "title": "டோக்கன் தேடு"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "மறுசீரமைப்பு ஃபிரேஸ்",
+    "reveal": "வார்த்தைகளை காண கிளிக் செய்",
+    "snackbar": "ஃபிரேஸ் நகலெடுக்கப்பட்டது!",
+    "description1": "மறுசீரமைப்பு ஃபிரேஸ் உங்கள் கணக்கைக் காப்பு/மீட்டமைக்க உதவும்.",
+    "description2": "அறிவுரை: பகிர வேண்டாம்; ஸ்கிரீன்ஷாட் எடுக்க வேண்டாம்.",
+    "continue": "தொடர்"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "மறுசீரமைப்பு ஃபிரேஸ்",
+    "line1": "பின்வரும் பக்கத்தில் 12 வார்த்தைகள் குறிப்பிட்டு வையுங்கள்.",
+    "line2": "இதால் புதிய சாதனத்தில் மீட்டமைக்க முடியும்.",
+    "line3": "இதைக் கண்டு கொண்டவர் உங்கள் பணப்பையை கட்டுப்படுத்துவார்.",
+    "line4": "நீங்கினால் Kadena உதவாது; பாதுகாப்பாக வையுங்கள்.",
+    "checkbox": "இறக்குமதி இல்லாமல் மீட்டமைக்க முடியாது என்பதை புரிந்துகொண்டேன்."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "பரிமாற்றம் காத்திருக்கிறது!",
+      "pendingMessage": "முடிந்ததும் மீண்டும் முயற்சிக்கவும்"
+    },
+    "alert": {
+      "nonKTitle": "non \"k:account\"க்கு அனுப்பு",
+      "nonKMessage": "தொடர விரும்புகிறீர்களா?",
+      "proceed": "தொடர"
+    },
+    "chain": {
+      "sourceLabel": "மூல chain ID",
+      "targetLabel": "இலக்கு chain ID"
+    },
+    "balance": {
+      "label": "chain баланс"
+    },
+    "accounts": {
+      "recent": "சமீபத்தியவை",
+      "contacts": "தொடர்புகள்"
+    },
+    "content": {
+      "advancedSettings": "மேம்பட்ட அமைப்புகள் (விருப்பம்)",
+      "predicateLabel": "Predicate",
+      "receiverLabel": "பெறுநர் Public Key",
+      "destinationLabel": "இலக்கு கணக்கு",
+      "destinationPlaceholder": "கணக்கை உள்ளிடவும்",
+      "receiverPlaceholder": "Public Key (விருப்பம்)"
+    },
+    "header": {
+      "title": "{{token}} பரிமாற்றம் அனுப்பு"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "செயலாக்கத்தில் இருக்கும் வரை செயலியை மூடாதீர்கள்."
+    },
+    "toast": {
+      "submittedTitle": "பரிமாற்றம் அனுப்பப்பட்டது!",
+      "submittedMessage": "பயன் குறிப்புகளை செயல்பாட்டில் காண்க"
+    },
+    "label": {
+      "result": "முடிவு:",
+      "message": "செய்தி:",
+      "requestKey": "Request Key:"
+    },
+    "warning": {
+      "crossChainTitle": "cross-chain பரிமாற்றம் செய்கிறீர்கள்",
+      "crossChainMessage": "இது அதிக நேரம் எடுக்கும்"
+    },
+    "button": {
+      "activities": "செயல்பாடுகள்"
+    },
+    "header": {
+      "title": "பரிமாற்றம் செயல்பாட்டில்"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "cross-chain பரிமாற்றம் செய்ய உள்ளீர்கள்",
+      "crossChainMessage": "இது அதிக நேரம் எடுக்கும்"
+    },
+    "button": {
+      "send": "அனுப்பு"
+    },
+    "confirmModal": {
+      "title": "பரிமாற்றத்தை உறுதிசெய்",
+      "amountLabel": "மொத்தம்:",
+      "gasLimitLabel": "Gas வரம்பு:",
+      "gasPriceLabel": "Gas விலை:",
+      "speedLabel": "வேகம்:",
+      "confirmButton": "உறுதிசெய்"
+    },
+    "content": {
+      "transactionParameters": "பரிமாற்ற அளவுருக்கள்",
+      "transactionSpeed": "பரிமாற்ற வேகம்",
+      "gasLimitPlaceholder": "Gas வரம்பு",
+      "gasPricePlaceholder": "Gas விலை",
+      "gasLabel": "Gas",
+      "speedLabel": "வேகம் {{speed}}"
+    },
+    "header": {
+      "title": "பரிமாற்றம் அனுப்பு"
+    },
+    "walletInfo": {
+      "amountLabel": "அனுப்ப Amount",
+      "half": "அரை",
+      "max": "அதிகபட்சம்",
+      "maxSnackbar": "அதிகபட்சம் Gas கட்டணத்தையும் பொருத்துகிறது.",
+      "usdValue": "{{value}} USD",
+      "balance": "மீதமுள்ளவை: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "தொடர்புகள்",
+        "text": "தொடர்பு பட்டியலை நிர்வகி"
+      },
+      "networks": {
+        "title": "நெட்வொர்க்கள்",
+        "text": "RPC நெட்வொர்க் சேர்க்க/திருத்த"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "WalletConnect அமைப்பு"
+      },
+      "accountSecurity": {
+        "title": "கணக்கு பாதுகாப்பு",
+        "text": "பணப்பை பாதுகாப்பு"
+      },
+      "lockWallet": {
+        "title": "பணப்பையை பூட்டு",
+        "text": "வரலாறு காப்பதில் இருக்கும்"
+      },
+      "deleteAccount": {
+        "title": "கணக்கு நீக்கு",
+        "text": "அனைத்து தரவையும் நீக்கு"
+      }
+    },
+    "alert": {
+      "lockTitle": "பணப்பை பூட்டவா?",
+      "lockMessage": "வரலாறு இருக்கும்",
+      "lockConfirm": "பூட்டு",
+      "deleteTitle": "கணக்கு நீக்கவா?",
+      "deleteMessage": "அனைத்து தரவையும் நீக்கும். மறுசீரமைப்பு இல்லாவிட்டால் அணுகல் இழக்கப்படும்.",
+      "deleteConfirm": "நீக்கு"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Kadena சூழலமைப்புக்கான வாயில்",
+      "visitWebsite": "இணையத்தளம்",
+      "joinDiscord": "Discord சேர",
+      "termsOfUse": "பயன்பாட்டு விதிமுறைகள்",
+      "privacyPolicy": "தனியுரிமைக் கொள்கை"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "கணக்கு பாதுகாப்பு"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Passcode மீட்டமை",
+        "text": "உயர்த்தல் மாற்று"
+      },
+      "exportPhrase": {
+        "title": "மறுசீரமைப்பு ஜாடி ஏற்றுமதி",
+        "text": "பணப்பை பாதுகாக்க"
+      },
+      "changePassword": {
+        "title": "கடவுச்சொல்லை மாற்று",
+        "text": "கணக்கு கடவுச்சொல் மாற்று"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "வரவேற்கிறோம்",
+    "label": {
+      "password": "கடவுச்சொல்"
+    },
+    "button": {
+      "signIn": "உள்நுழைய"
+    },
+    "alert": {
+      "usePasscodeTitle": "Passcode மூலம் உள்நுழைவு?",
+      "usePasscodeMessage": "Passcode மற்றும் பயோமெட்ரிக் பயன்படுத்த வேண்டுமா?",
+      "failedTitle": "உள்நுழைவு தோல்வி",
+      "invalidPassword": "தவறான கடவுச்சொல்",
+      "errorMessage": "சில பிழை. பின்னர் முயற்சிக்கவும்."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "மாற்றத்தை உறுதி செய்",
+      "give": "கொடு",
+      "receive": "பெறு",
+      "confirmButton": "உறுதி"
+    },
+    "gasSettings": {
+      "title": "Gas அமைப்புகள்",
+      "gasStation": "GAS நிலையம்",
+      "gasLimitLabel": "Gas வரம்பு",
+      "gasLimitPlaceholder": "Gas வரம்பு",
+      "gasPriceLabel": "Gas விலை",
+      "gasPricePlaceholder": "Gas விலை",
+      "failureCost": "தோல்வியில் Gas செலவு:",
+      "noGasCost": "Gas கட்டணம் இல்லை — eckoDEX ஆதரவு"
+    },
+    "info": {
+      "gasCost": "Gas செலவு",
+      "free": "இலவசம்",
+      "priceImpact": "விலை தாக்கம்",
+      "price": "விலை",
+      "maxSlippage": "அதிகபட்ச சுழற்சி",
+      "lpFee": "LP கட்டணம்",
+      "txDeadline": "நேர எல்லை",
+      "gasPrice": "Gas விலை",
+      "gasLimit": "Gas வரம்பு",
+      "unitMinutes": "நிமிடங்கள்",
+      "unitSeconds": "விநாடிகள்"
+    },
+    "selectTokenModal": {
+      "title": "டோக்கனை தேர்வு செய்",
+      "placeholder": "டோக்கன் தேடு",
+      "tokensLabel": "டோக்கன்கள்",
+      "warningTitle": "எச்சரிக்கை",
+      "warningMessage": "Pool {{pair}} இல்லை",
+      "addTokenTitle": "புதிய டோக்கன் சேர்க்க",
+      "addTokenMessage": "உங்கள் பணப்பையில் இல்லை. சேர்க்கவா?",
+      "addTokenConfirm": "சேர்க்க",
+      "selectedSuffix": " (தேர்வு)",
+      "empty": "டோக்கன் இல்லை"
+    },
+    "transactionSettings": {
+      "title": "பரிவர்த்தனை அமைப்புகள்",
+      "slippageTitle": "சுழற்சி சகிப்பு",
+      "deadlineTitle": "நேர எல்லை",
+      "minutes": "நிமிடங்கள்"
+    },
+    "swapBlock": {
+      "pending": "பரிவர்த்தனை செயல்படுகிறது...",
+      "warningTitle": "மாற்றத்திற்கு செயின் 2 இல் நிதி சரிபார்க்கவும்.",
+      "warningText": "",
+      "give": "கொடு",
+      "receive": "பெறு",
+      "confirm": "உறுதி",
+      "submittedTitle": "Swap அனுப்பப்பட்டது!",
+      "submittedMessage": "செயல்பாடுகளில் முடிவை காணவும்",
+      "poweredBy": "eckoDEX வழங்குகிறது"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "மறுசீரமைப்பு fraise சோதனை",
+    "description": "சரியான வரிசையில் சொற்களை தட்டச்சு செய்.",
+    "warning": "தனிப்பயன் விசைப்பலகைகளை தவிர்க்கவும். பாதுகாப்பிற்காக இயல்புநிலை விசைப்பலகையைப் பயன்படுத்தவும்.",
+    "inputLabel": "உள்ளீடு {{number}}",
+    "error": "தவறான fraise",
+    "continueButton": "தொடரி"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "சொத்துக்கள்"
+      },
+      "tokenDetector": {
+        "title": "காணப்பட்ட டோக்கன்கள்",
+        "emptyTitle": "இணக்கத்தில் பிற டோக்கன்கள் இல்லை",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "கணக்கு பெயர் நகலெடுக்கப்பட்டது!"
+    },
+    "walletBalance": {
+      "netWorth": "நிகர மதிப்பு",
+      "accountBalance": "கணக்கு வரவு",
+      "send": "அனுப்பு",
+      "receive": "பெறு",
+      "buy": "கொள்முதல்"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "இணைப்பு குறியீடு உள்ளிடவும்",
+    "connect": "இணைக்க",
+    "header": {
+      "title": "QR ஸ்கேன்"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "திட்ட ID",
+    "projectIdPlaceholder": "திட்ட ID ஐ உள்ளிடவும்",
+    "relayUrlLabel": "Relay URL",
+    "relayUrlPlaceholder": "Relay URL ஐ உள்ளிடவும்",
+    "errorTitle": "WalletConnect அமைப்புச் சோதனை தோல்வி",
+    "errorMessage": "தவறான அளவுருக்கள்"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "கடவுச்சொல்",
+      "placeholder": "கடவுச்சொல்லை உள்ளிடவும்"
+    },
+    "numpad": {
+      "authenticationPrompt": "அங்கீகாரம்",
+      "weakPasscodeTitle": "பலவீனமான கடவுச்சுட்டுரை",
+      "weakPasscodeDescription": "நீங்கள் பதிவுசெய்த கடவுச்சுட்டுரை பலவீனமாக உள்ளது. கடுமையான கடவுச்சுட்டுரையை முயற்சிக்கவும்."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "இந்த சாதனத்தில் eckoDEX இணையதளம் திறக்கப்பட்டிருந்தால் மற்றும் WalletConnect இணைப்பில் சிக்கல்கள் இருந்தால், உலாவியியில் திரும்பி மீண்டும் முயற்சிக்கவும்",
+      "text2": "இது உதவாமல் இருந்தால், WalletConnect அமைப்புகளை சரிபார்க்கவும் அல்லது கணினி உலாவியில் eckoDEX ஐ திறக்கவும்",
+      "button": "சரி"
+    },
+    "walletConnectInfoModal": {
+      "text1": "செயலில் உள்ள அனைத்து அமர்வுகளும் நீக்கச் செயல்பாடு மூலம் கையால் நிறுத்தப்படulana்போது வரை இயல்பாக செயல்படும்",
+      "text2": "வரலாறு தாவலில் விபரங்கள் மற்றும் நிகழ்வுகளுக்கான அனுமதிகள் உடன் அமர்வு விவரங்கள் காட்டப்படுகிறது",
+      "button": "சரி"
+    }
+  },
+  "tabs": {
+    "Wallet": "நாணயப்பை",
+    "Swap": "மாற்றம்",
+    "History": "வரலாறு",
+    "Connection": "இணைப்புகள்",
+    "Settings": "அமைப்புகள்",
+    "history": {
+      "activities": "செயற்பாடுகள்",
+      "pending": "நிலுவையில் உள்ளது"
+    },
+    "connection": {
+      "pairings": "செயலில் உள்ள அமர்வுகள்",
+      "sessions": "வரலாறு"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "பொருப்புள்ள விபரங்கள்",
+    "gas": "எரிபொருள்: {{gas}}",
+    "statusLabel": "நிலை",
+    "continuationTitle": "தொடர்",
+    "continuationValue": "படி: {{step}}, மொத்தം: {{total}}",
+    "no": "இல்லை",
+    "requestKeyTitle": "அஞ்சல் விசை",
+    "transactionTypeTitle": "பொருப்புள்ள வகை",
+    "requestKeyChainTitle": "அஞ்சல் விசை (Chain {{chain}})",
+    "txDetailsButton": "Tx விவரங்கள்",
+    "requestKeyCopied": "அஞ்சல் விசை கிளிப்போர்டில் நகலெடுக்கப்பட்டது!"
+  },
+  "tokenModal": {
+    "distributionTitle": "{{token}} சங்கிலியில் பகிர்வு",
+    "removeConfirmTitle": "நீக்க உறுதியாக இருக்கிறீர்களா?",
+    "removeConfirmMessage": "அனைத்து டோக்கன் தரவுகளும் நீக்கப்படும் மற்றும் மீட்க முடியாது",
+    "remove": "நீக்கு",
+    "notTransferable": "{{contract}} பெயர்ப்பாடு செய்ய இயலாது!",
+    "zeroBalance": "{{token}} இருப்பு 0 ஆகும்",
+    "editToken": "டோக்கன் திருத்து",
+    "removeToken": "டோக்கன் நீக்கு",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "எனது நாணயப்பைகள்",
+    "removeConfirmTitle": "நீக்க உறுதியாக இருக்கிறீர்களா?",
+    "removeConfirmMessage": "அனைத்து கணக்கு தரவுகளும் நீக்கப்படும் மற்றும் மீட்க முடியாது",
+    "remove": "நீக்கு",
+    "share": "நாணயப்பை பகிர்",
+    "exportRecovery": "மீட்பு வாசகத்தை ஏற்றுமதி செய்",
+    "removeSelected": "தேர்ந்தெடுக்கப்பட்ட நாணயப்பையை நீக்கு",
+    "create": "நாணயப்பை உருவாக்கு",
+    "import": "நாணயப்பை இறக்குமதி செய்",
+    "copySuccess": "கணக்கு விவரங்கள் கிளிப்போர்ட் இல் நகலெடுக்கப்பட்டது!"
+  },
+  "session": {
+    "title": "அமர்வு விவரங்கள்",
+    "deleteTitle": "இந்த அமர்வு வரலாற்றை நீக்க உறுதியாக இருக்கிறீர்களா?",
+    "deleteDescription": "அமர்வு வரலாற்று அனைத்து தரவுகளும் நீக்கப்படும் மற்றும் மீட்க முடியாது",
+    "deleteFailedTitle": "அமர்வு நீக்கம் தோல்வியடைந்தது",
+    "deleteFailedMessage": "WalletConnect அமைப்பு பொருந்தவில்லை",
+    "deleteSession": "அமர்வு நீக்கு",
+    "reviewPermissions": "{{namespace}} அனுமதிகளை மதிப்பாய்வு செய்",
+    "unknownUrl": "அறியப்படாதது",
+    "methods": "முறைமைகள்",
+    "events": "நிகழ்வுகள்",
+    "expiry": "காலாவதி",
+    "lastUpdated": "இறுதி முறையீடு"
+  },
+  "receive": {
+    "title": "டோக்கன்களை பெறுக",
+    "accountNameLabel": "உங்கள் கணக்கு பெயர்"
+  },
+  "networkSelector": {
+    "title": "பிணையத்தை தேர்ந்தெடு",
+    "manage": "பிணையங்களை நிர்வகி"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "பிளாக் எக்ஸ்ப்ளோரர் URL",
+    "editNetwork": "பிணையத்தை திருத்து"
+  },
+  "contactDetails": {
+    "accountName": "கணக்கு பெயர்",
+    "chainId": "Chain ID",
+    "edit": "தொடர்பு திருத்து",
+    "copied": "கிளிப்போர்டில் நகலெடுக்கப்பட்டது!"
+  },
+  "validation": {
+    "required": "இந்த களம் அவசியம்",
+    "default": "செல்லாத மதிப்பு",
+    "min": "குறைந்தது {{count}} எழுத்துகள் இருக்க வேண்டும்",
+    "max": "அதிகபட்சம் {{count}} எழுத்துகள் இருக்கலாம்",
+    "minNumber": "குறைந்தது {{count}} ஆக வேண்டும்",
+    "maxNumber": "அதிகபட்சம் {{count}} ஆகலாம்",
+    "email": "சரியான மின்னஞ்சல் முகவரி இருக்க வேண்டும்",
+    "matches": "செல்லாத வடிவம்",
+    "passwordsMatch": "கடவுச்சொற்கள் பொருந்தவில்லை",
+    "passwordComplexity": "8 எழுத்துக்கள், ஒரு பெரிய எழுத்து, ஒரு சிறிய எழுத்து, ஒரு எண் மற்றும் ஒரு சிறப்பு எழுத்து கொண்டிருக்க வேண்டும்"
+  }
+}

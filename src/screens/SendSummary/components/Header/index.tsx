@@ -1,16 +1,16 @@
-import React, {useCallback} from 'react';
+import React, {FC, useCallback} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
-
-import {createStyles} from './styles';
 import ArrowLeftSvg from '../../../../assets/images/arrow-left.svg';
+import {createStyles} from './styles';
 import {ERootStackRoutes, TNavigationProp} from '../../../../routes/types';
 import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
 
-const Header = React.memo(() => {
+const Header: FC = React.memo(() => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.SendSummary>>();
-
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
   const styles = createStyles({bottomSpace, statusBarHeight});
 
@@ -26,7 +26,7 @@ const Header = React.memo(() => {
         style={styles.backBtnWrapper}>
         <ArrowLeftSvg fill="#787B8E" />
       </TouchableOpacity>
-      <Text style={styles.title}>Send Transaction</Text>
+      <Text style={styles.title}>{t('sendSummary.header.title')}</Text>
     </View>
   );
 });

@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "Mentés",
+    "confirm": "Megerősítés",
+    "delete": "Törlés",
+    "cancel": "Mégse",
+    "ok": "OK",
+    "error": "Hiba",
+    "selectLanguage": "Nyelv kiválasztása",
+    "selectLanguageLongDescription": "Válaszd ki a kívánt nyelvet"
+  },
+  "welcome": {
+    "title": "Üdvözöl az\neckoWALLET",
+    "subtitle": "A Kadena ökoszisztéma kapuja",
+    "loginCard": {
+      "title": "Jelentkezz be fiókomba",
+      "description": "Add meg a tárcád jelszavát"
+    },
+    "newUserCard": {
+      "title": "Új felhasználó vagyok",
+      "description": "Állíts be egy új eckoWALLET fiókot"
+    },
+    "recoverCard": {
+      "title": "Már van fiókom",
+      "description": "Jelentkezz be a titkos mondatoddal"
+    },
+    "instructions": {
+      "intro": "Új fiók hozzáadásához kövesd az alábbi lépéseket:",
+      "step1": "1. Jelentkezz be a meglévő fiókodba",
+      "step2": "2. Kattints a “Beállítások” menüpontra",
+      "step3": "3. Kattints a “Fiók törlése” gombra"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Kapcsolattartó neve",
+      "placeholder": "Írd be a nevet"
+    },
+    "accountName": {
+      "label": "Fiók neve",
+      "placeholder": "Írd be a fiók nevét"
+    },
+    "saveButton": "Mentés",
+    "header": {
+      "title": "Kapcsolat hozzáadása"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Egyéni",
+    "alert": {
+      "failureTitle": "A hálózat hozzáadása sikertelen",
+      "failureMessage": "Érvénytelen hálózati adatok"
+    },
+    "name": {
+      "label": "Hálózat neve",
+      "placeholder": "Írd be a hálózat nevét"
+    },
+    "host": {
+      "label": "Új RPC URL",
+      "placeholder": "Írd be az URL-t"
+    },
+    "explorer": {
+      "label": "Blokkfeltáró URL",
+      "placeholder": "Írd be az URL-t"
+    },
+    "header": {
+      "title": "Hálózat hozzáadása"
+    },
+    "saveButton": "Mentés"
+  },
+  "addToken": {
+    "header": {
+      "title": "Token hozzáadása",
+      "titleImport": "Token importálása"
+    },
+    "tokenAddress": {
+      "label": "Token szerződés címe",
+      "placeholder": "Írd be a szerződés címét"
+    },
+    "tokenName": {
+      "label": "Token szimbólum",
+      "placeholder": "Írd be a szimbólumot"
+    },
+    "alert": {
+      "failureTitle": "A token importálása sikertelen",
+      "failureMessage": "A token nem létezik"
+    },
+    "saveButton": "Token hozzáadása"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Vásárlás"
+    },
+    "consent": {
+      "description": "A kriptovaluták vásárlása és eladása az Onramper harmadik fél szolgáltatásán keresztül történik.\n\neqoWallet mindent megtesz a felhasználók biztonságáért, de a harmadik féltől származó szolgáltatások biztonságáért és adatvédelméért nem tudunk felelősséget vállalni."
+    },
+    "error": {
+      "walletUnavailable": "Tárca cím nem elérhető",
+      "unableConnect": "Nem sikerült csatlakozni a szolgáltatáshoz. Próbáld később."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Jelszó módosítása"
+    },
+    "currentPassword": {
+      "label": "Jelenlegi jelszó"
+    },
+    "newPassword": {
+      "label": "Új jelszó"
+    },
+    "confirmPassword": {
+      "label": "Jelszó megerősítése"
+    },
+    "toast": {
+      "success": "A jelszó sikeresen megváltozott!"
+    },
+    "alert": {
+      "changeFailureTitle": "A jelszó módosítása sikertelen",
+      "changeFailureMessage": "Valami hiba történt. Próbáld újra később.",
+      "verifyFailureTitle": "Ellenőrzés sikertelen",
+      "verifyFailureMessage": "Érvénytelen jelszó"
+    },
+    "changeButton": "Jelszó módosítása"
+  },
+  "connection": {
+    "unknown": "Ismeretlen kapcsolat",
+    "deleteAlert": {
+      "title": "Biztosan törlöd ezt az aktív munkamenetet?",
+      "message": "Az összes munkamenet adata törlődik és nem állítható vissza."
+    },
+    "deleteFailureTitle": "Az aktív munkamenet törlése sikertelen",
+    "deleteFailureMessage": "A WalletConnect beállításai nem egyeznek",
+    "empty": {
+      "sessions": "Nincs előzmény",
+      "pairings": "Nincs aktív munkamenet"
+    },
+    "modal": {
+      "title": "WalletConnect információ"
+    },
+    "expiryLabel": "Lejár:",
+    "unknownHost": "Ismeretlen"
+  },
+  "contacts": {
+    "searchPlaceholder": "Kapcsolatok keresése",
+    "emptyList": "Nincs kapcsolat",
+    "header": {
+      "title": "Kapcsolatok"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "A helyreállító mondat másolva!",
+    "description": "A titkos helyreállító mondatod megkönnyíti a fiókod biztonsági mentését és visszaállítását.",
+    "warning": "Soha ne oszd meg a helyreállító mondatod. Akinek megvan, átveheti a tárcád feletti irányítást.",
+    "copyButton": "Helyreállító mondat másolása",
+    "header": {
+      "title": "Helyreállító mondat exportálása"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Jelszó ellenőrzése"
+    },
+    "description": "Add meg a jelszavad a folytatáshoz",
+    "alert": {
+      "verifyFailureTitle": "Ellenőrzés sikertelen",
+      "verifyFailureMessage": "Érvénytelen jelszó",
+      "verifyErrorMessage": "Valami hiba történt. Próbáld újra később."
+    },
+    "continueButton": "Folytatás"
+  },
+  "history": {
+    "empty": {
+      "pending": "Nincsenek függőben lévő tevékenységek",
+      "activities": "Nincs tevékenység"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Az átutalás függőben!",
+      "pendingMessage": "Próbáld újra az átutalás befejezése után"
+    },
+    "finishButton": "Cross-chain átutalás befejezése"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Fiók neve",
+      "placeholder": "Írd be a fiók nevét"
+    },
+    "privateKey": {
+      "label": "Privát kulcs",
+      "placeholder": "Írd be a privát kulcsot"
+    },
+    "importButton": "Importálás",
+    "header": {
+      "title": "Fiók importálása"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "eckoWALLET feloldása",
+      "enter": "Írd be a kódod",
+      "enterNew": "Írd be az új kódot",
+      "reenter": "Írd be újra a kódot",
+      "reenterNew": "Írd be újra az új kódot"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Hálózatok"
+    }
+  },
+  "noConnection": {
+    "message": "Nincs hálózati kapcsolat"
+  },
+  "receiverScan": {
+    "placeholder": "Címzett szerkesztése",
+    "header": {
+      "title": "QR beolvasása"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Seed mondatok",
+      "placeholder": "Add meg a titkos mondatot"
+    },
+    "accountIndex": {
+      "label": "Fiók index",
+      "placeholder": "Alapértelmezett: 0"
+    },
+    "alert": {
+      "failureTitle": "Fiók importálása sikertelen",
+      "failureMessage": "Érvénytelen helyreállító mondat"
+    },
+    "button": {
+      "recover": "Visszaállítás"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Tárca importálása\nhelyreállító mondattal",
+    "seeds": {
+      "label": "Titkos mondatok (szóközökkel)",
+      "placeholder": "Add meg a mondatot"
+    },
+    "password": {
+      "label": "Új jelszó"
+    },
+    "confirmPassword": {
+      "label": "Jelszó megerősítése"
+    },
+    "button": {
+      "restore": "Visszaállítás"
+    },
+    "alert": {
+      "failureTitle": "Fiók importálása sikertelen",
+      "failureMessage": "Valami hiba történt. Próbáld újra később.",
+      "invalidSeeds": "Érvénytelen mondat vagy törölt fiók"
+    }
+  },
+  "registration": {
+    "text": "Jelszó létrehozása",
+    "password": {
+      "label": "Új jelszó"
+    },
+    "confirmPassword": {
+      "label": "Jelszó megerősítése"
+    },
+    "button": {
+      "create": "Létrehozás"
+    },
+    "alert": {
+      "failureTitle": "Regisztráció sikertelen",
+      "failureMessage": "Valami hiba történt. Próbáld újra később."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Token keresése",
+    "empty": "Nincs token",
+    "alert": {
+      "notFungibleTitle": "Nem cserélhető token",
+      "notFungibleMessage": "A kiválasztott token nem cserélhető"
+    },
+    "header": {
+      "title": "Token keresése"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Titkos helyreállító mondat",
+    "reveal": "Kattints a szavak megjelenítéséhez",
+    "snackbar": "Helyreállító mondat másolva!",
+    "description1": "A mondat megkönnyíti a fiókod biztonsági mentését és visszaállítását.",
+    "description2": "Figyelem: Soha ne oszd meg. Ne készíts képernyőképet.",
+    "continue": "Folytatás"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Titkos helyreállító mondat",
+    "line1": "A következő lépésben jegyezd fel a 12 szavas mondatot.",
+    "line2": "Ezzel állíthatod vissza a tárcádat új eszközön.",
+    "line3": "Aki birtokolja, irányíthatja a tárcádat, tartsd bizalmasan.",
+    "line4": "A Kadena nem tud segíteni, ha elveszik vagy törlődik az alkalmazás.",
+    "checkbox": "Értettem, hogy mondat nélkül nem tudom visszaállítani a tárcám."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Átutalás függőben!",
+      "pendingMessage": "Próbáld újra az átutalás befejezése után"
+    },
+    "alert": {
+      "nonKTitle": "Nem “k:account” küldése",
+      "nonKMessage": "Biztosan folytatod?",
+      "proceed": "Folytatás"
+    },
+    "chain": {
+      "sourceLabel": "Forrás lánc ID",
+      "targetLabel": "Cél lánc ID"
+    },
+    "balance": {
+      "label": "Lánc egyenleg"
+    },
+    "accounts": {
+      "recent": "Legutóbbi",
+      "contacts": "Kapcsolatok"
+    },
+    "content": {
+      "advancedSettings": "Haladó beállítások (opcionális)",
+      "predicateLabel": "Feltétel",
+      "receiverLabel": "Címzett publikus kulcs",
+      "destinationLabel": "Cél fiók",
+      "destinationPlaceholder": "Írd be a cél fiókot",
+      "receiverPlaceholder": "Írd be a kulcsot (opcionális)"
+    },
+    "header": {
+      "title": "{{token}} tranzakció küldése"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Ne zárd be az alkalmazást a feldolgozás közben."
+    },
+    "toast": {
+      "submittedTitle": "Átutalás elküldve!",
+      "submittedMessage": "Ellenőrizd az eredményt a tevékenységek fülön"
+    },
+    "label": {
+      "result": "Eredmény:",
+      "message": "Üzenet:",
+      "requestKey": "Kérés kulcs:"
+    },
+    "warning": {
+      "crossChainTitle": "Keresztlánc átutalást végzel",
+      "crossChainMessage": "Ez általában több időt vesz igénybe"
+    },
+    "button": {
+      "activities": "Tevékenységek"
+    },
+    "header": {
+      "title": "Tranzakció folyamatban"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Keresztlánc átutalást készülsz végrehajtani",
+      "crossChainMessage": "Ez több időt vehet igénybe"
+    },
+    "button": {
+      "send": "Küldés"
+    },
+    "confirmModal": {
+      "title": "Tranzakció megerősítése",
+      "amountLabel": "Összeg:",
+      "gasLimitLabel": "Gas limit:",
+      "gasPriceLabel": "Gas ár:",
+      "speedLabel": "Sebesség:",
+      "confirmButton": "Megerősítés"
+    },
+    "content": {
+      "transactionParameters": "Tranzakció paraméterek",
+      "transactionSpeed": "Tranzakció sebesség",
+      "gasLimitPlaceholder": "Írd be a gas limitet",
+      "gasPricePlaceholder": "Írd be a gas árat",
+      "gasLabel": "Gas",
+      "speedLabel": "{{speed}} sebesség"
+    },
+    "header": {
+      "title": "Tranzakció küldése"
+    },
+    "walletInfo": {
+      "amountLabel": "Küldendő összeg",
+      "half": "fél",
+      "max": "max",
+      "maxSnackbar": "A maximum összeg tartalmazza az előre becsült gas díjat.",
+      "usdValue": "{{value}} USD",
+      "balance": "Egyenleg: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Kapcsolatok",
+        "text": "Kapcsolatok kezelése"
+      },
+      "networks": {
+        "title": "Hálózatok",
+        "text": "Egyéni RPC hálózatok hozzáadása/szerkesztése"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "WalletConnect beállítások szerkesztése"
+      },
+      "accountSecurity": {
+        "title": "Fiók biztonsága",
+        "text": "Tárca biztonságának kezelése"
+      },
+      "lockWallet": {
+        "title": "Tárca zárolása",
+        "text": "Az előzmények megmaradnak"
+      },
+      "deleteAccount": {
+        "title": "Fiók törlése",
+        "text": "Minden adat törlődik"
+      }
+    },
+    "alert": {
+      "lockTitle": "Tárca zárolása?",
+      "lockMessage": "Az előzmények megmaradnak",
+      "lockConfirm": "Zárolás",
+      "deleteTitle": "Fiók törlése?",
+      "deleteMessage": "Minden adat törlődik. Helyreállító mondat nélkül elveszik a hozzáférés.",
+      "deleteConfirm": "Törlés"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "A Kadena ökoszisztéma kapuja",
+      "visitWebsite": "Látogass el a weboldalra",
+      "joinDiscord": "Csatlakozz a Discordhoz",
+      "termsOfUse": "Felhasználási feltételek",
+      "privacyPolicy": "Adatvédelmi szabályzat"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Fiók biztonsága"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "PIN visszaállítása",
+        "text": "App PIN módosítása"
+      },
+      "exportPhrase": {
+        "title": "Helyreállító mondat exportálása",
+        "text": "Tárca védelme"
+      },
+      "changePassword": {
+        "title": "Jelszó módosítása",
+        "text": "Fiók jelszó módosítása"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Üdvözöllek",
+    "label": {
+      "password": "Jelszó"
+    },
+    "button": {
+      "signIn": "Bejelentkezés"
+    },
+    "alert": {
+      "usePasscodeTitle": "Bejelentkezés PIN-nel?",
+      "usePasscodeMessage": "Szeretnéd PIN-nel és biometrikus azonosítással?",
+      "failedTitle": "Bejelentkezés sikertelen",
+      "invalidPassword": "Érvénytelen jelszó",
+      "errorMessage": "Valami hiba történt. Próbáld később."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Konverzió megerősítése",
+      "give": "AD",
+      "receive": "KAP",
+      "confirmButton": "Megerősítés"
+    },
+    "gasSettings": {
+      "title": "Gas beállítások",
+      "gasStation": "GAS ÁLLOMÁS",
+      "gasLimitLabel": "Gas limit",
+      "gasLimitPlaceholder": "Gas limit",
+      "gasPriceLabel": "Gas ár",
+      "gasPricePlaceholder": "Gas ár",
+      "failureCost": "Lehetséges gas költség sikertelenség esetén:",
+      "noGasCost": "Nincs gas költség – eckoDEX támogatja"
+    },
+    "info": {
+      "gasCost": "Gas költség",
+      "free": "INGYENES",
+      "priceImpact": "Ár hatása",
+      "price": "Ár",
+      "maxSlippage": "Max csúszás",
+      "lpFee": "LP díj",
+      "txDeadline": "Határidő",
+      "gasPrice": "Gas ár",
+      "gasLimit": "Gas limit",
+      "unitMinutes": "perc",
+      "unitSeconds": "másodperc"
+    },
+    "selectTokenModal": {
+      "title": "Token kiválasztása",
+      "placeholder": "Token keresése",
+      "tokensLabel": "Tokenek",
+      "warningTitle": "Figyelem",
+      "warningMessage": "{{pair}} pool nem létezik",
+      "addTokenTitle": "Új token hozzáadása",
+      "addTokenMessage": "Ez a token nincs a tárcádban. Szeretnéd hozzáadni?",
+      "addTokenConfirm": "Hozzáadás",
+      "selectedSuffix": " (Kiválasztva)",
+      "empty": "Token nem található"
+    },
+    "transactionSettings": {
+      "title": "Tranzakció beállítások",
+      "slippageTitle": "Csúszástűrés",
+      "deadlineTitle": "Határidő",
+      "minutes": "perc"
+    },
+    "swapBlock": {
+      "pending": "Tranzakció függőben…",
+      "warningTitle": "A konverzióhoz legyen pénz a 2. láncon.",
+      "warningText": "",
+      "give": "AD",
+      "receive": "KAP",
+      "confirm": "MEGERŐSÍTÉS",
+      "submittedTitle": "Swap elküldve!",
+      "submittedMessage": "Nézd meg az eredményt a tevékenységek között",
+      "poweredBy": "Powered by eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Helyreállító mondat ellenőrzése",
+    "description": "Írd be a szavakat megfelelő sorrendben.",
+    "warning": "Ne használj egyéni billentyűzetet. Biztonsági okokból az alapértelmezettet használd.",
+    "inputLabel": "Bemenet {{number}}",
+    "error": "Érvénytelen mondat",
+    "continueButton": "Folytatás"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Eszközök"
+      },
+      "tokenDetector": {
+        "title": "Felismerések tokenek",
+        "emptyTitle": "Nincsenek további tokenek",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Fióknév másolva!"
+    },
+    "walletBalance": {
+      "netWorth": "Nettó érték",
+      "accountBalance": "Fiók egyenleg",
+      "send": "Küldés",
+      "receive": "Fogadás",
+      "buy": "Vásárlás"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Írd be a kódot",
+    "connect": "Csatlakozás",
+    "header": {
+      "title": "QR beolvasása"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "Projekt ID",
+    "projectIdPlaceholder": "Írd be a projekt ID-t",
+    "relayUrlLabel": "Relay URL",
+    "relayUrlPlaceholder": "Írd be a Relay URL-t",
+    "errorTitle": "WalletConnect beállítások módosítása sikertelen",
+    "errorMessage": "Érvénytelen paraméterek"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Jelszó",
+      "placeholder": "Írd be a jelszót"
+    },
+    "numpad": {
+      "authenticationPrompt": "Hitelesítés",
+      "weakPasscodeTitle": "Gyenge kód",
+      "weakPasscodeDescription": "A megadott kód túl gyenge. Kérjük, próbálj meg egy bonyolultabbat."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Ha az eckoDEX weboldal meg van nyitva ezen az eszközön és gond van a WalletConnect kapcsolatával, próbálj visszalépni a böngészőbe, majd visszatérni ide",
+      "text2": "Ha ez sem segít, ellenőrizd a WalletConnect beállításait, vagy próbáld meg asztali böngészőben megnyitni az eckoDEX-et",
+      "button": "Rendben"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Minden aktív munkamenet aktív marad, amíg manuálisan nem törlöd",
+      "text2": "A „Előzmények” fül részletesen mutatja a munkamenetet az engedélyezett metódusokkal és eseményekkel",
+      "button": "Rendben"
+    }
+  },
+  "tabs": {
+    "Wallet": "Tárca",
+    "Swap": "Váltás",
+    "History": "Előzmények",
+    "Connection": "Kapcsolatok",
+    "Settings": "Beállítások",
+    "history": {
+      "activities": "Tevékenységek",
+      "pending": "Függőben"
+    },
+    "connection": {
+      "pairings": "Aktív munkamenetek",
+      "sessions": "Előzmények"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Tranzakció részletei",
+    "gas": "Gáz: {{gas}}",
+    "statusLabel": "Állapot",
+    "continuationTitle": "Folytatás",
+    "continuationValue": "lépés: {{step}}, összesen: {{total}}",
+    "no": "nem",
+    "requestKeyTitle": "Kérés kulcs",
+    "transactionTypeTitle": "Tranzakció típusa",
+    "requestKeyChainTitle": "Kérés kulcs (Chain {{chain}})",
+    "txDetailsButton": "Tx részletek",
+    "requestKeyCopied": "Kérés kulcs vágólapra másolva!"
+  },
+  "tokenModal": {
+    "distributionTitle": "{{token}} eloszlása a láncon",
+    "removeConfirmTitle": "Biztosan törlöd?",
+    "removeConfirmMessage": "A token összes adatát töröljük, és nem állítható vissza",
+    "remove": "Törlés",
+    "notTransferable": "A(z) {{contract}} nem továbbítható!",
+    "zeroBalance": "{{token}} egyenlege 0",
+    "editToken": "Token szerkesztése",
+    "removeToken": "Token törlése",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Tárcáim",
+    "removeConfirmTitle": "Biztosan törlöd?",
+    "removeConfirmMessage": "A fiók összes adatát töröljük, és nem állítható vissza",
+    "remove": "Törlés",
+    "share": "Tárca megosztása",
+    "exportRecovery": "Helyreállító kifejezés exportálása",
+    "removeSelected": "Kijelölt tárca törlése",
+    "create": "Tárca létrehozása",
+    "import": "Tárca importálása",
+    "copySuccess": "Fiókadatok vágólapra másolva!"
+  },
+  "session": {
+    "title": "Munkamenet részletei",
+    "deleteTitle": "Biztosan törlöd ezt a munkamenet-előzményt?",
+    "deleteDescription": "A munkamenet-előzmények összes adata törlődik, és nem állítható vissza",
+    "deleteFailedTitle": "Munkamenet törlése sikertelen",
+    "deleteFailedMessage": "A WalletConnect konfiguráció nem egyezik",
+    "deleteSession": "Munkamenet törlése",
+    "reviewPermissions": "{{namespace}} jogosultságok áttekintése",
+    "unknownUrl": "Ismeretlen",
+    "methods": "Módszerek",
+    "events": "Események",
+    "expiry": "Lejárat",
+    "lastUpdated": "Legutóbb frissítve"
+  },
+  "receive": {
+    "title": "Tokenek fogadása",
+    "accountNameLabel": "A fiók neve"
+  },
+  "networkSelector": {
+    "title": "Hálózat kiválasztása",
+    "manage": "Hálózatok kezelése"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "Blokkfeltáró URL",
+    "editNetwork": "Hálózat szerkesztése"
+  },
+  "contactDetails": {
+    "accountName": "Fiók neve",
+    "chainId": "Chain ID",
+    "edit": "Kapcsolat szerkesztése",
+    "copied": "Vágólapra másolva!"
+  },
+  "validation": {
+    "required": "Ez a mező kötelező",
+    "default": "Érvénytelen érték",
+    "min": "Legalább {{count}} karakter hosszúnak kell lennie",
+    "max": "Legfeljebb {{count}} karakter hosszú lehet",
+    "minNumber": "Legalább {{count}} kell legyen",
+    "maxNumber": "Legfeljebb {{count}} lehet",
+    "email": "Érvényes e-mailnek kell lennie",
+    "matches": "Érvénytelen formátum",
+    "passwordsMatch": "A jelszavak nem egyeznek",
+    "passwordComplexity": "Legalább 8 karaktert, egy nagybetűt, egy kisbetűt, egy számot és egy speciális karaktert kell tartalmaznia"
+  }
+}

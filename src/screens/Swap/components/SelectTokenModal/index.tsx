@@ -1,5 +1,6 @@
 import React, {FC, useCallback, useEffect, useState} from 'react';
 import {TextInput, View, Text, TouchableOpacity, Alert} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import {TMainnet} from '../../../../constants/tokensTypes';
 import BasicSearchSvg from '../../../../assets/images/basic-search.svg';
 
@@ -26,8 +27,8 @@ const SelectTokenModal: FC<TSelectTokenModal> = React.memo(
     anotherToken,
     title,
   }) => {
+    const {t} = useTranslation();
     const navigation = useNavigation<any>();
-
     const dispatch = useDispatch();
 
     const [searchText, setSearchText] = useState('');
@@ -40,16 +41,15 @@ const SelectTokenModal: FC<TSelectTokenModal> = React.memo(
     }, [isVisible]);
 
     useEffect(() => {
-      const walletTokens: (TWallet & {notInWallet?: boolean})[] =
-        walletList.filter(walletItem =>
-          swapTokens.some(
-            swapToken => swapToken?.tokenAddress === walletItem?.tokenAddress,
-          ),
-        );
+      const walletTokens = walletList.filter(walletItem =>
+        swapTokens.some(
+          swapToken => swapToken?.tokenAddress === walletItem?.tokenAddress,
+        ),
+      );
       swapTokens.forEach(swapToken => {
         if (
-          !walletTokens?.some(
-            item => item?.tokenAddress === swapToken?.tokenAddress,
+          !walletTokens.some(
+            item => item.tokenAddress === swapToken.tokenAddress,
           )
         ) {
           walletTokens.push({
@@ -70,30 +70,28 @@ const SelectTokenModal: FC<TSelectTokenModal> = React.memo(
     const createConfirmModal = useCallback(
       (token: TWallet) =>
         Alert.alert(
-          'Warning',
-          `Pool ${
-            title === 'RECEIVE'
-              ? anotherToken.coin + ' / ' + token.tokenName
-              : token.tokenName + ' / ' + anotherToken.coin
-          } does not exist`,
-          [{text: 'OK'}],
+          t('swap.selectTokenModal.warningTitle'),
+          t('swap.selectTokenModal.warningMessage', {
+            pair:
+              title === 'RECEIVE'
+                ? `${anotherToken.coin} / ${token.tokenName}`
+                : `${token.tokenName} / ${anotherToken.coin}`,
+          }),
+          [{text: t('common.ok')}],
         ),
-      [title, anotherToken],
+      [anotherToken, title, t],
     );
 
     const handleTokenPress = useCallback(
       (token: TWallet & {notInWallet?: boolean}) => () => {
-        if (token?.notInWallet) {
+        if (token.notInWallet) {
           Alert.alert(
-            'Adding New Token',
-            'This token does not exist in your wallet. Would you like to add?',
+            t('swap.selectTokenModal.addTokenTitle'),
+            t('swap.selectTokenModal.addTokenMessage'),
             [
+              {text: t('common.cancel'), style: 'cancel'},
               {
-                text: 'Cancel',
-                style: 'cancel',
-              },
-              {
-                text: 'Add',
+                text: t('swap.selectTokenModal.addTokenConfirm'),
                 onPress: () => {
                   close();
                   setTimeout(() => {
@@ -143,34 +141,46 @@ const SelectTokenModal: FC<TSelectTokenModal> = React.memo(
           close();
         }
       },
-      [createConfirmModal, tokens, setSelectedToken, close, anotherToken],
+      [
+        anotherToken,
+        close,
+        createConfirmModal,
+        dispatch,
+        navigation,
+        setSelectedToken,
+        t,
+      ],
     );
 
     return (
-      <Modal isVisible={isVisible} close={close} title="Select Token">
+      <Modal
+        isVisible={isVisible}
+        close={close}
+        title={t('swap.selectTokenModal.title')}>
         <View style={styles.modalContainer}>
           <View style={styles.searchSection}>
             <BasicSearchSvg />
             <TextInput
               placeholderTextColor="grey"
               style={styles.input}
-              placeholder="Search token"
+              placeholder={t('swap.selectTokenModal.placeholder')}
               value={searchText}
               autoCorrect={false}
               autoCapitalize="none"
-              autoFocus={false}
               onChangeText={setSearchText}
             />
           </View>
-          <Text style={styles.title}>Tokens</Text>
+          <Text style={styles.title}>
+            {t('swap.selectTokenModal.tokensLabel')}
+          </Text>
           {filteredWallets.length ? (
-            filteredWallets.map((walletItem: TWallet, listIndex: number) => (
+            filteredWallets.map((walletItem, idx) => (
               <TouchableOpacity
                 disabled={
                   selectedToken.coin === walletItem.tokenName ||
                   anotherToken.coin === walletItem.tokenName
                 }
-                key={listIndex}
+                key={idx}
                 onPress={handleTokenPress(walletItem)}
                 style={[
                   styles.token,
@@ -185,12 +195,16 @@ const SelectTokenModal: FC<TSelectTokenModal> = React.memo(
                 {getAssetImageView(walletItem.tokenAddress)}
                 <Text style={styles.tokenName}>{walletItem.tokenName}</Text>
                 {selectedToken.coin === walletItem.tokenName && (
-                  <Text style={styles.selected}>{' (Selected)'}</Text>
+                  <Text style={styles.selected}>
+                    {t('swap.selectTokenModal.selectedSuffix')}
+                  </Text>
                 )}
               </TouchableOpacity>
             ))
           ) : (
-            <Text style={styles.emptyText}>Token not found</Text>
+            <Text style={styles.emptyText}>
+              {t('swap.selectTokenModal.empty')}
+            </Text>
           )}
         </View>
       </Modal>

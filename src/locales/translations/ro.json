@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "Salvează",
+    "confirm": "Confirmă",
+    "delete": "Șterge",
+    "cancel": "Anulează",
+    "ok": "OK",
+    "error": "Eroare",
+    "selectLanguage": "Selectează limba",
+    "selectLanguageLongDescription": "Selectează limba pe care vrei să o folosești"
+  },
+  "welcome": {
+    "title": "Bine ai venit la\neckoWALLET",
+    "subtitle": "Poarta către ecosistemul Kadena",
+    "loginCard": {
+      "title": "Autentifică-te în contul meu",
+      "description": "Introdu parola portofelului tău"
+    },
+    "newUserCard": {
+      "title": "Sunt un utilizator nou",
+      "description": "Configurează un cont nou eckoWALLET"
+    },
+    "recoverCard": {
+      "title": "Am un cont",
+      "description": "Autentifică-te cu fraza ta secretă"
+    },
+    "instructions": {
+      "intro": "Pentru a adăuga un cont nou, urmează pașii de mai jos:",
+      "step1": "1. Autentifică-te în contul tău existent",
+      "step2": "2. Apasă pe „Setări”",
+      "step3": "3. Apasă pe „Șterge cont”"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Nume contact",
+      "placeholder": "Tastează numele contactului"
+    },
+    "accountName": {
+      "label": "Nume cont",
+      "placeholder": "Introduceți numele contului"
+    },
+    "saveButton": "Salvează",
+    "header": {
+      "title": "Adaugă contact"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Personalizat",
+    "alert": {
+      "failureTitle": "Nu s-a putut adăuga rețeaua",
+      "failureMessage": "Informații de rețea invalide"
+    },
+    "name": {
+      "label": "Nume rețea",
+      "placeholder": "Introduceți numele rețelei"
+    },
+    "host": {
+      "label": "Nou RPC URL",
+      "placeholder": "Introduceți URL"
+    },
+    "explorer": {
+      "label": "URL explorator blocuri",
+      "placeholder": "Introduceți URL"
+    },
+    "header": {
+      "title": "Adaugă rețea"
+    },
+    "saveButton": "Salvează"
+  },
+  "addToken": {
+    "header": {
+      "title": "Adaugă token",
+      "titleImport": "Importă token"
+    },
+    "tokenAddress": {
+      "label": "Adresă contract token",
+      "placeholder": "Tastează adresa contractului"
+    },
+    "tokenName": {
+      "label": "Simbol token",
+      "placeholder": "Tastează simbolul tokenului"
+    },
+    "alert": {
+      "failureTitle": "Import token eșuat",
+      "failureMessage": "Tokenul nu există"
+    },
+    "saveButton": "Adaugă token"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Cumpără"
+    },
+    "consent": {
+      "description": "Cumpărarea și vânzarea de criptomonede se realizează printr-un serviciu terț oferit de Onramper.\n\nDeși eckoWallet se angajează să ofere cel mai înalt nivel de securitate pentru utilizatorii săi, nu putem garanta securitatea și confidențialitatea serviciilor terțe."
+    },
+    "error": {
+      "walletUnavailable": "Adresa portofelului nu este disponibilă",
+      "unableConnect": "Nu se poate conecta la serviciu. Te rugăm să încerci mai târziu."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Schimbă parola"
+    },
+    "currentPassword": {
+      "label": "Parola curentă"
+    },
+    "newPassword": {
+      "label": "Parolă nouă"
+    },
+    "confirmPassword": {
+      "label": "Confirmă parola"
+    },
+    "toast": {
+      "success": "Parola a fost schimbată cu succes!"
+    },
+    "alert": {
+      "changeFailureTitle": "Eroare la schimbarea parolei",
+      "changeFailureMessage": "Ceva a mers prost. Te rugăm să încerci mai târziu.",
+      "verifyFailureTitle": "Verificare eșuată",
+      "verifyFailureMessage": "Parolă invalidă"
+    },
+    "changeButton": "Schimbă parola"
+  },
+  "connection": {
+    "unknown": "Conexiune necunoscută",
+    "deleteAlert": {
+      "title": "Ești sigur că vrei să ștergi această sesiune activă?",
+      "message": "Toate datele acestei sesiuni vor fi șterse și nu pot fi recuperate."
+    },
+    "deleteFailureTitle": "Ștergerea sesiunii active a eșuat",
+    "deleteFailureMessage": "Configurația WalletConnect nu corespunde",
+    "empty": {
+      "sessions": "Fără istoric",
+      "pairings": "Fără sesiuni active"
+    },
+    "modal": {
+      "title": "Informații WalletConnect"
+    },
+    "expiryLabel": "Expiră:",
+    "unknownHost": "Necunoscut"
+  },
+  "contacts": {
+    "searchPlaceholder": "Caută contacte",
+    "emptyList": "Nu există contacte deocamdată",
+    "header": {
+      "title": "Contacte"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Fraza secretă de recuperare a fost copiată în clipboard!",
+    "description": "Fraza ta secretă de recuperare îți ușurează backup-ul și restaurarea contului.",
+    "warning": "Nu dezvălui niciodată fraza ta secretă de recuperare. Oricine o are poate prelua portofelul tău pentru totdeauna.",
+    "copyButton": "Copiază fraza de recuperare",
+    "header": {
+      "title": "Exportă fraza de recuperare"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Verifică parola"
+    },
+    "description": "Introdu parola pentru a continua",
+    "alert": {
+      "verifyFailureTitle": "Verificarea a eșuat",
+      "verifyFailureMessage": "Parolă invalidă",
+      "verifyErrorMessage": "Ceva a mers prost. Te rugăm să încerci mai târziu."
+    },
+    "continueButton": "Continuă"
+  },
+  "history": {
+    "empty": {
+      "pending": "Nicio activitate în așteptare",
+      "activities": "Nicio activitate găsită"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Transfer în așteptare!",
+      "pendingMessage": "Te rugăm să încerci din nou după finalizarea transferului"
+    },
+    "finishButton": "Finalizează transferul cross-chain"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Nume cont",
+      "placeholder": "Tastează numele contului"
+    },
+    "privateKey": {
+      "label": "Cheie privată",
+      "placeholder": "Tastează cheia privată"
+    },
+    "importButton": "Importă",
+    "header": {
+      "title": "Importă cont"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Deblochează eckoWALLET",
+      "enter": "Introdu codul de acces",
+      "enterNew": "Introdu noul cod de acces",
+      "reenter": "Reintrodu codul de acces",
+      "reenterNew": "Reintrodu noul cod de acces"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Rețele"
+    }
+  },
+  "noConnection": {
+    "message": "Fără conexiune la rețea"
+  },
+  "receiverScan": {
+    "placeholder": "Editează contul destinatar",
+    "header": {
+      "title": "Scanează QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Fraze seed",
+      "placeholder": "Introdu fraza secretă"
+    },
+    "accountIndex": {
+      "label": "Număr cont",
+      "placeholder": "Implicit: 0"
+    },
+    "alert": {
+      "failureTitle": "Import cont eșuat",
+      "failureMessage": "Fraza secretă invalidă"
+    },
+    "button": {
+      "recover": "Recuperează"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Importă un portofel cu\nfraza secretă de recuperare",
+    "seeds": {
+      "label": "Fraze secrete (cu spații)",
+      "placeholder": "Introdu frazele secrete"
+    },
+    "password": {
+      "label": "Parolă nouă"
+    },
+    "confirmPassword": {
+      "label": "Confirmă parola"
+    },
+    "button": {
+      "restore": "Restaurează"
+    },
+    "alert": {
+      "failureTitle": "Import cont eșuat",
+      "failureMessage": "Ceva a mers prost. Te rugăm să încerci mai târziu.",
+      "invalidSeeds": "Fraza secretă invalidă sau cont șters"
+    }
+  },
+  "registration": {
+    "text": "Creează parolă",
+    "password": {
+      "label": "Parolă nouă"
+    },
+    "confirmPassword": {
+      "label": "Confirmă parola"
+    },
+    "button": {
+      "create": "Creează"
+    },
+    "alert": {
+      "failureTitle": "Înregistrare eșuată",
+      "failureMessage": "Ceva a mers prost. Te rugăm să încerci mai târziu."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Caută token",
+    "empty": "Niciun token găsit",
+    "alert": {
+      "notFungibleTitle": "Token nefungibil",
+      "notFungibleMessage": "Tokenul selectat nu este fungibil"
+    },
+    "header": {
+      "title": "Caută token"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Fraza secretă de recuperare",
+    "reveal": "Apasă aici pentru a dezvălui cuvintele secrete",
+    "snackbar": "Fraza de recuperare copiată în clipboard!",
+    "description1": "Fraza ta secretă de recuperare îți permite să faci backup și să restaurezi contul cu ușurință.",
+    "description2": "Avertisment: Nu dezvălui niciodată fraza secretă de recuperare. Recomandăm să nu faci capturi de ecran când o vizualizezi. Oricine o are poate prelua portofelul tău.",
+    "continue": "Continuă"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Fraza secretă de recuperare",
+    "line1": "În pasul următor vei nota fraza de recuperare de 12 cuvinte.",
+    "line2": "Fraza de recuperare îți permite să restaurezi portofelul pe un dispozitiv nou.",
+    "line3": "Oricine o are poate controla portofelul tău; păstreaz-o privată.",
+    "line4": "Kadena nu poate accesa fraza de recuperare dacă o pierzi sau dezinstalezi aplicația; stocheaz-o în siguranță.",
+    "checkbox": "Înțeleg că dacă pierd fraza de recuperare, nu voi putea restaura portofelul."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Transfer în așteptare!",
+      "pendingMessage": "Te rugăm să încerci din nou după finalizarea transferului"
+    },
+    "alert": {
+      "nonKTitle": "Trimiți către un cont non-„k:account”",
+      "nonKMessage": "Ești sigur că vrei să continui?",
+      "proceed": "Continuă"
+    },
+    "chain": {
+      "sourceLabel": "ID lanț sursă",
+      "targetLabel": "ID lanț țintă"
+    },
+    "balance": {
+      "label": "Sold lanț"
+    },
+    "accounts": {
+      "recent": "Recente",
+      "contacts": "Contacte"
+    },
+    "content": {
+      "advancedSettings": "Setări avansate (opțional)",
+      "predicateLabel": "Predicat",
+      "receiverLabel": "Cheie publică destinatar",
+      "destinationLabel": "Cont destinație",
+      "destinationPlaceholder": "Introdu cont destinație",
+      "receiverPlaceholder": "Introdu cheie publică (opțional)"
+    },
+    "header": {
+      "title": "Trimite tranzacție {{token}}"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Nu închide aplicația\nîn timp ce se procesează operațiunea."
+    },
+    "toast": {
+      "submittedTitle": "Transfer trimis!",
+      "submittedMessage": "Poți vedea rezultatul în fila activități"
+    },
+    "label": {
+      "result": "Rezultat:",
+      "message": "Mesaj:",
+      "requestKey": "Cheie cerere:"
+    },
+    "warning": {
+      "crossChainTitle": "Efectuezi un transfer cross-chain",
+      "crossChainMessage": "Această operațiune durează de obicei mai mult"
+    },
+    "button": {
+      "activities": "Mergi la activități"
+    },
+    "header": {
+      "title": "Tranzacția este în curs"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Ești pe cale să efectuezi un transfer cross-chain",
+      "crossChainMessage": "Această operațiune durează de obicei mai mult"
+    },
+    "button": {
+      "send": "Trimite"
+    },
+    "confirmModal": {
+      "title": "Confirmă trimiterea tranzacției",
+      "amountLabel": "Sumă:",
+      "gasLimitLabel": "Limită gaz:",
+      "gasPriceLabel": "Preț gaz:",
+      "speedLabel": "Viteză:",
+      "confirmButton": "Confirmă"
+    },
+    "content": {
+      "transactionParameters": "Parametrii tranzacției",
+      "transactionSpeed": "Viteză tranzacție",
+      "gasLimitPlaceholder": "Tastează limita de gaz",
+      "gasPricePlaceholder": "Tastează prețul gazului",
+      "gasLabel": "Gaz",
+      "speedLabel": "{{speed}} viteză"
+    },
+    "header": {
+      "title": "Trimite tranzacție"
+    },
+    "walletInfo": {
+      "amountLabel": "Sumă de trimis",
+      "half": "jumătate",
+      "max": "maxim",
+      "maxSnackbar": "Suma maximă ia în considerare și costul estimat al gazului.",
+      "usdValue": "{{value}} USD",
+      "balance": "Sold: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Contacte",
+        "text": "Gestionează lista ta de contacte"
+      },
+      "networks": {
+        "title": "Rețele",
+        "text": "Adaugă sau editează rețele RPC personalizate"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Editează configurația WalletConnect"
+      },
+      "accountSecurity": {
+        "title": "Securitatea contului",
+        "text": "Gestionează securitatea portofelului tău"
+      },
+      "lockWallet": {
+        "title": "Blochează portofelul",
+        "text": "Toate datele istorice vor rămâne"
+      },
+      "deleteAccount": {
+        "title": "Șterge cont",
+        "text": "Toate datele contului vor fi șterse"
+      }
+    },
+    "alert": {
+      "lockTitle": "Ești sigur că vrei să blochezi portofelul?",
+      "lockMessage": "Toate datele istorice vor rămâne",
+      "lockConfirm": "Blochează portofelul",
+      "deleteTitle": "Ești sigur că vrei să ștergi contul?",
+      "deleteMessage": "Toate datele contului vor fi șterse. Dacă nu ai fraza seed, pierzi accesul la fonduri.",
+      "deleteConfirm": "Șterge cont"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Poarta către ecosistemul Kadena",
+      "visitWebsite": "Vizitează site-ul nostru",
+      "joinDiscord": "Alătură-te Discord-ului nostru",
+      "termsOfUse": "Termeni de utilizare",
+      "privacyPolicy": "Politica de confidențialitate"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Securitatea contului"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Resetează codul de acces",
+        "text": "Schimbă codul de acces al aplicației"
+      },
+      "exportPhrase": {
+        "title": "Exportă fraza de recuperare",
+        "text": "Protejează portofelul tău"
+      },
+      "changePassword": {
+        "title": "Schimbă parola",
+        "text": "Schimbă parola contului"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Bine ai venit",
+    "label": {
+      "password": "Parolă"
+    },
+    "button": {
+      "signIn": "Autentifică-te"
+    },
+    "alert": {
+      "usePasscodeTitle": "Autentificare cu cod de acces?",
+      "usePasscodeMessage": "Dorești să folosești cod de acces și biometric pentru a accesa eckoWALLET?",
+      "failedTitle": "Autentificare eșuată",
+      "invalidPassword": "Parolă invalidă",
+      "errorMessage": "Ceva a mers prost. Te rugăm să încerci mai târziu."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Confirmare conversie",
+      "give": "DĂ",
+      "receive": "PRIMEȘTE",
+      "confirmButton": "Confirmă"
+    },
+    "gasSettings": {
+      "title": "Setări gaz",
+      "gasStation": "GARAJ GAZ",
+      "gasLimitLabel": "Limită gaz",
+      "gasLimitPlaceholder": "Limită gaz",
+      "gasPriceLabel": "Preț gaz",
+      "gasPricePlaceholder": "Preț gaz",
+      "failureCost": "Cost potențial gaz la eșecul tranzacției:",
+      "noGasCost": "Fără cost de gaz – subvenționat de eckoDEX prin stațiile Kadena."
+    },
+    "info": {
+      "gasCost": "Cost gaz",
+      "free": "GRATUIT",
+      "priceImpact": "Impact preț",
+      "price": "Preț",
+      "maxSlippage": "Slippage maxim",
+      "lpFee": "Taxă LP",
+      "txDeadline": "Termen limită tranzacție",
+      "gasPrice": "Preț gaz",
+      "gasLimit": "Limită gaz",
+      "unitMinutes": "minute",
+      "unitSeconds": "secunde"
+    },
+    "selectTokenModal": {
+      "title": "Selectează token",
+      "placeholder": "Caută token",
+      "tokensLabel": "Tokenuri",
+      "warningTitle": "Atenție",
+      "warningMessage": "Pool {{pair}} nu există",
+      "addTokenTitle": "Adaugă token nou",
+      "addTokenMessage": "Acest token nu există în portofelul tău. Vrei să îl adaugi?",
+      "addTokenConfirm": "Adaugă",
+      "selectedSuffix": " (Selectat)",
+      "empty": "Token nerecunoscut"
+    },
+    "transactionSettings": {
+      "title": "Setări tranzacție",
+      "slippageTitle": "Toleranță slippage",
+      "deadlineTitle": "Termen limită tranzacție",
+      "minutes": "minute"
+    },
+    "swapBlock": {
+      "pending": "Tranzacție în așteptare...",
+      "warningTitle": "Pentru a folosi conversia, asigură-te că ai fonduri pe Chain 2.",
+      "warningText": "",
+      "give": "DĂ",
+      "receive": "PRIMEȘTE",
+      "confirm": "CONFIRMĂ",
+      "submittedTitle": "Swap trimis!",
+      "submittedMessage": "Poți vedea rezultatul în fila activități",
+      "poweredBy": "Susținut de eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Verifică fraza de recuperare",
+    "description": "Confirmă fraza de recuperare tastând cuvintele în ordinea corectă.",
+    "warning": "Este recomandat să nu folosești tastaturi personalizate. Folosește tastatura implicită pentru securitate.",
+    "inputLabel": "Intrare {{number}}",
+    "error": "Fraze de recuperare invalide",
+    "continueButton": "Continuă"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Active"
+      },
+      "tokenDetector": {
+        "title": "Tokenuri detectate",
+        "emptyTitle": "Nicio altă token detectată pentru acest cont",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Numele contului copiat în clipboard!"
+    },
+    "walletBalance": {
+      "netWorth": "Valoare netă",
+      "accountBalance": "Sold cont",
+      "send": "Trimite",
+      "receive": "Primește",
+      "buy": "Cumpără"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Tastează codul de conexiune",
+    "connect": "Conectează",
+    "header": {
+      "title": "Scanează QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "ID proiect",
+    "projectIdPlaceholder": "Introdu ID proiect",
+    "relayUrlLabel": "URL relay",
+    "relayUrlPlaceholder": "Introdu URL relay",
+    "errorTitle": "Modificare configurație WalletConnect eșuată",
+    "errorMessage": "Parametri invalizi"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Parolă",
+      "placeholder": "Introduceți parola"
+    },
+    "numpad": {
+      "authenticationPrompt": "Autentificare",
+      "weakPasscodeTitle": "Cod slab",
+      "weakPasscodeDescription": "Codul introdus este prea slab. Vă rugăm încercați un cod mai complex."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Dacă site-ul eckoDEX este deschis pe acest dispozitiv și aveți probleme cu conexiunea WalletConnect, încercați să reveniți în browser și apoi să reveniți aici",
+      "text2": "Dacă acest lucru nu ajută, verificați setările WalletConnect sau încercați să deschideți eckoDEX într-un browser de desktop",
+      "button": "OK"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Toate sesiunile active vor rămâne active până când sunt terminate manual prin acțiunea de ștergere",
+      "text2": "Fila Istoric afișează detalii despre sesiune cu permisiunile acordate pentru metode și evenimente",
+      "button": "OK"
+    }
+  },
+  "tabs": {
+    "Wallet": "Portofel",
+    "Swap": "Schimbă",
+    "History": "Istoric",
+    "Connection": "Conexiuni",
+    "Settings": "Setări",
+    "history": {
+      "activities": "Activități",
+      "pending": "În așteptare"
+    },
+    "connection": {
+      "pairings": "Sesiuni active",
+      "sessions": "Istoric"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Detalii tranzacție",
+    "gas": "Gaz: {{gas}}",
+    "statusLabel": "Stare",
+    "continuationTitle": "Continuare",
+    "continuationValue": "pas: {{step}}, total: {{total}}",
+    "no": "nu",
+    "requestKeyTitle": "Cheie cerere",
+    "transactionTypeTitle": "Tip tranzacție",
+    "requestKeyChainTitle": "Cheie cerere (Chain {{chain}})",
+    "txDetailsButton": "Detalii Tx",
+    "requestKeyCopied": "Cheia cerere a fost copiată în clipboard!"
+  },
+  "tokenModal": {
+    "distributionTitle": "Distribuție {{token}} în Chain",
+    "removeConfirmTitle": "Sigur doriți să eliminați?",
+    "removeConfirmMessage": "Toate datele token-ului vor fi șterse și nu pot fi restaurate",
+    "remove": "Elimină",
+    "notTransferable": "{{contract}} nu este transferabil!",
+    "zeroBalance": "Soldul {{token}} este 0",
+    "editToken": "Editează token",
+    "removeToken": "Elimină token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Portofelele mele",
+    "removeConfirmTitle": "Sigur doriți să eliminați?",
+    "removeConfirmMessage": "Toate datele contului vor fi șterse și nu pot fi restaurate",
+    "remove": "Elimină",
+    "share": "Partajează portofel",
+    "exportRecovery": "Exportă fraza de recuperare",
+    "removeSelected": "Elimină portofelul selectat",
+    "create": "Creează portofel",
+    "import": "Importă portofel",
+    "copySuccess": "Detaliile contului au fost copiate în clipboard!"
+  },
+  "session": {
+    "title": "Detalii sesiune",
+    "deleteTitle": "Sigur doriți să ștergeți acest istoric al sesiunii?",
+    "deleteDescription": "Toate datele istoricului sesiunii vor fi șterse și nu pot fi restaurate",
+    "deleteFailedTitle": "Eroare la ștergerea sesiunii",
+    "deleteFailedMessage": "Configurația WalletConnect nu corespunde",
+    "deleteSession": "Șterge sesiunea",
+    "reviewPermissions": "Revizuiește permisiunile {{namespace}}",
+    "unknownUrl": "Necunoscut",
+    "methods": "Metode",
+    "events": "Evenimente",
+    "expiry": "Expiră",
+    "lastUpdated": "Ultima actualizare"
+  },
+  "receive": {
+    "title": "Primește token-uri",
+    "accountNameLabel": "Numele contului tău"
+  },
+  "networkSelector": {
+    "title": "Selectează rețea",
+    "manage": "Administrează rețele"
+  },
+  "networkDetails": {
+    "rpcUrl": "URL RPC",
+    "blockExplorerUrl": "URL explorator blocuri",
+    "editNetwork": "Editează rețea"
+  },
+  "contactDetails": {
+    "accountName": "Nume cont",
+    "chainId": "Chain ID",
+    "edit": "Editează contact",
+    "copied": "Copiat în clipboard!"
+  },
+  "validation": {
+    "required": "Acest câmp este obligatoriu",
+    "default": "Valoare nevalidă",
+    "min": "Trebuie să conțină cel puțin {{count}} caractere",
+    "max": "Poate conține cel mult {{count}} caractere",
+    "minNumber": "Trebuie să fie cel puțin {{count}}",
+    "maxNumber": "Poate fi cel mult {{count}}",
+    "email": "Trebuie să fie un e-mail valid",
+    "matches": "Format nevalid",
+    "passwordsMatch": "Parolele nu coincid",
+    "passwordComplexity": "Trebuie să conțină 8 caractere, o literă mare, o literă mică, o cifră și un caracter special"
+  }
+}

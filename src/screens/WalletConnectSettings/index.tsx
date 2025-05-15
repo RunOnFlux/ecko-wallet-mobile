@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect} from 'react';
 import {Alert, ScrollView, View} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import Header from './components/Header';
 import FooterButton from '../../components/FooterButton';
@@ -14,8 +15,8 @@ import {defaultWalletConnectParams} from '../../contexts/WalletConnect';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const WalletConnectSettings = () => {
+  const {t} = useTranslation();
   const {initializeClient} = useWalletConnectContext();
-
   const navigation = useNavigation();
 
   const {
@@ -46,18 +47,18 @@ const WalletConnectSettings = () => {
         await initializeClient(data);
         await saveValue('walletConnectParams', data);
         setTimeout(() => navigation.goBack(), 150);
-      } catch (e) {
+      } catch {
         ReactNativeHapticFeedback.trigger('impactMedium', {
           enableVibrateFallback: false,
           ignoreAndroidSystemSettings: false,
         });
         Alert.alert(
-          'Failed to change WalletConnect config',
-          'Invalid parameters',
+          t('walletConnectSettings.errorTitle'),
+          t('walletConnectSettings.errorMessage'),
         );
       }
     },
-    [navigation],
+    [initializeClient, navigation, t],
   );
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
@@ -75,8 +76,8 @@ const WalletConnectSettings = () => {
           name="projectId"
           render={({field: {onChange, onBlur, value}}) => (
             <Input
-              label="Project ID"
-              placeholder="Enter Project ID"
+              label={t('walletConnectSettings.projectIdLabel')}
+              placeholder={t('walletConnectSettings.projectIdPlaceholder')}
               wrapperStyle={styles.inputWrapper}
               onChangeText={onChange}
               onBlur={onBlur}
@@ -90,8 +91,8 @@ const WalletConnectSettings = () => {
           name="relayUrl"
           render={({field: {onChange, onBlur, value}}) => (
             <Input
-              label="Relay URL"
-              placeholder="Enter Relay URL"
+              label={t('walletConnectSettings.relayUrlLabel')}
+              placeholder={t('walletConnectSettings.relayUrlPlaceholder')}
               autoCapitalize="none"
               wrapperStyle={styles.inputWrapper}
               onChangeText={onChange}
@@ -104,7 +105,7 @@ const WalletConnectSettings = () => {
       </ScrollView>
       <View style={styles.footer}>
         <FooterButton
-          title="Save"
+          title={t('common.saveButton')}
           onPress={handleSubmit(handlePressSave)}
           disabled={!isValid}
         />
