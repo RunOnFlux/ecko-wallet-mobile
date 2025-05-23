@@ -1,8 +1,9 @@
 import React, {FC, useEffect, useState} from 'react';
 import {ActivityIndicator, View} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
-import {styles} from './styles';
 import {useNavigation} from '@react-navigation/native';
+import {styles} from './styles';
 import {makeSelectSelectedAccount} from '../../../../../../store/userWallet/selectors';
 import {ERootStackRoutes} from '../../../../../../routes/types';
 import {useShallowEqualSelector} from '../../../../../../store/utils';
@@ -19,16 +20,17 @@ import Warning from '../../../../../../components/Warning';
 import {setSelectedToken} from '../../../../../../store/userWallet';
 import {ECKO_API_URL} from '../../../../../../api/constants';
 
-const TokendetectorModal: FC<TTokenDetectorModalProps> = ({
+const TokenDetectorModal: FC<TTokenDetectorModalProps> = ({
   toggle,
   isVisible,
 }) => {
+  const {t} = useTranslation();
   const navigation = useNavigation<any>();
+  const dispatch = useDispatch();
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [tokens, setTokens] = useState<string[]>([]);
   const [detectedTokens, setDetectedTokens] = useState<DetectedToken[]>([]);
-
-  const dispatch = useDispatch();
 
   const selectedAccount: TAccount = useShallowEqualSelector(
     makeSelectSelectedAccount,
@@ -41,8 +43,8 @@ const TokendetectorModal: FC<TTokenDetectorModalProps> = ({
         `${ECKO_API_URL}/chain-data/fungible-tokens`,
       );
       const tokensData = await tokensResponse.data;
-      if (tokensData && tokensData[0] && tokensData[0]?.fungibleTokens) {
-        setTokens(tokensData[0]?.fungibleTokens);
+      if (tokensData && tokensData[0]?.fungibleTokens) {
+        setTokens(tokensData[0].fungibleTokens);
       }
     };
     init();
@@ -56,7 +58,7 @@ const TokendetectorModal: FC<TTokenDetectorModalProps> = ({
 
   const fetchTokenBalancesByChain = async () => {
     const tokenBalances: any = {};
-    const chainPromises: any = [];
+    const chainPromises: any[] = [];
 
     for (let chainId = 0; chainId < 20; chainId++) {
       const chainTokens: string[] = (tokens[chainId] as any) || [];
@@ -64,22 +66,22 @@ const TokendetectorModal: FC<TTokenDetectorModalProps> = ({
       if (chainTokens.length === 0) continue;
 
       const pactCode = `
-          (let*
-            (
-              ${chainTokens
-                .map(token => {
-                  const tokenAlias = token.replace(/\./g, '');
-                  return `(${tokenAlias} (try 0.0 (${token}.get-balance "${selectedAccount?.accountName}")))`;
-                })
-                .join('\n')}
-            )
-            {
-              ${chainTokens
-                .map(token => `"${token}": ${token.replace(/\./g, '')}`)
-                .join(',\n')}
-            }
+        (let*
+          (
+            ${chainTokens
+              .map(token => {
+                const tokenAlias = token.replace(/\./g, '');
+                return `(${tokenAlias} (try 0.0 (${token}.get-balance "${selectedAccount.accountName}")))`;
+              })
+              .join('\n')}
           )
-        `;
+          {
+            ${chainTokens
+              .map(token => `"${token}": ${token.replace(/\./g, '')}`)
+              .join(',\n')}
+          }
+        )
+      `;
 
       const chainPromise = getPact({
         ...networkDetail,
@@ -91,7 +93,6 @@ const TokendetectorModal: FC<TTokenDetectorModalProps> = ({
           const balances = data;
           Object.keys(balances).forEach(tokenContract => {
             const balance = parseFloat(balances[tokenContract]);
-
             if (balance > 0) {
               if (tokenBalances[tokenContract]) {
                 tokenBalances[tokenContract].balance += balance;
@@ -99,7 +100,7 @@ const TokendetectorModal: FC<TTokenDetectorModalProps> = ({
               } else {
                 tokenBalances[tokenContract] = {
                   contract: tokenContract,
-                  balance: balance,
+                  balance,
                   chains: [chainId],
                 };
               }
@@ -120,11 +121,10 @@ const TokendetectorModal: FC<TTokenDetectorModalProps> = ({
       allTokensWithBalance.filter(
         t =>
           t.contract !== 'coin' &&
-          !selectedAccount?.wallets?.find(f => f.tokenAddress === t.contract),
+          !selectedAccount.wallets?.find(f => f.tokenAddress === t.contract),
       ),
     );
     setIsLoading(false);
-
     return allTokensWithBalance;
   };
 
@@ -144,8 +144,7 @@ const TokendetectorModal: FC<TTokenDetectorModalProps> = ({
     <Modal
       isVisible={isVisible}
       close={toggle}
-      title={`Detected Tokens`}
-      onPressLeftItem={() => {}}
+      title={t('wallet.assetsList.tokenDetector.title')}
       contentStyle={styles.modalStyle}>
       <View style={styles.modalContainer}>
         <View style={styles.modalContentWrapper}>
@@ -155,8 +154,8 @@ const TokendetectorModal: FC<TTokenDetectorModalProps> = ({
               color={MAIN_COLOR}
               style={{marginTop: 20}}
             />
-          ) : detectedTokens?.length ? (
-            detectedTokens?.map(t => (
+          ) : detectedTokens.length ? (
+            detectedTokens.map(t => (
               <ListItem
                 key={t.contract}
                 isFirst
@@ -173,7 +172,8 @@ const TokendetectorModal: FC<TTokenDetectorModalProps> = ({
             <Warning
               style={styles.warning}
               centerText
-              title={`No other tokens founded for this account`}
+              title={t('wallet.assetsList.tokenDetector.emptyTitle')}
+              text={t('wallet.assetsList.tokenDetector.emptyText')}
             />
           )}
         </View>
@@ -181,4 +181,4 @@ const TokendetectorModal: FC<TTokenDetectorModalProps> = ({
     </Modal>
   );
 };
-export default TokendetectorModal;
+export default TokenDetectorModal;

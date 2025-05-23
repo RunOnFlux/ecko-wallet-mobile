@@ -1,5 +1,6 @@
 import React, {FC, useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import {MAIN_COLOR} from '../../constants/styles';
 
 import {styles} from './styles';
@@ -18,14 +19,18 @@ const PasswordInput: FC<TPasswordInputProps> = ({
   white,
   ...restProps
 }) => {
+  const {t} = useTranslation();
   const [secureEntry, setSecureEntry] = useState<boolean>(true);
+
   return (
     <View style={[styles.wrapper, wrapperStyle]}>
-      <Text style={styles.label}>{label || 'Password'}</Text>
+      <Text style={styles.label}>
+        {label || t('components.passwordInput.label')}
+      </Text>
       <View style={[styles.inputContainer, inputContainerStyle]}>
         <TextInput
           placeholderTextColor="gray"
-          placeholder="Enter Password"
+          placeholder={t('components.passwordInput.placeholder')}
           {...restProps}
           style={[styles.input, style]}
           secureTextEntry={secureEntry}

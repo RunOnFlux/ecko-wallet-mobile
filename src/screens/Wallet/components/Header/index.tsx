@@ -1,5 +1,6 @@
 import React, {useCallback} from 'react';
 import {View, TouchableOpacity, Text} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 import ArrowDownSvg from '../../../../assets/images/arrow-down.svg';
 import MoreVerticalSvg from '../../../../assets/images/more-vertical.svg';
@@ -18,6 +19,7 @@ import {useShallowEqualSelector} from '../../../../store/utils';
 import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
 
 const Header = React.memo(() => {
+  const {t} = useTranslation();
   const account = useShallowEqualSelector(makeSelectSelectedAccount);
   const activeNetwork = useShallowEqualSelector(makeSelectActiveNetwork);
 
@@ -43,11 +45,11 @@ const Header = React.memo(() => {
       });
       Clipboard.setString(account.accountName || '');
       Snackbar.show({
-        text: 'Account name copied to clipboard!',
+        text: t('wallet.header.accountCopied'),
         duration: Snackbar.LENGTH_SHORT,
       });
     }
-  }, [account]);
+  }, [account, t]);
 
   return (
     <View style={styles.header}>

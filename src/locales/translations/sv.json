@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "Spara",
+    "confirm": "Bekräfta",
+    "delete": "Radera",
+    "cancel": "Avbryt",
+    "ok": "OK",
+    "error": "Fel",
+    "selectLanguage": "Välj språk",
+    "selectLanguageLongDescription": "Välj det språk du vill använda"
+  },
+  "welcome": {
+    "title": "Välkommen till\neckoWALLET",
+    "subtitle": "Porten till Kadena-ekosystemet",
+    "loginCard": {
+      "title": "Logga in på mitt konto",
+      "description": "Ange ditt plånbokslösenord"
+    },
+    "newUserCard": {
+      "title": "Jag är en ny användare",
+      "description": "Konfigurera ett nytt eckoWALLET-konto"
+    },
+    "recoverCard": {
+      "title": "Jag har ett konto",
+      "description": "Logga in med din hemliga fras"
+    },
+    "instructions": {
+      "intro": "För att lägga till ett nytt konto, följ dessa steg:",
+      "step1": "1. Logga in på ditt befintliga konto",
+      "step2": "2. Klicka på \"Inställningar\"",
+      "step3": "3. Klicka på \"Radera konto\""
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Kontaktens namn",
+      "placeholder": "Skriv kontaktens namn"
+    },
+    "accountName": {
+      "label": "Kontonamn",
+      "placeholder": "Ange kontonamn"
+    },
+    "saveButton": "Spara",
+    "header": {
+      "title": "Lägg till kontakt"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Anpassad",
+    "alert": {
+      "failureTitle": "Misslyckades med att lägga till nätverket",
+      "failureMessage": "Ogiltig nätverksinformation"
+    },
+    "name": {
+      "label": "Nätverksnamn",
+      "placeholder": "Ange nätverksnamn"
+    },
+    "host": {
+      "label": "Ny RPC-URL",
+      "placeholder": "Ange URL"
+    },
+    "explorer": {
+      "label": "Blockutforskar-URL",
+      "placeholder": "Ange URL"
+    },
+    "header": {
+      "title": "Lägg till nätverk"
+    },
+    "saveButton": "Spara"
+  },
+  "addToken": {
+    "header": {
+      "title": "Lägg till token",
+      "titleImport": "Importera token"
+    },
+    "tokenAddress": {
+      "label": "Token-kontraktsadress",
+      "placeholder": "Skriv kontraktsadress"
+    },
+    "tokenName": {
+      "label": "Tokensymbol",
+      "placeholder": "Skriv tokensymbol"
+    },
+    "alert": {
+      "failureTitle": "Misslyckades med att importera token",
+      "failureMessage": "Token finns inte"
+    },
+    "saveButton": "Lägg till token"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Köp"
+    },
+    "consent": {
+      "description": "Köp och försäljning av kryptovalutor sker via en tredjepartstjänst tillhandahållen av Onramper.\n\nÄven om eckoWallet strävar efter högsta möjliga säkerhet för sina användare, kan vi inte garantera säkerhet eller integritet för tredjepartstjänster."
+    },
+    "error": {
+      "walletUnavailable": "Plånboksadress inte tillgänglig",
+      "unableConnect": "Kan inte ansluta till tjänsten. Försök igen senare."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Byt lösenord"
+    },
+    "currentPassword": {
+      "label": "Nuvarande lösenord"
+    },
+    "newPassword": {
+      "label": "Nytt lösenord"
+    },
+    "confirmPassword": {
+      "label": "Bekräfta lösenord"
+    },
+    "toast": {
+      "success": "Lösenordet har ändrats!"
+    },
+    "alert": {
+      "changeFailureTitle": "Misslyckades med att byta lösenord",
+      "changeFailureMessage": "Något gick fel. Försök igen senare.",
+      "verifyFailureTitle": "Verifiering misslyckades",
+      "verifyFailureMessage": "Ogiltigt lösenord"
+    },
+    "changeButton": "Byt lösenord"
+  },
+  "connection": {
+    "unknown": "Okänd anslutning",
+    "deleteAlert": {
+      "title": "Är du säker på att du vill ta bort denna aktiva session?",
+      "message": "All data för sessionen kommer att tas bort och kan inte återställas."
+    },
+    "deleteFailureTitle": "Misslyckades med att ta bort sessionen",
+    "deleteFailureMessage": "WalletConnect-konfigurationen matchar inte",
+    "empty": {
+      "sessions": "Ingen historik",
+      "pairings": "Inga aktiva sessioner"
+    },
+    "modal": {
+      "title": "WalletConnect-info"
+    },
+    "expiryLabel": "Utgår:",
+    "unknownHost": "Okänd"
+  },
+  "contacts": {
+    "searchPlaceholder": "Sök kontakter",
+    "emptyList": "Inga kontakter ännu",
+    "header": {
+      "title": "Kontakter"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Återställningsfras kopierad till urklipp!",
+    "description": "Din hemliga återställningsfras gör det enkelt att säkerhetskopiera och återställa ditt konto.",
+    "warning": "Avslöja aldrig din hemliga återställningsfras. Vem som helst med den kan ta kontroll över din plånbok.",
+    "copyButton": "Kopiera återställningsfras",
+    "header": {
+      "title": "Exportera återställningsfras"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Verifiera lösenord"
+    },
+    "description": "Ange ditt lösenord för att fortsätta",
+    "alert": {
+      "verifyFailureTitle": "Verifiering misslyckades",
+      "verifyFailureMessage": "Ogiltigt lösenord",
+      "verifyErrorMessage": "Något gick fel. Försök igen senare."
+    },
+    "continueButton": "Fortsätt"
+  },
+  "history": {
+    "empty": {
+      "pending": "Inga väntande aktiviteter",
+      "activities": "Inga aktiviteter hittades"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Överföring pågår!",
+      "pendingMessage": "Försök igen när överföringen är klar"
+    },
+    "finishButton": "Slutför cross-chain-överföring"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Kontonamn",
+      "placeholder": "Skriv kontonamn"
+    },
+    "privateKey": {
+      "label": "Privat nyckel",
+      "placeholder": "Skriv privat nyckel"
+    },
+    "importButton": "Importera",
+    "header": {
+      "title": "Importera konto"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Lås upp eckoWALLET",
+      "enter": "Ange din kod",
+      "enterNew": "Ange ny kod",
+      "reenter": "Ange koden igen",
+      "reenterNew": "Ange nya koden igen"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Nätverk"
+    }
+  },
+  "noConnection": {
+    "message": "Ingen nätverksanslutning"
+  },
+  "receiverScan": {
+    "placeholder": "Ändra målkonto",
+    "header": {
+      "title": "Skanna QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Seed-fraser",
+      "placeholder": "Ange hemlig fras"
+    },
+    "accountIndex": {
+      "label": "Kontonummer",
+      "placeholder": "Standard: 0"
+    },
+    "alert": {
+      "failureTitle": "Misslyckades med att importera konto",
+      "failureMessage": "Ogiltig återställningsfras"
+    },
+    "button": {
+      "recover": "Återställ"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Importera en plånbok med\ndin hemliga återställningsfras",
+    "seeds": {
+      "label": "Hemliga fraser (med mellanslag)",
+      "placeholder": "Ange hemliga fraser"
+    },
+    "password": {
+      "label": "Nytt lösenord"
+    },
+    "confirmPassword": {
+      "label": "Bekräfta lösenord"
+    },
+    "button": {
+      "restore": "Återställ"
+    },
+    "alert": {
+      "failureTitle": "Misslyckades med att importera konto",
+      "failureMessage": "Något gick fel. Försök igen senare.",
+      "invalidSeeds": "Ogiltig fras eller konto borttaget"
+    }
+  },
+  "registration": {
+    "text": "Skapa lösenord",
+    "password": {
+      "label": "Nytt lösenord"
+    },
+    "confirmPassword": {
+      "label": "Bekräfta lösenord"
+    },
+    "button": {
+      "create": "Skapa"
+    },
+    "alert": {
+      "failureTitle": "Registrering misslyckades",
+      "failureMessage": "Något gick fel. Försök igen senare."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Sök token",
+    "empty": "Inga tokens hittades",
+    "alert": {
+      "notFungibleTitle": "Tokenen är inte fungibel",
+      "notFungibleMessage": "Vald token är inte fungibel"
+    },
+    "header": {
+      "title": "Sök token"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Hemlig återställningsfras",
+    "reveal": "Klicka här för att visa de hemliga orden",
+    "snackbar": "Återställningsfras kopierad!",
+    "description1": "Din hemliga återställningsfras gör det enkelt att säkerhetskopiera och återställa ditt konto.",
+    "description2": "Varning: Avslöja aldrig din återställningsfras. Undvik skärmdumpar när du ser den. Vem som helst med den kan ta över din plånbok.",
+    "continue": "Fortsätt"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Hemlig återställningsfras",
+    "line1": "I nästa steg skriver du ner din 12-ords återställningsfras.",
+    "line2": "Din återställningsfras gör det enkelt att återställa plånboken på en ny enhet.",
+    "line3": "Vem som helst med frasen kan kontrollera din plånbok; håll den privat.",
+    "line4": "Kadena kan inte komma åt din fras om du förlorar den eller avinstallerar appen; förvara den säkert.",
+    "checkbox": "Jag förstår att om jag förlorar min återställningsfras kan jag inte återställa plånboken."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Överföringen väntar!",
+      "pendingMessage": "Försök igen när överföringen är klar"
+    },
+    "alert": {
+      "nonKTitle": "Skickar till icke-\"k:account\"",
+      "nonKMessage": "Är du säker på att du vill fortsätta?",
+      "proceed": "Fortsätt"
+    },
+    "chain": {
+      "sourceLabel": "Source Chain ID",
+      "targetLabel": "Target Chain ID"
+    },
+    "balance": {
+      "label": "Chain-saldo"
+    },
+    "accounts": {
+      "recent": "Senaste",
+      "contacts": "Kontakter"
+    },
+    "content": {
+      "advancedSettings": "Avancerade inställningar (valfritt)",
+      "predicateLabel": "Predikat",
+      "receiverLabel": "Mottagarens publika nyckel",
+      "destinationLabel": "Målplånbok",
+      "destinationPlaceholder": "Ange målplånbok",
+      "receiverPlaceholder": "Ange publika nyckel (valfritt)"
+    },
+    "header": {
+      "title": "Skicka {{token}}-transaktion"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Stäng inte appen\nmedan operationen bearbetas."
+    },
+    "toast": {
+      "submittedTitle": "Överföring skickad!",
+      "submittedMessage": "Du kan se resultatet i aktivitetsfliken"
+    },
+    "label": {
+      "result": "Resultat:",
+      "message": "Meddelande:",
+      "requestKey": "Begärans nyckel:"
+    },
+    "warning": {
+      "crossChainTitle": "Du utför en cross-chain-överföring",
+      "crossChainMessage": "Denna operation tar vanligtvis längre tid"
+    },
+    "button": {
+      "activities": "Gå till aktiviteter"
+    },
+    "header": {
+      "title": "Transaktionen pågår"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Du är på väg att utföra en cross-chain-överföring",
+      "crossChainMessage": "Denna operation tar vanligtvis längre tid"
+    },
+    "button": {
+      "send": "Skicka"
+    },
+    "confirmModal": {
+      "title": "Bekräfta transaktion",
+      "amountLabel": "Belopp:",
+      "gasLimitLabel": "Gasgräns:",
+      "gasPriceLabel": "Gaspris:",
+      "speedLabel": "Hastighet:",
+      "confirmButton": "Bekräfta"
+    },
+    "content": {
+      "transactionParameters": "Transaktionsparametrar",
+      "transactionSpeed": "Transaktionshastighet",
+      "gasLimitPlaceholder": "Ange gasgräns",
+      "gasPricePlaceholder": "Ange gaspris",
+      "gasLabel": "Gas",
+      "speedLabel": "{{speed}} Hastighet"
+    },
+    "header": {
+      "title": "Skicka transaktion"
+    },
+    "walletInfo": {
+      "amountLabel": "Belopp att skicka",
+      "half": "halv",
+      "max": "max",
+      "maxSnackbar": "Maxbelopp inkluderar även beräknad gasavgift.",
+      "usdValue": "{{value}} USD",
+      "balance": "Saldo: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Kontakter",
+        "text": "Hantera dina kontakter"
+      },
+      "networks": {
+        "title": "Nätverk",
+        "text": "Lägg till eller redigera anpassade RPC-nätverk"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Redigera WalletConnect-inställningar"
+      },
+      "accountSecurity": {
+        "title": "Kontosäkerhet",
+        "text": "Hantera din plånbokssäkerhet"
+      },
+      "lockWallet": {
+        "title": "Lås plånboken",
+        "text": "All historik sparas"
+      },
+      "deleteAccount": {
+        "title": "Radera konto",
+        "text": "Alla kontodata tas bort"
+      }
+    },
+    "alert": {
+      "lockTitle": "Är du säker på att du vill låsa plånboken?",
+      "lockMessage": "All historik sparas",
+      "lockConfirm": "Lås plånboken",
+      "deleteTitle": "Är du säker på att du vill radera kontot?",
+      "deleteMessage": "Alla kontodata tas bort. Utan återställningsfras förlorar du åtkomsten.",
+      "deleteConfirm": "Radera konto"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Porten till Kadena-ekosystemet",
+      "visitWebsite": "Besök vår webbplats",
+      "joinDiscord": "Gå med i Discord",
+      "termsOfUse": "Användarvillkor",
+      "privacyPolicy": "Integritetspolicy"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Kontosäkerhet"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Återställ kod",
+        "text": "Byt app-kod"
+      },
+      "exportPhrase": {
+        "title": "Exportera återställningsfras",
+        "text": "Skydda din plånbok"
+      },
+      "changePassword": {
+        "title": "Byt lösenord",
+        "text": "Byt kontolösenord"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Välkommen",
+    "label": {
+      "password": "Lösenord"
+    },
+    "button": {
+      "signIn": "Logga in"
+    },
+    "alert": {
+      "usePasscodeTitle": "Logga in med kod?",
+      "usePasscodeMessage": "Vill du använda kod och biometriskt för att öppna eckoWALLET?",
+      "failedTitle": "Inloggning misslyckades",
+      "invalidPassword": "Ogiltigt lösenord",
+      "errorMessage": "Något gick fel. Försök igen senare."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Bekräfta konvertering",
+      "give": "GE",
+      "receive": "FÅ",
+      "confirmButton": "Bekräfta"
+    },
+    "gasSettings": {
+      "title": "Gasinställningar",
+      "gasStation": "GASSTATION",
+      "gasLimitLabel": "Gasgräns",
+      "gasLimitPlaceholder": "Gasgräns",
+      "gasPriceLabel": "Gaspris",
+      "gasPricePlaceholder": "Gaspris",
+      "failureCost": "Potentiell gaskostnad vid fel:",
+      "noGasCost": "Ingen gaskostnad – subventioneras av eckoDEX via Kadena gasstationer."
+    },
+    "info": {
+      "gasCost": "Gaskostnad",
+      "free": "GRATIS",
+      "priceImpact": "Pris påverkan",
+      "price": "Pris",
+      "maxSlippage": "Maximal slippage",
+      "lpFee": "Likviditetsavgift",
+      "txDeadline": "Transaktionsdeadline",
+      "gasPrice": "Gaspris",
+      "gasLimit": "Gasgräns",
+      "unitMinutes": "minuter",
+      "unitSeconds": "sekunder"
+    },
+    "selectTokenModal": {
+      "title": "Välj token",
+      "placeholder": "Sök token",
+      "tokensLabel": "Tokens",
+      "warningTitle": "Varning",
+      "warningMessage": "Pool {{pair}} finns inte",
+      "addTokenTitle": "Lägg till ny token",
+      "addTokenMessage": "Denna token finns inte i din plånbok. Vill du lägga till den?",
+      "addTokenConfirm": "Lägg till",
+      "selectedSuffix": " (Vald)",
+      "empty": "Ingen token hittades"
+    },
+    "transactionSettings": {
+      "title": "Transaktionsinställningar",
+      "slippageTitle": "Slippage-tolerans",
+      "deadlineTitle": "Transaktionsdeadline",
+      "minutes": "minuter"
+    },
+    "swapBlock": {
+      "pending": "Transaktion pågår...",
+      "warningTitle": "För att använda vår konvertering, se till att du har medel på Chain 2.",
+      "warningText": "",
+      "give": "GE",
+      "receive": "FÅ",
+      "confirm": "BEKRÄFTA",
+      "submittedTitle": "Swap skickad!",
+      "submittedMessage": "Du kan se resultatet i aktivitetsfliken",
+      "poweredBy": "Drivs av eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Verifiera återställningsfras",
+    "description": "Bekräfta din återställningsfras genom att skriva orden i rätt ordning.",
+    "warning": "Använd standardtangentbord för säkerhet – undvik anpassade tangentbord.",
+    "inputLabel": "Inmatning {{number}}",
+    "error": "Ogiltiga återställningsfraser",
+    "continueButton": "Fortsätt"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Tillgångar"
+      },
+      "tokenDetector": {
+        "title": "Upptäckta tokens",
+        "emptyTitle": "Inga ytterligare tokens upptäckta för detta konto",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Kontonamn kopierat!"
+    },
+    "walletBalance": {
+      "netWorth": "Nettovärde",
+      "accountBalance": "Kontobalans",
+      "send": "Skicka",
+      "receive": "Ta emot",
+      "buy": "Köp"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Ange anslutningskod",
+    "connect": "Ansök",
+    "header": {
+      "title": "Skanna QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "Projekt-ID",
+    "projectIdPlaceholder": "Ange projekt-ID",
+    "relayUrlLabel": "Relay-URL",
+    "relayUrlPlaceholder": "Ange relay-URL",
+    "errorTitle": "Misslyckades med WalletConnect-konfiguration",
+    "errorMessage": "Ogiltiga parametrar"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Lösenord",
+      "placeholder": "Ange lösenord"
+    },
+    "numpad": {
+      "authenticationPrompt": "Autentisering",
+      "weakPasscodeTitle": "Svag kod",
+      "weakPasscodeDescription": "Den angivna koden är för svag. Försök med en mer komplex kod."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Om eckoDEX-webbplatsen är öppen på den här enheten och du har problem med WalletConnect-anslutningen, försök gå tillbaka till webbläsaren och sedan återkomma",
+      "text2": "Om det inte hjälper, kontrollera WalletConnect-inställningarna eller försök öppna eckoDEX i en desktop-webbläsare",
+      "button": "OK"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Alla aktiva sessioner förblir aktiva tills de manuellt avslutas via borttagningsåtgärden",
+      "text2": "Fliken historik visar detaljer om sessionen med beviljade behörigheter för metoder och händelser",
+      "button": "OK"
+    }
+  },
+  "tabs": {
+    "Wallet": "Plånbok",
+    "Swap": "Växla",
+    "History": "Historik",
+    "Connection": "Anslutningar",
+    "Settings": "Inställningar",
+    "history": {
+      "activities": "Aktiviteter",
+      "pending": "Väntande"
+    },
+    "connection": {
+      "pairings": "Aktiva sessioner",
+      "sessions": "Historik"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Transaktionsdetaljer",
+    "gas": "Gas: {{gas}}",
+    "statusLabel": "Status",
+    "continuationTitle": "Fortsättning",
+    "continuationValue": "steg: {{step}}, totalt: {{total}}",
+    "no": "nej",
+    "requestKeyTitle": "Begär nyckel",
+    "transactionTypeTitle": "Transaktionstyp",
+    "requestKeyChainTitle": "Begär nyckel (Chain {{chain}})",
+    "txDetailsButton": "Tx-detaljer",
+    "requestKeyCopied": "Begär nyckel kopierad till urklipp!"
+  },
+  "tokenModal": {
+    "distributionTitle": "Fördelning av {{token}} i kedjan",
+    "removeConfirmTitle": "Är du säker på att du vill ta bort?",
+    "removeConfirmMessage": "All token-data kommer att tas bort och kan inte återställas",
+    "remove": "Ta bort",
+    "notTransferable": "{{contract}} kan inte överföras!",
+    "zeroBalance": "{{token}}-saldo är 0",
+    "editToken": "Redigera token",
+    "removeToken": "Ta bort token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Mina plånböcker",
+    "removeConfirmTitle": "Är du säker på att du vill ta bort?",
+    "removeConfirmMessage": "All kontoinformation kommer att tas bort och kan inte återställas",
+    "remove": "Ta bort",
+    "share": "Dela plånbok",
+    "exportRecovery": "Exportera återställningsfras",
+    "removeSelected": "Ta bort vald plånbok",
+    "create": "Skapa plånbok",
+    "import": "Importera plånbok",
+    "copySuccess": "Kontouppgifter kopierade till urklipp!"
+  },
+  "session": {
+    "title": "Sessionsdetaljer",
+    "deleteTitle": "Är du säker på att du vill radera den här sessionshistoriken?",
+    "deleteDescription": "All sessionshistorik kommer att tas bort och kan inte återställas",
+    "deleteFailedTitle": "Kunde inte ta bort sessionen",
+    "deleteFailedMessage": "WalletConnect-konfigurationen matchar inte",
+    "deleteSession": "Ta bort session",
+    "reviewPermissions": "Granska {{namespace}}-behörigheter",
+    "unknownUrl": "Okänt",
+    "methods": "Metoder",
+    "events": "Händelser",
+    "expiry": "Utgår",
+    "lastUpdated": "Senast uppdaterad"
+  },
+  "receive": {
+    "title": "Ta emot tokens",
+    "accountNameLabel": "Ditt kontonamn"
+  },
+  "networkSelector": {
+    "title": "Välj nätverk",
+    "manage": "Hantera nätverk"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC-URL",
+    "blockExplorerUrl": "Blockutforskares URL",
+    "editNetwork": "Redigera nätverk"
+  },
+  "contactDetails": {
+    "accountName": "Kontonamn",
+    "chainId": "Chain ID",
+    "edit": "Redigera kontakt",
+    "copied": "Kopierat till urklipp!"
+  },
+  "validation": {
+    "required": "Detta fält är obligatoriskt",
+    "default": "Ogiltigt värde",
+    "min": "Måste innehålla minst {{count}} tecken",
+    "max": "Får innehålla högst {{count}} tecken",
+    "minNumber": "Måste vara minst {{count}}",
+    "maxNumber": "Får vara högst {{count}}",
+    "email": "Måste vara en giltig e-postadress",
+    "matches": "Ogiltigt format",
+    "passwordsMatch": "Lösenorden matchar inte",
+    "passwordComplexity": "Måste innehålla 8 tecken, en versal, en gemen, en siffra och ett specialtecken"
+  }
+}

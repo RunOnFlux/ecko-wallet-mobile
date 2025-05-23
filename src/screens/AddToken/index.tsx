@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {useDispatch} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 
 import Header from './components/Header';
 import FooterButton from '../../components/FooterButton';
@@ -36,12 +37,12 @@ import {getToken} from '../../api/kadena/token';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const AddToken = () => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.AddToken>>();
   const route = useRoute<TNavigationRouteProp<ERootStackRoutes.AddToken>>();
 
   const dispatch = useDispatch();
-
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const initialTokenName = route?.params?.tokenName || '';
@@ -70,7 +71,7 @@ const AddToken = () => {
       if (networkDetail && selectedAccount?.accountName) {
         setIsLoading(true);
         getToken({
-          accountName: selectedAccount?.accountName,
+          accountName: selectedAccount.accountName,
           token: formValues.tokenAddress,
           ...networkDetail,
           ...getNetworkParams(networkDetail),
@@ -87,12 +88,10 @@ const AddToken = () => {
               );
               setIsLoading(false);
               navigation.goBack();
-              if (route?.params?.onTokenAdd) {
-                route?.params?.onTokenAdd(
-                  formValues.tokenName,
-                  formValues.tokenAddress,
-                );
-              }
+              route.params?.onTokenAdd?.(
+                formValues.tokenName,
+                formValues.tokenAddress,
+              );
               setTimeout(() => {
                 dispatch(
                   getBalances({
@@ -108,7 +107,11 @@ const AddToken = () => {
                 enableVibrateFallback: false,
                 ignoreAndroidSystemSettings: false,
               });
-              Alert.alert('Failed to import the token', 'Token does not exist');
+              Alert.alert(
+                t('addToken.alert.failureTitle'),
+                t('addToken.alert.failureMessage'),
+              );
+              setIsLoading(false);
             }
           })
           .catch(() => {
@@ -117,11 +120,14 @@ const AddToken = () => {
               enableVibrateFallback: false,
               ignoreAndroidSystemSettings: false,
             });
-            Alert.alert('Failed to import the token', 'Token does not exist');
+            Alert.alert(
+              t('addToken.alert.failureTitle'),
+              t('addToken.alert.failureMessage'),
+            );
           });
       }
     },
-    [initialTokenName, networkDetail, selectedAccount],
+    [networkDetail, selectedAccount, navigation, route.params, dispatch, t],
   );
 
   const scrollRef = useRef<ScrollView | null>(null);
@@ -144,8 +150,8 @@ const AddToken = () => {
             name="tokenAddress"
             render={({field: {onChange, onBlur, value}}) => (
               <Input
-                label="Token Contract Address"
-                placeholder="Type Contract Address"
+                label={t('addToken.tokenAddress.label')}
+                placeholder={t('addToken.tokenAddress.placeholder')}
                 autoCapitalize="none"
                 wrapperStyle={styles.inputWrapper}
                 onChangeText={onChange}
@@ -160,8 +166,8 @@ const AddToken = () => {
             name="tokenName"
             render={({field: {onChange, onBlur, value}}) => (
               <Input
-                label="Token Symbol"
-                placeholder="Type Token Symbol"
+                label={t('addToken.tokenName.label')}
+                placeholder={t('addToken.tokenName.placeholder')}
                 autoCapitalize="characters"
                 wrapperStyle={styles.inputWrapper}
                 onChangeText={onChange}
@@ -174,9 +180,9 @@ const AddToken = () => {
         </ScrollView>
         <View style={styles.footer}>
           <FooterButton
-            disabled={!isValid || isLoading}
-            title="Add Token"
+            title={t('addToken.saveButton')}
             onPress={handleSubmit(handlePressSave)}
+            disabled={!isValid || isLoading}
           />
         </View>
       </View>

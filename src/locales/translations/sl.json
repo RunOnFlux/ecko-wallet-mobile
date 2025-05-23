@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "Shrani",
+    "confirm": "Potrdi",
+    "delete": "Izbriši",
+    "cancel": "Prekliči",
+    "ok": "V redu",
+    "error": "Napaka",
+    "selectLanguage": "Izberite jezik",
+    "selectLanguageLongDescription": "Izberite želeni jezik"
+  },
+  "welcome": {
+    "title": "Dobrodošli v\neckoWALLET",
+    "subtitle": "Vhod v ekosistem Kadena",
+    "loginCard": {
+      "title": "Prijava v moj račun",
+      "description": "Vnesite geslo denarnice"
+    },
+    "newUserCard": {
+      "title": "Sem nov uporabnik",
+      "description": "Nastavite nov račun eckoWALLET"
+    },
+    "recoverCard": {
+      "title": "Že imam račun",
+      "description": "Prijava s tajno frazo"
+    },
+    "instructions": {
+      "intro": "Za dodajanje novega računa sledite tem korakom:",
+      "step1": "1. Prijavite se v obstoječi račun",
+      "step2": "2. Kliknite »Nastavitve«",
+      "step3": "3. Kliknite »Izbriši račun«"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Ime kontakta",
+      "placeholder": "Vnesite ime kontakta"
+    },
+    "accountName": {
+      "label": "Ime računa",
+      "placeholder": "Vnesite ime računa"
+    },
+    "saveButton": "Shrani",
+    "header": {
+      "title": "Dodaj kontakt"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Po meri",
+    "alert": {
+      "failureTitle": "Dodajanje omrežja ni uspelo",
+      "failureMessage": "Neveljavne informacije o omrežju"
+    },
+    "name": {
+      "label": "Ime omrežja",
+      "placeholder": "Vnesite ime omrežja"
+    },
+    "host": {
+      "label": "Nov RPC URL",
+      "placeholder": "Vnesite URL"
+    },
+    "explorer": {
+      "label": "URL brskalnika blokov",
+      "placeholder": "Vnesite URL"
+    },
+    "header": {
+      "title": "Dodaj omrežje"
+    },
+    "saveButton": "Shrani"
+  },
+  "addToken": {
+    "header": {
+      "title": "Dodaj žeton",
+      "titleImport": "Uvozi žeton"
+    },
+    "tokenAddress": {
+      "label": "Naslov pogodbe žetona",
+      "placeholder": "Vnesite naslov"
+    },
+    "tokenName": {
+      "label": "Simbol žetona",
+      "placeholder": "Vnesite simbol"
+    },
+    "alert": {
+      "failureTitle": "Uvoz žetona ni uspel",
+      "failureMessage": "Žeton ne obstaja"
+    },
+    "saveButton": "Dodaj žeton"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Nakup"
+    },
+    "consent": {
+      "description": "Nakup in prodaja kriptovalut poteka prek storitve tretje osebe Onramper.\n\neckoWallet si prizadeva za najvišjo raven varnosti, vendar ne moremo jamčiti za varnost in zasebnost tretjih storitev."
+    },
+    "error": {
+      "walletUnavailable": "Naslov denarnice ni na voljo",
+      "unableConnect": "Povezava s storitvijo ni mogoča. Poskusite znova kasneje."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Spremeni geslo"
+    },
+    "currentPassword": {
+      "label": "Trenutno geslo"
+    },
+    "newPassword": {
+      "label": "Novo geslo"
+    },
+    "confirmPassword": {
+      "label": "Potrdite geslo"
+    },
+    "toast": {
+      "success": "Geslo je bilo uspešno spremenjeno!"
+    },
+    "alert": {
+      "changeFailureTitle": "Sprememba gesla ni uspela",
+      "changeFailureMessage": "Prišlo je do napake. Poskusite znova kasneje.",
+      "verifyFailureTitle": "Preverjanje ni uspelo",
+      "verifyFailureMessage": "Neveljavno geslo"
+    },
+    "changeButton": "Spremeni geslo"
+  },
+  "connection": {
+    "unknown": "Neznana povezava",
+    "deleteAlert": {
+      "title": "Ste prepričani, da želite izbrisati to aktivno sejo?",
+      "message": "Vsi podatki seje bodo izbrisani in jih ne bo mogoče obnoviti."
+    },
+    "deleteFailureTitle": "Brisanje seje ni uspelo",
+    "deleteFailureMessage": "Konfiguracija WalletConnect se ne ujema",
+    "empty": {
+      "sessions": "Brez zgodovine",
+      "pairings": "Brez aktivnih sej"
+    },
+    "modal": {
+      "title": "Podrobnosti WalletConnect"
+    },
+    "expiryLabel": "Poteka:",
+    "unknownHost": "Neznano"
+  },
+  "contacts": {
+    "searchPlaceholder": "Išči kontakte",
+    "emptyList": "Trenutno ni kontaktov",
+    "header": {
+      "title": "Kontakti"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Obnovitvena fraza je kopirana v odložišče!",
+    "description": "Vaša skrivna obnovitvena fraza omogoča enostavno varnostno kopiranje in obnovitev računa.",
+    "warning": "Nikoli ne delite svoje obnovitvene fraze. Kdor jo ima, lahko prevzame vaš denarnico.",
+    "copyButton": "Kopiraj obnovitveno frazo",
+    "header": {
+      "title": "Izvozi obnovitveno frazo"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Preveri geslo"
+    },
+    "description": "Vnesite geslo za nadaljevanje",
+    "alert": {
+      "verifyFailureTitle": "Preverjanje ni uspelo",
+      "verifyFailureMessage": "Neveljavno geslo",
+      "verifyErrorMessage": "Prišlo je do napake. Poskusite kasneje."
+    },
+    "continueButton": "Nadaljuj"
+  },
+  "history": {
+    "empty": {
+      "pending": "Ni čakajočih dejavnosti",
+      "activities": "Ni najdenih dejavnosti"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Prenos je v teku!",
+      "pendingMessage": "Poskusite znova po zaključku prenosa"
+    },
+    "finishButton": "Zaključi medverižni prenos"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Ime računa",
+      "placeholder": "Vnesite ime računa"
+    },
+    "privateKey": {
+      "label": "Zasebni ključ",
+      "placeholder": "Vnesite zasebni ključ"
+    },
+    "importButton": "Uvozi",
+    "header": {
+      "title": "Uvozi račun"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "Odkleni eckoWALLET",
+      "enter": "Vnesite kodo",
+      "enterNew": "Vnesite novo kodo",
+      "reenter": "Ponovno vnesite kodo",
+      "reenterNew": "Ponovno vnesite novo kodo"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Omrežja"
+    }
+  },
+  "noConnection": {
+    "message": "Brez omrežne povezave"
+  },
+  "receiverScan": {
+    "placeholder": "Uredi ciljni račun",
+    "header": {
+      "title": "Skeniraj QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Začetne besede",
+      "placeholder": "Vnesite obnovitvene besede"
+    },
+    "accountIndex": {
+      "label": "Številka računa",
+      "placeholder": "Privzeto: 0"
+    },
+    "alert": {
+      "failureTitle": "Uvoz računa ni uspel",
+      "failureMessage": "Neveljavna obnovitvena fraza"
+    },
+    "button": {
+      "recover": "Obnovi"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Uvozi denarnico z\nobnovitveno frazo",
+    "seeds": {
+      "label": "Obnovitvena fraza (z presledki)",
+      "placeholder": "Vnesite frazo"
+    },
+    "password": {
+      "label": "Novo geslo"
+    },
+    "confirmPassword": {
+      "label": "Potrdi geslo"
+    },
+    "button": {
+      "restore": "Obnovi"
+    },
+    "alert": {
+      "failureTitle": "Uvoz računa ni uspel",
+      "failureMessage": "Prišlo je do napake. Poskusite kasneje.",
+      "invalidSeeds": "Neveljavna fraza ali izbrisan račun"
+    }
+  },
+  "registration": {
+    "text": "Ustvari geslo",
+    "password": {
+      "label": "Novo geslo"
+    },
+    "confirmPassword": {
+      "label": "Potrdi geslo"
+    },
+    "button": {
+      "create": "Ustvari"
+    },
+    "alert": {
+      "failureTitle": "Registracija ni uspela",
+      "failureMessage": "Prišlo je do napake. Poskusite kasneje."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Išči žeton",
+    "empty": "Žetonov ni najdenih",
+    "alert": {
+      "notFungibleTitle": "Nezamenljivi žeton",
+      "notFungibleMessage": "Izbrani žeton ni zamenljiv"
+    },
+    "header": {
+      "title": "Išči žeton"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Skrivna obnovitvena fraza",
+    "reveal": "Klikni za prikaz besed",
+    "snackbar": "Obnovitvena fraza kopirana!",
+    "description1": "Vaša obnovitvena fraza omogoča varnostno kopiranje in obnovitev računa.",
+    "description2": "Pozor: nikoli ne delite fraze. Ne snemajte zaslona. Kdor jo ima, prevzame vašo denarnico.",
+    "continue": "Nadaljuj"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Skrivna obnovitvena fraza",
+    "line1": "V naslednjem koraku zapišite 12-besedno obnovitveno frazo.",
+    "line2": "S to frazo obnovite denarnico na novi napravi.",
+    "line3": "Kdor pozna frazo, ima nadzor nad denarnico. Shranite jo varno.",
+    "line4": "Kadena ne more pomagati, če izgubite frazo ali izbrišete aplikacijo.",
+    "checkbox": "Razumem, da brez te fraze ni mogoče obnoviti denarnice."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Prenos čaka!",
+      "pendingMessage": "Poskusite znova po zaključku prenosa"
+    },
+    "alert": {
+      "nonKTitle": "Pošiljanje na ne „k:account“",
+      "nonKMessage": "Ste prepričani, da želite nadaljevati?",
+      "proceed": "Nadaljuj"
+    },
+    "chain": {
+      "sourceLabel": "ID izvorne verige",
+      "targetLabel": "ID ciljne verige"
+    },
+    "balance": {
+      "label": "Stanje verige"
+    },
+    "accounts": {
+      "recent": "Nedavno",
+      "contacts": "Kontakti"
+    },
+    "content": {
+      "advancedSettings": "Napredne nastavitve (neobvezno)",
+      "predicateLabel": "Pogoj",
+      "receiverLabel": "Javni ključ prejemnika",
+      "destinationLabel": "Ciljni račun",
+      "destinationPlaceholder": "Vnesite ciljni račun",
+      "receiverPlaceholder": "Vnesite javni ključ (neobvezno)"
+    },
+    "header": {
+      "title": "Pošlji transakcijo {{token}}"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Med obdelavo ne zapirajte aplikacije."
+    },
+    "toast": {
+      "submittedTitle": "Prenos oddan!",
+      "submittedMessage": "Izdelek si oglejte na zavihku dejavnosti"
+    },
+    "label": {
+      "result": "Rezultat:",
+      "message": "Sporočilo:",
+      "requestKey": "Ključ zahteve:"
+    },
+    "warning": {
+      "crossChainTitle": "Izvajate medverižni prenos",
+      "crossChainMessage": "To običajno traja dlje časa"
+    },
+    "button": {
+      "activities": "Pojdi na dejavnosti"
+    },
+    "header": {
+      "title": "Transakcija v teku"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Namenjate se izvedbi medverižnega prenosa",
+      "crossChainMessage": "To običajno traja dlje časa"
+    },
+    "button": {
+      "send": "Pošlji"
+    },
+    "confirmModal": {
+      "title": "Potrdi pošiljanje",
+      "amountLabel": "Znesek:",
+      "gasLimitLabel": "Omejitev gas:",
+      "gasPriceLabel": "Cena gas:",
+      "speedLabel": "Hitrost:",
+      "confirmButton": "Potrdi"
+    },
+    "content": {
+      "transactionParameters": "Parametri transakcije",
+      "transactionSpeed": "Hitrost transakcije",
+      "gasLimitPlaceholder": "Vnesite omejitev gas",
+      "gasPricePlaceholder": "Vnesite ceno gas",
+      "gasLabel": "Gas",
+      "speedLabel": "{{speed}} hitrost"
+    },
+    "header": {
+      "title": "Pošlji transakcijo"
+    },
+    "walletInfo": {
+      "amountLabel": "Znesek za pošiljanje",
+      "half": "polovica",
+      "max": "maksimum",
+      "maxSnackbar": "Maksimalni znesek vključuje ocenjene stroške gas.",
+      "usdValue": "{{value}} USD",
+      "balance": "Stanje: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Kontakti",
+        "text": "Upravljanje seznama kontaktov"
+      },
+      "networks": {
+        "title": "Omrežja",
+        "text": "Dodajanje/urejanje RPC omrežij"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "Urejanje konfiguracije"
+      },
+      "accountSecurity": {
+        "title": "Varnost računa",
+        "text": "Upravljanje varnosti denarnice"
+      },
+      "lockWallet": {
+        "title": "Zakleni denarnico",
+        "text": "Zgodovina bo ostala"
+      },
+      "deleteAccount": {
+        "title": "Izbriši račun",
+        "text": "Vsi podatki bodo izbrisani"
+      }
+    },
+    "alert": {
+      "lockTitle": "Ste prepričani, da želite zakleniti denarnico?",
+      "lockMessage": "Zgodovina bo ostala",
+      "lockConfirm": "Zakleni",
+      "deleteTitle": "Ste prepričani, da želite izbrisati račun?",
+      "deleteMessage": "Vsi podatki bodo izbrisani. Brez obnovitvene fraze dostopa ne bo več možno.",
+      "deleteConfirm": "Izbriši"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Vhod v ekosistem Kadena",
+      "visitWebsite": "Obiščite našo spletno stran",
+      "joinDiscord": "Pridružite se Discordu",
+      "termsOfUse": "Pogoji uporabe",
+      "privacyPolicy": "Politika zasebnosti"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Varnost računa"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "Ponastavi PIN",
+        "text": "Spremeni aplikacijski PIN"
+      },
+      "exportPhrase": {
+        "title": "Izvozi frazo",
+        "text": "Zaščiti denarnico"
+      },
+      "changePassword": {
+        "title": "Spremeni geslo",
+        "text": "Spremeni geslo računa"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Dobrodošli",
+    "label": {
+      "password": "Geslo"
+    },
+    "button": {
+      "signIn": "Prijava"
+    },
+    "alert": {
+      "usePasscodeTitle": "Prijava s PIN-om?",
+      "usePasscodeMessage": "Želite uporabiti PIN in biometrične podatke?",
+      "failedTitle": "Prijava ni uspela",
+      "invalidPassword": "Neveljavno geslo",
+      "errorMessage": "Prišlo je do napake. Poskusite kasneje."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Potrditev zamenjave",
+      "give": "DAJ",
+      "receive": "PREJMI",
+      "confirmButton": "Potrdi"
+    },
+    "gasSettings": {
+      "title": "Nastavitve gas",
+      "gasStation": "STANICA GAS",
+      "gasLimitLabel": "Omejitev gas",
+      "gasLimitPlaceholder": "Omejitev gas",
+      "gasPriceLabel": "Cena gas",
+      "gasPricePlaceholder": "Cena gas",
+      "failureCost": "Ocena stroška gas ob neuspehu:",
+      "noGasCost": "Brez stroška gas — eckoDEX krije"
+    },
+    "info": {
+      "gasCost": "Stroški gas",
+      "free": "BREZPLAČNO",
+      "priceImpact": "Vpliv na ceno",
+      "price": "Cena",
+      "maxSlippage": "Največje drsenje",
+      "lpFee": "LP provizija",
+      "txDeadline": "Rok transakcije",
+      "gasPrice": "Cena gas",
+      "gasLimit": "Omejitev gas",
+      "unitMinutes": "minute",
+      "unitSeconds": "sekunde"
+    },
+    "selectTokenModal": {
+      "title": "Izberite žeton",
+      "placeholder": "Išči žeton",
+      "tokensLabel": "Žetoni",
+      "warningTitle": "Opozorilo",
+      "warningMessage": "Bazen {{pair}} ne obstaja",
+      "addTokenTitle": "Dodaj nov žeton",
+      "addTokenMessage": "Žetona ni v denarnici. Dodati?",
+      "addTokenConfirm": "Dodaj",
+      "selectedSuffix": " (Izbrano)",
+      "empty": "Žeton ni najden"
+    },
+    "transactionSettings": {
+      "title": "Nastavitve transakcije",
+      "slippageTitle": "Toleranca drsenja",
+      "deadlineTitle": "Rok",
+      "minutes": "minute"
+    },
+    "swapBlock": {
+      "pending": "Transakcija v teku...",
+      "warningTitle": "Za zamenjavo poskrbite, da imate sredstva na Verigi 2.",
+      "warningText": "",
+      "give": "DAJ",
+      "receive": "PREJMI",
+      "confirm": "POTRDI",
+      "submittedTitle": "Zamenjava oddana!",
+      "submittedMessage": "Rezultat si oglejte na zavihku Dejavnosti",
+      "poweredBy": "Powered by eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Preveri obnovitveno frazo",
+    "description": "Vnesite besede v pravilnem vrstnem redu.",
+    "warning": "Priporoča se ne uporabljati prilagojenih tipkovnic. Za varnost uporabite privzeto.",
+    "inputLabel": "Vnos {{number}}",
+    "error": "Neveljavna fraza",
+    "continueButton": "Nadaljuj"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Sredstva"
+      },
+      "tokenDetector": {
+        "title": "Odkriti žetoni",
+        "emptyTitle": "Za ta račun ni drugih žetonov",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Ime računa kopirano!"
+    },
+    "walletBalance": {
+      "netWorth": "Čista vrednost",
+      "accountBalance": "Stanje računa",
+      "send": "Pošlji",
+      "receive": "Prejmi",
+      "buy": "Kupite"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "Vnesi kodo povezave",
+    "connect": "Poveži",
+    "header": {
+      "title": "Skeniraj QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "ID projekta",
+    "projectIdPlaceholder": "Vnesite ID projekta",
+    "relayUrlLabel": "Relay URL",
+    "relayUrlPlaceholder": "Vnesite Relay URL",
+    "errorTitle": "Sprememba konfiguracije ni uspela",
+    "errorMessage": "Neveljavni parametri"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Geslo",
+      "placeholder": "Vnesite geslo"
+    },
+    "numpad": {
+      "authenticationPrompt": "Overjanje",
+      "weakPasscodeTitle": "Šibka varnostna koda",
+      "weakPasscodeDescription": "Vnesena koda je prešibka. Prosimo, poskusite bolj zapleteno kodo."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Če je stran eckoDEX odprta na tej napravi in imate težave s povezavo WalletConnect, poskusite nazaj v brskalnik in nazaj sem",
+      "text2": "Če to ne pomaga, preverite nastavitve WalletConnect ali poskusite odpreti eckoDEX v namiznem brskalniku",
+      "button": "V redu"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Vse aktivne seje bodo ostale aktivne, dokler jih ročno ne prekinete z dejanjem brisanja",
+      "text2": "Zavihek Zgodovina prikazuje podrobnosti seje z dodeljenimi dovoljenji za metode in dogodke",
+      "button": "V redu"
+    }
+  },
+  "tabs": {
+    "Wallet": "Denarnica",
+    "Swap": "Zamenjaj",
+    "History": "Zgodovina",
+    "Connection": "Povezave",
+    "Settings": "Nastavitve",
+    "history": {
+      "activities": "Dejavnosti",
+      "pending": "Čakajoče"
+    },
+    "connection": {
+      "pairings": "Aktivne seje",
+      "sessions": "Zgodovina"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Podrobnosti transakcije",
+    "gas": "Plin: {{gas}}",
+    "statusLabel": "Stanje",
+    "continuationTitle": "Nadaljevanje",
+    "continuationValue": "korak: {{step}}, skupaj: {{total}}",
+    "no": "ne",
+    "requestKeyTitle": "Ključ zahteve",
+    "transactionTypeTitle": "Vrsta transakcije",
+    "requestKeyChainTitle": "Ključ zahteve (Chain {{chain}})",
+    "txDetailsButton": "Podrobnosti Tx",
+    "requestKeyCopied": "Ključ zahteve je bil kopiran v odložišče!"
+  },
+  "tokenModal": {
+    "distributionTitle": "Distribucija {{token}} v verigi",
+    "removeConfirmTitle": "Ali ste prepričani, da želite odstraniti?",
+    "removeConfirmMessage": "Vsi podatki žetona bodo izbrisani in jih ne bo mogoče obnoviti",
+    "remove": "Odstrani",
+    "notTransferable": "{{contract}} ni prenosljiv!",
+    "zeroBalance": "Stanje {{token}} je 0",
+    "editToken": "Uredi žeton",
+    "removeToken": "Odstrani žeton",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Moje denarnice",
+    "removeConfirmTitle": "Ali ste prepričani, da želite odstraniti?",
+    "removeConfirmMessage": "Vsi podatki računa bodo izbrisani in jih ne bo mogoče obnoviti",
+    "remove": "Odstrani",
+    "share": "Deli denarnico",
+    "exportRecovery": "Izvozi frazo za obnovitev",
+    "removeSelected": "Odstrani izbrano denarnico",
+    "create": "Ustvari denarnico",
+    "import": "Uvozi denarnico",
+    "copySuccess": "Podrobnosti računa so bile kopirane v odložišče!"
+  },
+  "session": {
+    "title": "Podrobnosti seje",
+    "deleteTitle": "Ali ste prepričani, da želite izbrisati to zgodovino seje?",
+    "deleteDescription": "Vsi podatki zgodovine seje bodo izbrisani in jih ne bo mogoče obnoviti",
+    "deleteFailedTitle": "Brisanje seje ni uspelo",
+    "deleteFailedMessage": "Konfiguracija WalletConnect se ne ujema",
+    "deleteSession": "Izbriši sejo",
+    "reviewPermissions": "Preveri dovoljenja za {{namespace}}",
+    "unknownUrl": "Neznano",
+    "methods": "Metode",
+    "events": "Dogodki",
+    "expiry": "Potek",
+    "lastUpdated": "Zadnja posodobitev"
+  },
+  "receive": {
+    "title": "Prejmi žetone",
+    "accountNameLabel": "Ime vašega računa"
+  },
+  "networkSelector": {
+    "title": "Izberite omrežje",
+    "manage": "Upravljaj omrežja"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "URL raziskovalca blokov",
+    "editNetwork": "Uredi omrežje"
+  },
+  "contactDetails": {
+    "accountName": "Ime računa",
+    "chainId": "Chain ID",
+    "edit": "Uredi stik",
+    "copied": "Kopirano v odložišče!"
+  },
+  "validation": {
+    "required": "To polje je obvezno",
+    "default": "Neveljavna vrednost",
+    "min": "Mora vsebovati vsaj {{count}} znakov",
+    "max": "Lahko vsebuje največ {{count}} znakov",
+    "minNumber": "Mora biti vsaj {{count}}",
+    "maxNumber": "Lahko znaša največ {{count}}",
+    "email": "Mora biti veljaven e-poštni naslov",
+    "matches": "Neveljaven format",
+    "passwordsMatch": "Gesli se ne ujemata",
+    "passwordComplexity": "Mora vsebovati 8 znakov, eno veliko črko, eno malo črko, eno številko in en poseben znak"
+  }
+}

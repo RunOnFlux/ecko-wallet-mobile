@@ -1,6 +1,7 @@
 import React, {useCallback} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 
 import {styles} from './styles';
 import ArrowLeftSvg from '../../../../assets/images/arrow-left.svg';
@@ -10,6 +11,7 @@ import {ERootStackRoutes, TNavigationProp} from '../../../../routes/types';
 const Header = React.memo(() => {
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.Networks>>();
+  const {t} = useTranslation();
 
   const handlePressCreate = useCallback(() => {
     navigation.navigate({
@@ -30,7 +32,7 @@ const Header = React.memo(() => {
         style={styles.backBtnWrapper}>
         <ArrowLeftSvg fill="#787B8E" />
       </TouchableOpacity>
-      <Text style={styles.title}>Networks</Text>
+      <Text style={styles.title}>{t('networks.header.title')}</Text>
       <TouchableOpacity
         activeOpacity={0.8}
         style={styles.rightItemWrapper}

@@ -1,34 +1,35 @@
-import React, {useCallback, useRef} from 'react';
+import React, {useCallback, useRef, useEffect} from 'react';
 import {
-  View,
-  Text,
-  ImageBackground,
-  TouchableOpacity,
-  ScrollView,
   Alert,
-  KeyboardAvoidingView,
+  ImageBackground,
   Platform,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+  KeyboardAvoidingView,
 } from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
+import {useTranslation} from 'react-i18next';
+import {useDispatch, useSelector} from 'react-redux';
+import {useNavigation} from '@react-navigation/native';
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
-import Logo from '../../assets/images/logo.svg';
 import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
-
-import {createStyles} from './styles';
+import Logo from '../../assets/images/logo.svg';
+import PasswordInput from '../../components/PasswordInput';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {changePassword} from '../../store/auth';
 import {makeSelectHasAccount} from '../../store/userWallet/selectors';
-import PasswordInput from '../../components/PasswordInput';
 import {createPasswordSchema} from '../../validation/createPasswordSchema';
-import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
-import {useNavigation} from '@react-navigation/native';
 import {hashPassword} from '../../api/kadena/hashPassword';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {createStyles} from './styles';
 
 const bgImage = require('../../assets/images/bgimage.png');
 
 const Registration = () => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.Registration>>();
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ const Registration = () => {
     control,
     handleSubmit,
     formState: {errors, isValid},
-  } = useForm({resolver: createPasswordSchema, mode: 'onChange'});
+  } = useForm({resolver: createPasswordSchema(t), mode: 'onChange'});
 
   const handlePressBack = useCallback(() => {
     navigation.goBack();
@@ -49,51 +50,41 @@ const Registration = () => {
 
   const handlePressCreate = useCallback(
     (data: FieldValues) => {
-      if (hasAccount) {
-        return;
-      }
+      if (hasAccount) return;
 
-      hashPassword({
-        password: data.password || '',
-      })
+      hashPassword({password: data.password || ''})
         .then(hashResponseHash => {
           if (hashResponseHash) {
             dispatch(changePassword(hashResponseHash));
             navigation.navigate({
               name: ERootStackRoutes.SecretRecoveryPhraseTerm,
-              params: undefined,
             });
           } else {
-            ReactNativeHapticFeedback.trigger('impactMedium', {
-              enableVibrateFallback: false,
-              ignoreAndroidSystemSettings: false,
-            });
+            ReactNativeHapticFeedback.trigger('impactMedium');
             Alert.alert(
-              'Failed to register',
-              'Something went wrong. Please try again later.',
+              t('registration.alert.failureTitle'),
+              t('registration.alert.failureMessage'),
             );
           }
         })
         .catch(() => {
-          ReactNativeHapticFeedback.trigger('impactMedium', {
-            enableVibrateFallback: false,
-            ignoreAndroidSystemSettings: false,
-          });
+          ReactNativeHapticFeedback.trigger('impactMedium');
           Alert.alert(
-            'Failed to register',
-            'Something went wrong. Please try again later.',
+            t('registration.alert.failureTitle'),
+            t('registration.alert.failureMessage'),
           );
         });
     },
-    [hasAccount],
+    [hasAccount, dispatch, navigation, t],
   );
 
   const scrollRef = useRef<ScrollView | null>(null);
 
-  if (hasAccount) {
-    navigation.replace(ERootStackRoutes.SignIn);
-    return null;
-  }
+  useEffect(() => {
+    if (hasAccount) {
+      navigation.replace(ERootStackRoutes.SignIn);
+    }
+  }, [hasAccount, navigation]);
 
   return (
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>
@@ -108,19 +99,19 @@ const Registration = () => {
           style={styles.contentWrapper}
           contentContainerStyle={styles.content}>
           <Logo width={50} height={50} />
-          <Text style={styles.text}>Create Password</Text>
+          <Text style={styles.text}>{t('registration.text')}</Text>
           <Controller
             control={control}
             name="password"
             render={({field: {onChange, onBlur, value}}) => (
               <PasswordInput
                 wrapperStyle={styles.password}
-                autoFocus={true}
-                label="New Password"
+                autoFocus
+                label={t('registration.password.label')}
                 onChangeText={onChange}
                 value={value}
                 onBlur={onBlur}
-                blurOnSubmit={true}
+                blurOnSubmit
                 errorMessage={errors.password?.message as string}
               />
             )}
@@ -131,11 +122,11 @@ const Registration = () => {
             render={({field: {onChange, onBlur, value}}) => (
               <PasswordInput
                 wrapperStyle={styles.confirmPassword}
-                label="Confirm Password"
+                label={t('registration.confirmPassword.label')}
                 onChangeText={onChange}
                 value={value}
                 onBlur={onBlur}
-                blurOnSubmit={true}
+                blurOnSubmit
                 errorMessage={errors.confirmPassword?.message as string}
                 onSubmitEditing={handleSubmit(handlePressCreate)}
               />
@@ -148,10 +139,11 @@ const Registration = () => {
             disabled={!isValid}
             style={[styles.button, !isValid && styles.disabledBtn]}
             onPress={handleSubmit(handlePressCreate)}>
-            <Text style={styles.buttonText}>Create</Text>
+            <Text style={styles.buttonText}>
+              {t('registration.button.create')}
+            </Text>
           </TouchableOpacity>
         </View>
-  
         <View style={styles.header}>
           <TouchableOpacity activeOpacity={0.8} onPress={handlePressBack}>
             <ArrowLeftSvg fill="white" />

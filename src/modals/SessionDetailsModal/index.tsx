@@ -10,9 +10,11 @@ import {MAIN_COLOR} from '../../constants/styles';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import TrashEmptySvg from '../../assets/images/trash-empty.svg';
 import {useWalletConnectContext} from '../../contexts';
+import {useTranslation} from 'react-i18next';
 
 const SessionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
   ({details, toggle, onDelete, isVisible}) => {
+    const {t} = useTranslation();
     const {web3WalletClient} = useWalletConnectContext();
 
     const [updatedDate] = useState<Date>(new Date());
@@ -38,42 +40,38 @@ const SessionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
         enableVibrateFallback: false,
         ignoreAndroidSystemSettings: false,
       });
-      Alert.alert(
-        'Are you sure to delete this session history?',
-        'All data of the session history will be deleted and can not be restored',
-        [
-          {
-            text: 'Cancel',
-            style: 'cancel',
-          },
-          {
-            text: 'Delete',
-            style: 'destructive',
-            onPress: async () => {
-              setIsLoading(true);
-              if (details.topic) {
-                try {
-                  await web3WalletClient?.disconnectSession({
-                    topic: details.topic,
-                    reason: {
-                      message: 'User disconnected.',
-                      code: 5000,
-                    },
-                  });
-                  toggle();
-                  setTimeout(() => onDelete(), 200);
-                } catch (e) {
-                  Alert.alert(
-                    'Failed to delete the session',
-                    'WalletConnect config does not match',
-                  );
-                }
+      Alert.alert(t('session.deleteTitle'), t('session.deleteDescription'), [
+        {
+          text: t('common.cancel'),
+          style: 'cancel',
+        },
+        {
+          text: t('common.delete'),
+          style: 'destructive',
+          onPress: async () => {
+            setIsLoading(true);
+            if (details.topic) {
+              try {
+                await web3WalletClient?.disconnectSession({
+                  topic: details.topic,
+                  reason: {
+                    message: 'User disconnected.',
+                    code: 5000,
+                  },
+                });
+                toggle();
+                setTimeout(() => onDelete(), 200);
+              } catch (e) {
+                Alert.alert(
+                  t('session.deleteFailedTitle'),
+                  t('session.deleteFailedMessage'),
+                );
               }
-              setIsLoading(false);
-            },
+            }
+            setIsLoading(false);
           },
-        ],
-      );
+        },
+      ]);
     }, [onDelete, details]);
 
     const sessionChain = useMemo(() => {
@@ -89,7 +87,7 @@ const SessionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
             self.findIndex(subItem => subItem === item) === pos,
         );
         return {
-          title: `Review ${KDA_NAMESPACE} Permissions`,
+          title: t('session.reviewPermissions', {namespace: KDA_NAMESPACE}),
           namespace: {
             chains: modifiedChains.map(chainId => {
               const allMethods = [
@@ -117,7 +115,7 @@ const SessionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
       <Modal
         isVisible={isVisible}
         close={toggle}
-        title="Session Details"
+        title={t('session.title')}
         onPressLeftItem={onDeleteSession}
         leftHeaderItem={<TrashEmptySvg />}>
         <View style={styles.content}>
@@ -136,7 +134,8 @@ const SessionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
               {details?.url ? (
                 <Text style={styles.link}>
                   {truncate(
-                    details?.url?.split('https://')[1] ?? 'Unknown',
+                    details?.url?.split('https://')[1] ??
+                      t('session.unknownUrl'),
                     23,
                   )}
                 </Text>
@@ -150,7 +149,7 @@ const SessionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
                 <React.Fragment key={`item-${chain.name}`}>
                   <Text style={styles.chainLabel}>{chain.name}</Text>
                   <View style={styles.chainWrapper}>
-                    <Text style={styles.chainText}>{'Methods'}</Text>
+                    <Text style={styles.chainText}>{t('session.methods')}</Text>
                     <Text style={styles.chainDescription}>
                       {Array.isArray(chain?.methods) &&
                       chain?.methods?.length > 0
@@ -159,7 +158,7 @@ const SessionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
                     </Text>
                   </View>
                   <View style={styles.chainWrapper}>
-                    <Text style={styles.chainText}>{'Events'}</Text>
+                    <Text style={styles.chainText}>{t('session.events')}</Text>
                     <Text style={styles.chainDescription}>
                       {Array.isArray(chain?.events) && chain?.events?.length > 0
                         ? chain.events.join(', ')
@@ -173,7 +172,7 @@ const SessionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
         </View>
         <View style={styles.footer}>
           <View style={styles.statusWrapper}>
-            <Text style={styles.statusText}>{'Expiry'}</Text>
+            <Text style={styles.statusText}>{t('session.expiry')}</Text>
             <Text style={styles.time}>
               {expiryDate
                 ? `${expiryDate.toDateString()} ${expiryDate.toLocaleTimeString()}`
@@ -181,14 +180,14 @@ const SessionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
             </Text>
           </View>
           <View style={styles.updateWrapper}>
-            <Text style={styles.statusText}>{'Last Updated'}</Text>
+            <Text style={styles.statusText}>{t('session.lastUpdated')}</Text>
             <Text
               style={
                 styles.time
               }>{`${updatedDate.toDateString()} ${updatedDate.toLocaleTimeString()}`}</Text>
           </View>
           <ListItem
-            text="Delete session"
+            text={t('session.deleteSession')}
             disabled={isLoading}
             onPress={onDeleteSession}
             textStyle={styles.itemRed}

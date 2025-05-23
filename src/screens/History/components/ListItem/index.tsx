@@ -1,5 +1,6 @@
 import React, {FC, useCallback, useMemo} from 'react';
 import {Text, View, TouchableOpacity} from 'react-native';
+import {useTranslation} from 'react-i18next';
 import {TListItemProps} from './types';
 
 import ArrowBottomRightSvg from '../../../../assets/images/arrow-bottom-right.svg';
@@ -25,6 +26,7 @@ import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
 
 const ListItem: FC<TListItemProps> = React.memo(
   ({item: activityItem, onPress}) => {
+    const {t} = useTranslation();
     const {
       title,
       continuation,
@@ -42,9 +44,7 @@ const ListItem: FC<TListItemProps> = React.memo(
     } = activityItem;
 
     const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
-
     const dispatch = useDispatch();
-
     const {statusBarHeight} = useSafeAreaValues();
 
     const isCurrentlyTransferring = useSelector(makeSelectIsTransferring);
@@ -69,8 +69,8 @@ const ListItem: FC<TListItemProps> = React.memo(
             position: 'top',
             visibilityTime: 4000,
             autoHide: true,
-            text1: 'Transfer is pending!',
-            text2: 'Please try again once transfer is finished',
+            text1: t('listItem.toast.pendingTitle'),
+            text2: t('listItem.toast.pendingMessage'),
             topOffset: statusBarHeight + 16,
           });
         } else {
@@ -96,7 +96,16 @@ const ListItem: FC<TListItemProps> = React.memo(
           );
         }
       }
-    }, [isCurrentlyTransferring, networkDetails, activityItem, navigation]);
+    }, [
+      isCurrentlyTransferring,
+      networkDetails,
+      activityItem,
+      navigation,
+      dispatch,
+      amount,
+      statusBarHeight,
+      t,
+    ]);
 
     const amountText = useMemo(
       () =>
@@ -182,7 +191,7 @@ const ListItem: FC<TListItemProps> = React.memo(
             onPress={onFinishTransfer}
             style={styles.finishButton}>
             <Text style={styles.finishButtonText}>
-              Finish Cross Chain Transfer
+              {t('listItem.finishButton')}
             </Text>
           </TouchableOpacity>
         ) : null}

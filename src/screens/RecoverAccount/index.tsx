@@ -1,7 +1,8 @@
-import React, {useCallback} from 'react';
-import {Alert, ScrollView, View} from 'react-native';
+import React, {useCallback, useMemo} from 'react';
+import {View, Alert, ScrollView} from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {useDispatch} from 'react-redux';
+import {useTranslation} from 'react-i18next';
 
 import Header from './components/Header';
 import FooterButton from '../../components/FooterButton';
@@ -16,6 +17,7 @@ import {validateSeeds} from '../../api/kadena/validateSeeds';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const RecoverAccount = () => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.RecoverAccount>>();
 
@@ -53,8 +55,8 @@ const RecoverAccount = () => {
               ignoreAndroidSystemSettings: false,
             });
             Alert.alert(
-              'Failed to import the account',
-              'Invalid secret recovery phrase',
+              t('recoverAccount.alert.failureTitle'),
+              t('recoverAccount.alert.failureMessage'),
             );
           }
         })
@@ -64,12 +66,12 @@ const RecoverAccount = () => {
             ignoreAndroidSystemSettings: false,
           });
           Alert.alert(
-            'Failed to import the account',
-            'Invalid secret recovery phrase',
+            t('recoverAccount.alert.failureTitle'),
+            t('recoverAccount.alert.failureMessage'),
           );
         });
     },
-    [navigation],
+    [dispatch, navigation, t],
   );
 
   return (
@@ -85,12 +87,12 @@ const RecoverAccount = () => {
             name="seeds"
             render={({field: {onChange, onBlur, value}}) => (
               <Input
-                label="Seed Phrases"
-                placeholder="Enter Secret Phrases"
+                label={t('recoverAccount.seeds.label')}
+                placeholder={t('recoverAccount.seeds.placeholder')}
                 wrapperStyle={styles.inputWrapper}
                 onChangeText={onChange}
                 onBlur={onBlur}
-                secureTextEntry={true}
+                secureTextEntry
                 value={value}
                 errorMessage={errors.seeds?.message as string}
               />
@@ -101,8 +103,8 @@ const RecoverAccount = () => {
             name="accountIndex"
             render={({field: {onChange, onBlur, value}}) => (
               <Input
-                label="Account Number"
-                placeholder="Default: 0"
+                label={t('recoverAccount.accountIndex.label')}
+                placeholder={t('recoverAccount.accountIndex.placeholder')}
                 wrapperStyle={styles.inputWrapper}
                 onChangeText={onChange}
                 onBlur={onBlur}
@@ -116,7 +118,7 @@ const RecoverAccount = () => {
       <View style={styles.footer}>
         <FooterButton
           disabled={!isValid}
-          title="Recover"
+          title={t('recoverAccount.button.recover')}
           onPress={handleSubmit(handlePressSave)}
         />
       </View>

@@ -1,8 +1,8 @@
 import React, {useCallback, useMemo} from 'react';
-import {ScrollView, View, Text} from 'react-native';
+import {View, Text, ScrollView, Image} from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
 import Snackbar from 'react-native-snackbar';
-
+import {useTranslation} from 'react-i18next';
 import Header from './components/Header';
 import Warning from '../../components/Warning';
 import ListItem from '../../components/ListItem';
@@ -15,6 +15,7 @@ import {useShallowEqualSelector} from '../../store/utils';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const ExportRecoveryPhrase = () => {
+  const {t} = useTranslation();
   const seeds = useShallowEqualSelector(makeSelectGeneratedPhrases);
 
   const secretWords = useMemo(() => getSecretList(seeds), [seeds]);
@@ -28,10 +29,10 @@ const ExportRecoveryPhrase = () => {
     });
     Clipboard.setString(seeds);
     Snackbar.show({
-      text: 'Recovery secret phrase copied to clipboard!',
+      text: t('exportRecoveryPhrase.snackbar'),
       duration: Snackbar.LENGTH_SHORT,
     });
-  }, [seeds]);
+  }, [seeds, t]);
 
   return (
     <View style={styles.screen}>
@@ -53,17 +54,16 @@ const ExportRecoveryPhrase = () => {
             ))}
           </View>
           <Text style={styles.text}>
-            Your Secret Recovery Phrase makes it easy to back up and restore
-            your account.
+            {t('exportRecoveryPhrase.description')}
           </Text>
-          <Warning text="Never disclose your Secret Recovery Phrase. Anyone with this phrase can take your wallet forever." />
+          <Warning text={t('exportRecoveryPhrase.warning')} isSerious />
         </View>
         <View style={styles.footerWrapper}>
           <ListItem
             onPress={copyToClipboard}
             textStyle={styles.itemText}
             style={styles.itemStyle}
-            text="Copy Recovery Phrase"
+            text={t('exportRecoveryPhrase.copyButton')}
             icon={<BasicCopySvg />}
           />
         </View>

@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "저장",
+    "confirm": "확인",
+    "delete": "삭제",
+    "cancel": "취소",
+    "ok": "확인",
+    "error": "오류",
+    "selectLanguage": "언어 선택",
+    "selectLanguageLongDescription": "원하는 언어를 선택하세요"
+  },
+  "welcome": {
+    "title": "환영합니다\neckoWALLET",
+    "subtitle": "Kadena 생태계 게이트웨이",
+    "loginCard": {
+      "title": "내 계정 로그인",
+      "description": "지갑 비밀번호를 입력하세요"
+    },
+    "newUserCard": {
+      "title": "새 사용자입니다",
+      "description": "새 eckoWALLET 계정 설정"
+    },
+    "recoverCard": {
+      "title": "이미 계정이 있습니다",
+      "description": "시크릿 문구로 로그인"
+    },
+    "instructions": {
+      "intro": "새 계정을 추가하려면 다음 단계를 따르세요:",
+      "step1": "1. 기존 계정에 로그인",
+      "step2": "2. “설정” 클릭",
+      "step3": "3. “계정 삭제” 클릭"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "연락처 이름",
+      "placeholder": "연락처 이름 입력"
+    },
+    "accountName": {
+      "label": "계정 이름",
+      "placeholder": "계정 이름 입력"
+    },
+    "saveButton": "저장",
+    "header": {
+      "title": "연락처 추가"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "사용자 지정",
+    "alert": {
+      "failureTitle": "네트워크 추가 실패",
+      "failureMessage": "잘못된 네트워크 정보"
+    },
+    "name": {
+      "label": "네트워크 이름",
+      "placeholder": "네트워크 이름 입력"
+    },
+    "host": {
+      "label": "새 RPC URL",
+      "placeholder": "URL 입력"
+    },
+    "explorer": {
+      "label": "블록 탐색기 URL",
+      "placeholder": "URL 입력"
+    },
+    "header": {
+      "title": "네트워크 추가"
+    },
+    "saveButton": "저장"
+  },
+  "addToken": {
+    "header": {
+      "title": "토큰 추가",
+      "titleImport": "토큰 가져오기"
+    },
+    "tokenAddress": {
+      "label": "토큰 컨트랙트 주소",
+      "placeholder": "주소 입력"
+    },
+    "tokenName": {
+      "label": "토큰 심볼",
+      "placeholder": "심볼 입력"
+    },
+    "alert": {
+      "failureTitle": "토큰 가져오기 실패",
+      "failureMessage": "토큰이 존재하지 않습니다"
+    },
+    "saveButton": "토큰 추가"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "구매"
+    },
+    "consent": {
+      "description": "암호화폐의 구매 및 판매는 Onramper의 제3자 서비스를 통해 이루어집니다.\n\neckoWallet은 최상의 보안을 제공하기 위해 노력하지만, 제3자 서비스의 보안과 개인정보를 보장할 수 없습니다."
+    },
+    "error": {
+      "walletUnavailable": "지갑 주소를 사용할 수 없습니다",
+      "unableConnect": "서비스에 연결할 수 없습니다. 나중에 다시 시도하세요."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "비밀번호 변경"
+    },
+    "currentPassword": {
+      "label": "현재 비밀번호"
+    },
+    "newPassword": {
+      "label": "새 비밀번호"
+    },
+    "confirmPassword": {
+      "label": "비밀번호 확인"
+    },
+    "toast": {
+      "success": "비밀번호가 성공적으로 변경되었습니다!"
+    },
+    "alert": {
+      "changeFailureTitle": "비밀번호 변경 실패",
+      "changeFailureMessage": "문제가 발생했습니다. 나중에 다시 시도하세요.",
+      "verifyFailureTitle": "인증 실패",
+      "verifyFailureMessage": "잘못된 비밀번호"
+    },
+    "changeButton": "비밀번호 변경"
+  },
+  "connection": {
+    "unknown": "알 수 없는 연결",
+    "deleteAlert": {
+      "title": "이 활성 세션을 삭제하시겠습니까?",
+      "message": "세션의 모든 데이터가 삭제되며 복구할 수 없습니다."
+    },
+    "deleteFailureTitle": "세션 삭제 실패",
+    "deleteFailureMessage": "WalletConnect 구성 불일치",
+    "empty": {
+      "sessions": "이력 없음",
+      "pairings": "활성 세션 없음"
+    },
+    "modal": {
+      "title": "WalletConnect 정보"
+    },
+    "expiryLabel": "만료:",
+    "unknownHost": "알 수 없음"
+  },
+  "contacts": {
+    "searchPlaceholder": "연락처 검색",
+    "emptyList": "연락처 없음",
+    "header": {
+      "title": "연락처"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "복구 문구가 클립보드에 복사되었습니다!",
+    "description": "시크릿 복구 문구는 계정 백업 및 복원을 쉽게 합니다.",
+    "warning": "복구 문구를 절대 공유하지 마세요. 문구를 알고 있다면 지갑을 가져갈 수 있습니다.",
+    "copyButton": "복구 문구 복사",
+    "header": {
+      "title": "복구 문구 내보내기"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "비밀번호 확인"
+    },
+    "description": "계속하려면 비밀번호를 입력하세요",
+    "alert": {
+      "verifyFailureTitle": "인증 실패",
+      "verifyFailureMessage": "잘못된 비밀번호",
+      "verifyErrorMessage": "문제가 발생했습니다. 나중에 다시 시도하세요."
+    },
+    "continueButton": "계속"
+  },
+  "history": {
+    "empty": {
+      "pending": "대기 중인 활동 없음",
+      "activities": "활동을 찾을 수 없습니다"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "전송 대기 중!",
+      "pendingMessage": "전송이 완료된 후 다시 시도하세요"
+    },
+    "finishButton": "크로스체인 전송 완료"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "계정 이름",
+      "placeholder": "계정 이름 입력"
+    },
+    "privateKey": {
+      "label": "개인 키",
+      "placeholder": "개인 키 입력"
+    },
+    "importButton": "가져오기",
+    "header": {
+      "title": "계정 가져오기"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "eckoWALLET 잠금 해제",
+      "enter": "암호 입력",
+      "enterNew": "새 암호 입력",
+      "reenter": "암호 재입력",
+      "reenterNew": "새 암호 재입력"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "네트워크"
+    }
+  },
+  "noConnection": {
+    "message": "네트워크 연결 없음"
+  },
+  "receiverScan": {
+    "placeholder": "받는 계정 편집",
+    "header": {
+      "title": "QR 스캔"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "시드 문구",
+      "placeholder": "시크릿 문구 입력"
+    },
+    "accountIndex": {
+      "label": "계정 번호",
+      "placeholder": "기본값: 0"
+    },
+    "alert": {
+      "failureTitle": "계정 가져오기 실패",
+      "failureMessage": "잘못된 복구 문구"
+    },
+    "button": {
+      "recover": "복구"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "시크릿 복구 문구로\n지갑 가져오기",
+    "seeds": {
+      "label": "시크릿 문구(공백 포함)",
+      "placeholder": "복구 문구 입력"
+    },
+    "password": {
+      "label": "새 비밀번호"
+    },
+    "confirmPassword": {
+      "label": "비밀번호 확인"
+    },
+    "button": {
+      "restore": "복원"
+    },
+    "alert": {
+      "failureTitle": "가져오기 실패",
+      "failureMessage": "문제가 발생했습니다. 나중에 다시 시도하세요.",
+      "invalidSeeds": "잘못된 복구 문구 또는 삭제된 계정"
+    }
+  },
+  "registration": {
+    "text": "비밀번호 생성",
+    "password": {
+      "label": "새 비밀번호"
+    },
+    "confirmPassword": {
+      "label": "비밀번호 확인"
+    },
+    "button": {
+      "create": "생성"
+    },
+    "alert": {
+      "failureTitle": "등록 실패",
+      "failureMessage": "문제가 발생했습니다. 나중에 다시 시도하세요."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "토큰 검색",
+    "empty": "토큰을 찾을 수 없습니다",
+    "alert": {
+      "notFungibleTitle": "대체 불가능 토큰",
+      "notFungibleMessage": "선택한 토큰은 대체 불가능합니다"
+    },
+    "header": {
+      "title": "토큰 검색"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "시크릿 복구 문구",
+    "reveal": "단어 보려면 클릭",
+    "snackbar": "복구 문구 복사됨!",
+    "description1": "시크릿 복구 문구는 계정 백업과 복원을 쉽게 합니다.",
+    "description2": "경고: 문구를 공개하거나 스크린샷하지 마세요. 문구를 가진 사람이 지갑을 제어할 수 있습니다.",
+    "continue": "계속"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "시크릿 복구 문구",
+    "line1": "다음 단계에서 12단어 복구 문구를 기록하세요.",
+    "line2": "이 문구를 사용해 새 기기에서 지갑을 복원할 수 있습니다.",
+    "line3": "문구를 아는 사람은 지갑을 제어할 수 있으니 안전하게 보관하세요.",
+    "line4": "문구 분실 또는 앱 삭제 시 Kadena는 도울 수 없습니다. 안전하게 보관하세요.",
+    "checkbox": "복구 문구 분실 시 복원이 불가능함을 이해했습니다."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "전송 대기 중!",
+      "pendingMessage": "전송 완료 후 다시 시도하세요"
+    },
+    "alert": {
+      "nonKTitle": "비 “k:account”로 전송",
+      "nonKMessage": "계속하시겠습니까?",
+      "proceed": "계속"
+    },
+    "chain": {
+      "sourceLabel": "출발 체인 ID",
+      "targetLabel": "목적 체인 ID"
+    },
+    "balance": {
+      "label": "체인 잔액"
+    },
+    "accounts": {
+      "recent": "최근",
+      "contacts": "연락처"
+    },
+    "content": {
+      "advancedSettings": "고급 설정(선택 사항)",
+      "predicateLabel": "Predicate",
+      "receiverLabel": "수신자 공개 키",
+      "destinationLabel": "목적 계정",
+      "destinationPlaceholder": "계정 입력",
+      "receiverPlaceholder": "공개 키 입력(선택)"
+    },
+    "header": {
+      "title": "{{token}} 거래 전송"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "처리 중에는 앱을 닫지 마세요."
+    },
+    "toast": {
+      "submittedTitle": "전송 제출됨!",
+      "submittedMessage": "활동 탭에서 결과 확인"
+    },
+    "label": {
+      "result": "결과:",
+      "message": "메시지:",
+      "requestKey": "요청 키:"
+    },
+    "warning": {
+      "crossChainTitle": "크로스체인 전송 수행 중",
+      "crossChainMessage": "일반적으로 더 오래 걸립니다"
+    },
+    "button": {
+      "activities": "활동으로 이동"
+    },
+    "header": {
+      "title": "거래 진행 중"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "크로스체인 전송을 수행하려고 합니다",
+      "crossChainMessage": "일반적으로 더 오래 걸립니다"
+    },
+    "button": {
+      "send": "전송"
+    },
+    "confirmModal": {
+      "title": "전송 확인",
+      "amountLabel": "수량:",
+      "gasLimitLabel": "가스 한도:",
+      "gasPriceLabel": "가스 가격:",
+      "speedLabel": "속도:",
+      "confirmButton": "확인"
+    },
+    "content": {
+      "transactionParameters": "거래 매개변수",
+      "transactionSpeed": "거래 속도",
+      "gasLimitPlaceholder": "가스 한도 입력",
+      "gasPricePlaceholder": "가스 가격 입력",
+      "gasLabel": "가스",
+      "speedLabel": "{{speed}} 속도"
+    },
+    "header": {
+      "title": "거래 전송"
+    },
+    "walletInfo": {
+      "amountLabel": "전송할 수량",
+      "half": "절반",
+      "max": "최대",
+      "maxSnackbar": "최대 수량에는 예상 가스 요금이 포함됩니다.",
+      "usdValue": "{{value}} USD",
+      "balance": "잔액: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "연락처",
+        "text": "연락처 목록 관리"
+      },
+      "networks": {
+        "title": "네트워크",
+        "text": "RPC 네트워크 추가/편집"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "WalletConnect 설정 편집"
+      },
+      "accountSecurity": {
+        "title": "계정 보안",
+        "text": "지갑 보안 관리"
+      },
+      "lockWallet": {
+        "title": "지갑 잠금",
+        "text": "이력은 유지됩니다"
+      },
+      "deleteAccount": {
+        "title": "계정 삭제",
+        "text": "모든 데이터가 삭제됩니다"
+      }
+    },
+    "alert": {
+      "lockTitle": "지갑을 잠그시겠습니까?",
+      "lockMessage": "이력은 유지됩니다",
+      "lockConfirm": "잠금",
+      "deleteTitle": "계정 삭제하시겠습니까?",
+      "deleteMessage": "모든 데이터가 삭제됩니다. 복구 문구 없이는 접근할 수 없습니다.",
+      "deleteConfirm": "삭제"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Kadena 생태계 게이트웨이",
+      "visitWebsite": "웹사이트 방문",
+      "joinDiscord": "Discord 참여",
+      "termsOfUse": "이용 약관",
+      "privacyPolicy": "개인정보처리방침"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "계정 보안"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "암호 초기화",
+        "text": "앱 암호 변경"
+      },
+      "exportPhrase": {
+        "title": "복구 문구 내보내기",
+        "text": "지갑 보호"
+      },
+      "changePassword": {
+        "title": "비밀번호 변경",
+        "text": "계정 비밀번호 변경"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "환영합니다",
+    "label": {
+      "password": "비밀번호"
+    },
+    "button": {
+      "signIn": "로그인"
+    },
+    "alert": {
+      "usePasscodeTitle": "암호로 로그인하시겠습니까?",
+      "usePasscodeMessage": "암호 및 생체 인식을 사용하시겠습니까?",
+      "failedTitle": "로그인 실패",
+      "invalidPassword": "잘못된 비밀번호",
+      "errorMessage": "문제가 발생했습니다. 나중에 다시 시도하세요."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "변환 확인",
+      "give": "제공",
+      "receive": "받기",
+      "confirmButton": "확인"
+    },
+    "gasSettings": {
+      "title": "가스 설정",
+      "gasStation": "가스 스테이션",
+      "gasLimitLabel": "가스 한도",
+      "gasLimitPlaceholder": "가스 한도",
+      "gasPriceLabel": "가스 가격",
+      "gasPricePlaceholder": "가스 가격",
+      "failureCost": "실패 시 예상 가스 비용:",
+      "noGasCost": "가스 비용 없음 — eckoDEX 보조"
+    },
+    "info": {
+      "gasCost": "가스 비용",
+      "free": "무료",
+      "priceImpact": "가격 영향",
+      "price": "가격",
+      "maxSlippage": "최대 슬리피지",
+      "lpFee": "LP 수수료",
+      "txDeadline": "거래 기한",
+      "gasPrice": "가스 가격",
+      "gasLimit": "가스 한도",
+      "unitMinutes": "분",
+      "unitSeconds": "초"
+    },
+    "selectTokenModal": {
+      "title": "토큰 선택",
+      "placeholder": "토큰 검색",
+      "tokensLabel": "토큰",
+      "warningTitle": "경고",
+      "warningMessage": "{{pair}} 풀을 찾을 수 없습니다",
+      "addTokenTitle": "새 토큰 추가",
+      "addTokenMessage": "지갑에 이 토큰이 없습니다. 추가하시겠습니까?",
+      "addTokenConfirm": "추가",
+      "selectedSuffix": " (선택됨)",
+      "empty": "토큰을 찾을 수 없습니다"
+    },
+    "transactionSettings": {
+      "title": "거래 설정",
+      "slippageTitle": "슬리피지 허용치",
+      "deadlineTitle": "거래 기한",
+      "minutes": "분"
+    },
+    "swapBlock": {
+      "pending": "거래 진행 중…",
+      "warningTitle": "변환하려면 체인 2에 자금이 있어야 합니다.",
+      "warningText": "",
+      "give": "제공",
+      "receive": "받기",
+      "confirm": "확인",
+      "submittedTitle": "스왑 제출됨!",
+      "submittedMessage": "활동 탭에서 결과 확인",
+      "poweredBy": "Powered by eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "복구 문구 확인",
+    "description": "정확한 순서로 단어를 입력하세요.",
+    "warning": "사용자 지정 키보드 사용을 권장하지 않습니다. 보안을 위해 기본 키보드를 사용하세요.",
+    "inputLabel": "입력 {{number}}",
+    "error": "잘못된 복구 문구",
+    "continueButton": "계속"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "자산"
+      },
+      "tokenDetector": {
+        "title": "감지된 토큰",
+        "emptyTitle": "이 계정에 다른 토큰이 없습니다",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "계정 이름이 복사되었습니다!"
+    },
+    "walletBalance": {
+      "netWorth": "순자산",
+      "accountBalance": "계정 잔액",
+      "send": "전송",
+      "receive": "수신",
+      "buy": "구매"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "연결 코드 입력",
+    "connect": "연결",
+    "header": {
+      "title": "QR 스캔"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "프로젝트 ID",
+    "projectIdPlaceholder": "프로젝트 ID 입력",
+    "relayUrlLabel": "릴레이 URL",
+    "relayUrlPlaceholder": "릴레이 URL 입력",
+    "errorTitle": "WalletConnect 설정 변경 실패",
+    "errorMessage": "잘못된 매개변수"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "비밀번호",
+      "placeholder": "비밀번호 입력"
+    },
+    "numpad": {
+      "authenticationPrompt": "인증",
+      "weakPasscodeTitle": "약한 암호코드",
+      "weakPasscodeDescription": "입력하신 암호코드가 너무 약합니다. 더 복잡한 코드를 사용해 주세요."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "이 기기에서 eckoDEX 웹사이트가 열려 있고 WalletConnect 연결에 문제가 있는 경우, 브라우저로 돌아갔다가 다시 시도해 보세요",
+      "text2": "그래도 도움이 되지 않으면 WalletConnect 설정을 확인하거나 데스크톱 브라우저에서 eckoDEX를 열어 보세요",
+      "button": "확인"
+    },
+    "walletConnectInfoModal": {
+      "text1": "모든 활성 세션은 삭제 작업으로 수동 종료될 때까지 활성 상태로 유지됩니다",
+      "text2": "기록 탭에 메서드 및 이벤트 권한과 함께 세션 세부 정보가 표시됩니다",
+      "button": "확인"
+    }
+  },
+  "tabs": {
+    "Wallet": "지갑",
+    "Swap": "스왑",
+    "History": "기록",
+    "Connection": "연결",
+    "Settings": "설정",
+    "history": {
+      "activities": "활동",
+      "pending": "대기 중"
+    },
+    "connection": {
+      "pairings": "활성 세션",
+      "sessions": "기록"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "거래 상세",
+    "gas": "가스: {{gas}}",
+    "statusLabel": "상태",
+    "continuationTitle": "계속",
+    "continuationValue": "단계: {{step}}, 전체: {{total}}",
+    "no": "아니요",
+    "requestKeyTitle": "요청 키",
+    "transactionTypeTitle": "거래 유형",
+    "requestKeyChainTitle": "요청 키 (체인 {{chain}})",
+    "txDetailsButton": "Tx 상세",
+    "requestKeyCopied": "요청 키가 클립보드에 복사되었습니다!"
+  },
+  "tokenModal": {
+    "distributionTitle": "{{token}} 체인 분배",
+    "removeConfirmTitle": "제거하시겠습니까?",
+    "removeConfirmMessage": "토큰의 모든 데이터가 삭제되며 복구할 수 없습니다",
+    "remove": "제거",
+    "notTransferable": "{{contract}}는 전송할 수 없습니다!",
+    "zeroBalance": "{{token}} 잔액이 0입니다",
+    "editToken": "토큰 편집",
+    "removeToken": "토큰 제거",
+    "chainLabel": "체인 {{chain}}"
+  },
+  "walletSelector": {
+    "title": "내 지갑",
+    "removeConfirmTitle": "제거하시겠습니까?",
+    "removeConfirmMessage": "계정의 모든 데이터가 삭제되며 복구할 수 없습니다",
+    "remove": "제거",
+    "share": "지갑 공유",
+    "exportRecovery": "복구 구문 내보내기",
+    "removeSelected": "선택한 지갑 제거",
+    "create": "지갑 생성",
+    "import": "지갑 가져오기",
+    "copySuccess": "계정 정보가 클립보드에 복사되었습니다!"
+  },
+  "session": {
+    "title": "세션 상세",
+    "deleteTitle": "이 세션 기록을 삭제하시겠습니까?",
+    "deleteDescription": "세션 기록의 모든 데이터가 삭제되며 복구할 수 없습니다",
+    "deleteFailedTitle": "세션 삭제 실패",
+    "deleteFailedMessage": "WalletConnect 구성과 일치하지 않습니다",
+    "deleteSession": "세션 삭제",
+    "reviewPermissions": "{{namespace}} 권한 검토",
+    "unknownUrl": "알 수 없음",
+    "methods": "메서드",
+    "events": "이벤트",
+    "expiry": "만료",
+    "lastUpdated": "최종 업데이트"
+  },
+  "receive": {
+    "title": "토큰 받기",
+    "accountNameLabel": "내 계정 이름"
+  },
+  "networkSelector": {
+    "title": "네트워크 선택",
+    "manage": "네트워크 관리"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "블록 탐색기 URL",
+    "editNetwork": "네트워크 편집"
+  },
+  "contactDetails": {
+    "accountName": "계정 이름",
+    "chainId": "체인 ID",
+    "edit": "연락처 편집",
+    "copied": "클립보드에 복사됨!"
+  },
+  "validation": {
+    "required": "이 필드는 필수입니다",
+    "default": "유효하지 않은 값입니다",
+    "min": "최소 {{count}}자 이상이어야 합니다",
+    "max": "최대 {{count}}자 이내여야 합니다",
+    "minNumber": "최소 {{count}} 이상이어야 합니다",
+    "maxNumber": "최대 {{count}} 이내여야 합니다",
+    "email": "유효한 이메일 주소여야 합니다",
+    "matches": "유효하지 않은 형식입니다",
+    "passwordsMatch": "비밀번호가 일치하지 않습니다",
+    "passwordComplexity": "8자, 대문자 1개, 소문자 1개, 숫자 1개 및 특수 문자를 포함해야 합니다"
+  }
+}

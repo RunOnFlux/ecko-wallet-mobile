@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
 import Snackbar from 'react-native-snackbar';
+import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
 import Logo from '../../assets/images/logo.svg';
@@ -29,6 +30,7 @@ import {useSafeAreaValues} from '../../utils/deviceHelpers';
 const bgImage = require('../../assets/images/bgimage.png');
 
 const SecretRecoveryPhrase = () => {
+  const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.SecretRecoveryPhrase>>();
 
@@ -47,10 +49,7 @@ const SecretRecoveryPhrase = () => {
   }, [navigation]);
 
   const handlePressContinue = useCallback(() => {
-    navigation.navigate({
-      name: ERootStackRoutes.VerifyRecoveryPhrase,
-      params: undefined,
-    });
+    navigation.navigate({name: ERootStackRoutes.VerifyRecoveryPhrase});
   }, [navigation]);
 
   const handlePressReveal = useCallback(() => {
@@ -64,14 +63,14 @@ const SecretRecoveryPhrase = () => {
     });
     Clipboard.setString(seeds);
     Snackbar.show({
-      text: 'Recovery secret phrase copied to clipboard!',
+      text: t('secretRecoveryPhrase.snackbar'),
       duration: Snackbar.LENGTH_SHORT,
     });
-  }, [seeds]);
+  }, [seeds, t]);
 
   useEffect(() => {
     dispatch(getGeneratePasswords());
-  }, []);
+  }, [dispatch]);
 
   return (
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>
@@ -80,7 +79,7 @@ const SecretRecoveryPhrase = () => {
         style={styles.contentWrapper}
         contentContainerStyle={styles.content}>
         <Logo width={50} height={50} />
-        <Text style={styles.title}>Secret Recovery Phrase</Text>
+        <Text style={styles.title}>{t('secretRecoveryPhrase.title')}</Text>
         {isRevealed ? (
           isLoading ? (
             <ActivityIndicator color="#FFFFFF" size="small" />
@@ -95,19 +94,16 @@ const SecretRecoveryPhrase = () => {
             style={styles.button}
             onPress={handlePressReveal}>
             <Text style={styles.buttonText}>
-              Click here to reveal secret words
+              {t('secretRecoveryPhrase.reveal')}
             </Text>
           </TouchableOpacity>
         )}
         <View style={styles.infoWrapper}>
           <Text style={styles.text}>
-            Your Secret Recovery Phrase makes it easy to back up and restore
-            your account.
+            {t('secretRecoveryPhrase.description1')}
           </Text>
           <Text style={styles.text}>
-            Warning: Never disclose your Secret Recovery Phrase. We recommend
-            not to take screenshots when viewing secret phrases. Anyone with
-            this phrase can take your wallet forever.
+            {t('secretRecoveryPhrase.description2')}
           </Text>
         </View>
         <TouchableOpacity
@@ -115,7 +111,9 @@ const SecretRecoveryPhrase = () => {
           disabled={!isRevealed}
           style={styles.button}
           onPress={handlePressContinue}>
-          <Text style={styles.buttonText}>Continue</Text>
+          <Text style={styles.buttonText}>
+            {t('secretRecoveryPhrase.continue')}
+          </Text>
         </TouchableOpacity>
       </ScrollView>
       <View style={styles.header}>

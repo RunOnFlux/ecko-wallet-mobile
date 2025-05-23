@@ -1,23 +1,28 @@
 import {yupResolver} from '@hookform/resolvers/yup';
+import {TFunction} from 'i18next';
 import * as yup from 'yup';
-import {REQUIRED_MESSAGE} from '../constants';
 
-export const createPasswordSchema = yupResolver(
-  yup
-    .object({
-      password: yup
-        .string()
-        .required(REQUIRED_MESSAGE)
-        .matches(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-          'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character',
-        ),
-      confirmPassword: yup
-        .string()
-        .required(REQUIRED_MESSAGE)
-        .test('passwordMatch', 'Password does not match', function (value) {
-          return value === this.parent.password;
-        }),
-    })
-    .required(),
-);
+export const createPasswordSchema = (t: TFunction<'translation', undefined>) =>
+  yupResolver(
+    yup
+      .object({
+        password: yup
+          .string()
+          .required()
+          .matches(
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+            t('validation.passwordComplexity'),
+          ),
+        confirmPassword: yup
+          .string()
+          .required()
+          .test(
+            'passwordMatch',
+            t('validation.passwordsMatch'),
+            function (value) {
+              return value === this.parent.password;
+            },
+          ),
+      })
+      .required(),
+  );

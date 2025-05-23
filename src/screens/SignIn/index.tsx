@@ -11,10 +11,9 @@ import {
 } from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {useDispatch, useSelector} from 'react-redux';
-
+import {useTranslation} from 'react-i18next';
 import Logo from '../../assets/images/logo.svg';
 import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
-
 import {createStyles} from './styles';
 import PasswordInput from '../../components/PasswordInput';
 import {signInPasswordSchema} from '../../validation/signInPasswordSchema';
@@ -29,87 +28,69 @@ import {useSafeAreaValues} from '../../utils/deviceHelpers';
 const bgImage = require('../../assets/images/bgimage.png');
 
 const SignIn = () => {
+  const {t} = useTranslation();
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.SignIn>>();
-
   const dispatch = useDispatch();
-
   const hash = useSelector(makeSelectHashPassword);
 
   const {
     control,
     handleSubmit,
     formState: {errors},
-  } = useForm({resolver: signInPasswordSchema});
+  } = useForm({resolver: signInPasswordSchema(t)});
 
   const handlePressBack = useCallback(() => {
     navigation.goBack();
-  }, []);
+  }, [navigation]);
 
   const showSuccessAlert = useCallback(() => {
-    ReactNativeHapticFeedback.trigger('impactMedium', {
-      enableVibrateFallback: false,
-      ignoreAndroidSystemSettings: false,
-    });
+    ReactNativeHapticFeedback.trigger('impactMedium');
     Alert.alert(
-      'Use passcode Login to sign in?',
-      'Would you like to use passcode and biometrics to access eckoWALLET?',
+      t('signIn.alert.usePasscodeTitle'),
+      t('signIn.alert.usePasscodeMessage'),
       [
         {
-          text: 'Cancel',
-          onPress: () => {
-            dispatch(login());
-          },
+          text: t('common.cancel'),
+          onPress: () => dispatch(login()),
           style: 'cancel',
         },
         {
-          text: 'OK',
-          onPress: () => {
-            navigation.navigate({
-              name: ERootStackRoutes.Login,
-              params: {
-                isReset: false,
-              },
-            });
-          },
+          text: t('common.ok'),
+          onPress: () =>
+            navigation.navigate(ERootStackRoutes.Login, {isReset: false}),
         },
       ],
     );
-  }, [navigation]);
+  }, [dispatch, navigation, t]);
 
   const handlePressSignIn = useCallback(
     (data: FieldValues) => {
-      comparePassword({
-        password: data.password || '',
-        hash: hash || '',
-      })
-        .then(compareResponse => {
-          if (compareResponse) {
+      comparePassword({password: data.password || '', hash: hash || ''})
+        .then(valid => {
+          if (valid) {
             showSuccessAlert();
           } else {
-            ReactNativeHapticFeedback.trigger('impactMedium', {
-              enableVibrateFallback: false,
-              ignoreAndroidSystemSettings: false,
-            });
-            Alert.alert('Failed to login', 'Invalid password');
+            ReactNativeHapticFeedback.trigger('impactMedium');
+            Alert.alert(
+              t('signIn.alert.loginFailedTitle'),
+              t('signIn.alert.loginFailedMessage'),
+            );
           }
         })
         .catch(() => {
-          ReactNativeHapticFeedback.trigger('impactMedium', {
-            enableVibrateFallback: false,
-            ignoreAndroidSystemSettings: false,
-          });
+          ReactNativeHapticFeedback.trigger('impactMedium');
           Alert.alert(
-            'Failed to login',
-            'Something went wrong. Please try again later.',
+            t('signIn.alert.errorTitle'),
+            t('signIn.alert.errorMessage'),
           );
         });
     },
-    [showSuccessAlert, hash],
+    [hash, showSuccessAlert, t],
   );
 
-  const scrollRef = useRef<ScrollView | null>(null);
-  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const scrollRef = useRef<ScrollView>(null);
+  const {bottomSpace} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight: 0});
 
   return (
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>
@@ -124,14 +105,14 @@ const SignIn = () => {
           style={styles.contentWrapper}
           contentContainerStyle={styles.content}>
           <Logo width={50} height={50} />
-          <Text style={styles.text}>Welcome</Text>
+          <Text style={styles.text}>{t('signIn.welcome')}</Text>
           <Controller
             control={control}
             name="password"
             render={({field: {onChange, onBlur, value}}) => (
               <PasswordInput
-                autoFocus={true}
-                label="Password"
+                autoFocus
+                label={t('signIn.label.password')}
                 onChangeText={onChange}
                 value={value}
                 onBlur={onBlur}
@@ -147,9 +128,9 @@ const SignIn = () => {
             activeOpacity={0.8}
             style={styles.button}
             onPress={handleSubmit(handlePressSignIn)}>
-            <Text style={styles.buttonText}>Sign in</Text>
+            <Text style={styles.buttonText}>{t('signIn.button.signIn')}</Text>
           </TouchableOpacity>
-        </View>  
+        </View>
         <View style={styles.header}>
           <TouchableOpacity activeOpacity={0.8} onPress={handlePressBack}>
             <ArrowLeftSvg fill="white" />

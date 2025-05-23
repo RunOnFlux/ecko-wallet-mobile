@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "I-save",
+    "confirm": "Kumpirmahin",
+    "delete": "Tanggalin",
+    "cancel": "Kanselahin",
+    "ok": "OK",
+    "error": "Error",
+    "selectLanguage": "Piliin ang Wika",
+    "selectLanguageLongDescription": "Piliin ang nais mong wika"
+  },
+  "welcome": {
+    "title": "Maligayang pagdating sa\neckoWALLET",
+    "subtitle": "Ang gateway sa ekosistema ng Kadena",
+    "loginCard": {
+      "title": "Mag-login sa aking account",
+      "description": "Ipasok ang password ng iyong wallet"
+    },
+    "newUserCard": {
+      "title": "Bago ako dito",
+      "description": "I-setup ang bagong eckoWALLET account"
+    },
+    "recoverCard": {
+      "title": "Mayroon na akong account",
+      "description": "Mag-login gamit ang iyong secret phrase"
+    },
+    "instructions": {
+      "intro": "Upang magdagdag ng bagong account, sundin ang mga hakbang:",
+      "step1": "1. Mag-login sa iyong kasalukuyang account",
+      "step2": "2. I-click ang \"Settings\"",
+      "step3": "3. I-click ang \"Delete account\""
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "Pangalan ng Contact",
+      "placeholder": "I-type ang Pangalan ng Contact"
+    },
+    "accountName": {
+      "label": "Pangalan ng Account",
+      "placeholder": "Ipasok ang Pangalan ng Account"
+    },
+    "saveButton": "I-save",
+    "header": {
+      "title": "Magdagdag ng Contact"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "Pasadya",
+    "alert": {
+      "failureTitle": "Nabigong idagdag ang network",
+      "failureMessage": "Di-wastong impormasyon ng network"
+    },
+    "name": {
+      "label": "Pangalan ng Network",
+      "placeholder": "Ipasok ang Pangalan ng Network"
+    },
+    "host": {
+      "label": "Bagong RPC URL",
+      "placeholder": "Ipasok ang URL"
+    },
+    "explorer": {
+      "label": "URL ng Block Explorer",
+      "placeholder": "Ipasok ang URL"
+    },
+    "header": {
+      "title": "Magdagdag ng Network"
+    },
+    "saveButton": "I-save"
+  },
+  "addToken": {
+    "header": {
+      "title": "Magdagdag ng Token",
+      "titleImport": "Mag-import ng Token"
+    },
+    "tokenAddress": {
+      "label": "Address ng Token Contract",
+      "placeholder": "I-type ang Address ng Contract"
+    },
+    "tokenName": {
+      "label": "Simbolo ng Token",
+      "placeholder": "I-type ang Simbolo ng Token"
+    },
+    "alert": {
+      "failureTitle": "Nabigong i-import ang token",
+      "failureMessage": "Hindi umiiral ang token"
+    },
+    "saveButton": "Magdagdag ng Token"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "Bumili"
+    },
+    "consent": {
+      "description": "Ang pagbili at pagbebenta ng cryptocurrencies ay isinasagawa sa pamamagitan ng third-party na serbisyo mula sa Onramper.\n\nBagaman ang eckoWallet ay nagsusumikap tugunan ang pinakamataas na seguridad para sa mga user, hindi namin masisiguro ang seguridad at privacy ng third-party na mga serbisyo."
+    },
+    "error": {
+      "walletUnavailable": "Address ng wallet hindi available",
+      "unableConnect": "Hindi makakonekta sa serbisyo. Subukan muli mamaya."
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "Palitan ang Password"
+    },
+    "currentPassword": {
+      "label": "Kasalukuyang Password"
+    },
+    "newPassword": {
+      "label": "Bagong Password"
+    },
+    "confirmPassword": {
+      "label": "Kumpirmahin ang Password"
+    },
+    "toast": {
+      "success": "Matagumpay na napalitan ang password!"
+    },
+    "alert": {
+      "changeFailureTitle": "Nabigong palitan ang password",
+      "changeFailureMessage": "May nangyaring error. Subukan muli mamaya.",
+      "verifyFailureTitle": "Nabigong beripikahin",
+      "verifyFailureMessage": "Invalid na password"
+    },
+    "changeButton": "Palitan ang Password"
+  },
+  "connection": {
+    "unknown": "Hindi Kilalang Koneksyon",
+    "deleteAlert": {
+      "title": "Sigurado ka bang gusto mong tanggalin ang aktibong session na ito?",
+      "message": "Lahat ng data ng session ay matatanggal at hindi na maibabalik."
+    },
+    "deleteFailureTitle": "Nabigong tanggalin ang aktibong session",
+    "deleteFailureMessage": "Hindi tugma ang WalletConnect config",
+    "empty": {
+      "sessions": "Walang history",
+      "pairings": "Walang aktibong session"
+    },
+    "modal": {
+      "title": "WalletConnect Info"
+    },
+    "expiryLabel": "Mag-e-expire sa:",
+    "unknownHost": "Hindi Kilala"
+  },
+  "contacts": {
+    "searchPlaceholder": "Maghanap ng contact",
+    "emptyList": "Walang contact sa ngayon",
+    "header": {
+      "title": "Mga Contact"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "Na-copy na sa clipboard ang Secret Recovery Phrase!",
+    "description": "Pinapadali ng iyong Secret Recovery Phrase ang pag-backup at pag-restore ng iyong account.",
+    "warning": "Huwag ipagsiwalat ang iyong Secret Recovery Phrase. Sinumang may phrase na ito ay maaaring maagaw ang iyong wallet habambuhay.",
+    "copyButton": "Kopyahin ang Recovery Phrase",
+    "header": {
+      "title": "I-export ang Recovery Phrase"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "Beripikahin ang Password"
+    },
+    "description": "Ipasok ang iyong password upang magpatuloy",
+    "alert": {
+      "verifyFailureTitle": "Nabigong beripikahin",
+      "verifyFailureMessage": "Invalid na password",
+      "verifyErrorMessage": "May nangyaring error. Subukan muli mamaya."
+    },
+    "continueButton": "Magpatuloy"
+  },
+  "history": {
+    "empty": {
+      "pending": "Walang pending na aktibidad",
+      "activities": "Walang nahanap na aktibidad"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "Pending ang Transfer!",
+      "pendingMessage": "Subukan muli kapag natapos na ang transfer"
+    },
+    "finishButton": "Tapusin ang Cross Chain Transfer"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "Pangalan ng Account",
+      "placeholder": "I-type ang Pangalan ng Account"
+    },
+    "privateKey": {
+      "label": "Private Key",
+      "placeholder": "I-type ang Private Key"
+    },
+    "importButton": "I-import",
+    "header": {
+      "title": "I-import ang Account"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "I-unlock ang eckoWALLET",
+      "enter": "I-enter ang iyong passcode",
+      "enterNew": "I-enter ang bagong passcode",
+      "reenter": "I-re-enter ang iyong passcode",
+      "reenterNew": "I-re-enter ang bagong passcode"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "Mga Network"
+    }
+  },
+  "noConnection": {
+    "message": "Walang Network Connection"
+  },
+  "receiverScan": {
+    "placeholder": "I-edit ang destination account",
+    "header": {
+      "title": "Mag-scan ng QR"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "Seed Phrases",
+      "placeholder": "Ipasok ang Secret Phrases"
+    },
+    "accountIndex": {
+      "label": "Numero ng Account",
+      "placeholder": "Default: 0"
+    },
+    "alert": {
+      "failureTitle": "Nabigong i-import ang account",
+      "failureMessage": "Invalid na secret recovery phrase"
+    },
+    "button": {
+      "recover": "I-recover"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "Mag-import ng wallet gamit ang\nSecret Recovery Phrase",
+    "seeds": {
+      "label": "Secret Phrases (may spaces)",
+      "placeholder": "Ipasok ang Secret Phrases"
+    },
+    "password": {
+      "label": "Bagong Password"
+    },
+    "confirmPassword": {
+      "label": "Kumpirmahin ang Password"
+    },
+    "button": {
+      "restore": "I-restore"
+    },
+    "alert": {
+      "failureTitle": "Nabigong i-import ang account",
+      "failureMessage": "May nangyaring error. Subukan muli mamaya.",
+      "invalidSeeds": "Invalid na secret recovery phrase o tinanggal na account"
+    }
+  },
+  "registration": {
+    "text": "Gumawa ng Password",
+    "password": {
+      "label": "Bagong Password"
+    },
+    "confirmPassword": {
+      "label": "Kumpirmahin ang Password"
+    },
+    "button": {
+      "create": "Gumawa"
+    },
+    "alert": {
+      "failureTitle": "Nabigong mag-register",
+      "failureMessage": "May nangyaring error. Subukan muli mamaya."
+    }
+  },
+  "searchTokens": {
+    "placeholder": "Maghanap ng token",
+    "empty": "Walang nahanap na token",
+    "alert": {
+      "notFungibleTitle": "Hindi fungible token",
+      "notFungibleMessage": "Ang napiling token ay hindi fungible"
+    },
+    "header": {
+      "title": "Maghanap ng Token"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "Secret Recovery Phrase",
+    "reveal": "I-click para i-reveal ang secret words",
+    "snackbar": "Na-copy na sa clipboard ang secret recovery phrase!",
+    "description1": "Pinapadali ng iyong Secret Recovery Phrase ang pag-backup at pag-restore ng iyong account.",
+    "description2": "Babala: Huwag ipagsiwalat ang Secret Recovery Phrase. Iwasang gumawa ng screenshots kapag tinitingnan ang secret phrases. Sinumang may phrase na ito ay maaaring maagaw ang iyong wallet habambuhay.",
+    "continue": "Magpatuloy"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "Secret Recovery Phrase",
+    "line1": "Sa susunod na hakbang, ita-type mo ang 12-word recovery phrase mo.",
+    "line2": "Pinapadali ng recovery phrase ang pag-restore ng wallet sa bagong device.",
+    "line3": "Sinumang may phrase na ito ay maaaring kontrolin ang wallet mo; itago ito nang pribado.",
+    "line4": "Hindi ma-access ng Kadena ang recovery phrase mo kung mawala o ma-delete ang app; i-store ito nang ligtas.",
+    "checkbox": "Naiintindihan ko na kung mawala ang recovery phrase ko, hindi ko ma-restore ang wallet ko."
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "Pending ang Transfer!",
+      "pendingMessage": "Subukan muli kapag natapos na ang transfer"
+    },
+    "alert": {
+      "nonKTitle": "Nagpapadala sa non \"k:account\"",
+      "nonKMessage": "Sigurado ka bang gusto mong magpatuloy?",
+      "proceed": "Magpatuloy"
+    },
+    "chain": {
+      "sourceLabel": "Source Chain ID",
+      "targetLabel": "Target Chain ID"
+    },
+    "balance": {
+      "label": "Chain balance"
+    },
+    "accounts": {
+      "recent": "Kamakailan",
+      "contacts": "Contacts"
+    },
+    "content": {
+      "advancedSettings": "Advanced Settings (Opsyonal)",
+      "predicateLabel": "Predicate",
+      "receiverLabel": "Receiver Public Key",
+      "destinationLabel": "Destination Account",
+      "destinationPlaceholder": "Ipasok ang destination account",
+      "receiverPlaceholder": "Ipasok ang Public Key (Opsyonal)"
+    },
+    "header": {
+      "title": "Magpadala ng {{token}} Transaction"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "Huwag isara ang app\nhabang pinoproseso ang operasyon."
+    },
+    "toast": {
+      "submittedTitle": "Na-submit ang Transfer!",
+      "submittedMessage": "Makikita mo ang resulta sa activities tab"
+    },
+    "label": {
+      "result": "Resulta:",
+      "message": "Mensahe:",
+      "requestKey": "Request Key:"
+    },
+    "warning": {
+      "crossChainTitle": "Nagpapatupad ka ng cross-chain transfer",
+      "crossChainMessage": "Mas matagal karaniwang tumagal ang operasyong ito"
+    },
+    "button": {
+      "activities": "Pumunta sa Activities"
+    },
+    "header": {
+      "title": "Nasa proseso ang Transaction"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "Malapit ka nang gumawa ng cross-chain transfer",
+      "crossChainMessage": "Mas matagal karaniwang tumagal ang operasyong ito"
+    },
+    "button": {
+      "send": "Magpadala"
+    },
+    "confirmModal": {
+      "title": "Kumpirmahin ang Pagpapadala ng Transaction",
+      "amountLabel": "Halaga:",
+      "gasLimitLabel": "Gas Limit:",
+      "gasPriceLabel": "Gas Price:",
+      "speedLabel": "Bilis:",
+      "confirmButton": "Kumpirmahin"
+    },
+    "content": {
+      "transactionParameters": "Mga Parameter ng Transaksyon",
+      "transactionSpeed": "Bilis ng Transaksyon",
+      "gasLimitPlaceholder": "I-type ang Gas Limit",
+      "gasPricePlaceholder": "I-type ang Gas Price",
+      "gasLabel": "Gas",
+      "speedLabel": "Bilis {{speed}}"
+    },
+    "header": {
+      "title": "Magpadala ng Transaction"
+    },
+    "walletInfo": {
+      "amountLabel": "Halaga na ipapadala",
+      "half": "kalahati",
+      "max": "max",
+      "maxSnackbar": "Isinasaalang-alang din ng max na halaga ang tinatayang gas fee.",
+      "usdValue": "{{value}} USD",
+      "balance": "Balanse: {{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "Mga Contact",
+        "text": "Pamamahala ng iyong listahan ng contact"
+      },
+      "networks": {
+        "title": "Mga Network",
+        "text": "Magdagdag o i-edit ang custom na RPC networks"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "I-edit ang WalletConnect na config"
+      },
+      "accountSecurity": {
+        "title": "Seguridad ng Account",
+        "text": "Pamahalaan ang seguridad ng iyong wallet"
+      },
+      "lockWallet": {
+        "title": "I-lock ang Wallet",
+        "text": "Lahat ng history ay mananatili"
+      },
+      "deleteAccount": {
+        "title": "Tanggalin ang Account",
+        "text": "Lahat ng data ng account ay matatanggal"
+      }
+    },
+    "alert": {
+      "lockTitle": "Sigurado ka bang gustong i-lock ang wallet?",
+      "lockMessage": "Lahat ng history ay mananatili",
+      "lockConfirm": "I-lock ang Wallet",
+      "deleteTitle": "Sigurado ka bang gustong tanggalin ang account?",
+      "deleteMessage": "Lahat ng data ng account ay matatanggal. Kung wala kang seed phrase, mawawala ang access sa iyong pondo.",
+      "deleteConfirm": "Tanggalin ang Account"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Ang gateway sa ekosistema ng Kadena",
+      "visitWebsite": "Bisitahin ang aming website",
+      "joinDiscord": "Sumali sa Discord",
+      "termsOfUse": "Mga Tuntunin ng Paggamit",
+      "privacyPolicy": "Patakaran sa Privacy"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "Seguridad ng Account"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "I-reset ang Passcode",
+        "text": "Palitan ang passcode ng app"
+      },
+      "exportPhrase": {
+        "title": "I-export ang Recovery Phrase",
+        "text": "Protektahan ang iyong wallet"
+      },
+      "changePassword": {
+        "title": "Palitan ang Password",
+        "text": "Palitan ang password ng account"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "Maligayang pagdating",
+    "label": {
+      "password": "Password"
+    },
+    "button": {
+      "signIn": "Mag-sign in"
+    },
+    "alert": {
+      "usePasscodeTitle": "Gamitin ang passcode para mag-login?",
+      "usePasscodeMessage": "Gusto mo bang gamitin ang passcode at biometrics para ma-access ang eckoWALLET?",
+      "failedTitle": "Nabigong mag-login",
+      "invalidPassword": "Invalid na password",
+      "errorMessage": "May nangyaring error. Subukan muli mamaya."
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "Kumpirmasyon ng Pag-convert",
+      "give": "IBIGAY",
+      "receive": "TANGGAPIN",
+      "confirmButton": "Kumpirmahin"
+    },
+    "gasSettings": {
+      "title": "Mga Setting ng Gas",
+      "gasStation": "GAS STATION",
+      "gasLimitLabel": "Gas Limit",
+      "gasLimitPlaceholder": "Gas Limit",
+      "gasPriceLabel": "Gas Price",
+      "gasPricePlaceholder": "Gas Price",
+      "failureCost": "Potensyal na gas cost kung mabigo ang transaksyon:",
+      "noGasCost": "Walang gas cost – sinusuportahan ng eckoDEX sa pamamagitan ng Kadena gas stations."
+    },
+    "info": {
+      "gasCost": "Gas Cost",
+      "free": "LIBRE",
+      "priceImpact": "Price Impact",
+      "price": "Price",
+      "maxSlippage": "Max Slippage",
+      "lpFee": "Liquidity Provider Fee",
+      "txDeadline": "Transaction Deadline",
+      "gasPrice": "Gas Price",
+      "gasLimit": "Gas Limit",
+      "unitMinutes": "minuto",
+      "unitSeconds": "segundo"
+    },
+    "selectTokenModal": {
+      "title": "Pumili ng Token",
+      "placeholder": "Maghanap ng token",
+      "tokensLabel": "Mga Token",
+      "warningTitle": "Babala",
+      "warningMessage": "Hindi umiiral ang pool {{pair}}",
+      "addTokenTitle": "Magdagdag ng Bagong Token",
+      "addTokenMessage": "Hindi umiiral ang token na ito sa iyong wallet. Gusto mo bang idagdag?",
+      "addTokenConfirm": "Magdagdag",
+      "selectedSuffix": " (Pinili)",
+      "empty": "Hindi nahanap ang token"
+    },
+    "transactionSettings": {
+      "title": "Mga Setting ng Transaksyon",
+      "slippageTitle": "Slippage Tolerance",
+      "deadlineTitle": "Transaction Deadline",
+      "minutes": "minuto"
+    },
+    "swapBlock": {
+      "pending": "Transaksyon ay nasa proseso...",
+      "warningTitle": "Upang magamit ang aming convert functionality, siguraduhing may pondo ka sa Chain 2.",
+      "warningText": "",
+      "give": "IBIGAY",
+      "receive": "TANGGAPIN",
+      "confirm": "KUMPIRMA",
+      "submittedTitle": "Nai-submit ang swap!",
+      "submittedMessage": "Makikita mo ang resulta sa activities tab",
+      "poweredBy": "Pinapagana ng eckoDEX"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "Beripikahin ang Recovery Phrase",
+    "description": "Pakitiyak ang iyong recovery phrase sa pamamagitan ng pag-type ng mga salita sa tamang pagkakasunod.",
+    "warning": "Inirerekomenda na huwag gumamit ng custom na keyboard. Gamitin ang default na keyboard para sa seguridad.",
+    "inputLabel": "Input {{number}}",
+    "error": "Invalid na recovery phrases",
+    "continueButton": "Magpatuloy"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "Mga Asset"
+      },
+      "tokenDetector": {
+        "title": "Nadetect na Mga Token",
+        "emptyTitle": "Walang ibang token na nahanap para sa account na ito",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "Nagawa nang kopyahin sa clipboard ang pangalan ng account!"
+    },
+    "walletBalance": {
+      "netWorth": "Net Worth",
+      "accountBalance": "Balanse ng Account",
+      "send": "Magpadala",
+      "receive": "Tumanggap",
+      "buy": "Bumili"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "I-type ang connection code",
+    "connect": "Ikonekta",
+    "header": {
+      "title": "Mag-scan ng QR"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "Project ID",
+    "projectIdPlaceholder": "Ipasok ang Project ID",
+    "relayUrlLabel": "Relay URL",
+    "relayUrlPlaceholder": "Ipasok ang Relay URL",
+    "errorTitle": "Nabigong palitan ang WalletConnect config",
+    "errorMessage": "Invalid na parameters"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "Password",
+      "placeholder": "Ilagay ang password"
+    },
+    "numpad": {
+      "authenticationPrompt": "Pagpapatotoo",
+      "weakPasscodeTitle": "Mahinang passcode",
+      "weakPasscodeDescription": "Masyadong mahina ang passcode. Subukan ang mas kumplikadong passcode."
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "Kung bukas ang eckoDEX sa device na ito at may problema ka sa WalletConnect, bumalik sa browser at pumasok muli",
+      "text2": "Kung hindi pa rin ito gumana, tingnan ang WalletConnect settings o buksan ang eckoDEX sa desktop browser",
+      "button": "Sige"
+    },
+    "walletConnectInfoModal": {
+      "text1": "Mananatiling aktibo ang lahat ng sessions hangga’t hindi mano-manong tinatanggal",
+      "text2": "Ipinapakita ng History tab ang detalye ng session kasama ang permissions para sa methods at events",
+      "button": "Sige"
+    }
+  },
+  "tabs": {
+    "Wallet": "Pitaka",
+    "Swap": "Palitan",
+    "History": "Kasaysayan",
+    "Connection": "Koneksyon",
+    "Settings": "Settings",
+    "history": {
+      "activities": "Mga Aktibidad",
+      "pending": "Nakahintay"
+    },
+    "connection": {
+      "pairings": "Aktibong sessions",
+      "sessions": "Sesyon"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "Detalye ng Transaksyon",
+    "gas": "Gas: {{gas}}",
+    "statusLabel": "Katayuan",
+    "continuationTitle": "Pagpapatuloy",
+    "continuationValue": "hakbang: {{step}}, kabuuan: {{total}}",
+    "no": "hindi",
+    "requestKeyTitle": "Request Key",
+    "transactionTypeTitle": "Uri ng Transaksyon",
+    "requestKeyChainTitle": "Request Key (Chain {{chain}})",
+    "txDetailsButton": "Detalye ng Tx",
+    "requestKeyCopied": "Nakopya na ang request key sa clipboard!"
+  },
+  "tokenModal": {
+    "distributionTitle": "Pamamahagi ng {{token}} sa Chain",
+    "removeConfirmTitle": "Sigurado ka bang gusto mong tanggalin?",
+    "removeConfirmMessage": "Mawawala lahat ng token data at hindi na maibabalik",
+    "remove": "Tanggalin",
+    "notTransferable": "Hindi maililipat ang {{contract}}!",
+    "zeroBalance": "Ang balanse ng {{token}} ay 0",
+    "editToken": "I-edit ang Token",
+    "removeToken": "Tanggalin ang Token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "Aking Wallets",
+    "removeConfirmTitle": "Sigurado ka bang gusto mong tanggalin?",
+    "removeConfirmMessage": "Mawawala lahat ng account data at hindi na maibabalik",
+    "remove": "Tanggalin",
+    "share": "I-share ang wallet",
+    "exportRecovery": "I-export ang recovery phrase",
+    "removeSelected": "Tanggalin ang napiling wallet",
+    "create": "Gumawa ng wallet",
+    "import": "I-import ang wallet",
+    "copySuccess": "Nakopya na sa clipboard ang detalye ng account!"
+  },
+  "session": {
+    "title": "Detalye ng Session",
+    "deleteTitle": "Sigurado ka bang gusto mong tanggalin ang kasaysayan ng session na ito?",
+    "deleteDescription": "Mawawala lahat ng session history data at hindi na maibabalik",
+    "deleteFailedTitle": "Nabigong tanggalin ang session",
+    "deleteFailedMessage": "Hindi tugma ang WalletConnect config",
+    "deleteSession": "Tanggalin ang session",
+    "reviewPermissions": "Suriin ang {{namespace}} Permissions",
+    "unknownUrl": "Hindi kilala",
+    "methods": "Methods",
+    "events": "Events",
+    "expiry": "Pag-expire",
+    "lastUpdated": "Huling Na-update"
+  },
+  "receive": {
+    "title": "Tumanggap ng tokens",
+    "accountNameLabel": "Pangalan ng iyong account"
+  },
+  "networkSelector": {
+    "title": "Piliin ang Network",
+    "manage": "Pamahalaan ang mga network"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "Block Explorer URL",
+    "editNetwork": "I-edit ang Network"
+  },
+  "contactDetails": {
+    "accountName": "Pangalan ng Account",
+    "chainId": "Chain ID",
+    "edit": "I-edit ang Contact",
+    "copied": "Nakopya sa clipboard!"
+  },
+  "validation": {
+    "required": "Kinakailangan ang field na ito",
+    "default": "Hindi wastong halaga",
+    "min": "Dapat ay hindi bababa sa {{count}} character",
+    "max": "Dapat ay hindi hihigit sa {{count}} character",
+    "minNumber": "Dapat ay hindi bababa sa {{count}}",
+    "maxNumber": "Dapat ay hindi hihigit sa {{count}}",
+    "email": "Dapat ay isang wastong email",
+    "matches": "Hindi wastong format",
+    "passwordsMatch": "Hindi magkapareho ang mga password",
+    "passwordComplexity": "Dapat may 8 character, isang uppercase, isang lowercase, isang numero, at isang special character"
+  }
+}

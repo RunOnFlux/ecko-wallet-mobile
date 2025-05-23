@@ -1,0 +1,701 @@
+{
+  "common": {
+    "saveButton": "儲存",
+    "confirm": "確認",
+    "delete": "刪除",
+    "cancel": "取消",
+    "ok": "確定",
+    "error": "錯誤",
+    "selectLanguage": "選擇語言",
+    "selectLanguageLongDescription": "請選擇您想要的語言"
+  },
+  "welcome": {
+    "title": "歡迎使用\neckoWALLET",
+    "subtitle": "Kadena 生態系統入口",
+    "loginCard": {
+      "title": "登入我的帳戶",
+      "description": "輸入您的錢包密碼"
+    },
+    "newUserCard": {
+      "title": "我是新用戶",
+      "description": "設定全新 eckoWALLET 帳戶"
+    },
+    "recoverCard": {
+      "title": "我已有帳戶",
+      "description": "使用助記詞登入"
+    },
+    "instructions": {
+      "intro": "若要新增帳戶，請依照下列步驟：",
+      "step1": "1. 登入既有帳戶",
+      "step2": "2. 點擊「設定」",
+      "step3": "3. 點擊「刪除帳戶」"
+    }
+  },
+  "addEditContact": {
+    "contactName": {
+      "label": "聯絡人名稱",
+      "placeholder": "輸入聯絡人名稱"
+    },
+    "accountName": {
+      "label": "帳戶名稱",
+      "placeholder": "輸入帳戶名稱"
+    },
+    "saveButton": "儲存",
+    "header": {
+      "title": "新增聯絡人"
+    }
+  },
+  "addEditNetwork": {
+    "defaultName": "自訂",
+    "alert": {
+      "failureTitle": "新增網路失敗",
+      "failureMessage": "無效的網路資訊"
+    },
+    "name": {
+      "label": "網路名稱",
+      "placeholder": "輸入網路名稱"
+    },
+    "host": {
+      "label": "新的 RPC URL",
+      "placeholder": "輸入 URL"
+    },
+    "explorer": {
+      "label": "區塊瀏覽器 URL",
+      "placeholder": "輸入 URL"
+    },
+    "header": {
+      "title": "新增網路"
+    },
+    "saveButton": "儲存"
+  },
+  "addToken": {
+    "header": {
+      "title": "新增代幣",
+      "titleImport": "匯入代幣"
+    },
+    "tokenAddress": {
+      "label": "代幣合約地址",
+      "placeholder": "輸入合約地址"
+    },
+    "tokenName": {
+      "label": "代幣符號",
+      "placeholder": "輸入代幣符號"
+    },
+    "alert": {
+      "failureTitle": "匯入代幣失敗",
+      "failureMessage": "代幣不存在"
+    },
+    "saveButton": "新增代幣"
+  },
+  "buyScreen": {
+    "header": {
+      "title": "購買"
+    },
+    "consent": {
+      "description": "加密貨幣的買賣透過第三方服務 Onramper 進行。\n\neckoWallet 致力於提供最高級別的安全性，但無法保證第三方服務的安全與隱私。"
+    },
+    "error": {
+      "walletUnavailable": "錢包地址不可用",
+      "unableConnect": "無法連線至服務。請稍後重試。"
+    }
+  },
+  "changeAccountPassword": {
+    "header": {
+      "title": "更改密碼"
+    },
+    "currentPassword": {
+      "label": "目前密碼"
+    },
+    "newPassword": {
+      "label": "新密碼"
+    },
+    "confirmPassword": {
+      "label": "確認密碼"
+    },
+    "toast": {
+      "success": "密碼已成功更改！"
+    },
+    "alert": {
+      "changeFailureTitle": "更改密碼失敗",
+      "changeFailureMessage": "發生錯誤。請稍後重試。",
+      "verifyFailureTitle": "驗證失敗",
+      "verifyFailureMessage": "密碼無效"
+    },
+    "changeButton": "更改密碼"
+  },
+  "connection": {
+    "unknown": "未知連線",
+    "deleteAlert": {
+      "title": "確定要刪除此進行中連線？",
+      "message": "此連線的所有資料將被刪除，無法復原。"
+    },
+    "deleteFailureTitle": "刪除連線失敗",
+    "deleteFailureMessage": "WalletConnect 設定不符",
+    "empty": {
+      "sessions": "無歷史記錄",
+      "pairings": "無進行中會話"
+    },
+    "modal": {
+      "title": "WalletConnect 資訊"
+    },
+    "expiryLabel": "到期：",
+    "unknownHost": "未知主機"
+  },
+  "contacts": {
+    "searchPlaceholder": "搜尋聯絡人",
+    "emptyList": "尚無聯絡人",
+    "header": {
+      "title": "聯絡人"
+    }
+  },
+  "exportRecoveryPhrase": {
+    "snackbar": "助記詞已複製到剪貼簿！",
+    "description": "您的助記詞可輕鬆備份並還原帳戶。",
+    "warning": "切勿洩漏助記詞。任何知曉者都可掌控您的錢包。",
+    "copyButton": "複製助記詞",
+    "header": {
+      "title": "匯出助記詞"
+    }
+  },
+  "exportRecoveryPhraseAuth": {
+    "header": {
+      "title": "驗證密碼"
+    },
+    "description": "輸入密碼以繼續",
+    "alert": {
+      "verifyFailureTitle": "驗證失敗",
+      "verifyFailureMessage": "密碼無效",
+      "verifyErrorMessage": "發生錯誤。請稍後重試。"
+    },
+    "continueButton": "繼續"
+  },
+  "history": {
+    "empty": {
+      "pending": "無待處理活動",
+      "activities": "找不到活動"
+    }
+  },
+  "listItem": {
+    "toast": {
+      "pendingTitle": "转账待處理！",
+      "pendingMessage": "請於轉帳完成後重試"
+    },
+    "finishButton": "完成跨鏈轉帳"
+  },
+  "importAccount": {
+    "accountName": {
+      "label": "帳戶名稱",
+      "placeholder": "輸入帳戶名稱"
+    },
+    "privateKey": {
+      "label": "私鑰",
+      "placeholder": "輸入私鑰"
+    },
+    "importButton": "匯入",
+    "header": {
+      "title": "匯入帳戶"
+    }
+  },
+  "login": {
+    "title": {
+      "unlock": "解鎖 eckoWALLET",
+      "enter": "輸入密碼",
+      "enterNew": "輸入新密碼",
+      "reenter": "再次輸入密碼",
+      "reenterNew": "再次輸入新密碼"
+    }
+  },
+  "networks": {
+    "header": {
+      "title": "網路"
+    }
+  },
+  "noConnection": {
+    "message": "無網路連線"
+  },
+  "receiverScan": {
+    "placeholder": "編輯接收帳戶",
+    "header": {
+      "title": "掃描 QR 碼"
+    }
+  },
+  "recoverAccount": {
+    "seeds": {
+      "label": "助記詞",
+      "placeholder": "輸入助記詞"
+    },
+    "accountIndex": {
+      "label": "帳戶編號",
+      "placeholder": "預設：0"
+    },
+    "alert": {
+      "failureTitle": "匯入帳戶失敗",
+      "failureMessage": "助記詞無效"
+    },
+    "button": {
+      "recover": "恢復"
+    }
+  },
+  "recoveryFromSeeds": {
+    "text": "使用助記詞匯入錢包",
+    "seeds": {
+      "label": "助記詞（含空格）",
+      "placeholder": "輸入助記詞"
+    },
+    "password": {
+      "label": "新密碼"
+    },
+    "confirmPassword": {
+      "label": "確認密碼"
+    },
+    "button": {
+      "restore": "還原"
+    },
+    "alert": {
+      "failureTitle": "匯入帳戶失敗",
+      "failureMessage": "發生錯誤。請稍後重試。",
+      "invalidSeeds": "助記詞無效或帳戶已刪除"
+    }
+  },
+  "registration": {
+    "text": "建立密碼",
+    "password": {
+      "label": "新密碼"
+    },
+    "confirmPassword": {
+      "label": "確認密碼"
+    },
+    "button": {
+      "create": "建立"
+    },
+    "alert": {
+      "failureTitle": "註冊失敗",
+      "failureMessage": "發生錯誤。請稍後重試。"
+    }
+  },
+  "searchTokens": {
+    "placeholder": "搜尋代幣",
+    "empty": "找不到代幣",
+    "alert": {
+      "notFungibleTitle": "非同質化代幣",
+      "notFungibleMessage": "所選代幣不可替代"
+    },
+    "header": {
+      "title": "搜尋代幣"
+    }
+  },
+  "secretRecoveryPhrase": {
+    "title": "助記詞",
+    "reveal": "點擊以顯示助記詞",
+    "snackbar": "助記詞已複製！",
+    "description1": "助記詞可輕鬆備份與還原帳戶。",
+    "description2": "警告：切勿洩漏或截圖助記詞。任何持有者都可控制您的錢包。",
+    "continue": "繼續"
+  },
+  "secretRecoveryPhraseTerm": {
+    "title": "助記詞",
+    "line1": "下一步請記下您的 12 字助記詞。",
+    "line2": "助記詞可讓您在新裝置還原錢包。",
+    "line3": "任何人持有助記詞皆可控制錢包，請妥善保管。",
+    "line4": "若助記詞遺失或應用程式刪除，Kadena 將無法協助復原。",
+    "checkbox": "我了解若助記詞遺失將無法還原錢包。"
+  },
+  "send": {
+    "toast": {
+      "pendingTitle": "轉帳待處理！",
+      "pendingMessage": "轉帳完成後請重試"
+    },
+    "alert": {
+      "nonKTitle": "發送至非「k:account」",
+      "nonKMessage": "確定要繼續嗎？",
+      "proceed": "繼續"
+    },
+    "chain": {
+      "sourceLabel": "來源鏈 ID",
+      "targetLabel": "目標鏈 ID"
+    },
+    "balance": {
+      "label": "鏈上餘額"
+    },
+    "accounts": {
+      "recent": "最近",
+      "contacts": "聯絡人"
+    },
+    "content": {
+      "advancedSettings": "進階設定（選填）",
+      "predicateLabel": "條件",
+      "receiverLabel": "接收者公鑰",
+      "destinationLabel": "目標帳戶",
+      "destinationPlaceholder": "輸入目標帳戶",
+      "receiverPlaceholder": "輸入公鑰（選填）"
+    },
+    "header": {
+      "title": "發送 {{token}} 交易"
+    }
+  },
+  "sendProgress": {
+    "text": {
+      "closeWarning": "處理中請勿關閉應用程式。"
+    },
+    "toast": {
+      "submittedTitle": "轉帳已提交！",
+      "submittedMessage": "可至活動頁查看結果"
+    },
+    "label": {
+      "result": "結果：",
+      "message": "訊息：",
+      "requestKey": "請求鍵："
+    },
+    "warning": {
+      "crossChainTitle": "您正在進行跨鏈轉帳",
+      "crossChainMessage": "此操作通常需時較長"
+    },
+    "button": {
+      "activities": "前往活動"
+    },
+    "header": {
+      "title": "交易進行中"
+    }
+  },
+  "sendSummary": {
+    "warning": {
+      "crossChainTitle": "您即將進行跨鏈轉帳",
+      "crossChainMessage": "此操作通常需時較長"
+    },
+    "button": {
+      "send": "發送"
+    },
+    "confirmModal": {
+      "title": "確認發送交易",
+      "amountLabel": "金額：",
+      "gasLimitLabel": "Gas 限額：",
+      "gasPriceLabel": "Gas 價格：",
+      "speedLabel": "速度：",
+      "confirmButton": "確認"
+    },
+    "content": {
+      "transactionParameters": "交易參數",
+      "transactionSpeed": "交易速度",
+      "gasLimitPlaceholder": "輸入 Gas 限額",
+      "gasPricePlaceholder": "輸入 Gas 價格",
+      "gasLabel": "Gas",
+      "speedLabel": "{{speed}} 速度"
+    },
+    "header": {
+      "title": "發送交易"
+    },
+    "walletInfo": {
+      "amountLabel": "發送金額",
+      "half": "一半",
+      "max": "最大",
+      "maxSnackbar": "最大金額已包含估計 Gas 費用。",
+      "usdValue": "{{value}} 美元",
+      "balance": "餘額：{{value}} {{token}}"
+    }
+  },
+  "settings": {
+    "cards": {
+      "contacts": {
+        "title": "聯絡人",
+        "text": "管理聯絡人名單"
+      },
+      "networks": {
+        "title": "網路",
+        "text": "新增或編輯自訂 RPC 網路"
+      },
+      "walletConnect": {
+        "title": "WalletConnect",
+        "text": "編輯 WalletConnect 設定"
+      },
+      "accountSecurity": {
+        "title": "帳戶安全",
+        "text": "管理錢包安全性"
+      },
+      "lockWallet": {
+        "title": "鎖定錢包",
+        "text": "歷史記錄仍會保留"
+      },
+      "deleteAccount": {
+        "title": "刪除帳戶",
+        "text": "將刪除所有資料"
+      }
+    },
+    "alert": {
+      "lockTitle": "確定要鎖定錢包？",
+      "lockMessage": "歷史記錄仍會保留",
+      "lockConfirm": "鎖定錢包",
+      "deleteTitle": "確定要刪除帳戶？",
+      "deleteMessage": "所有資料將被刪除。若無助記詞則無法存取。",
+      "deleteConfirm": "刪除帳戶"
+    },
+    "footer": {
+      "version": "eckoWALLET {{version}}",
+      "tagline": "Kadena 生態系統入口",
+      "visitWebsite": "造訪我們的網站",
+      "joinDiscord": "加入 Discord",
+      "termsOfUse": "使用條款",
+      "privacyPolicy": "隱私權政策"
+    }
+  },
+  "settingsSubPage": {
+    "header": {
+      "title": "帳戶安全"
+    },
+    "cards": {
+      "resetPasscode": {
+        "title": "重設通行碼",
+        "text": "更改應用程式通行碼"
+      },
+      "exportPhrase": {
+        "title": "匯出助記詞",
+        "text": "保護您的錢包"
+      },
+      "changePassword": {
+        "title": "更改密碼",
+        "text": "更改帳戶密碼"
+      }
+    }
+  },
+  "signIn": {
+    "welcome": "歡迎",
+    "label": {
+      "password": "密碼"
+    },
+    "button": {
+      "signIn": "登入"
+    },
+    "alert": {
+      "usePasscodeTitle": "使用通行碼登入？",
+      "usePasscodeMessage": "是否使用通行碼及生物辨識？",
+      "failedTitle": "登入失敗",
+      "invalidPassword": "密碼無效",
+      "errorMessage": "發生錯誤。請稍後重試。"
+    }
+  },
+  "swap": {
+    "confirmModal": {
+      "title": "轉換確認",
+      "give": "給出",
+      "receive": "接收",
+      "confirmButton": "確認"
+    },
+    "gasSettings": {
+      "title": "Gas 設定",
+      "gasStation": "GAS 站",
+      "gasLimitLabel": "Gas 限額",
+      "gasLimitPlaceholder": "輸入 Gas 限額",
+      "gasPriceLabel": "Gas 價格",
+      "gasPricePlaceholder": "輸入 Gas 價格",
+      "failureCost": "失敗時預估 Gas 費：",
+      "noGasCost": "無 Gas 費用 — 由 eckoDEX 補貼"
+    },
+    "info": {
+      "gasCost": "Gas 費用",
+      "free": "免費",
+      "priceImpact": "價格影響",
+      "price": "價格",
+      "maxSlippage": "最大滑點",
+      "lpFee": "流動性提供費",
+      "txDeadline": "交易時限",
+      "gasPrice": "Gas 價格",
+      "gasLimit": "Gas 限額",
+      "unitMinutes": "分鐘",
+      "unitSeconds": "秒"
+    },
+    "selectTokenModal": {
+      "title": "選擇代幣",
+      "placeholder": "搜尋代幣",
+      "tokensLabel": "代幣",
+      "warningTitle": "警告",
+      "warningMessage": "{{pair}} 池不存在",
+      "addTokenTitle": "新增代幣",
+      "addTokenMessage": "您的錢包中沒有此代幣，是否新增？",
+      "addTokenConfirm": "新增",
+      "selectedSuffix": "（已選）",
+      "empty": "未找到代幣"
+    },
+    "transactionSettings": {
+      "title": "交易設定",
+      "slippageTitle": "滑點容忍度",
+      "deadlineTitle": "交易時限",
+      "minutes": "分鐘"
+    },
+    "swapBlock": {
+      "pending": "交易進行中…",
+      "warningTitle": "請確保鏈 2 上有資金以進行轉換。",
+      "warningText": "",
+      "give": "給出",
+      "receive": "接收",
+      "confirm": "確認",
+      "submittedTitle": "Swap 已提交！",
+      "submittedMessage": "可至活動頁查看結果",
+      "poweredBy": "由 eckoDEX 提供"
+    }
+  },
+  "verifyRecoveryPhrase": {
+    "title": "驗證助記詞",
+    "description": "請依正確順序輸入單詞。",
+    "warning": "建議勿使用自訂鍵盤，請使用預設鍵盤以確保安全。",
+    "inputLabel": "輸入 {{number}}",
+    "error": "助記詞無效",
+    "continueButton": "繼續"
+  },
+  "wallet": {
+    "assetsList": {
+      "contentHeader": {
+        "title": "資產"
+      },
+      "tokenDetector": {
+        "title": "檢測到的代幣",
+        "emptyTitle": "此帳戶無其他代幣",
+        "emptyText": ""
+      }
+    },
+    "header": {
+      "accountCopied": "已複製帳戶名稱！"
+    },
+    "walletBalance": {
+      "netWorth": "淨資產",
+      "accountBalance": "帳戶餘額",
+      "send": "發送",
+      "receive": "接收",
+      "buy": "購買"
+    }
+  },
+  "walletConnectScan": {
+    "placeholder": "輸入連線代碼",
+    "connect": "連線",
+    "header": {
+      "title": "掃描 QR 碼"
+    }
+  },
+  "walletConnectSettings": {
+    "projectIdLabel": "專案 ID",
+    "projectIdPlaceholder": "輸入專案 ID",
+    "relayUrlLabel": "中繼 URL",
+    "relayUrlPlaceholder": "輸入中繼 URL",
+    "errorTitle": "更改 WalletConnect 設定失敗",
+    "errorMessage": "參數無效"
+  },
+  "components": {
+    "passwordInput": {
+      "label": "密碼",
+      "placeholder": "輸入密碼"
+    },
+    "numpad": {
+      "authenticationPrompt": "身份驗證",
+      "weakPasscodeTitle": "密碼太弱",
+      "weakPasscodeDescription": "您輸入的密碼太弱。請嘗試更複雜的密碼。"
+    },
+    "predicate": {
+      "label": "Predicate",
+      "placeholder": "Predicate"
+    },
+    "walletConnectHelpModal": {
+      "text1": "如果此裝置上已開啟 eckoDEX 網站，且您在 WalletConnect 連線時遇到問題，請返回瀏覽器再試一次",
+      "text2": "如果仍無法解決，請檢查 WalletConnect 設定，或在桌面瀏覽器中打開 eckoDEX",
+      "button": "確定"
+    },
+    "walletConnectInfoModal": {
+      "text1": "所有啟用中的連線將持續有效，直到您手動刪除為止",
+      "text2": "「歷史記錄」分頁會顯示授權方法與事件的連線詳細資訊",
+      "button": "確定"
+    }
+  },
+  "tabs": {
+    "Wallet": "錢包",
+    "Swap": "兌換",
+    "History": "歷史",
+    "Connection": "連線",
+    "Settings": "設定",
+    "history": {
+      "activities": "活動",
+      "pending": "待處理"
+    },
+    "connection": {
+      "pairings": "啟用中的連線",
+      "sessions": "歷史記錄"
+    }
+  },
+  "transactionDetails": {
+    "modalTitle": "交易詳情",
+    "gas": "Gas：{{gas}}",
+    "statusLabel": "狀態",
+    "continuationTitle": "繼續",
+    "continuationValue": "步驟：{{step}}, 總計：{{total}}",
+    "no": "否",
+    "requestKeyTitle": "請求金鑰",
+    "transactionTypeTitle": "交易類型",
+    "requestKeyChainTitle": "請求金鑰（Chain {{chain}}）",
+    "txDetailsButton": "查看 Tx",
+    "requestKeyCopied": "請求金鑰已複製到剪貼簿！"
+  },
+  "tokenModal": {
+    "distributionTitle": "{{token}} 在鏈上分佈",
+    "removeConfirmTitle": "確定要移除？",
+    "removeConfirmMessage": "所有此 Token 資料將被刪除且無法還原",
+    "remove": "移除",
+    "notTransferable": "{{contract}} 不可轉移！",
+    "zeroBalance": "{{token}} 餘額為 0",
+    "editToken": "編輯 Token",
+    "removeToken": "移除 Token",
+    "chainLabel": "Chain {{chain}}"
+  },
+  "walletSelector": {
+    "title": "我的錢包",
+    "removeConfirmTitle": "確定要移除？",
+    "removeConfirmMessage": "所有帳戶資料將被刪除且無法還原",
+    "remove": "移除",
+    "share": "分享錢包",
+    "exportRecovery": "匯出助記詞",
+    "removeSelected": "移除所選錢包",
+    "create": "建立錢包",
+    "import": "匯入錢包",
+    "copySuccess": "帳戶詳細資訊已複製到剪貼簿！"
+  },
+  "session": {
+    "title": "連線詳情",
+    "deleteTitle": "確定要刪除此連線歷史？",
+    "deleteDescription": "所有連線歷史資料將被刪除且無法還原",
+    "deleteFailedTitle": "刪除連線失敗",
+    "deleteFailedMessage": "WalletConnect 設定不符",
+    "deleteSession": "刪除連線",
+    "reviewPermissions": "檢查 {{namespace}} 的權限",
+    "unknownUrl": "未知",
+    "methods": "方法",
+    "events": "事件",
+    "expiry": "到期",
+    "lastUpdated": "最後更新"
+  },
+  "receive": {
+    "title": "接收 Token",
+    "accountNameLabel": "您的帳戶名稱"
+  },
+  "networkSelector": {
+    "title": "選擇網路",
+    "manage": "管理網路"
+  },
+  "networkDetails": {
+    "rpcUrl": "RPC URL",
+    "blockExplorerUrl": "區塊瀏覽器 URL",
+    "editNetwork": "編輯網路"
+  },
+  "contactDetails": {
+    "accountName": "帳戶名稱",
+    "chainId": "Chain ID",
+    "edit": "編輯聯絡人",
+    "copied": "已複製到剪貼簿！"
+  },
+  "validation": {
+    "required": "此欄位為必填",
+    "default": "無效的值",
+    "min": "最少需有 {{count}} 個字元",
+    "max": "最多可有 {{count}} 個字元",
+    "minNumber": "最小值為 {{count}}",
+    "maxNumber": "最大值為 {{count}}",
+    "email": "必須為有效的電子郵件",
+    "matches": "格式無效",
+    "passwordsMatch": "密碼不一致",
+    "passwordComplexity": "必須包含 8 個字元、1 個大寫字母、1 個小寫字母、1 個數字以及 1 個特殊字元"
+  }
+}
