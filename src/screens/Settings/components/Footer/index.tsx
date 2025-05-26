@@ -16,7 +16,7 @@ const Footer: FC = React.memo(() => {
       <Text style={styles.text}>{t('settings.footer.tagline')}</Text>
       <View style={styles.tipsWrapper}>
         <TouchableOpacity
-          onPress={() => Linking.openURL('https://dex.ecko.finance/')}
+          onPress={() => Linking.openURL('https://eckowallet.com/')}
           activeOpacity={0.8}
           style={styles.tip}>
           <GlobeSvg width="24" height="24" />
@@ -34,9 +34,7 @@ const Footer: FC = React.memo(() => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() =>
-            Linking.openURL('https://wallet.ecko.finance/terms-of-use')
-          }
+          onPress={() => Linking.openURL('https://eckowallet.com/terms-of-use')}
           activeOpacity={0.8}
           style={styles.tip}>
           <Text style={styles.tipTitleNoIcon}>
@@ -45,7 +43,7 @@ const Footer: FC = React.memo(() => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() =>
-            Linking.openURL('https://wallet.ecko.finance/privacy-policy')
+            Linking.openURL('https://eckowallet.com/privacy-policy')
           }
           activeOpacity={0.8}
           style={styles.tip}>

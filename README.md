@@ -12,7 +12,7 @@
 - **iOS:** [Download on the App Store](https://apps.apple.com/us/app/eckowallet/id1632056372)
 - **Chrome Extension:** [EckoWALLET on Chrome Web Store](https://chromewebstore.google.com/detail/eckowallet/bofddndhbegljegmpmnlbhcejofmjgbn?pli=1)
 
-Official site: [wallet.ecko.finance](https://wallet.ecko.finance)
+Official site: [eckowallet.com](https://eckowallet.com)
 
 ---
 

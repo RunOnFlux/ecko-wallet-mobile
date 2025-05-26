@@ -29,9 +29,9 @@ To create a positive and productive environment, we expect everyone to:
 
 Examples of behaviour that violates this Code of Conduct include:
 
-- **Harassment**: Sexualised language or imagery, unwelcome sexual attention, or personal attacks.  
-- **Disrespect**: Insulting, trolling, or derogatory comments, and political or personal attacks.  
-- **Privacy Violations**: Sharing private information, such as physical or email addresses, without explicit consent.  
+- **Harassment**: Sexualised language or imagery, unwelcome sexual attention, or personal attacks.
+- **Disrespect**: Insulting, trolling, or derogatory comments, and political or personal attacks.
+- **Privacy Violations**: Sharing private information, such as physical or email addresses, without explicit consent.
 - **Unprofessional Conduct**: Any behaviour that could reasonably be considered inappropriate in a professional setting.
 
 ---
@@ -41,10 +41,10 @@ Examples of behaviour that violates this Code of Conduct include:
 Project maintainers are responsible for:
 
 - **Defining Acceptable Behaviour**  
-  Clearly communicating and upholding the standards of this Code of Conduct.  
+  Clearly communicating and upholding the standards of this Code of Conduct.
 
 - **Enforcing the Code of Conduct**  
-  Taking appropriate and fair action in response to reported or observed violations.  
+  Taking appropriate and fair action in response to reported or observed violations.
 
 - **Maintaining Transparency**  
   Acting in good faith and ensuring decisions are made in the best interests of the community.
@@ -55,7 +55,7 @@ Project maintainers are responsible for:
 
 This Code of Conduct applies within all official **eckoWALLET**‑managed spaces, including but not limited to:
 
-- GitHub repositories, discussion forums, chat platforms, and community events.  
+- GitHub repositories, discussion forums, chat platforms, and community events.
 - Public spaces where an individual is representing eckoWALLET or its community (e.g. official email addresses, social media accounts, or public appearances as an appointed representative).
 
 ---
@@ -64,17 +64,17 @@ This Code of Conduct applies within all official **eckoWALLET**‑managed spaces
 
 ### **Reporting Violations**
 
-Instances of abusive, harassing, or otherwise unacceptable behaviour can be reported confidentially by emailing **support@ecko.finance**.
+Instances of abusive, harassing, or otherwise unacceptable behaviour can be reported confidentially by emailing **support@eckowallet.com**.
 
-- All reports will be reviewed and investigated promptly and discreetly.  
+- All reports will be reviewed and investigated promptly and discreetly.
 - The project team will determine and communicate appropriate actions based on the circumstances.
 
 ### **Enforcement Actions**
 
 Violations of the Code of Conduct may result in:
 
-1. A formal warning to the individual.  
-2. Temporary or permanent removal from project spaces.  
+1. A formal warning to the individual.
+2. Temporary or permanent removal from project spaces.
 3. A ban from contributing to or interacting with the project.
 
 ### **Accountability of Maintainers**
