@@ -1,14 +1,17 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {Linking, Text, TouchableOpacity, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import packageJson from '../../../../../package.json';
 import GlobeSvg from '../../../../assets/images/globe.svg';
 import DiscordSvg from '../../../../assets/images/discord.svg';
-import {styles} from './styles';
+import {makeStyles} from './styles';
+import {useAppThemeContext} from '../../../../contexts';
 
 const Footer: FC = React.memo(() => {
   const {t} = useTranslation();
   const version = packageJson.version;
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
 
   return (
     <View style={styles.wrapper}>

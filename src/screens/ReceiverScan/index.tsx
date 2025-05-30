@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import Header from './components/Header';
-import {createStyles} from './styles';
+import {makeStyles} from './styles';
 import {
   Camera,
   useCameraDevice,
@@ -24,6 +24,7 @@ import {
 } from '../../routes/types';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import {useTranslation} from 'react-i18next';
+import {useAppThemeContext} from '../../contexts';
 
 const ReceiverScan = () => {
   const {t} = useTranslation();
@@ -35,7 +36,11 @@ const ReceiverScan = () => {
   const [textUri, setTextUri] = useState<string>('');
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => makeStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
 
   const device = useCameraDevice('back');
 

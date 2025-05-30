@@ -1,11 +1,15 @@
 import {StyleSheet} from 'react-native';
+import {IAppTheme} from '../../themes/types';
 
-export const createStyles = ({
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const makeStyles = (
+  theme: IAppTheme,
+  {
+    statusBarHeight,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     container: {
       flex: 1,
@@ -22,7 +26,7 @@ export const createStyles = ({
     },
     footer: {
       marginTop: 24,
-      borderTopColor: 'rgba(223, 223, 237, 0.5)',
+      borderTopColor: theme.border,
       borderTopWidth: 1,
       borderStyle: 'solid',
       paddingTop: 48,
@@ -32,6 +36,6 @@ export const createStyles = ({
     icon: {
       width: 24,
       height: 24,
-      tintColor: 'white',
+      tintColor: theme.text.primary,
     },
   });

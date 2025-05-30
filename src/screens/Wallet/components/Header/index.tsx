@@ -67,7 +67,7 @@ const Header = React.memo(() => {
         style={styles.button}
         onPress={toggleNetworkModal}>
         <Text style={styles.buttonText}>{activeNetwork?.name || ''}</Text>
-        <ArrowDownSvg />
+        <ArrowDownSvg width={24} height={24} fill={theme.text.primary} />
       </TouchableOpacity>
       <View style={styles.rightSide}>
         <View style={styles.accountButton}>

@@ -1,19 +1,24 @@
 import {StyleSheet} from 'react-native';
+import {IAppTheme} from '../../themes/types';
 import {isIos} from '../../constants';
-import {MAIN_COLOR, MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {MEDIUM_MONTSERRAT} from '../../constants/styles';
 
-export const createStyles = ({
-  bottomSpace,
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const makeStyles = (
+  theme: IAppTheme,
+  {
+    bottomSpace,
+    statusBarHeight,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     screen: {
       flex: 1,
       width: '100%',
       paddingTop: statusBarHeight,
+      backgroundColor: theme.background,
     },
     container: {
       flex: 1,
@@ -30,7 +35,7 @@ export const createStyles = ({
       width: '100%',
       paddingTop: 16,
       paddingBottom: bottomSpace + 16,
-      borderTopColor: 'rgba(223,223,237,0.5)',
+      borderTopColor: theme.border,
     },
     inputContainer: {
       width: '100%',
@@ -45,7 +50,7 @@ export const createStyles = ({
       paddingVertical: isIos ? 13 : 3,
       paddingLeft: 4,
       paddingRight: 4,
-      backgroundColor: 'rgba(236,236,245,0.5)',
+      backgroundColor: theme.input.background,
       borderRadius: 10,
     },
     input: {
@@ -53,7 +58,7 @@ export const createStyles = ({
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '500',
       fontSize: 16,
-      color: MAIN_COLOR,
+      color: theme.text.primary,
       width: '100%',
     },
     footerButton: {

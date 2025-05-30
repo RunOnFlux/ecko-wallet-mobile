@@ -1,16 +1,21 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {Text, TouchableOpacity, View} from 'react-native';
 import Snackbar from 'react-native-snackbar';
 
-import {createStyles} from './styles';
+import {makeStyles} from './styles';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {EHomeTabRoutes} from '../../../../routes/types';
 import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
+import {useAppThemeContext} from '../../../../contexts';
 
 const TabBar: FC<BottomTabBarProps> = ({state, descriptors, navigation}) => {
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => makeStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
   return (
     <View style={styles.container}>
       {state.routes.map((route, index) => {
@@ -62,7 +67,10 @@ const TabBar: FC<BottomTabBarProps> = ({state, descriptors, navigation}) => {
             <Text
               style={[
                 styles.label,
-                isFocused && styles.activeLabel,
+                isFocused &&
+                  (itemOptions?.tabBarLabel === 'Wallet'
+                    ? styles.brandLabel
+                    : styles.activeLabel),
                 isComingSoon && styles.disabledTab,
               ]}>
               {`${label}`}

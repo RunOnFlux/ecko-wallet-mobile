@@ -1,11 +1,14 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 
 import {TCardProps} from './types';
-import {styles} from './styles';
+import {useAppThemeContext} from '../../../../contexts';
+import {makeStyles} from './styles';
 
 const Card: FC<TCardProps> = React.memo(
   ({isFirstItem, text, title, titleStyle, icon, onPress}) => {
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
     return (
       <TouchableOpacity
         activeOpacity={0.8}

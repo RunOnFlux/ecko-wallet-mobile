@@ -1,30 +1,39 @@
 import {StyleSheet} from 'react-native';
-import {BOLD_MONTSERRAT, MAIN_COLOR} from '../../../../constants/styles';
+import {IAppTheme} from '../../../../themes/types';
+import {BOLD_MONTSERRAT} from '../../../../constants/styles';
 
-export const createStyles = ({
-  bottomSpace,
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const makeStyles = (
+  theme: IAppTheme,
+  {
+    bottomSpace,
+    statusBarHeight,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     container: {
       flexDirection: 'row',
       paddingBottom: bottomSpace + 16,
       borderTopWidth: 1,
-      borderTopColor: 'rgba(223, 223, 237, 0.5)',
+      borderTopColor: theme.border,
     },
     tabBarItem: {
       flex: 1,
       alignItems: 'center',
-      borderTopColor: '#FFA900',
+      borderTopColor: theme.text.secondary,
       paddingTop: 14,
     },
-    activeTab: {borderTopWidth: 2, marginTop: -2},
-    disabledTab: {opacity: 0.5},
+    activeTab: {
+      borderTopWidth: 2,
+      marginTop: -2,
+    },
+    disabledTab: {
+      opacity: 0.5,
+    },
     label: {
-      color: '#787B8E',
+      color: theme.text.secondary,
       fontFamily: BOLD_MONTSERRAT,
       fontWeight: '700',
       marginTop: 8,
@@ -32,6 +41,9 @@ export const createStyles = ({
       textTransform: 'uppercase',
     },
     activeLabel: {
-      color: MAIN_COLOR,
+      color: theme.button.primary,
+    },
+    brandLabel: {
+      color: theme.brand,
     },
   });
