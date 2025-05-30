@@ -1,11 +1,12 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useMemo} from 'react';
 import {View, Text, TouchableOpacity, ScrollView, Keyboard} from 'react-native';
 import RNModal from 'react-native-modal';
 import CircleXSvg from '../../assets/images/circle-x.svg';
 import {TModalProps} from './types';
-import {createStyles} from './styles';
+import {makeStyles} from './styles';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {useAppThemeContext} from '../../contexts';
 
 const Modal: FC<TModalProps> = ({
   close,
@@ -18,7 +19,11 @@ const Modal: FC<TModalProps> = ({
   ...restProps
 }) => {
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => makeStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
 
   useEffect(() => {
     if (restProps?.isVisible) {

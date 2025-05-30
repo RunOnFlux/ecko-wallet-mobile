@@ -1,17 +1,19 @@
-import {Platform, StyleSheet} from 'react-native';
-import {Dimensions} from 'react-native';
-
+import {Platform, StyleSheet, Dimensions} from 'react-native';
+import {IAppTheme} from '../../themes/types';
 import {MEDIUM_MONTSERRAT} from '../../constants/styles';
 
 const windowHeight = Dimensions.get('window').height;
 
-export const createStyles = ({
-  bottomSpace,
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const makeStyles = (
+  theme: IAppTheme,
+  {
+    bottomSpace,
+    statusBarHeight,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     modal: {
       flex: 1,
@@ -20,7 +22,7 @@ export const createStyles = ({
       margin: 0,
     },
     wrapper: {
-      backgroundColor: 'white',
+      backgroundColor: theme.surface,
       borderTopRightRadius: 30,
       borderTopLeftRadius: 30,
       paddingTop: 25,
@@ -30,7 +32,7 @@ export const createStyles = ({
       justifyContent: 'center',
       alignItems: 'center',
       paddingBottom: 27,
-      borderBottomColor: 'rgba(223, 223, 237, 0.5)',
+      borderBottomColor: theme.border,
       borderBottomWidth: 1,
     },
     logoWrapper: Platform.select({
@@ -40,15 +42,12 @@ export const createStyles = ({
         marginTop: 24,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'white',
+        backgroundColor: theme.surface,
         borderRadius: 45,
-        shadowColor: 'black',
-        shadowOffset: {
-          width: 0,
-          height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
+        shadowColor: theme.shadow.shadowColor,
+        shadowOffset: theme.shadow.shadowOffset,
+        shadowOpacity: theme.shadow.shadowOpacity,
+        shadowRadius: theme.shadow.shadowRadius,
       },
       default: {
         width: 89,
@@ -57,16 +56,16 @@ export const createStyles = ({
         justifyContent: 'center',
         position: 'absolute',
         bottom: 85,
-        backgroundColor: 'white',
+        backgroundColor: theme.surface,
         borderRadius: 45,
-        elevation: 5,
+        elevation: theme.shadow.elevation,
       },
     }),
     title: {
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '500',
       fontSize: 18,
-      color: 'black',
+      color: theme.text.primary,
     },
     titleWithLogo: Platform.select({
       ios: {

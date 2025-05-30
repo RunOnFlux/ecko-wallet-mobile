@@ -15,6 +15,7 @@ import {createStyles} from './styles';
 import {deleteAccount, logout} from '../../store/auth/actions';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import LanguageSelectorModal from '../../components/LanguageSelectorModal';
+import ThemeSelectorModal from '../../components/ThemeSelectorModal';
 
 const Settings = () => {
   const {t} = useTranslation();
@@ -22,7 +23,9 @@ const Settings = () => {
   const dispatch = useDispatch();
 
   const [langModalVisible, setLangModalVisible] = useState(false);
+  const [themeModalVisible, setThemeModalVisible] = useState(false);
   const toggleLangModal = useCallback(() => setLangModalVisible(v => !v), []);
+  const toggleThemeModal = useCallback(() => setThemeModalVisible(v => !v), []);
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
   const styles = createStyles({bottomSpace, statusBarHeight});
@@ -115,6 +118,13 @@ const Settings = () => {
         />
 
         <Card
+          title={`${t('common.selectTheme')}`}
+          text={t('common.selectThemeLongDescription')}
+          icon={<ShieldLockSvg width={24} height={24} fill="white" />}
+          onPress={toggleThemeModal}
+        />
+
+        <Card
           title={t('settings.cards.walletConnect.title')}
           text={t('settings.cards.walletConnect.text')}
           icon={
@@ -139,7 +149,6 @@ const Settings = () => {
           text={t('settings.cards.lockWallet.text')}
           onPress={handlePressSignOut}
         />
-
         <Footer />
 
         <Card
@@ -151,6 +160,10 @@ const Settings = () => {
         <LanguageSelectorModal
           isVisible={langModalVisible}
           toggle={toggleLangModal}
+        />
+        <ThemeSelectorModal
+          isVisible={themeModalVisible}
+          toggle={toggleThemeModal}
         />
       </ScrollView>
     </View>

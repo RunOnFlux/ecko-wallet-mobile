@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useState} from 'react';
+import React, {FC, useCallback, useMemo, useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
@@ -9,13 +9,14 @@ import {
   ERootStackRoutes,
   TNavigationProp,
 } from '../../../../../../routes/types';
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {useDispatch} from 'react-redux';
 import {setSelectedToken} from '../../../../../../store/userWallet';
 import TokendetectorModal from '../TokenDetectorModal';
 import {useShallowEqualSelector} from '../../../../../../store/utils';
 import {makeSelectActiveNetworkDetails} from '../../../../../../store/networks/selectors';
 import {NETWORK_IDS} from '../../../../../../utils/walletConnect';
+import {useAppThemeContext} from '../../../../../../contexts';
 
 const ContentHeader: FC = React.memo(() => {
   const {t} = useTranslation();
@@ -56,7 +57,8 @@ const ContentHeader: FC = React.memo(() => {
   };
 
   const isMainnet = NETWORK_IDS.mainnet === networkDetail?.instance;
-
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
   return (
     <View style={styles.header}>
       <Text style={styles.headerTitle}>

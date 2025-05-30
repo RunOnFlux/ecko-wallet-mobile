@@ -1,15 +1,18 @@
 import React, {useMemo} from 'react';
 import {View} from 'react-native';
 import ContentHeader from './components/ContentHeader';
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import ListItem from './components/ListItem';
 import {makeSelectSelectedAccount} from '../../../../store/userWallet/selectors';
 import {TWallet} from '../../../../store/userWallet/types';
 import {useShallowEqualSelector} from '../../../../store/utils';
 import {defaultWallets} from '../../../../store/userWallet/const';
+import {useAppThemeContext} from '../../../../contexts';
 
 const AssetsList = React.memo(() => {
   const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
 
   const sortedWalletList = useMemo(() => {
     const wallets = selectedAccount?.wallets || [];

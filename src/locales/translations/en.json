@@ -8,7 +8,14 @@
     "ok": "OK",
     "error": "Error",
     "selectLanguage": "Select Language",
-    "selectLanguageLongDescription": "Select the language you would like to use"
+    "selectLanguageLongDescription": "Select the language you would like to use",
+    "selectTheme": "Select Theme",
+    "selectThemeLongDescription": "Choose between light, dark or dark blue mode.",
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "dark_blue": "Dark Blue"
+    }
   },
   "welcome": {
     "title": "Welcome to\neckoWALLET",
