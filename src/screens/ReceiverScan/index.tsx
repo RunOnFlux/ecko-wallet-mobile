@@ -8,7 +8,6 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
-import Header from './components/Header';
 import {makeStyles} from './styles';
 import {
   Camera,
@@ -25,6 +24,7 @@ import {
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import {useTranslation} from 'react-i18next';
 import {useAppThemeContext} from '../../contexts';
+import Header from '../../components/Header';
 
 const ReceiverScan = () => {
   const {t} = useTranslation();
@@ -90,7 +90,7 @@ const ReceiverScan = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={-bottomSpace}>
       <View style={styles.screen}>
-        <Header />
+        <Header title={t('receiverScan.header.title')} />
         <TouchableOpacity
           activeOpacity={1}
           onPress={Keyboard.dismiss}

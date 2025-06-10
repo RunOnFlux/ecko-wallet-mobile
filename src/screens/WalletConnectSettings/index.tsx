@@ -2,7 +2,6 @@ import React, {useCallback, useEffect} from 'react';
 import {Alert, ScrollView, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
-import Header from './components/Header';
 import FooterButton from '../../components/FooterButton';
 import Input from '../../components/Input';
 import {createStyles} from './styles';
@@ -13,6 +12,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useWalletConnectContext} from '../../contexts';
 import {defaultWalletConnectParams} from '../../contexts/WalletConnect';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import Header from '../../components/Header';
 
 const WalletConnectSettings = () => {
   const {t} = useTranslation();
@@ -66,7 +66,7 @@ const WalletConnectSettings = () => {
 
   return (
     <View style={styles.screen}>
-      <Header />
+      <Header title="WalletConnect" />
       <ScrollView
         style={styles.contentWrapper}
         contentContainerStyle={styles.content}

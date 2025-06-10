@@ -387,7 +387,9 @@
       "gasLimitPlaceholder": "Type Gas Limit",
       "gasPricePlaceholder": "Type Gas Price",
       "gasLabel": "Gas",
-      "speedLabel": "{{speed}} Speed"
+      "speedLabel": "{{speed}} Speed",
+      "gasLimitLabel": "Gas Limit",
+      "gasPriceLabel": "Gas Price"
     },
     "header": {
       "title": "Send Transaction"

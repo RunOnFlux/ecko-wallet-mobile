@@ -1,4 +1,4 @@
-import React, {FC, useCallback} from 'react';
+import React, {FC, useCallback, useMemo} from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Clipboard from '@react-native-clipboard/clipboard';
@@ -11,13 +11,14 @@ import BasicCopySvg from '../../assets/images/basic-copy.svg';
 import Modal from '../../components/Modal';
 import ListItem from '../../components/ListItem';
 import {TContactDetailsModalProps} from './types';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {ERootStackRoutes} from '../../routes/types';
 import {makeSelectSelectedContact} from '../../store/contacts/selectors';
 import {deleteSelectedContact} from '../../store/contacts';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useShallowEqualSelector} from '../../store/utils';
 import {useTranslation} from 'react-i18next';
+import {useAppThemeContext} from '../../contexts';
 
 const ContactDetailsModal: FC<TContactDetailsModalProps> = React.memo(
   ({toggle, isVisible}) => {
@@ -26,6 +27,9 @@ const ContactDetailsModal: FC<TContactDetailsModalProps> = React.memo(
     const navigation = useNavigation<any>();
 
     const contact = useShallowEqualSelector(makeSelectSelectedContact);
+
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => createStyles(theme), [theme]);
 
     const handlePressRemove = useCallback(() => {
       dispatch(deleteSelectedContact());

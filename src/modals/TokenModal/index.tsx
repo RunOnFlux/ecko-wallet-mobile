@@ -11,7 +11,7 @@ import {
 } from '../../store/userWallet/selectors';
 
 import {TTokenModalProps} from './types';
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {ERootStackRoutes} from '../../routes/types';
 import {useNavigation} from '@react-navigation/native';
 import {deleteSelectedToken} from '../../store/userWallet';
@@ -23,6 +23,7 @@ import Warning from '../../components/Warning';
 import ListItem from '../../components/ListItem';
 import PencilEditSvg from '../../assets/images/pencil-edit.svg';
 import {defaultWallets} from '../../store/userWallet/const';
+import {useAppThemeContext} from '../../contexts';
 
 const TokenModal: FC<TTokenModalProps> = React.memo(
   ({toggle, isVisible, canDelete}) => {
@@ -35,6 +36,9 @@ const TokenModal: FC<TTokenModalProps> = React.memo(
     const nonTransferableTokens = useShallowEqualSelector(
       makeSelectNonTransferableTokenList,
     );
+
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
 
     const selectedTokenDistributions = useMemo(() => {
       if (selectedToken?.chainBalance) {

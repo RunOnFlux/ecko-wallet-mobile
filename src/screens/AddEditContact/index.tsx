@@ -3,7 +3,6 @@ import {Platform, ScrollView, View, KeyboardAvoidingView} from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
-import Header from './components/Header';
 import FooterButton from '../../components/FooterButton';
 import Input from '../../components/Input';
 import {addCreateContactSchema} from '../../validation/addCreateContactSchema';
@@ -20,6 +19,7 @@ import {
   TNavigationRouteProp,
 } from '../../routes/types';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import Header from '../../components/Header';
 
 const AddEditContact = () => {
   const {t} = useTranslation();
@@ -61,7 +61,7 @@ const AddEditContact = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={-bottomSpace}>
       <View style={styles.screen}>
-        <Header />
+        <Header title={t('addEditContact.header.title')} />
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.content}

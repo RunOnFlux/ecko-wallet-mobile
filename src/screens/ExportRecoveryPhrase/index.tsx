@@ -3,24 +3,29 @@ import {View, Text, ScrollView, Image} from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
 import Snackbar from 'react-native-snackbar';
 import {useTranslation} from 'react-i18next';
-import Header from './components/Header';
 import Warning from '../../components/Warning';
 import ListItem from '../../components/ListItem';
 import BasicCopySvg from '../../assets/images/basic-copy.svg';
-import {createStyles} from './styles';
 import {makeSelectGeneratedPhrases} from '../../store/auth/selectors';
 import {getSecretList} from '../../utils/stringHelpers';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useShallowEqualSelector} from '../../store/utils';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {useAppThemeContext} from '../../contexts';
+import {makeStyles} from './styles';
+import Header from '../../components/Header';
 
 const ExportRecoveryPhrase = () => {
   const {t} = useTranslation();
   const seeds = useShallowEqualSelector(makeSelectGeneratedPhrases);
 
   const secretWords = useMemo(() => getSecretList(seeds), [seeds]);
-  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const {statusBarHeight} = useSafeAreaValues();
+  const styles = useMemo(
+    () => makeStyles({theme, statusBarHeight}),
+    [theme, statusBarHeight],
+  );
 
   const copyToClipboard = useCallback(() => {
     ReactNativeHapticFeedback.trigger('impactMedium', {
@@ -36,7 +41,7 @@ const ExportRecoveryPhrase = () => {
 
   return (
     <View style={styles.screen}>
-      <Header />
+      <Header title={t('exportRecoveryPhrase.header.title')} />
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.content}

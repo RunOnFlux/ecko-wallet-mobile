@@ -1,4 +1,7 @@
+import {StyleSheet} from 'react-native';
 import {AppThemeEnum, IAppTheme} from './types';
+import {useAppThemeContext} from '../contexts';
+import {useMemo} from 'react';
 
 export const appThemes: {[key in AppThemeEnum]: IAppTheme} = {
   [AppThemeEnum.LIGHT]: {
@@ -17,8 +20,8 @@ export const appThemes: {[key in AppThemeEnum]: IAppTheme} = {
     },
     input: {
       color: '#212529',
-      background: '#F8F9FA',
-      placeholder: '#6C757D',
+      background: 'rgba(236,236,245,0.5)',
+      placeholder: '#9FA6AB',
       border: '#DEE2E6',
     },
     alert: {color: '#856404', background: '#FFF3CD'},

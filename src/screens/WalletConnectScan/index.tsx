@@ -8,8 +8,6 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
-
-import Header from './components/Header';
 import {createStyles} from './styles';
 import {
   Camera,
@@ -21,6 +19,7 @@ import {useNavigation} from '@react-navigation/native';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {useWalletConnectContext} from '../../contexts';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import Header from '../../components/Header';
 
 const WalletConnectScan = () => {
   const {t} = useTranslation();
@@ -84,7 +83,7 @@ const WalletConnectScan = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={-bottomSpace}>
       <View style={styles.screen}>
-        <Header />
+        <Header title={t('walletConnectScan.header.title')} />
         <TouchableOpacity
           activeOpacity={1}
           onPress={Keyboard.dismiss}

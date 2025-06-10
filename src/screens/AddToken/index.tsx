@@ -9,8 +9,6 @@ import {
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
-
-import Header from './components/Header';
 import FooterButton from '../../components/FooterButton';
 import Input from '../../components/Input';
 import {addTokenSchema} from '../../validation/addTokenSchema';
@@ -35,6 +33,7 @@ import {
 } from '../../routes/types';
 import {getToken} from '../../api/kadena/token';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import Header from '../../components/Header';
 
 const AddToken = () => {
   const {t} = useTranslation();
@@ -139,7 +138,7 @@ const AddToken = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={-bottomSpace}>
       <View style={styles.container}>
-        <Header />
+        <Header title={t('addToken.header.titleImport')} />
         <ScrollView
           ref={scrollRef}
           showsVerticalScrollIndicator={false}

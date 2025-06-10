@@ -1,8 +1,8 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
-import {createStyles} from './styles';
+import {makeStyles} from './styles';
 import {
   makeSelectShowTransferBubble,
   makeSelectTransferResult,
@@ -13,6 +13,7 @@ import {ERootStackRoutes} from '../../routes/types';
 import {useShallowEqualSelector} from '../../store/utils';
 import {makeSelectIsAuthorized} from '../../store/auth/selectors';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {useAppThemeContext} from '../../contexts';
 
 const hitSlop = {
   bottom: 8,
@@ -27,8 +28,12 @@ const CurrentTransfer = React.memo(() => {
 
   const isAuthorized = useSelector(makeSelectIsAuthorized);
 
-  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const {statusBarHeight} = useSafeAreaValues();
+  const styles = useMemo(
+    () => makeStyles(theme, statusBarHeight),
+    [theme, statusBarHeight],
+  );
 
   const transfer = useShallowEqualSelector(makeSelectTransferResult);
   const showBubble = useSelector(makeSelectShowTransferBubble);

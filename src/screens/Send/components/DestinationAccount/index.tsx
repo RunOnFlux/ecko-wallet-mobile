@@ -1,7 +1,6 @@
-import React, {FC, useCallback, useState} from 'react';
+import React, {FC, useCallback, useMemo, useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {styles} from './styles';
 import {TDestinationAccountProps} from './types';
 import WalletItem from '../../../../components/WalletItem';
 import CircleXSvg from '../../../../assets/images/circle-x.svg';
@@ -9,6 +8,8 @@ import QRSvg from '../../../../assets/images/qr.svg';
 import {MAIN_COLOR} from '../../../../constants/styles';
 import {useNavigation} from '@react-navigation/native';
 import {ERootStackRoutes, TNavigationProp} from '../../../../routes/types';
+import {useAppThemeContext} from '../../../../contexts';
+import {makeStyles} from './styles';
 
 const DestinationAccount: FC<TDestinationAccountProps> = React.memo(
   ({selectedAccount, setSelectedAccount}) => {
@@ -40,6 +41,9 @@ const DestinationAccount: FC<TDestinationAccountProps> = React.memo(
       });
     }, [navigation, setSelectedAccount]);
 
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
+
     return (
       <View style={styles.wrapper}>
         <Text style={styles.label}>{t('send.content.destinationLabel')}</Text>
@@ -58,6 +62,7 @@ const DestinationAccount: FC<TDestinationAccountProps> = React.memo(
             <TextInput
               style={styles.input}
               placeholder={t('send.content.destinationPlaceholder')}
+              placeholderTextColor="gray"
               autoCapitalize="none"
               autoFocus
               onEndEditing={handlePressReturn}

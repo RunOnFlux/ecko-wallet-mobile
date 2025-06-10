@@ -68,7 +68,7 @@ const TabBar: FC<BottomTabBarProps> = ({state, descriptors, navigation}) => {
               style={[
                 styles.label,
                 isFocused &&
-                  (itemOptions?.tabBarLabel === 'Wallet'
+                  (route.name === 'Wallet'
                     ? styles.brandLabel
                     : styles.activeLabel),
                 isComingSoon && styles.disabledTab,

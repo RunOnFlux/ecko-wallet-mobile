@@ -1,9 +1,10 @@
-import React, {FC, useCallback} from 'react';
+import React, {FC, useCallback, useMemo} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
-import {createStyles} from './styles';
+import {makeStyles} from './styles';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {useAppThemeContext} from '../../contexts';
 
 type HeaderProps = {
   title: string;
@@ -11,8 +12,12 @@ type HeaderProps = {
 
 const Header: FC<HeaderProps> = ({title}) => {
   const navigation = useNavigation();
-  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const {statusBarHeight} = useSafeAreaValues();
+  const styles = useMemo(
+    () => makeStyles(theme, statusBarHeight),
+    [theme, statusBarHeight],
+  );
 
   const handlePressBack = useCallback(() => {
     navigation.goBack();

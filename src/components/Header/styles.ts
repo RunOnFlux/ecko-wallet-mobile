@@ -1,23 +1,18 @@
 import {StyleSheet} from 'react-native';
 import {MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {IAppTheme} from '../../themes/types';
 
-export const createStyles = ({
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const makeStyles = (theme: IAppTheme, statusBarHeight: number) =>
   StyleSheet.create({
     header: {
-      display: 'flex',
       width: '100%',
       paddingTop: statusBarHeight + 16,
       paddingBottom: 16,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: 'white',
+      backgroundColor: theme.background,
       borderBottomWidth: 1,
-      borderBottomColor: 'rgba(223,223,237,0.5)',
+      borderBottomColor: theme.border,
     },
     backBtnWrapper: {
       position: 'absolute',
@@ -28,6 +23,6 @@ export const createStyles = ({
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '500',
       fontSize: 18,
-      color: 'black',
+      color: theme.text.primary,
     },
   });

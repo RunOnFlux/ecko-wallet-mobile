@@ -5,7 +5,8 @@ import {MEDIUM_MONTSERRAT} from '../../constants/styles';
 export const makeStyles = (theme: IAppTheme) =>
   StyleSheet.create({
     btn: {
-      backgroundColor: theme.brand,
+      backgroundColor: theme.button.primary,
+      color: 'white',
       height: 50,
       alignItems: 'center',
       justifyContent: 'center',
@@ -16,7 +17,7 @@ export const makeStyles = (theme: IAppTheme) =>
       backgroundColor: theme.surface,
     },
     text: {
-      color: theme.text.primary,
+      color: 'white',
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '700',
       fontSize: 14,

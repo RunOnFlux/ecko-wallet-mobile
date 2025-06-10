@@ -1,5 +1,5 @@
 import React, {FC, useMemo} from 'react';
-import {Linking, Text, TouchableOpacity, View} from 'react-native';
+import {Image, Linking, Text, TouchableOpacity, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import packageJson from '../../../../../package.json';
 import GlobeSvg from '../../../../assets/images/globe.svg';
@@ -16,7 +16,18 @@ const Footer: FC = React.memo(() => {
   return (
     <View style={styles.wrapper}>
       <Text style={styles.text}>{t('settings.footer.version', {version})}</Text>
-      <Text style={styles.text}>{t('settings.footer.tagline')}</Text>
+      <Image
+        source={
+          theme.isDark
+            ? require('../../../../assets/images/powered_by_light.png')
+            : require('../../../../assets/images/powered_by_dark.png')
+        }
+        style={styles.poweredByIcon}
+        resizeMode="contain"
+      />
+      <Text style={{...styles.text, marginBottom: 16}}>
+        {t('settings.footer.tagline')}
+      </Text>
       <View style={styles.tipsWrapper}>
         <TouchableOpacity
           onPress={() => Linking.openURL('https://eckowallet.com/')}

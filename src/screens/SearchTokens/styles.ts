@@ -1,13 +1,17 @@
 import {StyleSheet} from 'react-native';
 import {isIos} from '../../constants';
-import {MAIN_COLOR, MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {IAppTheme} from '../../themes/types';
 
-export const createStyles = ({
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const makeStyles = (
+  theme: IAppTheme,
+  {
+    statusBarHeight,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     container: {
       marginTop: statusBarHeight,
@@ -20,7 +24,7 @@ export const createStyles = ({
       paddingVertical: isIos ? 13 : 3,
       paddingLeft: 16,
       paddingRight: 40,
-      backgroundColor: 'rgba(236,236,245,0.5)',
+      backgroundColor: theme.input.background,
       borderRadius: 10,
     },
     input: {
@@ -28,13 +32,14 @@ export const createStyles = ({
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '500',
       fontSize: 16,
-      color: MAIN_COLOR,
+      color: theme.input.color,
       width: '100%',
     },
     emptyList: {
       marginTop: 8,
       fontFamily: MEDIUM_MONTSERRAT,
       textAlign: 'center',
+      color: theme.text.primary,
     },
     body: {
       flex: 1,

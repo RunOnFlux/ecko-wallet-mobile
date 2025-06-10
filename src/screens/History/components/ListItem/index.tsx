@@ -7,7 +7,6 @@ import ArrowBottomRightSvg from '../../../../assets/images/arrow-bottom-right.sv
 import ArrowTopBottomRightSvg from '../../../../assets/images/arrow-top-right.svg';
 import SwapSvg from '../../../../assets/images/swap.svg';
 
-import {styles} from './styles';
 import {cutStr, numberWithCommas} from '../../../../utils/stringHelpers';
 import {useDispatch, useSelector} from 'react-redux';
 import {makeSelectSelectedAccount} from '../../../../store/userWallet/selectors';
@@ -23,6 +22,8 @@ import {useShallowEqualSelector} from '../../../../store/utils';
 import Toast from 'react-native-toast-message';
 import {makeSelectIsTransferring} from '../../../../store/transfer/selectors';
 import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
+import {useAppThemeContext} from '../../../../contexts';
+import {makeStyles} from './styles';
 
 const ListItem: FC<TListItemProps> = React.memo(
   ({item: activityItem, onPress}) => {
@@ -143,6 +144,9 @@ const ListItem: FC<TListItemProps> = React.memo(
       ],
     );
 
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
+
     return (
       <View style={styles.wrapper}>
         <TouchableOpacity
@@ -153,19 +157,37 @@ const ListItem: FC<TListItemProps> = React.memo(
             {type === 'SWAP' ? (
               <View style={styles.iconWrapper}>
                 <SwapSvg
-                  fill={isPending ? 'black' : isFailed ? '#FF6058' : '#27CA40'}
+                  fill={
+                    isPending
+                      ? theme.text.primary
+                      : isFailed
+                      ? '#FF6058'
+                      : '#27CA40'
+                  }
                 />
               </View>
             ) : selectedAccount?.accountName === sender ? (
               <View style={styles.iconWrapper}>
                 <ArrowTopBottomRightSvg
-                  fill={isPending ? 'black' : isFailed ? '#FF6058' : '#27CA40'}
+                  fill={
+                    isPending
+                      ? theme.text.primary
+                      : isFailed
+                      ? '#FF6058'
+                      : '#27CA40'
+                  }
                 />
               </View>
             ) : selectedAccount?.accountName === receiver ? (
               <View style={styles.iconWrapper}>
                 <ArrowBottomRightSvg
-                  fill={isPending ? 'black' : isFailed ? '#FF6058' : '#27CA40'}
+                  fill={
+                    isPending
+                      ? theme.text.primary
+                      : isFailed
+                      ? '#FF6058'
+                      : '#27CA40'
+                  }
                 />
               </View>
             ) : null}

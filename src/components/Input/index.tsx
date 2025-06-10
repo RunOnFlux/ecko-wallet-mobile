@@ -1,7 +1,8 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {View, Text, TextInput} from 'react-native';
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {TInputProps} from './types';
+import {useAppThemeContext} from '../../contexts';
 
 const Input: FC<TInputProps> = ({
   label,
@@ -11,6 +12,8 @@ const Input: FC<TInputProps> = ({
   inputRef,
   ...restProps
 }) => {
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
   return (
     <View style={[styles.wrapper, wrapperStyle]}>
       {label ? <Text style={styles.label}>{label}</Text> : null}

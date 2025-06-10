@@ -1,13 +1,17 @@
 import {StyleSheet} from 'react-native';
-import {MAIN_COLOR, MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {IAppTheme} from '../../themes/types';
 
-export const createStyles = ({
-  bottomSpace,
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const makeStyles = (
+  theme: IAppTheme,
+  {
+    bottomSpace,
+    statusBarHeight,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     container: {
       flex: 1,
@@ -34,7 +38,7 @@ export const createStyles = ({
       width: '100%',
       height: 20,
       marginBottom: 24,
-      borderBottomColor: 'rgba(223,223,237,0.5)',
+      borderBottomColor: theme.surface,
       borderBottomWidth: 1,
     },
     chainWrapper: {
@@ -51,12 +55,12 @@ export const createStyles = ({
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '700',
       fontSize: 12,
-      color: '#787B8E',
+      color: theme.text.secondary,
       textTransform: 'uppercase',
       marginBottom: 10,
     },
     balanceText: {
-      backgroundColor: 'rgba(236,236,245,0.5)',
+      backgroundColor: theme.input.background,
       borderRadius: 10,
       paddingHorizontal: 16,
       paddingTop: 14,
@@ -64,7 +68,7 @@ export const createStyles = ({
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '500',
       fontSize: 16,
-      color: MAIN_COLOR,
+      color: theme.text.primary,
       overflow: 'hidden',
     },
   });

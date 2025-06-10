@@ -1,19 +1,23 @@
 import {Dimensions, StyleSheet} from 'react-native';
 import {MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {IAppTheme} from '../../themes/types';
 
 const windowHeight = Dimensions.get('window').height;
 
-export const createStyles = ({
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const makeStyles = (
+  theme: IAppTheme,
+  {
+    statusBarHeight,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     container: {
       flex: 1,
       paddingTop: statusBarHeight,
-      backgroundColor: '#f8f8fd',
+      backgroundColor: theme.surface,
     },
     contentWrapper: {
       flex: 1,
@@ -29,6 +33,7 @@ export const createStyles = ({
       marginTop: 16,
       fontFamily: MEDIUM_MONTSERRAT,
       textAlign: 'center',
+      color: theme.text.secondary,
     },
     connectButton: {
       position: 'absolute',
@@ -37,21 +42,15 @@ export const createStyles = ({
       width: 48,
       height: 48,
       borderRadius: 24,
-      backgroundColor: 'white',
-      shadowColor: 'black',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 4,
+      backgroundColor: theme.surface,
+      ...theme.shadow,
       alignItems: 'center',
       justifyContent: 'center',
     },
     connectIcon: {
       width: 28,
       height: 28,
+      tintColor: theme.text.primary,
     },
     infoButton: {
       position: 'absolute',
@@ -60,21 +59,15 @@ export const createStyles = ({
       width: 48,
       height: 48,
       borderRadius: 24,
-      backgroundColor: 'white',
-      shadowColor: 'black',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 4,
+      backgroundColor: theme.surface,
+      ...theme.shadow,
       alignItems: 'center',
       justifyContent: 'center',
     },
     infoIcon: {
       width: 24,
       height: 24,
+      tintColor: theme.text.primary,
     },
     infoModalStyle: {
       minHeight: windowHeight * 0.4 - 48,

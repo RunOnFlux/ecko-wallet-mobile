@@ -1,11 +1,7 @@
 import {StyleSheet} from 'react-native';
+import {IAppTheme} from '../../themes/types';
 
-export const createStyles = ({
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const makeStyles = (theme: IAppTheme, statusBarHeight: number) =>
   StyleSheet.create({
     container: {
       position: 'absolute',
@@ -16,7 +12,7 @@ export const createStyles = ({
       height: 40,
       width: 40,
       borderRadius: 20,
-      backgroundColor: 'white',
+      backgroundColor: theme.background.default,
       shadowColor: 'black',
       shadowOffset: {
         width: 0,

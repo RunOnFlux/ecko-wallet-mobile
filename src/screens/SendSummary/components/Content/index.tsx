@@ -1,10 +1,11 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {View, Text, TouchableOpacity, Keyboard} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import Settings from '../Settings';
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {makeSelectEstimatedGasFee} from '../../../../store/transfer/selectors';
 import {useShallowEqualSelector} from '../../../../store/utils';
+import {useAppThemeContext} from '../../../../contexts';
 
 const Content: FC = React.memo(() => {
   const {t} = useTranslation();
@@ -12,6 +13,9 @@ const Content: FC = React.memo(() => {
   const {gasLimit, gasPrice, speed} = estimatedGas;
 
   const totalGas = (Number(gasLimit * gasPrice) || 0).toFixed(8);
+
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
 
   return (
     <TouchableOpacity

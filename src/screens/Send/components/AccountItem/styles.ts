@@ -1,14 +1,16 @@
 import {StyleSheet} from 'react-native';
+import {IAppTheme} from '../../../../themes/types';
 
-export const styles = StyleSheet.create({
-  wrapper: {
-    paddingVertical: 14,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(223,223,237,0.5)',
-  },
-  accountLabel: {
-    marginLeft: 12,
-    color: 'black',
-  },
-  noBorder: {borderTopWidth: 0},
-});
+export const makeStyles = (theme: IAppTheme) =>
+  StyleSheet.create({
+    wrapper: {
+      paddingVertical: 14,
+      borderTopWidth: 1,
+      borderTopColor: theme.border,
+    },
+    accountLabel: {
+      marginLeft: 12,
+      color: theme.text.primary,
+    },
+    noBorder: {borderTopWidth: 0},
+  });

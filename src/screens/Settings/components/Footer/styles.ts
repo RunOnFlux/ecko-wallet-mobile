@@ -20,7 +20,7 @@ export const makeStyles = (theme: IAppTheme) =>
       fontWeight: '500',
       fontSize: 12,
       color: theme.text.secondary,
-      marginBottom: 15,
+      marginBottom: 0,
     },
     tipsWrapper: {
       marginTop: 0,
@@ -42,5 +42,10 @@ export const makeStyles = (theme: IAppTheme) =>
       fontFamily: SEMI_BOLD_MONTSERRAT,
       fontWeight: '600',
       fontSize: 12,
+    },
+    poweredByIcon: {
+      width: 80,
+      height: 20,
+      marginBottom: 20,
     },
   });

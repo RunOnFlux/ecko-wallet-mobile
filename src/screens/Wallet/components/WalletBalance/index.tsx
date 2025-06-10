@@ -147,7 +147,7 @@ const WalletBalance = React.memo(() => {
             onPress={handlePressReceive}
             style={styles.button}
             backgroundColor="rgba(236,236,245,0.5)"
-            textColor={MAIN_COLOR}
+            textColor={theme.text.primary}
           />
           <Button
             icon={<BuySvg fill="#FFA900" />}

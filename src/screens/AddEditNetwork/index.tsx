@@ -3,8 +3,6 @@ import {Alert, ScrollView, View} from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
-
-import Header from './components/Header';
 import FooterButton from '../../components/FooterButton';
 import Input from '../../components/Input';
 import {createStyles} from './styles';
@@ -22,6 +20,7 @@ import {
 } from '../../routes/types';
 import axios from 'axios';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import Header from '../../components/Header';
 
 const AddEditNetwork = () => {
   const {t} = useTranslation();
@@ -84,7 +83,7 @@ const AddEditNetwork = () => {
 
   return (
     <View style={styles.screen}>
-      <Header />
+      <Header title={t('addEditNetwork.header.title')} />
       <ScrollView
         style={styles.contentWrapper}
         contentContainerStyle={styles.content}

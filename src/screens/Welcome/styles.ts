@@ -73,4 +73,10 @@ export const styles = StyleSheet.create({
     color: '#959AB2',
     fontSize: 20,
   },
+  poweredByIcon: {
+    width: 80,
+    height: 20,
+    marginBottom: 20,
+    marginTop: 10,
+  },
 });
