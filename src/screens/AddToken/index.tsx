@@ -34,6 +34,7 @@ import {
 import {getToken} from '../../api/kadena/token';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import Header from '../../components/Header';
+import {useAppThemeContext} from '../../contexts';
 
 const AddToken = () => {
   const {t} = useTranslation();
@@ -50,6 +51,7 @@ const AddToken = () => {
   const networkDetail = useShallowEqualSelector(makeSelectActiveNetworkDetails);
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const {theme} = useAppThemeContext();
   const styles = createStyles({bottomSpace, statusBarHeight});
 
   const {
@@ -151,6 +153,7 @@ const AddToken = () => {
               <Input
                 label={t('addToken.tokenAddress.label')}
                 placeholder={t('addToken.tokenAddress.placeholder')}
+                placeholderTextColor={theme.text.secondary}
                 autoCapitalize="none"
                 wrapperStyle={styles.inputWrapper}
                 onChangeText={onChange}
@@ -167,6 +170,7 @@ const AddToken = () => {
               <Input
                 label={t('addToken.tokenName.label')}
                 placeholder={t('addToken.tokenName.placeholder')}
+                placeholderTextColor={theme.text.secondary}
                 autoCapitalize="characters"
                 wrapperStyle={styles.inputWrapper}
                 onChangeText={onChange}

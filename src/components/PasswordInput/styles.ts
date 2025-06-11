@@ -17,8 +17,8 @@ export const makeStyles = (theme: IAppTheme) =>
     label: {
       fontFamily: BOLD_MONTSERRAT,
       color: '#959AB3',
-      marginLeft: 16,
-      marginTop: 10,
+      // marginLeft: 16,
+      // marginTop: 10,
       textTransform: 'uppercase',
       fontWeight: '700',
       fontSize: 12,

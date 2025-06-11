@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import {Keyboard, ScrollView, TouchableOpacity} from 'react-native';
 import SettingModal from './components/SettingModal';
 import SwapBlock from './components/SwapBlock';
@@ -6,7 +6,7 @@ import {createStyles} from './styles';
 import GasSettingSvg from '../../assets/images/gas_station.svg';
 import BasicSettingSvg from '../../assets/images/basic-settins.svg';
 import GasSettingModal from './components/GasSettingModal';
-import {usePactContext} from '../../contexts';
+import {useAppThemeContext, usePactContext} from '../../contexts';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
 const Swap = () => {
@@ -24,7 +24,11 @@ const Swap = () => {
   const pact = usePactContext();
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => createStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
 
   return (
     <TouchableOpacity

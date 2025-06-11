@@ -103,6 +103,7 @@ const ReceiverScan = () => {
                   style={styles.input}
                   autoFocus={false}
                   placeholder={t('receiverScan.placeholder')}
+                  placeholderTextColor="gray"
                   value={textUri}
                   onChangeText={setTextUri}
                 />

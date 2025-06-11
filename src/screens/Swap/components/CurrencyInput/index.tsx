@@ -5,7 +5,7 @@ import ChevronRightSvg from '../../../../assets/images/chevron-right.svg';
 import {makeSelectIsSwapping} from '../../../../store/transfer/selectors';
 import {makeSelectUsdEquivalents} from '../../../../store/userWallet/selectors';
 import {useShallowEqualSelector} from '../../../../store/utils';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {TCurrencyInputProps} from './types';
 import noExponents from '../../../../utils/noExponents';
 import {
@@ -13,7 +13,7 @@ import {
   limitDecimalPlaces,
   reduceBalance,
 } from '../../../../utils/numberHelpers';
-import {usePactContext} from '../../../../contexts';
+import {useAppThemeContext, usePactContext} from '../../../../contexts';
 import {debounce, throttle} from 'throttle-debounce';
 import {getAssetImageView} from '../../../../utils/getAssetImageView';
 import SelectTokenModal from '../SelectTokenModal';
@@ -32,6 +32,9 @@ const CurrencyInput: FC<TCurrencyInputProps> = ({
   const [isSelectCoinModalVisible, setSelectCoinModalVisible] = useState(false);
   const isSwapping = useShallowEqualSelector(makeSelectIsSwapping);
   const pact = usePactContext();
+
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => createStyles(theme), [theme]);
 
   const closeSelectCoinModal = useCallback(() => {
     setSelectCoinModalVisible(false);
@@ -170,7 +173,7 @@ const CurrencyInput: FC<TCurrencyInputProps> = ({
             style={styles.tokenSelect}>
             {getAssetImageView(selectedToken.address, 25)}
             <Text style={styles.coinTitle}>{selectedToken.coin}</Text>
-            <ChevronRightSvg fill="#000" style={styles.icon} />
+            <ChevronRightSvg fill={theme.text.primary} style={styles.icon} />
           </TouchableOpacity>
         </View>
       </View>

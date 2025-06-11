@@ -71,6 +71,7 @@ const ImportAccount = () => {
                 label={t('importAccount.accountName.label')}
                 autoCapitalize="none"
                 placeholder={t('importAccount.accountName.placeholder')}
+                placeholderTextColor="gray"
                 wrapperStyle={styles.inputWrapper}
                 onChangeText={onChange}
                 onBlur={onBlur}
@@ -99,6 +100,7 @@ const ImportAccount = () => {
               <Input
                 label={t('importAccount.privateKey.label')}
                 placeholder={t('importAccount.privateKey.placeholder')}
+                placeholderTextColor="gray"
                 wrapperStyle={styles.inputWrapper}
                 onChangeText={onChange}
                 onBlur={onBlur}

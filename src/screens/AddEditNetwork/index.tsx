@@ -95,6 +95,7 @@ const AddEditNetwork = () => {
             <Input
               label={t('addEditNetwork.name.label')}
               placeholder={t('addEditNetwork.name.placeholder')}
+              placeholderTextColor="gray"
               wrapperStyle={styles.inputWrapper}
               onChangeText={onChange}
               onBlur={onBlur}
@@ -110,6 +111,7 @@ const AddEditNetwork = () => {
             <Input
               label={t('addEditNetwork.host.label')}
               placeholder={t('addEditNetwork.host.placeholder')}
+              placeholderTextColor="gray"
               autoCapitalize="none"
               wrapperStyle={styles.inputWrapper}
               onChangeText={onChange}
@@ -127,6 +129,7 @@ const AddEditNetwork = () => {
             <Input
               label={t('addEditNetwork.explorer.label')}
               placeholder={t('addEditNetwork.explorer.placeholder')}
+              placeholderTextColor="gray"
               autoCapitalize="none"
               wrapperStyle={styles.inputWrapper}
               onChangeText={onChange}

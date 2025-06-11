@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {styles} from './styles';
+import {createStyles} from './styles';
+import {useAppThemeContext} from '../../../../../contexts';
 
 export type TRadioButtonsProps<T> = {
   options: T[];
@@ -15,6 +16,9 @@ const RadioButtons = <T extends string>({
   value,
   prefix,
 }: TRadioButtonsProps<T>) => {
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => createStyles(theme), [theme]);
+
   const handlePress = (item: T) => () => {
     setValue(item);
   };

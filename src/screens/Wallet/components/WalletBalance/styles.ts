@@ -59,5 +59,6 @@ export const makeStyles = (theme: IAppTheme) =>
     button: {
       marginHorizontal: 8,
       width: 110,
+      backgroundColor: theme.button.primary,
     },
   });

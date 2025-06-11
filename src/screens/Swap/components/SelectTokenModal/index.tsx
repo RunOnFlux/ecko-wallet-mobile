@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useEffect, useState} from 'react';
+import React, {FC, useCallback, useEffect, useMemo, useState} from 'react';
 import {TextInput, View, Text, TouchableOpacity, Alert} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {TMainnet} from '../../../../constants/tokensTypes';
@@ -9,13 +9,14 @@ import {TWallet} from '../../../../store/userWallet/types';
 import {getAssetImageView} from '../../../../utils/getAssetImageView';
 import {setSelectedToken as setSelectedTokenAction} from '../../../../store/userWallet';
 import {tokens} from '../../../../constants/tokens.json';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {TSelectTokenModal} from './types';
 import {swapTokens} from '../../contants';
 import {defaultBalances} from '../../../../store/userWallet/const';
 import {ERootStackRoutes} from '../../../../routes/types';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
+import {useAppThemeContext} from '../../../../contexts';
 
 const SelectTokenModal: FC<TSelectTokenModal> = React.memo(
   ({
@@ -35,6 +36,9 @@ const SelectTokenModal: FC<TSelectTokenModal> = React.memo(
     const [filteredWallets, setFilteredWallets] = useState<
       (TWallet & {notInWallet?: boolean})[]
     >([]);
+
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => createStyles(theme), [theme]);
 
     useEffect(() => {
       setSearchText('');

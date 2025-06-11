@@ -73,6 +73,7 @@ const AddEditContact = () => {
               <Input
                 label={t('addEditContact.contactName.label')}
                 placeholder={t('addEditContact.contactName.placeholder')}
+                placeholderTextColor="gray"
                 wrapperStyle={styles.inputWrapper}
                 onChangeText={onChange}
                 onBlur={onBlur}
@@ -88,6 +89,7 @@ const AddEditContact = () => {
               <Input
                 label={t('addEditContact.accountName.label')}
                 placeholder={t('addEditContact.accountName.placeholder')}
+                placeholderTextColor="gray"
                 multiline
                 numberOfLines={5}
                 wrapperStyle={styles.inputWrapper}
