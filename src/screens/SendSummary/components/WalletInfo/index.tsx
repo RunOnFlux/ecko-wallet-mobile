@@ -23,6 +23,9 @@ const WalletInfo: React.FC = React.memo(() => {
   const {t} = useTranslation();
   const dispatch = useDispatch();
 
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
+
   const gatheredInfo = useSelector(makeSelectGatheredInfo);
   const selectedToken = useSelector(makeSelectSelectedToken);
   const usdEquivalents = useSelector(makeSelectUsdEquivalents);
@@ -112,9 +115,6 @@ const WalletInfo: React.FC = React.memo(() => {
     () => (Number(balance) || 0).toFixed(3),
     [balance],
   );
-
-  const {theme} = useAppThemeContext();
-  const styles = useMemo(() => makeStyles(theme), [theme]);
 
   return (
     <View style={styles.wrapper}>

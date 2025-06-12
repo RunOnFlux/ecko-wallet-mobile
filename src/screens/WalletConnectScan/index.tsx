@@ -17,7 +17,7 @@ import {
 import FooterButton from '../../components/FooterButton';
 import {useNavigation} from '@react-navigation/native';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
-import {useWalletConnectContext} from '../../contexts';
+import {useAppThemeContext, useWalletConnectContext} from '../../contexts';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import Header from '../../components/Header';
 
@@ -42,7 +42,11 @@ const WalletConnectScan = () => {
   });
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => createStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
 
   const onProceed = useCallback(async () => {
     setIsLoading(true);

@@ -2,20 +2,23 @@ import React, {FC, useCallback, useMemo, useState} from 'react';
 import {View, Text, Image, ActivityIndicator, Alert} from 'react-native';
 import Modal from '../../components/Modal';
 import {TTransactionDetailsModalProps} from './types';
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {KDA_NAMESPACE} from '../../utils/walletConnect';
 import ListItem from '../../components/ListItem';
 import {truncate} from '../../utils/stringHelpers';
 import {MAIN_COLOR} from '../../constants/styles';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import TrashEmptySvg from '../../assets/images/trash-empty.svg';
-import {useWalletConnectContext} from '../../contexts';
+import {useAppThemeContext, useWalletConnectContext} from '../../contexts';
 import {useTranslation} from 'react-i18next';
 
 const SessionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
   ({details, toggle, onDelete, isVisible}) => {
     const {t} = useTranslation();
     const {web3WalletClient} = useWalletConnectContext();
+
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
 
     const [updatedDate] = useState<Date>(new Date());
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -196,7 +199,7 @@ const SessionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
         </View>
         {isLoading ? (
           <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" color={MAIN_COLOR} />
+            <ActivityIndicator size="large" color={theme.text.primary} />
           </View>
         ) : null}
       </Modal>

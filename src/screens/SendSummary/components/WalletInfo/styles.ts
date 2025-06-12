@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {MAIN_COLOR, MEDIUM_MONTSERRAT} from '../../../../constants/styles';
+import {MEDIUM_MONTSERRAT} from '../../../../constants/styles';
 import {IAppTheme} from '../../../../themes/types';
 
 export const makeStyles = (theme: IAppTheme) =>
@@ -24,7 +24,7 @@ export const makeStyles = (theme: IAppTheme) =>
       marginLeft: 9,
     },
     headerRightTextWrapper: {
-      backgroundColor: 'rgba(32,38,78,0.05)',
+      backgroundColor: theme.surface,
       paddingVertical: 8,
       alignItems: 'center',
       width: 59,
@@ -33,6 +33,7 @@ export const makeStyles = (theme: IAppTheme) =>
     },
     headerRightText: {
       fontSize: 12,
+      color: theme.text.primary,
     },
     headerRight: {
       flexDirection: 'row',
@@ -50,6 +51,7 @@ export const makeStyles = (theme: IAppTheme) =>
       borderWidth: 1,
       borderColor: theme.input.border,
       borderRadius: 8,
+      color: theme.input.color,
     },
     inputWrapper: {
       marginLeft: 8,
@@ -70,9 +72,9 @@ export const makeStyles = (theme: IAppTheme) =>
       fontSize: 16,
     },
     footerLeftText: {
-      color: MAIN_COLOR,
+      color: theme.brand,
     },
     footerRightText: {
-      color: 'rgba(120,123,142,0.75)',
+      color: theme.text.secondary,
     },
   });
