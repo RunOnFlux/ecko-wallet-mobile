@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import * as RNLocalize from 'react-native-localize';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Yup from 'yup';
 import af from './translations/af.json';
 import bg from './translations/bg.json';
@@ -78,15 +79,29 @@ const resources = {
 
 const fallbackLng = 'en';
 
+const STORAGE_KEY = 'USER_LANGUAGE';
+
 const languageDetector = {
   type: 'languageDetector',
   async: true,
-  detect: callback => {
-    const locales = RNLocalize.getLocales();
-    callback(locales[0]?.languageCode || fallbackLng);
+  detect: async callback => {
+    try {
+      const saved = await AsyncStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        return callback(saved);
+      }
+      const locales = RNLocalize.getLocales();
+      callback(locales[0]?.languageCode || 'en');
+    } catch (e) {
+      callback('en');
+    }
   },
   init: () => {},
-  cacheUserLanguage: () => {},
+  cacheUserLanguage: async lang => {
+    try {
+      await AsyncStorage.setItem(STORAGE_KEY, lang);
+    } catch (e) {}
+  },
 };
 
 i18n

@@ -60,6 +60,7 @@ export const createStyles = (
       fontSize: 16,
       color: theme.input.color,
       width: '100%',
+      maxHeight: 50,
     },
     footerButton: {
       marginTop: 16,

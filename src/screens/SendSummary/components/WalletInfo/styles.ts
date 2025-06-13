@@ -72,7 +72,7 @@ export const makeStyles = (theme: IAppTheme) =>
       fontSize: 16,
     },
     footerLeftText: {
-      color: theme.brand,
+      color: theme.text.secondary,
     },
     footerRightText: {
       color: theme.text.secondary,

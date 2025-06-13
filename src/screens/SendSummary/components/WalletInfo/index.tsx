@@ -146,6 +146,7 @@ const WalletInfo: React.FC = React.memo(() => {
           ref={inputRef}
           keyboardType="numeric"
           placeholder="0"
+          placeholderTextColor={theme.text.primary}
           style={[styles.mainText, styles.input]}
           value={inputText}
           blurOnSubmit

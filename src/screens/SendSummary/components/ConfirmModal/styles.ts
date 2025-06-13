@@ -55,5 +55,6 @@ export const createStyles = (
     button: {
       width: '100%',
       marginTop: 20,
+      backgroundColor: theme.button.primary,
     },
   });

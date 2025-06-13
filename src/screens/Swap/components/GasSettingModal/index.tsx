@@ -72,8 +72,10 @@ const GasSettingModal: FC<TGasSettingModalProps> = ({isVisible, toggle}) => {
           <Switch
             value={pact.enableGasStation}
             onValueChange={toggleSwitch}
-            trackColor={{false: '#767577', true: MAIN_COLOR}}
-            thumbColor={pact.enableGasStation ? MAIN_COLOR : '#f4f3f4'}
+            trackColor={{false: '#767577', true: theme.button.primary}}
+            thumbColor={
+              pact.enableGasStation ? theme.button.primary : '#f4f3f4'
+            }
           />
         </View>
 
