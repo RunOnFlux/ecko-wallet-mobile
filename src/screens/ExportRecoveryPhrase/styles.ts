@@ -1,12 +1,13 @@
 import {StyleSheet} from 'react-native';
 import {MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {IAppTheme} from '../../themes/types';
 
-export const createStyles = ({
-  statusBarHeight,
-}: {
-  bottomSpace: number;
+interface Params {
   statusBarHeight: number;
-}) =>
+  theme: IAppTheme;
+}
+
+export const makeStyles = ({statusBarHeight, theme}: Params) =>
   StyleSheet.create({
     screen: {
       flex: 1,
@@ -29,7 +30,7 @@ export const createStyles = ({
     cardContainer: {
       width: '100%',
       alignItems: 'center',
-      backgroundColor: 'white',
+      backgroundColor: theme.background,
       paddingTop: 32,
       paddingHorizontal: 8,
       paddingBottom: 16,
@@ -47,7 +48,7 @@ export const createStyles = ({
     secretKeys: {
       fontWeight: '400',
       fontSize: 24,
-      color: 'black',
+      color: theme.text.primary,
       marginHorizontal: 3,
     },
     secretKeysWrapper: {

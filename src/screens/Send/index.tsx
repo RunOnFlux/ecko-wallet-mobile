@@ -22,8 +22,6 @@ import {
   TNavigationProp,
   TNavigationRouteProp,
 } from '../../routes/types';
-
-import {createStyles} from './styles';
 import {useDispatch, useSelector} from 'react-redux';
 import {
   setEstimatedGasFee,
@@ -40,6 +38,8 @@ import {makeSelectSelectedToken} from '../../store/userWallet/selectors';
 import {makeSelectIsTransferring} from '../../store/transfer/selectors';
 import Toast from 'react-native-toast-message';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {useAppThemeContext} from '../../contexts';
+import {makeStyles} from './styles';
 
 const Send = () => {
   const {t} = useTranslation();
@@ -59,7 +59,11 @@ const Send = () => {
   const [accountName, setAccountName] = useState<string>('');
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => makeStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
 
   const handlePressContinue = useCallback(() => {
     if (isCurrentlyTransferring) {

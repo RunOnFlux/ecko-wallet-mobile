@@ -1,16 +1,19 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {View, Text} from 'react-native';
-
 import WalletItem from '../../components/WalletItem';
 import CircleArrowRightSvg from '../../assets/images/circle-arrow-right.svg';
-import {styles} from './styles';
 import {TAccountFromToProps} from './types';
+import {useAppThemeContext} from '../../contexts';
+import {makeStyles} from './styles';
 
 const AccountFromTo: FC<TAccountFromToProps> = React.memo(
   ({fromAccount, toAccount, fromChainId, toChainId}) => {
     if (fromAccount === undefined || toAccount === undefined) {
       return null;
     }
+
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
     return (
       <View style={styles.wrapper}>
         <View style={styles.fromWrapper}>

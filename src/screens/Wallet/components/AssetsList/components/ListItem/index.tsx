@@ -1,7 +1,7 @@
 import React, {FC, useCallback, useMemo, useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {getAssetImageView} from '../../../../../../utils/getAssetImageView';
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {TListItemProps} from './types';
 import TokenModal from '../../../../../../modals/TokenModal';
 import {useDispatch} from 'react-redux';
@@ -12,11 +12,15 @@ import {
   decimalIfNeeded,
   numberWithCommas,
 } from '../../../../../../utils/stringHelpers';
+import {useAppThemeContext} from '../../../../../../contexts';
 
 const ListItem: FC<TListItemProps> = React.memo(
   ({walletItem, isFirst, rightLabel, onPress}) => {
     const dispatch = useDispatch();
     const [modalVisible, setModalVisible] = useState(false);
+
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
 
     const toggleModal = useCallback(() => {
       if (!modalVisible) {

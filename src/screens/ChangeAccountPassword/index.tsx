@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {
   View,
   Text,
@@ -27,6 +27,7 @@ import {comparePassword} from '../../api/kadena/comparePassword';
 import {hashPassword} from '../../api/kadena/hashPassword';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import {useTranslation} from 'react-i18next';
+import {useAppThemeContext} from '../../contexts';
 
 const ChangeAccountPassword = () => {
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Login>>();
@@ -35,7 +36,11 @@ const ChangeAccountPassword = () => {
 
   const hash = useSelector(makeSelectHashPassword);
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => createStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
 
   const fields: TFields[] = [
     {

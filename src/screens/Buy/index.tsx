@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useCallback} from 'react';
+import React, {useEffect, useState, useCallback, useMemo} from 'react';
 import {View, Text, ActivityIndicator, SafeAreaView, Alert} from 'react-native';
 import {WebView} from 'react-native-webview';
 import {useNavigation} from '@react-navigation/native';
@@ -12,6 +12,7 @@ import {useShallowEqualSelector} from '../../store/utils';
 import {makeSelectSelectedAccount} from '../../store/userWallet/selectors';
 import Header from '../../components/Header';
 import Warning from '../../components/Warning';
+import {useAppThemeContext} from '../../contexts';
 
 const BuyScreen = () => {
   const {t} = useTranslation();
@@ -26,7 +27,11 @@ const BuyScreen = () => {
   const walletAddress = selectedAccount?.accountName;
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => createStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
 
   const params = {
     apiKey: 'pk_prod_01JDMCZ0ZRZ14VBRW20B4HC04V',
@@ -35,12 +40,12 @@ const BuyScreen = () => {
     defaultCrypto: 'KDA',
     sell_onlyCryptoNetworks: 'kadena',
     sell_defaultCrypto: 'KDA',
-    themeName: 'light',
-    containerColor: 'ffffff',
-    primaryColor: MAIN_COLOR.replace('#', ''),
-    secondaryTextColor: '000000',
-    primaryTextColor: '000000',
-    primaryBtnTextColor: 'ffffff',
+    themeName: theme.isDark ? 'dark' : 'light',
+    containerColor: theme.background.replace('#', ''),
+    primaryColor: theme.brand.replace('#', ''),
+    secondaryTextColor: theme.text.secondary.replace('#', ''),
+    primaryTextColor: theme.text.primary.replace('#', ''),
+    primaryBtnTextColor: theme.button.primary.replace('#', ''),
     borderRadius: '0',
     wgBorderRadius: '0',
   };

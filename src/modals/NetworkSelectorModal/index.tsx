@@ -1,4 +1,4 @@
-import React, {FC, useCallback} from 'react';
+import React, {FC, useCallback, useMemo} from 'react';
 import {View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
@@ -8,7 +8,6 @@ import Checkbox from '../../components/Checkbox';
 import ListItem from '../../components/ListItem';
 import {ERootStackRoutes} from '../../routes/types';
 import {TNetworkSelectorModalProps} from './types';
-import {styles} from './styles';
 import {
   makeSelectActiveNetwork,
   makeSelectNetworksList,
@@ -18,12 +17,17 @@ import {setActiveNetwork} from '../../store/networks';
 import {getNetworkDetails} from '../../store/networks/actions';
 import {useShallowEqualSelector} from '../../store/utils';
 import {useTranslation} from 'react-i18next';
+import {useAppThemeContext} from '../../contexts';
+import {makeStyles} from './styles';
 
 const NetworkSelectorModal: FC<TNetworkSelectorModalProps> = React.memo(
   ({toggle, isVisible}) => {
     const {t} = useTranslation();
     const dispatch = useDispatch();
     const navigation = useNavigation<any>();
+
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
 
     const networks = useShallowEqualSelector(makeSelectNetworksList);
     const activeNetwork = useShallowEqualSelector(makeSelectActiveNetwork);

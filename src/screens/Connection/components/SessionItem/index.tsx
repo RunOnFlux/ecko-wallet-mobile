@@ -1,11 +1,12 @@
-import React, {FC, useCallback, useState} from 'react';
+import React, {FC, useCallback, useMemo, useState} from 'react';
 import {Text, View, TouchableOpacity, Image, Linking} from 'react-native';
 import {TSessionItemProps} from './types';
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {truncate} from '../../../../utils/stringHelpers';
 import ArrowLeftSvg from '../../../../assets/images/arrow-left.svg';
 import SessionDetailsModal from '../../../../modals/SessionDetailsModal';
 import {useTranslation} from 'react-i18next';
+import {useAppThemeContext} from '../../../../contexts';
 
 const SessionItem: FC<TSessionItemProps> = React.memo(
   ({item: sessionItem, onDelete}) => {
@@ -14,6 +15,9 @@ const SessionItem: FC<TSessionItemProps> = React.memo(
 
     const [selectedItem, setSelectedItem] = useState<any>(null);
     const [isVisible, setIsVisible] = useState<boolean>(false);
+
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
 
     const onLinkPress = useCallback(() => {
       if (url) {

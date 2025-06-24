@@ -18,9 +18,9 @@ import {useShallowEqualSelector} from '../../../../store/utils';
 import Button from '../../../Wallet/components/WalletBalance/components/Button';
 import CurrencyInput from '../CurrencyInput';
 import SwapSvg from '../../../../assets/images/swap.svg';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {TValues} from '../CurrencyInput/types';
-import {usePactContext} from '../../../../contexts';
+import {useAppThemeContext, usePactContext} from '../../../../contexts';
 import {
   makeSelectActiveNetworkDetails,
   makeSelectNetworkDetailsLoading,
@@ -39,6 +39,9 @@ import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
 const SwapBlock = () => {
   const {t} = useTranslation();
   const dispatch = useDispatch();
+
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => createStyles(theme), [theme]);
 
   const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
   const isSwapping = useShallowEqualSelector(makeSelectIsSwapping);

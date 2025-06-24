@@ -3,15 +3,19 @@ import {
   BOLD_MONTSERRAT,
   SEMI_BOLD_MONTSERRAT,
 } from '../../../../constants/styles';
+import {IAppTheme} from '../../../../themes/types';
 
 const windowHeight = Dimensions.get('window').height;
 
-export const createStyles = ({
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const createStyles = (
+  theme: IAppTheme,
+  {
+    statusBarHeight,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     container: {
       paddingHorizontal: 25,
@@ -25,13 +29,18 @@ export const createStyles = ({
       fontFamily: BOLD_MONTSERRAT,
       fontWeight: '700',
       fontSize: 12,
-      color: '#787B8E',
+      color: theme.text.secondary,
       textTransform: 'uppercase',
     },
     value: {
       marginTop: 4,
       fontSize: 24,
       fontFamily: SEMI_BOLD_MONTSERRAT,
+      color: theme.text.primary,
     },
-    button: {width: '100%', marginTop: 20},
+    button: {
+      width: '100%',
+      marginTop: 20,
+      backgroundColor: theme.button.primary,
+    },
   });

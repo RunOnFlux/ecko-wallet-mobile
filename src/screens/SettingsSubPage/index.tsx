@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useNavigation} from '@react-navigation/native';
@@ -8,6 +8,7 @@ import Card from '../Settings/components/Card';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {createStyles} from './styles';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {useAppThemeContext} from '../../contexts';
 
 const SettingsSubPage = () => {
   const {t} = useTranslation();
@@ -18,7 +19,11 @@ const SettingsSubPage = () => {
   }, [navigation]);
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => createStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
 
   return (
     <View style={styles.container}>

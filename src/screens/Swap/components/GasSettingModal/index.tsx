@@ -1,15 +1,15 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useMemo, useState} from 'react';
 import {View, Text, Switch} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import Modal from '../../../../components/Modal';
 import Input from '../../../../components/Input';
 import RadioButtons from './RadioButtons';
-import {usePactContext} from '../../../../contexts';
+import {useAppThemeContext, usePactContext} from '../../../../contexts';
 import {GAS_OPTIONS} from '../../../../constants';
 import {getDecimalPlaces} from '../../../../utils/numberHelpers';
 import {commonColors, MAIN_COLOR} from '../../../../constants/styles';
 import {TGasSettingModalProps, TSpeed} from './types';
-import {styles} from './styles';
+import {createStyles} from './styles';
 
 const speedValues: TSpeed[] = ['low', 'normal', 'fast'];
 
@@ -56,6 +56,9 @@ const GasSettingModal: FC<TGasSettingModalProps> = ({isVisible, toggle}) => {
       ? commonColors.orange
       : commonColors.green;
 
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => createStyles(theme), [theme]);
+
   return (
     <Modal
       isVisible={isVisible}
@@ -69,8 +72,10 @@ const GasSettingModal: FC<TGasSettingModalProps> = ({isVisible, toggle}) => {
           <Switch
             value={pact.enableGasStation}
             onValueChange={toggleSwitch}
-            trackColor={{false: '#767577', true: MAIN_COLOR}}
-            thumbColor={pact.enableGasStation ? MAIN_COLOR : '#f4f3f4'}
+            trackColor={{false: '#767577', true: theme.button.primary}}
+            thumbColor={
+              pact.enableGasStation ? theme.button.primary : '#f4f3f4'
+            }
           />
         </View>
 

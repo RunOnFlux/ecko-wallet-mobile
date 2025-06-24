@@ -1,17 +1,21 @@
 import {StyleSheet} from 'react-native';
-import {MAIN_COLOR, MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {IAppTheme} from '../../themes/types';
 
-export const createStyles = ({
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const createStyles = (
+  theme: IAppTheme,
+  {
+    statusBarHeight,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     container: {
       paddingTop: statusBarHeight,
       flex: 1,
-      backgroundColor: 'white',
+      backgroundColor: theme.background,
     },
     form: {
       borderRadius: 10,
@@ -26,7 +30,7 @@ export const createStyles = ({
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '500',
       fontSize: 18,
-      color: 'black',
+      color: theme.text.primary,
     },
     password: {
       marginTop: 24,
@@ -34,7 +38,7 @@ export const createStyles = ({
       borderTopLeftRadius: 10,
       borderRadius: 10,
       paddingHorizontal: 0,
-      backgroundColor: '#fff',
+      backgroundColor: theme.input.background,
     },
     resetBtn: {
       width: '90%',
@@ -49,7 +53,7 @@ export const createStyles = ({
     btnText: {
       fontSize: 20,
       fontWeight: 'bold',
-      color: '#fff',
+      color: theme.background,
       fontFamily: MEDIUM_MONTSERRAT,
     },
     header: {
@@ -59,13 +63,13 @@ export const createStyles = ({
       alignItems: 'center',
       paddingVertical: 16,
       borderBottomWidth: 1,
-      borderBottomColor: 'rgba(223,223,237,0.5)',
+      borderBottomColor: theme.border,
     },
     inputContainer: {
       marginTop: 8,
     },
     input: {
-      backgroundColor: 'rgba(236,236,245,0.5)',
+      backgroundColor: theme.input.background,
       paddingTop: 14,
       paddingLeft: 16,
       paddingRight: 16,
@@ -74,7 +78,7 @@ export const createStyles = ({
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '500',
       fontSize: 16,
-      color: MAIN_COLOR,
+      color: theme.input.color,
     },
     icon: {
       right: 16,

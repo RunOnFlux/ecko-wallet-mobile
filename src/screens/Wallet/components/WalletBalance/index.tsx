@@ -7,7 +7,7 @@ import ArrowTopRightSvg from '../../../../assets/images/arrow-top-right.svg';
 import ArrowBottomRightSvg from '../../../../assets/images/arrow-bottom-right.svg';
 import BuySvg from '../../../../assets/images/icon-buy.svg';
 import Button from './components/Button';
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {MAIN_COLOR} from '../../../../constants/styles';
 import {ERootStackRoutes, TNavigationProp} from '../../../../routes/types';
 import {
@@ -21,6 +21,7 @@ import {setSelectedToken} from '../../../../store/userWallet';
 import {useShallowEqualSelector} from '../../../../store/utils';
 import {TAccount, TWallet} from '../../../../store/userWallet/types';
 import {numberWithCommas} from '../../../../utils/stringHelpers';
+import {useAppThemeContext} from '../../../../contexts';
 
 const WalletBalance = React.memo(() => {
   const {t} = useTranslation();
@@ -76,6 +77,9 @@ const WalletBalance = React.memo(() => {
     );
     return totalBalanceForAccounts || 0;
   }, [accounts, usdEquivalents]);
+
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
 
   const [isKdaModalVisible, setKdaModalVisible] = useState(false);
 
@@ -143,7 +147,7 @@ const WalletBalance = React.memo(() => {
             onPress={handlePressReceive}
             style={styles.button}
             backgroundColor="rgba(236,236,245,0.5)"
-            textColor={MAIN_COLOR}
+            textColor={theme.text.primary}
           />
           <Button
             icon={<BuySvg fill="#FFA900" />}

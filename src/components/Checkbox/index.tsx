@@ -1,11 +1,14 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 import {TCheckboxProps} from './types';
-import {styles} from './styles';
+import {useAppThemeContext} from '../../contexts';
+import {makeStyles} from './styles';
 
 const Checkbox: FC<TCheckboxProps> = React.memo(
   ({textStyle, iconStyle, textContainerStyle, ...props}) => {
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
     return (
       <BouncyCheckbox
         size={26}

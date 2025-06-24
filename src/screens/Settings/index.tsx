@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import {View, Alert, Image, ScrollView, TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
@@ -8,24 +8,33 @@ import Card from './components/Card';
 import Footer from './components/Footer';
 import ContactsSvg from '../../assets/images/contacts.svg';
 import NetworksSvg from '../../assets/images/networks.svg';
+import WalletConnectSvg from '../../assets/images/WalletConnect-icon.svg';
 import FlagSVG from '../../assets/images/white-flag.svg';
 import ShieldLockSvg from '../../assets/images/shield-lock.svg';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
-import {createStyles} from './styles';
+import {makeStyles} from './styles';
 import {deleteAccount, logout} from '../../store/auth/actions';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import LanguageSelectorModal from '../../components/LanguageSelectorModal';
+import ThemeSelectorModal from '../../components/ThemeSelectorModal';
+import {useAppThemeContext} from '../../contexts';
 
 const Settings = () => {
   const {t} = useTranslation();
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
   const dispatch = useDispatch();
+  const {theme} = useAppThemeContext();
 
   const [langModalVisible, setLangModalVisible] = useState(false);
+  const [themeModalVisible, setThemeModalVisible] = useState(false);
   const toggleLangModal = useCallback(() => setLangModalVisible(v => !v), []);
+  const toggleThemeModal = useCallback(() => setThemeModalVisible(v => !v), []);
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const styles = useMemo(
+    () => makeStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme],
+  );
 
   const handlePressContacts = useCallback(() => {
     navigation.navigate({
@@ -115,15 +124,16 @@ const Settings = () => {
         />
 
         <Card
+          title={`${t('common.selectTheme')}`}
+          text={t('common.selectThemeLongDescription')}
+          icon={<ShieldLockSvg width={24} height={24} fill="white" />}
+          onPress={toggleThemeModal}
+        />
+
+        <Card
           title={t('settings.cards.walletConnect.title')}
           text={t('settings.cards.walletConnect.text')}
-          icon={
-            <Image
-              source={require('../../assets/images/walletConnect.png')}
-              style={styles.icon}
-              resizeMode="contain"
-            />
-          }
+          icon={<WalletConnectSvg width={24} height={24} fill="white" />}
           onPress={handlePressWalletConnect}
         />
 
@@ -139,7 +149,6 @@ const Settings = () => {
           text={t('settings.cards.lockWallet.text')}
           onPress={handlePressSignOut}
         />
-
         <Footer />
 
         <Card
@@ -151,6 +160,10 @@ const Settings = () => {
         <LanguageSelectorModal
           isVisible={langModalVisible}
           toggle={toggleLangModal}
+        />
+        <ThemeSelectorModal
+          isVisible={themeModalVisible}
+          toggle={toggleThemeModal}
         />
       </ScrollView>
     </View>

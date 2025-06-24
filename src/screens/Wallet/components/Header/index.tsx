@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {View, TouchableOpacity, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
@@ -6,7 +6,7 @@ import ArrowDownSvg from '../../../../assets/images/arrow-down.svg';
 import MoreVerticalSvg from '../../../../assets/images/more-vertical.svg';
 import WalletItem from '../../../../components/WalletItem';
 
-import {createStyles} from './styles';
+import {makeStyles} from './styles';
 import {makeSelectActiveNetwork} from '../../../../store/networks/selectors';
 import WalletSelectorModal from '../../../../modals/WalletSelectorModal';
 import {makeSelectSelectedAccount} from '../../../../store/userWallet/selectors';
@@ -17,6 +17,7 @@ import Snackbar from 'react-native-snackbar';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useShallowEqualSelector} from '../../../../store/utils';
 import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
+import {useAppThemeContext} from '../../../../contexts';
 
 const Header = React.memo(() => {
   const {t} = useTranslation();
@@ -24,7 +25,15 @@ const Header = React.memo(() => {
   const activeNetwork = useShallowEqualSelector(makeSelectActiveNetwork);
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () =>
+      makeStyles(theme, {
+        bottomSpace,
+        statusBarHeight,
+      }),
+    [theme],
+  );
 
   const [isWalletModalVisible, setWalletModalVisible] = React.useState(false);
   const [isNetworkModalVisible, setNetworkModalVisible] = React.useState(false);
@@ -58,7 +67,7 @@ const Header = React.memo(() => {
         style={styles.button}
         onPress={toggleNetworkModal}>
         <Text style={styles.buttonText}>{activeNetwork?.name || ''}</Text>
-        <ArrowDownSvg />
+        <ArrowDownSvg width={24} height={24} fill={theme.text.primary} />
       </TouchableOpacity>
       <View style={styles.rightSide}>
         <View style={styles.accountButton}>

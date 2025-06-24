@@ -1,10 +1,11 @@
-import React, {FC, useCallback, useState} from 'react';
+import React, {FC, useCallback, useMemo, useState} from 'react';
 import {View, Text} from 'react-native';
 
 import ListItem from '../ListItem';
 import TransactionDetailsModal from '../../../../modals/TransactionDetailsModal';
 import {TListDayProps} from './types';
-import {styles} from './styles';
+import {useAppThemeContext} from '../../../../contexts';
+import {makeStyles} from './styles';
 
 const ListDay: FC<TListDayProps> = React.memo(({item}) => {
   const [selectedItem, setSelectedItem] = useState<any>(null);
@@ -22,6 +23,9 @@ const ListDay: FC<TListDayProps> = React.memo(({item}) => {
     },
     [selectedItem],
   );
+
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
 
   return (
     <View style={styles.wrapper}>

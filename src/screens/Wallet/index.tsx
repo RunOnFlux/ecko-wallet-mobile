@@ -21,10 +21,9 @@ import {
   makeSelectAccounts,
   makeSelectBalanceLoading,
   makeSelectSelectedAccount,
-  makeSelectSelectedAccountPublicKey,
   makeSelectWalletInitialized,
 } from '../../store/userWallet/selectors';
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {getNetworkDetails} from '../../store/networks/actions';
 import {getNetworkParams} from '../../utils/networkHelpers';
 import {
@@ -33,6 +32,7 @@ import {
 } from '../../store/userWallet';
 import {useDebounce} from '../../utils/hooksHelpers';
 import {useShallowEqualSelector} from '../../store/utils';
+import {useAppThemeContext} from '../../contexts';
 
 const Wallet = () => {
   const dispatch = useDispatch();
@@ -48,10 +48,6 @@ const Wallet = () => {
     makeSelectActiveNetworkDetails,
   );
   const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
-
-  const selectedAccountPublicKey = useSelector(
-    makeSelectSelectedAccountPublicKey,
-  );
 
   useEffect(() => {
     if (!walletInitialized) {
@@ -113,6 +109,9 @@ const Wallet = () => {
       }
     }
   }, [walletInitialized, accountsList, selectedAccount?.accountName]);
+
+  const {theme} = useAppThemeContext();
+  const styles = makeStyles(theme);
 
   return (
     <>

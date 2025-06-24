@@ -1,13 +1,17 @@
 import {Dimensions, StyleSheet} from 'react-native';
-import {MAIN_COLOR, MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {IAppTheme} from '../../themes/types';
 
-export const createStyles = ({
-  bottomSpace,
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const makeStyles = (
+  theme: IAppTheme,
+  {
+    bottomSpace,
+    statusBarHeight,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     screen: {
       marginTop: statusBarHeight,
@@ -32,37 +36,23 @@ export const createStyles = ({
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '500',
       fontSize: 12,
-      color: 'rgba(120,123,142,0.5)',
+      color: theme.text.secondary,
       marginTop: 24,
       marginBottom: 52,
     },
-
     passwordWrapper: {
       paddingVertical: 32,
-
-      backgroundColor: 'white',
-
-      shadowColor: 'black',
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-
-      elevation: 5,
+      backgroundColor: theme.surface,
+      ...theme.shadow,
     },
-
     input: {
-      color: 'black',
+      color: theme.input.color,
     },
-
     footer: {
       width: '100%',
     },
-
     button: {
-      backgroundColor: MAIN_COLOR,
+      backgroundColor: theme.button.primary,
       width: '100%',
       paddingVertical: 17,
     },
@@ -71,6 +61,6 @@ export const createStyles = ({
       fontSize: 14,
       fontWeight: '700',
       textAlign: 'center',
-      color: 'white',
+      color: theme.text.primary,
     },
   });

@@ -1,11 +1,13 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {TouchableOpacity, Text} from 'react-native';
-
-import {styles} from './styles';
 import {TListItemProps} from './types';
+import {useAppThemeContext} from '../../contexts';
+import {makeStyles} from './styles';
 
 const ListItem: FC<TListItemProps> = React.memo(
   ({icon, text, onPress, style, textStyle, disabled}) => {
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
     return (
       <TouchableOpacity
         activeOpacity={0.8}

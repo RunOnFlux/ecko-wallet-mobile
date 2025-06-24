@@ -1,24 +1,29 @@
 import {StyleSheet} from 'react-native';
 import {MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {IAppTheme} from '../../themes/types';
 
-export const createStyles = ({
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const createStyles = (
+  theme: IAppTheme,
+  {
+    statusBarHeight,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: theme.background,
     },
     headerTitle: {
       fontSize: 18,
       fontWeight: 'bold',
+      color: theme.text.primary,
     },
     backButton: {
       fontSize: 16,
-      color: '#46de8c',
+      color: theme.brand,
     },
     webview: {
       flex: 1,
@@ -39,6 +44,7 @@ export const createStyles = ({
       marginTop: 20,
       fontFamily: MEDIUM_MONTSERRAT,
       textAlign: 'center',
+      color: theme.text.primary,
     },
     buttonContainer: {
       flexDirection: 'row',
@@ -46,23 +52,23 @@ export const createStyles = ({
       marginBottom: 30,
     },
     cancelButtonStyle: {
-      backgroundColor: '#f0f0f0',
+      backgroundColor: theme.surface,
       borderWidth: 1,
-      borderColor: '#ddd',
+      borderColor: theme.shadow,
     },
     confirmButtonStyle: {
-      backgroundColor: '#46de8c',
+      backgroundColor: theme.brand,
     },
     cancelButtonText: {
-      color: '#333',
+      color: theme.text.primary,
       fontWeight: '600',
     },
     confirmButtonText: {
-      color: '#fff',
+      color: theme.text.onPrimary,
       fontWeight: '600',
     },
     errorText: {
-      color: 'red',
+      color: theme.error,
       marginTop: 10,
       textAlign: 'center',
       padding: 10,
@@ -70,7 +76,7 @@ export const createStyles = ({
     cancelButton: {
       marginTop: 20,
       padding: 10,
-      backgroundColor: '#f0f0f0',
+      backgroundColor: theme.surface,
       borderRadius: 5,
     },
     header: {
@@ -80,7 +86,7 @@ export const createStyles = ({
       paddingBottom: 16,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: 'white',
+      backgroundColor: theme.background,
       borderBottomWidth: 1,
       borderBottomColor: 'rgba(223,223,237,0.5)',
     },
@@ -93,6 +99,6 @@ export const createStyles = ({
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '500',
       fontSize: 18,
-      color: 'black',
+      color: theme.text.primary,
     },
   });
