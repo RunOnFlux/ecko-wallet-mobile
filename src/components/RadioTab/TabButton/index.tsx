@@ -1,11 +1,15 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 
 import {TTabButtonProps} from './types';
-import {styles} from './styles';
+import {useAppThemeContext} from '../../../contexts';
+import {makeStyles} from './styles';
 
 const TabButton: FC<TTabButtonProps> = React.memo(
   ({isActive, title, onPress, buttonStyle}) => {
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
+
     return (
       <TouchableOpacity
         activeOpacity={0.8}

@@ -30,6 +30,7 @@ import {useShallowEqualSelector} from '../../store/utils';
 import {useNavigation} from '@react-navigation/native';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import {EHomeTabRoutes} from '../../routes/types';
+import {useAppThemeContext} from '../../contexts';
 
 const SendProgress = () => {
   const {t} = useTranslation();
@@ -43,7 +44,11 @@ const SendProgress = () => {
 
   const [animation] = useState(new Animated.Value(0));
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => createStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
 
   // Toast on submit
   useEffect(() => {

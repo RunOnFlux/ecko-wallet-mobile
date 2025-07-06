@@ -8,8 +8,7 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
-import Header from './components/Header';
-import {createStyles} from './styles';
+import {makeStyles} from './styles';
 import {
   Camera,
   useCameraDevice,
@@ -24,6 +23,8 @@ import {
 } from '../../routes/types';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import {useTranslation} from 'react-i18next';
+import {useAppThemeContext} from '../../contexts';
+import Header from '../../components/Header';
 
 const ReceiverScan = () => {
   const {t} = useTranslation();
@@ -35,7 +36,11 @@ const ReceiverScan = () => {
   const [textUri, setTextUri] = useState<string>('');
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => makeStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
 
   const device = useCameraDevice('back');
 
@@ -85,7 +90,7 @@ const ReceiverScan = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={-bottomSpace}>
       <View style={styles.screen}>
-        <Header />
+        <Header title={t('receiverScan.header.title')} />
         <TouchableOpacity
           activeOpacity={1}
           onPress={Keyboard.dismiss}
@@ -98,6 +103,7 @@ const ReceiverScan = () => {
                   style={styles.input}
                   autoFocus={false}
                   placeholder={t('receiverScan.placeholder')}
+                  placeholderTextColor="gray"
                   value={textUri}
                   onChangeText={setTextUri}
                 />

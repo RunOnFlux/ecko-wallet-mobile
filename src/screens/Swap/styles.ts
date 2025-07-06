@@ -1,18 +1,22 @@
 import {StyleSheet} from 'react-native';
-import {MAIN_COLOR, MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {IAppTheme} from '../../themes/types';
 
-export const createStyles = ({
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const createStyles = (
+  theme: IAppTheme,
+  {
+    statusBarHeight,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     screen: {
       flexDirection: 'column',
       flex: 1,
       paddingTop: statusBarHeight,
-      backgroundColor: '#f8f8fd',
+      backgroundColor: theme.background,
     },
     scroll: {
       flex: 1,
@@ -33,7 +37,7 @@ export const createStyles = ({
       alignItems: 'center',
       paddingBottom: 16,
       paddingTop: 16,
-      backgroundColor: 'white',
+      backgroundColor: theme.surface,
       paddingHorizontal: 10,
     },
     title: {
@@ -41,7 +45,7 @@ export const createStyles = ({
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '500',
       fontSize: 14,
-      color: MAIN_COLOR,
+      color: theme.text.primary,
     },
     gasButton: {
       position: 'absolute',
@@ -50,8 +54,8 @@ export const createStyles = ({
       width: 48,
       height: 48,
       borderRadius: 24,
-      backgroundColor: 'white',
-      shadowColor: 'black',
+      backgroundColor: theme.surface,
+      shadowColor: theme.shadow.shadowColor,
       shadowOffset: {
         width: 0,
         height: 2,
@@ -69,8 +73,8 @@ export const createStyles = ({
       width: 48,
       height: 48,
       borderRadius: 24,
-      backgroundColor: 'white',
-      shadowColor: 'black',
+      backgroundColor: theme.surface,
+      shadowColor: theme.shadow.shadowColor,
       shadowOffset: {
         width: 0,
         height: 2,

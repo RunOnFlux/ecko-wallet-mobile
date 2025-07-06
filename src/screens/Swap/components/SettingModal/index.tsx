@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {
   View,
   TextInput,
@@ -7,11 +7,11 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {usePactContext} from '../../../../contexts';
+import {useAppThemeContext, usePactContext} from '../../../../contexts';
 import RadioButtons from '../GasSettingModal/RadioButtons';
 
 import Modal from '../../../../components/Modal';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {TSettingModal} from './types';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
@@ -21,6 +21,9 @@ const SettingModal: FC<TSettingModal> = ({isVisible, close}) => {
   const {t} = useTranslation();
   const {slippage, setSlippage, ttl, setTtl} = usePactContext();
   const {bottom: bottomSpace} = useSafeAreaInsets();
+
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => createStyles(theme), [theme]);
 
   const handleSlippageChange = (value: string) => {
     value = value.replace(',', '.');

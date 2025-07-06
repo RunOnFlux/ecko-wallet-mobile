@@ -1,9 +1,9 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect, useMemo, useState} from 'react';
 import {ActivityIndicator, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {makeSelectSelectedAccount} from '../../../../../../store/userWallet/selectors';
 import {ERootStackRoutes} from '../../../../../../routes/types';
 import {useShallowEqualSelector} from '../../../../../../store/utils';
@@ -15,16 +15,18 @@ import {makeSelectActiveNetworkDetails} from '../../../../../../store/networks/s
 import {getPact} from '../../../../../../api/kadena/pact';
 import {getNetworkParams} from '../../../../../../utils/networkHelpers';
 import {TAccount} from '../../../../../../store/userWallet/types';
-import {MAIN_COLOR} from '../../../../../../constants/styles';
 import Warning from '../../../../../../components/Warning';
 import {setSelectedToken} from '../../../../../../store/userWallet';
 import {ECKO_API_URL} from '../../../../../../api/constants';
+import {useAppThemeContext} from '../../../../../../contexts';
 
 const TokenDetectorModal: FC<TTokenDetectorModalProps> = ({
   toggle,
   isVisible,
 }) => {
   const {t} = useTranslation();
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
   const navigation = useNavigation<any>();
   const dispatch = useDispatch();
 
@@ -151,7 +153,7 @@ const TokenDetectorModal: FC<TTokenDetectorModalProps> = ({
           {isLoading ? (
             <ActivityIndicator
               size="large"
-              color={MAIN_COLOR}
+              color={theme.text.primary}
               style={{marginTop: 20}}
             />
           ) : detectedTokens.length ? (

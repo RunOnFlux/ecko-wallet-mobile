@@ -2,14 +2,18 @@ import React, {FC, useMemo} from 'react';
 import {Text, View, TouchableOpacity, Image} from 'react-native';
 import {TPairingItemProps} from './types';
 import TrashEmptySvg from '../../../../assets/images/trash-empty.svg';
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {formatDate, truncate} from '../../../../utils/stringHelpers';
 import {useTranslation} from 'react-i18next';
+import {useAppThemeContext} from '../../../../contexts';
 
 const PairingItem: FC<TPairingItemProps> = React.memo(
   ({item: pairingItem, onDelete}) => {
     const {t} = useTranslation();
     const {logo, name, url, expiry} = pairingItem;
+
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
 
     const expireDate = useMemo(() => {
       if (expiry) {

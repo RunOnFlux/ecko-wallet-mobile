@@ -3,15 +3,18 @@ import {
   REGULAR_MONTSERRAT,
   SEMI_BOLD_MONTSERRAT,
 } from '../../../../constants/styles';
+import {IAppTheme} from '../../../../themes/types';
 
 const windowHeight = Dimensions.get('window').height;
 
-export const createStyles = ({
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const createStyles = (
+  theme: IAppTheme,
+  {
+    statusBarHeight,
+  }: {
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     container: {
       width: '100%',
@@ -39,15 +42,19 @@ export const createStyles = ({
       justifyContent: 'space-between',
     },
     title: {
-      color: '#000000',
+      color: theme.text.primary,
       fontFamily: SEMI_BOLD_MONTSERRAT,
       fontSize: 14,
       marginRight: 12,
     },
     text: {
-      color: '#000000',
+      color: theme.text.primary,
       fontFamily: REGULAR_MONTSERRAT,
       fontSize: 14,
     },
-    button: {width: '100%', marginTop: 20},
+    button: {
+      width: '100%',
+      marginTop: 20,
+      backgroundColor: theme.button.primary,
+    },
   });

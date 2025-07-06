@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {View} from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
 
@@ -6,13 +6,17 @@ import Modal from '../../components/Modal';
 import ListItem from './components/ListItem';
 import {TReceiveKDAModalProps} from './types';
 
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {makeSelectSelectedAccount} from '../../store/userWallet/selectors';
 import {useShallowEqualSelector} from '../../store/utils';
 import {useTranslation} from 'react-i18next';
+import {useAppThemeContext} from '../../contexts';
 
 const ReceiveKDAModal: FC<TReceiveKDAModalProps> = React.memo(
   ({close, isVisible}) => {
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
+
     const {t} = useTranslation();
     const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
     return (

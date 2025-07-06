@@ -1,9 +1,10 @@
-import React, {FC, useCallback} from 'react';
+import React, {FC, useCallback, useMemo} from 'react';
 import {View, Text} from 'react-native';
 import {TAccountsListProps} from './types';
-import {styles} from './styles';
 import AccountItem from '../AccountItem';
 import {TAccount} from '../../../../store/userWallet/types';
+import {useAppThemeContext} from '../../../../contexts';
+import {makeStyles} from './styles';
 
 const AccountsList: FC<TAccountsListProps> = ({
   title,
@@ -16,6 +17,9 @@ const AccountsList: FC<TAccountsListProps> = ({
     },
     [setSelectedAccount],
   );
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
+
   return (
     <View style={styles.wrapper}>
       {(items || []).length > 0 ? (

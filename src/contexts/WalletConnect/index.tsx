@@ -13,7 +13,7 @@ export const defaultWalletConnectParams = {
   metadata: {
     name: 'eckoWALLET',
     description: 'eckoWALLET by eckoDEX',
-    url: 'https://wallet.ecko.finance/',
+    url: 'https://eckowallet.com/',
     icons: ['https://swap.ecko.finance/images/crypto/kaddex-crypto.svg'],
   },
 };

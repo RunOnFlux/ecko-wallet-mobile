@@ -8,8 +8,6 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
-
-import Header from './components/Header';
 import {createStyles} from './styles';
 import {
   Camera,
@@ -19,8 +17,9 @@ import {
 import FooterButton from '../../components/FooterButton';
 import {useNavigation} from '@react-navigation/native';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
-import {useWalletConnectContext} from '../../contexts';
+import {useAppThemeContext, useWalletConnectContext} from '../../contexts';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import Header from '../../components/Header';
 
 const WalletConnectScan = () => {
   const {t} = useTranslation();
@@ -43,7 +42,11 @@ const WalletConnectScan = () => {
   });
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => createStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
 
   const onProceed = useCallback(async () => {
     setIsLoading(true);
@@ -84,7 +87,7 @@ const WalletConnectScan = () => {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={-bottomSpace}>
       <View style={styles.screen}>
-        <Header />
+        <Header title={t('walletConnectScan.header.title')} />
         <TouchableOpacity
           activeOpacity={1}
           onPress={Keyboard.dismiss}

@@ -4,7 +4,6 @@ import {useTranslation} from 'react-i18next';
 import Modal from '../../components/Modal';
 import AccountFromTo from '../../components/AccountFromTo';
 import {TTransactionDetailsModalProps} from './types';
-import {styles} from './styles';
 import {makeSelectSelectedAccount} from '../../store/userWallet/selectors';
 import Clipboard from '@react-native-clipboard/clipboard';
 import Snackbar from 'react-native-snackbar';
@@ -12,6 +11,8 @@ import {useShallowEqualSelector} from '../../store/utils';
 import {numberWithCommas} from '../../utils/stringHelpers';
 import Button from '../../screens/Wallet/components/WalletBalance/components/Button';
 import {makeSelectActiveNetworkDetails} from '../../store/networks/selectors';
+import {useAppThemeContext} from '../../contexts';
+import {makeStyles} from './styles';
 
 const TransactionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
   ({details, toggle, isVisible}) => {
@@ -83,6 +84,9 @@ const TransactionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
       }/txdetail/${requestKey}`;
       await Linking.openURL(url);
     };
+
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
 
     return (
       <Modal

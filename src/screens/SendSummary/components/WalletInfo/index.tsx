@@ -1,17 +1,10 @@
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import {
-  View,
-  TextInput,
-  ViewProps,
-  Text,
-  TouchableOpacity,
-  Keyboard,
-} from 'react-native';
+import {View, TextInput, Text, TouchableOpacity} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import Snackbar from 'react-native-snackbar';
 
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {setGatheredTransferInfo} from '../../../../store/transfer';
 import {
   makeSelectSelectedToken,
@@ -24,10 +17,14 @@ import {
 import {useInputBlurOnKeyboard} from '../../../../utils/keyboardHelpers';
 import {toFixed} from '../../../../utils/numberHelpers';
 import {decimalIfNeeded} from '../../../../utils/stringHelpers';
+import {useAppThemeContext} from '../../../../contexts';
 
 const WalletInfo: React.FC = React.memo(() => {
   const {t} = useTranslation();
   const dispatch = useDispatch();
+
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
 
   const gatheredInfo = useSelector(makeSelectGatheredInfo);
   const selectedToken = useSelector(makeSelectSelectedToken);
@@ -149,6 +146,7 @@ const WalletInfo: React.FC = React.memo(() => {
           ref={inputRef}
           keyboardType="numeric"
           placeholder="0"
+          placeholderTextColor={theme.text.primary}
           style={[styles.mainText, styles.input]}
           value={inputText}
           blurOnSubmit

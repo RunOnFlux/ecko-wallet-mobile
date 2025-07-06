@@ -1,12 +1,16 @@
 import {StyleSheet} from 'react-native';
-import {MAIN_COLOR, MEDIUM_MONTSERRAT} from '../../../../constants/styles';
+import {IAppTheme} from '../../../../themes/types';
+import {MEDIUM_MONTSERRAT} from '../../../../constants/styles';
 
-export const createStyles = ({
-  statusBarHeight,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const makeStyles = (
+  theme: IAppTheme,
+  {
+    statusBarHeight,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     header: {
       paddingTop: statusBarHeight + 16,
@@ -17,8 +21,8 @@ export const createStyles = ({
       justifyContent: 'space-between',
       width: '100%',
       borderBottomWidth: 1,
-      borderBottomColor: 'rgba(223,223,237,0.5)',
-      backgroundColor: 'white',
+      borderBottomColor: theme.border,
+      backgroundColor: theme.surface,
       zIndex: 10,
     },
     button: {
@@ -26,11 +30,12 @@ export const createStyles = ({
       alignItems: 'center',
       justifyContent: 'space-between',
       borderWidth: 1,
-      borderColor: 'rgba(65, 31, 84, 0.15)',
+      borderColor: theme.border,
       borderRadius: 60,
       paddingLeft: 12,
       paddingRight: 4,
       paddingVertical: 5,
+      backgroundColor: theme.surface,
     },
     accountButton: {
       flexDirection: 'row',
@@ -38,7 +43,7 @@ export const createStyles = ({
     },
     buttonText: {
       marginRight: 16,
-      color: MAIN_COLOR,
+      color: theme.text.primary,
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '500',
       fontSize: 12,

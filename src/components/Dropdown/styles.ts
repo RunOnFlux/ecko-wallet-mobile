@@ -1,49 +1,55 @@
 import {StyleSheet} from 'react-native';
-import {MAIN_COLOR, MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {IAppTheme} from '../../themes/types';
 
-export const styles = StyleSheet.create({
-  dropdownStyle: {
-    borderWidth: 1,
-    borderColor: 'rgba(65, 31, 84, 0.15)',
-    borderRadius: 15,
-  },
-  containerStyle: {
-    width: 140,
-  },
-  labelStyle: {
-    fontFamily: MEDIUM_MONTSERRAT,
-    fontWeight: '500',
-    fontSize: 12,
-    color: MAIN_COLOR,
-  },
-  itemStyle: {
-    paddingHorizontal: 22,
-    paddingVertical: 4,
-    backgroundColor: 'white',
-    zIndex: 9999,
-  },
-  search: {
-    borderBottomColor: 'rgba(65, 31, 84, 0.15)',
-  },
-  modalTitle: {
-    fontFamily: MEDIUM_MONTSERRAT,
-    fontWeight: '500',
-    fontSize: 18,
-    marginLeft: 12,
-    paddingVertical: 16,
-    color: 'black',
-  },
-  itemLabelStyle: {
-    fontFamily: MEDIUM_MONTSERRAT,
-    fontWeight: '500',
-    fontSize: 16,
-    color: MAIN_COLOR,
-  },
-  dropdownContainerStyle: {
-    borderRadius: 0,
-    borderColor: 'rgba(65, 31, 84, 0.15)',
-  },
-  listContainerStyle: {
-    paddingVertical: 8,
-  },
-});
+export const makeStyles = (theme: IAppTheme) =>
+  StyleSheet.create({
+    dropdownStyle: {
+      borderWidth: 1,
+      borderColor: theme.border,
+      borderRadius: 15,
+    },
+    containerStyle: {
+      width: 140,
+    },
+    labelStyle: {
+      fontFamily: MEDIUM_MONTSERRAT,
+      fontWeight: '500',
+      fontSize: 12,
+      color: theme.text.primary,
+    },
+    itemStyle: {
+      paddingHorizontal: 22,
+      paddingVertical: 4,
+      backgroundColor: theme.background,
+      zIndex: 9999,
+    },
+    search: {
+      borderBottomColor: theme.border,
+    },
+    modalTitle: {
+      fontFamily: MEDIUM_MONTSERRAT,
+      fontWeight: '500',
+      fontSize: 18,
+      marginLeft: 12,
+      paddingVertical: 16,
+      color: theme.text.primary,
+    },
+    itemLabelStyle: {
+      fontFamily: MEDIUM_MONTSERRAT,
+      fontWeight: '500',
+      fontSize: 16,
+      color: theme.text.primary,
+    },
+    dropdownContainerStyle: {
+      borderRadius: 0,
+      borderColor: theme.border,
+    },
+    listContainerStyle: {
+      paddingVertical: 8,
+    },
+    modalContent: {
+      flex: 1,
+      backgroundColor: theme.background,
+    },
+  });

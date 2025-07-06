@@ -1,10 +1,10 @@
 import React, {FC, useCallback, useMemo} from 'react';
 import {View, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {usePactContext} from '../../../../contexts';
+import {useAppThemeContext, usePactContext} from '../../../../contexts';
 import {getDecimalPlaces, reduceBalance} from '../../../../utils/numberHelpers';
 import {commonColors} from '../../../../constants/styles';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {TInfoProps} from './types';
 
 const Info: FC<TInfoProps> = ({
@@ -15,6 +15,9 @@ const Info: FC<TInfoProps> = ({
 }) => {
   const {t} = useTranslation();
   const pact = usePactContext();
+
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => createStyles(theme), [theme]);
 
   const getPriceImpactColor = useCallback(() => {
     const pip = pact.priceImpactWithoutFee(priceImpact);
@@ -111,10 +114,12 @@ const Info: FC<TInfoProps> = ({
       {items.map(({title, textColor, value, id, hide}) =>
         !hide ? (
           <View style={styles.item} key={id}>
-            <Text style={{...styles.title, color: textColor || 'black'}}>
+            <Text
+              style={{...styles.title, color: textColor || theme.text.primary}}>
               {`${title}:`}
             </Text>
-            <Text style={{...styles.text, color: textColor || 'black'}}>
+            <Text
+              style={{...styles.text, color: textColor || theme.text.primary}}>
               {value}
             </Text>
           </View>

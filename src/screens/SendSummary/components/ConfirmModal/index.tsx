@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {View, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import Modal from '../../../../components/Modal';
@@ -19,6 +19,7 @@ import {
 import Warning from '../../../../components/Warning';
 import {useSelector} from 'react-redux';
 import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
+import {useAppThemeContext} from '../../../../contexts';
 
 const ConfirmModal: FC<TConfirmModal> = ({isVisible, close, onConfirm}) => {
   const {t} = useTranslation();
@@ -29,8 +30,12 @@ const ConfirmModal: FC<TConfirmModal> = ({isVisible, close, onConfirm}) => {
   const isCrossChainTransfer = useSelector(makeSelectIsCrossChainTransfer);
   const {gasLimit, gasPrice, speed} = estimatedGas;
 
-  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {statusBarHeight} = useSafeAreaValues();
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => createStyles(theme, {statusBarHeight}),
+    [theme, statusBarHeight],
+  );
 
   return (
     <Modal

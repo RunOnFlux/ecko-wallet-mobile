@@ -1,13 +1,14 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useMemo, useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {MAIN_COLOR} from '../../constants/styles';
 
-import {styles} from './styles';
+import {makeStyles} from './styles';
 import {TPasswordInputProps} from './types';
 
 import EyeShowIcon from '../../assets/images/eye-password-show.svg';
 import EyeHideIcon from '../../assets/images/eye-password-hide.svg';
+import {useAppThemeContext} from '../../contexts';
 
 const PasswordInput: FC<TPasswordInputProps> = ({
   label,
@@ -21,6 +22,9 @@ const PasswordInput: FC<TPasswordInputProps> = ({
 }) => {
   const {t} = useTranslation();
   const [secureEntry, setSecureEntry] = useState<boolean>(true);
+
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
 
   return (
     <View style={[styles.wrapper, wrapperStyle]}>
@@ -46,9 +50,9 @@ const PasswordInput: FC<TPasswordInputProps> = ({
           onPress={() => setSecureEntry(!secureEntry)}
           style={[styles.secureIcon, iconStyle]}>
           {!secureEntry ? (
-            <EyeShowIcon stroke={white ? MAIN_COLOR : 'white'} />
+            <EyeShowIcon stroke={white ? theme.text.primary : 'white'} />
           ) : (
-            <EyeHideIcon stroke={white ? MAIN_COLOR : 'white'} />
+            <EyeHideIcon stroke={white ? theme.text.primary : 'white'} />
           )}
         </TouchableOpacity>
       </View>

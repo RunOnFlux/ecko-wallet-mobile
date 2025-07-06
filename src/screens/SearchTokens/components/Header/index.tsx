@@ -1,14 +1,14 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
-
-import {styles} from './styles';
 import ArrowLeftSvg from '../../../../assets/images/arrow-left.svg';
 import CirclePlusSvg from '../../../../assets/images/circle-plus.svg';
 import {ERootStackRoutes, TNavigationProp} from '../../../../routes/types';
 import {setSelectedToken} from '../../../../store/userWallet';
+import {useAppThemeContext} from '../../../../contexts';
+import {makeStyles} from './styles';
 
 const Header = React.memo(() => {
   const {t} = useTranslation();
@@ -31,6 +31,9 @@ const Header = React.memo(() => {
   const handlePressBack = useCallback(() => {
     navigation.goBack();
   }, [navigation]);
+
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
 
   return (
     <View style={styles.header}>

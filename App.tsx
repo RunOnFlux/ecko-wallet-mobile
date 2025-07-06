@@ -7,11 +7,11 @@ import {
   StyleSheet,
   SafeAreaView,
 } from 'react-native';
-import {Provider, useSelector} from 'react-redux';
+import {Provider} from 'react-redux';
 import RNBootSplash from 'react-native-bootsplash';
 import {PactProvider} from './src/contexts/Pact';
+import {AppThemeProvider} from './src/contexts/AppTheme';
 import AppStack from './src/navigation/AppStack';
-import {makeSelectIsAuthorized} from './src/store/auth/selectors';
 import {persistor, store} from './src/store/store';
 import {PersistGate} from 'redux-persist/integration/react';
 import Toast from 'react-native-toast-message';
@@ -21,27 +21,36 @@ import {WalletConnectProvider} from './src/contexts/WalletConnect';
 import {useWalletConnect} from './src/utils/walletConnect';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import './src/locales/i18n';
+import {IAppTheme} from './src/themes/types';
+import {useAppThemeContext} from './src/contexts';
+
+const makeStyles = (theme: IAppTheme) =>
+  StyleSheet.create({
+    screen: {
+      flex: 1,
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: theme.background,
+    },
+  });
 
 const App = () => {
-  const isAuthorized = useSelector(makeSelectIsAuthorized);
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
 
   const onReady = useCallback(() => {
     RNBootSplash.hide({fade: true});
   }, []);
 
-  const statusBarStyle = useMemo(
-    () =>
-      Platform.OS === 'ios'
-        ? !isAuthorized
-          ? 'light-content'
-          : 'dark-content'
-        : 'light-content',
-    [isAuthorized],
+  const statusBarStyle = useMemo<'light-content' | 'dark-content'>(
+    () => (theme.isDark ? 'light-content' : 'dark-content'),
+    [theme],
   );
 
   const statusBarColor = useMemo(
-    () => (Platform.OS === 'ios' ? 'transparent' : 'black'),
-    [],
+    () => (Platform.OS === 'ios' ? 'transparent' : theme.background),
+    [theme, Platform.OS],
   );
 
   const appTheme = useMemo(
@@ -49,10 +58,10 @@ const App = () => {
       ...DefaultTheme,
       colors: {
         ...DefaultTheme.colors,
-        background: isAuthorized ? '#f9f9fe' : 'black',
+        background: theme.background,
       },
     }),
-    [isAuthorized],
+    [theme],
   );
 
   useEffect(() => {
@@ -103,26 +112,18 @@ const AppContainer = () => {
   return (
     <SafeAreaProvider>
       <Provider store={store}>
-        <PactProvider>
-          <WalletConnectProvider>
-            <PersistGate loading={null} persistor={persistor}>
-              <App />
-            </PersistGate>
-          </WalletConnectProvider>
-        </PactProvider>
+        <AppThemeProvider>
+          <PactProvider>
+            <WalletConnectProvider>
+              <PersistGate loading={null} persistor={persistor}>
+                <App />
+              </PersistGate>
+            </WalletConnectProvider>
+          </PactProvider>
+        </AppThemeProvider>
       </Provider>
     </SafeAreaProvider>
   );
 };
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#000000',
-  },
-});
 
 export default AppContainer;

@@ -3,11 +3,9 @@ import {View, TextInput, Text, Alert, FlatList} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
-
 import Header from './components/Header';
 import BasicSearchSvg from '../../assets/images/basic-search.svg';
 import Item from './components/Item';
-import {createStyles} from './styles';
 import {makeSelectSearchTokenList} from '../../store/userWallet/selectors';
 import {makeSelectActiveNetworkDetails} from '../../store/networks/selectors';
 import {useShallowEqualSelector} from '../../store/utils';
@@ -17,6 +15,8 @@ import {getNetworkParams} from '../../utils/networkHelpers';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
+import {useAppThemeContext} from '../../contexts';
+import {makeStyles} from './styles';
 
 const SearchTokens = () => {
   const {t} = useTranslation();
@@ -32,7 +32,11 @@ const SearchTokens = () => {
   const [loadingItem, setLoadingItem] = useState<string>('');
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => makeStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
 
   const handlePressItem = useCallback(
     (item: string) => async () => {

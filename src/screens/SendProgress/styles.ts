@@ -4,13 +4,17 @@ import {
   MEDIUM_MONTSERRAT,
   REGULAR_MONTSERRAT,
 } from '../../constants/styles';
+import {IAppTheme} from '../../themes/types';
 
-export const createStyles = ({
-  bottomSpace,
-}: {
-  bottomSpace: number;
-  statusBarHeight: number;
-}) =>
+export const createStyles = (
+  theme: IAppTheme,
+  {
+    bottomSpace,
+  }: {
+    bottomSpace: number;
+    statusBarHeight: number;
+  },
+) =>
   StyleSheet.create({
     screen: {
       flex: 1,
@@ -68,7 +72,7 @@ export const createStyles = ({
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '500',
       fontSize: 45,
-      color: 'black',
+      color: theme.text.primary,
       marginTop: 40,
       marginBottom: 12,
     },
@@ -76,7 +80,7 @@ export const createStyles = ({
       fontFamily: MEDIUM_MONTSERRAT,
       fontWeight: '500',
       fontSize: 12,
-      color: '#787B8E',
+      color: theme.text.secondary,
       textAlign: 'center',
       width: '100%',
       paddingHorizontal: 20,
@@ -86,7 +90,7 @@ export const createStyles = ({
       fontFamily: BOLD_MONTSERRAT,
       fontWeight: '700',
       fontSize: 12,
-      color: 'black',
+      color: theme.text.primary,
       textAlign: 'center',
       width: '100%',
       paddingHorizontal: 20,
@@ -97,7 +101,7 @@ export const createStyles = ({
       fontFamily: REGULAR_MONTSERRAT,
       fontWeight: '400',
       fontSize: 18,
-      color: 'black',
+      color: theme.text.primary,
       paddingHorizontal: 20,
       textAlign: 'center',
       width: '100%',
@@ -106,7 +110,7 @@ export const createStyles = ({
       fontFamily: BOLD_MONTSERRAT,
       fontWeight: '700',
       fontSize: 12,
-      color: 'black',
+      color: theme.text.primary,
       paddingHorizontal: 20,
       textAlign: 'center',
       width: '100%',
@@ -117,7 +121,7 @@ export const createStyles = ({
       fontFamily: REGULAR_MONTSERRAT,
       fontWeight: '400',
       fontSize: 18,
-      color: 'black',
+      color: theme.text.primary,
       paddingHorizontal: 20,
       textAlign: 'center',
       width: '100%',
@@ -126,7 +130,7 @@ export const createStyles = ({
       fontFamily: BOLD_MONTSERRAT,
       fontWeight: '700',
       fontSize: 12,
-      color: 'black',
+      color: theme.text.primary,
       paddingHorizontal: 20,
       textAlign: 'center',
       width: '100%',
@@ -138,7 +142,7 @@ export const createStyles = ({
       fontWeight: '400',
       fontSize: 18,
       paddingHorizontal: 20,
-      color: 'black',
+      color: theme.text.primary,
       textAlign: 'center',
       width: '100%',
     },

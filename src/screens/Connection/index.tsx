@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
 import Header from './components/Header';
-import {createStyles} from './styles';
 import {headerTabs} from './const';
 import PairingItem from './components/PairingItem';
 import SessionItem from './components/SessionItem';
@@ -19,9 +18,10 @@ import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import WalletConnectInfoModal from '../../components/WalletConnectInfoModal';
 import Modal from '../../components/Modal';
-import {useWalletConnectContext} from '../../contexts';
+import {useAppThemeContext, useWalletConnectContext} from '../../contexts';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import {TSessionItem} from './components/SessionItem/types';
+import {makeStyles} from './styles';
 
 const Connection = () => {
   const {t} = useTranslation();
@@ -42,7 +42,12 @@ const Connection = () => {
   );
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const safeArea = useSafeAreaValues();
+  const styles = useMemo(
+    () => makeStyles(theme, safeArea),
+    [theme, {bottomSpace, statusBarHeight}],
+  );
 
   const pairings = useMemo(
     () =>

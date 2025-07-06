@@ -1,4 +1,4 @@
-import React, {FC, useCallback} from 'react';
+import React, {FC, useCallback, useMemo} from 'react';
 import {View, Text} from 'react-native';
 
 import PencilEditSvg from '../../assets/images/pencil-edit.svg';
@@ -8,7 +8,7 @@ import Modal from '../../components/Modal';
 import ListItem from '../../components/ListItem';
 
 import {TNetworkDetailsModalProps} from './types';
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {useDispatch} from 'react-redux';
 import {makeSelectSelectedNetwork} from '../../store/networks/selectors';
 import {deleteSelectedNetwork} from '../../store/networks';
@@ -17,12 +17,16 @@ import {ERootStackRoutes} from '../../routes/types';
 import {useShallowEqualSelector} from '../../store/utils';
 import {MAIN_COLOR} from '../../constants/styles';
 import {useTranslation} from 'react-i18next';
+import {useAppThemeContext} from '../../contexts';
 
 const NetworkDetailsModal: FC<TNetworkDetailsModalProps> = React.memo(
   ({toggle, isVisible}) => {
     const {t} = useTranslation();
     const dispatch = useDispatch();
     const navigation = useNavigation<any>();
+
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => createStyles(theme), [theme]);
 
     const network = useShallowEqualSelector(makeSelectSelectedNetwork);
 
@@ -41,7 +45,13 @@ const NetworkDetailsModal: FC<TNetworkDetailsModalProps> = React.memo(
         isVisible={isVisible}
         close={toggle}
         title={network?.name}
-        logo={<NetworksSvg fill={MAIN_COLOR} width={48} height={48} />}>
+        logo={
+          <NetworksSvg
+            fill={theme.isDark ? '#fff' : MAIN_COLOR}
+            width={48}
+            height={48}
+          />
+        }>
         <View style={styles.modalContainer}>
           <View style={styles.modalContentWrapper}>
             <View style={[styles.section, styles.borderBottom]}>

@@ -1,22 +1,36 @@
-import React, {FC} from 'react';
-import {Linking, Text, TouchableOpacity, View} from 'react-native';
+import React, {FC, useMemo} from 'react';
+import {Image, Linking, Text, TouchableOpacity, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import packageJson from '../../../../../package.json';
 import GlobeSvg from '../../../../assets/images/globe.svg';
 import DiscordSvg from '../../../../assets/images/discord.svg';
-import {styles} from './styles';
+import {makeStyles} from './styles';
+import {useAppThemeContext} from '../../../../contexts';
 
 const Footer: FC = React.memo(() => {
   const {t} = useTranslation();
   const version = packageJson.version;
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
 
   return (
     <View style={styles.wrapper}>
       <Text style={styles.text}>{t('settings.footer.version', {version})}</Text>
-      <Text style={styles.text}>{t('settings.footer.tagline')}</Text>
+      <Image
+        source={
+          theme.isDark
+            ? require('../../../../assets/images/powered_by_light.png')
+            : require('../../../../assets/images/powered_by_dark.png')
+        }
+        style={styles.poweredByIcon}
+        resizeMode="contain"
+      />
+      <Text style={{...styles.text, marginBottom: 16}}>
+        {t('settings.footer.tagline')}
+      </Text>
       <View style={styles.tipsWrapper}>
         <TouchableOpacity
-          onPress={() => Linking.openURL('https://dex.ecko.finance/')}
+          onPress={() => Linking.openURL('https://eckowallet.com/')}
           activeOpacity={0.8}
           style={styles.tip}>
           <GlobeSvg width="24" height="24" />
@@ -34,9 +48,7 @@ const Footer: FC = React.memo(() => {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() =>
-            Linking.openURL('https://wallet.ecko.finance/terms-of-use')
-          }
+          onPress={() => Linking.openURL('https://eckowallet.com/terms-of-use')}
           activeOpacity={0.8}
           style={styles.tip}>
           <Text style={styles.tipTitleNoIcon}>
@@ -45,7 +57,7 @@ const Footer: FC = React.memo(() => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() =>
-            Linking.openURL('https://wallet.ecko.finance/privacy-policy')
+            Linking.openURL('https://eckowallet.com/privacy-policy')
           }
           activeOpacity={0.8}
           style={styles.tip}>

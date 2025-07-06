@@ -6,7 +6,6 @@ import {useTranslation} from 'react-i18next';
 import Header from './components/Header';
 import ListDay from './components/ListDay';
 
-import {createStyles} from './styles';
 import {
   convertToListDay,
   makeSelectListDayActivities,
@@ -29,6 +28,8 @@ import {makeSelectActiveNetworkDetails} from '../../store/networks/selectors';
 import {makeSelectSelectedAccount} from '../../store/userWallet/selectors';
 import {ECKO_DEXTOOLS_API_URL} from '../../api/constants';
 import {TActivity} from '../../store/history/types';
+import {useAppThemeContext} from '../../contexts';
+import {createStyles} from './styles';
 
 const limit = 15;
 
@@ -140,7 +141,11 @@ const History = () => {
   }, []);
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => createStyles({bottomSpace, statusBarHeight, theme}),
+    [bottomSpace, statusBarHeight, theme],
+  );
 
   const filteredTransactions = transactions
     .map(day => ({

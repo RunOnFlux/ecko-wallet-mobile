@@ -1,7 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import TabBar from './compoenents/TabBar';
+import TabBar from './components/TabBar';
 import {HOME_TAB_SCREENS} from '../../routes';
 import {EHomeTabRoutes} from '../../routes/types';
 import {useTranslation} from 'react-i18next';

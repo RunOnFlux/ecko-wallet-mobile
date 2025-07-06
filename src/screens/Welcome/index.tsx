@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {
+  Image,
   ImageBackground,
   ScrollView,
   Text,
@@ -80,6 +81,11 @@ const Welcome = () => {
           <Logo width={50} height={50} />
           <Text style={styles.welcome}>{t('welcome.title')}</Text>
           <Text style={styles.smText}>{t('welcome.subtitle')}</Text>
+          <Image
+            source={require('../../assets/images/powered_by_light.png')}
+            style={styles.poweredByIcon}
+            resizeMode="contain"
+          />
           <TouchableOpacity
             activeOpacity={0.8}
             style={styles.langButton}

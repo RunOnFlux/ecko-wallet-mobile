@@ -1,10 +1,14 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {Image, View, Text, TouchableOpacity} from 'react-native';
 
-import {styles} from './styles';
+import {createStyles} from './styles';
 import {TItemProps} from './types';
+import {useAppThemeContext} from '../../../../contexts';
 
 const Item: FC<TItemProps> = React.memo(({item, onPress}) => {
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => createStyles(theme), [theme]);
+
   return (
     <TouchableOpacity
       activeOpacity={0.8}
@@ -18,7 +22,7 @@ const Item: FC<TItemProps> = React.memo(({item, onPress}) => {
         <Text style={styles.contactName}>{item.contactName}</Text>
         <View style={styles.footerWrapper}>
           <Text style={styles.text}>{item.accountName}</Text>
-          <Text style={styles.text}>Chain ID {item.chainId}</Text>
+          <Text style={styles.text}>Chain {item.chainId}</Text>
         </View>
       </View>
     </TouchableOpacity>

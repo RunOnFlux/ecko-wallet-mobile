@@ -1,0 +1,103 @@
+import {StyleSheet} from 'react-native';
+import {AppThemeEnum, IAppTheme} from './types';
+import {useAppThemeContext} from '../contexts';
+import {useMemo} from 'react';
+
+export const appThemes: {[key in AppThemeEnum]: IAppTheme} = {
+  [AppThemeEnum.LIGHT]: {
+    isDark: false,
+    background: '#FFFFFF',
+    surface: '#F8F9FA',
+    border: '#E9ECEF',
+    text: {
+      primary: '#212529',
+      secondary: '#6C757D',
+      disabled: '#ADB5BD',
+    },
+    button: {
+      primary: '#24224c',
+      secondary: '#6C757D',
+    },
+    input: {
+      color: '#212529',
+      background: 'rgba(236,236,245,0.5)',
+      placeholder: '#9FA6AB',
+      border: '#DEE2E6',
+    },
+    alert: {color: '#856404', background: '#FFF3CD'},
+    error: {color: '#721C24', background: '#F8D7DA'},
+    success: {color: '#155724', background: '#D4EDDA'},
+    brand: '#ed1cb5',
+    shadow: {
+      shadowColor: '#000',
+      shadowOffset: {width: 0, height: 2},
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+      elevation: 3,
+    },
+  },
+  [AppThemeEnum.DARK]: {
+    isDark: true,
+    background: '#1A1A1A',
+    surface: '#2D2D2D',
+    border: '#404040',
+    text: {
+      primary: '#FFFFFF',
+      secondary: '#B3B3B3',
+      disabled: '#666666',
+    },
+    button: {
+      primary: '#3d387f',
+      secondary: '#666666',
+    },
+    input: {
+      color: '#FFFFFF',
+      background: '#2D2D2D',
+      placeholder: '#B3B3B3',
+      border: '#404040',
+    },
+    alert: {color: '#FFE066', background: '#4D4016'},
+    error: {color: '#FF8A95', background: '#4D1F23'},
+    success: {color: '#68D391', background: '#1F4D2B'},
+    brand: '#ed1cb5',
+    shadow: {
+      shadowColor: '#000',
+      shadowOffset: {width: 0, height: 4},
+      shadowOpacity: 0.3,
+      shadowRadius: 6,
+      elevation: 8,
+    },
+  },
+  [AppThemeEnum.DARK_BLUE]: {
+    isDark: true,
+    background: '#1A1E3E',
+    surface: '#252A4F',
+    border: '#3A4070',
+    text: {
+      primary: '#F5F7F9',
+      secondary: '#9FA6AB',
+      disabled: '#6B7280',
+    },
+    button: {
+      primary: '#363F82',
+      secondary: '#9FA6AB',
+    },
+    input: {
+      color: '#F5F7F9',
+      background: '#2D3351',
+      placeholder: '#9FA6AB',
+      border: '#3A4070',
+    },
+    alert: {color: '#FCD34D', background: '#451A03'},
+    error: {color: '#F87171', background: '#451A1A'},
+    success: {color: '#34D399', background: '#064E3B'},
+    brand: '#ed1cb5',
+    shadow: {
+      shadowColor: '#000',
+      shadowOffset: {width: 0, height: 6},
+      shadowOpacity: 0.4,
+      shadowRadius: 8,
+      elevation: 12,
+    },
+  },
+};

@@ -1,4 +1,4 @@
-import React, {useCallback, useRef} from 'react';
+import React, {useCallback, useMemo, useRef} from 'react';
 import {
   ScrollView,
   View,
@@ -10,12 +10,9 @@ import {
 } from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
-
-import Header from './components/Header';
 import SecurityUnlockSvg from '../../assets/images/security-unlock.svg';
 import PasswordInput from '../../components/PasswordInput';
 import {exportRecoveryPhraseSchema} from '../../validation/exportRecoveryPhraseSchema';
-import {createStyles} from './styles';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {useScrollBottomOnKeyboard} from '../../utils/keyboardHelpers';
 import {useNavigation} from '@react-navigation/native';
@@ -24,6 +21,9 @@ import {makeSelectHashPassword} from '../../store/auth/selectors';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {comparePassword} from '../../api/kadena/comparePassword';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {useAppThemeContext} from '../../contexts';
+import {makeStyles} from './styles';
+import Header from '../../components/Header';
 
 const ExportRecoveryPhraseAuth = () => {
   const navigation =
@@ -40,8 +40,9 @@ const ExportRecoveryPhraseAuth = () => {
 
   const hash = useSelector(makeSelectHashPassword);
 
-  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const safeArea = useSafeAreaValues();
+  const styles = useMemo(() => makeStyles(theme, safeArea), [theme, safeArea]);
 
   const handlePressContinue = useCallback(
     (data: FieldValues) => {
@@ -87,9 +88,9 @@ const ExportRecoveryPhraseAuth = () => {
     <KeyboardAvoidingView
       style={{flex: 1}}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      keyboardVerticalOffset={-bottomSpace}>
+      keyboardVerticalOffset={-safeArea.bottomSpace}>
       <View style={styles.screen}>
-        <Header />
+        <Header title={t('exportRecoveryPhrase.header.title')} />
         <ScrollView
           ref={scrollRef}
           keyboardShouldPersistTaps="handled"

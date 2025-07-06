@@ -3,8 +3,6 @@ import {View, Alert, ScrollView} from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {useDispatch} from 'react-redux';
 import {useTranslation} from 'react-i18next';
-
-import Header from './components/Header';
 import FooterButton from '../../components/FooterButton';
 import Input from '../../components/Input';
 import {createStyles} from './styles';
@@ -15,6 +13,7 @@ import {useNavigation} from '@react-navigation/native';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {validateSeeds} from '../../api/kadena/validateSeeds';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import Header from '../../components/Header';
 
 const RecoverAccount = () => {
   const {t} = useTranslation();
@@ -77,7 +76,7 @@ const RecoverAccount = () => {
   return (
     <View style={styles.screen}>
       <View style={styles.container}>
-        <Header />
+        <Header title={t('importAccount.header.title')} />
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.content}

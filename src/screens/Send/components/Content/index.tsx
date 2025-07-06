@@ -1,15 +1,18 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {View, Text, TouchableOpacity, Keyboard} from 'react-native';
 import {useTranslation} from 'react-i18next';
-
 import Settings from '../Settings';
-import {styles} from './styles';
 import {TContentType} from './types';
 import {cutStr} from '../../../../utils/stringHelpers';
+import {useAppThemeContext} from '../../../../contexts';
+import {makeStyles} from './styles';
 
 const Content: FC<TContentType> = React.memo(props => {
   const {t} = useTranslation();
   const {predicate, receiverPublicKey} = props;
+
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(() => makeStyles(theme), [theme]);
 
   return (
     <TouchableOpacity

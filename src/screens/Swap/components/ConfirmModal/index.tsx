@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useMemo} from 'react';
 import {Text, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
@@ -8,6 +8,7 @@ import Button from '../../../Wallet/components/WalletBalance/components/Button';
 import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
 import {createStyles} from './styles';
 import {TConfirmModal} from './types';
+import {useAppThemeContext} from '../../../../contexts';
 
 const ConfirmModal: FC<TConfirmModal> = ({
   isVisible,
@@ -19,7 +20,11 @@ const ConfirmModal: FC<TConfirmModal> = ({
 }) => {
   const {t} = useTranslation();
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const {theme} = useAppThemeContext();
+  const styles = useMemo(
+    () => createStyles(theme, {bottomSpace, statusBarHeight}),
+    [theme, bottomSpace, statusBarHeight],
+  );
 
   return (
     <Modal

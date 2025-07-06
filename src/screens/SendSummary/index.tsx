@@ -4,7 +4,6 @@ import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 
 import TopHeader from '../../components/TopHeader';
-import Header from './components/Header';
 import FooterButton from '../../components/FooterButton';
 import AccountFromTo from '../../components/AccountFromTo';
 import WalletInfo from './components/WalletInfo';
@@ -28,6 +27,7 @@ import {
 import {useShallowEqualSelector} from '../../store/utils';
 import {useNavigation} from '@react-navigation/native';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import Header from '../../components/Header';
 
 const SendSummary = () => {
   const {t} = useTranslation();
@@ -87,7 +87,7 @@ const SendSummary = () => {
   return (
     <>
       <View style={styles.container}>
-        <Header />
+        <Header title={t('sendSummary.header.title')} />
         <ScrollView
           keyboardDismissMode="on-drag"
           stickyHeaderIndices={[0]}
