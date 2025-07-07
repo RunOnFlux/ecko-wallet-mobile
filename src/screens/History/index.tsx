@@ -183,6 +183,7 @@ const History = () => {
         )}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.content}
+        removeClippedSubviews={false}
         style={styles.contentWrapper}
         onEndReached={fetchTransactions}
         onEndReachedThreshold={0.5}
