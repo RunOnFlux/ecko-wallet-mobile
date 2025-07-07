@@ -5,7 +5,6 @@ import LogoGraySvg from '../assets/images/logo-gray.svg';
 import LogoSvg from '../assets/images/logo.svg';
 import SwapSvg from '../assets/images/swap.svg';
 import History from '../screens/History';
-import TimeHistorySvg from '../assets/images/time-history.svg';
 import ConnectionSvg from '../assets/images/connect.svg';
 import BasicSettingsSvg from '../assets/images/basic-settins.svg';
 import Login from '../screens/Login';
@@ -76,6 +75,10 @@ export const APP_STACK_SCREENS = [
   {
     name: ERootStackRoutes.Buy,
     component: BuyScreen,
+  },
+  {
+    name: ERootStackRoutes.History,
+    component: History,
   },
   {
     name: ERootStackRoutes.SendSummary,
@@ -173,24 +176,6 @@ export const HOME_TAB_SCREENS = [
       tabBarIcon: ({focused}: any) => {
         return (
           <SwapSvg
-            fill={focused ? '#404A8D' : '#787B8E'}
-            width={24}
-            height={24}
-          />
-        );
-      },
-    },
-  },
-  {
-    name: EHomeTabRoutes.History,
-    component: History,
-    options: {
-      tabBarLabel: 'History',
-      tabBarActiveTintColor: '#404A8D',
-      tabBarInactiveTintColor: '#787B8E',
-      tabBarIcon: ({focused}: any) => {
-        return (
-          <TimeHistorySvg
             fill={focused ? '#404A8D' : '#787B8E'}
             width={24}
             height={24}

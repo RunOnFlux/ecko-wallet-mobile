@@ -18,6 +18,7 @@ export enum ERootStackRoutes {
   Send = 'Send',
   Receive = 'Receive',
   Buy = 'Buy',
+  History = 'History',
   SendSummary = 'SendSummary',
   SearchTokens = 'SearchTokens',
   SendProgress = 'SendProgress',
@@ -37,7 +38,6 @@ export enum ERootStackRoutes {
 
 export enum EHomeTabRoutes {
   Wallet = 'Wallet',
-  History = 'History',
   Connection = 'Connection',
   Nft = 'Nft',
   Settings = 'Settings',
@@ -46,7 +46,6 @@ export enum EHomeTabRoutes {
 
 export type THomeTabParamList = {
   [EHomeTabRoutes.Wallet]: undefined;
-  [EHomeTabRoutes.History]: undefined;
   [EHomeTabRoutes.Nft]: undefined;
   [EHomeTabRoutes.Settings]: undefined;
   [EHomeTabRoutes.Connection]: undefined;
@@ -67,6 +66,7 @@ export type TRootStackParamList = {
   [ERootStackRoutes.Login]: {isReset?: boolean};
   [ERootStackRoutes.ResetPasscode]: {isReset?: boolean};
   [ERootStackRoutes.Send]: {sourceChainId?: string};
+  [ERootStackRoutes.History]: undefined;
   [ERootStackRoutes.Receive]: undefined;
   [ERootStackRoutes.SendSummary]: undefined;
   [ERootStackRoutes.SendProgress]: undefined;

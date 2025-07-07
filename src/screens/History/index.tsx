@@ -2,10 +2,8 @@ import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {View, Text, RefreshControl, FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {useTranslation} from 'react-i18next';
-
-import Header from './components/Header';
+import HistoryTabHeader from './components/Header';
 import ListDay from './components/ListDay';
-
 import {
   convertToListDay,
   makeSelectListDayActivities,
@@ -30,6 +28,7 @@ import {ECKO_DEXTOOLS_API_URL} from '../../api/constants';
 import {TActivity} from '../../store/history/types';
 import {useAppThemeContext} from '../../contexts';
 import {createStyles} from './styles';
+import Header from '../../components/Header';
 
 const limit = 15;
 
@@ -163,7 +162,8 @@ const History = () => {
 
   return (
     <View style={styles.container}>
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Header title={t('tabs.History')} />
+      <HistoryTabHeader activeTab={activeTab} setActiveTab={setActiveTab} />
       <FlatList
         refreshControl={
           <RefreshControl

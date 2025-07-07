@@ -44,8 +44,7 @@ export const makeStyles = (theme: IAppTheme) =>
     },
     error: {
       fontFamily: MEDIUM_MONTSERRAT,
-      marginTop: 2,
-      marginLeft: 16,
+      marginTop: 4,
       marginBottom: 10,
       color: theme.error.color,
     },
