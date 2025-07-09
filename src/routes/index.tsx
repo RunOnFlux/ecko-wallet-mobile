@@ -38,6 +38,7 @@ import Welcome from '../screens/Welcome';
 import ChangeAccountPassword from '../screens/ChangeAccountPassword';
 import ReceiverScan from '../screens/ReceiverScan';
 import BuyScreen from '../screens/Buy';
+import Analytics from '../screens/Analytics';
 
 export const AUTH_STACK_SCREENS = [
   {name: ERootStackRoutes.Welcome, component: Welcome},
@@ -163,6 +164,24 @@ export const HOME_TAB_SCREENS = [
           return <LogoSvg width={24} height={24} />;
         }
         return <LogoGraySvg width={24} height={24} />;
+      },
+    },
+  },
+  {
+    name: EHomeTabRoutes.Analytics,
+    component: Analytics,
+    options: {
+      tabBarLabel: 'Analytics',
+      tabBarActiveTintColor: '#404A8D',
+      tabBarInactiveTintColor: '#787B8E',
+      tabBarIcon: ({focused}: any) => {
+        return (
+          <SwapSvg
+            fill={focused ? '#404A8D' : '#787B8E'}
+            width={24}
+            height={24}
+          />
+        );
       },
     },
   },

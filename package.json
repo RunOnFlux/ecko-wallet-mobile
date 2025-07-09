@@ -70,6 +70,7 @@
     "text-encoding-polyfill": "^0.6.7",
     "throttle-debounce": "^5.0.2",
     "tweetnacl": "^1.0.3",
+    "victory-native": "^36.9.2",
     "yup": "^1.6.1"
   },
   "devDependencies": {

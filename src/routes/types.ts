@@ -38,6 +38,7 @@ export enum ERootStackRoutes {
 
 export enum EHomeTabRoutes {
   Wallet = 'Wallet',
+  Analytics = 'Analytics',
   Connection = 'Connection',
   Nft = 'Nft',
   Settings = 'Settings',
@@ -47,6 +48,7 @@ export enum EHomeTabRoutes {
 export type THomeTabParamList = {
   [EHomeTabRoutes.Wallet]: undefined;
   [EHomeTabRoutes.Nft]: undefined;
+  [EHomeTabRoutes.Analytics]: undefined;
   [EHomeTabRoutes.Settings]: undefined;
   [EHomeTabRoutes.Connection]: undefined;
 };
