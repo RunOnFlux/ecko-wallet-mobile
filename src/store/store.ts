@@ -76,7 +76,7 @@ const MMKVStorage = (storage: MMKV) =>
       storage.delete(key);
       return Promise.resolve();
     },
-  } as Storage);
+  }) as Storage;
 
 const sagaMiddleware = createSagaMiddleware();
 const middleware = [sagaMiddleware];
