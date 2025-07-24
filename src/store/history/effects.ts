@@ -1,24 +1,18 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import {TPollRequestParams} from './types';
-import {setGetPollError, setGetPollLoading, setGetPollSuccess} from './index';
+import {TPollRequestParams, TPollResp} from './types';
 import {getPoll} from '../../api/kadena/poll';
 
 export const fetchPollData = createAsyncThunk<
-  any[],
+  TPollResp[],
   TPollRequestParams[],
   {rejectValue: any}
->('history/fetchPollData', async (payload, {dispatch, rejectWithValue}) => {
+>('history/fetchPollData', async (payload, {rejectWithValue}): Promise<any> => {
   try {
-    dispatch(setGetPollLoading(true));
-
     const responses = await Promise.all(payload.map(getPoll as any));
-    dispatch(setGetPollSuccess(responses));
-
     return responses;
   } catch (e) {
-    dispatch(setGetPollError(e));
     return rejectWithValue(e);
   } finally {
-    dispatch(setGetPollLoading(false));
+    //
   }
 });

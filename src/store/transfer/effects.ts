@@ -1,6 +1,5 @@
 import {AxiosError} from 'axios';
 
-import {TAction} from '../types';
 import {
   swapRequestError,
   swapRequestFulfilled,
@@ -96,6 +95,23 @@ export const makeTransferThunk = createAsyncThunk(
       });
 
       const reqKey = txRes.requestKeys[0];
+
+      dispatch(
+        setSendResult({
+          amount,
+          coinShortName:
+            sourceToken?.tokenName || sourceToken?.tokenAddress || 'KDA',
+          requestKey: reqKey,
+          status: 'pending',
+          createdTime: new Date().toISOString(),
+          sender: sender,
+          sourceChainId: sourceChainId,
+          receiver: destinationAccount!.accountName,
+          targetChainId: destinationAccount?.chainId!,
+          type: 'TRANSFER',
+          network: networkDetail,
+        }),
+      );
       dispatch(
         setTransferResult({
           message: 'Transfer Pending...',
@@ -129,6 +145,23 @@ export const makeTransferThunk = createAsyncThunk(
 
       if (!listenResult || listenResult.result?.status === 'failure') {
         dispatch(
+          setSendResult({
+            amount: amount,
+            coinShortName:
+              sourceToken?.tokenName || sourceToken?.tokenAddress || 'KDA',
+            status: 'failure',
+            createdTime: new Date().toISOString(),
+            message: 'Transfer Failed',
+            requestKey: reqKey,
+            sender,
+            sourceChainId,
+            receiver: destinationAccount!.accountName,
+            targetChainId: destinationAccount?.chainId!,
+            type: 'TRANSFER',
+            network: networkDetail,
+          }),
+        );
+        dispatch(
           setTransferResult({
             status: 'failure',
             date: new Date().toISOString(),
@@ -146,6 +179,24 @@ export const makeTransferThunk = createAsyncThunk(
 
       if (listenResult.result?.status === 'success') {
         dispatch(
+          setSendResult({
+            amount: amount,
+            coinShortName:
+              sourceToken?.tokenName || sourceToken?.tokenAddress || 'KDA',
+            status: 'success',
+            createdTime: new Date().toISOString(),
+            message: 'Transfer Successful',
+            requestKey: listenResult.reqKey,
+            sender,
+            sourceChainId,
+            receiver: destinationAccount!.accountName,
+            targetChainId: destinationAccount?.chainId!,
+            type: 'TRANSFER',
+            network: networkDetail,
+          }),
+        );
+
+        dispatch(
           setTransferResult({
             status: 'success',
             date: new Date().toISOString(),
@@ -160,7 +211,6 @@ export const makeTransferThunk = createAsyncThunk(
         dispatch(setListenResult(listenResult));
       }
 
-      // Dispatch poll request and refresh balances
       const pollReqParams = makeSelectPollRequestParams(getState());
       dispatch(getPollRequest(pollReqParams));
       const selectedNetwork = makeSelectActiveNetworkDetails(getState());
@@ -172,6 +222,24 @@ export const makeTransferThunk = createAsyncThunk(
       );
     } catch (err) {
       const error = err as AxiosError;
+      dispatch(
+        setSendResult({
+          amount: amount,
+          coinShortName:
+            sourceToken?.tokenName || sourceToken?.tokenAddress || 'KDA',
+          status: 'failure',
+          createdTime: new Date().toISOString(),
+          message: 'Transfer Failed',
+          text: error?.response?.data || error?.message || '',
+          requestKey: '',
+          sender,
+          sourceChainId,
+          receiver: destinationAccount!.accountName,
+          targetChainId: destinationAccount?.chainId!,
+          type: 'TRANSFER',
+          network: networkDetail,
+        }),
+      );
       dispatch(
         setTransferResult({
           status: 'failure',
