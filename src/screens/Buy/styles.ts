@@ -5,7 +5,7 @@ import {IAppTheme} from '../../themes/types';
 export const createStyles = (
   theme: IAppTheme,
   {
-    statusBarHeight,
+    bottomSpace,
   }: {
     bottomSpace: number;
     statusBarHeight: number;
@@ -15,6 +15,7 @@ export const createStyles = (
     container: {
       flex: 1,
       backgroundColor: theme.background,
+      paddingBottom: bottomSpace,
     },
     headerTitle: {
       fontSize: 18,
@@ -54,21 +55,22 @@ export const createStyles = (
     cancelButtonStyle: {
       backgroundColor: theme.surface,
       borderWidth: 1,
-      borderColor: theme.shadow,
+      borderColor: theme.shadow.shadowColor,
     },
     confirmButtonStyle: {
       backgroundColor: theme.brand,
+      color: '#fff',
     },
     cancelButtonText: {
       color: theme.text.primary,
       fontWeight: '600',
     },
     confirmButtonText: {
-      color: theme.text.onPrimary,
+      color: '#fff',
       fontWeight: '600',
     },
     errorText: {
-      color: theme.error,
+      color: theme.error.color,
       marginTop: 10,
       textAlign: 'center',
       padding: 10,

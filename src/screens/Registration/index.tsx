@@ -90,7 +90,7 @@ const Registration = () => {
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>
       <KeyboardAvoidingView
         style={{flex: 1}}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={-bottomSpace}>
         <ScrollView
           ref={scrollRef}

@@ -84,7 +84,7 @@ const WalletConnectScan = () => {
   return (
     <KeyboardAvoidingView
       style={{flex: 1}}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={-bottomSpace}>
       <View style={styles.screen}>
         <Header title={t('walletConnectScan.header.title')} />
