@@ -1,41 +1,47 @@
-import {call, put, takeLatest} from 'redux-saga/effects';
-import axios, {AxiosResponse} from 'axios';
+import {createAsyncThunk} from '@reduxjs/toolkit';
+import axios from 'axios';
 
-import {GET_NETWORK_DETAILS_REQUEST} from './actions';
 import {
   setNetworkDetailsError,
   setNetworkDetailsLoading,
   setNetworkDetailsSuccess,
 } from './index';
 import {TNetwork} from '../../screens/Networks/components/Item/types';
-import {TAction} from '../types';
 import {TNetworkDetail} from './types';
 
-function* getNetworkDetailsRequest({payload}: TAction<TNetwork>) {
-  yield put(setNetworkDetailsLoading(true));
-  try {
-    const {
-      data: {nodeApiVersion, nodeVersion, nodeChains},
-    }: AxiosResponse = yield call(axios.get, `${payload.host}/info`);
-    const {data}: AxiosResponse = yield call(
-      axios.get,
-      `${payload.host}/chainweb/${nodeApiVersion}/${nodeVersion}/cut`,
-    );
-    const resp: TNetworkDetail = {
-      ...payload,
-      ...data,
-      instance: nodeVersion,
-      version: nodeApiVersion,
-      chainIds: nodeChains,
-    };
-    yield put(setNetworkDetailsSuccess(resp));
-  } catch (err) {
-    yield put(setNetworkDetailsError(err));
-  } finally {
-    yield put(setNetworkDetailsLoading(false));
-  }
-}
+export const fetchNetworkDetails = createAsyncThunk<
+  TNetworkDetail,
+  TNetwork,
+  {rejectValue: any}
+>(
+  'networks/fetchNetworkDetails',
+  async (payload, {dispatch, rejectWithValue}) => {
+    dispatch(setNetworkDetailsLoading(true));
 
-export function* networksSaga() {
-  yield takeLatest(GET_NETWORK_DETAILS_REQUEST, getNetworkDetailsRequest);
-}
+    try {
+      const {
+        data: {nodeApiVersion, nodeVersion, nodeChains},
+      } = await axios.get(`${payload.host}/info`);
+
+      const {data} = await axios.get(
+        `${payload.host}/chainweb/${nodeApiVersion}/${nodeVersion}/cut`,
+      );
+
+      const resp: TNetworkDetail = {
+        ...payload,
+        ...data,
+        instance: nodeVersion,
+        version: nodeApiVersion,
+        chainIds: nodeChains,
+      };
+
+      dispatch(setNetworkDetailsSuccess(resp));
+      return resp;
+    } catch (err) {
+      dispatch(setNetworkDetailsError(err));
+      return rejectWithValue(err);
+    } finally {
+      dispatch(setNetworkDetailsLoading(false));
+    }
+  },
+);

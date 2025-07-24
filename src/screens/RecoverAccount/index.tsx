@@ -14,13 +14,14 @@ import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {validateSeeds} from '../../api/kadena/validateSeeds';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import Header from '../../components/Header';
+import {AppDispatch} from '../../store/store';
 
 const RecoverAccount = () => {
   const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.RecoverAccount>>();
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
   const styles = createStyles({bottomSpace, statusBarHeight});

@@ -33,9 +33,10 @@ import {
 import {useDebounce} from '../../utils/hooksHelpers';
 import {useShallowEqualSelector} from '../../store/utils';
 import {useAppThemeContext} from '../../contexts';
+import {AppDispatch} from '../../store/store';
 
 const Wallet = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const walletInitialized = useSelector(makeSelectWalletInitialized);
   const isBalanceLoading = useSelector(makeSelectBalanceLoading);
@@ -100,7 +101,7 @@ const Wallet = () => {
   useEffect(() => {
     if (walletInitialized) {
       if ((accountsList || []).length === 0) {
-        dispatch(getGenerateAccount());
+        dispatch(getGenerateAccount({}));
       } else if (
         (accountsList || []).length > 0 &&
         !selectedAccount?.accountName

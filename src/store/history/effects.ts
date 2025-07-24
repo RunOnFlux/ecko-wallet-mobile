@@ -1,26 +1,24 @@
-import {put, takeEvery, all} from 'redux-saga/effects';
-import {TAction} from '../types';
+import {createAsyncThunk} from '@reduxjs/toolkit';
 import {TPollRequestParams} from './types';
-import {GET_POLL_REQUEST} from './actions';
 import {setGetPollError, setGetPollLoading, setGetPollSuccess} from './index';
 import {getPoll} from '../../api/kadena/poll';
 
-function* getPollRequest({payload}: TAction<TPollRequestParams[]>) {
-  yield put(setGetPollLoading(true));
+export const fetchPollData = createAsyncThunk<
+  any[],
+  TPollRequestParams[],
+  {rejectValue: any}
+>('history/fetchPollData', async (payload, {dispatch, rejectWithValue}) => {
   try {
-    const promises = payload.map((item: any) => {
-      return getPoll(item);
-    });
-    const responses = yield all(promises);
-    const responseData = responses.map((data: any) => data);
-    yield put(setGetPollSuccess(responseData));
-  } catch (e) {
-    yield put(setGetPollError(e));
-  } finally {
-    yield put(setGetPollLoading(false));
-  }
-}
+    dispatch(setGetPollLoading(true));
 
-export function* historySaga() {
-  yield takeEvery(GET_POLL_REQUEST, getPollRequest);
-}
+    const responses = await Promise.all(payload.map(getPoll as any));
+    dispatch(setGetPollSuccess(responses));
+
+    return responses;
+  } catch (e) {
+    dispatch(setGetPollError(e));
+    return rejectWithValue(e);
+  } finally {
+    dispatch(setGetPollLoading(false));
+  }
+});

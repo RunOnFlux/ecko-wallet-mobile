@@ -30,12 +30,13 @@ import {ECKO_DEXTOOLS_API_URL} from '../../api/constants';
 import {TActivity} from '../../store/history/types';
 import {useAppThemeContext} from '../../contexts';
 import {createStyles} from './styles';
+import {AppDispatch} from '../../store/store';
 
 const limit = 15;
 
 const History = () => {
   const {t} = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const pollReqParams = useShallowEqualSelector(makeSelectPollRequestParams);
   const isPollingRequests = useShallowEqualSelector(makeSelectPollLoading);

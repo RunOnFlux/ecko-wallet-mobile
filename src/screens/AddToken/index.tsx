@@ -35,6 +35,7 @@ import {getToken} from '../../api/kadena/token';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import Header from '../../components/Header';
 import {useAppThemeContext} from '../../contexts';
+import {AppDispatch} from '../../store/store';
 
 const AddToken = () => {
   const {t} = useTranslation();
@@ -42,7 +43,7 @@ const AddToken = () => {
     useNavigation<TNavigationProp<ERootStackRoutes.AddToken>>();
   const route = useRoute<TNavigationRouteProp<ERootStackRoutes.AddToken>>();
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const initialTokenName = route?.params?.tokenName || '';

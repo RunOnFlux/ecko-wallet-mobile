@@ -18,11 +18,12 @@ import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import LanguageSelectorModal from '../../components/LanguageSelectorModal';
 import ThemeSelectorModal from '../../components/ThemeSelectorModal';
 import {useAppThemeContext} from '../../contexts';
+import {AppDispatch} from '../../store/store';
 
 const Settings = () => {
   const {t} = useTranslation();
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const {theme} = useAppThemeContext();
 
   const [langModalVisible, setLangModalVisible] = useState(false);
