@@ -18,36 +18,20 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
 
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: Install dependencies
         run: npm ci
 
-      - name: Cache Gradle dependencies
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-            android/.gradle
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
-      - name: Cache node modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+      - name: Generate Codegen Artifacts
+        run: npx react-native codegen
 
       - name: Decode Keystore
         uses: timheuer/base64-to-file@v1
@@ -62,18 +46,15 @@ jobs:
           echo "WALLETCONNECT_PROJECT_ID=${{ secrets.WALLETCONNECT_PROJECT_ID }}" >> .env
           echo "WALLETCONNECT_PROJECT_RELAY=${{ secrets.WALLETCONNECT_PROJECT_RELAY }}" >> .env
 
-      - name: Make gradlew executable
-        run: chmod +x android/gradlew
-
-      - name: Build Android APK Release
-        run: cd android && ./gradlew assembleRelease --no-daemon --stacktrace
+      - name: Build Android AAB Release
+        run: cd android && ./gradlew bundleRelease
         env:
           SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
 
-      - name: Build Android AAB Release
-        run: cd android && ./gradlew bundleRelease --no-daemon --stacktrace
+      - name: Build Android APK Release
+        run: cd android && ./gradlew assembleRelease
         env:
           SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
