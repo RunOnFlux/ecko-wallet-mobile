@@ -15,6 +15,7 @@ import {logout} from '../../store/auth/actions';
 import {useDispatch, useSelector} from 'react-redux';
 import {verify2FA} from '../../api/2fa';
 import {makeSelectSelectedAccountPublicKey} from '../../store/userWallet/selectors';
+import {AppDispatch} from '../../store/store';
 
 export type TConfirmModalProps = {
   isVisible: boolean;
@@ -25,7 +26,7 @@ const Confirm2FaModal: FC<TConfirmModalProps> = ({isVisible, setVisible}) => {
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.RecoveryFromSeeds>>();
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const [verifying, setVerifying] = useState(false);
   const [code, setCode] = useState('');

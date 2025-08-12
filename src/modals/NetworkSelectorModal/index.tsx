@@ -19,11 +19,12 @@ import {useShallowEqualSelector} from '../../store/utils';
 import {useTranslation} from 'react-i18next';
 import {useAppThemeContext} from '../../contexts';
 import {makeStyles} from './styles';
+import {AppDispatch} from '../../store/store';
 
 const NetworkSelectorModal: FC<TNetworkSelectorModalProps> = React.memo(
   ({toggle, isVisible}) => {
     const {t} = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const navigation = useNavigation<any>();
 
     const {theme} = useAppThemeContext();

@@ -24,6 +24,7 @@ import {makeSelectIsTransferring} from '../../../../store/transfer/selectors';
 import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
 import {useAppThemeContext} from '../../../../contexts';
 import {makeStyles} from './styles';
+import {AppDispatch} from '../../../../store/store';
 
 const ListItem: FC<TListItemProps> = React.memo(
   ({item: activityItem, onPress}) => {
@@ -45,7 +46,7 @@ const ListItem: FC<TListItemProps> = React.memo(
     } = activityItem;
 
     const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const {statusBarHeight} = useSafeAreaValues();
 
     const isCurrentlyTransferring = useSelector(makeSelectIsTransferring);
@@ -114,10 +115,10 @@ const ListItem: FC<TListItemProps> = React.memo(
           type === 'SWAP'
             ? ''
             : selectedAccount?.accountName === sender
-            ? '- '
-            : selectedAccount?.accountName === receiver
-            ? '+ '
-            : ''
+              ? '- '
+              : selectedAccount?.accountName === receiver
+                ? '+ '
+                : ''
         }${
           amountFrom
             ? amountTo
@@ -161,8 +162,8 @@ const ListItem: FC<TListItemProps> = React.memo(
                     isPending
                       ? theme.text.primary
                       : isFailed
-                      ? '#FF6058'
-                      : '#27CA40'
+                        ? '#FF6058'
+                        : '#27CA40'
                   }
                 />
               </View>
@@ -173,8 +174,8 @@ const ListItem: FC<TListItemProps> = React.memo(
                     isPending
                       ? theme.text.primary
                       : isFailed
-                      ? '#FF6058'
-                      : '#27CA40'
+                        ? '#FF6058'
+                        : '#27CA40'
                   }
                 />
               </View>
@@ -185,8 +186,8 @@ const ListItem: FC<TListItemProps> = React.memo(
                     isPending
                       ? theme.text.primary
                       : isFailed
-                      ? '#FF6058'
-                      : '#27CA40'
+                        ? '#FF6058'
+                        : '#27CA40'
                   }
                 />
               </View>

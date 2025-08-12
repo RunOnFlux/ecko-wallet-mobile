@@ -45,7 +45,7 @@ const BuyScreen = () => {
     primaryColor: theme.brand.replace('#', ''),
     secondaryTextColor: theme.text.secondary.replace('#', ''),
     primaryTextColor: theme.text.primary.replace('#', ''),
-    primaryBtnTextColor: theme.button.primary.replace('#', ''),
+    primaryBtnTextColor: theme.text.primary.replace('#', ''),
     borderRadius: '0',
     wgBorderRadius: '0',
   };

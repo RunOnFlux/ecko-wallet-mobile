@@ -63,7 +63,7 @@ export const createStyles = ({
     },
     buttonContainer: {
       width: '100%',
-      paddingBottom: bottomSpace + 16,
+      // paddingBottom: bottomSpace + 16,
       backgroundColor: 'transparent',
     },
     button: {

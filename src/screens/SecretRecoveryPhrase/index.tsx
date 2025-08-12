@@ -26,6 +26,7 @@ import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useShallowEqualSelector} from '../../store/utils';
 import {useNavigation} from '@react-navigation/native';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {AppDispatch} from '../../store/store';
 
 const bgImage = require('../../assets/images/bgimage.png');
 
@@ -34,7 +35,7 @@ const SecretRecoveryPhrase = () => {
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.SecretRecoveryPhrase>>();
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const seeds = useShallowEqualSelector(makeSelectGeneratedPhrases);
   const isLoading = useSelector(makeSelectGeneratedPhrasesLoading);

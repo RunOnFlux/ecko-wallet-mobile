@@ -2,6 +2,7 @@ import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {View, Text, RefreshControl, FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {useTranslation} from 'react-i18next';
+import moment from 'moment';
 
 import Header from './components/Header';
 import ListDay from './components/ListDay';
@@ -30,12 +31,13 @@ import {ECKO_DEXTOOLS_API_URL} from '../../api/constants';
 import {TActivity} from '../../store/history/types';
 import {useAppThemeContext} from '../../contexts';
 import {createStyles} from './styles';
+import {AppDispatch} from '../../store/store';
 
 const limit = 15;
 
 const History = () => {
   const {t} = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const pollReqParams = useShallowEqualSelector(makeSelectPollRequestParams);
   const isPollingRequests = useShallowEqualSelector(makeSelectPollLoading);
@@ -58,14 +60,17 @@ const History = () => {
     useState<TListDayItem[]>(listDayActivities);
 
   const isPendingTab = useMemo(() => activeTab === 'pending', [activeTab]);
-  const account = selectedAccount?.accountName;
 
   const fetchTransactions = async () => {
-    if (!isMainnet || isLoadingMore || !hasMore) return;
+    const txAccount = selectedAccount?.accountName;
+    if (!isMainnet || isLoadingMore || !hasMore || !txAccount) return;
 
     try {
+      if (skip === 0) {
+        setTransactions([]);
+      }
       setIsLoadingMore(true);
-      const apiUrl = `${ECKO_DEXTOOLS_API_URL}/api/account-transaction-history?account=${account}&limit=${limit}&skip=${skip}`;
+      const apiUrl = `${ECKO_DEXTOOLS_API_URL}/api/account-transaction-history?account=${txAccount}&limit=${limit}&skip=${skip}`;
       const res = await fetch(apiUrl);
       const newTransactions: DextoolsTransaction[] = await res.json();
       if (newTransactions.length < limit) {
@@ -92,11 +97,12 @@ const History = () => {
   };
 
   useEffect(() => {
-    pollReqParams && dispatch(getPollRequest(pollReqParams));
+    setSkip(0);
+    setHasMore(true);
     if (isMainnet) {
       fetchTransactions();
     }
-  }, [account, isMainnet]);
+  }, [selectedAccount, isMainnet]);
 
   const onRefresh = useCallback(() => {
     setSkip(0);
@@ -106,17 +112,7 @@ const History = () => {
     if (isMainnet) {
       fetchTransactions();
     }
-  }, [pollReqParams, isMainnet, listDayActivities]);
-
-  useEffect(() => {
-    setSkip(0);
-    setTransactions([]);
-    setHasMore(true);
-
-    if (isMainnet && account) {
-      fetchTransactions();
-    }
-  }, [account, isMainnet, activeTab]);
+  }, [pollReqParams, isMainnet, listDayActivities, selectedAccount]);
 
   const renderItem = useCallback(
     ({item}: {item: TListDayItem}) => <ListDay item={item} />,
@@ -151,6 +147,10 @@ const History = () => {
     .map(day => ({
       ...day,
       list: day?.list?.filter(tx => {
+        const isSelectedAccount =
+          tx.sender === selectedAccount?.accountName ||
+          tx.receiver === selectedAccount?.accountName;
+        if (!isSelectedAccount) return false;
         const txNetwork = tx.network?.network;
         return (
           (isMainnet && txNetwork === 'mainnet') ||
@@ -159,7 +159,13 @@ const History = () => {
         );
       }),
     }))
-    .filter(day => day.list.length > 0);
+    .filter(day => day.list.length > 0)
+    .sort((a, b) => {
+      const dateA = moment(a.day, 'MMMM D, YYYY');
+      const dateB = moment(b.day, 'MMMM D, YYYY');
+
+      return dateB.diff(dateA);
+    });
 
   return (
     <View style={styles.container}>

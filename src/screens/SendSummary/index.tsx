@@ -28,12 +28,13 @@ import {useShallowEqualSelector} from '../../store/utils';
 import {useNavigation} from '@react-navigation/native';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import Header from '../../components/Header';
+import {AppDispatch} from '../../store/store';
 
 const SendSummary = () => {
   const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.SendSummary>>();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const isCrossChainTransfer = useSelector(makeSelectIsCrossChainTransfer);
   const networkDetail = useShallowEqualSelector(makeSelectActiveNetworkDetails);
