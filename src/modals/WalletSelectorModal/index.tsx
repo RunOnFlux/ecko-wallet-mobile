@@ -26,12 +26,13 @@ import Clipboard from '@react-native-clipboard/clipboard';
 import Snackbar from 'react-native-snackbar';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useShallowEqualSelector} from '../../store/utils';
+import {AppDispatch} from '../../store/store';
 
 const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
   ({toggle, isVisible}) => {
     const {t} = useTranslation();
     const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
     const accounts = useShallowEqualSelector(makeSelectAccounts);
     const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
@@ -98,7 +99,7 @@ const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
     );
 
     const handlePressCreate = useCallback(() => {
-      dispatch(getGenerateAccount());
+      dispatch(getGenerateAccount({}));
       toggle();
     }, [toggle]);
 

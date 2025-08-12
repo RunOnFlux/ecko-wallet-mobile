@@ -21,6 +21,7 @@ export const createStyles = ({
     },
     contentWrapper: {
       width: '100%',
+      paddingBottom: 80,
     },
     content: {
       width: '100%',
@@ -78,7 +79,7 @@ export const createStyles = ({
       color: 'red',
     },
     button: {
-      marginTop: 24,
+      // marginTop: 24,
       backgroundColor: '#FAA41A',
       width: '100%',
       paddingVertical: 17,

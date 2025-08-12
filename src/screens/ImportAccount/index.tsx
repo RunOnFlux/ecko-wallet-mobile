@@ -18,12 +18,13 @@ import {useNavigation} from '@react-navigation/native';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import Header from '../../components/Header';
+import {AppDispatch} from '../../store/store';
 
 const ImportAccount = () => {
   const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.ImportAccount>>();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const networkDetail = useShallowEqualSelector(makeSelectActiveNetworkDetails);
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();

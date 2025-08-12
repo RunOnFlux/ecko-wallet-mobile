@@ -35,10 +35,11 @@ import Warning from '../../../../components/Warning';
 import ConfirmModal from '../ConfirmModal';
 import {NetworkName} from '../../../../api/types';
 import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
+import {AppDispatch} from '../../../../store/store';
 
 const SwapBlock = () => {
   const {t} = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const {theme} = useAppThemeContext();
   const styles = useMemo(() => createStyles(theme), [theme]);

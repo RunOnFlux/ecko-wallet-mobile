@@ -1,7 +1,9 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 import {THistoryState, TPollResp, TPollRespItem} from './types';
 import {defaultRequestValues} from '../const';
+import {fetchPollData} from './effects';
+import moment from 'moment';
 
 const initialState: THistoryState = {
   activities: [],
@@ -12,39 +14,6 @@ const history = createSlice({
   name: 'history',
   initialState,
   reducers: {
-    setGetPollLoading: (state, {payload}) => {
-      state.pollReqState.fetching = payload;
-    },
-    setGetPollSuccess: (state, {payload}) => {
-      state.pollReqState.data = payload;
-      const activities: TPollRespItem[] = payload.reduce(
-        (acc: TPollRespItem[], obj: TPollResp) => [
-          ...acc,
-          ...Object.values(obj),
-        ],
-        [],
-      );
-      const length = (state.activities || []).length;
-      for (let i = 0; i < length; i++) {
-        const item = activities.find(
-          activity => activity.reqKey === state.activities[i].requestKey,
-        );
-        if (item) {
-          state.activities[i] = {
-            ...state.activities[i],
-            status: item?.result?.error?.message?.includes(
-              'resumePact: pact completed:',
-            )
-              ? 'success'
-              : item.result.status,
-            ...item,
-          };
-        }
-      }
-    },
-    setGetPollError: (state, {payload}) => {
-      state.pollReqState.error = payload;
-    },
     setSendResult: (state, {payload}) => {
       const foundIndex = (state.activities || []).findIndex(
         item =>
@@ -82,8 +51,8 @@ const history = createSlice({
             )
               ? 'success'
               : payload?.result?.status === 'failure'
-              ? 'failure'
-              : 'pending';
+                ? 'failure'
+                : 'pending';
         }
       });
     },
@@ -93,12 +62,80 @@ const history = createSlice({
       state.activities = initialState.activities;
     },
   },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchPollData.pending, state => {
+        state.pollReqState.fetching = true;
+        state.pollReqState.error = null;
+      })
+      .addCase(
+        fetchPollData.fulfilled,
+        (state, action: PayloadAction<TPollResp[]>) => {
+          state.pollReqState.fetching = false;
+          state.pollReqState.error = null;
+          state.pollReqState.data = action.payload;
+
+          const activitiesFromPoll: TPollRespItem[] = action.payload.reduce(
+            (acc: TPollRespItem[], obj: TPollResp) => [
+              ...acc,
+              ...Object.values(obj),
+            ],
+            [],
+          );
+
+          const newActivitiesMap = new Map<string, TPollRespItem>();
+          activitiesFromPoll.forEach(item =>
+            newActivitiesMap.set(item.reqKey, item),
+          );
+
+          const updatedActivities = state.activities.map(existingActivity => {
+            const updatedItem = newActivitiesMap.get(
+              existingActivity.requestKey,
+            );
+            if (updatedItem) {
+              return {
+                ...existingActivity,
+                status: updatedItem?.result?.error?.message?.includes(
+                  'resumePact: pact completed:',
+                )
+                  ? 'success'
+                  : updatedItem.result.status,
+              };
+            }
+            return existingActivity;
+          });
+
+          activitiesFromPoll.forEach(pollItem => {
+            if (
+              !updatedActivities.some(a => a.requestKey === pollItem.reqKey)
+            ) {
+              updatedActivities.push(pollItem as any);
+            }
+          });
+
+          state.activities = updatedActivities
+            .filter(
+              (item, pos, self) =>
+                self.findIndex(
+                  subItem => subItem.requestKey === item.requestKey,
+                ) === pos,
+            )
+            .sort((a, b) => {
+              const dateA = moment(a.createdTime);
+              const dateB = moment(b.createdTime);
+              return dateB.diff(dateA);
+            });
+        },
+      )
+      .addCase(fetchPollData.rejected, (state, action) => {
+        state.pollReqState.fetching = false;
+        state.pollReqState.error = action.payload;
+        state.pollReqState.data = null;
+      });
+  },
 });
 
 export const {
-  setGetPollError,
-  setGetPollLoading,
-  setGetPollSuccess,
   setSendResult,
   replaceSendResult,
   setListenResult,

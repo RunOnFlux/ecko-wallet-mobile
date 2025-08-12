@@ -10,7 +10,6 @@ export const createStyles = ({
   StyleSheet.create({
     container: {
       flex: 1,
-      marginTop: statusBarHeight,
     },
     contentWrapper: {
       flex: 1,
@@ -27,7 +26,7 @@ export const createStyles = ({
     },
     footer: {
       width: '100%',
-      paddingBottom: bottomSpace + 24,
+      paddingBottom: bottomSpace,
     },
     radioContainer: {
       flexDirection: 'row',

@@ -43,7 +43,7 @@ const Settings: FC<TSettingsType> = ({
         title={t('send.content.advancedSettings')}>
         <KeyboardAvoidingView
           style={{flex: 1}}
-          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           keyboardVerticalOffset={-bottomSpace}>
           <View style={styles.contentWrapper}>
             <View style={styles.predicateContainer}>

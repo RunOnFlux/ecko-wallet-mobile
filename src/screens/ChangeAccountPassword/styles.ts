@@ -6,6 +6,7 @@ export const createStyles = (
   theme: IAppTheme,
   {
     statusBarHeight,
+    bottomSpace,
   }: {
     bottomSpace: number;
     statusBarHeight: number;
@@ -37,7 +38,7 @@ export const createStyles = (
       borderTopRightRadius: 10,
       borderTopLeftRadius: 10,
       borderRadius: 10,
-      paddingHorizontal: 0,
+      paddingHorizontal: 16,
       backgroundColor: theme.input.background,
     },
     resetBtn: {
@@ -71,7 +72,7 @@ export const createStyles = (
     input: {
       backgroundColor: theme.input.background,
       paddingTop: 14,
-      paddingLeft: 16,
+      // paddingLeft: 16,
       paddingRight: 16,
       paddingBottom: 16,
       borderRadius: 10,
@@ -85,7 +86,7 @@ export const createStyles = (
     },
     footer: {
       position: 'absolute',
-      bottom: 50,
+      bottom: 24,
       width: '100%',
       paddingHorizontal: 20,
     },

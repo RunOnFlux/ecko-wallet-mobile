@@ -14,7 +14,6 @@ export const makeStyles = (
 ) =>
   StyleSheet.create({
     screen: {
-      marginTop: statusBarHeight,
       flex: 1,
     },
     container: {

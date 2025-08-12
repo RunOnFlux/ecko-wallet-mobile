@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 
 export const createStyles = ({
   bottomSpace,
-  statusBarHeight,
 }: {
   bottomSpace: number;
   statusBarHeight: number;
@@ -11,7 +10,6 @@ export const createStyles = ({
     screen: {
       flex: 1,
       width: '100%',
-      paddingTop: statusBarHeight,
     },
     contentWrapper: {
       flex: 1,
@@ -26,7 +24,7 @@ export const createStyles = ({
       marginBottom: 24,
     },
     footer: {
-      marginBottom: bottomSpace + 24,
+      marginBottom: bottomSpace,
       width: '100%',
     },
   });

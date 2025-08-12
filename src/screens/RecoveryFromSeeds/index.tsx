@@ -8,7 +8,6 @@ import {
   TouchableOpacity,
   View,
   KeyboardAvoidingView,
-  Keyboard,
 } from 'react-native';
 import {useForm, Controller, FieldValues} from 'react-hook-form';
 import {useTranslation} from 'react-i18next';
@@ -19,7 +18,6 @@ import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
 import Logo from '../../assets/images/logo.svg';
 import PasswordInput from '../../components/PasswordInput';
-import FooterButton from '../../components/FooterButton';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {setPassword, setPhrases} from '../../store/auth';
 import {getRestoreAccount} from '../../store/userWallet/actions';
@@ -29,6 +27,7 @@ import {validateSeeds} from '../../api/kadena/validateSeeds';
 import {hashPassword} from '../../api/kadena/hashPassword';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 import {createStyles} from './styles';
+import {AppDispatch} from '../../store/store';
 
 const bgImage = require('../../assets/images/bgimage.png');
 
@@ -36,7 +35,7 @@ const RecoveryFromSeeds = () => {
   const {t} = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.RecoveryFromSeeds>>();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const hasAccount = useSelector(makeSelectHasAccount);
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();

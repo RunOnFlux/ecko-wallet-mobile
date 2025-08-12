@@ -1,6 +1,5 @@
 import {ENCRYPTION_KEY} from '@env';
 import {configureStore, combineReducers} from '@reduxjs/toolkit';
-import createSagaMiddleware from 'redux-saga';
 import {
   persistStore,
   persistReducer,
@@ -13,7 +12,6 @@ import {
   createMigrate,
 } from 'redux-persist';
 import {MMKV} from 'react-native-mmkv';
-import rootSaga from './saga';
 import auth from './auth';
 import userWallet from './userWallet';
 import contacts from './contacts';
@@ -76,10 +74,7 @@ const MMKVStorage = (storage: MMKV) =>
       storage.delete(key);
       return Promise.resolve();
     },
-  } as Storage);
-
-const sagaMiddleware = createSagaMiddleware();
-const middleware = [sagaMiddleware];
+  }) as Storage;
 
 const userWalletPersistConfig = {
   key: 'userWallet',
@@ -132,13 +127,10 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(middleware),
+    }),
 });
 
-sagaMiddleware.run(rootSaga);
 export const persistor = persistStore(store);
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
