@@ -35,4 +35,6 @@ export const createStyles = (theme: IAppTheme) =>
       borderColor: 'white',
       borderRadius: 8,
     },
+    emptyWrapper: { padding: 16, height: 260, justifyContent: 'center' },
+    emptyText: { color: theme.text.secondary, textAlign: 'center' },
   });

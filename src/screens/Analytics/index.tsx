@@ -5,13 +5,11 @@ import PortfolioValueChart from './components/PortfolioValueChart';
 import DailyPnLChart from './components/DailyPnLChart';
 import ChartAllocation from './components/ChartAllocation';
 import AssetAllocation from './components/AssetAllocation';
-import { useTrackingWatcher } from './hooks/useTrackingWatcher';
 import DexAnalytics from './components/DexAnalytics';
 
 const Analytics = () => {
   const [refreshing, setRefreshing] = React.useState(false);
   const [refreshToken, setRefreshToken] = React.useState(0);
-  useTrackingWatcher();
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);

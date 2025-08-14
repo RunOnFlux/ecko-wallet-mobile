@@ -98,26 +98,21 @@ const DailyPnLChart = ({ refreshToken = 0 }: { refreshToken?: number }) => {
 
   const styles = makeStyles(theme);
 
-  if (loading) {
-    return (
-      <View style={styles.loadingWrapper}>
-        <ActivityIndicator size="small" />
-      </View>
-    );
-  }
-
-  if (!pnlData.length) {
-    return (
-      <View style={styles.emptyWrapper}>
-        <Text style={styles.emptyText}>No data yet</Text>
-      </View>
-    );
-  }
+  const showEmpty = !loading && pnlData.length === 0;
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>DAILY P&L</Text>
-      <VictoryChart
+      {loading ? (
+        <View style={styles.loadingWrapper}>
+          <ActivityIndicator size="small" />
+        </View>
+      ) : showEmpty ? (
+        <View style={styles.emptyWrapper}>
+          <Text style={styles.emptyText}>No data yet</Text>
+        </View>
+      ) : (
+        <VictoryChart
         domain={{ y: [minDomainY, maxDomainY] }}
         domainPadding={{ x: [20, 40] }}
         padding={{ top: 10, bottom: 40, left: 30, right: 30 }}
@@ -180,7 +175,8 @@ const DailyPnLChart = ({ refreshToken = 0 }: { refreshToken?: number }) => {
             },
           }}
         />
-      </VictoryChart>
+        </VictoryChart>
+      )}
       <TimeSelector
         defaultStep={step}
         timeSteps={['1W', '2W', '1M']}
