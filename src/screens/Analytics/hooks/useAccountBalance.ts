@@ -1,7 +1,7 @@
-import {useEffect, useState} from 'react';
-import {useShallowEqualSelector} from '../../../store/utils';
-import {makeSelectSelectedAccount} from '../../../store/userWallet/selectors';
-import {ECKO_DEXTOOLS_API_URL} from '../../../api/constants';
+import { useEffect, useState } from 'react';
+import { useShallowEqualSelector } from '../../../store/utils';
+import { makeSelectSelectedAccount } from '../../../store/userWallet/selectors';
+import { ECKO_DEXTOOLS_API_URL } from '../../../api/constants';
 
 export type AccountBalanceChartPoint = {
   date: string;
@@ -11,10 +11,12 @@ export type AccountBalanceChartPoint = {
 export const useAccountBalance = ({
   from,
   to,
+  refreshToken = 0,
 }: {
   from: string;
   to: string;
-}): {data: AccountBalanceChartPoint[]; loading: boolean} => {
+  refreshToken?: number;
+}): { data: AccountBalanceChartPoint[]; loading: boolean } => {
   const [data, setData] = useState<AccountBalanceChartPoint[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -23,13 +25,14 @@ export const useAccountBalance = ({
   useEffect(() => {
     const fetchBalance = async () => {
       try {
+        setLoading(true);
         const account = selectedAccount?.accountName;
 
         const response = await fetch(
           `${ECKO_DEXTOOLS_API_URL}/api/account-balance-chart?account=${account}&from=${from}&to=${to}`,
         );
 
-        if (!response.ok) throw new Error('Errore fetch account balance');
+        if (!response.ok) throw new Error('Error fetching account balance');
 
         const json = await response.json();
         setData(json);
@@ -41,7 +44,7 @@ export const useAccountBalance = ({
     };
 
     fetchBalance();
-  }, [selectedAccount?.accountName, from, to]);
+  }, [selectedAccount?.accountName, from, to, refreshToken]);
 
-  return {data, loading};
+  return { data, loading };
 };

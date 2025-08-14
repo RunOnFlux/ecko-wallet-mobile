@@ -1,10 +1,10 @@
-import {StyleSheet} from 'react-native';
-import {MEDIUM_MONTSERRAT} from '../../constants/styles';
-import {IAppTheme} from '../../themes/types';
+import { StyleSheet } from 'react-native';
+import { MEDIUM_MONTSERRAT } from '../../constants/styles';
+import { IAppTheme } from '../../themes/types';
 
 export const createStyles = ({
-  statusBarHeight,
   theme,
+  bottomSpace,
 }: {
   bottomSpace: number;
   statusBarHeight: number;
@@ -13,8 +13,8 @@ export const createStyles = ({
   StyleSheet.create({
     container: {
       flex: 1,
-      paddingTop: statusBarHeight,
       backgroundColor: theme.background,
+      paddingBottom: bottomSpace,
     },
     contentWrapper: {
       flex: 1,

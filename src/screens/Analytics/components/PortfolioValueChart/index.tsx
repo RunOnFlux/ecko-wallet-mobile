@@ -1,5 +1,5 @@
-import React, {useMemo, useState} from 'react';
-import {View, Text, ActivityIndicator} from 'react-native';
+import React, { useMemo, useState } from 'react';
+import { View, Text, ActivityIndicator } from 'react-native';
 import {
   VictoryChart,
   VictoryArea,
@@ -7,8 +7,8 @@ import {
   VictoryVoronoiContainer,
   VictoryAxis,
 } from 'victory-native';
-import {Defs, LinearGradient, Stop} from 'react-native-svg';
-import {useAccountBalance} from '../../hooks/useAccountBalance';
+import { Defs, LinearGradient, Stop } from 'react-native-svg';
+import { useAccountBalance } from '../../hooks/useAccountBalance';
 import ChangeBadge from '../../../../components/ChangeBadge';
 import TimeSelector, {
   stepsInDays,
@@ -16,12 +16,20 @@ import TimeSelector, {
   TimeStep,
 } from '../../../../components/TimeSelector';
 import moment from 'moment';
-import {createStyles} from './styles';
-import {useAppThemeContext} from '../../../../contexts';
+import { createStyles } from './styles';
+import { useAppThemeContext } from '../../../../contexts';
+import { useShallowEqualSelector } from '../../../../store/utils';
+import { makeSelectCanTrackPortfolio } from '../../../../store/analytics';
+import TrackPrompt from './components/TrackPrompt';
 
-const PortfolioValueChart = () => {
-  const {theme} = useAppThemeContext();
+const PortfolioValueChart = ({
+  refreshToken = 0,
+}: {
+  refreshToken?: number;
+}) => {
+  const { theme } = useAppThemeContext();
   const styles = createStyles(theme);
+  const canTrack = useShallowEqualSelector(makeSelectCanTrackPortfolio);
 
   const [step, setStep] = useState<TimeStep>('1W');
 
@@ -33,7 +41,11 @@ const PortfolioValueChart = () => {
       ? TIME_EPOCH
       : moment().subtract(stepInDays, 'days').format('YYYY-MM-DD');
 
-  const {data, loading} = useAccountBalance({from, to});
+  if (!canTrack) {
+    return <TrackPrompt />;
+  }
+
+  const { data, loading } = useAccountBalance({ from, to, refreshToken });
 
   const filteredData = useMemo(() => {
     if (!data) return [];
@@ -69,18 +81,27 @@ const PortfolioValueChart = () => {
 
   return (
     <View style={styles.container}>
+      <Text
+        style={{
+          color: theme.text.secondary,
+          fontSize: 14,
+          marginBottom: 8,
+          paddingHorizontal: 20,
+        }}
+      >
+        PORTFOLIO VALUE CHART
+      </Text>
       <View style={styles.header}>
         <Text style={styles.valueText}>${currentValue.toFixed(2)}</Text>
         <ChangeBadge changePct={changePct} />
       </View>
-
       <VictoryChart
-        domainPadding={{x: 20, y: 20}}
-        padding={{top: 50, bottom: 10, left: 5, right: 5}}
+        domainPadding={{ x: 15, y: 0 }}
+        padding={{ top: 30, bottom: 10, left: 5, right: 5 }}
         containerComponent={
           <VictoryVoronoiContainer
             activateData={false}
-            labels={({datum}) => ` ${datum.x}\n  $${datum.y.toFixed(2)}`}
+            labels={({ datum }) => ` ${datum.x}\n  $${datum.y.toFixed(2)}`}
             labelComponent={
               <VictoryTooltip
                 flyoutStyle={{
@@ -88,13 +109,14 @@ const PortfolioValueChart = () => {
                   fill: '#000',
                   padding: 10,
                 }}
-                style={{fill: '#fff', fontSize: 12}}
+                style={{ fill: '#fff', fontSize: 12 }}
                 cornerRadius={4}
                 pointerLength={10}
               />
             }
           />
-        }>
+        }
+      >
         <Defs>
           <LinearGradient id="portfolioGradient" x1="0" y1="0" x2="0" y2="1">
             <Stop offset="0%" stopColor="#ff00ff" stopOpacity={0.5} />
@@ -103,19 +125,19 @@ const PortfolioValueChart = () => {
         </Defs>
         <VictoryAxis
           style={{
-            axis: {stroke: 'transparent'},
-            ticks: {stroke: 'transparent'},
-            tickLabels: {fill: 'transparent'},
-            grid: {stroke: 'transparent'},
+            axis: { stroke: 'transparent' },
+            ticks: { stroke: 'transparent' },
+            tickLabels: { fill: 'transparent' },
+            grid: { stroke: 'transparent' },
           }}
         />
         <VictoryAxis
           dependentAxis
           style={{
-            axis: {stroke: 'transparent'},
-            ticks: {stroke: 'transparent'},
-            tickLabels: {fill: 'transparent'},
-            grid: {stroke: 'transparent'},
+            axis: { stroke: 'transparent' },
+            ticks: { stroke: 'transparent' },
+            tickLabels: { fill: 'transparent' },
+            grid: { stroke: 'transparent' },
           }}
         />
         <VictoryArea
@@ -132,7 +154,7 @@ const PortfolioValueChart = () => {
       </VictoryChart>
       <TimeSelector
         timeSteps={['1W', '1M', '1Y']}
-        defaultStep="1W"
+        defaultStep={step}
         onTimeSelected={step => {
           setStep(step);
         }}

@@ -1,17 +1,22 @@
-import {StyleSheet} from 'react-native';
-import {IAppTheme} from '../../../../themes/types';
+import { StyleSheet } from 'react-native';
+import { IAppTheme } from '../../../../themes/types';
 
 export const createStyles = (theme: IAppTheme) =>
   StyleSheet.create({
-    container: {height: 350, marginTop: 50},
+    container: {
+      height: 420,
+      marginTop: 15,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.border,
+    },
     header: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      paddingHorizontal: 35,
+      paddingHorizontal: 20,
       alignItems: 'center',
       marginBottom: 4,
     },
-    valueText: {color: theme.text.primary, fontSize: 16, fontWeight: 800},
+    valueText: { color: theme.text.primary, fontSize: 16, fontWeight: 800 },
     rangeSelector: {
       flexDirection: 'row',
       justifyContent: 'space-around',

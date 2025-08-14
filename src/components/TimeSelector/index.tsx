@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {useAppThemeContext} from '../../contexts';
-import {styles} from './styles';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useAppThemeContext } from '../../contexts';
+import { styles } from './styles';
 
 export type TimeStep = '1D' | '1W' | '2W' | '1M' | '1Y' | 'ALL';
 
@@ -27,7 +27,7 @@ const TimeSelector: React.FC<TimeSelectorProps> = ({
   defaultStep = '1W',
   onTimeSelected,
 }) => {
-  const {theme} = useAppThemeContext();
+  const { theme } = useAppThemeContext();
   const [currentStep, setCurrentStep] = useState<TimeStep>(defaultStep);
 
   const handlePress = (step: TimeStep) => {
@@ -51,7 +51,8 @@ const TimeSelector: React.FC<TimeSelectorProps> = ({
                   ? 'rgba(230,230,230,0.2)'
                   : 'transparent',
               },
-            ]}>
+            ]}
+          >
             <Text
               style={[
                 styles.pillText,
@@ -59,7 +60,8 @@ const TimeSelector: React.FC<TimeSelectorProps> = ({
                   color: theme.text.primary,
                   fontWeight: isActive ? 'bold' : 'normal',
                 },
-              ]}>
+              ]}
+            >
               {step}
             </Text>
           </TouchableOpacity>
