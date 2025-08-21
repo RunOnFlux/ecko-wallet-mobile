@@ -6,6 +6,7 @@ import DailyPnLChart from './components/DailyPnLChart';
 import ChartAllocation from './components/ChartAllocation';
 import AssetAllocation from './components/AssetAllocation';
 import DexAnalytics from './components/DexAnalytics';
+import Heatmap from './components/Heatmap';
 
 const Analytics = () => {
   const [refreshing, setRefreshing] = React.useState(false);
@@ -32,6 +33,7 @@ const Analytics = () => {
           <ChartAllocation />
           <AssetAllocation />
           <DexAnalytics />
+          <Heatmap />
         </View>
       </ScrollView>
     </SafeAreaView>
