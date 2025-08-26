@@ -1,6 +1,6 @@
-import {StyleSheet} from 'react-native';
-import {MEDIUM_MONTSERRAT} from '../../constants/styles';
-import {IAppTheme} from '../../themes/types';
+import { StyleSheet } from 'react-native';
+import { MEDIUM_MONTSERRAT } from '../../constants/styles';
+import { IAppTheme } from '../../themes/types';
 
 export const makeStyles = (theme: IAppTheme, statusBarHeight: number) =>
   StyleSheet.create({

@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, ScrollView, SafeAreaView, RefreshControl } from 'react-native';
-import Header from '../../components/Header';
 import PortfolioValueChart from './components/PortfolioValueChart';
 import DailyPnLChart from './components/DailyPnLChart';
 import ChartAllocation from './components/ChartAllocation';
@@ -19,8 +18,7 @@ const Analytics = () => {
   }, []);
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <Header title={'Analytics'} />
+    <SafeAreaView style={{ flex: 1, paddingTop: 32 }}>
       <ScrollView
         contentContainerStyle={{ paddingBottom: 80 }}
         refreshControl={

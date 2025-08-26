@@ -697,5 +697,36 @@
     "matches": "Neplatný formát",
     "passwordsMatch": "Heslá sa nezhodujú",
     "passwordComplexity": "Musí obsahovať 8 znakov, jedno veľké písmeno, jedno malé písmeno, jednu číslicu a jeden špeciálny znak"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Začať sledovanie portfólia",
+    "trackPortfolioDesc1": "Aktivujte sledovanie hodnoty portfólia pre zobrazenie historických výsledkov.",
+    "trackPortfolioDesc2": "Lokalne uložíme anonymizované údaje potrebné na výpočet hodnoty vášho portfólia v priebehu času.",
+    "trackPortfolioDisclaimer": "Môžete deaktivovať sledovanie kedykoľvek v Nastaveniach.",
+    "confirm": "Potvrdiť",
+    "timeSteps": {
+      "1D": "1D",
+      "1W": "1T",
+      "2W": "2T",
+      "1M": "1M",
+      "1Y": "1R",
+      "ALL": "VŠETKO"
+    },
+    "charts": {
+      "portfolioValue": "Graf hodnoty portfólia",
+      "dailyPnL": "DENNÝ ZISK/STRATA",
+      "assetAllocation": "ALOKÁCIA AKTÍV",
+      "chartAllocation": "ALOKÁCIA GRAFU",
+      "dexAnalytics": "DEX ANALÝZA",
+      "heatmap": "OBCHODNÁ TEPELNÁ MAPA"
+    },
+    "dexLabels": {
+      "topGainer": "NAJLEPŠÍ VÍŤAZ",
+      "topLoser": "NAJHORŠÍ PREHRÁVAČ",
+      "topTradedPair": "NAJOBCHODOVANEJŠÍ PÁR"
+    },
+    "states": {
+      "noData": "Zatiaľ žiadne údaje"
+    }
   }
 }

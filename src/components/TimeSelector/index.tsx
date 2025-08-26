@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useAppThemeContext } from '../../contexts';
+import { useTranslation } from 'react-i18next';
 import { styles } from './styles';
 
 export type TimeStep = '1D' | '1W' | '2W' | '1M' | '1Y' | 'ALL';
@@ -27,12 +28,17 @@ const TimeSelector: React.FC<TimeSelectorProps> = ({
   defaultStep = '1W',
   onTimeSelected,
 }) => {
+  const { t } = useTranslation();
   const { theme } = useAppThemeContext();
   const [currentStep, setCurrentStep] = useState<TimeStep>(defaultStep);
 
   const handlePress = (step: TimeStep) => {
     setCurrentStep(step);
     onTimeSelected?.(step);
+  };
+
+  const getTimeStepLabel = (step: TimeStep) => {
+    return t(`analytics.timeSteps.${step}`) || step;
   };
 
   return (
@@ -62,7 +68,7 @@ const TimeSelector: React.FC<TimeSelectorProps> = ({
                 },
               ]}
             >
-              {step}
+              {getTimeStepLabel(step)}
             </Text>
           </TouchableOpacity>
         );

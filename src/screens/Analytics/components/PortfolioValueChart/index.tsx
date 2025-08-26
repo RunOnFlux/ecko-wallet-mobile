@@ -21,12 +21,14 @@ import { useAppThemeContext } from '../../../../contexts';
 import { useShallowEqualSelector } from '../../../../store/utils';
 import { makeSelectCanTrackPortfolio } from '../../../../store/analytics';
 import TrackPrompt from './components/TrackPrompt';
+import { useTranslation } from 'react-i18next';
 
 const PortfolioValueChart = ({
   refreshToken = 0,
 }: {
   refreshToken?: number;
 }) => {
+  const { t, i18n } = useTranslation();
   const { theme } = useAppThemeContext();
   const styles = createStyles(theme);
   const canTrack = useShallowEqualSelector(makeSelectCanTrackPortfolio);
@@ -60,10 +62,7 @@ const PortfolioValueChart = ({
 
   const chartData = useMemo(() => {
     return filteredData.map(item => ({
-      x: new Date(item.date).toLocaleDateString('en-GB', {
-        day: '2-digit',
-        month: 'short',
-      }),
+      x: moment(item.date).format('DD MMM'),
       y: item.totalUsdValue,
     }));
   }, [filteredData]);
@@ -76,15 +75,8 @@ const PortfolioValueChart = ({
   const gated = !canTrack;
   return (
     <View style={styles.container}>
-      <Text
-        style={{
-          color: theme.text.secondary,
-          fontSize: 14,
-          marginBottom: 8,
-          paddingHorizontal: 20,
-        }}
-      >
-        PORTFOLIO VALUE CHART
+      <Text style={styles.titleText}>
+        {t('analytics.charts.portfolioValue')}
       </Text>
       {gated ? (
         <TrackPrompt />
@@ -104,12 +96,12 @@ const PortfolioValueChart = ({
         </View>
       ) : showEmpty ? (
         <View style={styles.emptyWrapper}>
-          <Text style={styles.emptyText}>No data yet</Text>
+          <Text style={styles.emptyText}>{t('analytics.states.noData')}</Text>
         </View>
       ) : (
         <VictoryChart
           domainPadding={{ x: 15, y: 0 }}
-          padding={{ top: 30, bottom: 10, left: 5, right: 5 }}
+          padding={{ top: 60, bottom: 10, left: 5, right: 5 }}
           containerComponent={
             <VictoryVoronoiContainer
               activateData={false}

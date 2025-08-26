@@ -697,5 +697,36 @@
     "matches": "格式無效",
     "passwordsMatch": "密碼不一致",
     "passwordComplexity": "必須包含 8 個字元、1 個大寫字母、1 個小寫字母、1 個數字以及 1 個特殊字元"
+  },
+  "analytics": {
+    "trackPortfolioStart": "開始追蹤投資組合",
+    "trackPortfolioDesc1": "啟用投資組合價值追蹤以查看歷史表現。",
+    "trackPortfolioDesc2": "我們將在本地儲存計算您的投資組合價值隨時間變化所需的匿名化資料。",
+    "trackPortfolioDisclaimer": "您可以隨時在設定中停用追蹤。",
+    "confirm": "確認",
+    "timeSteps": {
+      "1D": "1日",
+      "1W": "1週",
+      "2W": "2週",
+      "1M": "1月",
+      "1Y": "1年",
+      "ALL": "全部"
+    },
+    "charts": {
+      "portfolioValue": "投資組合價值圖表",
+      "dailyPnL": "每日盈虧",
+      "assetAllocation": "資產配置",
+      "chartAllocation": "圖表配置",
+      "dexAnalytics": "DEX 分析",
+      "heatmap": "交易熱力圖"
+    },
+    "dexLabels": {
+      "topGainer": "最佳獲利者",
+      "topLoser": "最差虧損者",
+      "topTradedPair": "最常交易對"
+    },
+    "states": {
+      "noData": "尚無資料"
+    }
   }
 }

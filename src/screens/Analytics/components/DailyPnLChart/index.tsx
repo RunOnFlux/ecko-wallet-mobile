@@ -16,10 +16,12 @@ import TimeSelector, {
 import { useAccountBalance } from '../../hooks/useAccountBalance';
 import { useAppThemeContext } from '../../../../contexts';
 import { makeStyles } from './styles';
+import { useTranslation } from 'react-i18next';
 
 type PnlPoint = { x: string; y: number };
 
 const DailyPnLChart = ({ refreshToken = 0 }: { refreshToken?: number }) => {
+  const { t } = useTranslation();
   const { theme } = useAppThemeContext();
   const [step, setStep] = useState<TimeStep>('2W');
 
@@ -102,79 +104,79 @@ const DailyPnLChart = ({ refreshToken = 0 }: { refreshToken?: number }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>DAILY P&L</Text>
+      <Text style={styles.title}>{t('analytics.charts.dailyPnL')}</Text>
       {loading ? (
         <View style={styles.loadingWrapper}>
           <ActivityIndicator size="small" />
         </View>
       ) : showEmpty ? (
         <View style={styles.emptyWrapper}>
-          <Text style={styles.emptyText}>No data yet</Text>
+          <Text style={styles.emptyText}>{t('analytics.states.noData')}</Text>
         </View>
       ) : (
         <VictoryChart
-        domain={{ y: [minDomainY, maxDomainY] }}
-        domainPadding={{ x: [20, 40] }}
-        padding={{ top: 10, bottom: 40, left: 30, right: 30 }}
-        height={240}
-        containerComponent={
-          <VictoryVoronoiContainer
-            activateData={false}
-            labels={({ datum }) => ` ${datum.x}\n  $${datum.y.toFixed(2)}`}
-            labelComponent={
-              <VictoryTooltip
-                flyoutStyle={{ stroke: '#fff', fill: '#000', padding: 10 }}
-                style={{ fill: '#fff', fontSize: 12 }}
-                cornerRadius={4}
-                pointerLength={10}
-              />
+          domain={{ y: [minDomainY, maxDomainY] }}
+          domainPadding={{ x: [20, 40] }}
+          padding={{ top: 10, bottom: 40, left: 30, right: 30 }}
+          height={240}
+          containerComponent={
+            <VictoryVoronoiContainer
+              activateData={false}
+              labels={({ datum }) => ` ${datum.x}\n  $${datum.y.toFixed(2)}`}
+              labelComponent={
+                <VictoryTooltip
+                  flyoutStyle={{ stroke: '#fff', fill: '#000', padding: 10 }}
+                  style={{ fill: '#fff', fontSize: 12 }}
+                  cornerRadius={4}
+                  pointerLength={10}
+                />
+              }
+            />
+          }
+        >
+          <VictoryAxis
+            crossAxis={false}
+            offsetY={20}
+            orientation="bottom"
+            tickFormat={(t: string | number) =>
+              visibleLabelIndexSet.has(xLabelIndexMap.get(String(t)) ?? -1)
+                ? String(t)
+                : ''
             }
+            style={{
+              axis: { stroke: 'transparent' },
+              grid: { stroke: 'transparent' },
+              ticks: { stroke: 'transparent' },
+              tickLabels: {
+                fill: theme.text.secondary,
+                fontSize: 10,
+                padding: 8,
+              },
+            }}
           />
-        }
-      >
-        <VictoryAxis
-          crossAxis={false}
-          offsetY={20}
-          orientation="bottom"
-          tickFormat={(t: string | number) =>
-            visibleLabelIndexSet.has(xLabelIndexMap.get(String(t)) ?? -1)
-              ? String(t)
-              : ''
-          }
-          style={{
-            axis: { stroke: 'transparent' },
-            grid: { stroke: 'transparent' },
-            ticks: { stroke: 'transparent' },
-            tickLabels: {
-              fill: theme.text.secondary,
-              fontSize: 10,
-              padding: 8,
-            },
-          }}
-        />
-        <VictoryAxis
-          dependentAxis
-          tickValues={[...tickValuesY]}
-          tickFormat={(t: number) =>
-            `${t < 0 ? '-' : ''}$${Math.abs(t).toFixed(2)}`
-          }
-          style={{
-            axis: { stroke: 'transparent' },
-            grid: { stroke: 'transparent' },
-            ticks: { stroke: 'transparent' },
-            tickLabels: { fill: theme.text.secondary, fontSize: 10 },
-          }}
-        />
-        <VictoryBar
-          data={pnlData}
-          barRatio={0.8}
-          cornerRadius={{ top: 6 }}
-          style={{
-            data: {
-              fill: ({ datum }) => (datum.y >= 0 ? '#009b10' : '#e33a3c'),
-            },
-          }}
-        />
+          <VictoryAxis
+            dependentAxis
+            tickValues={[...tickValuesY]}
+            tickFormat={(t: number) =>
+              `${t < 0 ? '-' : ''}$${Math.abs(t).toFixed(2)}`
+            }
+            style={{
+              axis: { stroke: 'transparent' },
+              grid: { stroke: 'transparent' },
+              ticks: { stroke: 'transparent' },
+              tickLabels: { fill: theme.text.secondary, fontSize: 10 },
+            }}
+          />
+          <VictoryBar
+            data={pnlData}
+            barRatio={0.8}
+            cornerRadius={{ top: 6 }}
+            style={{
+              data: {
+                fill: ({ datum }) => (datum.y >= 0 ? '#009b10' : '#e33a3c'),
+              },
+            }}
+          />
         </VictoryChart>
       )}
       <TimeSelector

@@ -9,6 +9,7 @@ import Svg, { Rect, Text as SvgText } from 'react-native-svg';
 import TimeSelector, { TimeStep } from '../../../../components/TimeSelector';
 import { useAppThemeContext } from '../../../../contexts';
 import { ECKO_DEXTOOLS_API_URL } from '../../../../api/constants';
+import { useTranslation } from 'react-i18next';
 
 type TickerPerformance = {
   ticker: string;
@@ -94,6 +95,7 @@ function layoutBinary(
 }
 
 const Heatmap = () => {
+  const { t } = useTranslation();
   const { theme } = useAppThemeContext();
   const { width } = useWindowDimensions();
   const [interval, setInterval] = useState<TimeStep>('1D');
@@ -136,7 +138,7 @@ const Heatmap = () => {
       <Text
         style={{ color: theme.text.secondary, fontSize: 12, marginBottom: 8 }}
       >
-        HEATMAP
+        {t('analytics.charts.heatmap')}
       </Text>
       {loading ? (
         <View style={{ height: chartHeight, justifyContent: 'center' }}>
@@ -145,7 +147,7 @@ const Heatmap = () => {
       ) : !rects.length ? (
         <View style={{ height: chartHeight, justifyContent: 'center' }}>
           <Text style={{ color: theme.text.secondary, textAlign: 'center' }}>
-            No data yet
+            {t('analytics.states.noData')}
           </Text>
         </View>
       ) : (

@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   wrapper: {
@@ -13,9 +13,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   label: {
-    marginTop: 4,
+    marginTop: 6,
     fontFamily: 'Montserrat-Bold',
-    fontSize: 14,
+    fontSize: 13,
     textAlign: 'center',
   },
 });

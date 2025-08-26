@@ -5,6 +5,7 @@ import { TokenTrend } from './TokenTrend';
 import { PairTrend } from './PairTrend';
 import { ECKO_DEXTOOLS_API_URL } from '../../../../api/constants';
 import { getTokenImageUrl } from '../../../../utils/tokenImages';
+import { useTranslation } from 'react-i18next';
 
 type TickerPerformance = { ticker: string; diff: number };
 type PerformanceData = { tickers: TickerPerformance[] };
@@ -73,6 +74,7 @@ const useDexPairs = (): { data: DexPair[]; loading: boolean } => {
 };
 
 const DexAnalytics = () => {
+  const { t } = useTranslation();
   const { theme } = useAppThemeContext();
   const { data: perf, loading: perfLoading } = useDexTokensPerformance();
   const { data: pairs, loading: pairsLoading } = useDexPairs();
@@ -102,11 +104,11 @@ const DexAnalytics = () => {
           marginVertical: 10,
         }}
       >
-        DEX ANALYTICS
+        {t('analytics.charts.dexAnalytics')}
       </Text>
       {best && (
         <TokenTrend
-          title="TOP GAINER"
+          title={t('analytics.dexLabels.topGainer')}
           iconUri={getTokenImageUrl(best.ticker)}
           symbol={best.ticker}
           value={best.diff}
@@ -115,7 +117,7 @@ const DexAnalytics = () => {
       )}
       {worst && (
         <TokenTrend
-          title="TOP LOSER"
+          title={t('analytics.dexLabels.topLoser')}
           iconUri={getTokenImageUrl(worst.ticker)}
           symbol={worst.ticker}
           value={worst.diff}
@@ -124,7 +126,7 @@ const DexAnalytics = () => {
       )}
       {topPair && !pairsLoading && (
         <PairTrend
-          title="TOP TRADED PAIR"
+          title={t('analytics.dexLabels.topTradedPair')}
           iconUri0={getTokenImageUrl(topPair.token0.name)}
           iconUri1={getTokenImageUrl(topPair.token1.name)}
           symbol0={topPair.token0.name}

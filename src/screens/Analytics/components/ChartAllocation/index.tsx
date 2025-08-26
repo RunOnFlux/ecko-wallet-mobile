@@ -9,6 +9,7 @@ import {
   makeSelectUsdEquivalents,
 } from '../../../../store/userWallet/selectors';
 import { TAccount, TWallet } from '../../../../store/userWallet/types';
+import { useTranslation } from 'react-i18next';
 
 const COLORS = [
   '#E25F5F',
@@ -32,6 +33,7 @@ const getSymbolFromAddress = (address: string) => {
 };
 
 const ChartAllocation = () => {
+  const { t } = useTranslation();
   const { theme } = useAppThemeContext();
   const accounts = useShallowEqualSelector(makeSelectAccounts);
   const usdEquivalents = useShallowEqualSelector(makeSelectUsdEquivalents);
@@ -70,7 +72,7 @@ const ChartAllocation = () => {
     return (
       <View style={{ paddingHorizontal: 20, paddingVertical: 15 }}>
         <Text style={{ color: theme.text.secondary, textAlign: 'center' }}>
-          No data yet
+          {t('analytics.states.noData')}
         </Text>
       </View>
     );
@@ -80,7 +82,7 @@ const ChartAllocation = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>PIE CHART</Text>
+      <Text style={styles.title}>{t('analytics.charts.chartAllocation')}</Text>
       <View style={styles.chartWrapper}>
         {(() => {
           const chartWidth = Math.max(280, Math.min(screenWidth - 40, 600));

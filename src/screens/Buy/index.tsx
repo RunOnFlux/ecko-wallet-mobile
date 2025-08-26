@@ -1,21 +1,27 @@
-import React, {useEffect, useState, useCallback, useMemo} from 'react';
-import {View, Text, ActivityIndicator, SafeAreaView, Alert} from 'react-native';
-import {WebView} from 'react-native-webview';
-import {useNavigation} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import {
+  View,
+  Text,
+  ActivityIndicator,
+  SafeAreaView,
+  Alert,
+} from 'react-native';
+import { WebView } from 'react-native-webview';
+import { useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 import Button from '../Wallet/components/WalletBalance/components/Button';
-import {MAIN_COLOR} from '../../constants/styles';
-import {createStyles} from './styles';
-import {useSafeAreaValues} from '../../utils/deviceHelpers';
-import {useShallowEqualSelector} from '../../store/utils';
-import {makeSelectSelectedAccount} from '../../store/userWallet/selectors';
+import { MAIN_COLOR } from '../../constants/styles';
+import { createStyles } from './styles';
+import { useSafeAreaValues } from '../../utils/deviceHelpers';
+import { useShallowEqualSelector } from '../../store/utils';
+import { makeSelectSelectedAccount } from '../../store/userWallet/selectors';
 import Header from '../../components/Header';
 import Warning from '../../components/Warning';
-import {useAppThemeContext} from '../../contexts';
+import { useAppThemeContext } from '../../contexts';
 
 const BuyScreen = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const [isAccepted, setIsAccepted] = useState(false);
   const [signature, setSignature] = useState('');
   const [payloadToSign, setPayloadToSign] = useState('');
@@ -26,10 +32,10 @@ const BuyScreen = () => {
   const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
   const walletAddress = selectedAccount?.accountName;
 
-  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const {theme} = useAppThemeContext();
+  const { bottomSpace, statusBarHeight } = useSafeAreaValues();
+  const { theme } = useAppThemeContext();
   const styles = useMemo(
-    () => createStyles(theme, {bottomSpace, statusBarHeight}),
+    () => createStyles(theme, { bottomSpace, statusBarHeight }),
     [theme, bottomSpace, statusBarHeight],
   );
 
@@ -113,7 +119,7 @@ const BuyScreen = () => {
 
       {isAccepted && payloadToSign && signature ? (
         <WebView
-          source={{uri: generateOnramperUrl()}}
+          source={{ uri: generateOnramperUrl() }}
           style={styles.webview}
           originWhitelist={[
             'https://*',

@@ -8,6 +8,7 @@ import {
 import { TAccount, TWallet } from '../../../../store/userWallet/types';
 import { useAppThemeContext } from '../../../../contexts';
 import { makeStyles } from './styles';
+import { useTranslation } from 'react-i18next';
 
 type Group = { name: string; fill: string; modules?: string[] };
 
@@ -46,6 +47,7 @@ const GROUPS: Group[] = [
 const formatUsd = (v: number) => `$ ${v.toFixed(2)}`;
 
 const AssetAllocation = () => {
+  const { t } = useTranslation();
   const { theme } = useAppThemeContext();
   const accounts = useShallowEqualSelector(makeSelectAccounts);
   const usdEquivalents = useShallowEqualSelector(makeSelectUsdEquivalents);
@@ -85,9 +87,11 @@ const AssetAllocation = () => {
   if (total === 0) {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>ASSET ALLOCATION</Text>
+        <Text style={styles.title}>
+          {t('analytics.charts.assetAllocation')}
+        </Text>
         <Text style={{ color: theme.text.secondary, textAlign: 'center' }}>
-          No data yet
+          {t('analytics.states.noData')}
         </Text>
       </View>
     );
@@ -102,7 +106,7 @@ const AssetAllocation = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>ASSET ALLOCATION</Text>
+      <Text style={styles.title}>{t('analytics.charts.assetAllocation')}</Text>
       <View style={styles.barWrapper}>
         {parts.map((p, idx) => {
           const widthPct = (p.value / sum) * 100;

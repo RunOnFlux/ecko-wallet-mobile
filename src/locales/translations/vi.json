@@ -697,5 +697,36 @@
     "matches": "Định dạng không hợp lệ",
     "passwordsMatch": "Mật khẩu không khớp",
     "passwordComplexity": "Phải chứa 8 ký tự, một chữ hoa, một chữ thường, một số và một ký tự đặc biệt"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Bắt đầu theo dõi danh mục đầu tư",
+    "trackPortfolioDesc1": "Bật theo dõi giá trị danh mục đầu tư để xem hiệu suất lịch sử.",
+    "trackPortfolioDesc2": "Chúng tôi sẽ lưu trữ cục bộ dữ liệu ẩn danh cần thiết để tính toán giá trị danh mục đầu tư của bạn theo thời gian.",
+    "trackPortfolioDisclaimer": "Bạn có thể tắt theo dõi bất cứ lúc nào trong Cài đặt.",
+    "confirm": "Xác nhận",
+    "timeSteps": {
+      "1D": "1N",
+      "1W": "1T",
+      "2W": "2T",
+      "1M": "1T",
+      "1Y": "1N",
+      "ALL": "TẤT CẢ"
+    },
+    "charts": {
+      "portfolioValue": "Biểu đồ giá trị danh mục đầu tư",
+      "dailyPnL": "LỢI NHUẬN/THUA LỖ HÀNG NGÀY",
+      "assetAllocation": "PHÂN BỔ TÀI SẢN",
+      "chartAllocation": "PHÂN BỔ BIỂU ĐỒ",
+      "dexAnalytics": "PHÂN TÍCH DEX",
+      "heatmap": "BẢN ĐỒ NHIỆT GIAO DỊCH"
+    },
+    "dexLabels": {
+      "topGainer": "NGƯỜI THẮNG TỐT NHẤT",
+      "topLoser": "NGƯỜI THUA TỆ NHẤT",
+      "topTradedPair": "CẶP GIAO DỊCH NHIỀU NHẤT"
+    },
+    "states": {
+      "noData": "Chưa có dữ liệu"
+    }
   }
 }

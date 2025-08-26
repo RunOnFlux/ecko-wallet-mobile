@@ -16,6 +16,13 @@ export const createStyles = (theme: IAppTheme) =>
       alignItems: 'center',
       marginBottom: 4,
     },
+    titleText: {
+      color: theme.text.secondary,
+      fontSize: 14,
+      marginBottom: 8,
+      paddingHorizontal: 20,
+      textTransform: 'uppercase',
+    },
     valueText: { color: theme.text.primary, fontSize: 16, fontWeight: 800 },
     rangeSelector: {
       flexDirection: 'row',
