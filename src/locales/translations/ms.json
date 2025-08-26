@@ -697,5 +697,36 @@
     "matches": "Format tidak sah",
     "passwordsMatch": "Kata laluan tidak sepadan",
     "passwordComplexity": "Mesti mengandungi 8 aksara, satu huruf besar, satu huruf kecil, satu nombor dan satu aksara khas"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Mulakan Penjejakan Portfolio",
+    "trackPortfolioDesc1": "Dayakan penjejakan nilai portfolio untuk melihat prestasi sejarah.",
+    "trackPortfolioDesc2": "Kami akan menyimpan data teranonim secara tempatan yang diperlukan untuk mengira nilai portfolio anda dari masa ke masa.",
+    "trackPortfolioDisclaimer": "Anda boleh melumpuhkan penjejakan pada bila-bila masa dalam Tetapan.",
+    "confirm": "Sahkan",
+    "timeSteps": {
+      "1D": "1H",
+      "1W": "1M",
+      "2W": "2M",
+      "1M": "1B",
+      "1Y": "1T",
+      "ALL": "SEMUA"
+    },
+    "charts": {
+      "portfolioValue": "Carta Nilai Portfolio",
+      "dailyPnL": "KEUNTUNGAN/KERUGIAN HARIAN",
+      "assetAllocation": "PENGAGIHAN ASET",
+      "chartAllocation": "PENGAGIHAN CARTA",
+      "dexAnalytics": "ANALISIS DEX",
+      "heatmap": "PETA HABA PERDAGANGAN"
+    },
+    "dexLabels": {
+      "topGainer": "PENDAPATAN TERBAIK",
+      "topLoser": "KERUGIAN TERBURUK",
+      "topTradedPair": "PASANGAN TERDAGANGKAN TERBANYAK"
+    },
+    "states": {
+      "noData": "Belum ada data"
+    }
   }
 }

@@ -697,5 +697,36 @@
     "matches": "Ogiltigt format",
     "passwordsMatch": "Lösenorden matchar inte",
     "passwordComplexity": "Måste innehålla 8 tecken, en versal, en gemen, en siffra och ett specialtecken"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Starta portföljspårning",
+    "trackPortfolioDesc1": "Aktivera portföljvärdespårning för att se historisk prestanda.",
+    "trackPortfolioDesc2": "Vi kommer att lagra lokalt anonymiserade data som behövs för att beräkna ditt portföljvärde över tid.",
+    "trackPortfolioDisclaimer": "Du kan inaktivera spårning när som helst i Inställningar.",
+    "confirm": "Bekräfta",
+    "timeSteps": {
+      "1D": "1D",
+      "1W": "1V",
+      "2W": "2V",
+      "1M": "1M",
+      "1Y": "1Å",
+      "ALL": "ALLA"
+    },
+    "charts": {
+      "portfolioValue": "Portföljvärdesgraf",
+      "dailyPnL": "DAGLIG VINST/FÖRLUST",
+      "assetAllocation": "TILLGÅNGSFÖRDELNING",
+      "chartAllocation": "GRAFFÖRDELNING",
+      "dexAnalytics": "DEX-ANALYS",
+      "heatmap": "HANDELSVÄRMKARTA"
+    },
+    "dexLabels": {
+      "topGainer": "BÄSTA VINNARE",
+      "topLoser": "SÄMSTA FÖRLORARE",
+      "topTradedPair": "MEST HANDLADE PAR"
+    },
+    "states": {
+      "noData": "Ingen data ännu"
+    }
   }
 }

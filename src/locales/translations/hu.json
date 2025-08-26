@@ -697,5 +697,36 @@
     "matches": "Érvénytelen formátum",
     "passwordsMatch": "A jelszavak nem egyeznek",
     "passwordComplexity": "Legalább 8 karaktert, egy nagybetűt, egy kisbetűt, egy számot és egy speciális karaktert kell tartalmaznia"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Portfólió követés indítása",
+    "trackPortfolioDesc1": "Engedélyezze a portfólió érték követését a történelmi teljesítmény megtekintéséhez.",
+    "trackPortfolioDesc2": "Helyileg tárolunk anonimizált adatokat, amelyek szükségesek a portfólió értékének kiszámításához az idő múlásával.",
+    "trackPortfolioDisclaimer": "A követést bármikor kikapcsolhatja a Beállításokban.",
+    "confirm": "Megerősítés",
+    "timeSteps": {
+      "1D": "1N",
+      "1W": "1H",
+      "2W": "2H",
+      "1M": "1H",
+      "1Y": "1É",
+      "ALL": "MIND"
+    },
+    "charts": {
+      "portfolioValue": "Portfólió érték grafikon",
+      "dailyPnL": "NAPI NYERESÉG/VESZTESÉG",
+      "assetAllocation": "VAGYON ALLOKÁCIÓ",
+      "chartAllocation": "GRAFIKON ALLOKÁCIÓ",
+      "dexAnalytics": "DEX ELEMZÉS",
+      "heatmap": "KERESKEDELMI HŐTÉRKÉP"
+    },
+    "dexLabels": {
+      "topGainer": "LEGJOBB NYERESÉG",
+      "topLoser": "LEGROSSZABB VESZTESÉG",
+      "topTradedPair": "LEGKERESKEDETTEBB PÁR"
+    },
+    "states": {
+      "noData": "Még nincsenek adatok"
+    }
   }
 }

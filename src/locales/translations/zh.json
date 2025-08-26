@@ -697,5 +697,36 @@
     "matches": "格式无效",
     "passwordsMatch": "密码不匹配",
     "passwordComplexity": "必须包含 8 个字符、1 个大写字母、1 个小写字母、1 个数字和 1 个特殊字符"
+  },
+  "analytics": {
+    "trackPortfolioStart": "开始跟踪投资组合",
+    "trackPortfolioDesc1": "启用投资组合价值跟踪以查看历史表现。",
+    "trackPortfolioDesc2": "我们将在本地存储计算您的投资组合价值随时间变化所需的匿名化数据。",
+    "trackPortfolioDisclaimer": "您可以随时在设置中停用跟踪。",
+    "confirm": "确认",
+    "timeSteps": {
+      "1D": "1日",
+      "1W": "1周",
+      "2W": "2周",
+      "1M": "1月",
+      "1Y": "1年",
+      "ALL": "全部"
+    },
+    "charts": {
+      "portfolioValue": "投资组合价值图表",
+      "dailyPnL": "每日盈亏",
+      "assetAllocation": "资产配置",
+      "chartAllocation": "图表配置",
+      "dexAnalytics": "DEX 分析",
+      "heatmap": "交易热力图"
+    },
+    "dexLabels": {
+      "topGainer": "最佳获利者",
+      "topLoser": "最差亏损者",
+      "topTradedPair": "最常交易对"
+    },
+    "states": {
+      "noData": "尚无数据"
+    }
   }
 }

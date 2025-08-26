@@ -697,5 +697,36 @@
     "matches": "Nieprawidłowy format",
     "passwordsMatch": "Hasła nie są zgodne",
     "passwordComplexity": "Musi zawierać 8 znaków, jedną wielką literę, jedną małą literę, jedną cyfrę i jeden znak specjalny"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Rozpocznij śledzenie portfela",
+    "trackPortfolioDesc1": "Włącz śledzenie wartości portfela, aby zobaczyć historyczną wydajność.",
+    "trackPortfolioDesc2": "Będziemy lokalnie przechowywać zanonimizowane dane potrzebne do obliczenia wartości Twojego portfela w czasie.",
+    "trackPortfolioDisclaimer": "Możesz wyłączyć śledzenie w dowolnym momencie w Ustawieniach.",
+    "confirm": "Potwierdź",
+    "timeSteps": {
+      "1D": "1D",
+      "1W": "1T",
+      "2W": "2T",
+      "1M": "1M",
+      "1Y": "1R",
+      "ALL": "WSZYSTKO"
+    },
+    "charts": {
+      "portfolioValue": "Wykres wartości portfela",
+      "dailyPnL": "DZIENNY ZYSK/STRATA",
+      "assetAllocation": "ALOKACJA AKTYWÓW",
+      "chartAllocation": "ALOKACJA WYKRESU",
+      "dexAnalytics": "ANALIZA DEX",
+      "heatmap": "MAPKA CIEPLNA HANDLU"
+    },
+    "dexLabels": {
+      "topGainer": "NAJLEPSZY ZWYCIĘZCA",
+      "topLoser": "NAJGORSZY PRZEGRANY",
+      "topTradedPair": "NAJCZĘŚCIEJ HANDLOWANA PARA"
+    },
+    "states": {
+      "noData": "Brak danych"
+    }
   }
 }

@@ -1,5 +1,5 @@
-import {ENCRYPTION_KEY} from '@env';
-import {configureStore, combineReducers} from '@reduxjs/toolkit';
+import { ENCRYPTION_KEY } from '@env';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -11,15 +11,16 @@ import {
   REGISTER,
   createMigrate,
 } from 'redux-persist';
-import {MMKV} from 'react-native-mmkv';
+import { MMKV } from 'react-native-mmkv';
 import auth from './auth';
 import userWallet from './userWallet';
 import contacts from './contacts';
 import networks from './networks';
 import transfers from './transfer';
 import history from './history';
-import {Storage} from 'redux-persist/es/types';
-import {migrateWallets} from './userWallet/const';
+import analytics from './analytics';
+import { Storage } from 'redux-persist/es/types';
+import { migrateWallets } from './userWallet/const';
 
 const plainStorage = new MMKV();
 const userStorage = new MMKV({
@@ -81,7 +82,7 @@ const userWalletPersistConfig = {
   storage: MMKVStorage(userStorage),
   blacklist: ['initialized'],
   version: 2,
-  migrate: createMigrate(walletTokensMigrations, {debug: true}),
+  migrate: createMigrate(walletTokensMigrations, { debug: true }),
 };
 
 const contactsPersistConfig = {
@@ -104,6 +105,10 @@ const networkPersistConfig = {
   key: 'networks',
   storage: MMKVStorage(plainStorage),
 };
+const analyticsPersistConfig = {
+  key: 'analytics',
+  storage: MMKVStorage(plainStorage),
+};
 
 const transferPersistConfig = {
   key: 'transfers',
@@ -118,6 +123,7 @@ const rootReducer = combineReducers({
   history: persistReducer(historyPersistConfig, history),
   networks: persistReducer(networkPersistConfig, networks),
   transfers: persistReducer(transferPersistConfig, transfers),
+  analytics: persistReducer(analyticsPersistConfig, analytics),
 });
 
 export const store = configureStore({

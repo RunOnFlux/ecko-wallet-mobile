@@ -1,12 +1,11 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import {View, Text, RefreshControl, FlatList} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {useTranslation} from 'react-i18next';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { View, Text, RefreshControl, FlatList } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import moment from 'moment';
-
-import Header from './components/Header';
+import HistoryTabHeader from './components/Header';
+import Header from '../../components/Header';
 import ListDay from './components/ListDay';
-
 import {
   convertToListDay,
   makeSelectListDayActivities,
@@ -14,29 +13,29 @@ import {
   makeSelectPollLoading,
   makeSelectPollRequestParams,
 } from '../../store/history/selectors';
-import {getPollRequest} from '../../store/history/actions';
+import { getPollRequest } from '../../store/history/actions';
 import {
   DextoolsTransaction,
   dextoolsTransactionToActivity,
   headerTabs,
   mergeUniqueTransactions,
 } from './const';
-import {useShallowEqualSelector} from '../../store/utils';
-import {useSafeAreaValues} from '../../utils/deviceHelpers';
-import {TListDayItem} from './components/ListDay/types';
-import {NETWORK_IDS} from '../../utils/walletConnect';
-import {makeSelectActiveNetworkDetails} from '../../store/networks/selectors';
-import {makeSelectSelectedAccount} from '../../store/userWallet/selectors';
-import {ECKO_DEXTOOLS_API_URL} from '../../api/constants';
-import {TActivity} from '../../store/history/types';
-import {useAppThemeContext} from '../../contexts';
-import {createStyles} from './styles';
-import {AppDispatch} from '../../store/store';
+import { useShallowEqualSelector } from '../../store/utils';
+import { useSafeAreaValues } from '../../utils/deviceHelpers';
+import { TListDayItem } from './components/ListDay/types';
+import { NETWORK_IDS } from '../../utils/walletConnect';
+import { makeSelectActiveNetworkDetails } from '../../store/networks/selectors';
+import { makeSelectSelectedAccount } from '../../store/userWallet/selectors';
+import { ECKO_DEXTOOLS_API_URL } from '../../api/constants';
+import { TActivity } from '../../store/history/types';
+import { useAppThemeContext } from '../../contexts';
+import { createStyles } from './styles';
+import { AppDispatch } from '../../store/store';
 
 const limit = 15;
 
 const History = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
 
   const pollReqParams = useShallowEqualSelector(makeSelectPollRequestParams);
@@ -115,7 +114,7 @@ const History = () => {
   }, [pollReqParams, isMainnet, listDayActivities, selectedAccount]);
 
   const renderItem = useCallback(
-    ({item}: {item: TListDayItem}) => <ListDay item={item} />,
+    ({ item }: { item: TListDayItem }) => <ListDay item={item} />,
     [],
   );
 
@@ -136,10 +135,10 @@ const History = () => {
     return `${dayPart}-${listPart}`;
   }, []);
 
-  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const {theme} = useAppThemeContext();
+  const { bottomSpace, statusBarHeight } = useSafeAreaValues();
+  const { theme } = useAppThemeContext();
   const styles = useMemo(
-    () => createStyles({bottomSpace, statusBarHeight, theme}),
+    () => createStyles({ bottomSpace, statusBarHeight, theme }),
     [bottomSpace, statusBarHeight, theme],
   );
 
@@ -169,7 +168,8 @@ const History = () => {
 
   return (
     <View style={styles.container}>
-      <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Header title={t('tabs.History')} />
+      <HistoryTabHeader activeTab={activeTab} setActiveTab={setActiveTab} />
       <FlatList
         refreshControl={
           <RefreshControl
@@ -189,6 +189,7 @@ const History = () => {
         )}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.content}
+        removeClippedSubviews={false}
         style={styles.contentWrapper}
         onEndReached={fetchTransactions}
         onEndReachedThreshold={0.5}

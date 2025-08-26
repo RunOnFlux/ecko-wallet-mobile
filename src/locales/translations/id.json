@@ -697,5 +697,36 @@
     "matches": "Format tidak valid",
     "passwordsMatch": "Kata sandi tidak sama",
     "passwordComplexity": "Harus mengandung 8 karakter, satu huruf besar, satu huruf kecil, satu angka, dan satu karakter khusus"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Mulai Pelacakan Portofolio",
+    "trackPortfolioDesc1": "Aktifkan pelacakan nilai portofolio untuk melihat kinerja historis.",
+    "trackPortfolioDesc2": "Kami akan menyimpan data anonim secara lokal yang diperlukan untuk menghitung nilai portofolio Anda dari waktu ke waktu.",
+    "trackPortfolioDisclaimer": "Anda dapat menonaktifkan pelacakan kapan saja di Pengaturan.",
+    "confirm": "Konfirmasi",
+    "timeSteps": {
+      "1D": "1H",
+      "1W": "1M",
+      "2W": "2M",
+      "1M": "1B",
+      "1Y": "1T",
+      "ALL": "SEMUA"
+    },
+    "charts": {
+      "portfolioValue": "Grafik Nilai Portofolio",
+      "dailyPnL": "KEUNTUNGAN/KERUGIAN HARIAN",
+      "assetAllocation": "ALOKASI ASET",
+      "chartAllocation": "ALOKASI GRAFIK",
+      "dexAnalytics": "ANALISIS DEX",
+      "heatmap": "PETA PANAS TRADING"
+    },
+    "dexLabels": {
+      "topGainer": "PENDAPATAN TERBAIK",
+      "topLoser": "KERUGIAN TERBURUK",
+      "topTradedPair": "PASANGAN TERDAGANGKAN TERBANYAK"
+    },
+    "states": {
+      "noData": "Belum ada data"
+    }
   }
 }

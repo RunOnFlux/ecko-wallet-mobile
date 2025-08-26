@@ -1,7 +1,7 @@
 // @ts-ignore
 import lib from 'cardano-crypto.js/kadena-crypto';
-import {Pact} from '../api/pactLangApi';
-import {Buffer} from 'buffer';
+import { Pact } from '../api/pactLangApi';
+import { Buffer } from 'buffer';
 
 export const generateSeedPhrase = () => {
   return lib.kadenaGenMnemonic();
@@ -86,7 +86,7 @@ export function setSignatureIfNecessary(cmdValue: any, sig: string) {
       cmds: [
         {
           ...cmdValue.cmds[0],
-          sigs: [{sig: signature}],
+          sigs: [{ sig: signature }],
         },
       ],
     };
