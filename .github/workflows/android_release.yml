@@ -30,8 +30,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Generate Codegen Artifacts
-        run: npx react-native codegen --platform android
+            - name: Clean build cache
+        run: |
+          cd android
+          ./gradlew clean
+          cd ..
 
       - name: Decode Keystore
         uses: timheuer/base64-to-file@v1
@@ -47,14 +50,14 @@ jobs:
           echo "WALLETCONNECT_PROJECT_RELAY=${{ secrets.WALLETCONNECT_PROJECT_RELAY }}" >> .env
 
       - name: Build Android AAB Release
-        run: cd android && ./gradlew bundleRelease
+        run: cd android && ./gradlew bundleRelease --no-daemon --max-workers=2
         env:
           SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.ANDROID_KEY_STORE_PASSWORD }}
 
       - name: Build Android APK Release
-        run: cd android && ./gradlew assembleRelease
+        run: cd android && ./gradlew assembleRelease --no-daemon --max-workers=2
         env:
           SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
