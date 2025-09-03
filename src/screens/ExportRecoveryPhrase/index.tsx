@@ -1,5 +1,12 @@
 import React, {useCallback, useMemo} from 'react';
-import {View, Text, ScrollView, Image} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
 import Snackbar from 'react-native-snackbar';
 import {useTranslation} from 'react-i18next';
@@ -40,7 +47,9 @@ const ExportRecoveryPhrase = () => {
   }, [seeds, t]);
 
   return (
-    <View style={styles.screen}>
+    <KeyboardAvoidingView
+      style={styles.screen}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <Header title={t('exportRecoveryPhrase.header.title')} />
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -73,7 +82,7 @@ const ExportRecoveryPhrase = () => {
           />
         </View>
       </ScrollView>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 

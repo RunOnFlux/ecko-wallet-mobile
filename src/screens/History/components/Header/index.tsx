@@ -8,27 +8,29 @@ import {styles} from './styles';
 import {THeaderProps} from './types';
 import {useTranslation} from 'react-i18next';
 
-const Header: FC<THeaderProps> = React.memo(({activeTab, setActiveTab}) => {
-  const {t} = useTranslation();
-  const handlePress = useCallback(
-    (value: TRadioTabValue) => {
-      setActiveTab(value);
-    },
-    [setActiveTab],
-  );
-  return (
-    <View style={styles.header}>
-      <RadioTab
-        options={headerTabs.map(ht => ({
-          ...ht,
-          label: t(`tabs.history.${ht.label}`),
-        }))}
-        value={activeTab}
-        onChange={handlePress}
-        buttonStyle={styles.buttonStyle}
-      />
-    </View>
-  );
-});
+const HistoryTabHeader: FC<THeaderProps> = React.memo(
+  ({activeTab, setActiveTab}) => {
+    const {t} = useTranslation();
+    const handlePress = useCallback(
+      (value: TRadioTabValue) => {
+        setActiveTab(value);
+      },
+      [setActiveTab],
+    );
+    return (
+      <View style={styles.header}>
+        <RadioTab
+          options={headerTabs.map(ht => ({
+            ...ht,
+            label: t(`tabs.history.${ht.label}`),
+          }))}
+          value={activeTab}
+          onChange={handlePress}
+          buttonStyle={styles.buttonStyle}
+        />
+      </View>
+    );
+  },
+);
 
-export default Header;
+export default HistoryTabHeader;

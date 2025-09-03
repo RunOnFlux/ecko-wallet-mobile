@@ -693,9 +693,40 @@
     "max": "Mag hoogstens {{count}} karakters hê",
     "minNumber": "Moet ten minste {{count}} wees",
     "maxNumber": "Mag hoogstens {{count}} wees",
-    "email": "Moet ’n geldige e-pos wees",
+    "email": "Moet 'n geldige e-pos wees",
     "matches": "Ongeldige formaat",
     "passwordsMatch": "Wagwoord kom nie ooreen nie",
     "passwordComplexity": "Moet 8 karakters, een hoofletter, een kleinletter, een syfer en een spesiale karakter bevat"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Begin Portefeulje Opsporing",
+    "trackPortfolioDesc1": "Aktiveer portefeulje-waarde-opsporing om historiese prestasie te sien.",
+    "trackPortfolioDesc2": "Ons sal plaaslik anonimiseerde data stoor wat nodig is om jou portefeulje-waarde oor tyd te bereken.",
+    "trackPortfolioDisclaimer": "Jy kan opsporing enige tyd in Instellings deaktiveer.",
+    "confirm": "Bevestig",
+    "timeSteps": {
+      "1D": "1D",
+      "1W": "1W",
+      "2W": "2W",
+      "1M": "1M",
+      "1Y": "1Y",
+      "ALL": "ALLES"
+    },
+    "charts": {
+      "portfolioValue": "Portefeulje Waarde Grafiek",
+      "dailyPnL": "DAAGLIKSE WINS/VERLIES",
+      "assetAllocation": "BATE TOEWYSING",
+      "chartAllocation": "GRAFIEK TOEWYSING",
+      "dexAnalytics": "DEX ONTLEDING",
+      "heatmap": "VERHANDELING HITKAART"
+    },
+    "dexLabels": {
+      "topGainer": "TOP WENNER",
+      "topLoser": "TOP VERLOOR",
+      "topTradedPair": "TOP VERHANDELDE PAAR"
+    },
+    "states": {
+      "noData": "Nog geen data nie"
+    }
   }
 }

@@ -4,11 +4,11 @@ import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
 
 import ArrowTopRightSvg from '../../../../assets/images/arrow-top-right.svg';
+import HistorySvg from '../../../../assets/images/time-history.svg';
 import ArrowBottomRightSvg from '../../../../assets/images/arrow-bottom-right.svg';
 import BuySvg from '../../../../assets/images/icon-buy.svg';
 import Button from './components/Button';
 import {makeStyles} from './styles';
-import {MAIN_COLOR} from '../../../../constants/styles';
 import {ERootStackRoutes, TNavigationProp} from '../../../../routes/types';
 import {
   makeSelectAccounts,
@@ -22,6 +22,7 @@ import {useShallowEqualSelector} from '../../../../store/utils';
 import {TAccount, TWallet} from '../../../../store/userWallet/types';
 import {numberWithCommas} from '../../../../utils/stringHelpers';
 import {useAppThemeContext} from '../../../../contexts';
+import RoundedButton from '../../../../components/RoundedButton';
 
 const WalletBalance = React.memo(() => {
   const {t} = useTranslation();
@@ -105,6 +106,10 @@ const WalletBalance = React.memo(() => {
     });
   }, []);
 
+  const handlePressHistory = useCallback(() => {
+    navigation.navigate(ERootStackRoutes.History);
+  }, [navigation]);
+
   const closeKdaModal = useCallback(() => {
     setKdaModalVisible(false);
   }, []);
@@ -135,25 +140,29 @@ const WalletBalance = React.memo(() => {
           {`$ ${numberWithCommas(accountBalanceUsd)}`}
         </Text>
         <View style={styles.buttonsWrapper}>
-          <Button
-            icon={<ArrowTopRightSvg fill="#FFA900" />}
-            title={t('wallet.walletBalance.send')}
+          <RoundedButton
             onPress={handlePressSend}
-            style={styles.button}
+            label={t('wallet.walletBalance.send')}
+            icon={<ArrowTopRightSvg fill="#FFA900" />}
+            variant="primary"
           />
-          <Button
-            icon={<ArrowBottomRightSvg fill="#FFA900" />}
-            title={t('wallet.walletBalance.receive')}
+          <RoundedButton
             onPress={handlePressReceive}
-            style={styles.button}
-            backgroundColor="rgba(236,236,245,0.5)"
-            textColor={theme.text.primary}
+            label={t('wallet.walletBalance.receive')}
+            icon={<ArrowBottomRightSvg fill="#FFA900" />}
+            variant="secondary"
           />
-          <Button
-            icon={<BuySvg fill="#FFA900" />}
-            title={t('wallet.walletBalance.buy')}
+          <RoundedButton
             onPress={handlePressBuy}
-            style={styles.button}
+            label={t('wallet.walletBalance.buy')}
+            icon={<BuySvg fill="#C30AE3" />}
+            variant="brand"
+          />
+          <RoundedButton
+            onPress={handlePressHistory}
+            label={t('tabs.History')}
+            icon={<HistorySvg fill="#787B8E" />}
+            variant="empty"
           />
         </View>
       </View>

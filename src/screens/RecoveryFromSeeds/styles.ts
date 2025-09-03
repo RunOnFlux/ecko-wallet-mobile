@@ -1,5 +1,5 @@
-import {Dimensions, StyleSheet} from 'react-native';
-import {BOLD_MONTSERRAT, MEDIUM_MONTSERRAT} from '../../constants/styles';
+import { Dimensions, Platform, StyleSheet } from 'react-native';
+import { BOLD_MONTSERRAT, MEDIUM_MONTSERRAT } from '../../constants/styles';
 
 export const createStyles = ({
   statusBarHeight,
@@ -63,7 +63,7 @@ export const createStyles = ({
     },
     buttonContainer: {
       width: '100%',
-      paddingBottom: bottomSpace + 16,
+      paddingBottom: Platform.OS === 'ios' ? bottomSpace : 0,
       backgroundColor: 'transparent',
     },
     button: {

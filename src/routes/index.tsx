@@ -5,7 +5,6 @@ import LogoGraySvg from '../assets/images/logo-gray.svg';
 import LogoSvg from '../assets/images/logo.svg';
 import SwapSvg from '../assets/images/swap.svg';
 import History from '../screens/History';
-import TimeHistorySvg from '../assets/images/time-history.svg';
 import ConnectionSvg from '../assets/images/connect.svg';
 import BasicSettingsSvg from '../assets/images/basic-settins.svg';
 import Login from '../screens/Login';
@@ -39,6 +38,7 @@ import Welcome from '../screens/Welcome';
 import ChangeAccountPassword from '../screens/ChangeAccountPassword';
 import ReceiverScan from '../screens/ReceiverScan';
 import BuyScreen from '../screens/Buy';
+import Analytics from '../screens/Analytics';
 
 export const AUTH_STACK_SCREENS = [
   {name: ERootStackRoutes.Welcome, component: Welcome},
@@ -76,6 +76,10 @@ export const APP_STACK_SCREENS = [
   {
     name: ERootStackRoutes.Buy,
     component: BuyScreen,
+  },
+  {
+    name: ERootStackRoutes.History,
+    component: History,
   },
   {
     name: ERootStackRoutes.SendSummary,
@@ -164,10 +168,10 @@ export const HOME_TAB_SCREENS = [
     },
   },
   {
-    name: EHomeTabRoutes.Swap,
-    component: Swap,
+    name: EHomeTabRoutes.Analytics,
+    component: Analytics,
     options: {
-      tabBarLabel: 'Convert',
+      tabBarLabel: 'Analytics',
       tabBarActiveTintColor: '#404A8D',
       tabBarInactiveTintColor: '#787B8E',
       tabBarIcon: ({focused}: any) => {
@@ -182,15 +186,15 @@ export const HOME_TAB_SCREENS = [
     },
   },
   {
-    name: EHomeTabRoutes.History,
-    component: History,
+    name: EHomeTabRoutes.Swap,
+    component: Swap,
     options: {
-      tabBarLabel: 'History',
+      tabBarLabel: 'Convert',
       tabBarActiveTintColor: '#404A8D',
       tabBarInactiveTintColor: '#787B8E',
       tabBarIcon: ({focused}: any) => {
         return (
-          <TimeHistorySvg
+          <SwapSvg
             fill={focused ? '#404A8D' : '#787B8E'}
             width={24}
             height={24}

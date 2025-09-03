@@ -50,7 +50,7 @@ export const makeStyles = (theme: IAppTheme) =>
     },
     buttonsWrapper: {
       flexDirection: 'row',
-      justifyContent: 'center',
+      justifyContent: 'space-evenly',
       marginTop: 32,
       paddingHorizontal: 8,
       width: '100%',

@@ -697,5 +697,36 @@
     "matches": "Ugyldig format",
     "passwordsMatch": "Passordene samsvarer ikke",
     "passwordComplexity": "Må inneholde 8 tegn, én stor bokstav, én liten bokstav, ett tall og ett spesialtegn"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Start portefølje sporing",
+    "trackPortfolioDesc1": "Aktiver portefølje verdi sporing for å se historisk ytelse.",
+    "trackPortfolioDesc2": "Vi vil lagre anonymiserte data lokalt som er nødvendig for å beregne portefølje verdien din over tid.",
+    "trackPortfolioDisclaimer": "Du kan deaktivere sporing når som helst i Innstillinger.",
+    "confirm": "Bekreft",
+    "timeSteps": {
+      "1D": "1D",
+      "1W": "1U",
+      "2W": "2U",
+      "1M": "1M",
+      "1Y": "1Å",
+      "ALL": "ALLE"
+    },
+    "charts": {
+      "portfolioValue": "Portefølje verdi grafikk",
+      "dailyPnL": "DAGLIG GEVINST/TAP",
+      "assetAllocation": "AKTIVA ALLOKERING",
+      "chartAllocation": "GRAFIKK ALLOKERING",
+      "dexAnalytics": "DEX ANALYSE",
+      "heatmap": "HANDEL VARMEMAPPE"
+    },
+    "dexLabels": {
+      "topGainer": "BESTE VINNER",
+      "topLoser": "VERSTE TAPER",
+      "topTradedPair": "MEST HANDLET PAR"
+    },
+    "states": {
+      "noData": "Ingen data ennå"
+    }
   }
 }

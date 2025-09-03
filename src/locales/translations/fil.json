@@ -697,5 +697,36 @@
     "matches": "Hindi wastong format",
     "passwordsMatch": "Hindi magkapareho ang mga password",
     "passwordComplexity": "Dapat may 8 character, isang uppercase, isang lowercase, isang numero, at isang special character"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Simulan ang Portfolio Tracking",
+    "trackPortfolioDesc1": "I-enable ang portfolio value tracking para makita ang historical performance.",
+    "trackPortfolioDesc2": "Mag-iimbak kami ng locally anonymized data na kailangan para kalkulahin ang iyong portfolio value sa paglipas ng panahon.",
+    "trackPortfolioDisclaimer": "Maaari mong i-disable ang tracking anumang oras sa Settings.",
+    "confirm": "Kumpirmahin",
+    "timeSteps": {
+      "1D": "1A",
+      "1W": "1L",
+      "2W": "2L",
+      "1M": "1B",
+      "1Y": "1T",
+      "ALL": "LAHAT"
+    },
+    "charts": {
+      "portfolioValue": "Portfolio Value Chart",
+      "dailyPnL": "ARAW-ARAW NA KITA/LUGI",
+      "assetAllocation": "PAMAMAHAGI NG ASSET",
+      "chartAllocation": "PAMAMAHAGI NG CHART",
+      "dexAnalytics": "DEX ANALISIS",
+      "heatmap": "TRADING HEATMAP"
+    },
+    "dexLabels": {
+      "topGainer": "PINAKAMAHUSAY NA NANALO",
+      "topLoser": "PINAKAMASAMANG NATALO",
+      "topTradedPair": "PINAKAMARAMING NEGOSYONG PAIR"
+    },
+    "states": {
+      "noData": "Wala pang data"
+    }
   }
 }

@@ -697,5 +697,36 @@
     "matches": "Format no vàlid",
     "passwordsMatch": "La contrasenya no coincideix",
     "passwordComplexity": "Ha de contenir 8 caràcters, una majúscula, una minúscula, un nombre i un caràcter especial"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Començar a seguir el portafoli",
+    "trackPortfolioDesc1": "Activa el seguiment del valor del portafoli per veure el rendiment històric.",
+    "trackPortfolioDesc2": "Emmagatzemarem localment dades anonimitzades necessàries per calcular el valor del teu portafoli al llarg del temps.",
+    "trackPortfolioDisclaimer": "Pots desactivar el seguiment en qualsevol moment a Configuració.",
+    "confirm": "Confirmar",
+    "timeSteps": {
+      "1D": "1D",
+      "1W": "1S",
+      "2W": "2S",
+      "1M": "1M",
+      "1Y": "1A",
+      "ALL": "TOT"
+    },
+    "charts": {
+      "portfolioValue": "Gràfic del valor del portafoli",
+      "dailyPnL": "GUANYS/PÈRDUES DIÀRIES",
+      "assetAllocation": "AL·LOCACIÓ D'ACTIUS",
+      "chartAllocation": "AL·LOCACIÓ DEL GRÀFIC",
+      "dexAnalytics": "ANÀLISI DEX",
+      "heatmap": "MAPA DE CALOR DE COMERÇ"
+    },
+    "dexLabels": {
+      "topGainer": "MÀXIM GUANYADOR",
+      "topLoser": "MÀXIM PERDEDOR",
+      "topTradedPair": "PARELLA MÉS COMERCIADA"
+    },
+    "states": {
+      "noData": "Encara no hi ha dades"
+    }
   }
 }

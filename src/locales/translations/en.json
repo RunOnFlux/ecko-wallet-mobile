@@ -612,10 +612,42 @@
       "button": "Okay"
     }
   },
+  "analytics": {
+    "trackPortfolioStart": "Start Tracking",
+    "trackPortfolioDesc1": "Enable portfolio value tracking to see historical performance.",
+    "trackPortfolioDesc2": "We will locally store anonymized data required to compute your portfolio value over time.",
+    "trackPortfolioDisclaimer": "You can disable tracking at any time in Settings.",
+    "confirm": "Confirm",
+    "timeSteps": {
+      "1D": "1D",
+      "1W": "1W",
+      "2W": "2W",
+      "1M": "1M",
+      "1Y": "1Y",
+      "ALL": "ALL"
+    },
+    "charts": {
+      "portfolioValue": "Portfolio Value Chart",
+      "dailyPnL": "DAILY P&L",
+      "assetAllocation": "ASSET ALLOCATION",
+      "chartAllocation": "CHART ALLOCATION",
+      "dexAnalytics": "DEX ANALYTICS",
+      "heatmap": "TRADING HEATMAP"
+    },
+    "dexLabels": {
+      "topGainer": "TOP GAINER",
+      "topLoser": "TOP LOSER",
+      "topTradedPair": "TOP TRADED PAIR"
+    },
+    "states": {
+      "noData": "No data yet"
+    }
+  },
   "tabs": {
     "Wallet": "Wallet",
     "Swap": "Swap",
     "History": "History",
+    "Analytics": "Analytics",
     "Connection": "Connection",
     "Settings": "Settings",
     "history": {

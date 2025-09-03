@@ -602,6 +602,37 @@
       "button": "OK"
     }
   },
+  "analytics": {
+    "trackPortfolioStart": "Avvia tracciamento",
+    "trackPortfolioDesc1": "Abilita il tracciamento del valore del portafoglio per vedere l'andamento storico.",
+    "trackPortfolioDesc2": "Memorizzeremo localmente dati anonimizzati necessari a calcolare il valore del portafoglio nel tempo.",
+    "trackPortfolioDisclaimer": "Puoi disattivare il tracciamento in qualsiasi momento dalle Impostazioni.",
+    "confirm": "Conferma",
+    "timeSteps": {
+      "1D": "1G",
+      "1W": "1S",
+      "2W": "2S",
+      "1M": "1M",
+      "1Y": "1A",
+      "ALL": "TUTTO"
+    },
+    "charts": {
+      "portfolioValue": "Grafico Valore Portafoglio",
+      "dailyPnL": "P&L GIORNALIERO",
+      "assetAllocation": "ALLOCAZIONE ASSET",
+      "chartAllocation": "ALLOCAZIONE GRAFICO",
+      "dexAnalytics": "ANALISI DEX",
+      "heatmap": "HEATMAP TRADING"
+    },
+    "dexLabels": {
+      "topGainer": "MIGLIOR PERFORMER",
+      "topLoser": "PEGGIOR PERFORMER",
+      "topTradedPair": "COPPIA PIÙ SCAMBIATA"
+    },
+    "states": {
+      "noData": "Nessun dato ancora"
+    }
+  },
   "tabs": {
     "Wallet": "Portafoglio",
     "Swap": "Converti",

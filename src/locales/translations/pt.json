@@ -697,5 +697,36 @@
     "matches": "Formato inválido",
     "passwordsMatch": "As senhas não correspondem",
     "passwordComplexity": "Deve conter 8 caracteres, uma letra maiúscula, uma letra minúscula, um número e um caractere especial"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Iniciar rastreamento do portfólio",
+    "trackPortfolioDesc1": "Ative o rastreamento do valor do portfólio para ver o desempenho histórico.",
+    "trackPortfolioDesc2": "Armazenaremos localmente dados anonimizados necessários para calcular o valor do seu portfólio ao longo do tempo.",
+    "trackPortfolioDisclaimer": "Você pode desativar o rastreamento a qualquer momento nas Configurações.",
+    "confirm": "Confirmar",
+    "timeSteps": {
+      "1D": "1D",
+      "1W": "1S",
+      "2W": "2S",
+      "1M": "1M",
+      "1Y": "1A",
+      "ALL": "TUDO"
+    },
+    "charts": {
+      "portfolioValue": "Gráfico do valor do portfólio",
+      "dailyPnL": "LUCRO/PERDA DIÁRIO",
+      "assetAllocation": "ALOCAÇÃO DE ATIVOS",
+      "chartAllocation": "ALOCAÇÃO DO GRÁFICO",
+      "dexAnalytics": "ANÁLISE DEX",
+      "heatmap": "MAPA DE CALOR DE NEGOCIAÇÃO"
+    },
+    "dexLabels": {
+      "topGainer": "MELHOR GANHADOR",
+      "topLoser": "PIOR PERDEDOR",
+      "topTradedPair": "PAR MAIS NEGOCIADO"
+    },
+    "states": {
+      "noData": "Ainda não há dados"
+    }
   }
 }

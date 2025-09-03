@@ -697,5 +697,36 @@
     "matches": "無効な形式です",
     "passwordsMatch": "パスワードが一致しません",
     "passwordComplexity": "8文字以上、大文字1つ、小文字1つ、数字1つ、特殊文字1つを含める必要があります"
+  },
+  "analytics": {
+    "trackPortfolioStart": "ポートフォリオ追跡を開始",
+    "trackPortfolioDesc1": "ポートフォリオ価値の追跡を有効にして、履歴パフォーマンスを確認します。",
+    "trackPortfolioDesc2": "時間の経過とともにポートフォリオ価値を計算するために必要な匿名化されたデータをローカルに保存します。",
+    "trackPortfolioDisclaimer": "設定でいつでも追跡を無効にできます。",
+    "confirm": "確認",
+    "timeSteps": {
+      "1D": "1日",
+      "1W": "1週間",
+      "2W": "2週間",
+      "1M": "1ヶ月",
+      "1Y": "1年",
+      "ALL": "すべて"
+    },
+    "charts": {
+      "portfolioValue": "ポートフォリオ価値チャート",
+      "dailyPnL": "日次損益",
+      "assetAllocation": "資産配分",
+      "chartAllocation": "チャート配分",
+      "dexAnalytics": "DEX分析",
+      "heatmap": "取引ヒートマップ"
+    },
+    "dexLabels": {
+      "topGainer": "トップゲイナー",
+      "topLoser": "トップローザー",
+      "topTradedPair": "トップ取引ペア"
+    },
+    "states": {
+      "noData": "まだデータがありません"
+    }
   }
 }

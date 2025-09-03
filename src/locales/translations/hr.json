@@ -697,5 +697,36 @@
     "matches": "Nevažeći format",
     "passwordsMatch": "Lozinke se ne podudaraju",
     "passwordComplexity": "Mora sadržavati 8 znakova, jedno veliko slovo, jedno malo slovo, jednu brojku i jedan poseban znak"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Započni praćenje portfelja",
+    "trackPortfolioDesc1": "Omogući praćenje vrijednosti portfelja za prikaz povijesnih rezultata.",
+    "trackPortfolioDesc2": "Lokalno ćemo pohraniti anonimizirane podatke potrebne za izračun vrijednosti vašeg portfelja tijekom vremena.",
+    "trackPortfolioDisclaimer": "Možete onemogućiti praćenje bilo kada u Postavkama.",
+    "confirm": "Potvrdi",
+    "timeSteps": {
+      "1D": "1D",
+      "1W": "1T",
+      "2W": "2T",
+      "1M": "1M",
+      "1Y": "1G",
+      "ALL": "SVE"
+    },
+    "charts": {
+      "portfolioValue": "Grafikon vrijednosti portfelja",
+      "dailyPnL": "DNEVNI DOBITAK/GUBITAK",
+      "assetAllocation": "RASPODJELA IMOVINE",
+      "chartAllocation": "RASPODJELA GRAFIKONA",
+      "dexAnalytics": "DEX ANALIZA",
+      "heatmap": "TRGOVINSKA TOPLINSKA KARTA"
+    },
+    "dexLabels": {
+      "topGainer": "NAJBOLJI DOBITNIK",
+      "topLoser": "NAJGORI GUBITNIK",
+      "topTradedPair": "NAJVIŠE TRGOVANI PAR"
+    },
+    "states": {
+      "noData": "Još nema podataka"
+    }
   }
 }

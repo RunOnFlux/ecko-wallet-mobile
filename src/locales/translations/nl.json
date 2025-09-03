@@ -697,5 +697,36 @@
     "matches": "Ongeldig formaat",
     "passwordsMatch": "Wachtwoorden komen niet overeen",
     "passwordComplexity": "Moet 8 tekens bevatten, één hoofdletter, één kleine letter, één cijfer en één speciaal teken"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Portfolio tracking starten",
+    "trackPortfolioDesc1": "Activeer portfolio waarde tracking om historische prestaties te bekijken.",
+    "trackPortfolioDesc2": "We zullen lokaal geanonimiseerde gegevens opslaan die nodig zijn om uw portfolio waarde in de loop van de tijd te berekenen.",
+    "trackPortfolioDisclaimer": "U kunt tracking op elk moment uitschakelen in Instellingen.",
+    "confirm": "Bevestigen",
+    "timeSteps": {
+      "1D": "1D",
+      "1W": "1W",
+      "2W": "2W",
+      "1M": "1M",
+      "1Y": "1J",
+      "ALL": "ALLE"
+    },
+    "charts": {
+      "portfolioValue": "Portfolio waarde grafiek",
+      "dailyPnL": "DAGELIJKSE WINST/VERLIES",
+      "assetAllocation": "ACTIVA ALLOCATIE",
+      "chartAllocation": "GRAFIEK ALLOCATIE",
+      "dexAnalytics": "DEX ANALYSE",
+      "heatmap": "HANDEL WARMTEKAART"
+    },
+    "dexLabels": {
+      "topGainer": "BESTE WINNAAR",
+      "topLoser": "SLECHTSTE VERLIEZER",
+      "topTradedPair": "MEEST VERHANDELDE PAAR"
+    },
+    "states": {
+      "noData": "Nog geen gegevens"
+    }
   }
 }

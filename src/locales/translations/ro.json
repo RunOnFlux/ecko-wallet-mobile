@@ -697,5 +697,36 @@
     "matches": "Format nevalid",
     "passwordsMatch": "Parolele nu coincid",
     "passwordComplexity": "Trebuie să conțină 8 caractere, o literă mare, o literă mică, o cifră și un caracter special"
+  },
+  "analytics": {
+    "trackPortfolioStart": "Începe urmărirea portofoliului",
+    "trackPortfolioDesc1": "Activează urmărirea valorii portofoliului pentru a vedea performanța istorică.",
+    "trackPortfolioDesc2": "Vom stoca local date anonimizate necesare pentru a calcula valoarea portofoliului tău în timp.",
+    "trackPortfolioDisclaimer": "Poți dezactiva urmărirea în orice moment din Setări.",
+    "confirm": "Confirmă",
+    "timeSteps": {
+      "1D": "1Z",
+      "1W": "1S",
+      "2W": "2S",
+      "1M": "1L",
+      "1Y": "1A",
+      "ALL": "TOATE"
+    },
+    "charts": {
+      "portfolioValue": "Graficul valorii portofoliului",
+      "dailyPnL": "CÂȘTIG/PIERDERE ZILNIC",
+      "assetAllocation": "ALOCAREA ACTIVELOR",
+      "chartAllocation": "ALOCAREA GRAFICULUI",
+      "dexAnalytics": "ANALIZA DEX",
+      "heatmap": "HARTA DE CĂLDURĂ A TRADING-ULUI"
+    },
+    "dexLabels": {
+      "topGainer": "CEL MAI BUN CÂȘTIGĂTOR",
+      "topLoser": "CEL MAI RĂU PIERDĂTOR",
+      "topTradedPair": "CEA MAI TRADATĂ PERECHE"
+    },
+    "states": {
+      "noData": "Încă nu există date"
+    }
   }
 }
