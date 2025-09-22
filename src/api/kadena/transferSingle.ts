@@ -1,10 +1,14 @@
-import {DefaultQueryParams} from '../types';
-import {isPrivateKey, setSignatureIfNecessary} from '../../utils/kadenaHelpers';
-import {Pact} from '../pactLangApi';
-import {getPactHost} from '../utils';
-import {convertDecimal} from '../../utils/numberHelpers';
-import {getAccount} from './account';
-import {Platform} from 'react-native';
+import { DefaultQueryParams } from '../types';
+import {
+  isPrivateKey,
+  setSignatureIfNecessary,
+} from '../../utils/kadenaHelpers';
+import { Pact } from '../pactLangApi';
+import { getPactHost } from '../utils';
+import { convertDecimal } from '../../utils/numberHelpers';
+import { getAccount } from './account';
+import { isRAccount, fetchGuardForRAccount } from './rAccount';
+import { Platform } from 'react-native';
 
 interface TransferSingleQueryParams extends DefaultQueryParams {
   instance: string;
@@ -82,8 +86,8 @@ export const getTransferSingle: (
     signature.length === 128 && isPrivateKey(signature)
       ? signature.slice(0, 64)
       : signature.length === 64
-      ? signature
-      : null;
+        ? signature
+        : null;
 
   try {
     await Pact.fetch.local(
@@ -108,7 +112,7 @@ export const getTransferSingle: (
       publicKey,
       secretKey: privateKey,
       clist: [
-        {name: 'coin.GAS', args: []},
+        { name: 'coin.GAS', args: [] },
         {
           name: `${token || 'coin'}.TRANSFER`,
           args: [sender, receiver, Number(amount)],
@@ -116,8 +120,42 @@ export const getTransferSingle: (
       ],
     },
   ];
+  const moduleName = token || 'coin';
 
-  const pactCode = `(${token || 'coin'}.transfer-create ${JSON.stringify(
+  if (isRAccount(receiver)) {
+    const { exists, keysetRefGuard } = await fetchGuardForRAccount(
+      receiver,
+      moduleName,
+      network,
+      version,
+      instance,
+      sourceChainId,
+      customHost,
+    );
+    if (moduleName === 'coin' && !exists && !keysetRefGuard) {
+      throw new Error('r-account-not-initialized');
+    }
+    const pactCode = !exists
+      ? `(${moduleName}.transfer-create ${JSON.stringify(sender)} ${JSON.stringify(
+          receiver,
+        )} (keyset-ref-guard ${JSON.stringify(
+          `${keysetRefGuard!.ns}.${keysetRefGuard!.ksn}`,
+        )}) ${convertDecimal(amount)})`
+      : `(${moduleName}.transfer ${JSON.stringify(sender)} ${JSON.stringify(
+          receiver,
+        )} ${convertDecimal(amount)})`;
+    const createdCommand = Pact.simple.exec.createCommand(
+      keyPair,
+      getNonceByPlatform(Platform.OS),
+      pactCode,
+      undefined,
+      meta,
+      instance,
+    );
+    return setSignatureIfNecessary(createdCommand, signature);
+  }
+
+  const pactCode = `(${moduleName}.transfer-create ${JSON.stringify(
     sender,
   )} ${JSON.stringify(receiver)} (read-keyset "ks")  ${convertDecimal(
     amount,

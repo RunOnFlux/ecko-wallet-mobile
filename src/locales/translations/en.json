@@ -316,7 +316,9 @@
     "alert": {
       "nonKTitle": "Sending to a non \"k:account\"",
       "nonKMessage": "Are you sure you want to proceed?",
-      "proceed": "Proceed"
+      "proceed": "Proceed",
+      "rUninitializedTitle": "r:account not initialized",
+      "rUninitializedMessage": "Ask the receiver to open SpireKey and initialize the account."
     },
     "chain": {
       "sourceLabel": "Source Chain ID",
