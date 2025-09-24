@@ -44,6 +44,10 @@ export const makeStyles = (
     chainWrapper: {
       zIndex: 9,
     },
+    tokenWrapper: {
+      marginTop: 10,
+      zIndex: 9,
+    },
     chainSecondWrapper: {
       zIndex: 8,
     },
