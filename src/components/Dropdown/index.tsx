@@ -19,23 +19,28 @@ const Dropdown: FC<TDropdownProps> = React.memo(
     const { theme } = useAppThemeContext();
     const styles = useMemo(() => makeStyles(theme), [theme]);
 
-    const currentLabel = useMemo(() => {
+    const { selectedLabel, hasSelection } = useMemo(() => {
       try {
         const items: any[] = ((props as any).items || []) as any[];
-        const found = items.find(it => it?.value === (props as any).value);
-        return (
-          (found && (found.label as string)) ||
-          ((props as any).placeholder as string) ||
-          ''
-        );
+        const value = (props as any).value;
+        const found = items.find(it => it?.value === value);
+        return {
+          selectedLabel: (found && (found.label as string)) || '',
+          hasSelection: !!found,
+        };
       } catch {
-        return ((props as any).placeholder as string) || '';
+        return { selectedLabel: '', hasSelection: false };
       }
     }, [props]);
 
+    const overlayActive = !!leftContent || hasSelection;
+    const overlayText = hasSelection
+      ? selectedLabel
+      : ((props as any).placeholder as string) || '';
+
     return (
       <View style={{ position: 'relative' }}>
-        {leftContent || currentLabel ? (
+        {overlayActive ? (
           <View
             pointerEvents="none"
             style={{
@@ -55,10 +60,11 @@ const Dropdown: FC<TDropdownProps> = React.memo(
               numberOfLines={1}
               style={[
                 styles.labelStyle,
+                labelStyle,
                 { marginLeft: leftContent ? 8 : 0, flexShrink: 1 },
               ]}
             >
-              {currentLabel}
+              {overlayText}
             </Text>
           </View>
         ) : null}
@@ -72,7 +78,7 @@ const Dropdown: FC<TDropdownProps> = React.memo(
           labelStyle={[
             styles.labelStyle,
             labelStyle,
-            leftContent || currentLabel ? { color: 'transparent' } : null,
+            overlayActive ? { color: 'transparent' } : null,
           ]}
           listMode={Platform.OS === 'android' ? 'MODAL' : 'FLATLIST'}
           dropDownContainerStyle={[
