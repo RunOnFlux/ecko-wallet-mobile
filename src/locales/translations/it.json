@@ -310,6 +310,10 @@
       "nonKMessage": "Sei sicuro di voler procedere?",
       "proceed": "Procedi"
     },
+    "warning": {
+      "nonK": "L'indirizzo di destinazione non inizia con k:. Verifica prima di procedere.",
+      "rUnsupported": "Questo contratto token potrebbe non supportare indirizzi r: in cross-chain. Potresti perdere i fondi."
+    },
     "chain": {
       "sourceLabel": "Source Chain ID",
       "targetLabel": "Target Chain ID"

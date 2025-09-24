@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   View,
   ScrollView,
@@ -8,7 +8,7 @@ import {
   TextInput,
   Alert,
 } from 'react-native';
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 import TopHeader from '../../components/TopHeader';
 import Header from './components/Header';
@@ -16,33 +16,35 @@ import DestinationAccount from './components/DestinationAccount';
 import AccountsList from './components/AccountsList';
 import FooterButton from '../../components/FooterButton';
 import ChainId from '../../components/ChainId';
-import {chainIds, predicates} from './consts';
+import { chainIds, predicates } from './consts';
 import {
   ERootStackRoutes,
   TNavigationProp,
   TNavigationRouteProp,
 } from '../../routes/types';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   setEstimatedGasFee,
   setGatheredTransferInfo,
 } from '../../store/transfer';
-import {TAccount} from '../../store/userWallet/types';
-import {makeSelectContactsList} from '../../store/contacts/selectors';
-import {makeSelectRecentReceivers} from '../../store/history/selectors';
-import {GAS_LIMIT, GAS_PRICE} from '../../constants';
+import { TAccount } from '../../store/userWallet/types';
+import { makeSelectContactsList } from '../../store/contacts/selectors';
+import { makeSelectRecentReceivers } from '../../store/history/selectors';
+import { GAS_LIMIT, GAS_PRICE } from '../../constants';
 import Content from './components/Content';
-import {useShallowEqualSelector} from '../../store/utils';
-import {useNavigation, useRoute} from '@react-navigation/native';
-import {makeSelectSelectedToken} from '../../store/userWallet/selectors';
-import {makeSelectIsTransferring} from '../../store/transfer/selectors';
+import { useShallowEqualSelector } from '../../store/utils';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { makeSelectSelectedToken } from '../../store/userWallet/selectors';
+import { makeSelectIsTransferring } from '../../store/transfer/selectors';
 import Toast from 'react-native-toast-message';
-import {useSafeAreaValues} from '../../utils/deviceHelpers';
-import {useAppThemeContext} from '../../contexts';
-import {makeStyles} from './styles';
+import { useSafeAreaValues } from '../../utils/deviceHelpers';
+import { useAppThemeContext } from '../../contexts';
+import { makeSelectActiveNetworkDetails } from '../../store/networks/selectors';
+import { isRAccount, fetchGuardForRAccount } from '../../api/kadena/rAccount';
+import { makeStyles } from './styles';
 
 const Send = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Send>>();
   const route = useRoute<TNavigationRouteProp<ERootStackRoutes.Send>>();
 
@@ -58,14 +60,16 @@ const Send = () => {
   const [accountPublicKey, setAccountPublicKey] = useState<string>('');
   const [accountName, setAccountName] = useState<string>('');
 
-  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const {theme} = useAppThemeContext();
+  const { bottomSpace, statusBarHeight } = useSafeAreaValues();
+  const networkDetail = useShallowEqualSelector(makeSelectActiveNetworkDetails);
+  const selectedToken = useShallowEqualSelector(makeSelectSelectedToken);
+  const { theme } = useAppThemeContext();
   const styles = useMemo(
-    () => makeStyles(theme, {bottomSpace, statusBarHeight}),
+    () => makeStyles(theme, { bottomSpace, statusBarHeight }),
     [theme, bottomSpace, statusBarHeight],
   );
 
-  const handlePressContinue = useCallback(() => {
+  const handlePressContinue = useCallback(async () => {
     if (isCurrentlyTransferring) {
       Toast.show({
         type: 'info',
@@ -105,10 +109,35 @@ const Send = () => {
           150,
         );
       };
-      if (!accountName?.startsWith('k:')) {
+      const isVanity =
+        !!accountName &&
+        !accountName.startsWith('k:') &&
+        !accountName.startsWith('r:');
+      if (accountName?.startsWith('r:')) {
+        const moduleName = selectedToken?.tokenAddress || 'coin';
+        try {
+          const { exists, keysetRefGuard } = await fetchGuardForRAccount(
+            accountName,
+            moduleName,
+            networkDetail!.network,
+            networkDetail!.version,
+            networkDetail!.instance,
+            sourceChainId!,
+            networkDetail!.origin,
+          );
+          if (!exists && moduleName === 'coin' && !keysetRefGuard) {
+            Alert.alert(
+              t('send.alert.rUninitializedTitle'),
+              t('send.alert.rUninitializedMessage'),
+            );
+            return;
+          }
+        } catch {}
+      }
+      if (isVanity) {
         Alert.alert(t('send.alert.nonKTitle'), t('send.alert.nonKMessage'), [
-          {text: t('common.cancel'), style: 'cancel'},
-          {text: t('send.alert.proceed'), onPress: proceedSending},
+          { text: t('common.cancel'), style: 'cancel' },
+          { text: t('send.alert.proceed'), onPress: proceedSending },
         ]);
       } else {
         proceedSending();
@@ -125,6 +154,8 @@ const Send = () => {
     dispatch,
     statusBarHeight,
     t,
+    networkDetail,
+    selectedToken,
   ]);
 
   const setSelectedAccountFunc = useCallback((account: TAccount) => {
@@ -135,7 +166,6 @@ const Send = () => {
 
   const recentAccounts = useShallowEqualSelector(makeSelectRecentReceivers);
   const contacts = useShallowEqualSelector(makeSelectContactsList);
-  const selectedToken = useShallowEqualSelector(makeSelectSelectedToken);
 
   useEffect(() => {
     if (accountName?.startsWith('k:') && !predicate) {
@@ -154,18 +184,21 @@ const Send = () => {
     <TouchableOpacity
       activeOpacity={1}
       onPress={Keyboard.dismiss}
-      style={styles.container}>
+      style={styles.container}
+    >
       <Header />
       <ScrollView
         keyboardDismissMode="on-drag"
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.content}
-        style={styles.contentWrapper}>
+        style={styles.contentWrapper}
+      >
         <TopHeader>
           <TouchableOpacity
             activeOpacity={1}
             onPress={Keyboard.dismiss}
-            style={styles.topHeaderContent}>
+            style={styles.topHeaderContent}
+          >
             <ChainId
               label={t('send.chain.sourceLabel')}
               value={sourceChainId}

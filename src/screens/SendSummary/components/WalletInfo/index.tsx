@@ -1,11 +1,17 @@
-import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
-import {View, TextInput, Text, TouchableOpacity} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {useTranslation} from 'react-i18next';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+import { View, TextInput, Text, TouchableOpacity } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import Snackbar from 'react-native-snackbar';
 
-import {makeStyles} from './styles';
-import {setGatheredTransferInfo} from '../../../../store/transfer';
+import { makeStyles } from './styles';
+import { setGatheredTransferInfo } from '../../../../store/transfer';
 import {
   makeSelectSelectedToken,
   makeSelectUsdEquivalents,
@@ -14,16 +20,16 @@ import {
   makeSelectEstimatedGasFee,
   makeSelectGatheredInfo,
 } from '../../../../store/transfer/selectors';
-import {useInputBlurOnKeyboard} from '../../../../utils/keyboardHelpers';
-import {toFixed} from '../../../../utils/numberHelpers';
-import {decimalIfNeeded} from '../../../../utils/stringHelpers';
-import {useAppThemeContext} from '../../../../contexts';
+import { useInputBlurOnKeyboard } from '../../../../utils/keyboardHelpers';
+import { toFixed } from '../../../../utils/numberHelpers';
+import { decimalIfNeeded } from '../../../../utils/stringHelpers';
+import { useAppThemeContext } from '../../../../contexts';
 
 const WalletInfo: React.FC = React.memo(() => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const {theme} = useAppThemeContext();
+  const { theme } = useAppThemeContext();
   const styles = useMemo(() => makeStyles(theme), [theme]);
 
   const gatheredInfo = useSelector(makeSelectGatheredInfo);
@@ -81,11 +87,11 @@ const WalletInfo: React.FC = React.memo(() => {
       amount = balance;
     }
     setInputText(`${amount}`);
-    dispatch(setGatheredTransferInfo({amount}));
+    dispatch(setGatheredTransferInfo({ amount }));
   }, [balance, inputText, dispatch]);
 
   useEffect(() => {
-    dispatch(setGatheredTransferInfo({amount: 0}));
+    dispatch(setGatheredTransferInfo({ amount: 0 }));
   }, [dispatch]);
 
   const inputRef = useRef<TextInput>(null);
@@ -96,7 +102,7 @@ const WalletInfo: React.FC = React.memo(() => {
     if (selectedToken?.tokenAddress === 'coin') val -= gasFee;
     val = Number(decimalIfNeeded(toFixed(`${val}`, 6), 6));
     setInputText(`${val}`);
-    dispatch(setGatheredTransferInfo({amount: val}));
+    dispatch(setGatheredTransferInfo({ amount: val }));
   }, [balance, gasFee, selectedToken, dispatch]);
 
   const onMax = useCallback(() => {
@@ -104,7 +110,7 @@ const WalletInfo: React.FC = React.memo(() => {
     if (selectedToken?.tokenAddress === 'coin') val -= gasFee;
     val = Number(decimalIfNeeded(toFixed(`${val}`, 6), 6));
     setInputText(`${val}`);
-    dispatch(setGatheredTransferInfo({amount: val}));
+    dispatch(setGatheredTransferInfo({ amount: val }));
     Snackbar.show({
       text: t('sendSummary.walletInfo.maxSnackbar'),
       duration: Snackbar.LENGTH_LONG,
@@ -126,7 +132,8 @@ const WalletInfo: React.FC = React.memo(() => {
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={onHalf}
-            style={styles.headerRightTextWrapper}>
+            style={styles.headerRightTextWrapper}
+          >
             <Text style={[styles.headerText, styles.headerRightText]}>
               {t('sendSummary.walletInfo.half')}
             </Text>
@@ -134,7 +141,8 @@ const WalletInfo: React.FC = React.memo(() => {
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={onMax}
-            style={styles.headerRightTextWrapper}>
+            style={styles.headerRightTextWrapper}
+          >
             <Text style={[styles.headerText, styles.headerRightText]}>
               {t('sendSummary.walletInfo.max')}
             </Text>
@@ -159,7 +167,7 @@ const WalletInfo: React.FC = React.memo(() => {
       </View>
       <View style={styles.footer}>
         <Text style={[styles.footerText, styles.footerLeftText]}>
-          {t('sendSummary.walletInfo.usdValue', {value: usdEquivalent})}
+          {t('sendSummary.walletInfo.usdValue', { value: usdEquivalent })}
         </Text>
         <Text style={[styles.footerText, styles.footerRightText]}>
           {t('sendSummary.walletInfo.balance', {

@@ -1,10 +1,14 @@
-import {DefaultQueryParams} from '../types';
-import {isPrivateKey, setSignatureIfNecessary} from '../../utils/kadenaHelpers';
-import {Pact} from '../pactLangApi';
-import {Platform} from 'react-native';
-import {getAccount} from './account';
-import {convertDecimal} from '../../utils/numberHelpers';
-import {getPactHost} from '../utils';
+import { DefaultQueryParams } from '../types';
+import {
+  isPrivateKey,
+  setSignatureIfNecessary,
+} from '../../utils/kadenaHelpers';
+import { Pact } from '../pactLangApi';
+import { Platform } from 'react-native';
+import { getAccount } from './account';
+import { isRAccount, fetchGuardForRAccount } from './rAccount';
+import { convertDecimal } from '../../utils/numberHelpers';
+import { getPactHost } from '../utils';
 
 interface TransferCrossQueryParams extends DefaultQueryParams {
   instance: string;
@@ -85,8 +89,8 @@ export const getTransferCross: (
     signature.length === 128 && isPrivateKey(signature)
       ? signature.slice(0, 64)
       : signature.length === 64
-      ? signature
-      : null;
+        ? signature
+        : null;
   let hasXChainCapability = false;
   try {
     const interfaces = await Pact.fetch.local(
@@ -105,11 +109,18 @@ export const getTransferCross: (
       getPactHost(network, version, instance, sourceChainId, customHost),
     );
     if (interfaces?.result?.data && Array.isArray(interfaces?.result?.data)) {
-      if (interfaces?.result?.data?.some((moduleInterface: string) => moduleInterface === 'fungible-xchain-v1')) {
+      if (
+        interfaces?.result?.data?.some(
+          (moduleInterface: string) => moduleInterface === 'fungible-xchain-v1',
+        )
+      ) {
         hasXChainCapability = true;
       }
     }
   } catch (e) {}
+  if ((token || 'coin') !== 'coin' && !hasXChainCapability) {
+    throw new Error('token-no-xchain');
+  }
 
   const keyPair: any = [
     {
@@ -128,11 +139,39 @@ export const getTransferCross: (
       args: [sender, receiver, Number(amount), targetChainId],
     });
   }
-  const pactCode = `(${token || 'coin'}.transfer-crosschain ${JSON.stringify(
-    sender,
-  )} ${JSON.stringify(receiver)} (read-keyset "ks") ${JSON.stringify(
-    targetChainId,
-  )} ${convertDecimal(amount)})`;
+  const moduleName = token || 'coin';
+  let pactCode: string = '';
+  if (isRAccount(receiver)) {
+    const { keysetRefGuard } = await fetchGuardForRAccount(
+      receiver,
+      moduleName?.toString(),
+      network,
+      version,
+      instance,
+      sourceChainId,
+      customHost,
+    );
+    pactCode = `(${moduleName}.transfer-crosschain ${JSON.stringify(
+      sender,
+    )} ${JSON.stringify(receiver)} (keyset-ref-guard ${JSON.stringify(
+      `${keysetRefGuard!.ns}.${keysetRefGuard!.ksn}`,
+    )}) ${JSON.stringify(targetChainId)} ${convertDecimal(amount)})`;
+    const createdCommand = Pact.simple.exec.createCommand(
+      keyPair as any[],
+      getNonceByPlatform(Platform.OS),
+      pactCode,
+      undefined,
+      meta,
+      instance,
+    );
+    return setSignatureIfNecessary(createdCommand, signature);
+  } else {
+    pactCode = `(${moduleName}.transfer-crosschain ${JSON.stringify(
+      sender,
+    )} ${JSON.stringify(receiver)} (read-keyset "ks") ${JSON.stringify(
+      targetChainId,
+    )} ${convertDecimal(amount)})`;
+  }
 
   if (!receiverPublicKey) {
     try {
