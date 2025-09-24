@@ -1,23 +1,23 @@
-import React, {FC, useCallback, useMemo} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import {useNavigation} from '@react-navigation/native';
+import React, { FC, useCallback, useMemo } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
 import ArrowLeftSvg from '../../../../assets/images/arrow-left.svg';
-import {makeSelectSelectedToken} from '../../../../store/userWallet/selectors';
-import {useShallowEqualSelector} from '../../../../store/utils';
-import {ERootStackRoutes, TNavigationProp} from '../../../../routes/types';
-import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
-import {useAppThemeContext} from '../../../../contexts';
-import {makeStyles} from './styles';
+import { makeSelectSelectedToken } from '../../../../store/userWallet/selectors';
+import { useShallowEqualSelector } from '../../../../store/utils';
+import { ERootStackRoutes, TNavigationProp } from '../../../../routes/types';
+import { useSafeAreaValues } from '../../../../utils/deviceHelpers';
+import { useAppThemeContext } from '../../../../contexts';
+import { makeStyles } from './styles';
 
 const Header: FC = React.memo(() => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Send>>();
   const selectedToken = useShallowEqualSelector(makeSelectSelectedToken);
-  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const {theme} = useAppThemeContext();
+  const { bottomSpace, statusBarHeight } = useSafeAreaValues();
+  const { theme } = useAppThemeContext();
   const styles = useMemo(
-    () => makeStyles(theme, {bottomSpace, statusBarHeight}),
+    () => makeStyles(theme, { bottomSpace, statusBarHeight }),
     [theme, bottomSpace, statusBarHeight],
   );
 
@@ -27,7 +27,7 @@ const Header: FC = React.memo(() => {
 
   const title = useMemo(() => {
     const token = selectedToken?.tokenName;
-    return t('send.header.title', {token});
+    return t('send.header.title', { token });
   }, [selectedToken, t]);
 
   return (
@@ -35,7 +35,8 @@ const Header: FC = React.memo(() => {
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={handlePressBack}
-        style={styles.backBtnWrapper}>
+        style={styles.backBtnWrapper}
+      >
         <ArrowLeftSvg fill="#787B8E" />
       </TouchableOpacity>
       <Text style={styles.title}>{title}</Text>

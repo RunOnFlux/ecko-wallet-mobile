@@ -1,6 +1,6 @@
-import {StyleSheet} from 'react-native';
-import {MEDIUM_MONTSERRAT} from '../../constants/styles';
-import {IAppTheme} from '../../themes/types';
+import { StyleSheet } from 'react-native';
+import { MEDIUM_MONTSERRAT } from '../../constants/styles';
+import { IAppTheme } from '../../themes/types';
 
 export const makeStyles = (
   theme: IAppTheme,
@@ -70,5 +70,9 @@ export const makeStyles = (
       fontSize: 16,
       color: theme.text.primary,
       overflow: 'hidden',
+    },
+    warning: {
+      marginHorizontal: 20,
+      marginBottom: 12,
     },
   });

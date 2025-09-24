@@ -1,12 +1,12 @@
-import React, {FC, useMemo} from 'react';
-import {View, Text} from 'react-native';
-import {useTranslation} from 'react-i18next';
+import React, { FC, useMemo } from 'react';
+import { View, Text } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import Modal from '../../../../components/Modal';
-import {createStyles} from './styles';
-import {TConfirmModal} from './types';
+import { createStyles } from './styles';
+import { TConfirmModal } from './types';
 import Button from '../../../Wallet/components/WalletBalance/components/Button';
 import AccountFromTo from '../../../../components/AccountFromTo';
-import {useShallowEqualSelector} from '../../../../store/utils';
+import { useShallowEqualSelector } from '../../../../store/utils';
 import {
   makeSelectSelectedAccount,
   makeSelectSelectedToken,
@@ -17,23 +17,23 @@ import {
   makeSelectIsCrossChainTransfer,
 } from '../../../../store/transfer/selectors';
 import Warning from '../../../../components/Warning';
-import {useSelector} from 'react-redux';
-import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
-import {useAppThemeContext} from '../../../../contexts';
+import { useSelector } from 'react-redux';
+import { useSafeAreaValues } from '../../../../utils/deviceHelpers';
+import { useAppThemeContext } from '../../../../contexts';
 
-const ConfirmModal: FC<TConfirmModal> = ({isVisible, close, onConfirm}) => {
-  const {t} = useTranslation();
+const ConfirmModal: FC<TConfirmModal> = ({ isVisible, close, onConfirm }) => {
+  const { t } = useTranslation();
   const sourceAccount = useShallowEqualSelector(makeSelectSelectedAccount);
   const selectedToken = useShallowEqualSelector(makeSelectSelectedToken);
   const gatheredInfo = useShallowEqualSelector(makeSelectGatheredInfo);
   const estimatedGas = useShallowEqualSelector(makeSelectEstimatedGasFee);
   const isCrossChainTransfer = useSelector(makeSelectIsCrossChainTransfer);
-  const {gasLimit, gasPrice, speed} = estimatedGas;
+  const { gasLimit, gasPrice, speed } = estimatedGas;
 
-  const {statusBarHeight} = useSafeAreaValues();
-  const {theme} = useAppThemeContext();
+  const { statusBarHeight } = useSafeAreaValues();
+  const { theme } = useAppThemeContext();
   const styles = useMemo(
-    () => createStyles(theme, {statusBarHeight}),
+    () => createStyles(theme, { statusBarHeight }),
     [theme, statusBarHeight],
   );
 
@@ -42,7 +42,8 @@ const ConfirmModal: FC<TConfirmModal> = ({isVisible, close, onConfirm}) => {
       isVisible={isVisible}
       close={close}
       title={t('sendSummary.confirmModal.title')}
-      contentStyle={styles.content}>
+      contentStyle={styles.content}
+    >
       <View style={styles.container}>
         <AccountFromTo
           fromAccount={sourceAccount?.accountName!}
