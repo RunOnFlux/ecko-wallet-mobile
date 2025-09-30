@@ -17,7 +17,7 @@ export const makeStyles = (theme: IAppTheme) =>
       marginBottom: 10,
     },
     dropdownContainer: {
-      width: 180,
+      width: '100%',
     },
     dropdownStyle: {
       borderRadius: 10,
