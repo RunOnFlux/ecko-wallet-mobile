@@ -316,7 +316,13 @@
     "alert": {
       "nonKTitle": "Sending to a non \"k:account\"",
       "nonKMessage": "Are you sure you want to proceed?",
-      "proceed": "Proceed"
+      "proceed": "Proceed",
+      "rUninitializedTitle": "r:account not initialized",
+      "rUninitializedMessage": "Ask the receiver to open SpireKey and initialize the account."
+    },
+    "warning": {
+      "nonK": "Destination address does not start with k:. Verify before proceeding.",
+      "rUnsupported": "This token contract may not support r: accounts for cross-chain. Be sure to verify the destination address and token support before proceeding."
     },
     "chain": {
       "sourceLabel": "Source Chain ID",

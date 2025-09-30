@@ -1,7 +1,13 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {View, ScrollView, TouchableOpacity, Keyboard, Text} from 'react-native';
-import {useTranslation} from 'react-i18next';
-import {useDispatch, useSelector} from 'react-redux';
+import React, { useCallback, useEffect, useState } from 'react';
+import {
+  View,
+  ScrollView,
+  TouchableOpacity,
+  Keyboard,
+  Text,
+} from 'react-native';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 
 import TopHeader from '../../components/TopHeader';
 import FooterButton from '../../components/FooterButton';
@@ -10,28 +16,28 @@ import WalletInfo from './components/WalletInfo';
 import Content from './components/Content';
 import Warning from '../../components/Warning';
 import ConfirmModal from './components/ConfirmModal';
-import {createStyles} from './styles';
-import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
+import { createStyles } from './styles';
+import { ERootStackRoutes, TNavigationProp } from '../../routes/types';
 import {
   makeSelectEstimatedGasFee,
   makeSelectGatheredInfo,
   makeSelectIsCrossChainTransfer,
 } from '../../store/transfer/selectors';
-import {makeTransfer} from '../../store/transfer/actions';
-import {setTransferResult} from '../../store/transfer';
-import {makeSelectActiveNetworkDetails} from '../../store/networks/selectors';
+import { makeTransfer } from '../../store/transfer/actions';
+import { setTransferResult } from '../../store/transfer';
+import { makeSelectActiveNetworkDetails } from '../../store/networks/selectors';
 import {
   makeSelectSelectedAccount,
   makeSelectSelectedToken,
 } from '../../store/userWallet/selectors';
-import {useShallowEqualSelector} from '../../store/utils';
-import {useNavigation} from '@react-navigation/native';
-import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import { useShallowEqualSelector } from '../../store/utils';
+import { useNavigation } from '@react-navigation/native';
+import { useSafeAreaValues } from '../../utils/deviceHelpers';
 import Header from '../../components/Header';
-import {AppDispatch} from '../../store/store';
+import { AppDispatch } from '../../store/store';
 
 const SendSummary = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const navigation =
     useNavigation<TNavigationProp<ERootStackRoutes.SendSummary>>();
   const dispatch = useDispatch<AppDispatch>();
@@ -43,8 +49,8 @@ const SendSummary = () => {
   const sourceAccount = useShallowEqualSelector(makeSelectSelectedAccount);
   const sourceToken = useShallowEqualSelector(makeSelectSelectedToken);
 
-  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight});
+  const { bottomSpace, statusBarHeight } = useSafeAreaValues();
+  const styles = createStyles({ bottomSpace, statusBarHeight });
 
   const [showConfirmationModal, setShowConfirmationModal] =
     useState<boolean>(false);
@@ -93,7 +99,8 @@ const SendSummary = () => {
           keyboardDismissMode="on-drag"
           stickyHeaderIndices={[0]}
           style={styles.scroll}
-          showsVerticalScrollIndicator={false}>
+          showsVerticalScrollIndicator={false}
+        >
           <TopHeader>
             <AccountFromTo
               fromAccount={sourceAccount?.accountName!}
@@ -104,7 +111,8 @@ const SendSummary = () => {
             <TouchableOpacity
               activeOpacity={1}
               onPress={Keyboard.dismiss}
-              style={styles.topHeaderContent}>
+              style={styles.topHeaderContent}
+            >
               <WalletInfo />
               {isCrossChainTransfer && (
                 <Warning
@@ -112,6 +120,16 @@ const SendSummary = () => {
                   text={t('sendSummary.warning.crossChainMessage')}
                 />
               )}
+              {isCrossChainTransfer &&
+              sourceToken?.tokenAddress !== 'coin' &&
+              gatheredInfo?.destinationAccount?.accountName?.startsWith(
+                'r:',
+              ) ? (
+                <Warning
+                  style={{ marginTop: 10 }}
+                  title={t('send.warning.rUnsupported')}
+                />
+              ) : null}
             </TouchableOpacity>
           </TopHeader>
           <Content />
