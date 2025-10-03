@@ -1,4 +1,4 @@
-import {TAccount, TChainId, TWallet} from '../userWallet/types';
+import {TAccount, TChainId, TWallet, AccountType} from '../userWallet/types';
 import {TNetworkDetail} from '../networks/types';
 import {TActivity} from '../history/types';
 
@@ -72,6 +72,7 @@ export type TGetTransferParams = {
   predicate?: string;
   receiverPublicKey?: string;
   network: string;
+  accountType?: AccountType;
 };
 
 export type TGetTransferContParams = {

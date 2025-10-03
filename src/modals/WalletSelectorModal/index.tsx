@@ -1,7 +1,7 @@
-import React, {FC, useCallback} from 'react';
-import {View, Alert} from 'react-native';
-import {useDispatch} from 'react-redux';
-import {useTranslation} from 'react-i18next';
+import React, { FC, useCallback } from 'react';
+import { View, Alert } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import ExternalLinkSvg from '../../assets/images/external-link.svg';
 import TrashEmptySvg from '../../assets/images/trash-empty.svg';
 import Modal from '../../components/Modal';
@@ -15,22 +15,22 @@ import {
   deleteSelectedAccount,
   setSelectedAccount,
 } from '../../store/userWallet';
-import {TWalletSelectorModalProps} from './types';
-import {styles} from './styles';
-import {TAccount} from '../../store/userWallet/types';
-import {cutStr} from '../../utils/stringHelpers';
-import {getGenerateAccount} from '../../store/userWallet/actions';
-import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
-import {useNavigation} from '@react-navigation/native';
+import { TWalletSelectorModalProps } from './types';
+import { styles } from './styles';
+import { TAccount } from '../../store/userWallet/types';
+import { cutStr } from '../../utils/stringHelpers';
+import { getGenerateAccount } from '../../store/userWallet/actions';
+import { ERootStackRoutes, TNavigationProp } from '../../routes/types';
+import { useNavigation } from '@react-navigation/native';
 import Clipboard from '@react-native-clipboard/clipboard';
 import Snackbar from 'react-native-snackbar';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
-import {useShallowEqualSelector} from '../../store/utils';
-import {AppDispatch} from '../../store/store';
+import { useShallowEqualSelector } from '../../store/utils';
+import { AppDispatch } from '../../store/store';
 
 const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
-  ({toggle, isVisible}) => {
-    const {t} = useTranslation();
+  ({ toggle, isVisible }) => {
+    const { t } = useTranslation();
     const navigation = useNavigation<TNavigationProp<ERootStackRoutes.Home>>();
     const dispatch = useDispatch<AppDispatch>();
 
@@ -113,11 +113,22 @@ const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
       }, 600);
     }, [navigation, toggle]);
 
+    const handlePressImportHardware = useCallback(() => {
+      toggle();
+      setTimeout(() => {
+        navigation.navigate({
+          name: ERootStackRoutes.ImportHardwareWallet,
+          params: undefined,
+        });
+      }, 600);
+    }, [navigation, toggle]);
+
     return (
       <Modal
         isVisible={isVisible}
         close={toggle}
-        title={t('walletSelector.title')}>
+        title={t('walletSelector.title')}
+      >
         <View style={styles.modalContainer}>
           <View style={styles.modalContentWrapper}>
             {(accounts || []).map((account: TAccount) => (
@@ -165,6 +176,11 @@ const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
             <ListItem
               text={t('walletSelector.import')}
               onPress={handlePressImport}
+              style={styles.itemStyle}
+            />
+            <ListItem
+              text={t('walletSelector.importHardware')}
+              onPress={handlePressImportHardware}
               style={styles.itemStyle}
             />
           </View>

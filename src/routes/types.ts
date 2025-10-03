@@ -1,5 +1,8 @@
-import type {NavigatorScreenParams, RouteProp} from '@react-navigation/native';
-import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import type {
+  NavigatorScreenParams,
+  RouteProp,
+} from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 export enum ERootStackRoutes {
   Home = 'Home',
@@ -34,6 +37,7 @@ export enum ERootStackRoutes {
   ReceiverScan = 'ReceiverScan',
   ChangeAccountPassword = 'ChangeAccountPassword',
   SettingsSubPage = 'SettingsSubPage',
+  ImportHardwareWallet = 'ImportHardwareWallet',
 }
 
 export enum EHomeTabRoutes {
@@ -65,17 +69,17 @@ export type TRootStackParamList = {
   [ERootStackRoutes.SecretRecoveryPhraseTerm]: undefined;
   [ERootStackRoutes.SecretRecoveryPhrase]: undefined;
   [ERootStackRoutes.VerifyRecoveryPhrase]: undefined;
-  [ERootStackRoutes.Login]: {isReset?: boolean};
-  [ERootStackRoutes.ResetPasscode]: {isReset?: boolean};
-  [ERootStackRoutes.Send]: {sourceChainId?: string};
+  [ERootStackRoutes.Login]: { isReset?: boolean };
+  [ERootStackRoutes.ResetPasscode]: { isReset?: boolean };
+  [ERootStackRoutes.Send]: { sourceChainId?: string };
   [ERootStackRoutes.History]: undefined;
   [ERootStackRoutes.Receive]: undefined;
   [ERootStackRoutes.SendSummary]: undefined;
   [ERootStackRoutes.SendProgress]: undefined;
   [ERootStackRoutes.SearchTokens]: undefined;
   [ERootStackRoutes.Contacts]: undefined;
-  [ERootStackRoutes.AddEditContact]: {isCreate?: boolean};
-  [ERootStackRoutes.AddEditNetwork]: {isCreate?: boolean};
+  [ERootStackRoutes.AddEditContact]: { isCreate?: boolean };
+  [ERootStackRoutes.AddEditNetwork]: { isCreate?: boolean };
   [ERootStackRoutes.AddToken]: {
     tokenName?: string;
     onTokenAdd?: (tokenName: string, tokenAddress: string) => void;
@@ -85,9 +89,10 @@ export type TRootStackParamList = {
   [ERootStackRoutes.ExportRecoveryPhraseAuth]: undefined;
   [ERootStackRoutes.ExportRecoveryPhrase]: undefined;
   [ERootStackRoutes.WalletConnectScan]: undefined;
-  [ERootStackRoutes.ReceiverScan]: {onScan: (v: string) => void};
+  [ERootStackRoutes.ReceiverScan]: { onScan: (v: string) => void };
   [ERootStackRoutes.SettingsSubPage]: undefined;
   [ERootStackRoutes.ChangeAccountPassword]: undefined;
+  [ERootStackRoutes.ImportHardwareWallet]: undefined;
 };
 
 export type TNavigationProp<RouteName extends keyof TRootStackParamList> =

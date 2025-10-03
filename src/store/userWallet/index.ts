@@ -1,8 +1,8 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-import {TUserWalletState} from './types';
-import {defaultRequestValues} from '../const';
-import {defaultBalances} from './const';
+import { TUserWalletState, AccountType } from './types';
+import { defaultRequestValues } from '../const';
+import { defaultBalances } from './const';
 
 const initialState: TUserWalletState = {
   initialized: false,
@@ -20,6 +20,12 @@ const userWallet = createSlice({
   initialState,
   reducers: {
     initializeAccountWallets: state => {
+      if (state.accounts && (state.accounts || []).length > 0) {
+        state.accounts = state.accounts.map(acc => ({
+          ...acc,
+          type: acc?.type || AccountType.STANDARD,
+        }));
+      }
       if (state.accounts && (state.accounts || []).length > 0) {
         const maxSizeWalletAccount = state.accounts.reduce((prev, current) => {
           return (prev.wallets || []).length > (current.wallets || []).length
@@ -70,11 +76,11 @@ const userWallet = createSlice({
       state.initialized = true;
     },
 
-    setSelectedAccount: (state, {payload}) => {
+    setSelectedAccount: (state, { payload }) => {
       state.selectedAccount = payload;
     },
 
-    setSelectedToken: (state, {payload}) => {
+    setSelectedToken: (state, { payload }) => {
       state.selectedToken = payload;
     },
 
@@ -91,7 +97,7 @@ const userWallet = createSlice({
       }
     },
 
-    deleteSelectedToken: (state, {payload}) => {
+    deleteSelectedToken: (state, { payload }) => {
       if (state.accounts && payload) {
         for (
           let accountIndex = 0;
@@ -110,7 +116,7 @@ const userWallet = createSlice({
       }
     },
 
-    addNewAccount: (state, {payload}) => {
+    addNewAccount: (state, { payload }) => {
       if (state.accounts) {
         const foundIndex = state.accounts.findIndex(
           item => item.accountName === payload.accountName,
@@ -132,7 +138,7 @@ const userWallet = createSlice({
       }
     },
 
-    addNewToken: (state, {payload}) => {
+    addNewToken: (state, { payload }) => {
       if (state.selectedAccount) {
         if (state.selectedAccount.wallets) {
           const foundWalletIndex = state.selectedAccount.wallets.findIndex(
@@ -189,7 +195,7 @@ const userWallet = createSlice({
     setBalanceDetailLoading: (state, action) => {
       state.balanceDetailState.fetching = action.payload;
     },
-    setBalanceDetailSuccess: (state, {payload}) => {
+    setBalanceDetailSuccess: (state, { payload }) => {
       state.balanceDetailState.data = payload;
       if (state.selectedAccount) {
         state.selectedAccount.wallets = payload;
@@ -205,15 +211,15 @@ const userWallet = createSlice({
       state.balanceDetailState.error = action.payload;
     },
 
-    setUsdEquivalents: (state, {payload}) => {
+    setUsdEquivalents: (state, { payload }) => {
       state.usdEquivalents = payload;
     },
 
-    setSearchTokenList: (state, {payload}) => {
+    setSearchTokenList: (state, { payload }) => {
       state.searchTokenList = payload;
     },
 
-    setNonTransferableTokenList: (state, {payload}) => {
+    setNonTransferableTokenList: (state, { payload }) => {
       state.nonTransferableTokenList = payload;
     },
 

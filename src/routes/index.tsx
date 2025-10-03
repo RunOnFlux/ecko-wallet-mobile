@@ -1,6 +1,6 @@
 import React from 'react';
 import SettingsSubPage from '../screens/SettingsSubPage';
-import {EHomeTabRoutes, ERootStackRoutes} from './types';
+import { EHomeTabRoutes, ERootStackRoutes } from './types';
 import LogoGraySvg from '../assets/images/logo-gray.svg';
 import LogoSvg from '../assets/images/logo.svg';
 import SwapSvg from '../assets/images/swap.svg';
@@ -18,6 +18,7 @@ import ExportRecoveryPhraseAuth from '../screens/ExportRecoveryPhraseAuth';
 import ExportRecoveryPhrase from '../screens/ExportRecoveryPhrase';
 import AddToken from '../screens/AddToken';
 import ImportAccount from '../screens/ImportAccount';
+import ImportHardwareWallet from '../screens/ImportHardwareWallet';
 import RecoveryFromSeeds from '../screens/RecoveryFromSeeds';
 import RecoverAccount from '../screens/RecoverAccount';
 import Connection from '../screens/Connection';
@@ -41,11 +42,11 @@ import BuyScreen from '../screens/Buy';
 import Analytics from '../screens/Analytics';
 
 export const AUTH_STACK_SCREENS = [
-  {name: ERootStackRoutes.Welcome, component: Welcome},
-  {name: ERootStackRoutes.Registration, component: Registration},
-  {name: ERootStackRoutes.SignIn, component: SignIn},
-  {name: ERootStackRoutes.Login, component: Login},
-  {name: ERootStackRoutes.RecoveryFromSeeds, component: RecoveryFromSeeds},
+  { name: ERootStackRoutes.Welcome, component: Welcome },
+  { name: ERootStackRoutes.Registration, component: Registration },
+  { name: ERootStackRoutes.SignIn, component: SignIn },
+  { name: ERootStackRoutes.Login, component: Login },
+  { name: ERootStackRoutes.RecoveryFromSeeds, component: RecoveryFromSeeds },
   {
     name: ERootStackRoutes.SecretRecoveryPhraseTerm,
     component: SecretRecoveryPhraseTerm,
@@ -118,6 +119,10 @@ export const APP_STACK_SCREENS = [
     component: ImportAccount,
   },
   {
+    name: ERootStackRoutes.ImportHardwareWallet,
+    component: ImportHardwareWallet,
+  },
+  {
     name: ERootStackRoutes.RecoverAccount,
     component: RecoverAccount,
   },
@@ -159,7 +164,7 @@ export const HOME_TAB_SCREENS = [
       tabBarLabel: 'Wallet',
       tabBarActiveTintColor: '#404A8D',
       tabBarInactiveTintColor: '#787B8E',
-      tabBarIcon: ({focused}: any) => {
+      tabBarIcon: ({ focused }: any) => {
         if (focused) {
           return <LogoSvg width={24} height={24} />;
         }
@@ -174,7 +179,7 @@ export const HOME_TAB_SCREENS = [
       tabBarLabel: 'Analytics',
       tabBarActiveTintColor: '#404A8D',
       tabBarInactiveTintColor: '#787B8E',
-      tabBarIcon: ({focused}: any) => {
+      tabBarIcon: ({ focused }: any) => {
         return (
           <SwapSvg
             fill={focused ? '#404A8D' : '#787B8E'}
@@ -192,7 +197,7 @@ export const HOME_TAB_SCREENS = [
       tabBarLabel: 'Convert',
       tabBarActiveTintColor: '#404A8D',
       tabBarInactiveTintColor: '#787B8E',
-      tabBarIcon: ({focused}: any) => {
+      tabBarIcon: ({ focused }: any) => {
         return (
           <SwapSvg
             fill={focused ? '#404A8D' : '#787B8E'}
@@ -210,7 +215,7 @@ export const HOME_TAB_SCREENS = [
       tabBarLabel: 'Connections',
       tabBarActiveTintColor: '#404A8D',
       tabBarInactiveTintColor: '#787B8E',
-      tabBarIcon: ({focused}: any) => {
+      tabBarIcon: ({ focused }: any) => {
         return (
           <ConnectionSvg
             fill={focused ? '#404A8D' : '#787B8E'}
@@ -228,7 +233,7 @@ export const HOME_TAB_SCREENS = [
       tabBarLabel: 'Settings',
       tabBarActiveTintColor: '#404A8D',
       tabBarInactiveTintColor: '#787B8E',
-      tabBarIcon: ({focused}: any) => {
+      tabBarIcon: ({ focused }: any) => {
         return (
           <BasicSettingsSvg
             fill={focused ? '#404A8D' : '#787B8E'}

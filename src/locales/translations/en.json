@@ -5,6 +5,8 @@
     "delete": "Delete",
     "cancel": "Cancel",
     "continue": "Continue",
+    "connect": "Connect",
+    "import": "Import",
     "ok": "OK",
     "error": "Error",
     "selectLanguage": "Select Language",
@@ -15,6 +17,18 @@
       "light": "Light",
       "dark": "Dark",
       "dark_blue": "Dark Blue"
+    }
+  },
+  "importHardwareWallet": {
+    "title": "Import Hardware Wallet",
+    "instructions": {
+      "ledger": {
+        "line1": "Install or update the Kadena app from Ledger Live.",
+        "line2": "Update the Ledger firmware and the Kadena app.",
+        "line3": "Unlock the Ledger, open the Kadena app and keep it open.",
+        "line4": "Enable Blind Signing in the Kadena app when prompted.",
+        "line5": "For a reliable connection: turn on Bluetooth, close Ledger Live Mobile, keep the device near the phone, and accept pairing/permission prompts."
+      }
     }
   },
   "welcome": {
@@ -699,6 +713,7 @@
     "removeSelected": "Remove selected wallet",
     "create": "Create wallet",
     "import": "Import wallet",
+    "importHardware": "Import hardware wallet",
     "copySuccess": "Account details information to clipboard!"
   },
   "session": {

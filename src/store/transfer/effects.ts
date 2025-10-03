@@ -72,6 +72,7 @@ export const makeTransferThunk = createAsyncThunk(
         signature,
         amount,
         ...getNetworkParams(networkDetail),
+        accountType: (payload?.sourceAccount as any)?.type,
       };
 
       return isCrossTransfer
