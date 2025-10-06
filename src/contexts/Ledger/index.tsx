@@ -278,4 +278,32 @@ registerLedgerApi({
       } catch (_) {}
     }
   },
+  signTransferCreateTx: async params => {
+    const transport = await TransportBLE.create();
+    try {
+      const kadena = new KadenaLedger(transport);
+      return await kadena.signTransferCreateTx({
+        path: DEFAULT_BIP32_PATH,
+        ...params,
+      });
+    } finally {
+      try {
+        await transport.close();
+      } catch (_) {}
+    }
+  },
+  signTransferCrossChainTx: async params => {
+    const transport = await TransportBLE.create();
+    try {
+      const kadena = new KadenaLedger(transport);
+      return await kadena.signTransferCrossChainTx({
+        path: DEFAULT_BIP32_PATH,
+        ...params,
+      });
+    } finally {
+      try {
+        await transport.close();
+      } catch (_) {}
+    }
+  },
 });

@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   ScrollView,
@@ -6,42 +6,42 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useDispatch} from 'react-redux';
-import {useTranslation} from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
-import {makeSelectIsSwapping} from '../../../../store/transfer/selectors';
+import { makeSelectIsSwapping } from '../../../../store/transfer/selectors';
 import {
   makeSelectNonTransferableTokenList,
   makeSelectSelectedAccount,
 } from '../../../../store/userWallet/selectors';
-import {useShallowEqualSelector} from '../../../../store/utils';
+import { useShallowEqualSelector } from '../../../../store/utils';
 import Button from '../../../Wallet/components/WalletBalance/components/Button';
 import CurrencyInput from '../CurrencyInput';
 import SwapSvg from '../../../../assets/images/swap.svg';
-import {createStyles} from './styles';
-import {TValues} from '../CurrencyInput/types';
-import {useAppThemeContext, usePactContext} from '../../../../contexts';
+import { createStyles } from './styles';
+import { TValues } from '../CurrencyInput/types';
+import { useAppThemeContext, usePactContext } from '../../../../contexts';
 import {
   makeSelectActiveNetworkDetails,
   makeSelectNetworkDetailsLoading,
 } from '../../../../store/networks/selectors';
 import Info from '../Info';
-import {swapRequest} from '../../../../store/transfer/actions';
-import {reduceBalance} from '../../../../utils/numberHelpers';
-import {MAIN_COLOR} from '../../../../constants/styles';
+import { swapRequest } from '../../../../store/transfer/actions';
+import { reduceBalance } from '../../../../utils/numberHelpers';
+import { MAIN_COLOR } from '../../../../constants/styles';
 import Toast from 'react-native-toast-message';
-import {TWallet} from '../../../../store/userWallet/types';
+import { TWallet, AccountType } from '../../../../store/userWallet/types';
 import Warning from '../../../../components/Warning';
 import ConfirmModal from '../ConfirmModal';
-import {NetworkName} from '../../../../api/types';
-import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
-import {AppDispatch} from '../../../../store/store';
+import { NetworkName } from '../../../../api/types';
+import { useSafeAreaValues } from '../../../../utils/deviceHelpers';
+import { AppDispatch } from '../../../../store/store';
 
 const SwapBlock = () => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
 
-  const {theme} = useAppThemeContext();
+  const { theme } = useAppThemeContext();
   const styles = useMemo(() => createStyles(theme), [theme]);
 
   const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
@@ -55,7 +55,7 @@ const SwapBlock = () => {
     makeSelectNonTransferableTokenList,
   );
 
-  const {statusBarHeight} = useSafeAreaValues();
+  const { statusBarHeight } = useSafeAreaValues();
 
   const walletList = useMemo(
     () =>
@@ -89,13 +89,16 @@ const SwapBlock = () => {
       (item: any) => item.tokenAddress === fromValues?.address,
     );
     if (fromWallet) {
-      setFromValues(v => ({...v, balance: fromWallet?.chainBalance['2'] || 0}));
+      setFromValues(v => ({
+        ...v,
+        balance: fromWallet?.chainBalance['2'] || 0,
+      }));
     }
     const toWallet = walletList?.find(
       (item: any) => item.tokenAddress === toValues?.address,
     );
     if (toWallet) {
-      setToValues(v => ({...v, balance: toWallet?.chainBalance['2'] || 0}));
+      setToValues(v => ({ ...v, balance: toWallet?.chainBalance['2'] || 0 }));
     }
   }, [toValues?.address, fromValues?.address, walletList]);
 
@@ -171,8 +174,8 @@ const SwapBlock = () => {
   }, [pact.ratio, pact.slippage]);
 
   const handleSwap = () => {
-    const copyFromValues = {...fromValues, amount: ''};
-    const copyToValues = {...toValues, amount: ''};
+    const copyFromValues = { ...fromValues, amount: '' };
+    const copyToValues = { ...toValues, amount: '' };
     setToValues(copyFromValues);
     setFromValues(copyToValues);
   };
@@ -191,15 +194,17 @@ const SwapBlock = () => {
   const onConfirmSwap = useCallback(() => {
     setShowConfirmationPopup(false);
 
-    Toast.show({
-      type: 'info',
-      position: 'top',
-      visibilityTime: 4000,
-      autoHide: true,
-      text1: t('swap.swapBlock.submittedTitle'),
-      text2: t('swap.swapBlock.submittedMessage'),
-      topOffset: statusBarHeight + 16,
-    });
+    if (selectedAccount?.type !== AccountType.LEDGER) {
+      Toast.show({
+        type: 'info',
+        position: 'top',
+        visibilityTime: 4000,
+        autoHide: true,
+        text1: t('swap.swapBlock.submittedTitle'),
+        text2: t('swap.swapBlock.submittedMessage'),
+        topOffset: statusBarHeight + 16,
+      });
+    }
 
     dispatch(
       swapRequest({
@@ -224,6 +229,7 @@ const SwapBlock = () => {
         gasPrice: +pact.gasConfiguration.gasPrice,
         gasLimit: +pact.gasConfiguration.gasLimit,
         ttl: +pact.ttl,
+        accountType: selectedAccount.type,
       }),
     );
   }, [
@@ -255,11 +261,22 @@ const SwapBlock = () => {
               <ActivityIndicator color={MAIN_COLOR} size="small" />
             </View>
             <Text style={styles.loadingText}>
-              {t('swap.swapBlock.pending')}
+              {selectedAccount?.type === AccountType.LEDGER
+                ? t('swap.swapBlock.pendingLedger')
+                : t('swap.swapBlock.pending')}
             </Text>
           </View>
         )}
         <View style={styles.container}>
+          {selectedAccount?.type === AccountType.LEDGER && (
+            <View style={styles.warningContainer}>
+              <Warning
+                isInfo
+                title={t('importHardwareWallet.instructions.ledger.line3')}
+                text={t('importHardwareWallet.instructions.ledger.line4')}
+              />
+            </View>
+          )}
           <View style={styles.warningContainer}>
             <Warning
               title={t('swap.swapBlock.warningTitle')}

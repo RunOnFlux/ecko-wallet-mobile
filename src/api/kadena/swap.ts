@@ -1,9 +1,12 @@
-import {Pact} from '../pactLangApi';
-import {KADDEX_NAMESPACE} from '../constants';
-import {getPactHost} from '../utils';
-import {getSignatureFromHash, isPrivateKey} from '../../utils/kadenaHelpers';
-import {Platform} from 'react-native';
-import {DefaultQueryParams} from '../types';
+import { Pact } from '../pactLangApi';
+import { KADDEX_NAMESPACE } from '../constants';
+import { getPactHost } from '../utils';
+import { getSignatureFromHash, isPrivateKey } from '../../utils/kadenaHelpers';
+import { Platform } from 'react-native';
+import { DefaultQueryParams } from '../types';
+import { AccountType } from '../../store/userWallet/types';
+import { getLedgerApi } from '../../contexts/Ledger/service';
+import { bufferToHex } from '../../contexts/Ledger';
 
 interface SendQueryParams extends DefaultQueryParams {
   instance: string;
@@ -24,6 +27,7 @@ interface SendQueryParams extends DefaultQueryParams {
   ttl?: number;
   accountName: string;
   isSwapIn: boolean;
+  accountType?: AccountType;
 }
 
 const getNonceByPlatform = (platform?: string) => {
@@ -67,7 +71,7 @@ const getTokenBalanceAccount = async (
       host,
     );
   }
-  return {result: {status: 'failure'}};
+  return { result: { status: 'failure' } };
 };
 
 export const getSwap: (params: SendQueryParams) => Promise<any> = async ({
@@ -90,13 +94,14 @@ export const getSwap: (params: SendQueryParams) => Promise<any> = async ({
   ttl,
   accountName,
   isSwapIn,
+  accountType,
 }) => {
   if (
     !instance ||
     !network ||
     !version ||
     !publicKey ||
-    !signature ||
+    (!signature && accountType !== AccountType.LEDGER) ||
     chainId === undefined ||
     !token0Amount ||
     !token1Amount ||
@@ -143,7 +148,7 @@ export const getSwap: (params: SendQueryParams) => Promise<any> = async ({
               'Gas Station',
               'free gas',
               `${KADDEX_NAMESPACE}.gas-station.GAS_PAYER`,
-              ['kaddex-free-gas', {int: 1}, 1.0],
+              ['kaddex-free-gas', { int: 1 }, 1.0],
             )
           : Pact.lang.mkCap('gas', 'pay gas', 'coin.GAS'),
         Pact.lang.mkCap(
@@ -183,30 +188,62 @@ export const getSwap: (params: SendQueryParams) => Promise<any> = async ({
       cmd.ttl,
     );
     const clist = cmd.caps ? cmd.caps.map((c: any) => c.cap) : [];
-    const privateKey =
-      signature.length === 128 && isPrivateKey(signature)
-        ? signature.slice(0, 64)
-        : signature.length === 64
-        ? signature
-        : null;
-    const keyPairs: any = {
-      publicKey,
-      secretKey: privateKey,
-    };
-    if (clist.length > 0) {
-      keyPairs.clist = clist;
-    }
-    const signedCmd = Pact.api.prepareExecCmd(
-      keyPairs,
-      getNonceByPlatform(Platform.OS),
-      cmd.pactCode,
-      cmd.envData,
-      meta,
-      cmd.networkId,
-    );
-    if (signature.length > 64) {
-      const sig = getSignatureFromHash(signedCmd.hash, signature);
-      signedCmd.sigs = [{sig}];
+
+    let signedCmd: any;
+
+    if (accountType === AccountType.LEDGER) {
+      const ledgerApi = getLedgerApi();
+      if (!ledgerApi) {
+        throw new Error('Ledger not connected');
+      }
+
+      const keyPairs: any = {
+        publicKey,
+        clist: clist.length > 0 ? clist : undefined,
+      };
+
+      signedCmd = Pact.api.prepareExecCmd(
+        keyPairs,
+        getNonceByPlatform(Platform.OS),
+        cmd.pactCode,
+        cmd.envData,
+        meta,
+        cmd.networkId,
+      );
+
+      const signHashResult = await ledgerApi.signHash(signedCmd.hash);
+
+      if (!signHashResult?.signature) {
+        throw new Error('Ledger signing failed');
+      }
+
+      signedCmd.sigs = [{ sig: bufferToHex(signHashResult.signature) }];
+    } else {
+      const privateKey =
+        signature.length === 128 && isPrivateKey(signature)
+          ? signature.slice(0, 64)
+          : signature.length === 64
+            ? signature
+            : null;
+      const keyPairs: any = {
+        publicKey,
+        secretKey: privateKey,
+      };
+      if (clist.length > 0) {
+        keyPairs.clist = clist;
+      }
+      signedCmd = Pact.api.prepareExecCmd(
+        keyPairs,
+        getNonceByPlatform(Platform.OS),
+        cmd.pactCode,
+        cmd.envData,
+        meta,
+        cmd.networkId,
+      );
+      if (signature.length > 64) {
+        const sig = getSignatureFromHash(signedCmd.hash, signature);
+        signedCmd.sigs = [{ sig }];
+      }
     }
 
     const resultResponse = await fetch(

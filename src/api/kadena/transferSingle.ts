@@ -9,6 +9,8 @@ import { convertDecimal } from '../../utils/numberHelpers';
 import { getAccount } from './account';
 import { isRAccount, fetchGuardForRAccount } from './rAccount';
 import { Platform } from 'react-native';
+import { AccountType } from '../../store/userWallet/types';
+import { getLedgerApi } from '../../contexts/Ledger/service';
 
 interface TransferSingleQueryParams extends DefaultQueryParams {
   instance: string;
@@ -25,6 +27,7 @@ interface TransferSingleQueryParams extends DefaultQueryParams {
   receiverPublicKey?: number;
   predicate?: number;
   customHost?: string;
+  accountType?: AccountType;
 }
 
 const getNonceByPlatform = (platform?: string) => {
@@ -58,6 +61,7 @@ export const getTransferSingle: (
   predicate,
   receiverPublicKey,
   customHost,
+  accountType,
 }) => {
   if (
     !network ||
@@ -67,10 +71,45 @@ export const getTransferSingle: (
     !receiver ||
     sourceChainId === undefined ||
     !amount ||
-    !signature ||
     !publicKey
   ) {
     throw new Error('Wrong Parameters: request getSingleChain');
+  }
+
+  if (accountType === AccountType.LEDGER) {
+    const ledgerApi = getLedgerApi();
+    if (!ledgerApi) {
+      throw new Error('Ledger not connected');
+    }
+
+    const ledgerParams = {
+      recipient: receiver,
+      namespace: token && token !== 'coin' ? token.split('.')[0] : undefined,
+      module: token && token !== 'coin' ? token.split('.')[1] : undefined,
+      amount: amount.toString(),
+      chainId: Number(sourceChainId),
+      network: instance,
+      gasPrice: (Number(gasPrice) || 0.00001).toString(),
+      gasLimit: Math.max(Number(gasLimit) || 2500, 2500).toString(),
+      nonce: `XM-${new Date().toISOString()}`,
+    };
+
+    const result = await ledgerApi.signTransferCreateTx({
+      path: "m/44'/626'/0'/0/0",
+      ...ledgerParams,
+    });
+
+    if (!result?.pact_command) {
+      throw new Error('Ledger signing failed');
+    }
+
+    return result.pact_command;
+  }
+
+  if (!signature) {
+    throw new Error(
+      'Wrong Parameters: signature is required for non-Ledger accounts',
+    );
   }
 
   const meta = Pact.lang.mkMeta(

@@ -90,7 +90,7 @@ export type TSwapRequest = {
   chainId: string;
   customHost: string;
   publicKey?: string;
-  signature?: string; // private key
+  signature?: string;
   token0Amount: number;
   token1Amount: number;
   token0AmountWithSlippage: number;
@@ -106,4 +106,5 @@ export type TSwapRequest = {
   gasLimit?: number;
   ttl?: number;
   gasStationEnabled: boolean;
+  accountType?: AccountType;
 };

@@ -6,5 +6,6 @@ export type TWarningProps = {
   noIcon?: boolean;
   centerText?: boolean;
   isSerious?: boolean;
+  isInfo?: boolean;
   style?: StyleProp<ViewStyle>;
 };

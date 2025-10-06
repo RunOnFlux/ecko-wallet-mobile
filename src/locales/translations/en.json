@@ -29,7 +29,19 @@
         "line4": "Enable Blind Signing in the Kadena app when prompted.",
         "line5": "For a reliable connection: turn on Bluetooth, close Ledger Live Mobile, keep the device near the phone, and accept pairing/permission prompts."
       }
-    }
+    },
+    "scanning": "Scanning for Ledger devices...",
+    "selectDevice": "Select your Ledger device:",
+    "clickDevice": "Click on your device to continue",
+    "deviceName": "Ledger Device",
+    "noDevices": "No devices found. Make sure your Ledger is powered on and Bluetooth is enabled.",
+    "deviceLabel": "DEVICE",
+    "ledgerLabel": "Ledger",
+    "scanningButton": "Scanning...",
+    "stopScanButton": "Stop Scan",
+    "importAccountHeader": "IMPORT ACCOUNT FROM LEDGER",
+    "importAccountSubtitle": "Ledger account to import",
+    "unlockMessage": "Please be sure to unlock your Ledger device and open the Kadena app."
   },
   "welcome": {
     "title": "Welcome to\neckoWALLET",
@@ -552,6 +564,7 @@
     },
     "swapBlock": {
       "pending": "Transaction pending...",
+      "pendingLedger": "Confirm transaction on your Ledger device...",
       "warningTitle": "To use our convert functionality, first, make sure to have funds on Chain 2.",
       "warningText": "",
       "give": "GIVE",

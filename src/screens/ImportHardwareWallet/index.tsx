@@ -126,6 +126,9 @@ const ImportHardwareWallet = () => {
             </View>
             {selected === 'ledger' && !showDeviceList && (
               <View style={styles.instructionsWrapper}>
+                <Text style={styles.instructionsTitleWrapper}>
+                  IMPORTANT CONNECTION INSTRUCTIONS
+                </Text>
                 <Text style={styles.instructionsTitle}>
                   {t('importHardwareWallet.instructions.ledger.line1')}
                 </Text>
@@ -150,8 +153,13 @@ const ImportHardwareWallet = () => {
               <View style={styles.instructionsWrapper}>
                 <Text style={styles.instructionsTitle}>
                   {isScanning
-                    ? 'Scanning for Ledger devices...'
-                    : 'Select your Ledger device:'}
+                    ? t('importHardwareWallet.scanning')
+                    : t('importHardwareWallet.selectDevice')}
+                </Text>
+                <Text style={styles.instructionsTitle}>
+                  {availableDevices.length
+                    ? t('importHardwareWallet.clickDevice')
+                    : ''}
                 </Text>
                 {availableDevices.map(device => (
                   <View
@@ -160,18 +168,19 @@ const ImportHardwareWallet = () => {
                     onTouchEnd={() => handleSelectDevice(device)}
                   >
                     <Text style={styles.deviceName}>
-                      {device.name || 'Ledger Device'}
+                      {device.name || t('importHardwareWallet.deviceName')}
                     </Text>
                   </View>
                 ))}
                 {availableDevices.length === 0 && !isScanning && (
                   <Text style={styles.instructionsTitle}>
-                    No devices found. Make sure your Ledger is powered on and
-                    Bluetooth is enabled.
+                    {t('importHardwareWallet.noDevices')}
                   </Text>
                 )}
                 {ledgerError && (
-                  <Text style={styles.errorTitle}>{ledgerError}</Text>
+                  <Text style={styles.errorTitle}>
+                    {ledgerError} - {t('importHardwareWallet.unlockMessage')}
+                  </Text>
                 )}
               </View>
             )}
@@ -179,8 +188,12 @@ const ImportHardwareWallet = () => {
         ) : (
           <>
             <View style={styles.deviceHeader}>
-              <Text style={styles.deviceLabel}>DEVICE</Text>
-              <Text style={styles.deviceValue}>Ledger</Text>
+              <Text style={styles.deviceLabel}>
+                {t('importHardwareWallet.importAccountHeader')}
+              </Text>
+              <Text style={styles.deviceValue}>
+                {t('importHardwareWallet.importAccountSubtitle')}
+              </Text>
             </View>
             <View style={styles.accountList}>
               <Checkbox
@@ -200,7 +213,11 @@ const ImportHardwareWallet = () => {
           showDeviceList ? (
             <FooterButton
               disabled={isScanning}
-              title={isScanning ? 'Scanning...' : 'Stop Scan'}
+              title={
+                isScanning
+                  ? t('importHardwareWallet.scanningButton')
+                  : t('importHardwareWallet.stopScanButton')
+              }
               onPress={stopScan}
             />
           ) : (

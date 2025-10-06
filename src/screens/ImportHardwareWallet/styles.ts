@@ -40,7 +40,15 @@ export const createStyles = (
     },
     instructionsWrapper: {
       marginTop: 50,
-      gap: 30,
+      gap: 10,
+    },
+    instructionsTitleWrapper: {
+      gap: 10,
+      fontSize: 16,
+      fontWeight: '600',
+      textAlign: 'center',
+      color: theme.text.primary,
+      marginBottom: 30,
     },
     instructionsTitle: {
       textAlign: 'center',
@@ -68,9 +76,6 @@ export const createStyles = (
     deviceHeader: {
       marginVertical: 12,
       paddingVertical: 12,
-      borderTopWidth: 1,
-      borderBottomWidth: 1,
-      borderColor: theme.border,
     },
     deviceLabel: {
       color: theme.text.secondary,

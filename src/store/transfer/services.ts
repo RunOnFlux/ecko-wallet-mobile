@@ -1,12 +1,12 @@
-import {TGetTransferContParams} from './types';
-import {getTransferCross} from '../../api/kadena/transferCross';
-import {getTransferSingle} from '../../api/kadena/transferSingle';
-import {getTransferContinuation} from '../../api/kadena/transferContinuation';
-import {getSpv} from '../../api/kadena/spv';
-import {getSend} from '../../api/kadena/send';
-import {getSwap} from '../../api/kadena/swap';
-import {getPoll} from '../../api/kadena/poll';
-import {getSign} from '../../api/kadena/sign';
+import { TGetTransferContParams } from './types';
+import { getTransferCross } from '../../api/kadena/transferCross';
+import { getTransferSingle } from '../../api/kadena/transferSingle';
+import { getTransferContinuation } from '../../api/kadena/transferContinuation';
+import { getSpv } from '../../api/kadena/spv';
+import { getSend } from '../../api/kadena/send';
+import { getSwap } from '../../api/kadena/swap';
+import { getPoll } from '../../api/kadena/poll';
+import { getSign } from '../../api/kadena/sign';
 
 export const getCrossTransferRequest = async (params: any) => {
   return await getTransferCross(params);
