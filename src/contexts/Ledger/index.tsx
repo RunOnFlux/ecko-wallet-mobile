@@ -11,6 +11,7 @@ import KadenaLedger, {
   TransferTxParams,
 } from 'hw-app-kda/lib/Kadena';
 import { registerLedgerApi, unregisterLedgerApi } from './service';
+import LedgerInstructionsModal from './LedgerInstructionsModal';
 
 export const bufferToHex = (buffer: ArrayBuffer) =>
   Array.from(new Uint8Array(buffer))
@@ -132,7 +133,6 @@ export const LedgerProvider = ({ children }: { children: React.ReactNode }) => {
           }
         },
         error: (error: any) => {
-          console.log('🚀 ~ scanForDevices ~ error:', error);
           setError(`Scan error: ${error.message || error}`);
           setIsScanning(false);
         },
@@ -140,7 +140,6 @@ export const LedgerProvider = ({ children }: { children: React.ReactNode }) => {
 
       setScanSubscription(subscription);
     } catch (err: any) {
-      console.log('🚀 ~ scanForDevices ~ err:', err);
       setError(`Unable to scan: ${err.message || err}`);
       setIsScanning(false);
     }
@@ -161,7 +160,6 @@ export const LedgerProvider = ({ children }: { children: React.ReactNode }) => {
     stopScan();
 
     try {
-      console.log('🚀 ~ connectToDevice ~ device:', device);
       const transport = await TransportBLE.open(device);
 
       transport.on('disconnect', () => {
@@ -175,7 +173,6 @@ export const LedgerProvider = ({ children }: { children: React.ReactNode }) => {
       setKadenaLedger(kadena);
       return kadena;
     } catch (err: any) {
-      console.log('🚀 ~ connectToDevice ~ err:', err);
       setError(`Unable to connect: ${err.message || err}`);
       throw err;
     }
@@ -201,7 +198,6 @@ export const LedgerProvider = ({ children }: { children: React.ReactNode }) => {
   const getPublicKey = async (): Promise<string | undefined> => {
     setError('');
     const ledger = await getLedger();
-    console.log('🚀 ~ getPublicKey ~ ledger:', ledger);
     const publicKeyResponse = (await ledger?.getPublicKey(DEFAULT_BIP32_PATH))
       ?.publicKey;
     return publicKeyResponse ? bufferToHex(publicKeyResponse) : undefined;
@@ -256,6 +252,10 @@ export const LedgerProvider = ({ children }: { children: React.ReactNode }) => {
       }}
     >
       {children}
+      <LedgerInstructionsModal
+        isVisible={isWaitingLedger}
+        close={() => setIsWaitingLedger(false)}
+      />
     </LedgerContext.Provider>
   );
 };

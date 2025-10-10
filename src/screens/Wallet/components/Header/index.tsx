@@ -1,31 +1,31 @@
-import React, {useCallback, useMemo} from 'react';
-import {View, TouchableOpacity, Text} from 'react-native';
-import {useTranslation} from 'react-i18next';
+import React, { useCallback, useMemo } from 'react';
+import { View, TouchableOpacity, Text } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 import ArrowDownSvg from '../../../../assets/images/arrow-down.svg';
 import MoreVerticalSvg from '../../../../assets/images/more-vertical.svg';
 import WalletItem from '../../../../components/WalletItem';
 
-import {makeStyles} from './styles';
-import {makeSelectActiveNetwork} from '../../../../store/networks/selectors';
+import { makeStyles } from './styles';
+import { makeSelectActiveNetwork } from '../../../../store/networks/selectors';
 import WalletSelectorModal from '../../../../modals/WalletSelectorModal';
-import {makeSelectSelectedAccount} from '../../../../store/userWallet/selectors';
-import {cutStr} from '../../../../utils/stringHelpers';
+import { makeSelectSelectedAccount } from '../../../../store/userWallet/selectors';
+import { cutStr } from '../../../../utils/stringHelpers';
 import NetworkSelectorModal from '../../../../modals/NetworkSelectorModal';
 import Clipboard from '@react-native-clipboard/clipboard';
 import Snackbar from 'react-native-snackbar';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
-import {useShallowEqualSelector} from '../../../../store/utils';
-import {useSafeAreaValues} from '../../../../utils/deviceHelpers';
-import {useAppThemeContext} from '../../../../contexts';
+import { useShallowEqualSelector } from '../../../../store/utils';
+import { useSafeAreaValues } from '../../../../utils/deviceHelpers';
+import { useAppThemeContext } from '../../../../contexts';
 
 const Header = React.memo(() => {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   const account = useShallowEqualSelector(makeSelectSelectedAccount);
   const activeNetwork = useShallowEqualSelector(makeSelectActiveNetwork);
 
-  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
-  const {theme} = useAppThemeContext();
+  const { bottomSpace, statusBarHeight } = useSafeAreaValues();
+  const { theme } = useAppThemeContext();
   const styles = useMemo(
     () =>
       makeStyles(theme, {
@@ -65,20 +65,25 @@ const Header = React.memo(() => {
       <TouchableOpacity
         activeOpacity={0.8}
         style={styles.button}
-        onPress={toggleNetworkModal}>
+        onPress={toggleNetworkModal}
+      >
         <Text style={styles.buttonText}>{activeNetwork?.name || ''}</Text>
         <ArrowDownSvg width={24} height={24} fill={theme.text.primary} />
       </TouchableOpacity>
       <View style={styles.rightSide}>
         <View style={styles.accountButton}>
           <TouchableOpacity activeOpacity={0.8} onPress={onPressAccount}>
-            <WalletItem name={cutStr(account?.accountName || '')} />
+            <WalletItem
+              name={cutStr(account?.accountName || '')}
+              accountType={account?.type}
+            />
           </TouchableOpacity>
           <TouchableOpacity
-            hitSlop={{bottom: 16, top: 16, left: 16, right: 16}}
+            hitSlop={{ bottom: 16, top: 16, left: 16, right: 16 }}
             onPress={toggleWalletModal}
             activeOpacity={0.8}
-            style={styles.iconWrapper}>
+            style={styles.iconWrapper}
+          >
             <MoreVerticalSvg />
           </TouchableOpacity>
         </View>

@@ -15,7 +15,6 @@ import { AppDispatch } from '../../store/store';
 import { addNewAccount, setSelectedAccount } from '../../store/userWallet';
 import { AccountType } from '../../store/userWallet/types';
 import { defaultWallets } from '../../store/userWallet/const';
-import LedgerLogo from '../../assets/images/ledger-logo-long.svg';
 import { useSafeAreaValues } from '../../utils/deviceHelpers';
 
 const ImportHardwareWallet = () => {
@@ -44,7 +43,6 @@ const ImportHardwareWallet = () => {
 
   const [selected, setSelected] = useState<'ledger' | null>(null);
   const [ledgerPublicKey, setLedgerPublicKey] = useState<string>('');
-  console.log('🚀 ~ ImportHardwareWallet ~ ledgerPublicKey:', ledgerPublicKey);
   const [selectedAccountName, setSelectedAccountName] = useState<string>('');
   const [showDeviceList, setShowDeviceList] = useState(false);
 
@@ -54,7 +52,7 @@ const ImportHardwareWallet = () => {
         setShowDeviceList(true);
         await scanForDevices();
       } catch (err) {
-        console.log('🚀 ~ handleStartScan ~ err:', err);
+        console.log('Ledger start scan ERROR:', err);
       }
     }
   }, [selected, scanForDevices]);
@@ -65,14 +63,13 @@ const ImportHardwareWallet = () => {
         stopScan();
         await connectToDevice(device);
         const pk = await getPublicKey();
-        console.log('🚀 ~ handleSelectDevice ~ pk:', pk);
         if (pk) {
           setLedgerPublicKey(pk);
           setSelectedAccountName(`k:${pk}`);
           setShowDeviceList(false);
         }
       } catch (err) {
-        console.log('🚀 ~ handleSelectDevice ~ err:', err);
+        console.log('Ledger select device ERROR:', err);
       }
     },
     [connectToDevice, getPublicKey, stopScan],
