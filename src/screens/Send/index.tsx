@@ -77,6 +77,17 @@ const Send = () => {
     [theme, bottomSpace, statusBarHeight],
   );
 
+  useEffect(() => {
+    if (
+      !accountName ||
+      accountName?.startsWith('r:') ||
+      accountName?.startsWith('k:')
+    ) {
+      setPredicate(predicates[0].value);
+      setAccountPublicKey('');
+    }
+  }, [accountName]);
+
   const sortedWalletList = useMemo(() => {
     const wallets = selectedAccount?.wallets || [];
 
@@ -322,12 +333,15 @@ const Send = () => {
             />
           </TouchableOpacity>
         </TopHeader>
-        <Content
-          predicate={predicate}
-          setPredicate={setPredicate}
-          receiverPublicKey={accountPublicKey}
-          setReceiverPublicKey={setAccountPublicKey}
-        />
+        {accountPublicKey?.startsWith('r:') ||
+        accountName?.startsWith('k:') ? null : (
+          <Content
+            predicate={predicate}
+            setPredicate={setPredicate}
+            receiverPublicKey={accountPublicKey}
+            setReceiverPublicKey={setAccountPublicKey}
+          />
+        )}
         <AccountsList
           title={t('send.accounts.recent')}
           items={recentAccounts}
