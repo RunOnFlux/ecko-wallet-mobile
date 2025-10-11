@@ -16,6 +16,7 @@ const Modal: FC<TModalProps> = ({
   onPressLeftItem,
   logo,
   contentStyle,
+  style,
   ...restProps
 }) => {
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
@@ -36,7 +37,7 @@ const Modal: FC<TModalProps> = ({
   return (
     <RNModal
       {...restProps}
-      style={styles.modal}
+      style={[styles.modal, style]}
       propagateSwipe={true}
       onBackdropPress={close}
       onBackButtonPress={close}

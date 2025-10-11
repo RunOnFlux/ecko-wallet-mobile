@@ -1,10 +1,10 @@
 import '@walletconnect/react-native-compat';
-import React, {createContext, useCallback, useEffect, useState} from 'react';
-import {ICore} from '@walletconnect/types';
-import {WalletKit, IWalletKit} from '@reown/walletkit';
-import {Core} from '@walletconnect/core';
-import {WALLETCONNECT_PROJECT_ID, WALLETCONNECT_PROJECT_RELAY} from '@env';
-import {getSavedValue} from '../../utils/storageHelplers';
+import React, { createContext, useCallback, useEffect, useState } from 'react';
+import { ICore } from '@walletconnect/types';
+import { WalletKit, IWalletKit } from '@reown/walletkit';
+import { Core } from '@walletconnect/core';
+import { WALLETCONNECT_PROJECT_ID, WALLETCONNECT_PROJECT_RELAY } from '@env';
+import { getSavedValue } from '../../utils/storageHelplers';
 
 export const defaultWalletConnectParams = {
   name: WALLETCONNECT_PROJECT_ID,
@@ -59,6 +59,47 @@ export const WalletConnectProvider = (props: any) => {
       core: initWalletConnectCore,
       metadata: defaultWalletConnectParams.metadata,
     });
+
+    try {
+      const sessions = initWeb3WalletClient.getActiveSessions();
+      const now = Date.now() / 1000;
+
+      for (const topic in sessions) {
+        const session = sessions[topic];
+        if (session.expiry < now) {
+          try {
+            await initWeb3WalletClient.disconnectSession({
+              topic,
+              reason: {
+                code: 6000,
+                message: 'Session expired',
+              },
+            });
+          } catch (e) {
+            console.warn('Failed to disconnect expired session:', topic);
+          }
+        }
+      }
+
+      const pairings = initWalletConnectCore.pairing.getPairings();
+      for (const pairing of pairings) {
+        if (pairing.expiry && pairing.expiry < now) {
+          try {
+            await initWalletConnectCore.pairing.disconnect({
+              topic: pairing.topic,
+            });
+          } catch (e) {
+            console.warn(
+              'Failed to disconnect expired pairing:',
+              pairing.topic,
+            );
+          }
+        }
+      }
+    } catch (e) {
+      console.warn('Error cleaning up expired sessions/pairings:', e);
+    }
+
     setWalletConnectCore(initWalletConnectCore);
     setWeb3WalletClient(initWeb3WalletClient);
   }, []);
@@ -79,7 +120,8 @@ export const WalletConnectProvider = (props: any) => {
         walletConnectCore,
         web3WalletClient,
         initializeClient,
-      }}>
+      }}
+    >
       {props.children}
     </WalletConnectContext.Provider>
   );

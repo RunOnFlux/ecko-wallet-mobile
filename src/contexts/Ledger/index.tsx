@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { listen } from '@ledgerhq/logs';
 import TransportBLE from '@ledgerhq/react-native-hw-transport-ble';
 import { PermissionsAndroid, Platform } from 'react-native';
@@ -10,7 +10,7 @@ import KadenaLedger, {
   TransferCrossChainTxParams,
   TransferTxParams,
 } from 'hw-app-kda/lib/Kadena';
-import { registerLedgerApi, unregisterLedgerApi } from './service';
+import { registerLedgerApi, registerModalCallbacks } from './service';
 import LedgerInstructionsModal from './LedgerInstructionsModal';
 
 export const bufferToHex = (buffer: ArrayBuffer) =>
@@ -65,6 +65,12 @@ export const LedgerProvider = ({ children }: { children: React.ReactNode }) => {
   const [availableDevices, setAvailableDevices] = useState<Device[]>([]);
   const [error, setError] = useState<string>('');
   const [scanSubscription, setScanSubscription] = useState<any>(null);
+
+  useEffect(() => {
+    registerModalCallbacks({
+      setVisible: setIsWaitingLedger,
+    });
+  }, []);
 
   const ensureBlePermissions = async () => {
     if (Platform.OS === 'android') {
@@ -254,6 +260,7 @@ export const LedgerProvider = ({ children }: { children: React.ReactNode }) => {
       {children}
       <LedgerInstructionsModal
         isVisible={isWaitingLedger}
+        // isVisible
         close={() => setIsWaitingLedger(false)}
       />
     </LedgerContext.Provider>

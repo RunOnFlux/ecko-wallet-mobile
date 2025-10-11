@@ -21,6 +21,7 @@
   },
   "importHardwareWallet": {
     "title": "Import Hardware Wallet",
+    "titleModal": "Connection Instructions",
     "instructions": {
       "ledger": {
         "line1": "Install or update the Kadena app from Ledger Live.",

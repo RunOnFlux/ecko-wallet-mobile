@@ -1,5 +1,5 @@
 import React, { FC, useMemo } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import Modal from '../../components/Modal';
 import { useAppThemeContext } from '..';
@@ -22,13 +22,13 @@ const LedgerInstructionsModal: FC<LedgerInstructionsModalProps> = ({
     <Modal
       isVisible={isVisible}
       close={close}
-      title={t('importHardwareWallet.title')}
+      title={t('importHardwareWallet.titleModal')}
       contentStyle={styles.content}
+      style={styles.modal}
+      coverScreen={true}
+      statusBarTranslucent={true}
     >
       <View style={styles.instructionsWrapper}>
-        <Text style={styles.instructionsTitleWrapper}>
-          IMPORTANT CONNECTION INSTRUCTIONS
-        </Text>
         <Text style={styles.instructionsTitle}>
           {t('importHardwareWallet.instructions.ledger.line1')}
         </Text>
@@ -44,6 +44,7 @@ const LedgerInstructionsModal: FC<LedgerInstructionsModalProps> = ({
         <Text style={styles.instructionsTitle}>
           {t('importHardwareWallet.instructions.ledger.line5')}
         </Text>
+        <ActivityIndicator size="large" color={theme.text.primary} />
       </View>
     </Modal>
   );

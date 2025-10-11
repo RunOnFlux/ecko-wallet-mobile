@@ -390,7 +390,9 @@ export const useWalletConnect = () => {
           web3WalletClient?.events?.off('session_event', onSessionEvent);
         };
       }
-    } catch (e) {}
+    } catch (e) {
+      console.warn('WalletConnect event listener error:', e);
+    }
   }, [
     isInitialized,
     web3WalletClient,
@@ -474,9 +476,13 @@ export const useWalletConnect = () => {
                   item.publicKey === cmdValue?.signingPubKey,
               );
 
+              if (!foundAccount) {
+                throw new Error('Account not found for signing');
+              }
+
               let signResultData;
 
-              if (foundAccount?.accountType === AccountType.LEDGER) {
+              if (foundAccount.type === AccountType.LEDGER) {
                 const ledgerApi = getLedgerApi();
                 if (!ledgerApi) {
                   throw new Error('Ledger not connected');
@@ -549,6 +555,7 @@ export const useWalletConnect = () => {
                 NETWORK_IDS[
                   selectedNetwork?.network || EDefaultNetwork.mainnet
                 ];
+
               const foundAccount = (accountsList || []).find(
                 (item: any) =>
                   item.accountName === cmdValue?.sender ||
@@ -556,9 +563,13 @@ export const useWalletConnect = () => {
                   item.publicKey === cmdValue?.signingPubKey,
               );
 
+              if (!foundAccount) {
+                throw new Error('Account not found for signing');
+              }
+
               let signResultData;
 
-              if (foundAccount?.accountType === AccountType.LEDGER) {
+              if (foundAccount.type === AccountType.LEDGER) {
                 const ledgerApi = getLedgerApi();
                 if (!ledgerApi) {
                   throw new Error('Ledger not connected');
@@ -636,9 +647,13 @@ export const useWalletConnect = () => {
                   item.publicKey === cmdValue?.signingPubKey,
               );
 
+              if (!foundAccount) {
+                throw new Error('Account not found for signing');
+              }
+
               let quickSignData;
 
-              if (foundAccount?.accountType === AccountType.LEDGER) {
+              if (foundAccount.type === AccountType.LEDGER) {
                 const ledgerApi = getLedgerApi();
                 if (!ledgerApi) {
                   throw new Error('Ledger not connected');
@@ -680,9 +695,13 @@ export const useWalletConnect = () => {
                 ),
               );
 
+              if (!foundAccount) {
+                throw new Error('Account not found for signing');
+              }
+
               let quickSignData;
 
-              if (foundAccount?.accountType === AccountType.LEDGER) {
+              if (foundAccount.type === AccountType.LEDGER) {
                 const ledgerApi = getLedgerApi();
                 if (!ledgerApi) {
                   throw new Error('Ledger not connected');
@@ -745,9 +764,36 @@ export const useWalletConnect = () => {
 
         closeModal();
       }
-    } catch (e) {
+    } catch (e: any) {
       setIsLoading(false);
-      setHelpIsVisible(true);
+      setLedgerSignProgress(null);
+
+      const isLedgerError =
+        e?.message?.includes('Ledger') ||
+        e?.message?.includes('User rejected') ||
+        e?.name === 'TransportStatusError';
+
+      if (isLedgerError) {
+        closeModal();
+
+        if (modalContentType === 'session_request') {
+          const { topic, event } = modalContentProps;
+          try {
+            const response = formatJsonRpcError(event.id, {
+              code: 5000,
+              message: e?.message || 'User rejected the request',
+            });
+            await web3WalletClient?.respondSessionRequest({
+              topic,
+              response,
+            });
+          } catch (respondError) {
+            console.error('Failed to send rejection response:', respondError);
+          }
+        }
+      } else {
+        setHelpIsVisible(true);
+      }
     }
   }, [
     selectedNetwork,

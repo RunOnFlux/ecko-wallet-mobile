@@ -6,9 +6,14 @@ export const makeStyles = (theme: IAppTheme) =>
     content: {
       paddingTop: 20,
     },
+    modal: {
+      zIndex: 999999,
+      elevation: 999999,
+    },
     instructionsWrapper: {
       gap: 10,
       paddingHorizontal: 16,
+      marginTop: 30,
     },
     instructionsTitleWrapper: {
       fontSize: 16,
