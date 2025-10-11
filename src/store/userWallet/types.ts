@@ -22,7 +22,13 @@ export type TAccount = {
   publicKey?: string;
   privateKey?: string;
   chainId?: TChainId;
+  type?: AccountType;
 };
+
+export enum AccountType {
+  STANDARD = 'STANDARD',
+  LEDGER = 'LEDGER',
+}
 
 export type TAccountImportRequest = {
   accountName: string;

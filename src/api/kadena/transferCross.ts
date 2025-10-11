@@ -9,6 +9,8 @@ import { getAccount } from './account';
 import { isRAccount, fetchGuardForRAccount } from './rAccount';
 import { convertDecimal } from '../../utils/numberHelpers';
 import { getPactHost } from '../utils';
+import { AccountType } from '../../store/userWallet/types';
+import { getLedgerApi } from '../../contexts/Ledger/service';
 
 interface TransferCrossQueryParams extends DefaultQueryParams {
   instance: string;
@@ -26,6 +28,7 @@ interface TransferCrossQueryParams extends DefaultQueryParams {
   customHost?: string;
   receiverPublicKey?: number;
   predicate?: number;
+  accountType?: AccountType;
 }
 
 const getNonceByPlatform = (platform?: string) => {
@@ -60,6 +63,7 @@ export const getTransferCross: (
   targetChainId,
   predicate,
   receiverPublicKey,
+  accountType,
 }) => {
   if (
     !network ||
@@ -70,10 +74,52 @@ export const getTransferCross: (
     sourceChainId === undefined ||
     targetChainId === undefined ||
     !amount ||
-    !signature ||
     !publicKey
   ) {
     throw new Error('Wrong Parameters: request getCrossChain');
+  }
+
+  if (accountType === AccountType.LEDGER) {
+    const ledgerApi = getLedgerApi();
+    if (!ledgerApi) {
+      throw new Error('Ledger not connected');
+    }
+
+    const ledgerParams = {
+      recipient: receiver,
+      recipient_chainId: Number(targetChainId),
+      namespace:
+        token && token !== 'coin'
+          ? (token as unknown as string).split('.')[0]
+          : undefined,
+      module:
+        token && token !== 'coin'
+          ? (token as unknown as string).split('.')[1]
+          : undefined,
+      amount: amount.toString(),
+      chainId: Number(sourceChainId),
+      network: instance,
+      gasPrice: (Number(gasPrice) || 0.00001).toString(),
+      gasLimit: Math.max(Number(gasLimit) || 2500, 2500).toString(),
+      nonce: `XM-${new Date().toISOString()}`,
+    };
+
+    const result = await ledgerApi.signTransferCrossChainTx({
+      path: "m/44'/626'/0'/0/0",
+      ...ledgerParams,
+    });
+
+    if (!result?.pact_command) {
+      throw new Error('Ledger signing failed');
+    }
+
+    return result.pact_command;
+  }
+
+  if (!signature) {
+    throw new Error(
+      'Wrong Parameters: signature is required for non-Ledger accounts',
+    );
   }
 
   const meta = Pact.lang.mkMeta(

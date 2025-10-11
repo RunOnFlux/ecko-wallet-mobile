@@ -35,6 +35,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaValues } from '../../utils/deviceHelpers';
 import Header from '../../components/Header';
 import { AppDispatch } from '../../store/store';
+import { AccountType } from '../../store/userWallet/types';
 
 const SendSummary = () => {
   const { t } = useTranslation();
@@ -114,8 +115,16 @@ const SendSummary = () => {
               style={styles.topHeaderContent}
             >
               <WalletInfo />
+              {sourceAccount?.type === AccountType.LEDGER && (
+                <Warning
+                  isInfo
+                  title={t('importHardwareWallet.instructions.ledger.line3')}
+                  text={t('importHardwareWallet.instructions.ledger.line4')}
+                />
+              )}
               {isCrossChainTransfer && (
                 <Warning
+                  style={{ marginTop: 10 }}
                   title={t('sendSummary.warning.crossChainTitle')}
                   text={t('sendSummary.warning.crossChainMessage')}
                 />

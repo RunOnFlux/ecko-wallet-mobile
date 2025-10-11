@@ -1,4 +1,4 @@
-import {TAccount, TChainId, TWallet} from '../userWallet/types';
+import {TAccount, TChainId, TWallet, AccountType} from '../userWallet/types';
 import {TNetworkDetail} from '../networks/types';
 import {TActivity} from '../history/types';
 
@@ -72,6 +72,7 @@ export type TGetTransferParams = {
   predicate?: string;
   receiverPublicKey?: string;
   network: string;
+  accountType?: AccountType;
 };
 
 export type TGetTransferContParams = {
@@ -89,7 +90,7 @@ export type TSwapRequest = {
   chainId: string;
   customHost: string;
   publicKey?: string;
-  signature?: string; // private key
+  signature?: string;
   token0Amount: number;
   token1Amount: number;
   token0AmountWithSlippage: number;
@@ -105,4 +106,5 @@ export type TSwapRequest = {
   gasLimit?: number;
   ttl?: number;
   gasStationEnabled: boolean;
+  accountType?: AccountType;
 };

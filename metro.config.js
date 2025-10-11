@@ -20,6 +20,9 @@ const config = {
       ...(getDefaultConfig(__dirname).resolver.sourceExts || []),
       'svg',
     ],
+    extraNodeModules: {
+      buffer: require.resolve('buffer/'),
+    },
   },
 };
 

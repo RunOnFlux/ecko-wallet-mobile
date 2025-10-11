@@ -34,7 +34,10 @@ import { GAS_LIMIT, GAS_PRICE } from '../../constants';
 import Content from './components/Content';
 import { useShallowEqualSelector } from '../../store/utils';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { makeSelectSelectedToken } from '../../store/userWallet/selectors';
+import {
+  makeSelectSelectedAccount,
+  makeSelectSelectedToken,
+} from '../../store/userWallet/selectors';
 import { makeSelectIsTransferring } from '../../store/transfer/selectors';
 import Toast from 'react-native-toast-message';
 import { useSafeAreaValues } from '../../utils/deviceHelpers';
@@ -42,6 +45,10 @@ import { useAppThemeContext } from '../../contexts';
 import { makeSelectActiveNetworkDetails } from '../../store/networks/selectors';
 import { isRAccount, fetchGuardForRAccount } from '../../api/kadena/rAccount';
 import { makeStyles } from './styles';
+import { setSelectedToken } from '../../store/userWallet';
+import { defaultWallets } from '../../store/userWallet/const';
+import { TWallet } from '../../store/userWallet/types';
+import { getAssetImageView } from '../../utils/getAssetImageView';
 
 const Send = () => {
   const { t } = useTranslation();
@@ -62,11 +69,86 @@ const Send = () => {
 
   const { bottomSpace, statusBarHeight } = useSafeAreaValues();
   const networkDetail = useShallowEqualSelector(makeSelectActiveNetworkDetails);
+  const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
   const selectedToken = useShallowEqualSelector(makeSelectSelectedToken);
   const { theme } = useAppThemeContext();
   const styles = useMemo(
     () => makeStyles(theme, { bottomSpace, statusBarHeight }),
     [theme, bottomSpace, statusBarHeight],
+  );
+
+  useEffect(() => {
+    if (
+      !accountName ||
+      accountName?.startsWith('r:') ||
+      accountName?.startsWith('k:')
+    ) {
+      setPredicate(predicates[0].value);
+      setAccountPublicKey('');
+    }
+  }, [accountName]);
+
+  const sortedWalletList = useMemo(() => {
+    const wallets = selectedAccount?.wallets || [];
+
+    const defaultTokensOrder = defaultWallets.reduce(
+      (acc, wallet, index) => {
+        acc[wallet.tokenAddress] = index;
+        return acc;
+      },
+      {} as Record<string, number>,
+    );
+
+    return [...wallets].sort((a, b) => {
+      const aIsDefault = a.tokenAddress in defaultTokensOrder;
+      const bIsDefault = b.tokenAddress in defaultTokensOrder;
+
+      if (aIsDefault && bIsDefault) {
+        return (
+          defaultTokensOrder[a.tokenAddress] -
+          defaultTokensOrder[b.tokenAddress]
+        );
+      }
+      if (aIsDefault) return -1;
+      if (bIsDefault) return 1;
+
+      return a.tokenAddress.localeCompare(b.tokenAddress);
+    });
+  }, [selectedAccount?.wallets]);
+
+  const tokenItems = useMemo(
+    () =>
+      sortedWalletList.map(w => ({
+        label: w.tokenName,
+        value: w.tokenAddress,
+      })),
+    [sortedWalletList],
+  );
+
+  const [selectedTokenAddress, setSelectedTokenAddress] = useState<
+    string | null
+  >(selectedToken?.tokenAddress || null);
+
+  useEffect(() => {
+    setSelectedTokenAddress(selectedToken?.tokenAddress || null);
+  }, [selectedToken?.tokenAddress]);
+
+  const handleSetSelectedTokenAddress = useCallback(
+    (value: React.SetStateAction<string | null>) => {
+      setSelectedTokenAddress(prev => {
+        const next = typeof value === 'function' ? value(prev) : value;
+        if (next) {
+          const found: TWallet | undefined = sortedWalletList.find(
+            w => w.tokenAddress === next,
+          );
+          if (found) {
+            dispatch(setSelectedToken(found));
+          }
+        }
+        return next;
+      });
+    },
+    [sortedWalletList, dispatch],
   );
 
   const handlePressContinue = useCallback(async () => {
@@ -200,6 +282,18 @@ const Send = () => {
             style={styles.topHeaderContent}
           >
             <ChainId
+              label={'Token'}
+              value={selectedTokenAddress}
+              setValue={handleSetSelectedTokenAddress}
+              items={tokenItems}
+              wrapperStyle={styles.tokenWrapper}
+              leftContent={
+                selectedTokenAddress
+                  ? getAssetImageView(selectedTokenAddress, 28)
+                  : undefined
+              }
+            />
+            <ChainId
               label={t('send.chain.sourceLabel')}
               value={sourceChainId}
               setValue={setSourceChainId}
@@ -239,12 +333,15 @@ const Send = () => {
             />
           </TouchableOpacity>
         </TopHeader>
-        <Content
-          predicate={predicate}
-          setPredicate={setPredicate}
-          receiverPublicKey={accountPublicKey}
-          setReceiverPublicKey={setAccountPublicKey}
-        />
+        {accountPublicKey?.startsWith('r:') ||
+        accountName?.startsWith('k:') ? null : (
+          <Content
+            predicate={predicate}
+            setPredicate={setPredicate}
+            receiverPublicKey={accountPublicKey}
+            setReceiverPublicKey={setAccountPublicKey}
+          />
+        )}
         <AccountsList
           title={t('send.accounts.recent')}
           items={recentAccounts}

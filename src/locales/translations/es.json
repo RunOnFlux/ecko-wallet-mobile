@@ -4,10 +4,37 @@
     "confirm": "Confirmar",
     "delete": "Eliminar",
     "cancel": "Cancelar",
+    "continue": "Continuar",
+    "connect": "Conectar",
+    "import": "Importar",
     "ok": "OK",
     "error": "Error",
     "selectLanguage": "Seleccionar idioma",
     "selectLanguageLongDescription": "Selecciona el idioma que deseas utilizar"
+  },
+  "importHardwareWallet": {
+    "title": "Importar Wallet de Hardware",
+    "instructions": {
+      "ledger": {
+        "line1": "Instala o actualiza la aplicación Kadena desde Ledger Live.",
+        "line2": "Actualiza el firmware de Ledger y la aplicación Kadena.",
+        "line3": "Desbloquea el Ledger, abre la aplicación Kadena y mantenla abierta.",
+        "line4": "Habilita Blind Signing en la aplicación Kadena cuando se solicite.",
+        "line5": "Para una conexión confiable: activa el Bluetooth, cierra Ledger Live Mobile, mantén el dispositivo cerca del teléfono y acepta los permisos de emparejamiento."
+      }
+    },
+    "scanning": "Buscando dispositivos Ledger...",
+    "selectDevice": "Selecciona tu dispositivo Ledger:",
+    "clickDevice": "Haz clic en tu dispositivo para continuar",
+    "deviceName": "Dispositivo Ledger",
+    "noDevices": "No se encontraron dispositivos. Asegúrate de que tu Ledger esté encendido y el Bluetooth activado.",
+    "deviceLabel": "DISPOSITIVO",
+    "ledgerLabel": "Ledger",
+    "scanningButton": "Buscando...",
+    "stopScanButton": "Detener búsqueda",
+    "importAccountHeader": "IMPORTAR CUENTA DESDE LEDGER",
+    "importAccountSubtitle": "Cuenta de Ledger a importar",
+    "unlockMessage": "Asegúrate de desbloquear tu dispositivo Ledger y abrir la aplicación Kadena."
   },
   "welcome": {
     "title": "Bienvenido a\neckoWALLET",
@@ -522,6 +549,7 @@
     },
     "swapBlock": {
       "pending": "Transacción pendiente...",
+      "pendingLedger": "Confirma la transacción en tu dispositivo Ledger...",
       "warningTitle": "Para usar nuestra función de conversión, primero asegúrate de tener fondos en la cadena 2.",
       "warningText": "",
       "give": "DAR",

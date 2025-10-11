@@ -1,5 +1,5 @@
 import '@walletconnect/react-native-compat';
-import React, {useCallback, useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Modal from '../components/Modal';
 import {
   ActivityIndicator,
@@ -9,9 +9,10 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Platform,
 } from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {makeSelectIsAuthorized} from '../store/auth/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { makeSelectIsAuthorized } from '../store/auth/selectors';
 import {
   MAIN_COLOR,
   MEDIUM_MONTSERRAT,
@@ -19,24 +20,27 @@ import {
   SEMI_BOLD_MONTSERRAT,
 } from '../constants/styles';
 import WalletConnectAccountSelector from '../components/WalletConnectAccountSelector';
-import {TAccount} from '../store/userWallet/types';
+import { TAccount, AccountType } from '../store/userWallet/types';
 import {
   formatJsonRpcResult,
   formatJsonRpcError,
 } from '@walletconnect/jsonrpc-utils';
 import JSONTree from 'react-native-json-tree';
-import {getNetwork} from './networkHelpers';
-import {getSignRequest} from '../store/transfer/services';
-import {makeSelectAccounts} from '../store/userWallet/selectors';
-import {EDefaultNetwork} from '../screens/Networks/types';
-import {useShallowEqualSelector} from '../store/utils';
-import {setSendResult} from '../store/history';
+import { getNetwork } from './networkHelpers';
+import { getSignRequest } from '../store/transfer/services';
+import { makeSelectAccounts } from '../store/userWallet/selectors';
+import { EDefaultNetwork } from '../screens/Networks/types';
+import { useShallowEqualSelector } from '../store/utils';
+import { setSendResult } from '../store/history';
 import WalletConnectHelpModal from '../components/WalletConnectHelpModal';
-import {quickSign} from '../api/kadena/quickSign';
-import {defaultChainIds} from '../api/constants';
-import {useWalletConnectContext} from '../contexts';
-import {makeSelectActiveNetwork} from '../store/networks/selectors';
-import {WalletKitTypes} from '@reown/walletkit';
+import { quickSign } from '../api/kadena/quickSign';
+import { defaultChainIds } from '../api/constants';
+import { useWalletConnectContext } from '../contexts';
+import { makeSelectActiveNetwork } from '../store/networks/selectors';
+import { WalletKitTypes } from '@reown/walletkit';
+import { getLedgerApi } from '../contexts/Ledger/service';
+import { bufferToHex } from '../contexts/Ledger';
+import { Pact } from '../api/pactLangApi';
 
 const JSONTreeTheme = {
   tree: {
@@ -100,8 +104,103 @@ const KDA_EVENTS = {
   KDA_TRANSACTION_UPDATED: 'kadena_transaction_updated',
 };
 
+const getNonceByPlatform = (platform?: string) => {
+  switch (platform) {
+    case 'macos':
+      return `"XMDS-${new Date().toISOString()}"`;
+    case 'ios':
+      return `"XIDS-${new Date().toISOString()}"`;
+    case 'android':
+      return `"XADS-${new Date().toISOString()}"`;
+    default:
+      return `"${new Date().toISOString()}"`;
+  }
+};
+
+const quickSignWithLedger = async (
+  data: any,
+  publicKey: string,
+  ledgerApi: any,
+  onProgress?: (current: number, total: number) => void,
+) => {
+  const isValidPayload =
+    data &&
+    data.commandSigDatas &&
+    Array.isArray(data.commandSigDatas) &&
+    data.commandSigDatas.every((r: any) => Array.isArray(r.sigs) && r.cmd);
+
+  if (!isValidPayload) {
+    return null;
+  }
+
+  const hasQuickSignValidSignature =
+    data.commandSigDatas.filter((r: any) =>
+      r.sigs?.some((s: any) => s.pubKey === publicKey),
+    )?.length > 0;
+
+  if (!hasQuickSignValidSignature) {
+    return null;
+  }
+
+  const signedResponses: any[] = [];
+  const totalToSign = data.commandSigDatas.length;
+
+  for (let i = 0; i < data.commandSigDatas.length; i += 1) {
+    const { cmd, sigs } = data.commandSigDatas[i];
+    const signatureIndex = sigs.findIndex((s: any) => s.pubKey === publicKey);
+
+    if (signatureIndex < 0) {
+      signedResponses.push({
+        cmd,
+        sigs,
+        outcome: {
+          result: 'noSig',
+        },
+      });
+    } else {
+      try {
+        if (onProgress) {
+          onProgress(i + 1, totalToSign);
+        }
+
+        const hash = Pact.crypto.hash(cmd);
+
+        const signHashResult = await ledgerApi.signHash(hash);
+
+        if (!signHashResult?.signature) {
+          throw new Error('Ledger signing failed');
+        }
+
+        sigs[signatureIndex].sig = bufferToHex(signHashResult.signature);
+        signedResponses.push({
+          commandSigData: {
+            cmd,
+            sigs,
+          },
+          outcome: {
+            result: 'success',
+            hash,
+          },
+        });
+      } catch (err) {
+        signedResponses.push({
+          commandSigData: {
+            cmd,
+            sigs,
+          },
+          outcome: {
+            result: 'failure',
+            msg: 'Error to sign cmd with Ledger',
+          },
+        });
+      }
+    }
+  }
+  return signedResponses;
+};
+
 export const useWalletConnect = () => {
-  const {web3WalletClient, isInitialized, setIsConnected} =
+  const { web3WalletClient, isInitialized, setIsConnected } =
     useWalletConnectContext();
 
   const dispatch = useDispatch();
@@ -116,6 +215,10 @@ export const useWalletConnect = () => {
   const [modalTitle, setModalTitle] = useState<string>('');
   const [modalContentType, setModalContentType] = useState<string | null>('');
   const [modalContentProps, setModalContentProps] = useState<any>({});
+  const [ledgerSignProgress, setLedgerSignProgress] = useState<{
+    current: number;
+    total: number;
+  } | null>(null);
 
   const onSessionProposal = useCallback(
     (proposal: WalletKitTypes.SessionProposal) => {
@@ -134,8 +237,8 @@ export const useWalletConnect = () => {
 
   const onSessionRequest = useCallback(
     async (requestEvent: any) => {
-      const {topic, params} = requestEvent;
-      const {request} = params;
+      const { topic, params } = requestEvent;
+      const { request } = params;
 
       switch (request.method) {
         case KDA_METHODS.KDA_GET_ACCOUNTS_V1:
@@ -233,12 +336,12 @@ export const useWalletConnect = () => {
 
   const onSessionEvent = useCallback(async (sessionEvent: any) => {
     try {
-      const {params} = sessionEvent;
-      const {event} = params;
+      const { params } = sessionEvent;
+      const { event } = params;
       switch (event?.name) {
         case KDA_EVENTS.KDA_TRANSACTION_UPDATED:
           {
-            const {params: transactionDetail} = event;
+            const { params: transactionDetail } = event;
             dispatch(
               setSendResult({
                 ...transactionDetail,
@@ -252,8 +355,8 @@ export const useWalletConnect = () => {
                   )
                     ? 'success'
                     : transactionDetail?.result?.status === 'failure'
-                    ? 'failure'
-                    : 'pending',
+                      ? 'failure'
+                      : 'pending',
                 createdTime: new Date().toISOString(),
                 sender: '',
                 sourceChainId: '',
@@ -287,7 +390,9 @@ export const useWalletConnect = () => {
           web3WalletClient?.events?.off('session_event', onSessionEvent);
         };
       }
-    } catch (e) {}
+    } catch (e) {
+      console.warn('WalletConnect event listener error:', e);
+    }
   }, [
     isInitialized,
     web3WalletClient,
@@ -299,6 +404,7 @@ export const useWalletConnect = () => {
   const closeModal = useCallback(() => {
     setIsVisible(false);
     setIsLoading(false);
+    setLedgerSignProgress(null);
     setTimeout(() => {
       setModalTitle('');
       setModalContentProps({});
@@ -314,8 +420,8 @@ export const useWalletConnect = () => {
     setIsLoading(true);
     try {
       if (modalContentType === 'session_request') {
-        const {topic, event} = modalContentProps;
-        const {id} = event;
+        const { topic, event } = modalContentProps;
+        const { id } = event;
 
         const response = formatJsonRpcError(id, {
           code: 5000,
@@ -328,8 +434,8 @@ export const useWalletConnect = () => {
 
         closeModal();
       } else if (modalContentType === 'session_proposal') {
-        const {proposal} = modalContentProps;
-        const {id} = proposal;
+        const { proposal } = modalContentProps;
+        const { id } = proposal;
 
         await web3WalletClient?.rejectSession({
           id,
@@ -351,11 +457,11 @@ export const useWalletConnect = () => {
     setIsLoading(true);
     try {
       if (modalContentType === 'session_request') {
-        const {topic, event} = modalContentProps;
+        const { topic, event } = modalContentProps;
         const {
           id: eventId,
           params: {
-            request: {method, params: cmdValue},
+            request: { method, params: cmdValue },
           },
         } = event;
 
@@ -369,17 +475,70 @@ export const useWalletConnect = () => {
                   item.publicKey === cmdValue?.sender ||
                   item.publicKey === cmdValue?.signingPubKey,
               );
-              const signResultData = await getSignRequest({
-                network: getNetwork(
-                  selectedNetwork?.network || EDefaultNetwork.devnet,
-                ),
-                instance: cmdValue.networkId,
-                version: cmdValue.networkVersion || '0.0',
-                sourceChainId: cmdValue.chainId || '2',
-                cmdValue: JSON.stringify(cmdValue),
-                publicKey: foundAccount?.publicKey || '',
-                signature: foundAccount?.privateKey || '',
-              });
+
+              if (!foundAccount) {
+                throw new Error('Account not found for signing');
+              }
+
+              let signResultData;
+
+              if (foundAccount.type === AccountType.LEDGER) {
+                const ledgerApi = getLedgerApi();
+                if (!ledgerApi) {
+                  throw new Error('Ledger not connected');
+                }
+
+                const signingCmd = cmdValue;
+                const meta = Pact.lang.mkMeta(
+                  signingCmd.sender,
+                  signingCmd.chainId.toString(),
+                  signingCmd.gasPrice,
+                  signingCmd.gasLimit,
+                  Math.round(new Date().getTime() / 1000) - 50,
+                  signingCmd.ttl,
+                );
+                const clist = signingCmd.caps
+                  ? signingCmd.caps.map((c: any) => c.cap)
+                  : [];
+                const keyPairs: any = {
+                  publicKey: foundAccount.publicKey,
+                  clist: clist.length > 0 ? clist : undefined,
+                };
+
+                signResultData = Pact.api.prepareExecCmd(
+                  keyPairs,
+                  getNonceByPlatform(Platform.OS),
+                  signingCmd.pactCode || signingCmd.code,
+                  signingCmd.envData || signingCmd.data,
+                  meta,
+                  signingCmd.networkId,
+                );
+
+                const signHashResult = await ledgerApi.signHash(
+                  signResultData.hash,
+                );
+
+                if (!signHashResult?.signature) {
+                  throw new Error('Ledger signing failed');
+                }
+
+                signResultData.sigs = [
+                  { sig: bufferToHex(signHashResult.signature) },
+                ];
+              } else {
+                signResultData = await getSignRequest({
+                  network: getNetwork(
+                    selectedNetwork?.network || EDefaultNetwork.devnet,
+                  ),
+                  instance: cmdValue.networkId,
+                  version: cmdValue.networkVersion || '0.0',
+                  sourceChainId: cmdValue.chainId || '2',
+                  cmdValue: JSON.stringify(cmdValue),
+                  publicKey: foundAccount?.publicKey || '',
+                  signature: foundAccount?.privateKey || '',
+                });
+              }
+
               const response = formatJsonRpcResult(eventId, {
                 status: 'success',
                 signedCmd: signResultData,
@@ -396,21 +555,79 @@ export const useWalletConnect = () => {
                 NETWORK_IDS[
                   selectedNetwork?.network || EDefaultNetwork.mainnet
                 ];
+
               const foundAccount = (accountsList || []).find(
                 (item: any) =>
                   item.accountName === cmdValue?.sender ||
                   item.publicKey === cmdValue?.sender ||
                   item.publicKey === cmdValue?.signingPubKey,
               );
-              const signResultData = await getSignRequest({
-                cmdValue: JSON.stringify({
+
+              if (!foundAccount) {
+                throw new Error('Account not found for signing');
+              }
+
+              let signResultData;
+
+              if (foundAccount.type === AccountType.LEDGER) {
+                const ledgerApi = getLedgerApi();
+                if (!ledgerApi) {
+                  throw new Error('Ledger not connected');
+                }
+
+                const signingCmd = {
                   ...cmdValue,
                   networkId: cmdValue.networkId || networkId,
                   pactCode: cmdValue.code,
-                }),
-                publicKey: foundAccount?.publicKey || '',
-                signature: foundAccount?.privateKey || '',
-              });
+                };
+                const meta = Pact.lang.mkMeta(
+                  signingCmd.sender,
+                  signingCmd.chainId.toString(),
+                  signingCmd.gasPrice,
+                  signingCmd.gasLimit,
+                  Math.round(new Date().getTime() / 1000) - 50,
+                  signingCmd.ttl,
+                );
+                const clist = signingCmd.caps
+                  ? signingCmd.caps.map((c: any) => c.cap)
+                  : [];
+                const keyPairs: any = {
+                  publicKey: foundAccount.publicKey,
+                  clist: clist.length > 0 ? clist : undefined,
+                };
+
+                signResultData = Pact.api.prepareExecCmd(
+                  keyPairs,
+                  getNonceByPlatform(Platform.OS),
+                  signingCmd.pactCode,
+                  signingCmd.envData || signingCmd.data,
+                  meta,
+                  signingCmd.networkId,
+                );
+
+                const signHashResult = await ledgerApi.signHash(
+                  signResultData.hash,
+                );
+
+                if (!signHashResult?.signature) {
+                  throw new Error('Ledger signing failed');
+                }
+
+                signResultData.sigs = [
+                  { sig: bufferToHex(signHashResult.signature) },
+                ];
+              } else {
+                signResultData = await getSignRequest({
+                  cmdValue: JSON.stringify({
+                    ...cmdValue,
+                    networkId: cmdValue.networkId || networkId,
+                    pactCode: cmdValue.code,
+                  }),
+                  publicKey: foundAccount?.publicKey || '',
+                  signature: foundAccount?.privateKey || '',
+                });
+              }
+
               const response = formatJsonRpcResult(eventId, {
                 chainId: cmdValue.chainId || '2',
                 body: signResultData,
@@ -429,11 +646,35 @@ export const useWalletConnect = () => {
                   item.publicKey === cmdValue?.sender ||
                   item.publicKey === cmdValue?.signingPubKey,
               );
-              const quickSignData = quickSign(
-                cmdValue?.commandSigDatas,
-                foundAccount?.publicKey,
-                foundAccount?.privateKey,
-              );
+
+              if (!foundAccount) {
+                throw new Error('Account not found for signing');
+              }
+
+              let quickSignData;
+
+              if (foundAccount.type === AccountType.LEDGER) {
+                const ledgerApi = getLedgerApi();
+                if (!ledgerApi) {
+                  throw new Error('Ledger not connected');
+                }
+
+                quickSignData = await quickSignWithLedger(
+                  cmdValue,
+                  foundAccount.publicKey,
+                  ledgerApi,
+                  (current, total) => {
+                    setLedgerSignProgress({ current, total });
+                  },
+                );
+              } else {
+                quickSignData = quickSign(
+                  cmdValue?.commandSigDatas,
+                  foundAccount?.publicKey,
+                  foundAccount?.privateKey,
+                );
+              }
+
               const response = formatJsonRpcResult(eventId, {
                 status: 'success',
                 quickSignData,
@@ -453,11 +694,35 @@ export const useWalletConnect = () => {
                   ),
                 ),
               );
-              const quickSignData = quickSign(
-                cmdValue,
-                foundAccount?.publicKey,
-                foundAccount?.privateKey,
-              );
+
+              if (!foundAccount) {
+                throw new Error('Account not found for signing');
+              }
+
+              let quickSignData;
+
+              if (foundAccount.type === AccountType.LEDGER) {
+                const ledgerApi = getLedgerApi();
+                if (!ledgerApi) {
+                  throw new Error('Ledger not connected');
+                }
+
+                quickSignData = await quickSignWithLedger(
+                  cmdValue,
+                  foundAccount.publicKey,
+                  ledgerApi,
+                  (current, total) => {
+                    setLedgerSignProgress({ current, total });
+                  },
+                );
+              } else {
+                quickSignData = quickSign(
+                  cmdValue,
+                  foundAccount?.publicKey,
+                  foundAccount?.privateKey,
+                );
+              }
+
               const response = formatJsonRpcResult(eventId, {
                 responses: quickSignData,
               });
@@ -473,8 +738,8 @@ export const useWalletConnect = () => {
 
         closeModal();
       } else if (modalContentType === 'session_proposal') {
-        const {proposal, selectedAccounts} = modalContentProps;
-        const {id} = proposal;
+        const { proposal, selectedAccounts } = modalContentProps;
+        const { id } = proposal;
         const accounts: string[] = [];
 
         KDA_CHAINS.forEach((chain: string) => {
@@ -499,9 +764,36 @@ export const useWalletConnect = () => {
 
         closeModal();
       }
-    } catch (e) {
+    } catch (e: any) {
       setIsLoading(false);
-      setHelpIsVisible(true);
+      setLedgerSignProgress(null);
+
+      const isLedgerError =
+        e?.message?.includes('Ledger') ||
+        e?.message?.includes('User rejected') ||
+        e?.name === 'TransportStatusError';
+
+      if (isLedgerError) {
+        closeModal();
+
+        if (modalContentType === 'session_request') {
+          const { topic, event } = modalContentProps;
+          try {
+            const response = formatJsonRpcError(event.id, {
+              code: 5000,
+              message: e?.message || 'User rejected the request',
+            });
+            await web3WalletClient?.respondSessionRequest({
+              topic,
+              response,
+            });
+          } catch (respondError) {
+            console.error('Failed to send rejection response:', respondError);
+          }
+        }
+      } else {
+        setHelpIsVisible(true);
+      }
     }
   }, [
     selectedNetwork,
@@ -537,7 +829,8 @@ export const useWalletConnect = () => {
             showsHorizontalScrollIndicator={false}
             horizontal={true}
             style={styles.jsonScroll}
-            contentContainerStyle={styles.jsonContent}>
+            contentContainerStyle={styles.jsonContent}
+          >
             <JSONTree
               data={modalContentProps?.event?.params || {}}
               theme={JSONTreeTheme as any}
@@ -552,7 +845,8 @@ export const useWalletConnect = () => {
           <TouchableOpacity
             disabled={isLoading}
             onPress={onReject}
-            style={styles.redButton}>
+            style={styles.redButton}
+          >
             <Text style={styles.buttonText}>{'Reject'}</Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -562,12 +856,18 @@ export const useWalletConnect = () => {
                 (modalContentProps?.selectedAccounts || []).length === 0)
             }
             onPress={onApprove}
-            style={styles.greenButton}>
+            style={styles.greenButton}
+          >
             <Text style={styles.buttonText}>{'Approve'}</Text>
           </TouchableOpacity>
           {isLoading ? (
             <View style={styles.loading}>
               <ActivityIndicator size="small" color={MAIN_COLOR} />
+              {ledgerSignProgress && (
+                <Text style={styles.ledgerProgressText}>
+                  {`Signing ${ledgerSignProgress.current}/${ledgerSignProgress.total}`}
+                </Text>
+              )}
             </View>
           ) : null}
         </View>
@@ -576,7 +876,8 @@ export const useWalletConnect = () => {
         isVisible={isHelpVisible}
         close={closeHelpModal}
         contentStyle={styles.helpModalStyle}
-        title="WalletConnect Help">
+        title="WalletConnect Help"
+      >
         <WalletConnectHelpModal onConfirm={closeHelpModal} />
       </Modal>
     </Modal>
@@ -648,5 +949,13 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     marginTop: 16,
+  },
+  ledgerProgressText: {
+    marginTop: 8,
+    textAlign: 'center',
+    color: MAIN_COLOR,
+    fontFamily: MEDIUM_MONTSERRAT,
+    fontWeight: '600',
+    fontSize: 13,
   },
 });

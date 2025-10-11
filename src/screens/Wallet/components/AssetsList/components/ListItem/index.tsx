@@ -1,25 +1,25 @@
-import React, {FC, useCallback, useMemo, useState} from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
-import {getAssetImageView} from '../../../../../../utils/getAssetImageView';
-import {makeStyles} from './styles';
-import {TListItemProps} from './types';
+import React, { FC, useCallback, useMemo, useState } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
+import { getAssetImageView } from '../../../../../../utils/getAssetImageView';
+import { makeStyles } from './styles';
+import { TListItemProps } from './types';
 import TokenModal from '../../../../../../modals/TokenModal';
-import {useDispatch} from 'react-redux';
-import {setSelectedToken} from '../../../../../../store/userWallet';
-import {makeSelectUsdEquivalents} from '../../../../../../store/userWallet/selectors';
-import {useShallowEqualSelector} from '../../../../../../store/utils';
+import { useDispatch } from 'react-redux';
+import { setSelectedToken } from '../../../../../../store/userWallet';
+import { makeSelectUsdEquivalents } from '../../../../../../store/userWallet/selectors';
+import { useShallowEqualSelector } from '../../../../../../store/utils';
 import {
   decimalIfNeeded,
   numberWithCommas,
 } from '../../../../../../utils/stringHelpers';
-import {useAppThemeContext} from '../../../../../../contexts';
+import { useAppThemeContext } from '../../../../../../contexts';
 
 const ListItem: FC<TListItemProps> = React.memo(
-  ({walletItem, isFirst, rightLabel, onPress}) => {
+  ({ walletItem, isFirst, rightLabel, onPress }) => {
     const dispatch = useDispatch();
     const [modalVisible, setModalVisible] = useState(false);
 
-    const {theme} = useAppThemeContext();
+    const { theme } = useAppThemeContext();
     const styles = useMemo(() => makeStyles(theme), [theme]);
 
     const toggleModal = useCallback(() => {
@@ -69,7 +69,8 @@ const ListItem: FC<TListItemProps> = React.memo(
         <TouchableOpacity
           activeOpacity={0.8}
           onPress={onPress ? onPress : toggleModal}
-          style={[styles.wrapper, isFirst && {borderTopWidth: 0}]}>
+          style={[styles.wrapper, isFirst && { borderTopWidth: 0 }]}
+        >
           <View style={styles.leftSide}>
             {assetImageView}
             <Text style={styles.title}>{`${

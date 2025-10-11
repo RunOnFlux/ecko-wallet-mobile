@@ -24,6 +24,17 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
+  wrapperBlue: {
+    flexDirection: 'row',
+    paddingLeft: 12,
+    paddingTop: 16,
+    paddingBottom: 16,
+    paddingRight: 12,
+    backgroundColor: '#d6f0ff',
+    borderRadius: 10,
+    alignItems: 'center',
+    width: '100%',
+  },
   wrapperCenter: {
     justifyContent: 'center',
   },
@@ -52,6 +63,12 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 12,
     color: '#212121',
+  },
+  titleBlue: {
+    fontFamily: MEDIUM_MONTSERRAT,
+    fontWeight: '600',
+    fontSize: 12,
+    color: '#0066a1',
   },
   centerText: {
     textAlign: 'center',

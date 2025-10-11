@@ -1,4 +1,5 @@
 import {ItemType} from 'react-native-dropdown-picker';
+import {ReactNode} from 'react';
 import {StyleProp, ViewStyle} from 'react-native';
 import {Dispatch, SetStateAction} from 'react';
 
@@ -9,4 +10,5 @@ export type TChainIdProps = {
   items: ItemType<string>[];
   wrapperStyle?: StyleProp<ViewStyle>;
   errorMessage?: string;
+  leftContent?: ReactNode;
 };

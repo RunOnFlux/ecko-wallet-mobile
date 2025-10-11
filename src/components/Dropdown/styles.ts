@@ -10,7 +10,7 @@ export const makeStyles = (theme: IAppTheme) =>
       borderRadius: 15,
     },
     containerStyle: {
-      width: 140,
+      width: '100%',
     },
     labelStyle: {
       fontFamily: MEDIUM_MONTSERRAT,
