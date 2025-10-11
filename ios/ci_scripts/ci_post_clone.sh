@@ -1,30 +1,32 @@
 #!/bin/sh
+set -e
+
 echo ">>> CI POST CLONE SCRIPT STARTED <<<"
 export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
 export NODE_OPTIONS=--max_old_space_size=8192
 
-brew install cocoapods
-brew install rbenv ruby-build
-brew install node@22
-brew link node@22
-brew install yarn
-
-echo ">>> SETUP ENVIRONMENT"
-echo 'export GEM_HOME=$HOME/gems' >>~/.bash_profile
-echo 'export PATH=$HOME/gems/bin:$PATH' >>~/.bash_profile
-export GEM_HOME=$HOME/gems
-export PATH="$GEM_HOME/bin:$PATH"
-
-echo ">>> INSTALL BUNDLER"
+echo ">>> Checking Ruby version"
 ruby -v
-rbenv init
-rbenv install 3.4.1
-rbenv global 3.4.1
-eval "$(rbenv init -)"
-ruby -v
-gem install bundler --install-dir $GEM_HOME
 
-yarn
-bundle update --bundler
-yarn bundleinstall
-yarn podinstall
+echo ">>> Installing Node and Yarn"
+brew install node@20 || true
+brew link --overwrite node@20 || true
+brew install yarn || true
+
+echo ">>> Node version"
+node -v
+yarn -v
+
+echo ">>> Installing npm dependencies"
+cd ..
+yarn install --frozen-lockfile
+
+echo ">>> Installing Ruby gems (Bundler)"
+gem install bundler
+bundle install
+
+echo ">>> Installing CocoaPods"
+cd ios
+bundle exec pod install
+
+echo ">>> CI POST CLONE SCRIPT COMPLETED <<<"
