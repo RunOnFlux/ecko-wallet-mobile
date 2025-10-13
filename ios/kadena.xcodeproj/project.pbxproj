@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		242A71924C91853F1C95022D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
-		761780ED2CA45674006654EE /* (null) in Sources */ = {isa = PBXBuildFile; };
+		761780ED2CA45674006654EE /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		7794F915B064423692968B5A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2962AF05A11641F6B5D8114A /* Colors.xcassets */; };
 		7CAEBCC509118BED66604256 /* libPods-kadena.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91693A3AFD8825C399EB36D6 /* libPods-kadena.a */; };
 		BC59A1532E34C4CF0007D1BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59A1522E34C4CF0007D1BC /* AppDelegate.swift */; };
@@ -256,13 +256,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-kadena/Pods-kadena-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-kadena/Pods-kadena-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -277,7 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC59A1532E34C4CF0007D1BC /* AppDelegate.swift in Sources */,
-				761780ED2CA45674006654EE /* (null) in Sources */,
+				761780ED2CA45674006654EE /* BuildFile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +290,7 @@
 				CODE_SIGN_ENTITLEMENTS = kadena/kadena.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 187;
+				CURRENT_PROJECT_VERSION = 191;
 				ENABLE_BITCODE = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = kadena/Info.plist;
@@ -305,7 +301,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.17.0;
+				MARKETING_VERSION = 1.17.4;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -331,7 +327,7 @@
 				CODE_SIGN_ENTITLEMENTS = kadena/kadena.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 187;
+				CURRENT_PROJECT_VERSION = 191;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = kadena/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = eckoWallet;
@@ -341,7 +337,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.17.0;
+				MARKETING_VERSION = 1.17.4;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -427,7 +423,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -498,7 +497,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

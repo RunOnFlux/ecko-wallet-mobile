@@ -115,21 +115,41 @@ export const LedgerProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       await ensureBlePermissions();
 
-      let previousAvailable = false;
-      new Observable(TransportBLE.observeState).subscribe((e: any) => {
-        if (e.available !== previousAvailable) {
-          previousAvailable = e.available;
-          if (!e.available) {
-            setError('Bluetooth is not available');
+      const bluetoothState = await new Promise<boolean>(resolve => {
+        const stateSubscription = new Observable(
+          TransportBLE.observeState,
+        ).subscribe((e: any) => {
+          console.log('Bluetooth state:', e);
+          if (e.available) {
+            stateSubscription.unsubscribe();
+            resolve(true);
+          } else if (e.type === 'Unauthorized' || e.type === 'PoweredOff') {
+            stateSubscription.unsubscribe();
+            resolve(false);
           }
-        }
+        });
+
+        setTimeout(() => {
+          stateSubscription.unsubscribe();
+          resolve(true);
+        }, 3000);
       });
+
+      if (!bluetoothState) {
+        setError('Bluetooth is not available or unauthorized');
+        return;
+      }
+
+      if (Platform.OS === 'ios') {
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
 
       setIsScanning(true);
       setAvailableDevices([]);
 
       const subscription = new Observable(TransportBLE.listen).subscribe({
         next: (e: any) => {
+          console.log('BLE event:', e);
           if (e.type === 'add') {
             setAvailableDevices(prevDevices => {
               const exists = prevDevices.some(d => d.id === e.descriptor.id);
@@ -139,6 +159,7 @@ export const LedgerProvider = ({ children }: { children: React.ReactNode }) => {
           }
         },
         error: (error: any) => {
+          console.log('Scan error:', error);
           setError(`Scan error: ${error.message || error}`);
           setIsScanning(false);
         },
@@ -146,6 +167,7 @@ export const LedgerProvider = ({ children }: { children: React.ReactNode }) => {
 
       setScanSubscription(subscription);
     } catch (err: any) {
+      console.log('Unable to scan:', err);
       setError(`Unable to scan: ${err.message || err}`);
       setIsScanning(false);
     }
