@@ -76,8 +76,8 @@ yarn ios
 
 ## 📄 Documentation & Resources
 
-- [EckoWALLET Documentation](https://docs.ecko.finance/eckodao/eckowallet/introduction)
-- [Ecko Discord](https://discord.com/invite/QSJpHRFDcv) - Join the community
+- [EckoWALLET Documentation](https://docs.eckowallet.com)
+- [Ecko Discord](https://discord.com/invite/runonflux) - Join the community
 
 ---
 

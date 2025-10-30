@@ -77,7 +77,7 @@ To start contributing to the codebase:
 
 Do **not** submit any sensitive info or real seed phrases in issues or PRs.
 
-All security-sensitive bugs can be reported privately by contacting the team on [Discord](https://discord.com/invite/QSJpHRFDcv).
+All security-sensitive bugs can be reported privately by contacting the team on [Discord](https://discord.com/invite/runonflux).
 
 ---
 
@@ -113,7 +113,7 @@ For now, open a PR with updates to the `i18n` files inside the project if you'd 
 
 ## 💬 Community
 
-- Questions or discussions? Join us on [Discord](https://discord.com/invite/QSJpHRFDcv)
+- Questions or discussions? Join us on [Discord](https://discord.com/invite/runonflux)
 - Bugs? Open an [issue on GitHub](https://github.com/RunOnFlux/ecko-wallet-mobile/issues)
 
 ---
