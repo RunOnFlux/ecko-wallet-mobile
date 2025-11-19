@@ -24,6 +24,7 @@ import './src/locales/i18n';
 import { IAppTheme } from './src/themes/types';
 import { useAppThemeContext } from './src/contexts';
 import { LedgerProvider } from './src/contexts/Ledger';
+import { SpireKeyProvider } from './src/contexts/SpireKey';
 
 const makeStyles = (theme: IAppTheme) =>
   StyleSheet.create({
@@ -116,11 +117,13 @@ const AppContainer = () => {
         <AppThemeProvider>
           <PactProvider>
             <LedgerProvider>
-              <WalletConnectProvider>
-                <PersistGate loading={null} persistor={persistor}>
-                  <App />
-                </PersistGate>
-              </WalletConnectProvider>
+              <SpireKeyProvider>
+                <WalletConnectProvider>
+                  <PersistGate loading={null} persistor={persistor}>
+                    <App />
+                  </PersistGate>
+                </WalletConnectProvider>
+              </SpireKeyProvider>
             </LedgerProvider>
           </PactProvider>
         </AppThemeProvider>

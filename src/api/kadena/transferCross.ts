@@ -11,6 +11,7 @@ import { convertDecimal } from '../../utils/numberHelpers';
 import { getPactHost } from '../utils';
 import { AccountType } from '../../store/userWallet/types';
 import { getLedgerApi } from '../../contexts/Ledger/service';
+import { getSpireKeyApi } from '../../contexts/SpireKey/service';
 
 interface TransferCrossQueryParams extends DefaultQueryParams {
   instance: string;
@@ -74,7 +75,7 @@ export const getTransferCross: (
     sourceChainId === undefined ||
     targetChainId === undefined ||
     !amount ||
-    !publicKey
+    (!publicKey && accountType !== AccountType.SPIREKEY)
   ) {
     throw new Error('Wrong Parameters: request getCrossChain');
   }
@@ -114,6 +115,175 @@ export const getTransferCross: (
     }
 
     return result.pact_command;
+  }
+
+  if (accountType === AccountType.SPIREKEY) {
+    const meta = Pact.lang.mkMeta(
+      sender,
+      sourceChainId,
+      Number(gasPrice) || 0.00001,
+      Math.max(Number(gasLimit) || 2500, 2500),
+      Math.round(new Date().getTime() / 1000) - 50,
+      28800,
+    );
+    let hasXChainCapability = false;
+    try {
+      const interfaces = await Pact.fetch.local(
+        {
+          keyPairs: [],
+          pactCode: `(at 'interfaces (describe-module "${token || 'coin'}"))`,
+          meta: Pact.lang.mkMeta(
+            'not-real',
+            sourceChainId,
+            0.00001,
+            2500,
+            Math.round(new Date().getTime() / 1000) - 50,
+            600,
+          ),
+        },
+        getPactHost(network, version, instance, sourceChainId, customHost),
+      );
+      if (interfaces?.result?.data && Array.isArray(interfaces?.result?.data)) {
+        if (
+          interfaces?.result?.data?.some(
+            (moduleInterface: string) =>
+              moduleInterface === 'fungible-xchain-v1',
+          )
+        ) {
+          hasXChainCapability = true;
+        }
+      }
+    } catch {}
+    if ((token || 'coin') !== 'coin' && !hasXChainCapability) {
+      throw new Error('token-no-xchain');
+    }
+    const moduleName = token || 'coin';
+    let signingPubKey = publicKey;
+
+    const webAuthnKey = getSpireKeyApi().getWebAuthnPublicKey?.();
+    if (webAuthnKey) {
+      signingPubKey = webAuthnKey;
+    } else {
+      try {
+        if (!signingPubKey) {
+          const senderInfo = await getAccount({
+            network,
+            instance,
+            version,
+            chainId: sourceChainId,
+            accountName: sender,
+            customHost,
+          });
+          signingPubKey = senderInfo?.publicKey || signingPubKey;
+        }
+      } catch {}
+    }
+    const keyPair: any = [
+      {
+        publicKey: signingPubKey,
+        clist: [],
+      },
+    ];
+    if (hasXChainCapability) {
+      keyPair[0].clist.push({ name: 'coin.GAS', args: [] });
+      keyPair[0].clist.push({
+        name: `${moduleName}.TRANSFER_XCHAIN`,
+        args: [sender, receiver, Number(amount), targetChainId],
+      });
+    }
+    let pactCode = '';
+    let envData: any = undefined;
+    if (isRAccount(receiver)) {
+      const { keysetRefGuard } = await fetchGuardForRAccount(
+        receiver,
+        moduleName?.toString(),
+        network,
+        version,
+        instance,
+        sourceChainId,
+        customHost,
+      );
+      pactCode = `(${moduleName}.transfer-crosschain ${JSON.stringify(
+        sender,
+      )} ${JSON.stringify(receiver)} (keyset-ref-guard ${JSON.stringify(
+        `${keysetRefGuard!.ns}.${keysetRefGuard!.ksn}`,
+      )}) ${JSON.stringify(targetChainId)} ${convertDecimal(amount)})`;
+    } else {
+      pactCode = `(${moduleName}.transfer-crosschain ${JSON.stringify(
+        sender,
+      )} ${JSON.stringify(receiver)} (read-keyset "ks") ${JSON.stringify(
+        targetChainId,
+      )} ${convertDecimal(amount)})`;
+      try {
+        const receiverInfoResponse = await getAccount({
+          network,
+          instance,
+          version,
+          chainId: targetChainId,
+          accountName: receiver,
+          customHost,
+        });
+        if (receiverInfoResponse) {
+          envData = {
+            ks: {
+              pred: predicate || 'keys-all',
+              keys: [receiverInfoResponse.publicKey],
+            },
+          };
+        } else if (receiver.startsWith('k:') && receiver.length === 66) {
+          envData = {
+            ks: {
+              pred: predicate || 'keys-all',
+              keys: [receiver.slice(2)],
+            },
+          };
+        }
+      } catch {}
+    }
+    let createdCommand = Pact.simple.exec.createCommand(
+      keyPair as any[],
+      getNonceByPlatform(Platform.OS),
+      pactCode,
+      envData,
+      meta,
+      instance,
+    );
+    try {
+      if ((createdCommand as any).cmd) {
+        const cmdObject = JSON.parse((createdCommand as any).cmd);
+        cmdObject.signers = (cmdObject.signers || []).map((s: any) => {
+          const updatedSigner = {
+            ...s,
+            scheme: 'WebAuthn',
+          };
+          if (!updatedSigner.pubKey && signingPubKey) {
+            updatedSigner.pubKey = signingPubKey;
+          }
+          return updatedSigner;
+        });
+        (createdCommand as any).cmd = JSON.stringify(cmdObject);
+      } else if (
+        Array.isArray((createdCommand as any).cmds) &&
+        (createdCommand as any).cmds[0]?.cmd
+      ) {
+        const inner = (createdCommand as any).cmds[0];
+        const cmdObject = JSON.parse(inner.cmd);
+        cmdObject.signers = (cmdObject.signers || []).map((s: any) => {
+          const updatedSigner = {
+            ...s,
+            scheme: 'WebAuthn',
+          };
+          if (!updatedSigner.pubKey && signingPubKey) {
+            updatedSigner.pubKey = signingPubKey;
+          }
+          return updatedSigner;
+        });
+        inner.cmd = JSON.stringify(cmdObject);
+      }
+    } catch {}
+    const spire = getSpireKeyApi();
+    const signed = await spire.sign(createdCommand);
+    return signed;
   }
 
   if (!signature) {

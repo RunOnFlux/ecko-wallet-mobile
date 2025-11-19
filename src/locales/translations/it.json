@@ -14,15 +14,6 @@
   },
   "importHardwareWallet": {
     "title": "Importa Wallet Hardware",
-    "instructions": {
-      "ledger": {
-        "line1": "Installa o aggiorna l'app Kadena da Ledger Live.",
-        "line2": "Aggiorna il firmware del Ledger e l'app Kadena.",
-        "line3": "Sblocca il Ledger, apri l'app Kadena e tienila aperta.",
-        "line4": "Abilita Blind Signing nell'app Kadena quando richiesto.",
-        "line5": "Per una connessione affidabile: attiva il Bluetooth, chiudi Ledger Live Mobile, tieni il dispositivo vicino al telefono e accetta le richieste di associazione."
-      }
-    },
     "scanning": "Ricerca dispositivi Ledger...",
     "selectDevice": "Seleziona il tuo dispositivo Ledger:",
     "clickDevice": "Clicca sul tuo dispositivo per continuare",
@@ -30,11 +21,24 @@
     "noDevices": "Nessun dispositivo trovato. Assicurati che il tuo Ledger sia acceso e il Bluetooth attivato.",
     "deviceLabel": "DISPOSITIVO",
     "ledgerLabel": "Ledger",
+    "spireKeyLabel": "SpireKey",
     "scanningButton": "Ricerca in corso...",
     "stopScanButton": "Interrompi ricerca",
     "importAccountHeader": "IMPORTA ACCOUNT DA LEDGER",
     "importAccountSubtitle": "Account Ledger da importare",
-    "unlockMessage": "Assicurati di sbloccare il tuo dispositivo Ledger e aprire l'app Kadena."
+    "unlockMessage": "Assicurati di sbloccare il tuo dispositivo Ledger e aprire l'app Kadena.",
+    "instructions": {
+      "ledger": {
+        "line1": "Installa o aggiorna l'app Kadena da Ledger Live.",
+        "line2": "Aggiorna il firmware del Ledger e l'app Kadena.",
+        "line3": "Sblocca il Ledger, apri l'app Kadena e tienila aperta.",
+        "line4": "Abilita Blind Signing nell'app Kadena quando richiesto.",
+        "line5": "Per una connessione affidabile: attiva il Bluetooth, chiudi Ledger Live Mobile, tieni il dispositivo vicino al telefono e accetta le richieste di associazione."
+      },
+      "spirekey": {
+        "line1": "Segui le istruzioni di SpireKey sul dispositivo/app."
+      }
+    }
   },
   "welcome": {
     "title": "Benvenuto in\neckoWALLET",

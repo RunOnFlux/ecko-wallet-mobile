@@ -15,6 +15,7 @@
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
     "@kadena/hd-wallet": "^0.6.1",
+    "@kadena/spirekey-sdk": "^1.0.1",
     "@ledgerhq/logs": "^6.10.1",
     "@ledgerhq/react-native-hw-transport-ble": "^6.27.19",
     "@react-native-async-storage/async-storage": "^2.2.0",

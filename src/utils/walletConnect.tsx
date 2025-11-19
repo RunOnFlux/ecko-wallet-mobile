@@ -35,7 +35,7 @@ import { setSendResult } from '../store/history';
 import WalletConnectHelpModal from '../components/WalletConnectHelpModal';
 import { quickSign } from '../api/kadena/quickSign';
 import { defaultChainIds } from '../api/constants';
-import { useWalletConnectContext } from '../contexts';
+import { useSpireKeyContext, useWalletConnectContext } from '../contexts';
 import { makeSelectActiveNetwork } from '../store/networks/selectors';
 import { WalletKitTypes } from '@reown/walletkit';
 import { getLedgerApi } from '../contexts/Ledger/service';
@@ -202,6 +202,7 @@ const quickSignWithLedger = async (
 export const useWalletConnect = () => {
   const { web3WalletClient, isInitialized, setIsConnected } =
     useWalletConnectContext();
+  const { signTransactions } = useSpireKeyContext();
 
   const dispatch = useDispatch();
 
@@ -525,6 +526,49 @@ export const useWalletConnect = () => {
                 signResultData.sigs = [
                   { sig: bufferToHex(signHashResult.signature) },
                 ];
+              } else if (foundAccount.type === AccountType.SPIREKEY) {
+                const signingCmd = cmdValue;
+                const meta = Pact.lang.mkMeta(
+                  signingCmd.sender,
+                  signingCmd.chainId.toString(),
+                  signingCmd.gasPrice,
+                  signingCmd.gasLimit,
+                  Math.round(new Date().getTime() / 1000) - 50,
+                  signingCmd.ttl,
+                );
+                const clist = signingCmd.caps
+                  ? signingCmd.caps.map((c: any) => c.cap)
+                  : [];
+                const keyPairs: any = {
+                  publicKey: foundAccount.publicKey,
+                  clist: clist.length > 0 ? clist : undefined,
+                };
+                signResultData = Pact.api.prepareExecCmd(
+                  keyPairs,
+                  getNonceByPlatform(Platform.OS),
+                  signingCmd.pactCode || signingCmd.code,
+                  signingCmd.envData || signingCmd.data,
+                  meta,
+                  signingCmd.networkId,
+                );
+                try {
+                  const cmdObject = JSON.parse(signResultData.cmd);
+                  cmdObject.signers = (cmdObject.signers || []).map(
+                    (s: any) => {
+                      const updatedSigner = {
+                        ...s,
+                        scheme: 'WebAuthn',
+                      };
+                      if (!updatedSigner.pubKey && foundAccount.publicKey) {
+                        updatedSigner.pubKey = foundAccount.publicKey;
+                      }
+                      return updatedSigner;
+                    },
+                  );
+                  signResultData.cmd = JSON.stringify(cmdObject);
+                } catch {}
+                const signed = await signTransactions(signResultData);
+                signResultData = signed;
               } else {
                 signResultData = await getSignRequest({
                   network: getNetwork(
@@ -616,6 +660,47 @@ export const useWalletConnect = () => {
                 signResultData.sigs = [
                   { sig: bufferToHex(signHashResult.signature) },
                 ];
+              } else if (foundAccount.type === AccountType.SPIREKEY) {
+                const signingCmd = {
+                  ...cmdValue,
+                  networkId: cmdValue.networkId || networkId,
+                  pactCode: cmdValue.code,
+                };
+                const meta = Pact.lang.mkMeta(
+                  signingCmd.sender,
+                  signingCmd.chainId.toString(),
+                  signingCmd.gasPrice,
+                  signingCmd.gasLimit,
+                  Math.round(new Date().getTime() / 1000) - 50,
+                  signingCmd.ttl,
+                );
+                const clist = signingCmd.caps
+                  ? signingCmd.caps.map((c: any) => c.cap)
+                  : [];
+                const keyPairs: any = {
+                  publicKey: foundAccount.publicKey,
+                  clist: clist.length > 0 ? clist : undefined,
+                };
+                signResultData = Pact.api.prepareExecCmd(
+                  keyPairs,
+                  getNonceByPlatform(Platform.OS),
+                  signingCmd.pactCode,
+                  signingCmd.envData || signingCmd.data,
+                  meta,
+                  signingCmd.networkId,
+                );
+                try {
+                  const cmdObject = JSON.parse(signResultData.cmd);
+                  cmdObject.signers = (cmdObject.signers || []).map(
+                    (s: any) => ({
+                      ...s,
+                      scheme: 'WebAuthn',
+                    }),
+                  );
+                  signResultData.cmd = JSON.stringify(cmdObject);
+                } catch {}
+                const signed = await signTransactions(signResultData);
+                signResultData = signed;
               } else {
                 signResultData = await getSignRequest({
                   cmdValue: JSON.stringify({
@@ -667,6 +752,14 @@ export const useWalletConnect = () => {
                     setLedgerSignProgress({ current, total });
                   },
                 );
+              } else if (foundAccount.type === AccountType.SPIREKEY) {
+                const unsignedList = cmdValue?.commandSigDatas || [];
+                const signedList = await signTransactions(unsignedList);
+                quickSignData =
+                  (signedList || []).map((signed: any) => ({
+                    commandSigData: signed,
+                    outcome: { result: 'success', hash: signed?.hash },
+                  })) || [];
               } else {
                 quickSignData = quickSign(
                   cmdValue?.commandSigDatas,
@@ -715,6 +808,10 @@ export const useWalletConnect = () => {
                     setLedgerSignProgress({ current, total });
                   },
                 );
+              } else if (foundAccount.type === AccountType.SPIREKEY) {
+                const unsignedList = cmdValue || [];
+                const signedList = await signTransactions(unsignedList);
+                quickSignData = signedList || [];
               } else {
                 quickSignData = quickSign(
                   cmdValue,

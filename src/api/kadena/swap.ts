@@ -7,6 +7,7 @@ import { DefaultQueryParams } from '../types';
 import { AccountType } from '../../store/userWallet/types';
 import { getLedgerApi } from '../../contexts/Ledger/service';
 import { bufferToHex } from '../../contexts/Ledger';
+import { getSpireKeyApi } from '../../contexts/SpireKey/service';
 
 interface SendQueryParams extends DefaultQueryParams {
   instance: string;
@@ -217,7 +218,36 @@ export const getSwap: (params: SendQueryParams) => Promise<any> = async ({
         throw new Error('Ledger signing failed');
       }
 
-      signedCmd.sigs = [{ sig: bufferToHex(signHashResult.signature) }];
+      signedCmd.sigs = [{ sig: bufferToHex(signHashResult.signature as any) }];
+    } else if (accountType === AccountType.SPIREKEY) {
+      const keyPairs: any = {
+        publicKey,
+        clist: clist.length > 0 ? clist : undefined,
+      };
+      signedCmd = Pact.api.prepareExecCmd(
+        keyPairs,
+        getNonceByPlatform(Platform.OS),
+        cmd.pactCode,
+        cmd.envData,
+        meta,
+        cmd.networkId,
+      );
+      try {
+        const cmdObject = JSON.parse(signedCmd.cmd);
+        cmdObject.signers = (cmdObject.signers || []).map((s: any) => {
+          const updatedSigner = {
+            ...s,
+            scheme: 'WebAuthn',
+          };
+          if (!updatedSigner.pubKey && publicKey) {
+            updatedSigner.pubKey = publicKey;
+          }
+          return updatedSigner;
+        });
+        signedCmd.cmd = JSON.stringify(cmdObject);
+      } catch {}
+      const spire = getSpireKeyApi();
+      signedCmd = await spire.sign(signedCmd);
     } else {
       const privateKey =
         signature.length === 128 && isPrivateKey(signature)

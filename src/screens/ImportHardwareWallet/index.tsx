@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { ScrollView, View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import Header from '../../components/Header';
@@ -16,6 +16,10 @@ import { addNewAccount, setSelectedAccount } from '../../store/userWallet';
 import { AccountType } from '../../store/userWallet/types';
 import { defaultWallets } from '../../store/userWallet/const';
 import { useSafeAreaValues } from '../../utils/deviceHelpers';
+import { TouchableOpacity } from 'react-native';
+import { useSpireKeyContext } from '../../contexts';
+import { useShallowEqualSelector } from '../../store/utils';
+import { makeSelectActiveNetwork } from '../../store/networks/selectors';
 
 const ImportHardwareWallet = () => {
   const { t } = useTranslation();
@@ -39,12 +43,21 @@ const ImportHardwareWallet = () => {
     resetError,
     disconnect,
   } = useLedgerContext();
+  const { connectAccount, isWaitingSpireKey } = useSpireKeyContext();
+  const selectedNetwork = useShallowEqualSelector(makeSelectActiveNetwork);
   const dispatch = useDispatch<AppDispatch>();
 
-  const [selected, setSelected] = useState<'ledger' | null>(null);
+  const [selected, setSelected] = useState<'ledger' | 'spirekey' | null>(null);
   const [ledgerPublicKey, setLedgerPublicKey] = useState<string>('');
   const [selectedAccountName, setSelectedAccountName] = useState<string>('');
   const [showDeviceList, setShowDeviceList] = useState(false);
+
+  useEffect(() => {
+    console.log(
+      '[ImportHardwareWallet] selectedAccountName changed to:',
+      selectedAccountName,
+    );
+  }, [selectedAccountName]);
 
   const handleStartScan = useCallback(async () => {
     if (selected === 'ledger') {
@@ -75,19 +88,55 @@ const ImportHardwareWallet = () => {
     [connectToDevice, getPublicKey, stopScan],
   );
 
+  const getNetworkId = useCallback(() => {
+    const net = selectedNetwork?.network;
+    if (net === 'mainnet') return 'mainnet01';
+    if (net === 'testnet') return 'testnet04';
+    if (net === 'devnet') return 'development';
+    return 'development';
+  }, [selectedNetwork]);
+
+  const handleSpireKeyConnect = useCallback(async () => {
+    try {
+      console.log(
+        '[ImportHardwareWallet] handleSpireKeyConnect - Starting connection',
+      );
+      console.log('[ImportHardwareWallet] Network ID:', getNetworkId());
+      const acc = await connectAccount(getNetworkId(), '0');
+      console.log('[ImportHardwareWallet] connectAccount returned:', acc);
+      console.log('[ImportHardwareWallet] Account name:', acc?.accountName);
+      if (acc?.accountName) {
+        console.log(
+          '[ImportHardwareWallet] Setting selectedAccountName to:',
+          acc.accountName,
+        );
+        setSelectedAccountName(acc.accountName);
+      } else {
+        console.log(
+          '[ImportHardwareWallet] WARNING: No accountName in returned account',
+        );
+      }
+    } catch (err) {
+      console.log('[ImportHardwareWallet] handleSpireKeyConnect ERROR:', err);
+    }
+  }, [connectAccount, getNetworkId]);
+
   const handleImport = useCallback(() => {
-    if (!ledgerPublicKey || !selectedAccountName) return;
+    if (!selectedAccountName) return;
+    const isLedger = !!ledgerPublicKey;
     const account: any = {
       accountName: selectedAccountName,
-      publicKey: ledgerPublicKey,
+      publicKey: isLedger ? ledgerPublicKey : '',
       chainId: '0',
       wallets: defaultWallets,
-      type: AccountType.LEDGER,
+      type: isLedger ? AccountType.LEDGER : AccountType.SPIREKEY,
     };
     dispatch(addNewAccount(account));
     dispatch(setSelectedAccount(account));
-    resetError();
-    disconnect();
+    if (isLedger) {
+      resetError();
+      disconnect();
+    }
     navigation.navigate({
       name: ERootStackRoutes.Home,
       params: undefined,
@@ -108,7 +157,7 @@ const ImportHardwareWallet = () => {
         contentContainerStyle={styles.content}
         style={styles.contentWrapper}
       >
-        {!ledgerPublicKey ? (
+        {!ledgerPublicKey && !selectedAccountName ? (
           <>
             <View style={styles.selectorWrapper}>
               <View
@@ -120,6 +169,19 @@ const ImportHardwareWallet = () => {
               >
                 <LedgerLongLogo />
               </View>
+              <TouchableOpacity
+                style={[
+                  styles.selectorItem,
+                  selected === 'spirekey' && styles.selectorItemSelected,
+                ]}
+                onPress={() => setSelected('spirekey')}
+              >
+                <Text style={styles.deviceName}>
+                  {t('importHardwareWallet.spireKeyLabel', {
+                    defaultValue: 'SpireKey',
+                  })}
+                </Text>
+              </TouchableOpacity>
             </View>
             {selected === 'ledger' && !showDeviceList && (
               <View style={styles.instructionsWrapper}>
@@ -144,6 +206,21 @@ const ImportHardwareWallet = () => {
                 {ledgerError && (
                   <Text style={styles.errorTitle}>{ledgerError}</Text>
                 )}
+              </View>
+            )}
+            {selected === 'spirekey' && (
+              <View style={styles.instructionsWrapper}>
+                <Text style={styles.instructionsTitleWrapper}>
+                  {t('importHardwareWallet.spireKeyLabel', {
+                    defaultValue: 'SpireKey',
+                  })}
+                </Text>
+                <Text style={styles.instructionsTitle}>
+                  {t('importHardwareWallet.instructions.spirekey.line1', {
+                    defaultValue:
+                      'Follow SpireKey instructions on the device/app',
+                  })}
+                </Text>
               </View>
             )}
             {showDeviceList && (
@@ -196,8 +273,14 @@ const ImportHardwareWallet = () => {
               <Checkbox
                 isChecked={true}
                 useBuiltInState={false}
-                onPress={() => setSelectedAccountName(`k:${ledgerPublicKey}`)}
-                text={`k:${ledgerPublicKey}`}
+                onPress={() => {
+                  if (ledgerPublicKey) {
+                    setSelectedAccountName(`k:${ledgerPublicKey}`);
+                  }
+                }}
+                text={
+                  ledgerPublicKey ? `k:${ledgerPublicKey}` : selectedAccountName
+                }
                 style={styles.accountItem}
                 textStyle={styles.accountText}
               />
@@ -206,7 +289,7 @@ const ImportHardwareWallet = () => {
         )}
       </ScrollView>
       <View style={styles.footer}>
-        {!ledgerPublicKey ? (
+        {!ledgerPublicKey && !selectedAccountName ? (
           showDeviceList ? (
             <FooterButton
               disabled={isScanning}
@@ -218,11 +301,22 @@ const ImportHardwareWallet = () => {
               onPress={stopScan}
             />
           ) : (
-            <FooterButton
-              disabled={!selected || isWaitingLedger}
-              title={t('common.connect')}
-              onPress={handleStartScan}
-            />
+            <>
+              {selected === 'ledger' ? (
+                <FooterButton
+                  disabled={!selected || isWaitingLedger}
+                  title={t('common.connect')}
+                  onPress={handleStartScan}
+                />
+              ) : null}
+              {selected === 'spirekey' ? (
+                <FooterButton
+                  disabled={!selected || isWaitingSpireKey}
+                  title={t('common.connect')}
+                  onPress={handleSpireKeyConnect}
+                />
+              ) : null}
+            </>
           )
         ) : (
           <FooterButton
