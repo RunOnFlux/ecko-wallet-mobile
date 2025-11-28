@@ -28,6 +28,7 @@ import {
 import JSONTree from 'react-native-json-tree';
 import { getNetwork } from './networkHelpers';
 import { getSignRequest } from '../store/transfer/services';
+import { createTransactionBuilder, ChainId } from '@kadena/client';
 import { makeSelectAccounts } from '../store/userWallet/selectors';
 import { EDefaultNetwork } from '../screens/Networks/types';
 import { useShallowEqualSelector } from '../store/utils';
@@ -41,6 +42,7 @@ import { WalletKitTypes } from '@reown/walletkit';
 import { getLedgerApi } from '../contexts/Ledger/service';
 import { bufferToHex } from '../contexts/Ledger';
 import { Pact } from '../api/pactLangApi';
+import { getSpireKeyApi } from '../contexts/SpireKey/service';
 
 const JSONTreeTheme = {
   tree: {
@@ -528,47 +530,81 @@ export const useWalletConnect = () => {
                 ];
               } else if (foundAccount.type === AccountType.SPIREKEY) {
                 const signingCmd = cmdValue;
-                const meta = Pact.lang.mkMeta(
-                  signingCmd.sender,
-                  signingCmd.chainId.toString(),
-                  signingCmd.gasPrice,
-                  signingCmd.gasLimit,
-                  Math.round(new Date().getTime() / 1000) - 50,
-                  signingCmd.ttl,
-                );
+                let tx = createTransactionBuilder()
+                  .execution(signingCmd.pactCode || signingCmd.code)
+                  .setMeta({
+                    senderAccount: signingCmd.sender,
+                    chainId: signingCmd.chainId.toString() as ChainId,
+                    gasLimit: signingCmd.gasLimit,
+                    gasPrice: signingCmd.gasPrice,
+                    ttl: signingCmd.ttl,
+                    creationTime: Math.round(new Date().getTime() / 1000) - 50,
+                  })
+                  .setNetworkId(signingCmd.networkId);
+
+                if (signingCmd.envData || signingCmd.data) {
+                  const data = signingCmd.envData || signingCmd.data;
+                  const processedData: any = {};
+                  Object.entries(data).forEach(([key, value]: [string, any]) => {
+                    if (
+                      key.includes('ks') ||
+                      key.includes('keyset') ||
+                      (typeof value === 'object' &&
+                        value !== null &&
+                        (value.keysetref || (!value.keys && !value.pred)))
+                    ) {
+                      if (value?.keysetref || (!value?.keys && !value?.pred)) {
+                        const spire = getSpireKeyApi();
+                        const webAuthnKey =
+                          spire.getWebAuthnPublicKey?.() ||
+                          foundAccount.publicKey;
+                        processedData[key] = {
+                          pred: 'keys-any',
+                          keys: [webAuthnKey],
+                        };
+                      } else {
+                        processedData[key] = value;
+                      }
+                    } else {
+                      processedData[key] = value;
+                    }
+                  });
+                  Object.entries(processedData).forEach(([key, value]) => {
+                    tx = tx.addData(key, value as any);
+                  });
+                }
+
                 const clist = signingCmd.caps
                   ? signingCmd.caps.map((c: any) => c.cap)
                   : [];
-                const keyPairs: any = {
-                  publicKey: foundAccount.publicKey,
-                  clist: clist.length > 0 ? clist : undefined,
-                };
-                signResultData = Pact.api.prepareExecCmd(
-                  keyPairs,
-                  getNonceByPlatform(Platform.OS),
-                  signingCmd.pactCode || signingCmd.code,
-                  signingCmd.envData || signingCmd.data,
-                  meta,
-                  signingCmd.networkId,
+
+                tx = tx.addSigner(
+                  {
+                    pubKey: foundAccount.publicKey,
+                    scheme: 'WebAuthn',
+                  },
+                  (withCap: any) => {
+                    if (clist.length > 0) {
+                      return clist.map((cap: any) => {
+                        if (cap.args && cap.args.length > 0) {
+                          return (withCap as any)(cap.name, ...cap.args);
+                        }
+                        return (withCap as any)(cap.name);
+                      });
+                    }
+                    return [];
+                  },
                 );
-                try {
-                  const cmdObject = JSON.parse(signResultData.cmd);
-                  cmdObject.signers = (cmdObject.signers || []).map(
-                    (s: any) => {
-                      const updatedSigner = {
-                        ...s,
-                        scheme: 'WebAuthn',
-                      };
-                      if (!updatedSigner.pubKey && foundAccount.publicKey) {
-                        updatedSigner.pubKey = foundAccount.publicKey;
-                      }
-                      return updatedSigner;
-                    },
-                  );
-                  signResultData.cmd = JSON.stringify(cmdObject);
-                } catch {}
-                const signed = await signTransactions(signResultData);
-                signResultData = signed;
+
+                const rawTransaction = tx.createTransaction();
+                const unsignedCmd = { cmds: [rawTransaction] };
+
+                const signed = await signTransactions(unsignedCmd);
+                if (signed && signed.length > 0) {
+                  signResultData = signed[0];
+                } else {
+                  signResultData = signed;
+                }
               } else {
                 signResultData = await getSignRequest({
                   network: getNetwork(
@@ -681,11 +717,37 @@ export const useWalletConnect = () => {
                   publicKey: foundAccount.publicKey,
                   clist: clist.length > 0 ? clist : undefined,
                 };
+                let processedEnvData = signingCmd.envData || signingCmd.data;
+                if (processedEnvData) {
+                  processedEnvData = { ...processedEnvData };
+                  Object.entries(processedEnvData).forEach(
+                    ([key, value]: [string, any]) => {
+                      if (
+                        (key.includes('ks') ||
+                          key.includes('keyset') ||
+                          (typeof value === 'object' &&
+                            value !== null &&
+                            (value.keysetref ||
+                              (!value.keys && !value.pred)))) &&
+                        (value?.keysetref || (!value?.keys && !value?.pred))
+                      ) {
+                        const spire = getSpireKeyApi();
+                        const webAuthnKey =
+                          spire.getWebAuthnPublicKey?.() ||
+                          foundAccount.publicKey;
+                        processedEnvData[key] = {
+                          pred: 'keys-any',
+                          keys: [webAuthnKey],
+                        };
+                      }
+                    },
+                  );
+                }
                 signResultData = Pact.api.prepareExecCmd(
                   keyPairs,
                   getNonceByPlatform(Platform.OS),
                   signingCmd.pactCode,
-                  signingCmd.envData || signingCmd.data,
+                  processedEnvData,
                   meta,
                   signingCmd.networkId,
                 );

@@ -12,6 +12,7 @@ import { getPactHost } from '../utils';
 import { AccountType } from '../../store/userWallet/types';
 import { getLedgerApi } from '../../contexts/Ledger/service';
 import { getSpireKeyApi } from '../../contexts/SpireKey/service';
+import { createTransactionBuilder, ChainId } from '@kadena/client';
 
 interface TransferCrossQueryParams extends DefaultQueryParams {
   instance: string;
@@ -214,75 +215,93 @@ export const getTransferCross: (
       )} ${JSON.stringify(receiver)} (read-keyset "ks") ${JSON.stringify(
         targetChainId,
       )} ${convertDecimal(amount)})`;
-      try {
-        const receiverInfoResponse = await getAccount({
-          network,
-          instance,
-          version,
-          chainId: targetChainId,
-          accountName: receiver,
-          customHost,
-        });
-        if (receiverInfoResponse) {
-          envData = {
-            ks: {
-              pred: predicate || 'keys-all',
-              keys: [receiverInfoResponse.publicKey],
-            },
-          };
-        } else if (receiver.startsWith('k:') && receiver.length === 66) {
-          envData = {
-            ks: {
-              pred: predicate || 'keys-all',
-              keys: [receiver.slice(2)],
-            },
-          };
-        }
-      } catch {}
-    }
-    let createdCommand = Pact.simple.exec.createCommand(
-      keyPair as any[],
-      getNonceByPlatform(Platform.OS),
-      pactCode,
-      envData,
-      meta,
-      instance,
-    );
-    try {
-      if ((createdCommand as any).cmd) {
-        const cmdObject = JSON.parse((createdCommand as any).cmd);
-        cmdObject.signers = (cmdObject.signers || []).map((s: any) => {
-          const updatedSigner = {
-            ...s,
-            scheme: 'WebAuthn',
-          };
-          if (!updatedSigner.pubKey && signingPubKey) {
-            updatedSigner.pubKey = signingPubKey;
+      
+      if (receiver.startsWith('k:') && receiver.length === 66) {
+        envData = {
+          ks: {
+            pred: predicate || 'keys-all',
+            keys: [receiver.slice(2)],
+          },
+        };
+      } else {
+        // For non-k: accounts, try to get receiver info
+        try {
+          const receiverInfoResponse = await getAccount({
+            network,
+            instance,
+            version,
+            chainId: targetChainId,
+            accountName: receiver,
+            customHost,
+          });
+          if (receiverInfoResponse && receiverInfoResponse.publicKey) {
+            envData = {
+              ks: {
+                pred: predicate || 'keys-all',
+                keys: [receiverInfoResponse.publicKey],
+              },
+              };
+            } else {
+              throw new Error(
+                'Receiving account does not exist. You must specify a keyset to create this account.',
+              );
+            }
+          } catch (e) {
+            throw new Error(
+              'Failed to retrieve receiver account information. Cannot proceed with crosschain transfer.',
+            );
           }
-          return updatedSigner;
-        });
-        (createdCommand as any).cmd = JSON.stringify(cmdObject);
-      } else if (
-        Array.isArray((createdCommand as any).cmds) &&
-        (createdCommand as any).cmds[0]?.cmd
-      ) {
-        const inner = (createdCommand as any).cmds[0];
-        const cmdObject = JSON.parse(inner.cmd);
-        cmdObject.signers = (cmdObject.signers || []).map((s: any) => {
-          const updatedSigner = {
-            ...s,
-            scheme: 'WebAuthn',
-          };
-          if (!updatedSigner.pubKey && signingPubKey) {
-            updatedSigner.pubKey = signingPubKey;
-          }
-          return updatedSigner;
-        });
-        inner.cmd = JSON.stringify(cmdObject);
       }
-    } catch {}
+    }
+    
+    let tx = createTransactionBuilder()
+      .execution(pactCode)
+      .setMeta({
+        senderAccount: sender,
+        chainId: sourceChainId as ChainId,
+        gasLimit: meta.gasLimit,
+        gasPrice: meta.gasPrice,
+        ttl: meta.ttl,
+        creationTime: meta.creationTime,
+      })
+      .setNetworkId(instance);
+
+    if (envData) {
+      Object.entries(envData).forEach(([key, value]) => {
+        tx = tx.addData(key, value as any);
+      });
+    }
+
+    const capabilities = hasXChainCapability
+      ? [
+          (withCap: any) => withCap('coin.GAS'),
+          (withCap: any) =>
+            withCap(`${moduleName}.TRANSFER_XCHAIN`, sender, receiver, Number(amount), targetChainId),
+        ]
+      : [
+          (withCap: any) => withCap('coin.GAS'),
+          (withCap: any) =>
+            withCap(`${moduleName}.TRANSFER_XCHAIN`, sender, receiver, Number(amount), targetChainId),
+        ];
+
+    tx = tx.addSigner(
+      {
+        pubKey: signingPubKey,
+        scheme: 'WebAuthn',
+      },
+      (withCap: any) => capabilities.map((cap) => cap(withCap)),
+    );
+
+    const rawTransaction = tx.createTransaction();
+    const createdCommand = { cmds: [rawTransaction] };
+
     const spire = getSpireKeyApi();
     const signed = await spire.sign(createdCommand);
+    
+    if (Array.isArray(signed) && signed.length > 0) {
+      return signed[0];
+    }
+    
     return signed;
   }
 

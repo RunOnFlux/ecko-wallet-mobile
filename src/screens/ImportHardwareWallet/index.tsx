@@ -49,6 +49,7 @@ const ImportHardwareWallet = () => {
 
   const [selected, setSelected] = useState<'ledger' | 'spirekey' | null>(null);
   const [ledgerPublicKey, setLedgerPublicKey] = useState<string>('');
+  const [spireKeyPublicKey, setSpireKeyPublicKey] = useState<string>('');
   const [selectedAccountName, setSelectedAccountName] = useState<string>('');
   const [showDeviceList, setShowDeviceList] = useState(false);
 
@@ -101,7 +102,6 @@ const ImportHardwareWallet = () => {
       console.log(
         '[ImportHardwareWallet] handleSpireKeyConnect - Starting connection',
       );
-      console.log('[ImportHardwareWallet] Network ID:', getNetworkId());
       const acc = await connectAccount(getNetworkId(), '0');
       console.log('[ImportHardwareWallet] connectAccount returned:', acc);
       console.log('[ImportHardwareWallet] Account name:', acc?.accountName);
@@ -111,6 +111,15 @@ const ImportHardwareWallet = () => {
           acc.accountName,
         );
         setSelectedAccountName(acc.accountName);
+
+        const publicKey = acc?.devices?.[0]?.guard?.keys?.[0];
+        if (publicKey) {
+          setSpireKeyPublicKey(publicKey);
+        } else {
+          console.log(
+            '[ImportHardwareWallet] WARNING: No publicKey found in SpireKey account',
+          );
+        }
       } else {
         console.log(
           '[ImportHardwareWallet] WARNING: No accountName in returned account',
@@ -126,7 +135,7 @@ const ImportHardwareWallet = () => {
     const isLedger = !!ledgerPublicKey;
     const account: any = {
       accountName: selectedAccountName,
-      publicKey: isLedger ? ledgerPublicKey : '',
+      publicKey: isLedger ? ledgerPublicKey : spireKeyPublicKey,
       chainId: '0',
       wallets: defaultWallets,
       type: isLedger ? AccountType.LEDGER : AccountType.SPIREKEY,
@@ -141,7 +150,7 @@ const ImportHardwareWallet = () => {
       name: ERootStackRoutes.Home,
       params: undefined,
     } as any);
-  }, [ledgerPublicKey, selectedAccountName, disconnect]);
+  }, [ledgerPublicKey, spireKeyPublicKey, selectedAccountName, disconnect]);
 
   return (
     <View style={styles.screen}>
