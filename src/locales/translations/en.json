@@ -5,6 +5,8 @@
     "delete": "Delete",
     "cancel": "Cancel",
     "continue": "Continue",
+    "connect": "Connect",
+    "import": "Import",
     "ok": "OK",
     "error": "Error",
     "selectLanguage": "Select Language",
@@ -15,6 +17,35 @@
       "light": "Light",
       "dark": "Dark",
       "dark_blue": "Dark Blue"
+    }
+  },
+  "importHardwareWallet": {
+    "title": "Import Hardware Wallet",
+    "titleModal": "Connection Instructions",
+    "scanning": "Scanning for Ledger devices...",
+    "selectDevice": "Select your Ledger device:",
+    "clickDevice": "Click on your device to continue",
+    "deviceName": "Ledger Device",
+    "noDevices": "No devices found. Make sure your Ledger is powered on and Bluetooth is enabled.",
+    "deviceLabel": "DEVICE",
+    "ledgerLabel": "Ledger",
+    "spireKeyLabel": "SpireKey",
+    "scanningButton": "Scanning...",
+    "stopScanButton": "Stop Scan",
+    "importAccountHeader": "IMPORT ACCOUNT FROM LEDGER",
+    "importAccountSubtitle": "Ledger account to import",
+    "unlockMessage": "Please be sure to unlock your Ledger device and open the Kadena app.",
+    "instructions": {
+      "ledger": {
+        "line1": "Install or update the Kadena app from Ledger Live.",
+        "line2": "Update the Ledger firmware and the Kadena app.",
+        "line3": "Unlock the Ledger, open the Kadena app and keep it open.",
+        "line4": "Enable Blind Signing in the Kadena app when prompted.",
+        "line5": "For a reliable connection: turn on Bluetooth, close Ledger Live Mobile, keep the device near the phone, and accept pairing/permission prompts."
+      },
+      "spirekey": {
+        "line1": "Follow SpireKey instructions on the device/app."
+      }
     }
   },
   "welcome": {
@@ -538,6 +569,7 @@
     },
     "swapBlock": {
       "pending": "Transaction pending...",
+      "pendingLedger": "Confirm transaction on your Ledger device...",
       "warningTitle": "To use our convert functionality, first, make sure to have funds on Chain 2.",
       "warningText": "",
       "give": "GIVE",
@@ -699,6 +731,7 @@
     "removeSelected": "Remove selected wallet",
     "create": "Create wallet",
     "import": "Import wallet",
+    "importHardware": "Import hardware wallet",
     "copySuccess": "Account details information to clipboard!"
   },
   "session": {

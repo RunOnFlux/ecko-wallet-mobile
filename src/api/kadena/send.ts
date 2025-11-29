@@ -1,5 +1,5 @@
-import {DefaultQueryParams} from '../types';
-import {getPactHost} from '../utils';
+import { DefaultQueryParams } from '../types';
+import { getPactHost } from '../utils';
 
 interface SendQueryParams extends DefaultQueryParams {
   instance: string;
@@ -26,22 +26,32 @@ export const getSend: (params: SendQueryParams) => Promise<any> = async ({
   ) {
     throw new Error('Wrong Parameters: request getSend');
   }
-  const txRes = await fetch(
-    `${getPactHost(
-      network,
-      version,
-      instance,
-      sourceChainId,
-      customHost,
-    )}/api/v1/send`,
-    {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: cmdValue,
+  let parsedCmd;
+  try {
+    parsedCmd = JSON.parse(cmdValue);
+  } catch (e) {
+    throw new Error('Invalid cmdValue format');
+  }
+
+  const bodyToSend = parsedCmd.cmds
+    ? cmdValue
+    : JSON.stringify({ cmds: [parsedCmd] });
+
+  const endpoint = `${getPactHost(
+    network,
+    version,
+    instance,
+    sourceChainId,
+    customHost,
+  )}/api/v1/send`;
+
+  const txRes = await fetch(endpoint, {
+    headers: {
+      'Content-Type': 'application/json',
     },
-  );
+    method: 'POST',
+    body: bodyToSend,
+  });
   if (txRes.status >= 400) {
     throw new Error(await txRes.text());
   } else {

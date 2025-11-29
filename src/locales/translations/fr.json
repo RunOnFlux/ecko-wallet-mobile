@@ -4,10 +4,37 @@
     "confirm": "Confirmer",
     "delete": "Supprimer",
     "cancel": "Annuler",
+    "continue": "Continuer",
+    "connect": "Connecter",
+    "import": "Importer",
     "ok": "OK",
     "error": "Erreur",
     "selectLanguage": "Choisir la langue",
     "selectLanguageLongDescription": "Sélectionnez la langue souhaitée"
+  },
+  "importHardwareWallet": {
+    "title": "Importer un Portefeuille Matériel",
+    "instructions": {
+      "ledger": {
+        "line1": "Installez ou mettez à jour l'application Kadena depuis Ledger Live.",
+        "line2": "Mettez à jour le firmware Ledger et l'application Kadena.",
+        "line3": "Déverrouillez le Ledger, ouvrez l'application Kadena et gardez-la ouverte.",
+        "line4": "Activez la signature aveugle dans l'application Kadena lorsque vous y êtes invité.",
+        "line5": "Pour une connexion fiable : activez le Bluetooth, fermez Ledger Live Mobile, gardez l'appareil près du téléphone et acceptez les invites d'appairage."
+      }
+    },
+    "scanning": "Recherche de périphériques Ledger...",
+    "selectDevice": "Sélectionnez votre appareil Ledger :",
+    "clickDevice": "Cliquez sur votre appareil pour continuer",
+    "deviceName": "Appareil Ledger",
+    "noDevices": "Aucun appareil trouvé. Assurez-vous que votre Ledger est allumé et que le Bluetooth est activé.",
+    "deviceLabel": "APPAREIL",
+    "ledgerLabel": "Ledger",
+    "scanningButton": "Recherche en cours...",
+    "stopScanButton": "Arrêter la recherche",
+    "importAccountHeader": "IMPORTER UN COMPTE DEPUIS LEDGER",
+    "importAccountSubtitle": "Compte Ledger à importer",
+    "unlockMessage": "Assurez-vous de déverrouiller votre appareil Ledger et d'ouvrir l'application Kadena."
   },
   "welcome": {
     "title": "Bienvenue sur\neckoWALLET",
@@ -522,6 +549,7 @@
     },
     "swapBlock": {
       "pending": "Transaction en attente…",
+      "pendingLedger": "Confirmez la transaction sur votre appareil Ledger...",
       "warningTitle": "Assurez-vous d’avoir des fonds sur la chaîne 2 pour convertir.",
       "warningText": "",
       "give": "DONNER",

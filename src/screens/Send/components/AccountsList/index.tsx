@@ -1,10 +1,10 @@
-import React, {FC, useCallback, useMemo} from 'react';
-import {View, Text} from 'react-native';
-import {TAccountsListProps} from './types';
+import React, { FC, useCallback, useMemo } from 'react';
+import { View, Text } from 'react-native';
+import { TAccountsListProps } from './types';
 import AccountItem from '../AccountItem';
-import {TAccount} from '../../../../store/userWallet/types';
-import {useAppThemeContext} from '../../../../contexts';
-import {makeStyles} from './styles';
+import { TAccount } from '../../../../store/userWallet/types';
+import { useAppThemeContext } from '../../../../contexts';
+import { makeStyles } from './styles';
 
 const AccountsList: FC<TAccountsListProps> = ({
   title,
@@ -17,22 +17,45 @@ const AccountsList: FC<TAccountsListProps> = ({
     },
     [setSelectedAccount],
   );
-  const {theme} = useAppThemeContext();
+  const { theme } = useAppThemeContext();
   const styles = useMemo(() => makeStyles(theme), [theme]);
+
+  const uniqueItems = useMemo(() => {
+    const seen = new Set<string>();
+    return (items || []).filter((item) => {
+      const key = 'id' in item && item.id
+        ? item.id
+        : item.accountName;
+      if (seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+  }, [items]);
 
   return (
     <View style={styles.wrapper}>
-      {(items || []).length > 0 ? (
+      {uniqueItems.length > 0 ? (
         <Text style={styles.title}>{title}</Text>
       ) : null}
-      {(items || []).map((item, idx) => (
-        <AccountItem
-          name={item.accountName}
-          key={item.accountName}
-          isFirst={!idx}
-          onPress={setAccount(item as TAccount)}
-        />
-      ))}
+      {uniqueItems.map((item, idx) => {
+        const uniqueKey = 'id' in item && item.id
+          ? `${title}-${item.id}`
+          : `${title}-${item.accountName}-${idx}`;
+        const displayName = 'contactName' in item && item.contactName
+          ? item.contactName
+          : item.accountName;
+        return (
+          <AccountItem
+            name={displayName}
+            key={uniqueKey}
+            isFirst={!idx}
+            onPress={setAccount(item as TAccount)}
+            accountType={'type' in item ? item.type : undefined}
+          />
+        );
+      })}
     </View>
   );
 };

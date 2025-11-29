@@ -1,4 +1,4 @@
-import axios, {AxiosError, AxiosResponse} from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 
 import {
   TAccount,
@@ -7,8 +7,9 @@ import {
   TBalancesRequest,
   TWallet,
   TSearchTokenListParams,
+  AccountType,
 } from './types';
-import {getGenerateAccount} from './actions';
+import { getGenerateAccount } from './actions';
 import {
   addNewAccount,
   setBalanceDetailError,
@@ -19,26 +20,26 @@ import {
   setSelectedAccount,
   setUsdEquivalents,
 } from './index';
-import {Alert} from 'react-native';
-import {makeSelectAccounts, makeSelectSelectedAccount} from './selectors';
-import {makeSelectGeneratedPhrases} from '../auth/selectors';
-import {defaultWallets, reverseCoins} from './const';
+import { Alert } from 'react-native';
+import { makeSelectAccounts, makeSelectSelectedAccount } from './selectors';
+import { makeSelectGeneratedPhrases } from '../auth/selectors';
+import { defaultWallets, reverseCoins } from './const';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
-import {TRestoreAccountParams} from './types';
-import {KADDEX_NAMESPACE, nonTransferableTokens} from '../../api/constants';
+import { TRestoreAccountParams } from './types';
+import { KADDEX_NAMESPACE, nonTransferableTokens } from '../../api/constants';
 import {
   getTokenUsdPriceByLiquidity,
   reduceBalance,
 } from '../../utils/numberHelpers';
-import {getBalance} from '../../api/kadena/balance';
-import {getPact} from '../../api/kadena/pact';
-import {generateAccount} from '../../api/kadena/generateAccount';
-import {getAccount} from '../../api/kadena/account';
-import {createAsyncThunk} from '@reduxjs/toolkit';
+import { getBalance } from '../../api/kadena/balance';
+import { getPact } from '../../api/kadena/pact';
+import { generateAccount } from '../../api/kadena/generateAccount';
+import { getAccount } from '../../api/kadena/account';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getBalances = createAsyncThunk(
   'userWallet/getBalances',
-  async (payload: TBalancesRequest, {dispatch, getState}: any) => {
+  async (payload: TBalancesRequest, { dispatch, getState }: any) => {
     dispatch(setBalanceDetailLoading(true));
     try {
       const selectedAccount: TAccount | null =
@@ -206,7 +207,7 @@ export const getBalances = createAsyncThunk(
 
 export const generateAccountThunk = createAsyncThunk(
   'auth/generateAccount',
-  async (payload: TGenAccountParams, {dispatch, getState}) => {
+  async (payload: TGenAccountParams, { dispatch, getState }) => {
     const state = getState();
     const seedsFromState = makeSelectGeneratedPhrases(state as any);
     const seeds = payload?.seeds || seedsFromState;
@@ -233,6 +234,7 @@ export const generateAccountThunk = createAsyncThunk(
       ...data,
       chainId: 0,
       wallets: defaultWallets,
+      type: AccountType.STANDARD,
     };
 
     dispatch(addNewAccount(account));
@@ -242,13 +244,14 @@ export const generateAccountThunk = createAsyncThunk(
 
 export const importAccount = createAsyncThunk(
   'auth/importAccount',
-  async (payload: TAccountImportRequest, {dispatch}) => {
+  async (payload: TAccountImportRequest, { dispatch }) => {
     try {
       const data = await getAccount(payload as any);
       const account = {
         ...data,
         chainId: payload?.chainId || 0,
         wallets: defaultWallets,
+        type: AccountType.STANDARD,
       };
 
       dispatch(addNewAccount(account));
@@ -269,7 +272,7 @@ export const importAccount = createAsyncThunk(
 
 export const restoreAccount = createAsyncThunk(
   'auth/restoreAccount',
-  async (payload: TRestoreAccountParams, {dispatch}) => {
+  async (payload: TRestoreAccountParams, { dispatch }) => {
     try {
       const data = await generateAccount(payload);
 
@@ -296,7 +299,7 @@ export const restoreAccount = createAsyncThunk(
 
 export const getTokenList = createAsyncThunk(
   'token/getTokenList',
-  async (payload: TSearchTokenListParams, {dispatch}) => {
+  async (payload: TSearchTokenListParams, { dispatch }) => {
     try {
       const tokenListData: string[] = await getPact({
         ...payload,

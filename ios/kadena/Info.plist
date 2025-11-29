@@ -68,6 +68,12 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>$(PRODUCT_NAME) uses Bluetooth to connect to Ledger devices</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs Bluetooth access for hardware wallet connectivity</string>
+	<key>NSBluetoothWhileInUseUsageDescription</key>
+	<string>$(PRODUCT_NAME) uses Bluetooth to connect to Ledger hardware wallets</string>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) needs access to your Camera for QR code scanning</string>
 	<key>NSFaceIDUsageDescription</key>

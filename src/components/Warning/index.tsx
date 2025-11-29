@@ -6,18 +6,19 @@ import {TWarningProps} from './types';
 import {styles} from './styles';
 
 const Warning: FC<TWarningProps> = React.memo(
-  ({noIcon, style, centerText, title, isSerious, text}) => {
+  ({noIcon, style, centerText, title, isSerious, isInfo, text}) => {
     return (
       <View
         style={[
           styles.wrapper,
           isSerious && styles.wrapperRed,
+          isInfo && styles.wrapperBlue,
           centerText && styles.wrapperCenter,
           centerText && !noIcon && styles.wrapperCenterIcon,
           style,
         ]}>
         {noIcon ? null : (
-          <AlertCircleSvg fill={isSerious ? '#212121' : '#CE8900'} />
+          <AlertCircleSvg fill={isSerious ? '#212121' : isInfo ? '#0066a1' : '#CE8900'} />
         )}
         <View
           style={[styles.textWrapper, centerText && styles.textWrapperCenter]}>
@@ -26,6 +27,7 @@ const Warning: FC<TWarningProps> = React.memo(
               style={[
                 styles.title,
                 isSerious && styles.titleBlack,
+                isInfo && styles.titleBlue,
                 centerText && styles.centerText,
               ]}>
               {title}
@@ -36,6 +38,7 @@ const Warning: FC<TWarningProps> = React.memo(
               style={[
                 styles.title,
                 isSerious && styles.titleBlack,
+                isInfo && styles.titleBlue,
                 centerText && styles.centerText,
               ]}>
               {text}

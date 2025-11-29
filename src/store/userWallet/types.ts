@@ -1,4 +1,4 @@
-import {TDefaultRequestState, TNetworkParams} from '../types';
+import { TDefaultRequestState, TNetworkParams } from '../types';
 
 export type TChainId = string;
 
@@ -22,7 +22,14 @@ export type TAccount = {
   publicKey?: string;
   privateKey?: string;
   chainId?: TChainId;
+  type?: AccountType;
 };
+
+export enum AccountType {
+  STANDARD = 'STANDARD',
+  LEDGER = 'LEDGER',
+  SPIREKEY = 'SPIREKEY',
+}
 
 export type TAccountImportRequest = {
   accountName: string;
@@ -64,11 +71,11 @@ export type TBalanceResponse = {
 };
 
 export type TEstimatedUsdResponse = {
-  kadena: {usd: number};
-  gas: {usd: number};
+  kadena: { usd: number };
+  gas: { usd: number };
 };
 
-export type TBalanceData = TBalanceResponse & {usdEquivalent: number};
+export type TBalanceData = TBalanceResponse & { usdEquivalent: number };
 
 export type TRestoreAccountParams = {
   seeds: string;

@@ -9,6 +9,10 @@ import { convertDecimal } from '../../utils/numberHelpers';
 import { getAccount } from './account';
 import { isRAccount, fetchGuardForRAccount } from './rAccount';
 import { Platform } from 'react-native';
+import { AccountType } from '../../store/userWallet/types';
+import { getLedgerApi } from '../../contexts/Ledger/service';
+import { getSpireKeyApi } from '../../contexts/SpireKey/service';
+import { createTransactionBuilder, ChainId } from '@kadena/client';
 
 interface TransferSingleQueryParams extends DefaultQueryParams {
   instance: string;
@@ -25,6 +29,7 @@ interface TransferSingleQueryParams extends DefaultQueryParams {
   receiverPublicKey?: number;
   predicate?: number;
   customHost?: string;
+  accountType?: AccountType;
 }
 
 const getNonceByPlatform = (platform?: string) => {
@@ -58,6 +63,7 @@ export const getTransferSingle: (
   predicate,
   receiverPublicKey,
   customHost,
+  accountType,
 }) => {
   if (
     !network ||
@@ -67,10 +73,218 @@ export const getTransferSingle: (
     !receiver ||
     sourceChainId === undefined ||
     !amount ||
-    !signature ||
-    !publicKey
+    (!publicKey && accountType !== AccountType.SPIREKEY)
   ) {
     throw new Error('Wrong Parameters: request getSingleChain');
+  }
+
+  if (accountType === AccountType.LEDGER) {
+    const ledgerApi = getLedgerApi();
+    if (!ledgerApi) {
+      throw new Error('Ledger not connected');
+    }
+
+    const ledgerParams = {
+      recipient: receiver,
+      namespace: token && token !== 'coin' ? token.split('.')[0] : undefined,
+      module: token && token !== 'coin' ? token.split('.')[1] : undefined,
+      amount: amount.toString(),
+      chainId: Number(sourceChainId),
+      network: instance,
+      gasPrice: (Number(gasPrice) || 0.00001).toString(),
+      gasLimit: Math.max(Number(gasLimit) || 2500, 2500).toString(),
+      nonce: `XM-${new Date().toISOString()}`,
+    };
+
+    const result = await ledgerApi.signTransferCreateTx({
+      path: "m/44'/626'/0'/0/0",
+      ...ledgerParams,
+    });
+
+    if (!result?.pact_command) {
+      throw new Error('Ledger signing failed');
+    }
+
+    return result.pact_command;
+  }
+
+  if (accountType === AccountType.SPIREKEY) {
+    const meta = Pact.lang.mkMeta(
+      sender,
+      sourceChainId,
+      Number(gasPrice) || 0.00001,
+      Math.max(Number(gasLimit) || 2500, 2500),
+      Math.round(new Date().getTime() / 1000) - 50,
+      28800,
+    );
+    const moduleName = token || 'coin';
+    let signingPubKey = publicKey;
+
+    const spire = getSpireKeyApi();
+    const webAuthnKey = spire.getWebAuthnPublicKey?.();
+
+    if (webAuthnKey) {
+      signingPubKey = webAuthnKey;
+    } else if (!signingPubKey || signingPubKey === '') {
+      try {
+        const senderInfo = await getAccount({
+          network,
+          instance,
+          version,
+          chainId: sourceChainId,
+          accountName: sender,
+          customHost,
+        });
+        signingPubKey = senderInfo?.publicKey || signingPubKey;
+      } catch (err) {
+        // Ignore error
+      }
+    }
+
+    if (!signingPubKey || signingPubKey === '') {
+      throw new Error('No public key available for SpireKey signing');
+    }
+    const keyPair: any = [
+      {
+        publicKey: signingPubKey,
+        clist: [
+          { name: 'coin.GAS', args: [] },
+          {
+            name: `${moduleName}.TRANSFER`,
+            args: [sender, receiver, Number(amount)],
+          },
+        ],
+      },
+    ];
+
+    let pactCode = `(${moduleName}.transfer-create ${JSON.stringify(
+      sender,
+    )} ${JSON.stringify(receiver)} (read-keyset "ks")  ${convertDecimal(
+      amount,
+    )})`;
+    let envData: any = undefined;
+
+    if (isRAccount(receiver)) {
+      const { exists, keysetRefGuard } = await fetchGuardForRAccount(
+        receiver,
+        moduleName,
+        network,
+        version,
+        instance,
+        sourceChainId,
+        customHost,
+      );
+      if (moduleName === 'coin' && !exists && !keysetRefGuard) {
+        throw new Error('r-account-not-initialized');
+      }
+      pactCode = !exists
+        ? `(${moduleName}.transfer-create ${JSON.stringify(
+            sender,
+          )} ${JSON.stringify(receiver)} (keyset-ref-guard ${JSON.stringify(
+            `${keysetRefGuard!.ns}.${keysetRefGuard!.ksn}`,
+          )}) ${convertDecimal(amount)})`
+        : `(${moduleName}.transfer ${JSON.stringify(
+            sender,
+          )} ${JSON.stringify(receiver)} ${convertDecimal(amount)})`;
+    } else {
+      if (!receiverPublicKey) {
+        try {
+          const receiverInfoResponse = await getAccount({
+            network,
+            instance,
+            version,
+            chainId: sourceChainId,
+            accountName: receiver,
+            customHost,
+          });
+          if (receiverInfoResponse) {
+            envData = {
+              ks: {
+                pred: predicate || 'keys-all',
+                keys: [receiverInfoResponse.publicKey],
+              },
+            };
+          } else if (receiver.startsWith('k:') && receiver.length === 66) {
+            envData = {
+              ks: {
+                pred: predicate || 'keys-all',
+                keys: [receiver.slice(2)],
+              },
+            };
+          } else {
+            throw new Error(
+              'Receiving account does not exist. You must specify a keyset to create this account.',
+            );
+          }
+        } catch {
+          if (receiver.startsWith('k:') && receiver.length === 66) {
+            envData = {
+              ks: {
+                pred: predicate || 'keys-all',
+                keys: [receiver.slice(2)],
+              },
+            };
+          } else {
+            throw new Error(
+              'Receiving account does not exist. You must specify a keyset to create this account.',
+            );
+          }
+        }
+      } else {
+        envData = {
+          ks: {
+            pred: predicate || 'keys-all',
+            keys: [receiverPublicKey || ''],
+          },
+        };
+      }
+    }
+
+    let tx = createTransactionBuilder()
+      .execution(pactCode)
+      .setMeta({
+        senderAccount: sender,
+        chainId: sourceChainId as ChainId,
+        gasLimit: meta.gasLimit,
+        gasPrice: meta.gasPrice,
+        ttl: meta.ttl,
+        creationTime: meta.creationTime,
+      })
+      .setNetworkId(instance);
+
+    if (envData) {
+      Object.entries(envData).forEach(([key, value]) => {
+        tx = tx.addData(key, value as any);
+      });
+    }
+
+    tx = tx.addSigner(
+      {
+        pubKey: signingPubKey,
+        scheme: 'WebAuthn',
+      },
+      (withCap: any) => [
+        withCap('coin.GAS'),
+        withCap(`${moduleName}.TRANSFER`, sender, receiver, Number(amount)),
+      ],
+    );
+
+    const rawTransaction = tx.createTransaction();
+    const createdCommand = { cmds: [rawTransaction] };
+
+    const signed = await spire.sign(createdCommand);
+
+    if (Array.isArray(signed) && signed.length > 0) {
+      return signed[0];
+    }
+
+    return signed;
+  }
+
+  if (!signature) {
+    throw new Error(
+      'Wrong Parameters: signature is required for non-Ledger accounts',
+    );
   }
 
   const meta = Pact.lang.mkMeta(

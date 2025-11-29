@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect, useMemo} from 'react';
-import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
+import React, { useCallback, useEffect, useMemo } from 'react';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import {
   Alert,
   Platform,
@@ -7,22 +7,24 @@ import {
   StyleSheet,
   SafeAreaView,
 } from 'react-native';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import RNBootSplash from 'react-native-bootsplash';
-import {PactProvider} from './src/contexts/Pact';
-import {AppThemeProvider} from './src/contexts/AppTheme';
+import { PactProvider } from './src/contexts/Pact';
+import { AppThemeProvider } from './src/contexts/AppTheme';
 import AppStack from './src/navigation/AppStack';
-import {persistor, store} from './src/store/store';
-import {PersistGate} from 'redux-persist/integration/react';
+import { persistor, store } from './src/store/store';
+import { PersistGate } from 'redux-persist/integration/react';
 import Toast from 'react-native-toast-message';
 import LogoSvg from './src/assets/images/logo.svg';
 import JailMonkey from 'jail-monkey';
-import {WalletConnectProvider} from './src/contexts/WalletConnect';
-import {useWalletConnect} from './src/utils/walletConnect';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import { WalletConnectProvider } from './src/contexts/WalletConnect';
+import { useWalletConnect } from './src/utils/walletConnect';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import './src/locales/i18n';
-import {IAppTheme} from './src/themes/types';
-import {useAppThemeContext} from './src/contexts';
+import { IAppTheme } from './src/themes/types';
+import { useAppThemeContext } from './src/contexts';
+import { LedgerProvider } from './src/contexts/Ledger';
+import { SpireKeyProvider } from './src/contexts/SpireKey';
 
 const makeStyles = (theme: IAppTheme) =>
   StyleSheet.create({
@@ -36,11 +38,11 @@ const makeStyles = (theme: IAppTheme) =>
   });
 
 const App = () => {
-  const {theme} = useAppThemeContext();
+  const { theme } = useAppThemeContext();
   const styles = useMemo(() => makeStyles(theme), [theme]);
 
   const onReady = useCallback(() => {
-    RNBootSplash.hide({fade: true});
+    RNBootSplash.hide({ fade: true });
   }, []);
 
   const statusBarStyle = useMemo<'light-content' | 'dark-content'>(
@@ -66,12 +68,12 @@ const App = () => {
 
   useEffect(() => {
     if (JailMonkey.isJailBroken()) {
-      RNBootSplash.hide({fade: true});
+      RNBootSplash.hide({ fade: true });
       Alert.alert(
         'Device is rooted',
         'Jail-broken or rooted devices can not use eckoWALLET',
         undefined,
-        {cancelable: false},
+        { cancelable: false },
       );
     }
   }, []);
@@ -114,11 +116,15 @@ const AppContainer = () => {
       <Provider store={store}>
         <AppThemeProvider>
           <PactProvider>
-            <WalletConnectProvider>
-              <PersistGate loading={null} persistor={persistor}>
-                <App />
-              </PersistGate>
-            </WalletConnectProvider>
+            <LedgerProvider>
+              <SpireKeyProvider>
+                <WalletConnectProvider>
+                  <PersistGate loading={null} persistor={persistor}>
+                    <App />
+                  </PersistGate>
+                </WalletConnectProvider>
+              </SpireKeyProvider>
+            </LedgerProvider>
           </PactProvider>
         </AppThemeProvider>
       </Provider>

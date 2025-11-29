@@ -9,6 +9,10 @@ import { getAccount } from './account';
 import { isRAccount, fetchGuardForRAccount } from './rAccount';
 import { convertDecimal } from '../../utils/numberHelpers';
 import { getPactHost } from '../utils';
+import { AccountType } from '../../store/userWallet/types';
+import { getLedgerApi } from '../../contexts/Ledger/service';
+import { getSpireKeyApi } from '../../contexts/SpireKey/service';
+import { createTransactionBuilder, ChainId } from '@kadena/client';
 
 interface TransferCrossQueryParams extends DefaultQueryParams {
   instance: string;
@@ -26,6 +30,7 @@ interface TransferCrossQueryParams extends DefaultQueryParams {
   customHost?: string;
   receiverPublicKey?: number;
   predicate?: number;
+  accountType?: AccountType;
 }
 
 const getNonceByPlatform = (platform?: string) => {
@@ -60,6 +65,7 @@ export const getTransferCross: (
   targetChainId,
   predicate,
   receiverPublicKey,
+  accountType,
 }) => {
   if (
     !network ||
@@ -70,10 +76,239 @@ export const getTransferCross: (
     sourceChainId === undefined ||
     targetChainId === undefined ||
     !amount ||
-    !signature ||
-    !publicKey
+    (!publicKey && accountType !== AccountType.SPIREKEY)
   ) {
     throw new Error('Wrong Parameters: request getCrossChain');
+  }
+
+  if (accountType === AccountType.LEDGER) {
+    const ledgerApi = getLedgerApi();
+    if (!ledgerApi) {
+      throw new Error('Ledger not connected');
+    }
+
+    const ledgerParams = {
+      recipient: receiver,
+      recipient_chainId: Number(targetChainId),
+      namespace:
+        token && token !== 'coin'
+          ? (token as unknown as string).split('.')[0]
+          : undefined,
+      module:
+        token && token !== 'coin'
+          ? (token as unknown as string).split('.')[1]
+          : undefined,
+      amount: amount.toString(),
+      chainId: Number(sourceChainId),
+      network: instance,
+      gasPrice: (Number(gasPrice) || 0.00001).toString(),
+      gasLimit: Math.max(Number(gasLimit) || 2500, 2500).toString(),
+      nonce: `XM-${new Date().toISOString()}`,
+    };
+
+    const result = await ledgerApi.signTransferCrossChainTx({
+      path: "m/44'/626'/0'/0/0",
+      ...ledgerParams,
+    });
+
+    if (!result?.pact_command) {
+      throw new Error('Ledger signing failed');
+    }
+
+    return result.pact_command;
+  }
+
+  if (accountType === AccountType.SPIREKEY) {
+    const meta = Pact.lang.mkMeta(
+      sender,
+      sourceChainId,
+      Number(gasPrice) || 0.00001,
+      Math.max(Number(gasLimit) || 2500, 2500),
+      Math.round(new Date().getTime() / 1000) - 50,
+      28800,
+    );
+    let hasXChainCapability = false;
+    try {
+      const interfaces = await Pact.fetch.local(
+        {
+          keyPairs: [],
+          pactCode: `(at 'interfaces (describe-module "${token || 'coin'}"))`,
+          meta: Pact.lang.mkMeta(
+            'not-real',
+            sourceChainId,
+            0.00001,
+            2500,
+            Math.round(new Date().getTime() / 1000) - 50,
+            600,
+          ),
+        },
+        getPactHost(network, version, instance, sourceChainId, customHost),
+      );
+      if (interfaces?.result?.data && Array.isArray(interfaces?.result?.data)) {
+        if (
+          interfaces?.result?.data?.some(
+            (moduleInterface: string) =>
+              moduleInterface === 'fungible-xchain-v1',
+          )
+        ) {
+          hasXChainCapability = true;
+        }
+      }
+    } catch {}
+    if ((token || 'coin') !== 'coin' && !hasXChainCapability) {
+      throw new Error('token-no-xchain');
+    }
+    const moduleName = token || 'coin';
+    let signingPubKey = publicKey;
+
+    const webAuthnKey = getSpireKeyApi().getWebAuthnPublicKey?.();
+    if (webAuthnKey) {
+      signingPubKey = webAuthnKey;
+    } else {
+      try {
+        if (!signingPubKey) {
+          const senderInfo = await getAccount({
+            network,
+            instance,
+            version,
+            chainId: sourceChainId,
+            accountName: sender,
+            customHost,
+          });
+          signingPubKey = senderInfo?.publicKey || signingPubKey;
+        }
+      } catch {}
+    }
+    const keyPair: any = [
+      {
+        publicKey: signingPubKey,
+        clist: [],
+      },
+    ];
+    if (hasXChainCapability) {
+      keyPair[0].clist.push({ name: 'coin.GAS', args: [] });
+      keyPair[0].clist.push({
+        name: `${moduleName}.TRANSFER_XCHAIN`,
+        args: [sender, receiver, Number(amount), targetChainId],
+      });
+    }
+    let pactCode = '';
+    let envData: any = undefined;
+    if (isRAccount(receiver)) {
+      const { keysetRefGuard } = await fetchGuardForRAccount(
+        receiver,
+        moduleName?.toString(),
+        network,
+        version,
+        instance,
+        sourceChainId,
+        customHost,
+      );
+      pactCode = `(${moduleName}.transfer-crosschain ${JSON.stringify(
+        sender,
+      )} ${JSON.stringify(receiver)} (keyset-ref-guard ${JSON.stringify(
+        `${keysetRefGuard!.ns}.${keysetRefGuard!.ksn}`,
+      )}) ${JSON.stringify(targetChainId)} ${convertDecimal(amount)})`;
+    } else {
+      pactCode = `(${moduleName}.transfer-crosschain ${JSON.stringify(
+        sender,
+      )} ${JSON.stringify(receiver)} (read-keyset "ks") ${JSON.stringify(
+        targetChainId,
+      )} ${convertDecimal(amount)})`;
+      
+      if (receiver.startsWith('k:') && receiver.length === 66) {
+        envData = {
+          ks: {
+            pred: predicate || 'keys-all',
+            keys: [receiver.slice(2)],
+          },
+        };
+      } else {
+        // For non-k: accounts, try to get receiver info
+        try {
+          const receiverInfoResponse = await getAccount({
+            network,
+            instance,
+            version,
+            chainId: targetChainId,
+            accountName: receiver,
+            customHost,
+          });
+          if (receiverInfoResponse && receiverInfoResponse.publicKey) {
+            envData = {
+              ks: {
+                pred: predicate || 'keys-all',
+                keys: [receiverInfoResponse.publicKey],
+              },
+              };
+            } else {
+              throw new Error(
+                'Receiving account does not exist. You must specify a keyset to create this account.',
+              );
+            }
+          } catch (e) {
+            throw new Error(
+              'Failed to retrieve receiver account information. Cannot proceed with crosschain transfer.',
+            );
+          }
+      }
+    }
+    
+    let tx = createTransactionBuilder()
+      .execution(pactCode)
+      .setMeta({
+        senderAccount: sender,
+        chainId: sourceChainId as ChainId,
+        gasLimit: meta.gasLimit,
+        gasPrice: meta.gasPrice,
+        ttl: meta.ttl,
+        creationTime: meta.creationTime,
+      })
+      .setNetworkId(instance);
+
+    if (envData) {
+      Object.entries(envData).forEach(([key, value]) => {
+        tx = tx.addData(key, value as any);
+      });
+    }
+
+    const capabilities = hasXChainCapability
+      ? [
+          (withCap: any) => withCap('coin.GAS'),
+          (withCap: any) =>
+            withCap(`${moduleName}.TRANSFER_XCHAIN`, sender, receiver, Number(amount), targetChainId),
+        ]
+      : [
+          (withCap: any) => withCap('coin.GAS'),
+          (withCap: any) =>
+            withCap(`${moduleName}.TRANSFER_XCHAIN`, sender, receiver, Number(amount), targetChainId),
+        ];
+
+    tx = tx.addSigner(
+      {
+        pubKey: signingPubKey,
+        scheme: 'WebAuthn',
+      },
+      (withCap: any) => capabilities.map((cap) => cap(withCap)),
+    );
+
+    const rawTransaction = tx.createTransaction();
+    const createdCommand = { cmds: [rawTransaction] };
+
+    const spire = getSpireKeyApi();
+    const signed = await spire.sign(createdCommand);
+    
+    if (Array.isArray(signed) && signed.length > 0) {
+      return signed[0];
+    }
+    
+    return signed;
+  }
+
+  if (!signature) {
+    throw new Error(
+      'Wrong Parameters: signature is required for non-Ledger accounts',
+    );
   }
 
   const meta = Pact.lang.mkMeta(

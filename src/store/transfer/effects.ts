@@ -1,4 +1,4 @@
-import {AxiosError} from 'axios';
+import { AxiosError } from 'axios';
 
 import {
   swapRequestError,
@@ -11,8 +11,8 @@ import {
   TMakeTransferRequest,
   TSwapRequest,
 } from './types';
-import {setTransferResult} from './index';
-import {wait} from '../../utils/hooksHelpers';
+import { setTransferResult } from './index';
+import { wait } from '../../utils/hooksHelpers';
 import {
   getContinuationTransferRequest,
   getCrossTransferRequest,
@@ -22,19 +22,19 @@ import {
   getPollRequest as getPollRequestAPI,
   swapApiRequest,
 } from './services';
-import {getNetworkParams} from '../../utils/networkHelpers';
-import {replaceSendResult, setListenResult, setSendResult} from '../history';
-import {getBalances} from '../userWallet/actions';
-import {makeSelectActiveNetworkDetails} from '../networks/selectors';
-import {makeSelectPollRequestParams} from '../history/selectors';
-import {getPollRequest} from '../history/actions';
-import {createAsyncThunk} from '@reduxjs/toolkit';
+import { getNetworkParams } from '../../utils/networkHelpers';
+import { replaceSendResult, setListenResult, setSendResult } from '../history';
+import { getBalances } from '../userWallet/actions';
+import { makeSelectActiveNetworkDetails } from '../networks/selectors';
+import { makeSelectPollRequestParams } from '../history/selectors';
+import { getPollRequest } from '../history/actions';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 
 export const makeTransferThunk = createAsyncThunk(
   'transfers/makeTransfer',
-  async (payload: TMakeTransferRequest, {dispatch, getState}: any) => {
+  async (payload: TMakeTransferRequest, { dispatch, getState }: any) => {
     const {
       gatheredInfo: {
         chainId: sourceChainId,
@@ -42,12 +42,12 @@ export const makeTransferThunk = createAsyncThunk(
         amount,
         predicate,
       },
-      sourceAccount: {privateKey: signature, accountName: sender, publicKey},
+      sourceAccount: { privateKey: signature, accountName: sender, publicKey },
       networkDetail,
       sourceToken,
       estimatedGasFee,
     } = payload;
-    const {version, instance} = networkDetail;
+    const { version, instance } = networkDetail;
 
     const isCrossTransfer = sourceChainId !== destinationAccount?.chainId;
 
@@ -72,6 +72,7 @@ export const makeTransferThunk = createAsyncThunk(
         signature,
         amount,
         ...getNetworkParams(networkDetail),
+        accountType: (payload?.sourceAccount as any)?.type,
       };
 
       return isCrossTransfer
@@ -259,9 +260,9 @@ export const makeTransferThunk = createAsyncThunk(
 
 export const finishTransferThunk = createAsyncThunk(
   'transfers/finishTransfer',
-  async (payload: TFinishTransferRequest, {dispatch, getState}: any) => {
-    const {networkDetail, activity} = payload;
-    const {version, instance} = networkDetail;
+  async (payload: TFinishTransferRequest, { dispatch, getState }: any) => {
+    const { networkDetail, activity } = payload;
+    const { version, instance } = networkDetail;
 
     const reqParams = {
       instance,
@@ -482,7 +483,7 @@ export const finishTransferThunk = createAsyncThunk(
 
 export const swapRequestThunk = createAsyncThunk(
   'transfers/swapRequest',
-  async (payload: TSwapRequest, {dispatch, getState}: any) => {
+  async (payload: TSwapRequest, { dispatch, getState }: any) => {
     dispatch(swapRequestPending());
     try {
       const txRes = await swapApiRequest(payload);
