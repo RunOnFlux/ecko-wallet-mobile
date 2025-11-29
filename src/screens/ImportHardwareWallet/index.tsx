@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 import { ERootStackRoutes, TNavigationProp } from '../../routes/types';
 import Checkbox from '../../components/Checkbox';
 import LedgerLongLogo from '../../assets/images/ledger-logo-long.svg';
+import SpirekeyLogoLong from '../../assets/images/spirekey.svg';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store/store';
 import { addNewAccount, setSelectedAccount } from '../../store/userWallet';
@@ -186,9 +187,7 @@ const ImportHardwareWallet = () => {
                 onPress={() => setSelected('spirekey')}
               >
                 <Text style={styles.deviceName}>
-                  {t('importHardwareWallet.spireKeyLabel', {
-                    defaultValue: 'SpireKey',
-                  })}
+                  <SpirekeyLogoLong width={90} />
                 </Text>
               </TouchableOpacity>
             </View>
@@ -219,11 +218,6 @@ const ImportHardwareWallet = () => {
             )}
             {selected === 'spirekey' && (
               <View style={styles.instructionsWrapper}>
-                <Text style={styles.instructionsTitleWrapper}>
-                  {t('importHardwareWallet.spireKeyLabel', {
-                    defaultValue: 'SpireKey',
-                  })}
-                </Text>
                 <Text style={styles.instructionsTitle}>
                   {t('importHardwareWallet.instructions.spirekey.line1', {
                     defaultValue:
