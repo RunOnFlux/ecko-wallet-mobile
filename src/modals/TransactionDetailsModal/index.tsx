@@ -79,9 +79,7 @@ const TransactionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
 
     const handlePress = async () => {
       const requestKey = details?.requestKey;
-      const url = `https://explorer.chainweb.com/${
-        networkSlug || 'mainnet'
-      }/txdetail/${requestKey}`;
+      const url = `https://explorer.eckowallet.com/transactions/${requestKey}`;
       await Linking.openURL(url);
     };
 

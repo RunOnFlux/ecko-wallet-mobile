@@ -61,6 +61,7 @@ const AddEditNetwork = () => {
             ...data,
             name: data.name || t('addEditNetwork.defaultName'),
             network: EDefaultNetwork.custom,
+            explorerUrl: '',
           };
           dispatch(
             isCreate ? createNetwork(_data) : updateSelectedNetwork(_data),
@@ -119,23 +120,6 @@ const AddEditNetwork = () => {
               value={value}
               errorMessage={errors.host?.message as string}
               editable={isEditable}
-            />
-          )}
-        />
-        <Controller
-          control={control}
-          name="explorerUrl"
-          render={({field: {onChange, onBlur, value}}) => (
-            <Input
-              label={t('addEditNetwork.explorer.label')}
-              placeholder={t('addEditNetwork.explorer.placeholder')}
-              placeholderTextColor="gray"
-              autoCapitalize="none"
-              wrapperStyle={styles.inputWrapper}
-              onChangeText={onChange}
-              onBlur={onBlur}
-              value={value}
-              errorMessage={errors.explorerUrl?.message as string}
             />
           )}
         />

@@ -6,7 +6,6 @@ export const addCreateNetworkSchema = yupResolver(
     .object({
       name: yup.string(),
       host: yup.string().required(),
-      explorerUrl: yup.string().required(),
     })
     .required(),
 );
