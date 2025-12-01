@@ -81,47 +81,108 @@ export const SpireKeyProvider = ({
     setSpireKeyAccountRef(account);
   }, [account]);
 
-  const handleIncomingUrl = useCallback((url: string) => {
+  const processCallbackUrl = useCallback((url: string) => {
     try {
-      console.log('[SpireKey] handleIncomingUrl - Received URL:', url);
       const parsed = new URL(url);
-      console.log(
-        '[SpireKey] Parsed URL - protocol:',
-        parsed.protocol,
-        'hostname:',
-        parsed.hostname,
-      );
-      console.log(
-        '[SpireKey] Expected scheme:',
-        APP_SCHEME,
-        'Expected host:',
-        CALLBACK_HOST,
-      );
-      if (parsed.protocol.replace(':', '') !== APP_SCHEME) {
-        console.log('[SpireKey] URL protocol mismatch, ignoring');
-        return;
-      }
-      if (parsed.hostname !== CALLBACK_HOST) {
-        console.log('[SpireKey] URL hostname mismatch, ignoring');
-        return;
-      }
+      const flow = parsed.searchParams.get('flow');
 
-      console.log('[SpireKey] URL matches callback pattern, resolving promise');
-      console.log(
-        '[SpireKey] URL search params:',
-        parsed.searchParams.toString(),
-      );
-      if (pendingResolverRef.current) {
-        console.log('[SpireKey] Calling pending resolver with URL');
-        pendingResolverRef.current(url);
-        pendingResolverRef.current = null;
-      } else {
-        console.log('[SpireKey] WARNING: No pending resolver found');
+      if (flow === 'connect') {
+        const userParam = parsed.searchParams.get('user');
+        if (!userParam) {
+          console.log(
+            '[SpireKey] processCallbackUrl - No user data in connect flow',
+          );
+          return;
+        }
+        console.log(
+          '[SpireKey] processCallbackUrl - Processing connect callback',
+        );
+        const decoded = decodeBase64Url(userParam);
+        const user = JSON.parse(decoded);
+        const networkId = lastNetworkIdRef.current || 'mainnet01';
+        const chainId = lastChainIdRef.current || '0';
+
+        const acc: SpireKeyAccountLike = {
+          accountName: user?.accountName,
+          networkId,
+          chainIds: [chainId],
+          isReady: async () => {},
+          devices: user?.credentials
+            ? [
+                {
+                  guard: {
+                    keys:
+                      user?.credentials?.map((c: any) =>
+                        c?.publicKey ? String(c.publicKey) : '',
+                      ) ?? [],
+                  },
+                },
+              ]
+            : undefined,
+        };
+        console.log(
+          '[SpireKey] processCallbackUrl - Setting account from callback',
+        );
+        setAccount(acc);
+        setIsWaitingSpireKey(false);
+      } else if (flow === 'sign') {
+        if (pendingResolverRef.current) {
+          pendingResolverRef.current(url);
+          pendingResolverRef.current = null;
+        }
       }
     } catch (err) {
-      console.log('[SpireKey] handleIncomingUrl ERROR:', err);
+      console.log('[SpireKey] processCallbackUrl ERROR:', err);
     }
   }, []);
+
+  const handleIncomingUrl = useCallback(
+    (url: string) => {
+      try {
+        console.log('[SpireKey] handleIncomingUrl - Received URL:', url);
+        const parsed = new URL(url);
+        console.log(
+          '[SpireKey] Parsed URL - protocol:',
+          parsed.protocol,
+          'hostname:',
+          parsed.hostname,
+        );
+        console.log(
+          '[SpireKey] Expected scheme:',
+          APP_SCHEME,
+          'Expected host:',
+          CALLBACK_HOST,
+        );
+        if (parsed.protocol.replace(':', '') !== APP_SCHEME) {
+          console.log('[SpireKey] URL protocol mismatch, ignoring');
+          return;
+        }
+        if (parsed.hostname !== CALLBACK_HOST) {
+          console.log('[SpireKey] URL hostname mismatch, ignoring');
+          return;
+        }
+
+        console.log('[SpireKey] URL matches callback pattern');
+        console.log(
+          '[SpireKey] URL search params:',
+          parsed.searchParams.toString(),
+        );
+        if (pendingResolverRef.current) {
+          console.log('[SpireKey] Calling pending resolver with URL');
+          pendingResolverRef.current(url);
+          pendingResolverRef.current = null;
+        } else {
+          console.log(
+            '[SpireKey] No pending resolver, processing callback directly',
+          );
+          processCallbackUrl(url);
+        }
+      } catch (err) {
+        console.log('[SpireKey] handleIncomingUrl ERROR:', err);
+      }
+    },
+    [processCallbackUrl],
+  );
 
   useEffect(() => {
     console.log('[SpireKey] Setting up Linking event listeners');
@@ -176,6 +237,8 @@ export const SpireKeyProvider = ({
           'chainId:',
           chainId,
         );
+        lastNetworkIdRef.current = networkId;
+        lastChainIdRef.current = chainId;
         setIsWaitingSpireKey(true);
         setError('');
         const returnUrl = buildReturnUrl('connect');
@@ -254,8 +317,6 @@ export const SpireKeyProvider = ({
         );
         setAccount(acc);
         console.log('[SpireKey] connectAccount - Account set in state');
-        lastNetworkIdRef.current = networkId;
-        lastChainIdRef.current = chainId;
         setIsWaitingSpireKey(false);
         console.log('[SpireKey] connectAccount - Returning account:', acc);
         return acc;

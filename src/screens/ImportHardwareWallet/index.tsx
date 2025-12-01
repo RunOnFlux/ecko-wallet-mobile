@@ -44,7 +44,11 @@ const ImportHardwareWallet = () => {
     resetError,
     disconnect,
   } = useLedgerContext();
-  const { connectAccount, isWaitingSpireKey } = useSpireKeyContext();
+  const {
+    connectAccount,
+    isWaitingSpireKey,
+    account: spireKeyAccount,
+  } = useSpireKeyContext();
   const selectedNetwork = useShallowEqualSelector(makeSelectActiveNetwork);
   const dispatch = useDispatch<AppDispatch>();
 
@@ -53,6 +57,24 @@ const ImportHardwareWallet = () => {
   const [spireKeyPublicKey, setSpireKeyPublicKey] = useState<string>('');
   const [selectedAccountName, setSelectedAccountName] = useState<string>('');
   const [showDeviceList, setShowDeviceList] = useState(false);
+
+  useEffect(() => {
+    if (
+      spireKeyAccount?.accountName &&
+      !selectedAccountName &&
+      !ledgerPublicKey
+    ) {
+      console.log(
+        '[ImportHardwareWallet] Found existing SpireKey account on mount:',
+        spireKeyAccount.accountName,
+      );
+      setSelectedAccountName(spireKeyAccount.accountName);
+      const publicKey = spireKeyAccount?.devices?.[0]?.guard?.keys?.[0];
+      if (publicKey) {
+        setSpireKeyPublicKey(publicKey);
+      }
+    }
+  }, [spireKeyAccount, selectedAccountName, ledgerPublicKey]);
 
   useEffect(() => {
     console.log(
