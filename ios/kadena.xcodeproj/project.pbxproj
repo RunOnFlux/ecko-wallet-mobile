@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		242A71924C91853F1C95022D /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
-		761780ED2CA45674006654EE /* (null) in Sources */ = {isa = PBXBuildFile; };
+		761780ED2CA45674006654EE /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		7794F915B064423692968B5A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2962AF05A11641F6B5D8114A /* Colors.xcassets */; };
 		7CAEBCC509118BED66604256 /* libPods-kadena.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91693A3AFD8825C399EB36D6 /* libPods-kadena.a */; };
 		BC59A1532E34C4CF0007D1BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC59A1522E34C4CF0007D1BC /* AppDelegate.swift */; };
@@ -147,6 +147,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				D9C4472979D32AE5CB84D911 /* [CP] Copy Pods Resources */,
+				7A6ED47B0EB1227E56DD87BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,6 +249,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7A6ED47B0EB1227E56DD87BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kadena/Pods-kadena-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kadena/Pods-kadena-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kadena/Pods-kadena-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D9C4472979D32AE5CB84D911 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,13 +274,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-kadena/Pods-kadena-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-kadena/Pods-kadena-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -277,7 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC59A1532E34C4CF0007D1BC /* AppDelegate.swift in Sources */,
-				761780ED2CA45674006654EE /* (null) in Sources */,
+				761780ED2CA45674006654EE /* BuildFile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,11 +441,14 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
-				USE_HERMES = false;
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -498,11 +515,14 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				USE_HERMES = false;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

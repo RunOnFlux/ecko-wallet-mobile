@@ -64,10 +64,6 @@ const ImportHardwareWallet = () => {
       !selectedAccountName &&
       !ledgerPublicKey
     ) {
-      console.log(
-        '[ImportHardwareWallet] Found existing SpireKey account on mount:',
-        spireKeyAccount.accountName,
-      );
       setSelectedAccountName(spireKeyAccount.accountName);
       const publicKey = spireKeyAccount?.devices?.[0]?.guard?.keys?.[0];
       if (publicKey) {
@@ -76,21 +72,12 @@ const ImportHardwareWallet = () => {
     }
   }, [spireKeyAccount, selectedAccountName, ledgerPublicKey]);
 
-  useEffect(() => {
-    console.log(
-      '[ImportHardwareWallet] selectedAccountName changed to:',
-      selectedAccountName,
-    );
-  }, [selectedAccountName]);
-
   const handleStartScan = useCallback(async () => {
     if (selected === 'ledger') {
       try {
         setShowDeviceList(true);
         await scanForDevices();
-      } catch (err) {
-        console.log('Ledger start scan ERROR:', err);
-      }
+      } catch (err) {}
     }
   }, [selected, scanForDevices]);
 
@@ -105,9 +92,7 @@ const ImportHardwareWallet = () => {
           setSelectedAccountName(`k:${pk}`);
           setShowDeviceList(false);
         }
-      } catch (err) {
-        console.log('Ledger select device ERROR:', err);
-      }
+      } catch (err) {}
     },
     [connectToDevice, getPublicKey, stopScan],
   );
@@ -122,35 +107,15 @@ const ImportHardwareWallet = () => {
 
   const handleSpireKeyConnect = useCallback(async () => {
     try {
-      console.log(
-        '[ImportHardwareWallet] handleSpireKeyConnect - Starting connection',
-      );
       const acc = await connectAccount(getNetworkId(), '0');
-      console.log('[ImportHardwareWallet] connectAccount returned:', acc);
-      console.log('[ImportHardwareWallet] Account name:', acc?.accountName);
       if (acc?.accountName) {
-        console.log(
-          '[ImportHardwareWallet] Setting selectedAccountName to:',
-          acc.accountName,
-        );
         setSelectedAccountName(acc.accountName);
-
         const publicKey = acc?.devices?.[0]?.guard?.keys?.[0];
         if (publicKey) {
           setSpireKeyPublicKey(publicKey);
-        } else {
-          console.log(
-            '[ImportHardwareWallet] WARNING: No publicKey found in SpireKey account',
-          );
         }
-      } else {
-        console.log(
-          '[ImportHardwareWallet] WARNING: No accountName in returned account',
-        );
       }
-    } catch (err) {
-      console.log('[ImportHardwareWallet] handleSpireKeyConnect ERROR:', err);
-    }
+    } catch (err) {}
   }, [connectAccount, getNetworkId]);
 
   const handleImport = useCallback(() => {
