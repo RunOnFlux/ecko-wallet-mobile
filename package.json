@@ -1,6 +1,6 @@
 {
   "name": "ecko-wallet-mobile",
-  "version": "1.18.2",
+  "version": "1.18.3",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
