@@ -17,7 +17,6 @@ export NODE_OPTIONS=--max_old_space_size=8192
 echo ">>> INSTALLING HOMEBREW DEPENDENCIES"
 brew install rbenv ruby-build || true
 brew install node@22 || true
-brew install yarn || true
 
 echo ">>> SETUP NODE.JS"
 brew unlink node@22 2>/dev/null || true
@@ -43,7 +42,6 @@ export PATH="$(dirname "$NODE_BINARY"):$PATH"
 
 node -v
 npm -v
-yarn -v
 
 echo ">>> NODE_BINARY set to: $NODE_BINARY"
 
@@ -80,7 +78,7 @@ bundle -v
 
 echo ">>> INSTALLING NODE DEPENDENCIES"
 cd "$CI_WORKSPACE"
-yarn install --frozen-lockfile
+npm ci
 
 echo ">>> INSTALLING RUBY DEPENDENCIES"
 cd "$CI_WORKSPACE"
