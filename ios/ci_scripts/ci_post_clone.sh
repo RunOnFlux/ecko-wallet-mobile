@@ -4,8 +4,11 @@ set -e
 echo ">>> CI POST CLONE SCRIPT STARTED <<<"
 
 if [ -z "$CI_WORKSPACE" ]; then
-  echo "ERROR: CI_WORKSPACE is not set"
-  exit 1
+  SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+  export CI_WORKSPACE="$(cd "$SCRIPT_DIR/../.." && pwd)"
+  echo ">>> CI_WORKSPACE not set, derived from script location: $CI_WORKSPACE"
+else
+  echo ">>> CI_WORKSPACE already set: $CI_WORKSPACE"
 fi
 
 export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
