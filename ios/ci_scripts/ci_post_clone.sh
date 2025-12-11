@@ -78,7 +78,7 @@ bundle -v
 
 echo ">>> INSTALLING NODE DEPENDENCIES"
 cd "$CI_WORKSPACE"
-npm ci
+npm ci --ignore-scripts
 
 echo ">>> INSTALLING RUBY DEPENDENCIES"
 cd "$CI_WORKSPACE"
