@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Gunakan login passcode?",
       "usePasscodeMessage": "Apakah Anda ingin menggunakan passcode dan biometrik untuk mengakses eckoWALLET?",
       "failedTitle": "Gagal masuk",
+      "loginFailedTitle": "Gagal masuk",
+      "loginFailedMessage": "Kata sandi tidak valid. Silakan coba lagi.",
       "invalidPassword": "Kata sandi tidak valid",
       "errorMessage": "Terjadi kesalahan. Silakan coba lagi nanti."
     }

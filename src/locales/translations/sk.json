@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Prihlásiť sa pomocou kódu?",
       "usePasscodeMessage": "Chceš použiť kód a biometriku na prístup k eckoWALLET?",
       "failedTitle": "Prihlásenie zlyhalo",
+      "loginFailedTitle": "Prihlásenie zlyhalo",
+      "loginFailedMessage": "Neplatné heslo. Skús znova.",
       "invalidPassword": "Neplatné heslo",
       "errorMessage": "Niečo sa pokazilo. Skús znova neskôr."
     }

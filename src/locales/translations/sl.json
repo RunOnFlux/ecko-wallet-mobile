@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Prijava s PIN-om?",
       "usePasscodeMessage": "Želite uporabiti PIN in biometrične podatke?",
       "failedTitle": "Prijava ni uspela",
+      "loginFailedTitle": "Prijava ni uspela",
+      "loginFailedMessage": "Neveljavno geslo. Poskusite znova.",
       "invalidPassword": "Neveljavno geslo",
       "errorMessage": "Prišlo je do napake. Poskusite kasneje."
     }

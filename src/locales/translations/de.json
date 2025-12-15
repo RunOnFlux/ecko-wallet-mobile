@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Mit Passcode anmelden?",
       "usePasscodeMessage": "Passcode und Biometrie zur Anmeldung verwenden?",
       "failedTitle": "Anmeldung fehlgeschlagen",
+      "loginFailedTitle": "Anmeldung fehlgeschlagen",
+      "loginFailedMessage": "Ungültiges Passwort. Bitte erneut versuchen.",
       "invalidPassword": "Ungültiges Passwort",
       "errorMessage": "Etwas ist schiefgelaufen. Bitte später erneut versuchen."
     }

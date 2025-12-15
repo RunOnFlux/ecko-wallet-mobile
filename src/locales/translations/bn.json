@@ -468,6 +468,8 @@
       "usePasscodeTitle": "পাসকোড দিয়ে লগইন করবেন?",
       "usePasscodeMessage": "পাসকোড ও বায়োমেট্রিক ব্যবহার করতে চান?",
       "failedTitle": "লগইন ব্যর্থ",
+      "loginFailedTitle": "লগইন ব্যর্থ",
+      "loginFailedMessage": "অন বৈধ পাসওয়ার্ড। অনুগ্রহ করে আবার চেষ্টা করুন।",
       "invalidPassword": "অন বৈধ পাসওয়ার্ড",
       "errorMessage": "কিছু ভুল হয়েছে। পরে চেষ্টা করুন।"
     }

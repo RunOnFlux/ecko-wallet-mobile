@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Σύνδεση με κωδικό;",
       "usePasscodeMessage": "Να χρησιμοποιήσουμε κωδικό και βιομετρία;",
       "failedTitle": "Αποτυχία σύνδεσης",
+      "loginFailedTitle": "Αποτυχία σύνδεσης",
+      "loginFailedMessage": "Μη έγκυρος κωδικός. Παρακαλώ δοκιμάστε ξανά.",
       "invalidPassword": "Μη έγκυρος κωδικός",
       "errorMessage": "Κάτι πήγε στραβά. Δοκιμάστε αργότερα."
     }

@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Autentificare cu cod de acces?",
       "usePasscodeMessage": "Dorești să folosești cod de acces și biometric pentru a accesa eckoWALLET?",
       "failedTitle": "Autentificare eșuată",
+      "loginFailedTitle": "Autentificare eșuată",
+      "loginFailedMessage": "Parolă invalidă. Te rugăm să încerci din nou.",
       "invalidPassword": "Parolă invalidă",
       "errorMessage": "Ceva a mers prost. Te rugăm să încerci mai târziu."
     }

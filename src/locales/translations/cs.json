@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Použít přihlášení PINem?",
       "usePasscodeMessage": "Chcete používat PIN a biometriku pro přístup k eckoWALLET?",
       "failedTitle": "Přihlášení selhalo",
+      "loginFailedTitle": "Přihlášení selhalo",
+      "loginFailedMessage": "Neplatné heslo. Zkuste to prosím znovu.",
       "invalidPassword": "Neplatné heslo",
       "errorMessage": "Něco se pokazilo. Zkuste to prosím později."
     }

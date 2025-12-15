@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Bejelentkezés PIN-nel?",
       "usePasscodeMessage": "Szeretnéd PIN-nel és biometrikus azonosítással?",
       "failedTitle": "Bejelentkezés sikertelen",
+      "loginFailedTitle": "Bejelentkezés sikertelen",
+      "loginFailedMessage": "Érvénytelen jelszó. Kérjük, próbálja újra.",
       "invalidPassword": "Érvénytelen jelszó",
       "errorMessage": "Valami hiba történt. Próbáld később."
     }

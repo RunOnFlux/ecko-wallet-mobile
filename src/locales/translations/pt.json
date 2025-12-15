@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Usar login por PIN?",
       "usePasscodeMessage": "Deseja usar PIN e biometria?",
       "failedTitle": "Falha no login",
+      "loginFailedTitle": "Falha no login",
+      "loginFailedMessage": "Senha inválida. Por favor, tente novamente.",
       "invalidPassword": "Senha inválida",
       "errorMessage": "Algo deu errado. Tente novamente mais tarde."
     }

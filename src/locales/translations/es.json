@@ -495,6 +495,8 @@
       "usePasscodeTitle": "¿Usar inicio de sesión con PIN?",
       "usePasscodeMessage": "¿Te gustaría usar PIN y biometría para acceder a eckoWALLET?",
       "failedTitle": "Error al iniciar sesión",
+      "loginFailedTitle": "Error al iniciar sesión",
+      "loginFailedMessage": "Contraseña inválida. Por favor, inténtalo de nuevo.",
       "invalidPassword": "Contraseña inválida",
       "errorMessage": "Algo salió mal. Por favor, inténtalo más tarde."
     }

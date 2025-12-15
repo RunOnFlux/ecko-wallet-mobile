@@ -468,6 +468,8 @@
       "usePasscodeTitle": "암호로 로그인하시겠습니까?",
       "usePasscodeMessage": "암호 및 생체 인식을 사용하시겠습니까?",
       "failedTitle": "로그인 실패",
+      "loginFailedTitle": "로그인 실패",
+      "loginFailedMessage": "잘못된 비밀번호입니다. 다시 시도하세요.",
       "invalidPassword": "잘못된 비밀번호",
       "errorMessage": "문제가 발생했습니다. 나중에 다시 시도하세요."
     }

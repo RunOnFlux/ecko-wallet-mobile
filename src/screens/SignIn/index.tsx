@@ -18,7 +18,10 @@ import {createStyles} from './styles';
 import PasswordInput from '../../components/PasswordInput';
 import {signInPasswordSchema} from '../../validation/signInPasswordSchema';
 import {login} from '../../store/auth';
-import {makeSelectHashPassword} from '../../store/auth/selectors';
+import {
+  makeSelectHashPassword,
+  makeSelectHasBackedUpPhrase,
+} from '../../store/auth/selectors';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useNavigation} from '@react-navigation/native';
@@ -32,6 +35,7 @@ const SignIn = () => {
   const navigation = useNavigation<TNavigationProp<ERootStackRoutes.SignIn>>();
   const dispatch = useDispatch();
   const hash = useSelector(makeSelectHashPassword);
+  const hasBackedUpPhrase = useSelector(makeSelectHasBackedUpPhrase);
 
   const {
     control,
@@ -65,6 +69,24 @@ const SignIn = () => {
 
   const handlePressSignIn = useCallback(
     (data: FieldValues) => {
+      if (!hash) {
+        ReactNativeHapticFeedback.trigger('impactMedium');
+        Alert.alert(
+          t('signIn.alert.loginFailedTitle'),
+          t('signIn.alert.loginFailedMessage'),
+        );
+        return;
+      }
+
+      if (!hasBackedUpPhrase) {
+        ReactNativeHapticFeedback.trigger('impactMedium');
+        Alert.alert(
+          t('signIn.alert.loginFailedTitle'),
+          t('signIn.alert.loginFailedMessage'),
+        );
+        return;
+      }
+
       comparePassword({password: data.password || '', hash: hash || ''})
         .then(valid => {
           if (valid) {
@@ -85,7 +107,7 @@ const SignIn = () => {
           );
         });
     },
-    [hash, showSuccessAlert, t],
+    [hash, hasBackedUpPhrase, showSuccessAlert, t],
   );
 
   const scrollRef = useRef<ScrollView>(null);

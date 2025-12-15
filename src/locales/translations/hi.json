@@ -468,6 +468,8 @@
       "usePasscodeTitle": "पासकोड से लॉगिन करें?",
       "usePasscodeMessage": "पासकोड व बायोमेट्रिक इस्तेमाल करें?",
       "failedTitle": "लॉगिन विफल",
+      "loginFailedTitle": "लॉगिन विफल",
+      "loginFailedMessage": "अमान्य पासवर्ड। कृपया पुनः प्रयास करें।",
       "invalidPassword": "अमान्य पासवर्ड",
       "errorMessage": "कुछ गलत हुआ। बाद में प्रयास करें।"
     }

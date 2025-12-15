@@ -468,6 +468,8 @@
       "usePasscodeTitle": "使用通行碼登入？",
       "usePasscodeMessage": "是否使用通行碼及生物辨識？",
       "failedTitle": "登入失敗",
+      "loginFailedTitle": "登入失敗",
+      "loginFailedMessage": "密碼無效。請重試。",
       "invalidPassword": "密碼無效",
       "errorMessage": "發生錯誤。請稍後重試。"
     }

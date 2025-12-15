@@ -60,9 +60,14 @@ const Welcome = () => {
           isReset: false,
         },
       });
-    } else if (storedPasswordHash) {
+    } else if (storedPasswordHash && hasBackedUpPhrase) {
       navigation.navigate({
         name: ERootStackRoutes.SignIn,
+        params: undefined,
+      });
+    } else if (storedPasswordHash && !hasBackedUpPhrase) {
+      navigation.navigate({
+        name: ERootStackRoutes.SecretRecoveryPhraseTerm,
         params: undefined,
       });
     }
