@@ -60,18 +60,18 @@ const Welcome = () => {
           isReset: false,
         },
       });
-    } else if (storedPasswordHash && hasBackedUpPhrase) {
+    } else if (storedPasswordHash && (hasBackedUpPhrase || hasAccount)) {
       navigation.navigate({
         name: ERootStackRoutes.SignIn,
         params: undefined,
       });
-    } else if (storedPasswordHash && !hasBackedUpPhrase) {
+    } else if (storedPasswordHash && !hasBackedUpPhrase && !hasAccount) {
       navigation.navigate({
         name: ERootStackRoutes.SecretRecoveryPhraseTerm,
         params: undefined,
       });
     }
-  }, []);
+  }, [storedPinCode, storedPasswordHash, hasBackedUpPhrase, hasAccount, navigation]);
 
   const current = LANGUAGES.find(l => l.code === i18n.language) || LANGUAGES[0];
   const flag = emojiFlags.countryCode(current.countryCode)?.emoji || '';
@@ -101,7 +101,7 @@ const Welcome = () => {
             <ArrowDownSvg />
           </TouchableOpacity>
           <View style={styles.cards}>
-            {storedPasswordHash && hasBackedUpPhrase ? (
+            {storedPasswordHash && (hasBackedUpPhrase || hasAccount) ? (
               <Card
                 title={t('welcome.loginCard.title')}
                 description={t('welcome.loginCard.description')}

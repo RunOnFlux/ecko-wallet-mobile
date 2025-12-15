@@ -11,7 +11,7 @@ import {
   REGISTER,
   createMigrate,
 } from 'redux-persist';
-import { MMKV } from 'react-native-mmkv';
+import { createMMKV, MMKV } from 'react-native-mmkv';
 import auth from './auth';
 import userWallet from './userWallet';
 import contacts from './contacts';
@@ -22,12 +22,12 @@ import analytics from './analytics';
 import { Storage } from 'redux-persist/es/types';
 import { migrateWallets } from './userWallet/const';
 
-const plainStorage = new MMKV();
-const userStorage = new MMKV({
+const plainStorage = createMMKV();
+const userStorage = createMMKV({
   id: 'user-storage',
   encryptionKey: ENCRYPTION_KEY,
 });
-const authStorage = new MMKV({
+const authStorage = createMMKV({
   id: 'auth-storage',
   encryptionKey: ENCRYPTION_KEY,
 });
@@ -61,18 +61,18 @@ const MMKVStorage = (storage: MMKV) =>
       const plainStorageValue = plainStorage.getString(key);
       if (plainStorageValue && secureStorageValue !== plainStorageValue) {
         storage.set(key, plainStorageValue);
-        plainStorage.delete(key);
+        plainStorage.remove(key);
         return Promise.resolve(plainStorageValue);
       } else if (
         plainStorageValue &&
         secureStorageValue === plainStorageValue
       ) {
-        plainStorage.delete(key);
+        plainStorage.remove(key);
       }
       return Promise.resolve(secureStorageValue);
     },
     removeItem: async key => {
-      storage.delete(key);
+      storage.remove(key);
       return Promise.resolve();
     },
   }) as Storage;

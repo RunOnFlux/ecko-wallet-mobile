@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import {MMKV} from 'react-native-mmkv';
+import {createMMKV} from 'react-native-mmkv';
 import {useSelector} from 'react-redux';
 import {makeSelectSelectedAccount} from '../../store/userWallet/selectors';
 
@@ -31,7 +31,7 @@ const initialNetworkGasData = {
   lowestGasPrice: 0,
 };
 
-const storage = new MMKV({id: 'pact-storage'});
+const storage = createMMKV({id: 'pact-storage'});
 
 export const PactProvider: FC = ({children}) => {
   const selectedAccount = useSelector(makeSelectSelectedAccount);

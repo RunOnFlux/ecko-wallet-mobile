@@ -22,6 +22,7 @@ import {
   makeSelectHashPassword,
   makeSelectHasBackedUpPhrase,
 } from '../../store/auth/selectors';
+import {makeSelectHasAccount} from '../../store/userWallet/selectors';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useNavigation} from '@react-navigation/native';
@@ -36,6 +37,7 @@ const SignIn = () => {
   const dispatch = useDispatch();
   const hash = useSelector(makeSelectHashPassword);
   const hasBackedUpPhrase = useSelector(makeSelectHasBackedUpPhrase);
+  const hasAccount = useSelector(makeSelectHasAccount);
 
   const {
     control,
@@ -78,7 +80,7 @@ const SignIn = () => {
         return;
       }
 
-      if (!hasBackedUpPhrase) {
+      if (!hasBackedUpPhrase && !hasAccount) {
         ReactNativeHapticFeedback.trigger('impactMedium');
         Alert.alert(
           t('signIn.alert.loginFailedTitle'),
@@ -107,7 +109,7 @@ const SignIn = () => {
           );
         });
     },
-    [hash, hasBackedUpPhrase, showSuccessAlert, t],
+    [hash, hasBackedUpPhrase, hasAccount, showSuccessAlert, t],
   );
 
   const scrollRef = useRef<ScrollView>(null);
