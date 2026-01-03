@@ -468,6 +468,8 @@
       "usePasscodeTitle": "使用通行码登录？",
       "usePasscodeMessage": "是否使用通行码和生物识别登录？",
       "failedTitle": "登录失败",
+      "loginFailedTitle": "登录失败",
+      "loginFailedMessage": "密码无效。请重试。",
       "invalidPassword": "密码无效",
       "errorMessage": "发生错误。请稍后再试。"
     }
@@ -607,7 +609,7 @@
     "Swap": "兑换",
     "History": "历史",
     "Connection": "连接",
-    "Settings": "设置",
+    "Settings": "MENU",
     "history": {
       "activities": "活动",
       "pending": "待定"

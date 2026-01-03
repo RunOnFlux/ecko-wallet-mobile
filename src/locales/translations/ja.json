@@ -468,6 +468,8 @@
       "usePasscodeTitle": "パスコードでサインインしますか？",
       "usePasscodeMessage": "パスコードと生体認証を使用しますか？",
       "failedTitle": "ログインに失敗しました",
+      "loginFailedTitle": "ログインに失敗しました",
+      "loginFailedMessage": "無効なパスワードです。もう一度お試しください。",
       "invalidPassword": "無効なパスワード",
       "errorMessage": "エラーが発生しました。後で再試行してください。"
     }
@@ -607,7 +609,7 @@
     "Swap": "スワップ",
     "History": "履歴",
     "Connection": "接続",
-    "Settings": "設定",
+    "Settings": "MENU",
     "history": {
       "activities": "アクティビティ",
       "pending": "保留中"

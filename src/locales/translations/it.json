@@ -503,6 +503,8 @@
       "usePasscodeTitle": "Usare il passcode per accedere?",
       "usePasscodeMessage": "Vuoi usare passcode e biometria per accedere a eckoWALLET?",
       "failedTitle": "Accesso fallito",
+      "loginFailedTitle": "Accesso fallito",
+      "loginFailedMessage": "Password non valida. Riprova.",
       "invalidPassword": "Password non valida",
       "errorMessage": "Qualcosa è andato storto. Riprova più tardi."
     }
@@ -674,7 +676,7 @@
     "Swap": "Converti",
     "History": "Cronologia",
     "Connection": "Connessioni",
-    "Settings": "Impostazioni",
+    "Settings": "MENU",
     "history": {
       "activities": "Attività",
       "pending": "In sospeso"

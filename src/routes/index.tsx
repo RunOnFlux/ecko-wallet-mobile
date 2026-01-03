@@ -4,6 +4,8 @@ import { EHomeTabRoutes, ERootStackRoutes } from './types';
 import LogoGraySvg from '../assets/images/logo-gray.svg';
 import LogoSvg from '../assets/images/logo.svg';
 import SwapSvg from '../assets/images/swap.svg';
+import AnalyticsSvg from '../assets/images/ic_analytics.svg';
+import MenuSvg from '../assets/images/ic_menu.svg';
 import History from '../screens/History';
 import ConnectionSvg from '../assets/images/connect.svg';
 import BasicSettingsSvg from '../assets/images/basic-settins.svg';
@@ -173,10 +175,10 @@ export const HOME_TAB_SCREENS = [
     },
   },
   {
-    name: EHomeTabRoutes.Analytics,
-    component: Analytics,
+    name: EHomeTabRoutes.Swap,
+    component: Swap,
     options: {
-      tabBarLabel: 'Analytics',
+      tabBarLabel: 'Convert',
       tabBarActiveTintColor: '#404A8D',
       tabBarInactiveTintColor: '#787B8E',
       tabBarIcon: ({ focused }: any) => {
@@ -191,15 +193,15 @@ export const HOME_TAB_SCREENS = [
     },
   },
   {
-    name: EHomeTabRoutes.Swap,
-    component: Swap,
+    name: EHomeTabRoutes.Analytics,
+    component: Analytics,
     options: {
-      tabBarLabel: 'Convert',
+      tabBarLabel: 'Analytics',
       tabBarActiveTintColor: '#404A8D',
       tabBarInactiveTintColor: '#787B8E',
       tabBarIcon: ({ focused }: any) => {
         return (
-          <SwapSvg
+          <AnalyticsSvg
             fill={focused ? '#404A8D' : '#787B8E'}
             width={24}
             height={24}
@@ -230,12 +232,12 @@ export const HOME_TAB_SCREENS = [
     name: EHomeTabRoutes.Settings,
     component: Settings,
     options: {
-      tabBarLabel: 'Settings',
+      tabBarLabel: 'MENU',
       tabBarActiveTintColor: '#404A8D',
       tabBarInactiveTintColor: '#787B8E',
       tabBarIcon: ({ focused }: any) => {
         return (
-          <BasicSettingsSvg
+          <MenuSvg
             fill={focused ? '#404A8D' : '#787B8E'}
             width={24}
             height={24}

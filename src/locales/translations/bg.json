@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Вход с ПИН?",
       "usePasscodeMessage": "Използвай ПИН и биометрия?",
       "failedTitle": "Неуспешен вход",
+      "loginFailedTitle": "Неуспешен вход",
+      "loginFailedMessage": "Невалидна парола. Моля, опитайте отново.",
       "invalidPassword": "Невалидна парола",
       "errorMessage": "Грешка. Опитайте пак."
     }
@@ -607,7 +609,7 @@
     "Swap": "Обмен",
     "History": "История",
     "Connection": "Връзки",
-    "Settings": "Настройки",
+    "Settings": "MENU",
     "history": {
       "activities": "Дейности",
       "pending": "В очакване"

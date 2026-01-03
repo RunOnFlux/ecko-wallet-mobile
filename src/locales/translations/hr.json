@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Prijava PIN-om?",
       "usePasscodeMessage": "Želite li koristiti PIN i biometriju?",
       "failedTitle": "Prijava nije uspjela",
+      "loginFailedTitle": "Prijava nije uspjela",
+      "loginFailedMessage": "Nevažeća lozinka. Molimo pokušajte ponovno.",
       "invalidPassword": "Nevažeća lozinka",
       "errorMessage": "Došlo je do pogreške. Pokušajte kasnije."
     }
@@ -607,7 +609,7 @@
     "Swap": "Zamijeni",
     "History": "Povijest",
     "Connection": "Veze",
-    "Settings": "Postavke",
+    "Settings": "MENU",
     "history": {
       "activities": "Aktivnosti",
       "pending": "Na čekanju"

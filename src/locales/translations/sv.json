@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Logga in med kod?",
       "usePasscodeMessage": "Vill du använda kod och biometriskt för att öppna eckoWALLET?",
       "failedTitle": "Inloggning misslyckades",
+      "loginFailedTitle": "Inloggning misslyckades",
+      "loginFailedMessage": "Ogiltigt lösenord. Försök igen.",
       "invalidPassword": "Ogiltigt lösenord",
       "errorMessage": "Något gick fel. Försök igen senare."
     }
@@ -607,7 +609,7 @@
     "Swap": "Växla",
     "History": "Historik",
     "Connection": "Anslutningar",
-    "Settings": "Inställningar",
+    "Settings": "MENU",
     "history": {
       "activities": "Aktiviteter",
       "pending": "Väntande"

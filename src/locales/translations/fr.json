@@ -495,6 +495,8 @@
       "usePasscodeTitle": "Utiliser le code pour se connecter ?",
       "usePasscodeMessage": "Voulez-vous utiliser code et biométrie ?",
       "failedTitle": "Échec de la connexion",
+      "loginFailedTitle": "Échec de la connexion",
+      "loginFailedMessage": "Mot de passe invalide. Veuillez réessayer.",
       "invalidPassword": "Mot de passe invalide",
       "errorMessage": "Une erreur est survenue. Veuillez réessayer plus tard."
     }
@@ -635,7 +637,7 @@
     "Swap": "Échanger",
     "History": "Historique",
     "Connection": "Connexions",
-    "Settings": "Paramètres",
+    "Settings": "MENU",
     "history": {
       "activities": "Activités",
       "pending": "En attente"

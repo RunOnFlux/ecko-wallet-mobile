@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Увійти за PIN?",
       "usePasscodeMessage": "Використати PIN і біометрію?",
       "failedTitle": "Не вдалося увійти",
+      "loginFailedTitle": "Не вдалося увійти",
+      "loginFailedMessage": "Неправильний пароль. Спробуйте ще раз.",
       "invalidPassword": "Неправильний пароль",
       "errorMessage": "Сталася помилка. Спробуйте пізніше."
     }
@@ -607,7 +609,7 @@
     "Swap": "Обмін",
     "History": "Історія",
     "Connection": "Підключення",
-    "Settings": "Налаштування",
+    "Settings": "MENU",
     "history": {
       "activities": "Активність",
       "pending": "В очікуванні"

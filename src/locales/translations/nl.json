@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Inloggen met toegangscode?",
       "usePasscodeMessage": "Wil je toegangscode en biometrie gebruiken om eckoWALLET te openen?",
       "failedTitle": "Inloggen mislukt",
+      "loginFailedTitle": "Inloggen mislukt",
+      "loginFailedMessage": "Ongeldig wachtwoord. Probeer het opnieuw.",
       "invalidPassword": "Ongeldig wachtwoord",
       "errorMessage": "Er is iets misgegaan. Probeer het later nogmaals."
     }
@@ -607,7 +609,7 @@
     "Swap": "Ruilen",
     "History": "Geschiedenis",
     "Connection": "Connecties",
-    "Settings": "Instellingen",
+    "Settings": "MENU",
     "history": {
       "activities": "Activiteiten",
       "pending": "In afwachting"

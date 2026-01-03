@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Iniciar sessió amb codi d'accés?",
       "usePasscodeMessage": "Vols utilitzar codi d'accés i biometria per accedir a eckoWALLET?",
       "failedTitle": "Error d'inici de sessió",
+      "loginFailedTitle": "Error d'inici de sessió",
+      "loginFailedMessage": "Contrasenya no vàlida. Si us plau, torna-ho a provar.",
       "invalidPassword": "Contrasenya no vàlida",
       "errorMessage": "S'ha produït un error. Torna-ho a provar més tard."
     }
@@ -607,7 +609,7 @@
     "Swap": "Intercanvi",
     "History": "Historial",
     "Connection": "Connexions",
-    "Settings": "Configuració",
+    "Settings": "MENU",
     "history": {
       "activities": "Activitats",
       "pending": "Pendent"

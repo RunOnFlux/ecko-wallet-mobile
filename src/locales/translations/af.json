@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Gebruik toegangskode om aan te meld?",
       "usePasscodeMessage": "Wil jy toegangskode en biometrie gebruik om eckoWALLET te bereik?",
       "failedTitle": "Kon nie aanmeld nie",
+      "loginFailedTitle": "Kon nie aanmeld nie",
+      "loginFailedMessage": "Ongeldige wagwoord. Probeer asseblief weer.",
       "invalidPassword": "Ongeldige wagwoord",
       "errorMessage": "Iets het verkeerd geloop. Probeer asseblief later weer."
     }
@@ -607,7 +609,7 @@
     "Swap": "Ruil",
     "History": "Geskiedenis",
     "Connection": "Verbindings",
-    "Settings": "Instellings",
+    "Settings": "MENU",
     "history": {
       "activities": "Aktiwiteite",
       "pending": "Hangend"

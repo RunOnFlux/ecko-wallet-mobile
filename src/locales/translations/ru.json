@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Войти по PIN?",
       "usePasscodeMessage": "Использовать PIN и биометрию для доступа?",
       "failedTitle": "Ошибка входа",
+      "loginFailedTitle": "Ошибка входа",
+      "loginFailedMessage": "Неверный пароль. Попробуйте снова.",
       "invalidPassword": "Неверный пароль",
       "errorMessage": "Что-то пошло не так. Попробуйте позже."
     }
@@ -607,7 +609,7 @@
     "Swap": "Обмен",
     "History": "История",
     "Connection": "Подключения",
-    "Settings": "Настройки",
+    "Settings": "MENU",
     "history": {
       "activities": "Действия",
       "pending": "В ожидании"

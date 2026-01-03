@@ -515,6 +515,8 @@
       "usePasscodeTitle": "Use passcode Login to sign in?",
       "usePasscodeMessage": "Would you like to use passcode and biometrics to access eckoWALLET?",
       "failedTitle": "Failed to login",
+      "loginFailedTitle": "Login Failed",
+      "loginFailedMessage": "Invalid password. Please try again.",
       "invalidPassword": "Invalid password",
       "errorMessage": "Something went wrong. Please try again later."
     }
@@ -687,7 +689,7 @@
     "History": "History",
     "Analytics": "Analytics",
     "Connection": "Connection",
-    "Settings": "Settings",
+    "Settings": "MENU",
     "history": {
       "activities": "Activities",
       "pending": "Pending"

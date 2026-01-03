@@ -1,15 +1,15 @@
 import {useCallback, useEffect, useState} from 'react';
-import {MMKV} from 'react-native-mmkv';
+import {createMMKV} from 'react-native-mmkv';
 import {ENCRYPTION_KEY} from '@env';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const valueStorage = new MMKV({id: 'app-value-storage'});
-const plainStorage = new MMKV();
-const userStorage = new MMKV({
+const valueStorage = createMMKV({id: 'app-value-storage'});
+const plainStorage = createMMKV();
+const userStorage = createMMKV({
   id: 'user-storage',
   encryptionKey: ENCRYPTION_KEY,
 });
-const authStorage = new MMKV({
+const authStorage = createMMKV({
   id: 'auth-storage',
   encryptionKey: ENCRYPTION_KEY,
 });

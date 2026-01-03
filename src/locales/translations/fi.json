@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Kirjaudu PINillä?",
       "usePasscodeMessage": "Haluatko käyttää PINiä ja biometriaa?",
       "failedTitle": "Kirjautuminen epäonnistui",
+      "loginFailedTitle": "Kirjautuminen epäonnistui",
+      "loginFailedMessage": "Virheellinen salasana. Yritä uudelleen.",
       "invalidPassword": "Virheellinen salasana",
       "errorMessage": "Jokin meni pieleen. Yritä myöhemmin."
     }
@@ -607,7 +609,7 @@
     "Swap": "Vaihda",
     "History": "Historia",
     "Connection": "Yhteydet",
-    "Settings": "Asetukset",
+    "Settings": "MENU",
     "history": {
       "activities": "Toiminnot",
       "pending": "Odottaa"

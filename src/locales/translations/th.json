@@ -468,6 +468,8 @@
       "usePasscodeTitle": "ใช้การล็อกอินด้วย PIN?",
       "usePasscodeMessage": "ต้องการใช้ PIN และไบโอเมตริกซ์เพื่อเข้าถึงไหม?",
       "failedTitle": "เข้าสู่ระบบไม่สำเร็จ",
+      "loginFailedTitle": "เข้าสู่ระบบไม่สำเร็จ",
+      "loginFailedMessage": "รหัสผ่านไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง",
       "invalidPassword": "รหัสผ่านไม่ถูกต้อง",
       "errorMessage": "มีข้อผิดพลาด กรุณาลองใหม่ภายหลัง"
     }
@@ -607,7 +609,7 @@
     "Swap": "สว็อป",
     "History": "ประวัติ",
     "Connection": "การเชื่อมต่อ",
-    "Settings": "การตั้งค่า",
+    "Settings": "MENU",
     "history": {
       "activities": "กิจกรรม",
       "pending": "รอดำเนินการ"

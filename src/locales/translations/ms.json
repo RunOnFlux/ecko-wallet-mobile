@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Log masuk dengan PIN?",
       "usePasscodeMessage": "Mahukah anda gunakan PIN dan biometrik untuk akses?",
       "failedTitle": "Gagal log masuk",
+      "loginFailedTitle": "Gagal log masuk",
+      "loginFailedMessage": "Kata laluan tidak sah. Sila cuba lagi.",
       "invalidPassword": "Kata laluan tidak sah",
       "errorMessage": "Ralat berlaku. Sila cuba lagi kemudian."
     }
@@ -607,7 +609,7 @@
     "Swap": "Tukar",
     "History": "Sejarah",
     "Connection": "Sambungan",
-    "Settings": "Tetapan",
+    "Settings": "MENU",
     "history": {
       "activities": "Aktiviti",
       "pending": "Tertunda"

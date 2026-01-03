@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Passcode மூலம் உள்நுழைவு?",
       "usePasscodeMessage": "Passcode மற்றும் பயோமெட்ரிக் பயன்படுத்த வேண்டுமா?",
       "failedTitle": "உள்நுழைவு தோல்வி",
+      "loginFailedTitle": "உள்நுழைவு தோல்வி",
+      "loginFailedMessage": "தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.",
       "invalidPassword": "தவறான கடவுச்சொல்",
       "errorMessage": "சில பிழை. பின்னர் முயற்சிக்கவும்."
     }
@@ -607,7 +609,7 @@
     "Swap": "மாற்றம்",
     "History": "வரலாறு",
     "Connection": "இணைப்புகள்",
-    "Settings": "அமைப்புகள்",
+    "Settings": "MENU",
     "history": {
       "activities": "செயற்பாடுகள்",
       "pending": "நிலுவையில் உள்ளது"

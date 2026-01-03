@@ -468,6 +468,8 @@
       "usePasscodeTitle": "Logowanie przy użyciu kodu dostępu?",
       "usePasscodeMessage": "Czy chcesz używać kodu dostępu i biometrii do dostępu do eckoWALLET?",
       "failedTitle": "Logowanie nie powiodło się",
+      "loginFailedTitle": "Logowanie nie powiodło się",
+      "loginFailedMessage": "Nieprawidłowe hasło. Spróbuj ponownie.",
       "invalidPassword": "Nieprawidłowe hasło",
       "errorMessage": "Coś poszło nie tak. Spróbuj ponownie później."
     }
@@ -607,7 +609,7 @@
     "Swap": "Zamiana",
     "History": "Historia",
     "Connection": "Połączenia",
-    "Settings": "Ustawienia",
+    "Settings": "MENU",
     "history": {
       "activities": "Aktywności",
       "pending": "Oczekujące"
