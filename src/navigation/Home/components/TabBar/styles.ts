@@ -29,9 +29,6 @@ export const makeStyles = (
       borderTopWidth: 2,
       marginTop: -2,
     },
-    disabledTab: {
-      opacity: 0.5,
-    },
     label: {
       color: theme.text.secondary,
       fontFamily: BOLD_MONTSERRAT,

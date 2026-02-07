@@ -403,6 +403,10 @@
         "title": "Sítě",
         "text": "Přidat nebo upravit vlastní RPC sítě"
       },
+      "connection": {
+        "title": "Připojení",
+        "text": "Spravovat relace WalletConnect"
+      },
       "walletConnect": {
         "title": "WalletConnect",
         "text": "Upravit konfiguraci WalletConnect"
@@ -436,6 +440,23 @@
       "termsOfUse": "Podmínky použití",
       "privacyPolicy": "Zásady ochrany osobních údajů"
     }
+  },
+  "nft": {
+    "header": "NFT",
+    "noOwned": "Nevlastníte žádné NFT",
+    "noOwnedCollection": "Nevlastníte žádné NFT {{name}}",
+    "detailsTitle": "Detaily NFT",
+    "fullDetails": "Podrobnosti",
+    "name": "Název",
+    "description": "Popis",
+    "properties": "Vlastnosti",
+    "metadata": "NFT metadata",
+    "level": "Úroveň",
+    "element": "Element",
+    "spell": "Kouzlo",
+    "weakness": "Slabina",
+    "foundersPassTitle": "Founder’s Pass #{{id}}",
+    "foundersPassDescription": "Každý Founder’s Pass přináší hlavní výhody. Držitelé dvou passů v den mintu kolekce Miner získají jeden mint zdarma (v hodnotě 300 USD). Každý pass začíná s 0,5 mintu zdarma a po využití klesne zdarma mint na 0. Každý pass také opravňuje k jednomu bezplatnému upgradu do Technology Lab, až bude dostupné. Kadena Mining Club použije immersní chlazení u části ASIC; upgrade se vztahuje na jeden Miner NFT. Držitelé dvou passů mohou navíc získat bezplatné nebo zlevněné minty z budoucích kolekcí."
   },
   "settingsSubPage": {
     "header": {
@@ -608,6 +629,7 @@
     "Wallet": "Peněženka",
     "Swap": "Výměna",
     "History": "Historie",
+    "Nft": "NFT",
     "Connection": "Připojení",
     "Settings": "MENU",
     "history": {
