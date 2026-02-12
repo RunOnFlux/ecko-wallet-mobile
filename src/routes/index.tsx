@@ -6,8 +6,8 @@ import LogoSvg from '../assets/images/logo.svg';
 import SwapSvg from '../assets/images/swap.svg';
 import AnalyticsSvg from '../assets/images/ic_analytics.svg';
 import MenuSvg from '../assets/images/ic_menu.svg';
+import NftSvg from '../assets/images/nft-icon.svg';
 import History from '../screens/History';
-import ConnectionSvg from '../assets/images/connect.svg';
 import BasicSettingsSvg from '../assets/images/basic-settins.svg';
 import Login from '../screens/Login';
 import Registration from '../screens/Registration';
@@ -42,6 +42,10 @@ import ChangeAccountPassword from '../screens/ChangeAccountPassword';
 import ReceiverScan from '../screens/ReceiverScan';
 import BuyScreen from '../screens/Buy';
 import Analytics from '../screens/Analytics';
+import Nft from '../screens/Nft';
+import NftCategoryDetails from '../screens/Nft/CategoryDetails';
+import NftItemDetails from '../screens/Nft/ItemDetails';
+import MarmaladeNGCollectionDetails from '../screens/Nft/marmalade-ng/CollectionDetails';
 
 export const AUTH_STACK_SCREENS = [
   { name: ERootStackRoutes.Welcome, component: Welcome },
@@ -71,6 +75,10 @@ export const APP_STACK_SCREENS = [
   {
     name: ERootStackRoutes.Networks,
     component: Networks,
+  },
+  {
+    name: ERootStackRoutes.Connection,
+    component: Connection,
   },
   {
     name: ERootStackRoutes.Send,
@@ -153,6 +161,18 @@ export const APP_STACK_SCREENS = [
     component: SettingsSubPage,
   },
   {
+    name: ERootStackRoutes.NftCategoryDetails,
+    component: NftCategoryDetails,
+  },
+  {
+    name: ERootStackRoutes.NftItemDetails,
+    component: NftItemDetails,
+  },
+  {
+    name: ERootStackRoutes.NftMarmaladeNGDetails,
+    component: MarmaladeNGCollectionDetails,
+  },
+  {
     name: ERootStackRoutes.ReceiverScan,
     component: ReceiverScan,
   },
@@ -211,15 +231,15 @@ export const HOME_TAB_SCREENS = [
     },
   },
   {
-    name: EHomeTabRoutes.Connection,
-    component: Connection,
+    name: EHomeTabRoutes.Nft,
+    component: Nft,
     options: {
-      tabBarLabel: 'Connections',
+      tabBarLabel: 'NFT',
       tabBarActiveTintColor: '#404A8D',
       tabBarInactiveTintColor: '#787B8E',
       tabBarIcon: ({ focused }: any) => {
         return (
-          <ConnectionSvg
+          <NftSvg
             fill={focused ? '#404A8D' : '#787B8E'}
             width={24}
             height={24}

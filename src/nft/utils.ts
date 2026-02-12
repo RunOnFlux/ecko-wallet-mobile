@@ -1,0 +1,9 @@
+export const idToPascalCase = (value?: string | null) => {
+  if (!value) return '';
+  return value
+    .replace(/^c_/, '')
+    .split(/[_\-\s]+/g)
+    .filter(Boolean)
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join(' ');
+};

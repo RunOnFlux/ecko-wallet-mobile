@@ -430,6 +430,10 @@
         "title": "Redes",
         "text": "Agregar o editar redes RPC personalizadas"
       },
+      "connection": {
+        "title": "Conexiones",
+        "text": "Gestionar sesiones de WalletConnect"
+      },
       "walletConnect": {
         "title": "WalletConnect",
         "text": "Editar configuración de WalletConnect"
@@ -463,6 +467,23 @@
       "termsOfUse": "Términos de uso",
       "privacyPolicy": "Política de privacidad"
     }
+  },
+  "nft": {
+    "header": "NFT",
+    "noOwned": "No tienes NFT",
+    "noOwnedCollection": "No tienes NFT de {{name}}",
+    "detailsTitle": "Detalles de NFT",
+    "fullDetails": "Detalles completos",
+    "name": "Nombre",
+    "description": "Descripción",
+    "properties": "Propiedades",
+    "metadata": "Metadatos NFT",
+    "level": "Nivel",
+    "element": "Elemento",
+    "spell": "Hechizo",
+    "weakness": "Debilidad",
+    "foundersPassTitle": "Founder’s Pass #{{id}}",
+    "foundersPassDescription": "Cada Founder’s Pass ofrece beneficios principales. Quienes tengan dos pases en la fecha de mint de la colección Miner reciben un mint gratuito (valor $300). Cada pase comienza con 0,5 mint gratis y, una vez usado, el mint gratuito baja a 0. Cada pase también da derecho a un upgrade gratuito al Technology Lab cuando esté disponible. Kadena Mining Club usará inmersión en algunos ASIC; el upgrade se aplica a un Miner NFT. Por último, quienes tengan dos pases podrán recibir mints gratuitos o con descuento en futuras colecciones."
   },
   "settingsSubPage": {
     "header": {
@@ -636,6 +657,7 @@
     "Wallet": "Cartera",
     "Swap": "Intercambiar",
     "History": "Historial",
+    "Nft": "NFT",
     "Connection": "Conexiones",
     "Settings": "MENU",
     "history": {

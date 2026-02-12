@@ -11,6 +11,7 @@ import NetworksSvg from '../../assets/images/networks.svg';
 import WalletConnectSvg from '../../assets/images/WalletConnect-icon.svg';
 import FlagSVG from '../../assets/images/white-flag.svg';
 import ShieldLockSvg from '../../assets/images/shield-lock.svg';
+import ConnectionSvg from '../../assets/images/connect.svg';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import {makeStyles} from './styles';
 import {deleteAccount, logout} from '../../store/auth/actions';
@@ -54,6 +55,13 @@ const Settings = () => {
   const handlePressWalletConnect = useCallback(() => {
     navigation.navigate({
       name: ERootStackRoutes.WalletConnectSettings,
+      params: undefined,
+    });
+  }, [navigation]);
+
+  const handlePressConnection = useCallback(() => {
+    navigation.navigate({
+      name: ERootStackRoutes.Connection,
       params: undefined,
     });
   }, [navigation]);
@@ -116,6 +124,13 @@ const Settings = () => {
           text={t('settings.cards.networks.text')}
           icon={<NetworksSvg width={24} height={24} fill="white" />}
           onPress={handlePressNetworks}
+        />
+
+        <Card
+          title={t('settings.cards.connection.title')}
+          text={t('settings.cards.connection.text')}
+          icon={<ConnectionSvg width={24} height={24} fill="white" />}
+          onPress={handlePressConnection}
         />
         <Card
           title={t('common.selectLanguage')}

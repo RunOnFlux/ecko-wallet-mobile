@@ -8,6 +8,7 @@ export enum ERootStackRoutes {
   Home = 'Home',
   NoConnection = 'NoConnection',
   Networks = 'Networks',
+  Connection = 'Connection',
   WalletConnectSettings = 'WalletConnectSettings',
   Welcome = 'Welcome',
   Registration = 'Registration',
@@ -38,12 +39,14 @@ export enum ERootStackRoutes {
   ChangeAccountPassword = 'ChangeAccountPassword',
   SettingsSubPage = 'SettingsSubPage',
   ImportHardwareWallet = 'ImportHardwareWallet',
+  NftCategoryDetails = 'NftCategoryDetails',
+  NftItemDetails = 'NftItemDetails',
+  NftMarmaladeNGDetails = 'NftMarmaladeNGDetails',
 }
 
 export enum EHomeTabRoutes {
   Wallet = 'Wallet',
   Analytics = 'Analytics',
-  Connection = 'Connection',
   Nft = 'Nft',
   Settings = 'Settings',
   Swap = 'Swap',
@@ -54,13 +57,13 @@ export type THomeTabParamList = {
   [EHomeTabRoutes.Nft]: undefined;
   [EHomeTabRoutes.Analytics]: undefined;
   [EHomeTabRoutes.Settings]: undefined;
-  [EHomeTabRoutes.Connection]: undefined;
 };
 
 export type TRootStackParamList = {
   [ERootStackRoutes.Home]: NavigatorScreenParams<THomeTabParamList>;
   [ERootStackRoutes.NoConnection]: undefined;
   [ERootStackRoutes.Networks]: undefined;
+  [ERootStackRoutes.Connection]: undefined;
   [ERootStackRoutes.WalletConnectSettings]: undefined;
   [ERootStackRoutes.Welcome]: undefined;
   [ERootStackRoutes.Registration]: undefined;
@@ -93,6 +96,13 @@ export type TRootStackParamList = {
   [ERootStackRoutes.SettingsSubPage]: undefined;
   [ERootStackRoutes.ChangeAccountPassword]: undefined;
   [ERootStackRoutes.ImportHardwareWallet]: undefined;
+  [ERootStackRoutes.NftCategoryDetails]: {category: string};
+  [ERootStackRoutes.NftItemDetails]: any;
+  [ERootStackRoutes.NftMarmaladeNGDetails]: {
+    id: string;
+    name: string;
+    chainId: string | number;
+  };
 };
 
 export type TNavigationProp<RouteName extends keyof TRootStackParamList> =
