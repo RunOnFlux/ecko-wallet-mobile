@@ -1,5 +1,5 @@
 import React, {useCallback, useMemo, useState} from 'react';
-import {View, Alert, Image, ScrollView, TouchableOpacity} from 'react-native';
+import {View, Alert, Image, Linking, ScrollView} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useDispatch} from 'react-redux';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
@@ -20,6 +20,7 @@ import LanguageSelectorModal from '../../components/LanguageSelectorModal';
 import ThemeSelectorModal from '../../components/ThemeSelectorModal';
 import {useAppThemeContext} from '../../contexts';
 import {AppDispatch} from '../../store/store';
+import {CUMULUSVPN_STORE_URL} from '../../constants';
 
 const Settings = () => {
   const {t} = useTranslation();
@@ -105,6 +106,10 @@ const Settings = () => {
     });
   }, [navigation]);
 
+  const handlePressCumulusVpn = useCallback(() => {
+    Linking.openURL(CUMULUSVPN_STORE_URL);
+  }, []);
+
   return (
     <View style={styles.container}>
       <ScrollView
@@ -158,6 +163,19 @@ const Settings = () => {
           text={t('settings.cards.accountSecurity.text')}
           icon={<ShieldLockSvg width={24} height={24} fill="white" />}
           onPress={handlePressAccountSecurity}
+        />
+
+        <Card
+          title={t('settings.cards.cumulusVpn.title')}
+          text={t('settings.cards.cumulusVpn.text')}
+          icon={
+            <Image
+              source={require('../../assets/images/cumulusvpn-icon.png')}
+              style={styles.cumulusVpnIcon}
+            />
+          }
+          iconWrapperStyle={styles.cumulusVpnIconWrapper}
+          onPress={handlePressCumulusVpn}
         />
 
         <Card

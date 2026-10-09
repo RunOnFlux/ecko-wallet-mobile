@@ -449,6 +449,10 @@
       "deleteAccount": {
         "title": "Supprimer le compte",
         "text": "Toutes les données du compte seront supprimées"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN : VPN privé",
+        "text": "VPN décentralisé sur Flux. Sans compte ni journaux. Gratuit, ou pleine vitesse pour $0.99/mois."
       }
     },
     "alert": {

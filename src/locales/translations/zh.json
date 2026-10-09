@@ -418,6 +418,10 @@
       "deleteAccount": {
         "title": "删除账户",
         "text": "所有数据将被删除"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN：私密 VPN",
+        "text": "基于 Flux 的去中心化 VPN。无需账户，不记录日志。免费使用，或以每月 $0.99 享受全速。"
       }
     },
     "alert": {

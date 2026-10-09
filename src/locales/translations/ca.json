@@ -418,6 +418,10 @@
       "deleteAccount": {
         "title": "Suprimeix compte",
         "text": "Totes les dades del compte s'eliminaran"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN: VPN privada",
+        "text": "VPN descentralitzada a Flux. Sense compte, sense registres. Gratuïta, o a màxima velocitat per $0.99/mes."
       }
     },
     "alert": {

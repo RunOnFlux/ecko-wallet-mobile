@@ -418,6 +418,10 @@
       "deleteAccount": {
         "title": "Izbriši račun",
         "text": "Svi podaci računa bit će izbrisani"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN: privatni VPN",
+        "text": "Decentralizirani VPN na mreži Flux. Bez računa, bez zapisa. Besplatno ili puna brzina za $0.99 mjesečno."
       }
     },
     "alert": {

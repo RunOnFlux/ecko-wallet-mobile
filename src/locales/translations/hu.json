@@ -418,6 +418,10 @@
       "deleteAccount": {
         "title": "Fiók törlése",
         "text": "Minden adat törlődik"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN: privát VPN",
+        "text": "Decentralizált VPN a Flux hálózaton. Nincs fiók, nincs naplózás. Ingyenes, vagy teljes sebesség havi $0.99-ért."
       }
     },
     "alert": {

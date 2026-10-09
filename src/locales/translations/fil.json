@@ -418,6 +418,10 @@
       "deleteAccount": {
         "title": "Tanggalin ang Account",
         "text": "Lahat ng data ng account ay matatanggal"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN: pribadong VPN",
+        "text": "Desentralisadong VPN sa Flux. Walang account, walang log. Libre, o buong bilis sa halagang $0.99/buwan."
       }
     },
     "alert": {

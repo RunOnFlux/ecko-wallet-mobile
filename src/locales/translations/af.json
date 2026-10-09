@@ -418,6 +418,10 @@
       "deleteAccount": {
         "title": "Verwyder Rekening",
         "text": "Alle rekeningdata word verwyder"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN: privaat VPN",
+        "text": "Gedesentraliseerde VPN op Flux. Geen rekening, geen logs nie. Gratis, of volle spoed vir $0.99/maand."
       }
     },
     "alert": {

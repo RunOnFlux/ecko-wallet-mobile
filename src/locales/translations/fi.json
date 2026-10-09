@@ -418,6 +418,10 @@
       "deleteAccount": {
         "title": "Poista tili",
         "text": "Kaikki tiedot poistetaan"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN: yksityinen VPN",
+        "text": "Hajautettu VPN Flux-verkossa. Ei tiliä, ei lokeja. Ilmainen, tai täysi nopeus hintaan $0.99/kk."
       }
     },
     "alert": {
