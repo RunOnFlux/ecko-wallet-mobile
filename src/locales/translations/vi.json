@@ -418,6 +418,10 @@
       "deleteAccount": {
         "title": "Xóa tài khoản",
         "text": "Tất cả dữ liệu sẽ bị xóa"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN: VPN riêng tư",
+        "text": "VPN phi tập trung trên Flux. Không cần tài khoản, không lưu nhật ký. Miễn phí, hoặc tốc độ tối đa với $0.99/tháng."
       }
     },
     "alert": {

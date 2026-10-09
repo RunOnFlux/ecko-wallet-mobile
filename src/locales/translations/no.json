@@ -418,6 +418,10 @@
       "deleteAccount": {
         "title": "Slett konto",
         "text": "All kontodata slettes"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN: privat VPN",
+        "text": "Desentralisert VPN på Flux. Ingen konto, ingen logger. Gratis, eller full hastighet for $0.99/måned."
       }
     },
     "alert": {

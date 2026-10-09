@@ -418,6 +418,10 @@
       "deleteAccount": {
         "title": "Padam Akaun",
         "text": "Semua data akan dipadam"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN: VPN peribadi",
+        "text": "VPN terdesentralisasi di Flux. Tiada akaun, tiada log. Percuma, atau kelajuan penuh pada $0.99/bulan."
       }
     },
     "alert": {

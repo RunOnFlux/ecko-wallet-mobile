@@ -418,6 +418,10 @@
       "deleteAccount": {
         "title": "Șterge cont",
         "text": "Toate datele contului vor fi șterse"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN: VPN privat",
+        "text": "VPN descentralizat pe Flux. Fără cont, fără loguri. Gratuit sau viteză maximă pentru $0.99/lună."
       }
     },
     "alert": {

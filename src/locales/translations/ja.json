@@ -418,6 +418,10 @@
       "deleteAccount": {
         "title": "アカウントを削除",
         "text": "すべてのデータが削除されます"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN：プライベートVPN",
+        "text": "Flux上の分散型VPN。アカウント不要、ログなし。無料、または月額$0.99でフルスピード。"
       }
     },
     "alert": {

@@ -469,6 +469,10 @@
       "deleteAccount": {
         "title": "Delete Account",
         "text": "All account data will be deleted"
+      },
+      "cumulusVpn": {
+        "title": "CumulusVPN: private VPN",
+        "text": "Decentralized VPN on Flux. No account, no logs. Free, or full speed for $0.99/month."
       }
     },
     "alert": {

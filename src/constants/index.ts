@@ -2,6 +2,10 @@ import {Platform} from 'react-native';
 
 export const isIos = Platform.OS === 'ios';
 
+export const CUMULUSVPN_STORE_URL = isIos
+  ? 'https://apps.apple.com/app/cumulusvpn/id6792741863'
+  : 'https://play.google.com/store/apps/details?id=com.cumulusvpn.app&referrer=utm_source%3Deckowallet';
+
 export const GAS_PRICE = 0.000001;
 export const GAS_LIMIT = 2500;
 
