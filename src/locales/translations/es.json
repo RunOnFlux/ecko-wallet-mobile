@@ -179,6 +179,7 @@
     "snackbar": "Frase secreta de recuperación copiada al portapapeles",
     "description": "Tu frase secreta de recuperación facilita hacer respaldo y restaurar tu cuenta.",
     "warning": "Nunca reveles tu frase secreta de recuperación. Cualquiera con esta frase puede apropiarse de tu wallet para siempre.",
+    "unavailable": "Tu frase secreta de recuperación ya no está guardada en este dispositivo, por lo que no se puede mostrar. Tus carteras y fondos en esta app no se ven afectados. Si no tienes un respaldo de la frase, transfiere tus fondos a una cartera cuya frase de recuperación hayas guardado.",
     "copyButton": "Copiar frase de recuperación",
     "header": {
       "title": "Exportar frase de recuperación"
@@ -702,6 +703,8 @@
     "exportRecovery": "Exportar frase de recuperación",
     "removeSelected": "Eliminar cartera seleccionada",
     "create": "Crear cartera",
+    "phraseUnavailableTitle": "No se puede crear la cartera",
+    "phraseUnavailableMessage": "Las carteras nuevas se derivan de tu frase secreta de recuperación, que ya no está guardada en este dispositivo. Aún puedes importar una cartera con su clave privada.",
     "import": "Importar cartera",
     "copySuccess": "¡Detalles de la cuenta copiados al portapapeles!"
   },

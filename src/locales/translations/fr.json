@@ -179,6 +179,7 @@
     "snackbar": "Phrase de récupération copiée !",
     "description": "Votre phrase secrète de récupération facilite la sauvegarde et la restauration de votre compte.",
     "warning": "Ne divulguez jamais votre phrase secrète de récupération. Quiconque la possède peut prendre le contrôle de votre portefeuille.",
+    "unavailable": "Votre phrase secrète de récupération n'est plus enregistrée sur cet appareil et ne peut donc pas être affichée. Vos portefeuilles et vos fonds dans cette application ne sont pas affectés. Si vous n'avez pas sauvegardé la phrase, transférez vos fonds vers un portefeuille dont vous avez conservé la phrase de récupération.",
     "copyButton": "Copier la phrase de récupération",
     "header": {
       "title": "Exporter la phrase de récupération"
@@ -702,6 +703,8 @@
     "exportRecovery": "Exporter la phrase de récupération",
     "removeSelected": "Supprimer le portefeuille sélectionné",
     "create": "Créer un portefeuille",
+    "phraseUnavailableTitle": "Impossible de créer un portefeuille",
+    "phraseUnavailableMessage": "Les nouveaux portefeuilles sont dérivés de votre phrase secrète de récupération, qui n'est plus enregistrée sur cet appareil. Vous pouvez toujours importer un portefeuille avec sa clé privée.",
     "import": "Importer un portefeuille",
     "copySuccess": "Détails du compte copiés dans le presse-papiers !"
   },

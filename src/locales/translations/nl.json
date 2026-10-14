@@ -152,6 +152,7 @@
     "snackbar": "Herstelzin gekopieerd naar klembord!",
     "description": "Je geheime herstelzin maakt het gemakkelijk om je account te back-uppen en te herstellen.",
     "warning": "Geef nooit je geheime herstelzin prijs. Iedereen met deze zin kan je wallet permanent overnemen.",
+    "unavailable": "Je geheime herstelzin is niet meer op dit apparaat opgeslagen en kan daarom niet worden getoond. Je portemonnees en tegoeden in deze app zijn niet getroffen. Als je geen back-up van de zin hebt, zet je tegoeden dan over naar een portemonnee waarvan je de herstelzin hebt bewaard.",
     "copyButton": "Herstelzin kopiëren",
     "header": {
       "title": "Herstelzin exporteren"
@@ -652,6 +653,8 @@
     "exportRecovery": "Herstelzin exporteren",
     "removeSelected": "Geselecteerde portemonnee verwijderen",
     "create": "Portemonnee aanmaken",
+    "phraseUnavailableTitle": "Kan portemonnee niet aanmaken",
+    "phraseUnavailableMessage": "Nieuwe portemonnees worden afgeleid van je geheime herstelzin, die niet meer op dit apparaat is opgeslagen. Je kunt nog steeds een portemonnee importeren met de bijbehorende privésleutel.",
     "import": "Portemonnee importeren",
     "copySuccess": "Accountgegevens naar klembord gekopieerd!"
   },

@@ -152,6 +152,7 @@
     "snackbar": "Sekretna fraza odzyskiwania skopiowana do schowka!",
     "description": "Twoja Sekretna Fraza Odzyskiwania ułatwia tworzenie kopii zapasowej i przywracanie konta.",
     "warning": "Nigdy nie udostępniaj swojej Sekretnej Frazy Odzyskiwania. Każdy, kto ją posiada, może przejąć Twój portfel na zawsze.",
+    "unavailable": "Twoja Sekretna Fraza Odzyskiwania nie jest już przechowywana na tym urządzeniu, więc nie można jej wyświetlić. Nie ma to wpływu na Twoje portfele i środki w tej aplikacji. Jeśli nie masz kopii zapasowej frazy, przenieś środki do portfela, którego frazę odzyskiwania masz zapisaną.",
     "copyButton": "Kopiuj frazę odzyskiwania",
     "header": {
       "title": "Eksportuj frazę odzyskiwania"
@@ -652,6 +653,8 @@
     "exportRecovery": "Eksportuj frazę odzyskiwania",
     "removeSelected": "Usuń wybrany portfel",
     "create": "Utwórz portfel",
+    "phraseUnavailableTitle": "Nie można utworzyć portfela",
+    "phraseUnavailableMessage": "Nowe portfele są generowane z Twojej Sekretnej Frazy Odzyskiwania, która nie jest już przechowywana na tym urządzeniu. Nadal możesz zaimportować portfel za pomocą jego klucza prywatnego.",
     "import": "Importuj portfel",
     "copySuccess": "Szczegóły konta skopiowane do schowka!"
   },

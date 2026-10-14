@@ -152,6 +152,7 @@
     "snackbar": "A helyreállító mondat másolva!",
     "description": "A titkos helyreállító mondatod megkönnyíti a fiókod biztonsági mentését és visszaállítását.",
     "warning": "Soha ne oszd meg a helyreállító mondatod. Akinek megvan, átveheti a tárcád feletti irányítást.",
+    "unavailable": "A titkos helyreállító mondatod már nincs tárolva ezen az eszközön, ezért nem jeleníthető meg. Az alkalmazásban lévő tárcáidat és pénzeszközeidet ez nem érinti. Ha nincs biztonsági mentésed a mondatról, utald át a pénzeszközeidet egy olyan tárcába, amelynek a helyreállító mondatát elmentetted.",
     "copyButton": "Helyreállító mondat másolása",
     "header": {
       "title": "Helyreállító mondat exportálása"
@@ -652,6 +653,8 @@
     "exportRecovery": "Helyreállító kifejezés exportálása",
     "removeSelected": "Kijelölt tárca törlése",
     "create": "Tárca létrehozása",
+    "phraseUnavailableTitle": "Nem hozható létre tárca",
+    "phraseUnavailableMessage": "Az új tárcák a titkos helyreállító mondatodból jönnek létre, amely már nincs tárolva ezen az eszközön. Tárcát továbbra is importálhatsz a privát kulcsával.",
     "import": "Tárca importálása",
     "copySuccess": "Fiókadatok vágólapra másolva!"
   },

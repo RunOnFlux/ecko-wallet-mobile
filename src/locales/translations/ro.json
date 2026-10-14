@@ -152,6 +152,7 @@
     "snackbar": "Fraza secretă de recuperare a fost copiată în clipboard!",
     "description": "Fraza ta secretă de recuperare îți ușurează backup-ul și restaurarea contului.",
     "warning": "Nu dezvălui niciodată fraza ta secretă de recuperare. Oricine o are poate prelua portofelul tău pentru totdeauna.",
+    "unavailable": "Fraza ta secretă de recuperare nu mai este stocată pe acest dispozitiv, așa că nu poate fi afișată. Portofelele și fondurile tale din această aplicație nu sunt afectate. Dacă nu ai o copie de rezervă a frazei, transferă fondurile într-un portofel a cărui frază de recuperare ai salvat-o.",
     "copyButton": "Copiază fraza de recuperare",
     "header": {
       "title": "Exportă fraza de recuperare"
@@ -652,6 +653,8 @@
     "exportRecovery": "Exportă fraza de recuperare",
     "removeSelected": "Elimină portofelul selectat",
     "create": "Creează portofel",
+    "phraseUnavailableTitle": "Nu se poate crea portofelul",
+    "phraseUnavailableMessage": "Portofelele noi sunt derivate din fraza ta secretă de recuperare, care nu mai este stocată pe acest dispozitiv. Poți în continuare să imporți un portofel folosind cheia sa privată.",
     "import": "Importă portofel",
     "copySuccess": "Detaliile contului au fost copiate în clipboard!"
   },

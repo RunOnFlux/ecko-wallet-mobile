@@ -212,6 +212,12 @@ export const generateAccountThunk = createAsyncThunk(
     const seedsFromState = makeSelectGeneratedPhrases(state as any);
     const seeds = payload?.seeds || seedsFromState;
 
+    // Without a phrase generateAccount falls back to a random keypair that can
+    // never be restored from the user's backup, so refuse instead.
+    if (!seeds) {
+      throw new Error('Secret Recovery Phrase is not available');
+    }
+
     const data = await generateAccount({
       seeds,
       accountIndex: payload?.accountIndex || 0,

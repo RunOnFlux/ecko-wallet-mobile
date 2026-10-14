@@ -27,6 +27,7 @@ import Snackbar from 'react-native-snackbar';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import { useShallowEqualSelector } from '../../store/utils';
 import { AppDispatch } from '../../store/store';
+import { makeSelectGeneratedPhrases } from '../../store/auth/selectors';
 
 const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
   ({ toggle, isVisible }) => {
@@ -36,6 +37,7 @@ const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
 
     const accounts = useShallowEqualSelector(makeSelectAccounts);
     const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
+    const seeds = useShallowEqualSelector(makeSelectGeneratedPhrases);
 
     const handlePressRemove = useCallback(() => {
       ReactNativeHapticFeedback.trigger('impactMedium', {
@@ -99,9 +101,20 @@ const WalletSelectorModal: FC<TWalletSelectorModalProps> = React.memo(
     );
 
     const handlePressCreate = useCallback(() => {
+      if (!seeds) {
+        ReactNativeHapticFeedback.trigger('impactMedium', {
+          enableVibrateFallback: false,
+          ignoreAndroidSystemSettings: false,
+        });
+        Alert.alert(
+          t('walletSelector.phraseUnavailableTitle'),
+          t('walletSelector.phraseUnavailableMessage'),
+        );
+        return;
+      }
       dispatch(getGenerateAccount({}));
       toggle();
-    }, [toggle]);
+    }, [toggle, seeds, t]);
 
     const handlePressImport = useCallback(() => {
       toggle();
