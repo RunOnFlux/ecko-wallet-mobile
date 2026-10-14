@@ -152,6 +152,7 @@
     "snackbar": "助記詞已複製到剪貼簿！",
     "description": "您的助記詞可輕鬆備份並還原帳戶。",
     "warning": "切勿洩漏助記詞。任何知曉者都可掌控您的錢包。",
+    "unavailable": "您的助記詞已不再儲存在此裝置上，因此無法顯示。此 App 中的錢包與資產不受影響。若您沒有備份助記詞，請將資產轉移到您已保存助記詞的錢包。",
     "copyButton": "複製助記詞",
     "header": {
       "title": "匯出助記詞"
@@ -652,6 +653,8 @@
     "exportRecovery": "匯出助記詞",
     "removeSelected": "移除所選錢包",
     "create": "建立錢包",
+    "phraseUnavailableTitle": "無法建立錢包",
+    "phraseUnavailableMessage": "新錢包是由您的助記詞衍生而來，但助記詞已不再儲存在此裝置上。您仍可使用私鑰匯入錢包。",
     "import": "匯入錢包",
     "copySuccess": "帳戶詳細資訊已複製到剪貼簿！"
   },

@@ -152,6 +152,7 @@
     "snackbar": "Frase secreta de recuperació copiada al porta-retalls!",
     "description": "La teva frase secreta de recuperació facilita la còpia de seguretat i la restauració del compte.",
     "warning": "Mai revelis la teva frase secreta de recuperació. Qualsevol persona amb aquesta frase pot accedir al teu wallet permanentment.",
+    "unavailable": "La teva frase secreta de recuperació ja no està desada en aquest dispositiu, així que no es pot mostrar. Les teves carteres i fons en aquesta app no es veuen afectats. Si no tens còpia de seguretat de la frase, transfereix els teus fons a una cartera de la qual hagis desat la frase de recuperació.",
     "copyButton": "Copia frase de recuperació",
     "header": {
       "title": "Exporta frase de recuperació"
@@ -652,6 +653,8 @@
     "exportRecovery": "Exporta frase de recuperació",
     "removeSelected": "Elimina la cartera seleccionada",
     "create": "Crea cartera",
+    "phraseUnavailableTitle": "No es pot crear la cartera",
+    "phraseUnavailableMessage": "Les carteres noves es deriven de la teva frase secreta de recuperació, que ja no està desada en aquest dispositiu. Encara pots importar una cartera amb la seva clau privada.",
     "import": "Importa cartera",
     "copySuccess": "Detalls del compte copiats al porta-retalls!"
   },

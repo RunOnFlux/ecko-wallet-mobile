@@ -152,6 +152,7 @@
     "snackbar": "Na-copy na sa clipboard ang Secret Recovery Phrase!",
     "description": "Pinapadali ng iyong Secret Recovery Phrase ang pag-backup at pag-restore ng iyong account.",
     "warning": "Huwag ipagsiwalat ang iyong Secret Recovery Phrase. Sinumang may phrase na ito ay maaaring maagaw ang iyong wallet habambuhay.",
+    "unavailable": "Hindi na naka-save sa device na ito ang iyong Secret Recovery Phrase, kaya hindi ito maipapakita. Hindi apektado ang iyong mga wallet at pondo sa app na ito. Kung wala kang backup ng phrase, ilipat ang iyong pondo sa wallet na naka-save ang recovery phrase.",
     "copyButton": "Kopyahin ang Recovery Phrase",
     "header": {
       "title": "I-export ang Recovery Phrase"
@@ -652,6 +653,8 @@
     "exportRecovery": "I-export ang recovery phrase",
     "removeSelected": "Tanggalin ang napiling wallet",
     "create": "Gumawa ng wallet",
+    "phraseUnavailableTitle": "Hindi makagawa ng wallet",
+    "phraseUnavailableMessage": "Ang mga bagong wallet ay hinango mula sa iyong Secret Recovery Phrase, na hindi na naka-save sa device na ito. Maaari ka pa ring mag-import ng wallet gamit ang private key nito.",
     "import": "I-import ang wallet",
     "copySuccess": "Nakopya na sa clipboard ang detalye ng account!"
   },

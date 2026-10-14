@@ -152,6 +152,7 @@
     "snackbar": "Gjenopprettingsfrase kopiert til utklippstavlen!",
     "description": "Din hemmelige gjenopprettingsfrase gjør det enkelt å sikkerhetskopiere og gjenopprette kontoen din.",
     "warning": "Ikke del gjenopprettingsfrasen. Alle som har den kan ta kontroll over lommeboken din.",
+    "unavailable": "Den hemmelige gjenopprettingsfrasen din er ikke lenger lagret på denne enheten, så den kan ikke vises. Lommebøkene og midlene dine i denne appen påvirkes ikke. Hvis du ikke har sikkerhetskopiert frasen, overfør midlene dine til en lommebok der du har lagret gjenopprettingsfrasen.",
     "copyButton": "Kopier gjenopprettingsfrase",
     "header": {
       "title": "Eksporter gjenopprettingsfrase"
@@ -652,6 +653,8 @@
     "exportRecovery": "Eksporter gjenopprettingsfrase",
     "removeSelected": "Fjern valgt lommebok",
     "create": "Opprett lommebok",
+    "phraseUnavailableTitle": "Kan ikke opprette lommebok",
+    "phraseUnavailableMessage": "Nye lommebøker utledes fra den hemmelige gjenopprettingsfrasen din, som ikke lenger er lagret på denne enheten. Du kan fortsatt importere en lommebok med dens private nøkkel.",
     "import": "Importer lommebok",
     "copySuccess": "Kontoinformasjon kopiert til utklippstavle!"
   },

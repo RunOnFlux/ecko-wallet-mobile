@@ -152,6 +152,7 @@
     "snackbar": "Frasa rahasia pemulihan disalin ke clipboard!",
     "description": "Frasa Rahasia Pemulihan Anda memudahkan mencadangkan dan memulihkan akun.",
     "warning": "Jangan pernah membocorkan Frasa Rahasia Pemulihan Anda. Siapa pun yang memiliki frasa ini bisa mengambil alih wallet selamanya.",
+    "unavailable": "Frasa Rahasia Pemulihan Anda tidak lagi tersimpan di perangkat ini, sehingga tidak dapat ditampilkan. Dompet dan dana Anda di aplikasi ini tidak terpengaruh. Jika Anda tidak memiliki cadangan frasa tersebut, pindahkan dana Anda ke dompet yang frasa pemulihannya sudah Anda simpan.",
     "copyButton": "Salin Frasa Pemulihan",
     "header": {
       "title": "Ekspor Frasa Pemulihan"
@@ -652,6 +653,8 @@
     "exportRecovery": "Ekspor frasa pemulihan",
     "removeSelected": "Hapus dompet terpilih",
     "create": "Buat dompet",
+    "phraseUnavailableTitle": "Tidak dapat membuat dompet",
+    "phraseUnavailableMessage": "Dompet baru diturunkan dari Frasa Rahasia Pemulihan Anda, yang tidak lagi tersimpan di perangkat ini. Anda tetap dapat mengimpor dompet menggunakan kunci privatnya.",
     "import": "Impor dompet",
     "copySuccess": "Detail akun disalin ke clipboard!"
   },

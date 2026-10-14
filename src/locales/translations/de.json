@@ -152,6 +152,7 @@
     "snackbar": "Wiederherstellungsphrase kopiert!",
     "description": "Ihre geheime Wiederherstellungsphrase erleichtert Backup und Wiederherstellung Ihres Kontos.",
     "warning": "Geben Sie diese Phrase niemals preis. Jeder mit ihr kann Ihr Wallet dauerhaft übernehmen.",
+    "unavailable": "Ihre geheime Wiederherstellungsphrase ist auf diesem Gerät nicht mehr gespeichert und kann daher nicht angezeigt werden. Ihre Wallets und Guthaben in dieser App sind davon nicht betroffen. Falls Sie die Phrase nicht gesichert haben, übertragen Sie Ihr Guthaben auf ein Wallet, dessen Wiederherstellungsphrase Sie gespeichert haben.",
     "copyButton": "Phrase kopieren",
     "header": {
       "title": "Wiederherstellungsphrase exportieren"
@@ -652,6 +653,8 @@
     "exportRecovery": "Recovery-Phrase exportieren",
     "removeSelected": "Ausgewählte Wallet entfernen",
     "create": "Wallet erstellen",
+    "phraseUnavailableTitle": "Wallet kann nicht erstellt werden",
+    "phraseUnavailableMessage": "Neue Wallets werden aus Ihrer geheimen Wiederherstellungsphrase abgeleitet, die auf diesem Gerät nicht mehr gespeichert ist. Sie können weiterhin ein Wallet mit seinem privaten Schlüssel importieren.",
     "import": "Wallet importieren",
     "copySuccess": "Kontodaten in die Zwischenablage kopiert!"
   },

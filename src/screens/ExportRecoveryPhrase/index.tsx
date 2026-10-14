@@ -56,31 +56,39 @@ const ExportRecoveryPhrase = () => {
         contentContainerStyle={styles.content}
         style={styles.contentWrapper}>
         <View style={styles.cardContainer}>
-          <View style={styles.secretKeysWrapper}>
-            {secretWords.map((word, j) => (
-              <View key={word + j} style={styles.secretKeysText}>
-                {word.split(' ').map((item, index) => (
-                  <Text key={index + j} style={styles.secretKeys}>
-                    {item}
-                  </Text>
+          {seeds ? (
+            <>
+              <View style={styles.secretKeysWrapper}>
+                {secretWords.map((word, j) => (
+                  <View key={word + j} style={styles.secretKeysText}>
+                    {word.split(' ').map((item, index) => (
+                      <Text key={index + j} style={styles.secretKeys}>
+                        {item}
+                      </Text>
+                    ))}
+                  </View>
                 ))}
               </View>
-            ))}
+              <Text style={styles.text}>
+                {t('exportRecoveryPhrase.description')}
+              </Text>
+              <Warning text={t('exportRecoveryPhrase.warning')} isSerious />
+            </>
+          ) : (
+            <Warning text={t('exportRecoveryPhrase.unavailable')} />
+          )}
+        </View>
+        {!!seeds && (
+          <View style={styles.footerWrapper}>
+            <ListItem
+              onPress={copyToClipboard}
+              textStyle={styles.itemText}
+              style={styles.itemStyle}
+              text={t('exportRecoveryPhrase.copyButton')}
+              icon={<BasicCopySvg />}
+            />
           </View>
-          <Text style={styles.text}>
-            {t('exportRecoveryPhrase.description')}
-          </Text>
-          <Warning text={t('exportRecoveryPhrase.warning')} isSerious />
-        </View>
-        <View style={styles.footerWrapper}>
-          <ListItem
-            onPress={copyToClipboard}
-            textStyle={styles.itemText}
-            style={styles.itemStyle}
-            text={t('exportRecoveryPhrase.copyButton')}
-            icon={<BasicCopySvg />}
-          />
-        </View>
+        )}
       </ScrollView>
     </KeyboardAvoidingView>
   );
