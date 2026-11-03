@@ -7,7 +7,8 @@ set -euo pipefail
 PKG="${APP_PKG:-com.xwallet.mobile}"
 ACTIVITY="${APP_ACTIVITY:-.MainActivity}"
 OUT_DIR="${ADRIVE_OUT:-/tmp/adrive}"
-mkdir -p "$OUT_DIR"
+# Screenshots and UI dumps can contain wallet data: keep them owner-only.
+mkdir -p "$OUT_DIR" && chmod 700 "$OUT_DIR"
 
 pick_serial() {
   if [ -n "${ANDROID_SERIAL:-}" ]; then return; fi
@@ -28,6 +29,7 @@ a() { adb "$@"; }
 ui_dump() {
   a shell uiautomator dump /sdcard/adrive-ui.xml >/dev/null
   a exec-out cat /sdcard/adrive-ui.xml > "$OUT_DIR/ui.xml"
+  a shell rm -f /sdcard/adrive-ui.xml   # don't leave screen text on shared storage
   python3 -I - "$OUT_DIR/ui.xml" <<'PY'
 import re, sys, xml.etree.ElementTree as ET
 root = ET.parse(sys.argv[1]).getroot()
@@ -73,7 +75,10 @@ case "$cmd" in
   shot)     f="${1:-$OUT_DIR/shot.png}"; a exec-out screencap -p > "$f"; echo "$f" ;;
   tap)      a shell input tap "${1:?x}" "${2:?y}" ;;
   tap-text) tap_text "${1:?text}" ;;
-  text)     a shell input text "$(printf '%s' "${1:?text}" | sed 's/ /%s/g')" ;;
+  # adb joins args and the device sh re-parses them, so single-quote for the
+  # remote shell (' → '\'') and encode spaces as %s for `input text`. ASCII only.
+  text)     q=$(printf '%s' "${1:?text}" | sed -e "s/'/'\\\\''/g" -e 's/ /%s/g')
+            a shell "input text '$q'" ;;
   key)      a shell input keyevent "${1:?KEYCODE_...}" ;;
   swipe)    a shell input swipe "${1:?x1}" "${2:?y1}" "${3:?x2}" "${4:?y2}" "${5:-300}" ;;
   scroll)   case "${1:-down}" in down) a shell input swipe 720 2300 720 900 300;; up) a shell input swipe 720 900 720 2300 300;; esac ;;

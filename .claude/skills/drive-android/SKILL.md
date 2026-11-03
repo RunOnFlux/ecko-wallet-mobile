@@ -65,6 +65,7 @@ adrive.sh crash           # FATAL EXCEPTION / SIGABRT here = reproduced
 ## Rules
 
 - The wallet PIN/password and seed phrase are the owner's. Ask for them each session; never store, log or screenshot them. Crop or skip seed/private-key screens.
+- `ui` and `tap-text` print **every string on screen** into the transcript — never run them on seed-phrase or private-key screens; use `tap x y` from an earlier screen's layout instead. Anything passed to `text` (a PIN, a password) also lands in the transcript: use a throwaway test-wallet password, never the owner's real one.
 - Money flows: follow `app-driven-pr-review/references/wallet-test-transactions.md` — own-account only, never a typed address.
 - A toast, dialog or keyboard in the way is a finding: dismiss it like a user (`back`, tap its close) and note it. Never change app behavior to get past it.
 - Leave developer settings as you found them (`dka off`).
