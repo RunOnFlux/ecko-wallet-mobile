@@ -100,6 +100,10 @@ const history = createSlice({
                 )
                   ? 'success'
                   : updatedItem.result.status,
+                // Keep the pact continuation so an unfinished cross-chain
+                // transfer can be finished from History.
+                continuation:
+                  updatedItem.continuation ?? existingActivity.continuation,
               };
             }
             return existingActivity;

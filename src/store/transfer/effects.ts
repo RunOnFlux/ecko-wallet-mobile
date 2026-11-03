@@ -29,6 +29,8 @@ import { makeSelectActiveNetworkDetails } from '../networks/selectors';
 import { makeSelectPollRequestParams } from '../history/selectors';
 import { getPollRequest } from '../history/actions';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { TActivity } from '../history/types';
+import { TNetworkDetail } from '../networks/types';
 
 export const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 
@@ -178,6 +180,37 @@ export const makeTransferThunk = createAsyncThunk(
         return;
       }
 
+      if (listenResult.continuation) {
+        // Cross-chain: step 0 (burn) ran on the source chain. Store the
+        // continuation on the History entry so it can be finished later,
+        // then run step 1 on the target chain.
+        const activity = {
+          amount,
+          coinShortName:
+            sourceToken?.tokenName || sourceToken?.tokenAddress || 'KDA',
+          requestKey: reqKey,
+          status: 'pending',
+          createdTime: new Date().toISOString(),
+          sender,
+          sourceChainId,
+          receiver: destinationAccount!.accountName,
+          targetChainId:
+            listenResult.continuation?.yield?.provenance?.targetChainId ||
+            destinationAccount?.chainId!,
+          type: 'TRANSFER',
+          network: networkDetail,
+          continuation: listenResult.continuation,
+        } as TActivity;
+        dispatch(setSendResult(activity));
+        await runCrossChainContinuation(
+          dispatch,
+          getState,
+          networkDetail,
+          activity,
+        );
+        return;
+      }
+
       if (listenResult.result?.status === 'success') {
         dispatch(
           setSendResult({
@@ -258,173 +291,169 @@ export const makeTransferThunk = createAsyncThunk(
   },
 );
 
-export const finishTransferThunk = createAsyncThunk(
-  'transfers/finishTransfer',
-  async (payload: TFinishTransferRequest, { dispatch, getState }: any) => {
-    const { networkDetail, activity } = payload;
-    const { version, instance } = networkDetail;
+const LOG_TAG = '[xchain]';
 
-    const reqParams = {
-      instance,
-      version,
-      sourceChainId: activity.sourceChainId!,
-      ...getNetworkParams(networkDetail),
+// Step 1 of a cross-chain transfer: wait for the SPV proof of the step-0 burn
+// on the source chain, then send the `continuation` on the target chain. The
+// gas for it is paid by the xwallet-xchain-gas station (see
+// getTransferContinuation). Used right after a cross-chain send and by the
+// History "Finish" button for transfers whose continuation never ran.
+export const runCrossChainContinuation = async (
+  dispatch: any,
+  getState: any,
+  networkDetail: TNetworkDetail,
+  activity: TActivity,
+) => {
+  const { version, instance } = networkDetail;
+  const pactId = activity.continuation?.pactId || activity.requestKey;
+
+  const reqParams = {
+    instance,
+    version,
+    sourceChainId: activity.sourceChainId!,
+    ...getNetworkParams(networkDetail),
+  };
+
+  try {
+    console.log(
+      `${LOG_TAG} waiting for SPV proof: pactId=${pactId} chain ${activity.sourceChainId} -> ${activity.targetChainId}`,
+    );
+    dispatch(
+      setTransferResult({
+        status: 'pending',
+        date: new Date().toISOString(),
+        message: `Initiated from the Source Chain: ${JSON.stringify(
+          pactId,
+        )}. Waiting for Proof...`,
+        requestKey: activity.requestKey,
+        sender: activity.sender,
+        sourceChainId: activity.sourceChainId,
+        receiver: activity.receiver,
+        targetChainId: activity.targetChainId,
+      }),
+    );
+
+    const spvCmd = {
+      targetChainId: activity.targetChainId!,
+      requestKey: pactId,
     };
 
-    try {
-      dispatch(
-        setTransferResult({
-          status: 'pending',
-          date: new Date().toISOString(),
-          message: `Initiated from the Source Chain: ${JSON.stringify(
-            activity.continuation.pactId! || activity.requestKey,
-          )}. Waiting for Proof...`,
+    let proof: any = null;
+    let proofAttempt = 0;
+    while (!proof && proofAttempt < 100) {
+      await wait(10000);
+      try {
+        proofAttempt++;
+        const spvResultData = await getSpvRequest({
+          ...reqParams,
+          cmdValue: JSON.stringify(spvCmd),
           requestKey: activity.requestKey,
-          sender: activity.sender,
-          sourceChainId: activity.sourceChainId,
-          receiver: activity.receiver,
-          targetChainId: activity.targetChainId,
-        }),
-      );
-
-      const spvCmd = {
-        targetChainId: activity.targetChainId!,
-        requestKey: activity.continuation.pactId! || activity.requestKey,
-      };
-
-      let proof: any = null;
-      let proofAttempt = 0;
-      while (!proof && proofAttempt < 100) {
-        await wait(10000);
-        try {
-          proofAttempt++;
-          const spvResultData = await getSpvRequest({
-            ...reqParams,
-            cmdValue: JSON.stringify(spvCmd),
-            requestKey: activity.requestKey,
-          });
-          if (spvResultData) {
-            proof = spvResultData;
-          }
-        } catch {}
-      }
-
-      if (!proof) {
-        throw new Error('Waiting Proof failed with timeout');
-      }
-
-      let cmdValue = await getContinuationTransferRequest({
-        instance,
-        version,
-        targetChainId: activity?.targetChainId!,
-        proof,
-        pactId: activity?.continuation?.pactId!,
-        ...getNetworkParams(networkDetail),
-      });
-
-      await wait(30000);
-      const txRes = await getSendRequest({
-        cmdValue: JSON.stringify(cmdValue),
-        ...reqParams,
-        sourceChainId: activity.targetChainId!,
-      });
-
-      const reqKey = txRes.requestKeys[0];
-      dispatch(
-        replaceSendResult({
-          amount: activity.amount,
-          requestKey: reqKey,
-          sourceRequestKey:
-            activity.continuation.pactId! || activity.requestKey,
-          status: 'pending',
-          createdTime: new Date().toISOString(),
-          sender: activity.sender,
-          sourceChainId: activity.sourceChainId,
-          receiver: activity.receiver,
-          targetChainId: activity.targetChainId,
-          coinShortName: activity.coinShortName,
-        }),
-      );
-
-      dispatch(
-        setTransferResult({
-          status: 'pending',
-          message: `Initiated from the Source Chain: ${JSON.stringify(
-            activity?.continuation?.pactId! || activity.requestKey,
-          )}. Receiving from the Target Chain: ${reqKey}`,
-          date: new Date().toISOString(),
-          requestKey: reqKey,
-          sender: activity.sender,
-          sourceChainId: activity.sourceChainId,
-          receiver: activity.receiver,
-          targetChainId: activity.targetChainId,
-        }),
-      );
-
-      let listenResult: any;
-      let listenAttempt = 0;
-      while (!listenResult && listenAttempt < 100) {
-        await wait(10000);
-        try {
-          listenAttempt++;
-          const pollApiResult = await getPollRequestAPI({
-            requestKeys: [reqKey],
-            ...reqParams,
-            chainId: activity.targetChainId!,
-          });
-          if (pollApiResult && pollApiResult[reqKey]) {
-            listenResult = pollApiResult[reqKey];
-          }
-        } catch {}
-      }
-
-      if (!listenResult) {
-        throw new Error('Getting transaction result failed with timeout');
-      }
-
-      if (listenResult?.result?.status === 'failure') {
-        if (
-          listenResult?.result?.error?.message?.includes(
-            'resumePact: pact completed:',
-          )
-        ) {
-          dispatch(
-            setTransferResult({
-              status: 'success',
-              date: new Date().toISOString(),
-              message: 'Transfer Successful',
-              requestKey: listenResult.reqKey,
-              sender: activity.sender,
-              sourceChainId: activity.sourceChainId,
-              receiver: activity.receiver,
-              targetChainId: activity.targetChainId,
-            }),
-          );
-          dispatch(
-            setListenResult({
-              ...listenResult,
-              result: {
-                ...listenResult,
-                status: 'success',
-              },
-            }),
-          );
-        } else {
-          dispatch(
-            setTransferResult({
-              status: 'failure',
-              date: new Date().toISOString(),
-              message: 'Transfer Failed',
-              requestKey: listenResult.reqKey,
-              sender: activity.sender,
-              sourceChainId: activity.sourceChainId,
-              receiver: activity.receiver,
-              targetChainId: activity.targetChainId,
-            }),
-          );
-          dispatch(setListenResult(listenResult));
+        });
+        if (spvResultData) {
+          proof = spvResultData;
         }
-      } else if (listenResult?.result?.status === 'success') {
+      } catch {}
+    }
+
+    if (!proof) {
+      throw new Error('Waiting Proof failed with timeout');
+    }
+    console.log(
+      `${LOG_TAG} SPV proof received after ${proofAttempt} attempt(s), sending continuation on chain ${activity.targetChainId}`,
+    );
+
+    let cmdValue = await getContinuationTransferRequest({
+      instance,
+      version,
+      targetChainId: activity?.targetChainId!,
+      proof,
+      pactId,
+      ...getNetworkParams(networkDetail),
+    });
+
+    await wait(30000);
+    const txRes = await getSendRequest({
+      cmdValue: JSON.stringify(cmdValue),
+      ...reqParams,
+      sourceChainId: activity.targetChainId!,
+    });
+
+    const reqKey = txRes.requestKeys[0];
+    console.log(`${LOG_TAG} continuation sent: requestKey=${reqKey}`);
+    const continuationEntry = {
+      amount: activity.amount,
+      requestKey: reqKey,
+      sourceRequestKey: pactId,
+      createdTime: new Date().toISOString(),
+      sender: activity.sender,
+      sourceChainId: activity.sourceChainId,
+      receiver: activity.receiver,
+      targetChainId: activity.targetChainId,
+      coinShortName: activity.coinShortName,
+      type: 'TRANSFER',
+      network: networkDetail,
+    };
+    dispatch(replaceSendResult({ ...continuationEntry, status: 'pending' }));
+
+    dispatch(
+      setTransferResult({
+        status: 'pending',
+        message: `Initiated from the Source Chain: ${JSON.stringify(
+          pactId,
+        )}. Receiving from the Target Chain: ${reqKey}`,
+        date: new Date().toISOString(),
+        requestKey: reqKey,
+        sender: activity.sender,
+        sourceChainId: activity.sourceChainId,
+        receiver: activity.receiver,
+        targetChainId: activity.targetChainId,
+      }),
+    );
+
+    let listenResult: any;
+    let listenAttempt = 0;
+    while (!listenResult && listenAttempt < 100) {
+      await wait(10000);
+      try {
+        listenAttempt++;
+        const pollApiResult = await getPollRequestAPI({
+          requestKeys: [reqKey],
+          ...reqParams,
+          chainId: activity.targetChainId!,
+        });
+        if (pollApiResult && pollApiResult[reqKey]) {
+          listenResult = pollApiResult[reqKey];
+        }
+      } catch {}
+    }
+
+    if (!listenResult) {
+      throw new Error('Getting transaction result failed with timeout');
+    }
+
+    const isSuccess =
+      listenResult?.result?.status === 'success' ||
+      !!listenResult?.result?.error?.message?.includes(
+        'resumePact: pact completed:',
+      );
+    console.log(
+      `${LOG_TAG} continuation ${reqKey} result: ${
+        isSuccess ? 'success' : 'failure'
+      }`,
+    );
+    dispatch(
+      setSendResult({
+        ...continuationEntry,
+        status: isSuccess ? 'success' : 'failure',
+      }),
+    );
+
+    if (listenResult?.result?.status === 'failure') {
+      if (
+        listenResult?.result?.error?.message?.includes(
+          'resumePact: pact completed:',
+        )
+      ) {
         dispatch(
           setTransferResult({
             status: 'success',
@@ -437,40 +466,51 @@ export const finishTransferThunk = createAsyncThunk(
             targetChainId: activity.targetChainId,
           }),
         );
-        dispatch(setListenResult(listenResult));
+        dispatch(
+          setListenResult({
+            ...listenResult,
+            result: {
+              ...listenResult,
+              status: 'success',
+            },
+          }),
+        );
       } else {
         dispatch(
           setTransferResult({
             status: 'failure',
             date: new Date().toISOString(),
             message: 'Transfer Failed',
-            requestKey: reqKey,
+            requestKey: listenResult.reqKey,
             sender: activity.sender,
             sourceChainId: activity.sourceChainId,
             receiver: activity.receiver,
             targetChainId: activity.targetChainId,
           }),
         );
+        dispatch(setListenResult(listenResult));
       }
-
-      const pollReqParams = makeSelectPollRequestParams(getState());
-      dispatch(getPollRequest(pollReqParams));
-      const selectedNetwork = makeSelectActiveNetworkDetails(getState());
+    } else if (listenResult?.result?.status === 'success') {
       dispatch(
-        getBalances({
-          ...selectedNetwork,
-          ...getNetworkParams(selectedNetwork as any),
-        } as any),
+        setTransferResult({
+          status: 'success',
+          date: new Date().toISOString(),
+          message: 'Transfer Successful',
+          requestKey: listenResult.reqKey,
+          sender: activity.sender,
+          sourceChainId: activity.sourceChainId,
+          receiver: activity.receiver,
+          targetChainId: activity.targetChainId,
+        }),
       );
-    } catch (err) {
-      const error = err as AxiosError;
+      dispatch(setListenResult(listenResult));
+    } else {
       dispatch(
         setTransferResult({
           status: 'failure',
           date: new Date().toISOString(),
           message: 'Transfer Failed',
-          text: error?.response?.data || error?.message || '',
-          requestKey: '',
+          requestKey: reqKey,
           sender: activity.sender,
           sourceChainId: activity.sourceChainId,
           receiver: activity.receiver,
@@ -478,6 +518,49 @@ export const finishTransferThunk = createAsyncThunk(
         }),
       );
     }
+
+    const pollReqParams = makeSelectPollRequestParams(getState());
+    dispatch(getPollRequest(pollReqParams));
+    const selectedNetwork = makeSelectActiveNetworkDetails(getState());
+    dispatch(
+      getBalances({
+        ...selectedNetwork,
+        ...getNetworkParams(selectedNetwork as any),
+      } as any),
+    );
+  } catch (err) {
+    const error = err as AxiosError;
+    console.warn(
+      `${LOG_TAG} continuation for ${pactId} did not finish: ${
+        error?.message || ''
+      }`,
+    );
+    dispatch(
+      setTransferResult({
+        status: 'failure',
+        date: new Date().toISOString(),
+        message: 'Transfer Failed',
+        text: error?.response?.data || error?.message || '',
+        requestKey: '',
+        sender: activity.sender,
+        sourceChainId: activity.sourceChainId,
+        receiver: activity.receiver,
+        targetChainId: activity.targetChainId,
+      }),
+    );
+  }
+};
+
+export const finishTransferThunk = createAsyncThunk(
+  'transfers/finishTransfer',
+  async (payload: TFinishTransferRequest, { dispatch, getState }: any) => {
+    const { networkDetail, activity } = payload;
+    await runCrossChainContinuation(
+      dispatch,
+      getState,
+      networkDetail,
+      activity,
+    );
   },
 );
 

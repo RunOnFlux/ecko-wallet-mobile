@@ -11,6 +11,7 @@ import {cutStr, numberWithCommas} from '../../../../utils/stringHelpers';
 import {useDispatch, useSelector} from 'react-redux';
 import {makeSelectSelectedAccount} from '../../../../store/userWallet/selectors';
 import {finishTransfer} from '../../../../store/transfer/actions';
+import {canFinishCrossChainTransfer} from '../../../../store/history/crossChain';
 import {makeSelectActiveNetworkDetails} from '../../../../store/networks/selectors';
 import {
   setGatheredTransferInfo,
@@ -206,8 +207,7 @@ const ListItem: FC<TListItemProps> = React.memo(
             {amountText}
           </Text>
         </TouchableOpacity>
-        {!type &&
-        (continuation?.step || 0) < (continuation?.stepCount || 0) - 1 ? (
+        {canFinishCrossChainTransfer(activityItem) ? (
           <TouchableOpacity
             disabled={!networkDetails}
             activeOpacity={0.8}
