@@ -1,7 +1,6 @@
 import {StyleSheet} from 'react-native';
 
 export const createStyles = ({
-  bottomSpace,
   statusBarHeight,
 }: {
   bottomSpace: number;

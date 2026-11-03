@@ -1,7 +1,6 @@
 import React, {FC, useMemo, useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {MAIN_COLOR} from '../../constants/styles';
 
 import {makeStyles} from './styles';
 import {TPasswordInputProps} from './types';

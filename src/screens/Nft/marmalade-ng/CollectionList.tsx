@@ -80,7 +80,7 @@ const MarmaladeNGCollectionList = () => {
             );
           }
         }
-      } catch (err) {
+      } catch {
         setIsLoading(false);
       }
 

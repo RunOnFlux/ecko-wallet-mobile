@@ -165,7 +165,7 @@ export const SpireKeyProvider = ({
           } else if (Platform.OS === 'ios' && attempt < 3) {
             setTimeout(() => attemptGetURL(attempt + 1), attempt * 200);
           }
-        } catch (err) {
+        } catch {
           if (Platform.OS === 'ios' && attempt < 3) {
             setTimeout(() => attemptGetURL(attempt + 1), attempt * 200);
           }

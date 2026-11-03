@@ -8,7 +8,6 @@ import AnalyticsSvg from '../assets/images/ic_analytics.svg';
 import MenuSvg from '../assets/images/ic_menu.svg';
 import NftSvg from '../assets/images/nft-icon.svg';
 import History from '../screens/History';
-import BasicSettingsSvg from '../assets/images/basic-settins.svg';
 import Login from '../screens/Login';
 import Registration from '../screens/Registration';
 import Home from '../navigation/Home';

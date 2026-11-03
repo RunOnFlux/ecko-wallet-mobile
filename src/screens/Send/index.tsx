@@ -43,7 +43,7 @@ import Toast from 'react-native-toast-message';
 import { useSafeAreaValues } from '../../utils/deviceHelpers';
 import { useAppThemeContext } from '../../contexts';
 import { makeSelectActiveNetworkDetails } from '../../store/networks/selectors';
-import { isRAccount, fetchGuardForRAccount } from '../../api/kadena/rAccount';
+import { fetchGuardForRAccount } from '../../api/kadena/rAccount';
 import { makeStyles } from './styles';
 import { setSelectedToken } from '../../store/userWallet';
 import { defaultWallets } from '../../store/userWallet/const';

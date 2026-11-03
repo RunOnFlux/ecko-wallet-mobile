@@ -1,4 +1,4 @@
-import {Dimensions, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {BOLD_MONTSERRAT, MEDIUM_MONTSERRAT} from '../../constants/styles';
 
 export const createStyles = ({

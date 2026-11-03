@@ -28,7 +28,7 @@ const PortfolioValueChart = ({
 }: {
   refreshToken?: number;
 }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { theme } = useAppThemeContext();
   const styles = createStyles(theme);
   const canTrack = useShallowEqualSelector(makeSelectCanTrackPortfolio);

@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 import {
   TAccount,
@@ -67,7 +67,7 @@ export const getBalances = createAsyncThunk(
           'https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&ids=kadena,gas',
         );
         estimatedUsdResponse = usdResponse?.data;
-      } catch (e) {}
+      } catch {}
 
       const tokenPairList = (selectedAccount?.wallets || [])
         .filter(item => item.tokenAddress !== 'coin')
@@ -113,7 +113,7 @@ export const getBalances = createAsyncThunk(
               `,
             } as any);
             return tokenListDetails || [];
-          } catch (e) {
+          } catch {
             return [];
           }
         }),
@@ -313,7 +313,7 @@ export const getTokenList = createAsyncThunk(
 
       dispatch(setSearchTokenList(tokenList));
       dispatch(setNonTransferableTokenList(nonTransferableTokens || []));
-    } catch (err) {
+    } catch {
       dispatch(setSearchTokenList([]));
       dispatch(setNonTransferableTokenList([]));
     }

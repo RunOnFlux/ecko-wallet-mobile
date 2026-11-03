@@ -7,7 +7,6 @@ import ArrowTopRightSvg from '../../../../assets/images/arrow-top-right.svg';
 import HistorySvg from '../../../../assets/images/time-history.svg';
 import ArrowBottomRightSvg from '../../../../assets/images/arrow-bottom-right.svg';
 import BuySvg from '../../../../assets/images/icon-buy.svg';
-import Button from './components/Button';
 import {makeStyles} from './styles';
 import {ERootStackRoutes, TNavigationProp} from '../../../../routes/types';
 import {

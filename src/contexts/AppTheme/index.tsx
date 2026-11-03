@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useState, useEffect} from 'react';
+import React, {createContext, useState, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AppThemeEnum, IAppTheme} from '../../themes/types';
 import {appThemes} from '../../themes';

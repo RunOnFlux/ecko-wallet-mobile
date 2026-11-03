@@ -1,7 +1,7 @@
 import { Linking } from 'react-native';
 import { Buffer } from 'buffer';
 
-let spireKeyAccountRef: any = undefined;
+let spireKeyAccountRef: any;
 
 export const setSpireKeyAccountRef = (account: any) => {
   spireKeyAccountRef = account;

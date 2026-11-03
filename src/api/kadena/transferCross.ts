@@ -193,7 +193,7 @@ export const getTransferCross: (
       });
     }
     let pactCode = '';
-    let envData: any = undefined;
+    let envData: any;
     if (isRAccount(receiver)) {
       const { keysetRefGuard } = await fetchGuardForRAccount(
         receiver,
@@ -246,7 +246,7 @@ export const getTransferCross: (
                 'Receiving account does not exist. You must specify a keyset to create this account.',
               );
             }
-          } catch (e) {
+          } catch {
             throw new Error(
               'Failed to retrieve receiver account information. Cannot proceed with crosschain transfer.',
             );
@@ -352,7 +352,7 @@ export const getTransferCross: (
         hasXChainCapability = true;
       }
     }
-  } catch (e) {}
+  } catch {}
   if ((token || 'coin') !== 'coin' && !hasXChainCapability) {
     throw new Error('token-no-xchain');
   }
@@ -456,7 +456,7 @@ export const getTransferCross: (
         );
         return setSignatureIfNecessary(createdCommand, signature);
       }
-    } catch (e) {
+    } catch {
       if (receiver.startsWith('k:') && receiver.length === 66) {
         const createdCommand = Pact.simple.exec.createCommand(
           keyPair as any[],

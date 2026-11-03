@@ -141,7 +141,7 @@ export const makeTransferThunk = createAsyncThunk(
           if (pollApiResult && pollApiResult[reqKey]) {
             listenResult = pollApiResult[reqKey];
           }
-        } catch (e) {}
+        } catch {}
       }
 
       if (!listenResult || listenResult.result?.status === 'failure') {
@@ -306,7 +306,7 @@ export const finishTransferThunk = createAsyncThunk(
           if (spvResultData) {
             proof = spvResultData;
           }
-        } catch (e) {}
+        } catch {}
       }
 
       if (!proof) {
@@ -375,7 +375,7 @@ export const finishTransferThunk = createAsyncThunk(
           if (pollApiResult && pollApiResult[reqKey]) {
             listenResult = pollApiResult[reqKey];
           }
-        } catch (e) {}
+        } catch {}
       }
 
       if (!listenResult) {
@@ -522,7 +522,7 @@ export const swapRequestThunk = createAsyncThunk(
           if (pollApiResult && pollApiResult[txRes.requestKeys[0]]) {
             listenResult = pollApiResult[txRes.requestKeys[0]];
           }
-        } catch (e) {}
+        } catch {}
       }
 
       if (!listenResult) {
@@ -541,7 +541,7 @@ export const swapRequestThunk = createAsyncThunk(
       );
 
       dispatch(swapRequestFulfilled());
-    } catch (err) {
+    } catch {
       dispatch(swapRequestError());
     }
   },

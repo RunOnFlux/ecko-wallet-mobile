@@ -77,7 +77,7 @@ const ImportHardwareWallet = () => {
       try {
         setShowDeviceList(true);
         await scanForDevices();
-      } catch (err) {}
+      } catch {}
     }
   }, [selected, scanForDevices]);
 
@@ -92,7 +92,7 @@ const ImportHardwareWallet = () => {
           setSelectedAccountName(`k:${pk}`);
           setShowDeviceList(false);
         }
-      } catch (err) {}
+      } catch {}
     },
     [connectToDevice, getPublicKey, stopScan],
   );
@@ -115,7 +115,7 @@ const ImportHardwareWallet = () => {
           setSpireKeyPublicKey(publicKey);
         }
       }
-    } catch (err) {}
+    } catch {}
   }, [connectAccount, getNetworkId]);
 
   const handleImport = useCallback(() => {

@@ -79,7 +79,7 @@ export const PactProvider: FC = ({children}) => {
         },
       });
       setNetworkGasData(response.data);
-    } catch (err) {}
+    } catch {}
   }, []);
 
   const getReserves = useCallback(async (props: TGetReservesProps) => {
@@ -110,7 +110,7 @@ export const PactProvider: FC = ({children}) => {
           token1: '',
         });
       }
-    } catch (e) {
+    } catch {
       setPairReserve({
         token0: '',
         token1: '',

@@ -52,7 +52,7 @@ const Confirm2FaModal: FC<TConfirmModalProps> = ({isVisible, setVisible}) => {
       } else {
         setVerifying(false);
       }
-    } catch (e) {
+    } catch {
       setVerifying(false);
     }
   }, [selectedAccountPublicKey, navigation, code]);
