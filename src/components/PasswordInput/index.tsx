@@ -10,6 +10,7 @@ import EyeHideIcon from '../../assets/images/eye-password-hide.svg';
 import {useAppThemeContext} from '../../contexts';
 
 const PasswordInput: FC<TPasswordInputProps> = ({
+  inputRef,
   label,
   wrapperStyle,
   iconStyle,
@@ -32,6 +33,7 @@ const PasswordInput: FC<TPasswordInputProps> = ({
       </Text>
       <View style={[styles.inputContainer, inputContainerStyle]}>
         <TextInput
+          ref={inputRef}
           placeholderTextColor="gray"
           placeholder={t('components.passwordInput.placeholder')}
           {...restProps}
