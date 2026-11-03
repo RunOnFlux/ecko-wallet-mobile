@@ -49,16 +49,18 @@ After every action: `shot` → Read the PNG → confirm state before the next ac
 
 ## Reproducing lifecycle/restore crashes
 
-Play Console crashes in `MainActivity.onCreate` usually only happen when Android restores a killed process. Reproduce:
+Play Console crashes in `MainActivity.onCreate` usually only happen when Android restores a **killed process**. Use `kill-bg` — it reproduces them; `dka on` alone does not (the process survives, so fragment state isn't restored from a bundle the same way):
 
 ```bash
 adrive.sh logcat-clear
-adrive.sh dka on          # or: launch, navigate, then `adrive.sh kill-bg`
-adrive.sh launch          # go a couple of screens deep, open a modal
-adrive.sh home && adrive.sh launch
+adrive.sh launch          # go a screen or two deep (e.g. tap-text "I have an account")
+adrive.sh kill-bg         # HOME + am kill → "killed in background"
+adrive.sh launch
+adrive.sh pid             # "not running" right after launch = it crashed
 adrive.sh crash           # FATAL EXCEPTION / SIGABRT here = reproduced
-adrive.sh dka off         # ALWAYS turn it back off
 ```
+
+`dka on` is still useful for activity-recreation bugs that don't need process death; always `dka off` afterwards.
 
 ## Rules
 
