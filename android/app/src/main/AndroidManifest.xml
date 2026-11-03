@@ -18,6 +18,12 @@
     android:allowBackup="false"
     android:theme="@style/BootTheme"
     android:supportsRtl="true">
+    <!-- Target 36 ignores screenOrientation on large screens (>=600dp), which puts the
+         portrait-only forms in landscape where the keyboard covers the inputs. This opt-out
+         keeps the previous portrait letterbox; it is honoured for targetSdk 36 only. -->
+    <property
+      android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY"
+      android:value="true" />
     <activity
       android:name=".MainActivity"
       android:label="@string/app_name"

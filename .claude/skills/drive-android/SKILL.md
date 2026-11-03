@@ -41,6 +41,13 @@ adb reverse tcp:8081 tcp:8081
 
 `-PreactNativeArchitectures=arm64-v8a` cuts the native build to one ABI for a physical arm64 phone (use `x86_64` for an emulator). Release-only bugs (minify, Hermes bytecode, no dev menu) need `assembleRelease`, which requires the release keystore — ask the owner rather than editing signing config.
 
+### Emulators
+
+- AVDs may boot with **airplane mode on** → `adb -s emulator-5554 shell cmd connectivity airplane-mode disable`, otherwise Metro shows "Unable to load script".
+- If `adb reverse` still doesn't reach Metro, point the debug build at the host loopback: write `<string name="debug_http_host">10.0.2.2:8081</string>` into `shared_prefs/com.xwallet.mobile_preferences.xml` via `adb shell run-as com.xwallet.mobile …` (re-do after `pm clear`).
+- Large-screen checks (target 36 ignores the portrait lock at ≥600dp): `adb shell wm size 2560x1600 && adb shell wm density 320` on a phone AVD; `wm size reset` / `wm density reset` afterwards. A fresh `pixel_tablet` AVD can hang `offline` on first boot.
+- `adrive.sh` coordinates come from `ui`, so they adapt to any display size; `scroll` is tuned for 1440×3120.
+
 ## Step 2 — Drive
 
 React Native renders real Android views, so `ui` usually exposes labels. Prefer `tap-text "Send"` over coordinates; fall back to coordinates read from `ui` (they are device pixels — no scaling). Screenshots are native resolution (1440×3120 on the Pixel 6 Pro), the same space `tap` uses. Elements without text need a `testID`/`accessibilityLabel` in the RN code to show up — report missing ones as an accessibility finding rather than adding them during QA.
