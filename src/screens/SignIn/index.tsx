@@ -113,8 +113,8 @@ const SignIn = () => {
   );
 
   const scrollRef = useRef<ScrollView>(null);
-  const {bottomSpace} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight: 0});
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
 
   return (
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>
