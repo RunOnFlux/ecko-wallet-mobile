@@ -23,6 +23,7 @@ import {verifyRecoveryPhraseSchema} from '../../validation/verifyRecoveryPhraseS
 import {makeSelectGeneratedPhrases} from '../../store/auth/selectors';
 import {useShallowEqualSelector} from '../../store/utils';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {useKeepFocusedInputVisible} from '../../utils/keyboardHelpers';
 import {useDispatch} from 'react-redux';
 import {setHasBackedUpPhrase} from '../../store/auth';
 
@@ -59,6 +60,12 @@ const VerifyRecoveryPhrase = () => {
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
   const styles = createStyles({bottomSpace, statusBarHeight});
+
+  const scrollRef = useRef<ScrollView>(null);
+  const keepFocusedInputVisible = useKeepFocusedInputVisible(
+    scrollRef,
+    bottomSpace,
+  );
 
   const handlePressBack = useCallback(() => {
     navigation.goBack();
@@ -109,6 +116,8 @@ const VerifyRecoveryPhrase = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={-bottomSpace}>
         <ScrollView
+          ref={scrollRef}
+          {...keepFocusedInputVisible}
           showsVerticalScrollIndicator={false}
           style={styles.contentWrapper}
           contentContainerStyle={styles.content}>

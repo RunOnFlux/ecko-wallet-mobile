@@ -5,6 +5,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   ScrollView,
+  TextInput,
   Alert,
   KeyboardAvoidingView,
   Platform,
@@ -28,6 +29,7 @@ import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useNavigation} from '@react-navigation/native';
 import {comparePassword} from '../../api/kadena/comparePassword';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {useReopenKeyboardOnMount} from '../../utils/keyboardHelpers';
 
 const bgImage = require('../../assets/images/bgimage.png');
 
@@ -113,6 +115,8 @@ const SignIn = () => {
   );
 
   const scrollRef = useRef<ScrollView>(null);
+  const passwordRef = useRef<TextInput | null>(null);
+  useReopenKeyboardOnMount(passwordRef);
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
   const styles = createStyles({bottomSpace, statusBarHeight});
 
@@ -135,6 +139,7 @@ const SignIn = () => {
             name="password"
             render={({field: {onChange, onBlur, value}}) => (
               <PasswordInput
+                inputRef={passwordRef}
                 autoFocus
                 label={t('signIn.label.password')}
                 onChangeText={onChange}
