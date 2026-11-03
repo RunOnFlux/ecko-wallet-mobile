@@ -105,7 +105,7 @@ const VerifyRecoveryPhrase = () => {
   return (
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>
       <KeyboardAvoidingView
-        style={{flex: 1}}
+        style={styles.keyboardAvoider}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={-bottomSpace}>
         <ScrollView
@@ -162,12 +162,12 @@ const VerifyRecoveryPhrase = () => {
             </Text>
           </TouchableOpacity>
         </ScrollView>
-        <View style={styles.header}>
-          <TouchableOpacity activeOpacity={0.8} onPress={handlePressBack}>
-            <ArrowLeftSvg fill="white" />
-          </TouchableOpacity>
-        </View>
       </KeyboardAvoidingView>
+      <View style={styles.header}>
+        <TouchableOpacity activeOpacity={0.8} onPress={handlePressBack}>
+          <ArrowLeftSvg fill="white" />
+        </TouchableOpacity>
+      </View>
     </ImageBackground>
   );
 };
