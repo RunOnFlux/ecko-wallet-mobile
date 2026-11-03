@@ -71,8 +71,8 @@ android {
         applicationId "com.xwallet.mobile"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 201
-        versionName "1.20.0"
+        versionCode 202
+        versionName "1.21.0"
     }
     packagingOptions {
         pickFirst 'lib/x86/libc++_shared.so'
