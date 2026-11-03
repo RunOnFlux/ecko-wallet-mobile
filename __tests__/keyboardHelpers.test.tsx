@@ -1,14 +1,7 @@
 import React, {useRef} from 'react';
 import {Keyboard, TextInput} from 'react-native';
 import ReactTestRenderer, {act} from 'react-test-renderer';
-import {
-  afterEach,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  jest,
-} from '@jest/globals';
+import {afterEach, beforeEach, describe, expect, it, jest} from '@jest/globals';
 import {
   clampScrollOffset,
   revealScrollOffset,
@@ -57,10 +50,10 @@ describe('clampScrollOffset', () => {
 });
 
 const layout = (height: number) =>
-  ({nativeEvent: {layout: {x: 0, y: 0, width: 400, height}}} as any);
+  ({nativeEvent: {layout: {x: 0, y: 0, width: 400, height}}}) as any;
 const contentSize = (height: number) => [400, height] as const;
 const scrolled = (y: number) =>
-  ({nativeEvent: {contentOffset: {x: 0, y}}} as any);
+  ({nativeEvent: {contentOffset: {x: 0, y}}}) as any;
 
 describe('useKeepFocusedInputVisible', () => {
   let handlers: ReturnType<typeof useKeepFocusedInputVisible>;
@@ -69,7 +62,10 @@ describe('useKeepFocusedInputVisible', () => {
   let renderer: ReactTestRenderer.ReactTestRenderer;
 
   const Probe = ({hiddenBottom}: {hiddenBottom?: number}) => {
-    const scrollRef = useRef<any>({scrollTo, getInnerViewRef: () => innerView});
+    const scrollRef = useRef<any>({
+      scrollTo,
+      getInnerViewRef: () => innerView,
+    });
     handlers = useKeepFocusedInputVisible(scrollRef, hiddenBottom);
     return null;
   };
@@ -104,8 +100,8 @@ describe('useKeepFocusedInputVisible', () => {
   });
 
   it('treats the bottom strip the keyboard still covers as hidden', async () => {
-    // Android: the KeyboardAvoidingView (offset -bottomSpace) leaves bottomSpace
-    // of the scroll view behind the keyboard.
+    // The KeyboardAvoidingView (offset -bottomSpace) leaves bottomSpace of the
+    // scroll view behind the keyboard, on Android and iOS alike.
     await act(async () => {
       renderer.update(<Probe hiddenBottom={24} />);
     });
@@ -139,6 +135,47 @@ describe('useKeepFocusedInputVisible', () => {
     handlers.onLayout(layout(900));
 
     expect(scrollTo).toHaveBeenCalledWith({y: 300, animated: true});
+  });
+});
+
+describe('useKeepFocusedInputVisible once the keyboard has shown', () => {
+  it('scrolls the focused input back into view when the system scroll overrode it', async () => {
+    // iOS: UIKit scrolls the focused field to the edge of the visible area while
+    // the keyboard animates, cancelling our animated scroll.
+    let showListener: (() => void) | undefined;
+    jest.spyOn(Keyboard, 'addListener').mockImplementation(((
+      event: string,
+      cb: () => void,
+    ) => {
+      if (event === 'keyboardDidShow') {
+        showListener = cb;
+      }
+      return {remove: jest.fn()} as any;
+    }) as any);
+    jest.spyOn(TextInput.State, 'currentlyFocusedInput').mockReturnValue({
+      measureLayout: (_r: unknown, onSuccess: (...n: number[]) => void) =>
+        onSuccess(0, 900, 100, 50),
+    } as any);
+    const scrollTo = jest.fn();
+    let handlers!: ReturnType<typeof useKeepFocusedInputVisible>;
+    const Probe = () => {
+      const scrollRef = useRef<any>({scrollTo, getInnerViewRef: () => ({})});
+      handlers = useKeepFocusedInputVisible(scrollRef, 24);
+      return null;
+    };
+    await act(async () => {
+      ReactTestRenderer.create(<Probe />);
+    });
+    handlers.onContentSizeChange(...contentSize(1200));
+    handlers.onLayout(layout(900));
+    handlers.onLayout(layout(500));
+    handlers.onScroll(scrolled(450)); // system scroll left the input at the edge
+    scrollTo.mockClear();
+
+    showListener?.();
+
+    expect(scrollTo).toHaveBeenCalledWith({y: 490, animated: true});
+    jest.restoreAllMocks();
   });
 });
 

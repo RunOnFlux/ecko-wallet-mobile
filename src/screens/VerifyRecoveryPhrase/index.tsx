@@ -64,7 +64,7 @@ const VerifyRecoveryPhrase = () => {
   const scrollRef = useRef<ScrollView>(null);
   const keepFocusedInputVisible = useKeepFocusedInputVisible(
     scrollRef,
-    Platform.OS === 'android' ? bottomSpace : 0,
+    bottomSpace,
   );
 
   const handlePressBack = useCallback(() => {

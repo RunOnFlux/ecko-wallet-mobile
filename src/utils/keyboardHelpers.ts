@@ -1,4 +1,10 @@
-import {MutableRefObject, useCallback, useEffect, useLayoutEffect, useRef} from 'react';
+import {
+  MutableRefObject,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+} from 'react';
 import {
   Keyboard,
   LayoutChangeEvent,
@@ -14,7 +20,8 @@ export const clampScrollOffset = (
   scrollY: number,
   viewportHeight: number,
   contentHeight: number,
-) => Math.min(Math.max(scrollY, 0), Math.max(0, contentHeight - viewportHeight));
+) =>
+  Math.min(Math.max(scrollY, 0), Math.max(0, contentHeight - viewportHeight));
 
 /** Scroll offset that shows [itemTop, itemTop + itemHeight] with a small margin. */
 export const revealScrollOffset = ({
@@ -49,9 +56,9 @@ export const revealScrollOffset = ({
  * changes. Spread the returned props onto the ScrollView.
  *
  * `hiddenBottom` is the strip at the bottom of the shrunk ScrollView that the
- * keyboard still covers. On Android, keyboardVerticalOffset={-bottomSpace} leaves
- * bottomSpace under the keyboard (needed so the view returns to full height when
- * the keyboard closes), so pass bottomSpace there.
+ * keyboard still covers. keyboardVerticalOffset={-bottomSpace} leaves bottomSpace
+ * under the keyboard on both platforms (on Android it is needed so the view
+ * returns to full height when the keyboard closes), so pass bottomSpace there.
  */
 export const useKeepFocusedInputVisible = (
   scrollRef: MutableRefObject<any>,
@@ -72,6 +79,39 @@ export const useKeepFocusedInputVisible = (
     [scrollRef],
   );
 
+  const revealFocusedInput = useCallback(() => {
+    const input: any = TextInput.State.currentlyFocusedInput();
+    const innerView = scrollRef.current?.getInnerViewRef?.();
+    if (!input || !innerView || !viewportHeight.current) {
+      return;
+    }
+    input.measureLayout(
+      innerView,
+      (_x: number, itemTop: number, _w: number, itemHeight: number) =>
+        scrollToY(
+          revealScrollOffset({
+            scrollY: scrollY.current,
+            viewportHeight: viewportHeight.current - hiddenBottomRef.current,
+            contentHeight: contentHeight.current,
+            itemTop,
+            itemHeight,
+          }),
+        ),
+      () => {},
+    );
+  }, [scrollRef, scrollToY]);
+
+  // iOS scrolls the focused field to the very edge of the visible area while
+  // the keyboard animates, which cancels the scroll above; check again once the
+  // keyboard is fully shown.
+  useEffect(() => {
+    const subscription = Keyboard.addListener(
+      'keyboardDidShow',
+      revealFocusedInput,
+    );
+    return () => subscription.remove();
+  }, [revealFocusedInput]);
+
   const onLayout = useCallback(
     (event: LayoutChangeEvent) => {
       const previous = viewportHeight.current;
@@ -81,30 +121,14 @@ export const useKeepFocusedInputVisible = (
         return;
       }
       if (height > previous) {
-        scrollToY(clampScrollOffset(scrollY.current, height, contentHeight.current));
+        scrollToY(
+          clampScrollOffset(scrollY.current, height, contentHeight.current),
+        );
         return;
       }
-      const input: any = TextInput.State.currentlyFocusedInput();
-      const innerView = scrollRef.current?.getInnerViewRef?.();
-      if (!input || !innerView) {
-        return;
-      }
-      input.measureLayout(
-        innerView,
-        (_x: number, itemTop: number, _w: number, itemHeight: number) =>
-          scrollToY(
-            revealScrollOffset({
-              scrollY: scrollY.current,
-              viewportHeight: height - hiddenBottomRef.current,
-              contentHeight: contentHeight.current,
-              itemTop,
-              itemHeight,
-            }),
-          ),
-        () => {},
-      );
+      revealFocusedInput();
     },
-    [scrollRef, scrollToY],
+    [scrollToY, revealFocusedInput],
   );
 
   const onScroll = useCallback(
