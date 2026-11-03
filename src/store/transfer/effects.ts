@@ -293,6 +293,28 @@ export const makeTransferThunk = createAsyncThunk(
 
 const LOG_TAG = '[xchain]';
 
+// Chainweb rejects a continuation whose pact step already ran, e.g. when a
+// relayer finished the transfer first.
+const isPactAlreadyCompleted = (err: unknown): boolean => {
+  const error = err as AxiosError;
+  const text = `${error?.message || ''} ${JSON.stringify(
+    error?.response?.data ?? '',
+  )}`;
+  return text.includes('already-completed defpact');
+};
+
+const refreshAfterTransfer = (dispatch: any, getState: any) => {
+  const pollReqParams = makeSelectPollRequestParams(getState());
+  dispatch(getPollRequest(pollReqParams));
+  const selectedNetwork = makeSelectActiveNetworkDetails(getState());
+  dispatch(
+    getBalances({
+      ...selectedNetwork,
+      ...getNetworkParams(selectedNetwork as any),
+    } as any),
+  );
+};
+
 // Step 1 of a cross-chain transfer: wait for the SPV proof of the step-0 burn
 // on the source chain, then send the `continuation` on the target chain. The
 // gas for it is paid by the xwallet-xchain-gas station (see
@@ -372,11 +394,47 @@ export const runCrossChainContinuation = async (
     });
 
     await wait(30000);
-    const txRes = await getSendRequest({
-      cmdValue: JSON.stringify(cmdValue),
-      ...reqParams,
-      sourceChainId: activity.targetChainId!,
-    });
+    let txRes: any;
+    try {
+      txRes = await getSendRequest({
+        cmdValue: JSON.stringify(cmdValue),
+        ...reqParams,
+        sourceChainId: activity.targetChainId!,
+      });
+    } catch (sendErr) {
+      if (!isPactAlreadyCompleted(sendErr)) {
+        throw sendErr;
+      }
+      // A relayer finished step 1 before us: the funds are on the target
+      // chain, so this transfer is done.
+      console.log(
+        `${LOG_TAG} continuation for ${pactId} was already completed on chain ${activity.targetChainId}`,
+      );
+      dispatch(
+        replaceSendResult({
+          ...activity,
+          status: 'success',
+          continuation: activity.continuation && {
+            ...activity.continuation,
+            step: (activity.continuation.stepCount || 2) - 1,
+          },
+        }),
+      );
+      dispatch(
+        setTransferResult({
+          status: 'success',
+          date: new Date().toISOString(),
+          message: 'Transfer Successful',
+          requestKey: pactId,
+          sender: activity.sender,
+          sourceChainId: activity.sourceChainId,
+          receiver: activity.receiver,
+          targetChainId: activity.targetChainId,
+        }),
+      );
+      refreshAfterTransfer(dispatch, getState);
+      return;
+    }
 
     const reqKey = txRes.requestKeys[0];
     console.log(`${LOG_TAG} continuation sent: requestKey=${reqKey}`);
@@ -519,15 +577,7 @@ export const runCrossChainContinuation = async (
       );
     }
 
-    const pollReqParams = makeSelectPollRequestParams(getState());
-    dispatch(getPollRequest(pollReqParams));
-    const selectedNetwork = makeSelectActiveNetworkDetails(getState());
-    dispatch(
-      getBalances({
-        ...selectedNetwork,
-        ...getNetworkParams(selectedNetwork as any),
-      } as any),
-    );
+    refreshAfterTransfer(dispatch, getState);
   } catch (err) {
     const error = err as AxiosError;
     console.warn(

@@ -35,6 +35,8 @@ const network = {
 const SOURCE_KEY = 'step0-request-key';
 const CONT_KEY = 'step1-request-key';
 const PROOF = 'spv-proof-string';
+// Chainweb's /send rejection when a relayer already ran step 1 of the pact.
+const ALREADY_COMPLETED = `One or more transactions were invalid: Transaction "cont-hash" at index 0 failed with: This transaction is attempting to complete an already-completed defpact ID: "${SOURCE_KEY}"`;
 
 const step0Continuation = {
   pactId: SOURCE_KEY,
@@ -207,6 +209,28 @@ describe('makeTransferThunk cross-chain', () => {
     expect(canFinishCrossChainTransfer(entries[0])).toBe(true);
   });
 
+  it('reports success when another party already completed the continuation', async () => {
+    mocked.getSendRequest.mockReset();
+    mocked.getSendRequest
+      .mockResolvedValueOnce({requestKeys: [SOURCE_KEY]})
+      .mockRejectedValueOnce(new Error(ALREADY_COMPLETED));
+
+    const {actions, history} = await runThunk(
+      makeTransferThunk(crossChainPayload),
+    );
+
+    const results = transferResults(actions);
+    expect(results[results.length - 1]).toEqual(
+      expect.objectContaining({status: 'success'}),
+    );
+    const entries = history().activities;
+    expect(entries).toHaveLength(1);
+    expect(entries[0]).toEqual(
+      expect.objectContaining({requestKey: SOURCE_KEY, status: 'success'}),
+    );
+    expect(canFinishCrossChainTransfer(entries[0])).toBe(false);
+  });
+
   it('does not run a continuation for a same-chain transfer', async () => {
     mocked.getPollRequest.mockImplementation(async ({requestKeys}: any) => ({
       [requestKeys[0]]: {
@@ -267,6 +291,52 @@ describe('finishTransferThunk', () => {
     );
     const results = transferResults(actions);
     expect(results[results.length - 1].status).toBe('success');
+  });
+
+  it('marks a stuck entry done when the pact was already completed elsewhere', async () => {
+    mocked.getSendRequest.mockReset();
+    mocked.getSendRequest.mockRejectedValue(new Error(ALREADY_COMPLETED));
+    const activity = {
+      network,
+      requestKey: SOURCE_KEY,
+      createdTime: new Date().toISOString(),
+      sourceChainId: '2',
+      targetChainId: '1',
+      sender: 'k:sender',
+      receiver: 'k:receiver',
+      status: 'success',
+      coinShortName: 'KDA',
+      amount: 0.5,
+      type: 'TRANSFER',
+      continuation: step0Continuation,
+    } as unknown as TActivity;
+
+    let historyState = historyReducer(undefined, {
+      type: 'history/setSendResult',
+      payload: activity,
+    });
+    const actions: any[] = [];
+    const dispatch = jest.fn((action: any) => {
+      if (typeof action !== 'function') {
+        actions.push(action);
+        if (String(action.type).startsWith('history/')) {
+          historyState = historyReducer(historyState, action);
+        }
+      }
+      return action;
+    });
+    await finishTransferThunk({networkDetail: network, activity})(
+      dispatch,
+      () => ({...initialState(), history: historyState}),
+      undefined,
+    );
+
+    const results = transferResults(actions);
+    expect(results[results.length - 1].status).toBe('success');
+    expect(historyState.activities).toHaveLength(1);
+    expect(canFinishCrossChainTransfer(historyState.activities[0])).toBe(
+      false,
+    );
   });
 });
 
@@ -347,5 +417,37 @@ describe('history poll results', () => {
 
     expect(polled.activities[0].continuation).toEqual(step0Continuation);
     expect(canFinishCrossChainTransfer(polled.activities[0])).toBe(true);
+  });
+
+  it('do not reopen a transfer whose continuation already completed', () => {
+    const start = historyReducer(undefined, {type: '@@init'});
+    const finished = historyReducer(start, {
+      type: 'history/setSendResult',
+      payload: {
+        requestKey: SOURCE_KEY,
+        sourceChainId: '2',
+        targetChainId: '1',
+        status: 'success',
+        type: 'TRANSFER',
+        createdTime: new Date().toISOString(),
+        continuation: {...step0Continuation, step: 1},
+      },
+    });
+    // Polling the source request key always returns the step-0 continuation.
+    const polled = historyReducer(finished, {
+      type: fetchPollData.fulfilled.type,
+      payload: [
+        {
+          [SOURCE_KEY]: {
+            reqKey: SOURCE_KEY,
+            result: {status: 'success'},
+            continuation: step0Continuation,
+          },
+        },
+      ],
+    });
+
+    expect(polled.activities[0].continuation?.step).toBe(1);
+    expect(canFinishCrossChainTransfer(polled.activities[0])).toBe(false);
   });
 });

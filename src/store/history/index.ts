@@ -4,6 +4,7 @@ import {THistoryState, TPollResp, TPollRespItem} from './types';
 import {defaultRequestValues} from '../const';
 import {fetchPollData} from './effects';
 import moment from 'moment';
+import {laterContinuation} from './crossChain';
 
 const initialState: THistoryState = {
   activities: [],
@@ -101,9 +102,12 @@ const history = createSlice({
                   ? 'success'
                   : updatedItem.result.status,
                 // Keep the pact continuation so an unfinished cross-chain
-                // transfer can be finished from History.
-                continuation:
-                  updatedItem.continuation ?? existingActivity.continuation,
+                // transfer can be finished from History. Polling the source
+                // key always returns step 0, so never move a stored step back.
+                continuation: laterContinuation(
+                  existingActivity.continuation,
+                  updatedItem.continuation,
+                ),
               };
             }
             return existingActivity;
