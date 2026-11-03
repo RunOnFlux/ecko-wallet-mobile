@@ -123,7 +123,7 @@ const RecoveryFromSeeds = () => {
         </TouchableOpacity>
       </View>
       <KeyboardAvoidingView
-        style={{flex: 1}}
+        style={styles.keyboardAvoider}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={Platform.OS === 'ios' ? -bottomSpace : 0}>
         <ScrollView

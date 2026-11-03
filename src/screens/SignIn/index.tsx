@@ -113,13 +113,13 @@ const SignIn = () => {
   );
 
   const scrollRef = useRef<ScrollView>(null);
-  const {bottomSpace} = useSafeAreaValues();
-  const styles = createStyles({bottomSpace, statusBarHeight: 0});
+  const {bottomSpace, statusBarHeight} = useSafeAreaValues();
+  const styles = createStyles({bottomSpace, statusBarHeight});
 
   return (
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>
       <KeyboardAvoidingView
-        style={{flex: 1}}
+        style={styles.keyboardAvoider}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={-bottomSpace}>
         <ScrollView
@@ -155,12 +155,12 @@ const SignIn = () => {
             <Text style={styles.buttonText}>{t('signIn.button.signIn')}</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.header}>
-          <TouchableOpacity activeOpacity={0.8} onPress={handlePressBack}>
-            <ArrowLeftSvg fill="white" />
-          </TouchableOpacity>
-        </View>
       </KeyboardAvoidingView>
+      <View style={styles.header}>
+        <TouchableOpacity activeOpacity={0.8} onPress={handlePressBack}>
+          <ArrowLeftSvg fill="white" />
+        </TouchableOpacity>
+      </View>
     </ImageBackground>
   );
 };
