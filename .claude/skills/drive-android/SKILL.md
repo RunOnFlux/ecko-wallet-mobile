@@ -69,6 +69,10 @@ adrive.sh crash           # FATAL EXCEPTION / SIGABRT here = reproduced
 
 `dka on` is still useful for activity-recreation bugs that don't need process death; always `dka off` afterwards.
 
+## Test wallet
+
+An owner-approved **test** wallet (seed, password, `k:` account) lives in `.test-wallet.local` at the repo root — git-ignored via `.git/info/exclude`, never committed. `source .test-wallet.local` and use `$SEED`/`$PASSWORD` for the Import flow. It holds only small test KDA; own-account cross-chain transfers (chain 2 → 1) are the safe money-flow test because Send has no own-account picker. If the file is missing, ask the owner — never invent or reuse another seed.
+
 ## Rules
 
 - The wallet PIN/password and seed phrase are the owner's. Ask for them each session; never store, log or screenshot them. Crop or skip seed/private-key screens.
