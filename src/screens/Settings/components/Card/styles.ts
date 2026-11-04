@@ -20,10 +20,14 @@ export const makeStyles = (theme: IAppTheme) =>
       backgroundColor: theme.button.primary,
       borderRadius: 21,
     },
+    // flex: 1 keeps the text inside the row so long descriptions wrap
+    // instead of running off the screen.
     rightSide: {
+      flex: 1,
       marginLeft: 12,
     },
     rightSideWithoutIcon: {
+      flex: 1,
       marginLeft: 0,
     },
     title: {
