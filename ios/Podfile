@@ -43,6 +43,13 @@ target 'kadena' do
         if target.name == 'fmt'
           config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++17'
         end
+        # Some pods' resource bundles (RNSVGFilters, RNCAsyncStorage_resources)
+        # declare iOS 12.4/13.4. Xcode 27 rejects targets below iOS 15.0, so
+        # raise them to the app's minimum.
+        target_ios = config.build_settings['IPHONEOS_DEPLOYMENT_TARGET']
+        if target_ios && Gem::Version.new(target_ios) < Gem::Version.new(min_ios_version_supported)
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = min_ios_version_supported
+        end
       end
     end
   end
