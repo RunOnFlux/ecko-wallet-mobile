@@ -2,11 +2,7 @@ import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {
   View,
   ScrollView,
-  TouchableOpacity,
-  Keyboard,
   Text,
-  TextInput,
-  Alert,
   Animated,
   Image,
 } from 'react-native';

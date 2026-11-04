@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {IAppTheme} from '../../../themes/types';
 
-export const makeStyles = (theme: IAppTheme) =>
+export const makeStyles = (_theme: IAppTheme) =>
   StyleSheet.create({
     loadingWrapper: {
       width: '100%',

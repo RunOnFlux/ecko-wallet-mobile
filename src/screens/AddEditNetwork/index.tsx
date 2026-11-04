@@ -68,7 +68,7 @@ const AddEditNetwork = () => {
           );
           setTimeout(() => navigation.goBack(), 150);
         }
-      } catch (e) {
+      } catch {
         ReactNativeHapticFeedback.trigger('impactMedium', {
           enableVibrateFallback: false,
           ignoreAndroidSystemSettings: false,

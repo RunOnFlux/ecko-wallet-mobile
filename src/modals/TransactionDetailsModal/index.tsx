@@ -10,7 +10,6 @@ import Snackbar from 'react-native-snackbar';
 import {useShallowEqualSelector} from '../../store/utils';
 import {numberWithCommas} from '../../utils/stringHelpers';
 import Button from '../../screens/Wallet/components/WalletBalance/components/Button';
-import {makeSelectActiveNetworkDetails} from '../../store/networks/selectors';
 import {useAppThemeContext} from '../../contexts';
 import {makeStyles} from './styles';
 
@@ -18,10 +17,6 @@ const TransactionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
   ({details, toggle, isVisible}) => {
     const {t} = useTranslation();
     const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
-    const networkDetail = useShallowEqualSelector(
-      makeSelectActiveNetworkDetails,
-    );
-    const networkSlug = networkDetail?.network;
     // todo: save networkId into local txs
     const isPending =
       details?.status === 'pending' ||

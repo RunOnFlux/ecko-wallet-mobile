@@ -1,6 +1,6 @@
 {
   "name": "ecko-wallet-mobile",
-  "version": "1.20.0",
+  "version": "1.21.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -63,7 +63,7 @@
     "react-native-nitro-modules": "^0.31.10",
     "react-native-progress": "^5.0.1",
     "react-native-qrcode-svg": "^6.3.15",
-    "react-native-safe-area-context": "^5.5.2",
+    "react-native-safe-area-context": "^5.11.1",
     "react-native-screens": "^4.18.0",
     "react-native-snackbar": "^2.9.0",
     "react-native-svg": "^15.15.1",
@@ -97,6 +97,7 @@
     "@walletconnect/jsonrpc-types": "^1.0.4",
     "babel-jest": "^30.0.4",
     "eslint": "^9.31.0",
+    "eslint-plugin-react-native": "5.0.0",
     "jest": "^30.0.4",
     "prettier": "3.6.2",
     "react-native-dotenv": "^3.4.11",

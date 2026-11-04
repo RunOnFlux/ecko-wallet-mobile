@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useShallowEqualSelector } from '../../../store/utils';
-import {
-  makeSelectSelectedAccount,
-  makeSelectSelectedAccountPublicKey,
-} from '../../../store/userWallet/selectors';
+import { makeSelectSelectedAccount } from '../../../store/userWallet/selectors';
 import { ECKO_DEXTOOLS_API_URL } from '../../../api/constants';
 import { getSignatureFromHash } from '../../../utils/kadenaHelpers';
 import { Pact } from '../../../api/pactLangApi';
@@ -28,7 +25,6 @@ export const useAccountBalance = ({
   const [loading, setLoading] = useState(true);
 
   const selectedAccount = useShallowEqualSelector(makeSelectSelectedAccount);
-  const publicKey = useShallowEqualSelector(makeSelectSelectedAccountPublicKey);
 
   useEffect(() => {
     const fetchBalance = async () => {

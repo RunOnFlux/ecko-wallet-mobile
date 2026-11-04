@@ -6,7 +6,6 @@ import {makeStyles} from './styles';
 import {KDA_NAMESPACE} from '../../utils/walletConnect';
 import ListItem from '../../components/ListItem';
 import {truncate} from '../../utils/stringHelpers';
-import {MAIN_COLOR} from '../../constants/styles';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import TrashEmptySvg from '../../assets/images/trash-empty.svg';
 import {useAppThemeContext, useWalletConnectContext} from '../../contexts';
@@ -64,7 +63,7 @@ const SessionDetailsModal: FC<TTransactionDetailsModalProps> = React.memo(
                 });
                 toggle();
                 setTimeout(() => onDelete(), 200);
-              } catch (e) {
+              } catch {
                 Alert.alert(
                   t('session.deleteFailedTitle'),
                   t('session.deleteFailedMessage'),

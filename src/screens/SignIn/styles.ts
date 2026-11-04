@@ -1,4 +1,4 @@
-import {Dimensions, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {BOLD_MONTSERRAT, MEDIUM_MONTSERRAT} from '../../constants/styles';
 
 export const createStyles = ({
@@ -7,8 +7,14 @@ export const createStyles = ({
 }: {
   bottomSpace: number;
   statusBarHeight: number;
-}) =>
-  StyleSheet.create({
+}) => {
+  // The back arrow floats over the edge-to-edge background at
+  // top: statusBarHeight + 12 and is 24px tall. The keyboard-avoiding scroll
+  // area starts below it (+8px gap), so content scrolled up by the keyboard is
+  // clipped there instead of passing under the status bar or the arrow.
+  const headerOffset = statusBarHeight + 12 + 24 + 8;
+
+  return StyleSheet.create({
     bgImage: {
       flex: 1,
       width: '100%',
@@ -21,6 +27,10 @@ export const createStyles = ({
       width: '100%',
       zIndex: 1,
     },
+    keyboardAvoider: {
+      flex: 1,
+      marginTop: headerOffset,
+    },
     contentWrapper: {
       flex: 1,
     },
@@ -28,7 +38,9 @@ export const createStyles = ({
       flex: 1,
       alignItems: 'center',
       justifyContent: 'flex-end',
-      paddingTop: 96,
+      // Was 96 from the screen top; the scroll area now starts at
+      // headerOffset, so only the remainder keeps the same resting layout.
+      paddingTop: Math.max(0, 96 - headerOffset),
       width: '100%',
     },
     text: {
@@ -61,3 +73,4 @@ export const createStyles = ({
       color: 'white',
     },
   });
+};

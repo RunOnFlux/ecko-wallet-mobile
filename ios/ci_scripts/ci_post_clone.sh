@@ -3,6 +3,27 @@ set -e
 
 echo ">>> CI POST CLONE SCRIPT STARTED <<<"
 
+# Build-time secrets guard.
+# There is no .env on Xcode Cloud: react-native-dotenv (babel.config.js) inlines
+# ENCRYPTION_KEY from the workflow's environment variables into the JS bundle.
+# It is the MMKV encryption key of 'user-storage' and 'auth-storage'
+# (src/store/store.ts, src/utils/storageHelplers.ts). A missing or different
+# value makes every existing wallet unreadable after the update, so never
+# invent a new one: it must equal the value used by the builds users have.
+echo ">>> CHECKING BUILD-TIME SECRETS"
+if [ -z "${ENCRYPTION_KEY:-}" ]; then
+  echo "ERROR: ENCRYPTION_KEY is not set in this Xcode Cloud workflow's environment."
+  echo "ERROR: It must be the exact value used by the builds already on users' devices."
+  exit 1
+fi
+echo ">>> ENCRYPTION_KEY fingerprint (sha256, first 12 hex): $(printf '%s' "$ENCRYPTION_KEY" | shasum -a 256 | cut -c1-12)"
+for var in WALLETCONNECT_PROJECT_ID WALLETCONNECT_PROJECT_RELAY; do
+  eval "val=\${$var:-}"
+  if [ -z "$val" ]; then
+    echo "WARNING: $var is not set in this Xcode Cloud workflow's environment."
+  fi
+done
+
 if [ -z "$CI_WORKSPACE" ]; then
   SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
   export CI_WORKSPACE="$(cd "$SCRIPT_DIR/../.." && pwd)"

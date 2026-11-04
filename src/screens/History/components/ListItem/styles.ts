@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 import {
   BOLD_MONTSERRAT,
   MEDIUM_MONTSERRAT,
-  MAIN_COLOR,
 } from '../../../../constants/styles';
 import {IAppTheme} from '../../../../themes/types';
 

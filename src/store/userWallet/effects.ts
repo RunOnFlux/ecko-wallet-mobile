@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 import {
   TAccount,
@@ -67,7 +67,7 @@ export const getBalances = createAsyncThunk(
           'https://api.coingecko.com/api/v3/simple/price?vs_currencies=usd&ids=kadena,gas',
         );
         estimatedUsdResponse = usdResponse?.data;
-      } catch (e) {}
+      } catch {}
 
       const tokenPairList = (selectedAccount?.wallets || [])
         .filter(item => item.tokenAddress !== 'coin')
@@ -113,7 +113,7 @@ export const getBalances = createAsyncThunk(
               `,
             } as any);
             return tokenListDetails || [];
-          } catch (e) {
+          } catch {
             return [];
           }
         }),
@@ -211,6 +211,12 @@ export const generateAccountThunk = createAsyncThunk(
     const state = getState();
     const seedsFromState = makeSelectGeneratedPhrases(state as any);
     const seeds = payload?.seeds || seedsFromState;
+
+    // Without a phrase generateAccount falls back to a random keypair that can
+    // never be restored from the user's backup, so refuse instead.
+    if (!seeds) {
+      throw new Error('Secret Recovery Phrase is not available');
+    }
 
     const data = await generateAccount({
       seeds,
@@ -313,7 +319,7 @@ export const getTokenList = createAsyncThunk(
 
       dispatch(setSearchTokenList(tokenList));
       dispatch(setNonTransferableTokenList(nonTransferableTokens || []));
-    } catch (err) {
+    } catch {
       dispatch(setSearchTokenList([]));
       dispatch(setNonTransferableTokenList([]));
     }

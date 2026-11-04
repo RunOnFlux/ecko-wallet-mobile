@@ -60,7 +60,7 @@ export const getBalance: (
             getPactHost(network, version, instance, chainId, customHost),
           );
           chainBalance[chainId] = getBalanceFromApiResponse(response);
-        } catch (e) {
+        } catch {
           chainBalance[chainId] = 0;
         }
       }),

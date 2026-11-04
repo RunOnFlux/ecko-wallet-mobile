@@ -6,7 +6,6 @@ export const createStyles = (
   theme: IAppTheme,
   {
     statusBarHeight,
-    bottomSpace,
   }: {
     bottomSpace: number;
     statusBarHeight: number;

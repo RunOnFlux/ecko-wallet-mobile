@@ -8,12 +8,13 @@ import {makeStyles} from './styles';
 
 const AccountFromTo: FC<TAccountFromToProps> = React.memo(
   ({fromAccount, toAccount, fromChainId, toChainId}) => {
+    const {theme} = useAppThemeContext();
+    const styles = useMemo(() => makeStyles(theme), [theme]);
+
     if (fromAccount === undefined || toAccount === undefined) {
       return null;
     }
 
-    const {theme} = useAppThemeContext();
-    const styles = useMemo(() => makeStyles(theme), [theme]);
     return (
       <View style={styles.wrapper}>
         <View style={styles.fromWrapper}>

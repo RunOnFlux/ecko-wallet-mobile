@@ -58,7 +58,7 @@ export const quickSign = (data: any, publicKey: string, secretKey: string) => {
           } else {
             signature = Pact.crypto.sign(hash, {secretKey, publicKey}).sig;
           }
-        } catch (err) {
+        } catch {
           signedResponses.push({
             commandSigData: {
               cmd,

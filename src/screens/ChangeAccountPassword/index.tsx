@@ -19,7 +19,7 @@ import ArrowLeftSvg from '../../assets/images/arrow-left.svg';
 import {useNavigation} from '@react-navigation/native';
 import {ERootStackRoutes, TNavigationProp} from '../../routes/types';
 import Toast from 'react-native-toast-message';
-import {setPassword} from '../../store/auth';
+import {changePassword} from '../../store/auth';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import {useDispatch, useSelector} from 'react-redux';
 import {makeSelectHashPassword} from '../../store/auth/selectors';
@@ -77,7 +77,7 @@ const ChangeAccountPassword = () => {
             })
               .then(hashResponseHash => {
                 if (hashResponseHash) {
-                  dispatch(setPassword(hashResponseHash));
+                  dispatch(changePassword(hashResponseHash));
                   Toast.show({
                     type: 'success',
                     position: 'top',

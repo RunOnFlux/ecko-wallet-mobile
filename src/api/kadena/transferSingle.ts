@@ -136,7 +136,7 @@ export const getTransferSingle: (
           customHost,
         });
         signingPubKey = senderInfo?.publicKey || signingPubKey;
-      } catch (err) {
+      } catch {
         // Ignore error
       }
     }
@@ -144,25 +144,13 @@ export const getTransferSingle: (
     if (!signingPubKey || signingPubKey === '') {
       throw new Error('No public key available for SpireKey signing');
     }
-    const keyPair: any = [
-      {
-        publicKey: signingPubKey,
-        clist: [
-          { name: 'coin.GAS', args: [] },
-          {
-            name: `${moduleName}.TRANSFER`,
-            args: [sender, receiver, Number(amount)],
-          },
-        ],
-      },
-    ];
 
     let pactCode = `(${moduleName}.transfer-create ${JSON.stringify(
       sender,
     )} ${JSON.stringify(receiver)} (read-keyset "ks")  ${convertDecimal(
       amount,
     )})`;
-    let envData: any = undefined;
+    let envData: any;
 
     if (isRAccount(receiver)) {
       const { exists, keysetRefGuard } = await fetchGuardForRAccount(
@@ -319,7 +307,7 @@ export const getTransferSingle: (
       },
       getPactHost(network, version, instance, sourceChainId, customHost),
     );
-  } catch (e) {}
+  } catch {}
 
   const keyPair = [
     {
@@ -422,7 +410,7 @@ export const getTransferSingle: (
         );
         return setSignatureIfNecessary(createdCommand, signature);
       }
-    } catch (e) {
+    } catch {
       if (receiver.startsWith('k:') && receiver.length === 66) {
         const createdCommand = Pact.simple.exec.createCommand(
           keyPair,

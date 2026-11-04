@@ -9,7 +9,6 @@ export const TokenTrend = ({
   iconUri,
   symbol,
   value,
-  isUp,
 }: {
   title: string;
   iconUri?: string;

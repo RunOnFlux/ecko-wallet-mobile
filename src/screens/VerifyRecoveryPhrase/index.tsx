@@ -23,6 +23,7 @@ import {verifyRecoveryPhraseSchema} from '../../validation/verifyRecoveryPhraseS
 import {makeSelectGeneratedPhrases} from '../../store/auth/selectors';
 import {useShallowEqualSelector} from '../../store/utils';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
+import {useKeepFocusedInputVisible} from '../../utils/keyboardHelpers';
 import {useDispatch} from 'react-redux';
 import {setHasBackedUpPhrase} from '../../store/auth';
 
@@ -59,6 +60,12 @@ const VerifyRecoveryPhrase = () => {
 
   const {bottomSpace, statusBarHeight} = useSafeAreaValues();
   const styles = createStyles({bottomSpace, statusBarHeight});
+
+  const scrollRef = useRef<ScrollView>(null);
+  const keepFocusedInputVisible = useKeepFocusedInputVisible(
+    scrollRef,
+    bottomSpace,
+  );
 
   const handlePressBack = useCallback(() => {
     navigation.goBack();
@@ -105,10 +112,12 @@ const VerifyRecoveryPhrase = () => {
   return (
     <ImageBackground source={bgImage} resizeMode="cover" style={styles.bgImage}>
       <KeyboardAvoidingView
-        style={{flex: 1}}
+        style={styles.keyboardAvoider}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={-bottomSpace}>
         <ScrollView
+          ref={scrollRef}
+          {...keepFocusedInputVisible}
           showsVerticalScrollIndicator={false}
           style={styles.contentWrapper}
           contentContainerStyle={styles.content}>
@@ -162,12 +171,12 @@ const VerifyRecoveryPhrase = () => {
             </Text>
           </TouchableOpacity>
         </ScrollView>
-        <View style={styles.header}>
-          <TouchableOpacity activeOpacity={0.8} onPress={handlePressBack}>
-            <ArrowLeftSvg fill="white" />
-          </TouchableOpacity>
-        </View>
       </KeyboardAvoidingView>
+      <View style={styles.header}>
+        <TouchableOpacity activeOpacity={0.8} onPress={handlePressBack}>
+          <ArrowLeftSvg fill="white" />
+        </TouchableOpacity>
+      </View>
     </ImageBackground>
   );
 };
