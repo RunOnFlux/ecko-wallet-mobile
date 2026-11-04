@@ -304,7 +304,7 @@ registerLedgerApi({
     } finally {
       try {
         await transport.close();
-      } catch (_) {}
+      } catch {}
     }
   },
   signTransferCreateTx: async params => {
@@ -318,7 +318,7 @@ registerLedgerApi({
     } finally {
       try {
         await transport.close();
-      } catch (_) {}
+      } catch {}
     }
   },
   signTransferCrossChainTx: async params => {
@@ -332,7 +332,7 @@ registerLedgerApi({
     } finally {
       try {
         await transport.close();
-      } catch (_) {}
+      } catch {}
     }
   },
 });

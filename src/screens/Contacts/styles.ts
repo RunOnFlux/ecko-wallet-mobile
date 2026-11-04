@@ -4,7 +4,7 @@ import {MAIN_COLOR, MEDIUM_MONTSERRAT} from '../../constants/styles';
 import {useAppThemeContext} from '../../contexts';
 import {useSafeAreaValues} from '../../utils/deviceHelpers';
 
-export const makeStyles = () => {
+export const useStyles = () => {
   const {statusBarHeight} = useSafeAreaValues();
   const {theme} = useAppThemeContext();
   return StyleSheet.create({

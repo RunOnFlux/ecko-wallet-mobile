@@ -11,7 +11,6 @@ export const PairTrend = ({
   symbol0,
   symbol1,
   value,
-  isUp,
 }: {
   title: string;
   iconUri0?: string;

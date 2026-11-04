@@ -75,7 +75,7 @@ export const WalletConnectProvider = (props: any) => {
                 message: 'Session expired',
               },
             });
-          } catch (e) {
+          } catch {
             console.warn('Failed to disconnect expired session:', topic);
           }
         }
@@ -88,7 +88,7 @@ export const WalletConnectProvider = (props: any) => {
             await initWalletConnectCore.pairing.disconnect({
               topic: pairing.topic,
             });
-          } catch (e) {
+          } catch {
             console.warn(
               'Failed to disconnect expired pairing:',
               pairing.topic,

@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {View, TextInput, ScrollView, Text} from 'react-native';
 import {useTranslation} from 'react-i18next';
 
@@ -11,9 +11,7 @@ import {makeSelectContactsList} from '../../store/contacts/selectors';
 import {TContact} from './components/Item/types';
 import {setSelectedContact} from '../../store/contacts';
 import {useShallowEqualSelector} from '../../store/utils';
-import {useSafeAreaValues} from '../../utils/deviceHelpers';
-import {useAppThemeContext} from '../../contexts';
-import {makeStyles} from './styles';
+import {useStyles} from './styles';
 
 const Contacts = () => {
   const {t} = useTranslation();
@@ -37,7 +35,7 @@ const Contacts = () => {
     },
     [toggleModal, dispatch],
   );
-  const styles = makeStyles();
+  const styles = useStyles();
 
   return (
     <View style={styles.container}>

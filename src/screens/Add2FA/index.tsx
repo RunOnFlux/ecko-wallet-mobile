@@ -62,7 +62,7 @@ const Add2FA = () => {
           text2: 'Please try again',
         });
       }
-    } catch (e) {
+    } catch {
       Toast.show({
         type: 'error',
         position: 'top',
@@ -122,7 +122,7 @@ const Add2FA = () => {
       } else {
         setVerifying(false);
       }
-    } catch (e) {
+    } catch {
       setVerifying(false);
     }
   }, [

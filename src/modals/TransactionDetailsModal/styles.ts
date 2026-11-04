@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {IAppTheme} from '../../themes/types';
-import {MAIN_COLOR, MEDIUM_MONTSERRAT} from '../../constants/styles';
+import {MEDIUM_MONTSERRAT} from '../../constants/styles';
 
 export const makeStyles = (theme: IAppTheme) =>
   StyleSheet.create({

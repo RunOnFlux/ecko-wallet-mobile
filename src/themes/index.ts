@@ -1,7 +1,4 @@
-import {StyleSheet} from 'react-native';
 import {AppThemeEnum, IAppTheme} from './types';
-import {useAppThemeContext} from '../contexts';
-import {useMemo} from 'react';
 
 export const appThemes: {[key in AppThemeEnum]: IAppTheme} = {
   [AppThemeEnum.LIGHT]: {

@@ -184,7 +184,7 @@ const quickSignWithLedger = async (
             hash,
           },
         });
-      } catch (err) {
+      } catch {
         signedResponses.push({
           commandSigData: {
             cmd,
@@ -291,7 +291,7 @@ export const useWalletConnect = () => {
                   }
                 }, 300);
               });
-            } catch (e) {
+            } catch {
               await new Promise((resolve, reject) => {
                 setTimeout(async () => {
                   try {
@@ -372,7 +372,7 @@ export const useWalletConnect = () => {
         default:
           break;
       }
-    } catch (e) {}
+    } catch {}
   }, []);
 
   const onSessionDelete = useCallback(() => {
@@ -450,7 +450,7 @@ export const useWalletConnect = () => {
 
         closeModal();
       }
-    } catch (e) {
+    } catch {
       setIsLoading(false);
       setHelpIsVisible(true);
     }

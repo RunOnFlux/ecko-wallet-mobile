@@ -32,7 +32,7 @@ export function useAsyncStorage(key: string, initialValue?: any) {
         const item = valueStorage.getString(keyParam);
         const value = item ? JSON.parse(item) : initialValueParam || null;
         setStoredValue(value);
-      } catch (error) {}
+      } catch {}
     },
     [],
   );
@@ -50,7 +50,7 @@ export function useAsyncStorage(key: string, initialValue?: any) {
           value instanceof Function ? value(storedValue) : value;
         setStoredValue(valueToStore);
         await valueStorage.set(key, JSON.stringify(valueToStore));
-      } catch (error) {}
+      } catch {}
     },
     [key],
   );
@@ -62,7 +62,7 @@ export const getSavedValue = (keyParam: string, initialValueParam?: any) => {
   try {
     const item = valueStorage.getString(keyParam);
     return item ? JSON.parse(item) : initialValueParam || null;
-  } catch (error) {
+  } catch {
     return initialValueParam || null;
   }
 };
@@ -70,5 +70,5 @@ export const getSavedValue = (keyParam: string, initialValueParam?: any) => {
 export const saveValue = async (key: string, value?: any) => {
   try {
     await valueStorage.set(key, JSON.stringify(value));
-  } catch (error) {}
+  } catch {}
 };

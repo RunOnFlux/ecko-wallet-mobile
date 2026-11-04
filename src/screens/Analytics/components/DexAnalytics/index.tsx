@@ -34,7 +34,7 @@ const useDexTokensPerformance = (): {
         const json = await res.json();
         const tickers = Array.isArray(json?.tickers) ? json.tickers : [];
         if (mounted) setState({ data: { tickers }, loading: false });
-      } catch (e) {
+      } catch {
         if (mounted) setState({ data: { tickers: [] }, loading: false });
       }
     })();
@@ -62,7 +62,7 @@ const useDexPairs = (): { data: DexPair[]; loading: boolean } => {
             ? json.collection
             : [];
         if (mounted) setState({ data, loading: false });
-      } catch (e) {
+      } catch {
         if (mounted) setState({ data: [], loading: false });
       }
     })();

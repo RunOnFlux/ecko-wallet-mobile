@@ -40,7 +40,7 @@ const useDexTokensPerformance = (
         const json = await res.json();
         const tickers = Array.isArray(json?.tickers) ? json.tickers : [];
         if (mounted) setState({ data: { tickers }, loading: false });
-      } catch (e) {
+      } catch {
         if (mounted) setState({ data: { tickers: [] }, loading: false });
       }
     })();
@@ -78,7 +78,6 @@ function layoutBinary(
   const first = sorted.slice(0, splitIndex);
   const second = sorted.slice(splitIndex);
   const sumFirst = first.reduce((s, it) => s + it.value, 0) || 1;
-  const sumSecond = total - sumFirst || 1;
   if (horizontal) {
     const w1 = (w * sumFirst) / total;
     return [

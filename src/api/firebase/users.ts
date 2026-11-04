@@ -94,7 +94,7 @@ class Users {
         .doc(user.id)
         .update({is2FaAdded: false});
       return 'success';
-    } catch (e) {
+    } catch {
       return 'fail';
     }
   }
@@ -110,7 +110,7 @@ class Users {
         .doc(user.id)
         .update({isDeleted: true});
       return 'success';
-    } catch (e) {
+    } catch {
       return 'fail';
     }
   }

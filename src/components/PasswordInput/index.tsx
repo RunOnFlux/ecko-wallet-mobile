@@ -1,7 +1,6 @@
 import React, {FC, useMemo, useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 import {useTranslation} from 'react-i18next';
-import {MAIN_COLOR} from '../../constants/styles';
 
 import {makeStyles} from './styles';
 import {TPasswordInputProps} from './types';
@@ -11,6 +10,7 @@ import EyeHideIcon from '../../assets/images/eye-password-hide.svg';
 import {useAppThemeContext} from '../../contexts';
 
 const PasswordInput: FC<TPasswordInputProps> = ({
+  inputRef,
   label,
   wrapperStyle,
   iconStyle,
@@ -33,6 +33,7 @@ const PasswordInput: FC<TPasswordInputProps> = ({
       </Text>
       <View style={[styles.inputContainer, inputContainerStyle]}>
         <TextInput
+          ref={inputRef}
           placeholderTextColor="gray"
           placeholder={t('components.passwordInput.placeholder')}
           {...restProps}

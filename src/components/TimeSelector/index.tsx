@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { useAppThemeContext } from '../../contexts';
 import { useTranslation } from 'react-i18next';
 import { styles } from './styles';

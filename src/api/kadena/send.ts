@@ -29,7 +29,7 @@ export const getSend: (params: SendQueryParams) => Promise<any> = async ({
   let parsedCmd;
   try {
     parsedCmd = JSON.parse(cmdValue);
-  } catch (e) {
+  } catch {
     throw new Error('Invalid cmdValue format');
   }
 

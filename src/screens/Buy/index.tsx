@@ -4,7 +4,6 @@ import {
   Text,
   ActivityIndicator,
   SafeAreaView,
-  Alert,
 } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { useNavigation } from '@react-navigation/native';
