@@ -152,6 +152,7 @@
     "snackbar": "Obnovitvena fraza je kopirana v odložišče!",
     "description": "Vaša skrivna obnovitvena fraza omogoča enostavno varnostno kopiranje in obnovitev računa.",
     "warning": "Nikoli ne delite svoje obnovitvene fraze. Kdor jo ima, lahko prevzame vaš denarnico.",
+    "unavailable": "Vaša skrivna obnovitvena fraza ni več shranjena v tej napravi, zato je ni mogoče prikazati. Vaše denarnice in sredstva v tej aplikaciji niso prizadeti. Če fraze nimate varnostno kopirane, prenesite sredstva v denarnico, katere obnovitveno frazo ste shranili.",
     "copyButton": "Kopiraj obnovitveno frazo",
     "header": {
       "title": "Izvozi obnovitveno frazo"
@@ -652,6 +653,8 @@
     "exportRecovery": "Izvozi frazo za obnovitev",
     "removeSelected": "Odstrani izbrano denarnico",
     "create": "Ustvari denarnico",
+    "phraseUnavailableTitle": "Denarnice ni mogoče ustvariti",
+    "phraseUnavailableMessage": "Nove denarnice so izpeljane iz vaše skrivne obnovitvene fraze, ki ni več shranjena v tej napravi. Denarnico lahko še vedno uvozite z njenim zasebnim ključem.",
     "import": "Uvozi denarnico",
     "copySuccess": "Podrobnosti računa so bile kopirane v odložišče!"
   },

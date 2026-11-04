@@ -152,6 +152,7 @@
     "snackbar": "Obnova fráze zkopírována do schránky!",
     "description": "Vaše tajná obnovovací fráze usnadňuje zálohování a obnovení účtu.",
     "warning": "Nikdy neprozrazujte tajnou obnovovací frázi. Kdo ji získá, může vaši peněženku převzít.",
+    "unavailable": "Vaše tajná obnovovací fráze už není v tomto zařízení uložena, proto ji nelze zobrazit. Vaše peněženky a prostředky v této aplikaci nejsou dotčeny. Pokud nemáte frázi zálohovanou, převeďte své prostředky do peněženky, jejíž obnovovací frázi máte uloženou.",
     "copyButton": "Kopírovat obnovovací frázi",
     "header": {
       "title": "Exportovat obnovovací frázi"
@@ -674,6 +675,8 @@
     "exportRecovery": "Exportovat frázi pro obnovení",
     "removeSelected": "Odstranit vybranou peněženku",
     "create": "Vytvořit peněženku",
+    "phraseUnavailableTitle": "Peněženku nelze vytvořit",
+    "phraseUnavailableMessage": "Nové peněženky se odvozují z vaší tajné obnovovací fráze, která už v tomto zařízení není uložena. Stále můžete importovat peněženku pomocí jejího soukromého klíče.",
     "import": "Importovat peněženku",
     "copySuccess": "Informace o účtu zkopírovány do schránky!"
   },

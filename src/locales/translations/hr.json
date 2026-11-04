@@ -152,6 +152,7 @@
     "snackbar": "Fraza za oporavak kopirana u međuspremnik!",
     "description": "Vaša tajna fraza za oporavak olakšava izradu sigurnosne kopije i vraćanje računa.",
     "warning": "Nikada ne otkrivajte svoju tajnu frazu za oporavak. Netko tko je posjeduje može preuzeti vaš novčanik.",
+    "unavailable": "Vaša tajna fraza za oporavak više nije spremljena na ovom uređaju pa se ne može prikazati. Vaši novčanici i sredstva u ovoj aplikaciji nisu pogođeni. Ako nemate sigurnosnu kopiju fraze, prebacite sredstva u novčanik čiju ste frazu za oporavak spremili.",
     "copyButton": "Kopiraj frazu za oporavak",
     "header": {
       "title": "Izvezi frazu za oporavak"
@@ -652,6 +653,8 @@
     "exportRecovery": "Izvezi frazu za oporavak",
     "removeSelected": "Ukloni odabrani novčanik",
     "create": "Kreiraj novčanik",
+    "phraseUnavailableTitle": "Novčanik se ne može kreirati",
+    "phraseUnavailableMessage": "Novi novčanici izvode se iz vaše tajne fraze za oporavak, koja više nije spremljena na ovom uređaju. I dalje možete uvesti novčanik pomoću njegovog privatnog ključa.",
     "import": "Uvezi novčanik",
     "copySuccess": "Podaci računa kopirani u međuspremnik!"
   },

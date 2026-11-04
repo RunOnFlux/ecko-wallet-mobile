@@ -191,6 +191,7 @@
     "snackbar": "Recovery secret phrase copied to clipboard!",
     "description": "Your Secret Recovery Phrase makes it easy to back up and restore your account.",
     "warning": "Never disclose your Secret Recovery Phrase. Anyone with this phrase can take your wallet forever.",
+    "unavailable": "Your Secret Recovery Phrase is no longer stored on this device, so it can't be shown. Your wallets and funds in this app are not affected. If you don't have the phrase backed up, transfer your funds to a wallet whose recovery phrase you have saved.",
     "copyButton": "Copy Recovery Phrase",
     "header": {
       "title": "Export Recovery Phrase"
@@ -754,6 +755,8 @@
     "exportRecovery": "Export recovery phrase",
     "removeSelected": "Remove selected wallet",
     "create": "Create wallet",
+    "phraseUnavailableTitle": "Can't create wallet",
+    "phraseUnavailableMessage": "New wallets are derived from your Secret Recovery Phrase, which is no longer stored on this device. You can still import a wallet using its private key.",
     "import": "Import wallet",
     "importHardware": "Import hardware wallet",
     "copySuccess": "Account details information to clipboard!"

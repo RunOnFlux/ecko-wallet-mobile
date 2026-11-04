@@ -152,6 +152,7 @@
     "snackbar": "Đã sao chép cụm từ khôi phục!",
     "description": "Cụm từ khôi phục bí mật giúp sao lưu và khôi phục tài khoản dễ dàng.",
     "warning": "Không bao giờ chia sẻ cụm từ khôi phục. Ai có nó đều có thể chiếm ví của bạn.",
+    "unavailable": "Cụm từ khôi phục bí mật của bạn không còn được lưu trên thiết bị này nên không thể hiển thị. Ví và tiền của bạn trong ứng dụng này không bị ảnh hưởng. Nếu bạn chưa sao lưu cụm từ, hãy chuyển tiền sang một ví mà bạn đã lưu cụm từ khôi phục.",
     "copyButton": "Sao chép cụm từ",
     "header": {
       "title": "Xuất cụm từ khôi phục"
@@ -652,6 +653,8 @@
     "exportRecovery": "Xuất cụm từ khôi phục",
     "removeSelected": "Xóa ví đã chọn",
     "create": "Tạo ví",
+    "phraseUnavailableTitle": "Không thể tạo ví",
+    "phraseUnavailableMessage": "Ví mới được tạo từ cụm từ khôi phục bí mật của bạn, nhưng cụm từ này không còn được lưu trên thiết bị này. Bạn vẫn có thể nhập ví bằng khóa riêng tư của ví đó.",
     "import": "Nhập ví",
     "copySuccess": "Thông tin tài khoản đã được sao chép vào clipboard!"
   },

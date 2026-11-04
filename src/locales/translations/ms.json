@@ -152,6 +152,7 @@
     "snackbar": "Frasa pemulihan disalin ke papan klip!",
     "description": "Frasa Rahsia Pemulihan memudahkan sandaran dan pemulihan akaun anda.",
     "warning": "Jangan dedahkan frasa pemulihan. Sesiapa yang mempunyai frasa ini boleh mengawal dompet anda.",
+    "unavailable": "Frasa Rahsia Pemulihan anda tidak lagi disimpan pada peranti ini, jadi ia tidak boleh dipaparkan. Dompet dan dana anda dalam aplikasi ini tidak terjejas. Jika anda tiada sandaran frasa tersebut, pindahkan dana anda ke dompet yang frasa pemulihannya telah anda simpan.",
     "copyButton": "Salin Frasa Pemulihan",
     "header": {
       "title": "Eksport Frasa Pemulihan"
@@ -652,6 +653,8 @@
     "exportRecovery": "Eksport frasa pemulihan",
     "removeSelected": "Padam dompet terpilih",
     "create": "Buat dompet",
+    "phraseUnavailableTitle": "Tidak dapat mencipta dompet",
+    "phraseUnavailableMessage": "Dompet baharu dijana daripada Frasa Rahsia Pemulihan anda, yang tidak lagi disimpan pada peranti ini. Anda masih boleh mengimport dompet menggunakan kunci peribadinya.",
     "import": "Import dompet",
     "copySuccess": "Butiran akaun disalin ke papan keratan!"
   },

@@ -152,6 +152,7 @@
     "snackbar": "Herstel-geheime frase na knipbord gekopieer!",
     "description": "Jou geheime herstelfrase maak dit maklik om jou rekening te rugsteun en te herstel.",
     "warning": "Beskik nooit jou geheime herstelfrase nie. Enigiemand met hierdie frase kan jou beursie permanent neem.",
+    "unavailable": "Jou geheime herstelfrase word nie meer op hierdie toestel gestoor nie, dus kan dit nie gewys word nie. Jou beursies en fondse in hierdie app word nie geraak nie. As jy nie 'n rugsteun van die frase het nie, dra jou fondse oor na 'n beursie waarvan jy die herstelfrase gestoor het.",
     "copyButton": "Kopieer Herstelfrase",
     "header": {
       "title": "Voer Herstelfrase Uit"
@@ -652,6 +653,8 @@
     "exportRecovery": "Voer herstelfrase uit",
     "removeSelected": "Verwyder geselekteerde beursie",
     "create": "Skep beursie",
+    "phraseUnavailableTitle": "Kan nie beursie skep nie",
+    "phraseUnavailableMessage": "Nuwe beursies word van jou geheime herstelfrase afgelei, wat nie meer op hierdie toestel gestoor word nie. Jy kan steeds 'n beursie met sy privaat sleutel importeer.",
     "import": "Importeer beursie",
     "copySuccess": "Rekeningbesonderhede na knipbord gekopieer!"
   },

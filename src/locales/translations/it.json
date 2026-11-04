@@ -183,6 +183,7 @@
     "snackbar": "Frase segreta copiata negli appunti!",
     "description": "La tua frase segreta ti permette di eseguire backup e ripristino dell’account.",
     "warning": "Non divulgare mai la tua frase segreta. Chiunque la conosca può accedere al tuo wallet.",
+    "unavailable": "La tua frase segreta di recupero non è più salvata su questo dispositivo, quindi non può essere mostrata. I tuoi wallet e i tuoi fondi in questa app non sono interessati. Se non hai un backup della frase, trasferisci i fondi su un wallet di cui hai salvato la frase di recupero.",
     "copyButton": "Copia frase segreta",
     "header": {
       "title": "Esporta frase segreta"
@@ -741,6 +742,8 @@
     "exportRecovery": "Esporta frase segreta",
     "removeSelected": "Rimuovi wallet selezionato",
     "create": "Crea wallet",
+    "phraseUnavailableTitle": "Impossibile creare il wallet",
+    "phraseUnavailableMessage": "I nuovi wallet vengono derivati dalla tua frase segreta di recupero, che non è più salvata su questo dispositivo. Puoi comunque importare un wallet con la sua chiave privata.",
     "import": "Importa wallet",
     "copySuccess": "Dettagli account copiati negli appunti!"
   },

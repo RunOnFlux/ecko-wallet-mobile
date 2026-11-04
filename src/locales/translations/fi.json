@@ -152,6 +152,7 @@
     "snackbar": "Palautuslause kopioitu leikepöydälle!",
     "description": "Salainen palautuslauseesi helpottaa tilin varmuuskopiointia ja palauttamista.",
     "warning": "Älä koskaan paljasta palautuslausetta. Kuka tahansa sen omistaa, voi ottaa lompakkosi haltuunsa.",
+    "unavailable": "Salaista palautuslausettasi ei ole enää tallennettu tälle laitteelle, joten sitä ei voida näyttää. Tämä ei vaikuta sovelluksen lompakoihin tai varoihin. Jos sinulla ei ole varmuuskopiota lauseesta, siirrä varasi lompakkoon, jonka palautuslauseen olet tallentanut.",
     "copyButton": "Kopioi palautuslause",
     "header": {
       "title": "Vie palautuslause"
@@ -652,6 +653,8 @@
     "exportRecovery": "Vie palautuslauseke",
     "removeSelected": "Poista valittu lompakko",
     "create": "Luo lompakko",
+    "phraseUnavailableTitle": "Lompakkoa ei voi luoda",
+    "phraseUnavailableMessage": "Uudet lompakot johdetaan salaisesta palautuslauseestasi, jota ei ole enää tallennettu tälle laitteelle. Voit edelleen tuoda lompakon sen yksityisellä avaimella.",
     "import": "Tuo lompakko",
     "copySuccess": "Tilin tiedot kopioitu leikepöydälle!"
   },

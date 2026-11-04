@@ -152,6 +152,7 @@
     "snackbar": "Återställningsfras kopierad till urklipp!",
     "description": "Din hemliga återställningsfras gör det enkelt att säkerhetskopiera och återställa ditt konto.",
     "warning": "Avslöja aldrig din hemliga återställningsfras. Vem som helst med den kan ta kontroll över din plånbok.",
+    "unavailable": "Din hemliga återställningsfras är inte längre sparad på den här enheten och kan därför inte visas. Dina plånböcker och tillgångar i appen påverkas inte. Om du inte har en säkerhetskopia av frasen, överför dina tillgångar till en plånbok vars återställningsfras du har sparat.",
     "copyButton": "Kopiera återställningsfras",
     "header": {
       "title": "Exportera återställningsfras"
@@ -652,6 +653,8 @@
     "exportRecovery": "Exportera återställningsfras",
     "removeSelected": "Ta bort vald plånbok",
     "create": "Skapa plånbok",
+    "phraseUnavailableTitle": "Det går inte att skapa plånbok",
+    "phraseUnavailableMessage": "Nya plånböcker härleds från din hemliga återställningsfras, som inte längre är sparad på den här enheten. Du kan fortfarande importera en plånbok med dess privata nyckel.",
     "import": "Importera plånbok",
     "copySuccess": "Kontouppgifter kopierade till urklipp!"
   },

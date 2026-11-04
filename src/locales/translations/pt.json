@@ -152,6 +152,7 @@
     "snackbar": "Frase de recuperação copiada para a área de transferência!",
     "description": "Sua frase secreta de recuperação facilita o backup e a restauração da conta.",
     "warning": "Nunca divulgue sua frase secreta de recuperação. Quem a tiver pode assumir sua carteira.",
+    "unavailable": "Sua frase secreta de recuperação não está mais armazenada neste dispositivo, por isso não pode ser exibida. Suas carteiras e fundos neste app não foram afetados. Se você não tiver um backup da frase, transfira seus fundos para uma carteira cuja frase de recuperação você tenha guardado.",
     "copyButton": "Copiar frase de recuperação",
     "header": {
       "title": "Exportar frase de recuperação"
@@ -652,6 +653,8 @@
     "exportRecovery": "Exportar frase de recuperação",
     "removeSelected": "Remover carteira selecionada",
     "create": "Criar carteira",
+    "phraseUnavailableTitle": "Não é possível criar a carteira",
+    "phraseUnavailableMessage": "Novas carteiras são derivadas da sua frase secreta de recuperação, que não está mais armazenada neste dispositivo. Você ainda pode importar uma carteira usando a chave privada dela.",
     "import": "Importar carteira",
     "copySuccess": "Detalhes da conta copiados para a área de transferência!"
   },
