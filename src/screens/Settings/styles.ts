@@ -38,4 +38,12 @@ export const makeStyles = (
       height: 24,
       tintColor: theme.text.primary,
     },
+    cumulusVpnIconWrapper: {
+      padding: 0,
+      backgroundColor: 'transparent',
+    },
+    cumulusVpnIcon: {
+      width: 42,
+      height: 42,
+    },
   });
