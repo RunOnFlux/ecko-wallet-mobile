@@ -100,7 +100,8 @@ jobs:
       - name: Verify signatures
         run: |
           "$ANDROID_HOME/build-tools/36.0.0/apksigner" verify --print-certs android/app/build/outputs/apk/release/app-release.apk | grep -E "Signer #1 certificate (DN|SHA-256)"
-          jarsigner -verify android/app/build/outputs/bundle/release/app-release.aab | tail -1
+          # jarsigner exits 0 even for an unsigned file, so require its verdict.
+          jarsigner -verify android/app/build/outputs/bundle/release/app-release.aab | grep -x "jar verified."
 
       - name: Collect release files
         env:
