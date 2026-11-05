@@ -5,6 +5,8 @@ import ReactAppDependencyProvider
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+  // Set by SceneDelegate when the window scene connects. Kept here because
+  // some native modules look the window up through the app delegate.
   var window: UIWindow?
 
   var reactNativeDelegate: ReactNativeDelegate?
@@ -21,31 +23,86 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     reactNativeDelegate = delegate
     reactNativeFactory = factory
 
-    window = UIWindow(frame: UIScreen.main.bounds)
-
-    factory.startReactNative(
-      withModuleName: "kadena",
-      in: window,
-      launchOptions: launchOptions
-    )
-
+    // The window and the React root view are created in SceneDelegate.
+    // Apps built with the iOS 27 SDK must use the UIScene life cycle;
+    // without it UIKit stops the app at launch
+    // (_UIApplicationEvaluateRuntimeIssueForNoSceneLifecycleAdoption).
     return true
   }
 
   func application(
-    _ app: UIApplication,
-    open url: URL,
-    options: [UIApplication.OpenURLOptionsKey : Any] = [:]
-  ) -> Bool {
-    return RCTLinkingManager.application(app, open: url, options: options)
+    _ application: UIApplication,
+    configurationForConnecting connectingSceneSession: UISceneSession,
+    options: UIScene.ConnectionOptions
+  ) -> UISceneConfiguration {
+    let configuration = UISceneConfiguration(
+      name: "Default Configuration",
+      sessionRole: connectingSceneSession.role
+    )
+    configuration.delegateClass = SceneDelegate.self
+    return configuration
+  }
+}
+
+// With scenes, UIKit delivers URLs and universal links to the scene delegate
+// instead of the app delegate's open-URL and continue-user-activity methods.
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+  var window: UIWindow?
+
+  func scene(
+    _ scene: UIScene,
+    willConnectTo session: UISceneSession,
+    options connectionOptions: UIScene.ConnectionOptions
+  ) {
+    guard let windowScene = scene as? UIWindowScene,
+      let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+      let factory = appDelegate.reactNativeFactory
+    else { return }
+
+    let window = UIWindow(windowScene: windowScene)
+    self.window = window
+    appDelegate.window = window
+
+    factory.startReactNative(
+      withModuleName: "kadena",
+      in: window,
+      launchOptions: Self.launchOptions(from: connectionOptions)
+    )
   }
 
-  func application(
-    _ application: UIApplication,
-    continue userActivity: NSUserActivity,
-    restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void
-  ) -> Bool {
-    return RCTLinkingManager.application(application, continue: userActivity, restorationHandler: restorationHandler)
+  // A URL or universal link that cold-starts the app arrives in the
+  // connection options. Linking.getInitialURL reads it from the launch
+  // options, so pass it on under the keys the app delegate used to get.
+  private static func launchOptions(
+    from connectionOptions: UIScene.ConnectionOptions
+  ) -> [UIApplication.LaunchOptionsKey: Any]? {
+    if let url = connectionOptions.urlContexts.first?.url {
+      return [.url: url]
+    }
+    if let activity = connectionOptions.userActivities.first(where: {
+      $0.activityType == NSUserActivityTypeBrowsingWeb
+    }) {
+      return [
+        .userActivityDictionary: [
+          UIApplication.LaunchOptionsKey.userActivityType.rawValue: activity.activityType,
+          "UIApplicationLaunchOptionsUserActivityKey": activity,
+        ]
+      ]
+    }
+    return nil
+  }
+
+  func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    guard let url = URLContexts.first?.url else { return }
+    RCTLinkingManager.application(UIApplication.shared, open: url, options: [:])
+  }
+
+  func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+    RCTLinkingManager.application(
+      UIApplication.shared,
+      continue: userActivity,
+      restorationHandler: { _ in }
+    )
   }
 }
 
